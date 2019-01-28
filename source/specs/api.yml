@@ -1,0 +1,1436 @@
+swagger: '2.0'
+info:
+  description: <Add description>
+  version: '1.0'
+  title: Interstellar Core Backend!
+  termsOfService: <Interstellar T&Cs URL>
+  contact:
+    name: Interstellar
+    url: <Interstellar URL>
+    email: <Interstellar Email>
+  license:
+    name: license
+    url: licenseUrl
+host: 'localhost:8080'
+basePath: /
+tags:
+  - name: blocks-controller
+    description: Blocks Controller
+  - name: docker-auth-controller
+    description: Docker Auth Controller
+  - name: healthz-controller
+    description: Healthz Controller
+  - name: jobs-controller
+    description: Jobs Controller
+  - name: projects-controller
+    description: Projects Controller
+  - name: revoke-token-endpoint
+    description: Revoke Token Endpoint
+  - name: schema-validation-controller
+    description: Schema Validation Controller
+  - name: tasks-controller
+    description: Tasks Controller
+  - name: users-controller
+    description: Users Controller
+  - name: workflow-controller
+    description: Workflow Controller
+paths:
+  /:
+    get:
+      tags:
+        - healthz-controller
+      summary: ok
+      operationId: okUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponseEntity'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /blocks:
+    get:
+      tags:
+        - blocks-controller
+      summary: getBlocks
+      operationId: getBlocksUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Block'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  '/blocks/{id}':
+    get:
+      tags:
+        - blocks-controller
+      summary: getBlock
+      operationId: getBlockUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Block'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /docker/auth:
+    get:
+      tags:
+        - docker-auth-controller
+      summary: dockerAuth
+      operationId: dockerAuthUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: X-Original-Uri
+          in: header
+          description: X-Original-Uri
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponseEntity'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /healthz:
+    get:
+      tags:
+        - healthz-controller
+      summary: healthz
+      operationId: healthzUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponseEntity'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  '/jobs/{jobId}':
+    get:
+      tags:
+        - jobs-controller
+      summary: getJob
+      operationId: getJobUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: jobId
+          in: path
+          description: jobId
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Job'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  '/jobs/{jobId}/tasks/{taskId}/logs':
+    get:
+      tags:
+        - tasks-controller
+      summary: getLogs
+      operationId: getLogsUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: jobId
+          in: path
+          description: jobId
+          required: true
+          type: string
+          format: uuid
+        - name: taskId
+          in: path
+          description: taskId
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /me/blocks:
+    get:
+      tags:
+        - blocks-controller
+      summary: getBlocksByUserId
+      operationId: getBlocksByUserIdUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Block'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  '/me/blocks/{id}':
+    get:
+      tags:
+        - blocks-controller
+      summary: getBlockInProjectById
+      operationId: getBlockInProjectByIdUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Block'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /oauth/revokeToken:
+    post:
+      tags:
+        - revoke-token-endpoint
+      summary: revokeToken
+      operationId: revokeTokenUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: Authorization
+          in: header
+          description: Authorization
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /projects:
+    get:
+      tags:
+        - projects-controller
+      summary: getProjects
+      operationId: getProjectsUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Project'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    post:
+      tags:
+        - projects-controller
+      summary: createProject
+      operationId: createProjectUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: projectRequest
+          description: projectRequest
+          required: true
+          schema:
+            $ref: '#/definitions/Project'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Project'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  '/projects/{id}':
+    get:
+      tags:
+        - projects-controller
+      summary: getProject
+      operationId: getProjectUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Project'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    put:
+      tags:
+        - projects-controller
+      summary: updateProject
+      operationId: updateProjectUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: string
+          format: uuid
+        - in: body
+          name: projectRequest
+          description: projectRequest
+          required: true
+          schema:
+            $ref: '#/definitions/Project'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Project'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    delete:
+      tags:
+        - projects-controller
+      summary: deleteProject
+      operationId: deleteProjectUsingDELETE
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+  '/projects/{projectId}/jobs':
+    get:
+      tags:
+        - jobs-controller
+      summary: getAllJobsForProject
+      operationId: getAllJobsForProjectUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: projectId
+          in: path
+          description: projectId
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Job'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  '/projects/{projectId}/workflows':
+    get:
+      tags:
+        - workflow-controller
+      summary: getWorkflowsInProject
+      operationId: getWorkflowsInProjectUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: projectId
+          in: path
+          description: projectId
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Workflow'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    post:
+      tags:
+        - workflow-controller
+      summary: createWorkflow
+      operationId: createWorkflowUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: projectId
+          in: path
+          description: projectId
+          required: true
+          type: string
+          format: uuid
+        - in: body
+          name: workflowRequest
+          description: workflowRequest
+          required: true
+          schema:
+            $ref: '#/definitions/WorkflowDto'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Workflow'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  '/projects/{projectId}/workflows/{workflowId}':
+    get:
+      tags:
+        - workflow-controller
+      summary: getWorkflow
+      operationId: getWorkflowUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: projectId
+          in: path
+          description: projectId
+          required: true
+          type: string
+          format: uuid
+        - name: workflowId
+          in: path
+          description: workflowId
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Workflow'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    put:
+      tags:
+        - workflow-controller
+      summary: editWorkflow
+      operationId: editWorkflowUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: projectId
+          in: path
+          description: projectId
+          required: true
+          type: string
+          format: uuid
+        - name: workflowId
+          in: path
+          description: workflowId
+          required: true
+          type: string
+          format: uuid
+        - in: body
+          name: workflowRequest
+          description: workflowRequest
+          required: true
+          schema:
+            $ref: '#/definitions/WorkflowDto'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Workflow'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    delete:
+      tags:
+        - workflow-controller
+      summary: deleteWorkflow
+      operationId: deleteWorkflowUsingDELETE
+      produces:
+        - '*/*'
+      parameters:
+        - name: projectId
+          in: path
+          description: projectId
+          required: true
+          type: string
+          format: uuid
+        - name: workflowId
+          in: path
+          description: workflowId
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+  '/projects/{projectId}/workflows/{workflowId}/jobs':
+    get:
+      tags:
+        - jobs-controller
+      summary: getAllJobs
+      operationId: getAllJobsUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: projectId
+          in: path
+          description: projectId
+          required: true
+          type: string
+          format: uuid
+        - name: workflowId
+          in: path
+          description: workflowId
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Job'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    post:
+      tags:
+        - jobs-controller
+      summary: createAndRunJob
+      operationId: createAndRunJobUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: projectId
+          in: path
+          description: projectId
+          required: true
+          type: string
+          format: uuid
+        - in: body
+          name: rawQuery
+          description: rawQuery
+          required: true
+          schema:
+            type: string
+        - name: workflowId
+          in: path
+          description: workflowId
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Job'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  '/projects/{projectId}/workflows/{workflowId}/jobs/{id}':
+    get:
+      tags:
+        - jobs-controller
+      summary: getJobById
+      operationId: getJobByIdUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: string
+          format: uuid
+        - name: projectId
+          in: path
+          description: projectId
+          required: true
+          type: string
+          format: uuid
+        - name: workflowId
+          in: path
+          description: workflowId
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Job'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /users:
+    post:
+      tags:
+        - users-controller
+      summary: createUser
+      operationId: createUserUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: userCredentialDto
+          description: userCredentialDto
+          required: true
+          schema:
+            $ref: '#/definitions/UserCredentialDto'
+      responses:
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /users/me:
+    get:
+      tags:
+        - users-controller
+      summary: getUser
+      operationId: getUserUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/UserDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /users/me/email-address:
+    put:
+      tags:
+        - users-controller
+      summary: updateEmailAddress
+      operationId: updateEmailAddressUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: changeUserEmailDto
+          description: changeUserEmailDto
+          required: true
+          schema:
+            $ref: '#/definitions/ChangeUserEmailDto'
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /users/me/password:
+    put:
+      tags:
+        - users-controller
+      summary: updatePassword
+      operationId: updatePasswordUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: changeUserPasswordDto
+          description: changeUserPasswordDto
+          required: true
+          schema:
+            $ref: '#/definitions/ChangeUserPasswordDto'
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /validate-schema/block:
+    post:
+      tags:
+        - schema-validation-controller
+      summary: validateWorkflow
+      operationId: validateWorkflowUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: subject
+          description: subject
+          required: true
+          schema:
+            $ref: '#/definitions/JsonNode'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SchemaValidationResponse'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /workflows:
+    get:
+      tags:
+        - workflow-controller
+      summary: getWorkflowsByProjectId
+      operationId: getWorkflowsByProjectIdUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: projectId
+          in: query
+          description: projectId
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Workflow'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  '/workflows/{workflowId}':
+    get:
+      tags:
+        - workflow-controller
+      summary: getWorkflowById
+      operationId: getWorkflowByIdUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: workflowId
+          in: path
+          description: workflowId
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Workflow'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    put:
+      tags:
+        - workflow-controller
+      summary: updateWorkflowById
+      operationId: updateWorkflowByIdUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: workflowId
+          in: path
+          description: workflowId
+          required: true
+          type: string
+          format: uuid
+        - in: body
+          name: workflowRequest
+          description: workflowRequest
+          required: true
+          schema:
+            $ref: '#/definitions/WorkflowDto'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Workflow'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    delete:
+      tags:
+        - workflow-controller
+      summary: deleteWorkflowById
+      operationId: deleteWorkflowByIdUsingDELETE
+      produces:
+        - '*/*'
+      parameters:
+        - name: workflowId
+          in: path
+          description: workflowId
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+definitions:
+  Block:
+    type: object
+    properties:
+      capabilities:
+        type: array
+        items:
+          $ref: '#/definitions/BlockCapability'
+      containerUrl:
+        type: string
+      createdAt:
+        type: string
+        format: date-time
+      description:
+        type: string
+      displayName:
+        type: string
+      id:
+        type: string
+        format: uuid
+      inputCapabilities:
+        type: array
+        items:
+          $ref: '#/definitions/BlockCapability'
+      name:
+        type: string
+      outputCapabilities:
+        type: array
+        items:
+          $ref: '#/definitions/BlockCapability'
+      price:
+        type: number
+        format: double
+      provider:
+        type: string
+      public:
+        type: boolean
+      tags:
+        type: array
+        items:
+          type: string
+      type:
+        type: string
+        enum:
+          - PROCESSING
+          - DATA
+      updatedAt:
+        type: string
+        format: date-time
+      workflowUsageCount:
+        type: integer
+        format: int32
+    title: Block
+  BlockCapability:
+    type: object
+    properties:
+      capability:
+        $ref: '#/definitions/Capability'
+      type:
+        type: string
+        enum:
+          - INPUT
+          - OUTPUT
+    title: BlockCapability
+  Capability:
+    type: object
+    properties:
+      name:
+        type: string
+    title: Capability
+  ChangeUserEmailDto:
+    type: object
+    properties:
+      emailAddress:
+        type: string
+      password:
+        type: string
+    title: ChangeUserEmailDto
+  ChangeUserPasswordDto:
+    type: object
+    properties:
+      newPassword:
+        type: string
+      password:
+        type: string
+    title: ChangeUserPasswordDto
+  GrantedAuthority:
+    type: object
+    properties:
+      authority:
+        type: string
+    title: GrantedAuthority
+  Job:
+    type: object
+    properties:
+      createdAt:
+        type: string
+        format: date-time
+      finishedAt:
+        type: string
+        format: date-time
+      id:
+        type: string
+        format: uuid
+      query:
+        type: string
+      result:
+        type: string
+      startedAt:
+        type: string
+        format: date-time
+      status:
+        type: string
+        enum:
+          - NOT_STARTED
+          - PENDING
+          - RUNNING
+          - SUCCEEDED
+          - FAILED
+          - CANCELLED
+      tasks:
+        type: array
+        items:
+          $ref: '#/definitions/JobTask'
+      updatedAt:
+        type: string
+        format: date-time
+      workflow:
+        $ref: '#/definitions/Workflow'
+    title: Job
+  JobTask:
+    type: object
+    properties:
+      createdAt:
+        type: string
+        format: date-time
+      finishedAt:
+        type: string
+        format: date-time
+      id:
+        type: string
+        format: uuid
+      name:
+        type: string
+      parents:
+        type: array
+        items:
+          $ref: '#/definitions/JobTask'
+      startedAt:
+        type: string
+        format: date-time
+      status:
+        type: string
+        enum:
+          - NOT_STARTED
+          - PENDING
+          - RUNNING
+          - SUCCEEDED
+          - FAILED
+          - CANCELLED
+      updatedAt:
+        type: string
+        format: date-time
+    title: JobTask
+  JsonNode:
+    type: object
+    properties:
+      array:
+        type: boolean
+      bigDecimal:
+        type: boolean
+      bigInteger:
+        type: boolean
+      binary:
+        type: boolean
+      boolean:
+        type: boolean
+      containerNode:
+        type: boolean
+      double:
+        type: boolean
+      float:
+        type: boolean
+      floatingPointNumber:
+        type: boolean
+      int:
+        type: boolean
+      integralNumber:
+        type: boolean
+      long:
+        type: boolean
+      missingNode:
+        type: boolean
+      nodeType:
+        type: string
+        enum:
+          - ARRAY
+          - BINARY
+          - BOOLEAN
+          - MISSING
+          - 'NULL'
+          - NUMBER
+          - OBJECT
+          - POJO
+          - STRING
+      'null':
+        type: boolean
+      number:
+        type: boolean
+      object:
+        type: boolean
+      pojo:
+        type: boolean
+      short:
+        type: boolean
+      textual:
+        type: boolean
+      valueNode:
+        type: boolean
+    title: JsonNode
+  Project:
+    type: object
+    properties:
+      createdAt:
+        type: string
+        format: date-time
+      description:
+        type: string
+      id:
+        type: string
+        format: uuid
+      name:
+        type: string
+      updatedAt:
+        type: string
+        format: date-time
+      user:
+        $ref: '#/definitions/User'
+      workflows:
+        type: array
+        items:
+          $ref: '#/definitions/Workflow'
+    title: Project
+  ResponseEntity:
+    type: object
+    properties:
+      body:
+        type: object
+      statusCode:
+        type: string
+        enum:
+          - 100 CONTINUE
+          - 101 SWITCHING_PROTOCOLS
+          - 102 PROCESSING
+          - 103 CHECKPOINT
+          - 200 OK
+          - 201 CREATED
+          - 202 ACCEPTED
+          - 203 NON_AUTHORITATIVE_INFORMATION
+          - 204 NO_CONTENT
+          - 205 RESET_CONTENT
+          - 206 PARTIAL_CONTENT
+          - 207 MULTI_STATUS
+          - 208 ALREADY_REPORTED
+          - 226 IM_USED
+          - 300 MULTIPLE_CHOICES
+          - 301 MOVED_PERMANENTLY
+          - 302 FOUND
+          - 302 MOVED_TEMPORARILY
+          - 303 SEE_OTHER
+          - 304 NOT_MODIFIED
+          - 305 USE_PROXY
+          - 307 TEMPORARY_REDIRECT
+          - 308 PERMANENT_REDIRECT
+          - 400 BAD_REQUEST
+          - 401 UNAUTHORIZED
+          - 402 PAYMENT_REQUIRED
+          - 403 FORBIDDEN
+          - 404 NOT_FOUND
+          - 405 METHOD_NOT_ALLOWED
+          - 406 NOT_ACCEPTABLE
+          - 407 PROXY_AUTHENTICATION_REQUIRED
+          - 408 REQUEST_TIMEOUT
+          - 409 CONFLICT
+          - 410 GONE
+          - 411 LENGTH_REQUIRED
+          - 412 PRECONDITION_FAILED
+          - 413 PAYLOAD_TOO_LARGE
+          - 413 REQUEST_ENTITY_TOO_LARGE
+          - 414 URI_TOO_LONG
+          - 414 REQUEST_URI_TOO_LONG
+          - 415 UNSUPPORTED_MEDIA_TYPE
+          - 416 REQUESTED_RANGE_NOT_SATISFIABLE
+          - 417 EXPECTATION_FAILED
+          - 418 I_AM_A_TEAPOT
+          - 419 INSUFFICIENT_SPACE_ON_RESOURCE
+          - 420 METHOD_FAILURE
+          - 421 DESTINATION_LOCKED
+          - 422 UNPROCESSABLE_ENTITY
+          - 423 LOCKED
+          - 424 FAILED_DEPENDENCY
+          - 426 UPGRADE_REQUIRED
+          - 428 PRECONDITION_REQUIRED
+          - 429 TOO_MANY_REQUESTS
+          - 431 REQUEST_HEADER_FIELDS_TOO_LARGE
+          - 451 UNAVAILABLE_FOR_LEGAL_REASONS
+          - 500 INTERNAL_SERVER_ERROR
+          - 501 NOT_IMPLEMENTED
+          - 502 BAD_GATEWAY
+          - 503 SERVICE_UNAVAILABLE
+          - 504 GATEWAY_TIMEOUT
+          - 505 HTTP_VERSION_NOT_SUPPORTED
+          - 506 VARIANT_ALSO_NEGOTIATES
+          - 507 INSUFFICIENT_STORAGE
+          - 508 LOOP_DETECTED
+          - 509 BANDWIDTH_LIMIT_EXCEEDED
+          - 510 NOT_EXTENDED
+          - 511 NETWORK_AUTHENTICATION_REQUIRED
+      statusCodeValue:
+        type: integer
+        format: int32
+    title: ResponseEntity
+  SchemaValidationResponse:
+    type: object
+    properties:
+      errors:
+        type: array
+        items:
+          type: string
+      valid:
+        type: boolean
+    title: SchemaValidationResponse
+  User:
+    type: object
+    properties:
+      accountNonExpired:
+        type: boolean
+      accountNonLocked:
+        type: boolean
+      authorities:
+        type: array
+        items:
+          $ref: '#/definitions/GrantedAuthority'
+      blocks:
+        type: array
+        items:
+          $ref: '#/definitions/Block'
+      createdAt:
+        type: string
+        format: date-time
+      credentialsNonExpired:
+        type: boolean
+      emailAddress:
+        type: string
+      enabled:
+        type: boolean
+      id:
+        type: string
+        format: uuid
+      projects:
+        type: array
+        items:
+          $ref: '#/definitions/Project'
+      updatedAt:
+        type: string
+        format: date-time
+      username:
+        type: string
+    title: User
+  UserCredentialDto:
+    type: object
+    properties:
+      emailAddress:
+        type: string
+      password:
+        type: string
+    title: UserCredentialDto
+  UserDto:
+    type: object
+    properties:
+      registryUrl:
+        type: string
+    title: UserDto
+  Workflow:
+    type: object
+    properties:
+      createdAt:
+        type: string
+        format: date-time
+      description:
+        type: string
+      id:
+        type: string
+        format: uuid
+      name:
+        type: string
+      tasks:
+        type: array
+        items:
+          $ref: '#/definitions/WorkflowTask'
+      updatedAt:
+        type: string
+        format: date-time
+    title: Workflow
+  WorkflowDto:
+    type: object
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+      tasks:
+        type: array
+        items:
+          $ref: '#/definitions/WorkflowTaskDto'
+    title: WorkflowDto
+  WorkflowTask:
+    type: object
+    properties:
+      block:
+        $ref: '#/definitions/Block'
+      createdAt:
+        type: string
+        format: date-time
+      id:
+        type: string
+        format: uuid
+      name:
+        type: string
+      parents:
+        type: array
+        items:
+          $ref: '#/definitions/WorkflowTask'
+      updatedAt:
+        type: string
+        format: date-time
+    title: WorkflowTask
+  WorkflowTaskDto:
+    type: object
+    properties:
+      blockName:
+        type: string
+      name:
+        type: string
+      parentName:
+        type: string
+    title: WorkflowTaskDto
