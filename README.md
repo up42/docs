@@ -37,3 +37,25 @@ then run:
 $ make html
 ```
 and the output will be written to the `build/` directory.
+
+# Contributing
+
+Sphinx documentation is written in ReStructured Text. There is a quick primer
+[available here](http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html).
+
+## Style guide
+
+When writing documentation, please keep in mind the following:
+
+- Assume that your audience are other engineers/developers.
+- *Don't* assume that they know Interstellar platform concepts in detail.
+- *Don't* assume that they are GIS experts. The goal here is to reduce the number of PhDs you
+  need to work with this kind of data!
+- Provide clear and useful examples where it enhances the explanation.
+- Provide links to other parts of the documentation, especially when using platform-specific
+  terminology or referencing topics covered in detail somewhere else.
+- Although you shouldn't try to dumb anything down, please keep in mind that many people
+  reading this documentation will not have English as a first language, so avoid unnnecessarily
+  obscure or complex language, especially when it is non-technical.
+- Spelling, punctuation, and grammar are important to enhance readability, especially given the
+  above point. Please pay attention to this in code reviews as well!
