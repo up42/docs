@@ -1,0 +1,4 @@
+Block manifest
+==============
+
+.. contents::
