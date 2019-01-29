@@ -25,7 +25,7 @@ for the project with Python 3 and clone the repo:
 $ mkvirtualenv interstellar-docs --python=$(which python3)
 $ git clone git@github.com:project-interstellar/docs.git
 $ cd docs
-$ pip install -U Sphinx
+$ pip install -r requirements.txt
 ```
 
 # Building the static files
