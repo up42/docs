@@ -23,14 +23,17 @@ Input and output data
 Writing the manifest
 --------------------
 
-.. We need an example or schema for this. Should we reference corresponding files on github
-.. or make it available in another way?
+Docker Images intended to run on Interstellar need to reference a valid JSON manifest file.
+A JSON schema will/can be provided and for validation you can uses the service endpoint
+https://api.interstellar.earth by using e.g. `curl`
 
-.. Afterwards we need a way of encoding the json into a string (maybe by using jq)
+``curl -XPOST -H 'Content-Type: application/json' -d @InterstellarManifest.json https://api.interstellar.earth/validate-schema/block``
+
+The service endpoint will provide the needed error messages to allow for debugging of the manifest file.
 
 The manifest string finally needs to be put into a ``LABEL`` instruction like the following.
 
-``LABEL "interstellar_manifest"=...``
+`LABEL "interstellar_manifest"=...``
 
 The content of the label needs to be a valid manifest file in string format. One option to create
 this string is e.g.:
