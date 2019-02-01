@@ -45,8 +45,6 @@ workflows:
   build-and-deploy:
     jobs:
       - deploy-to-staging:
-          requires:
-            - build
           context: gcp
       - hold:
           type: approval
