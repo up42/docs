@@ -1,0 +1,64 @@
+version: 2
+workspace-name: &working_directory /tmp/workspace
+project-id-prod: &project-id-prod interstellar-prod-env
+project-id-staging: &project-id-staging interstellar-staging-env
+ruby_docker_image: &python_docker_image python:3.6-alpine
+
+machine:
+  timezone: Europe/Berlin
+jobs:
+
+  build-and-upload-to-bucket: &upload-to-bucket
+    docker:
+      - image: *python_docker_image
+    working_directory: *working_directory
+    steps:
+      - checkout
+      - attach_workspace:
+          at: *working_directory
+      - run:
+          name: Install dependencies
+          command: pip install -r requirements.txt
+      - run:
+          name: Build HTML documentation
+          command: make html
+      - run:
+          name: Upload schemas to Google Cloud Storage Bucket
+          command: GOOGLE_CLOUD_CREDENTIALS=$GCLOUD_SERVICE_KEY bundle exec rake upload_generated_files
+
+  deploy-to-staging:
+    environment:
+      GOOGLE_CLOUD_PROJECT: *project-id-staging
+      WORKING_DIRECTORY: *working_directory
+      BUCKET_NAME: docs.staging.interstellar.earth
+    <<: *upload-to-bucket
+
+  deploy-to-prod:
+    environment:
+      GOOGLE_CLOUD_PROJECT: *project-id-prod
+      WORKING_DIRECTORY: *working_directory
+      BUCKET_NAME: docs.interstellar.earth
+    <<: *upload-to-bucket
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - deploy-to-staging:
+          requires:
+            - build
+          context: gcp
+      - hold:
+          type: approval
+          requires:
+            - deploy-to-staging
+          filters:
+            branches:
+              only: master
+      - deploy-to-prod:
+          requires:
+            - hold
+          context: gcp
+          filters:
+            branches:
+              only: master
