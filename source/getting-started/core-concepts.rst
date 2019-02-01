@@ -1,8 +1,8 @@
 Core concepts
 =============
 
-Understanding how the platform works in is quite easy.
-The three core concepts are **Blocks**, **Workflows** and **Jobs**.
+Throughout the documentation, we use three core terms; **Blocks**, **Workflows** and **Jobs**.
+So before we get into the more in-depth documentation, here you will find our definitions for these terms.
 
 Blocks
 ------
@@ -19,6 +19,8 @@ for Machine Learning models.
 
 Blocks are re-usable between workflows and can be shared with other users of the platform.
 They specify what kind of data they need to run, and what kind of data they output.
+
+You can think of blocks as a function or module with a single responsibility, packaged as a Docker image.
 
 .. image:: blocks.png
     :align: center
