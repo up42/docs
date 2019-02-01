@@ -2,7 +2,7 @@ version: 2
 workspace-name: &working_directory /tmp/workspace
 project-id-prod: &project-id-prod interstellar-prod-env
 project-id-staging: &project-id-staging interstellar-staging-env
-ruby_docker_image: &python_docker_image bitnami/python:3.7-debian-9
+ruby_docker_image: &python_docker_image python:3.7
 
 machine:
   timezone: Europe/Berlin
@@ -16,6 +16,9 @@ jobs:
       - checkout
       - attach_workspace:
           at: *working_directory
+      - run:
+          name: Setup environment
+          command: pip install --upgrade setuptools
       - run:
           name: Install dependencies
           command: pip install -r requirements.txt
