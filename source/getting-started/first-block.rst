@@ -28,7 +28,16 @@ Writing the manifest
 
 .. Afterwards we need a way of encoding the json into a string (maybe by using jq)
 
-The manifest string finally needs to be put into a ``LABEL`` instruction.
+The manifest string finally needs to be put into a ``LABEL`` instruction like following.
+
+``LABEL "interstellar_manifest"=...``
+
+The content of the label needs to be a valid manifest file in string format. One option to create
+this string is e.g.:
+
+``var`=$(<InterstellarManifest.json)``
+
+``jq -nc --arg content "$var" '{ "content": $content }'``
 
 Testing your block
 ------------------
