@@ -46,9 +46,9 @@ Fetching the result
 -------------------
 .. I am guessing here as I didn't manage to successfully run a job so far.
 
-The results of your job can be accessed to ways:
+The results of your job can be accessed two ways:
 
-1. By using thee *Download* link in your job description page or
+1. By using the *Download* link in your job description page or
 2. by fetching them from the *Endpoint* shown earlier.
 
 
