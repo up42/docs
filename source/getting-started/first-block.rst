@@ -30,7 +30,7 @@ Writing the manifest
 
 The manifest string finally needs to be put into a ``LABEL`` instruction like the following.
 
-`LABEL "interstellar_manifest"=...``
+``LABEL "interstellar_manifest"=...``
 
 The content of the label needs to be a valid manifest file in string format. One option to create
 this string is e.g.:
