@@ -4,14 +4,14 @@ Creating a block
 Basic idea
 ----------
 
-Creating a block that runs on the platform is as easy as writing a Docker file. Only very few
-additional requirements are enforced - with the notable exception of course that you need to
+Creating a block that runs on Interstellar is as easy as writing a Docker file. Only very few
+requirements are enforced - with the notable exception of course that you need to
 have signed up and have an account.
 
 If you are not familiar with Docker we advice you to work through one of the many excellent
 tutorial which are freely available, a starting point is e.g. https://docs.docker.com/get-started/ .
 
-Besides having a valid account, there only additional thing you have to do is to create a manifest
+Besides having a valid account, the only additional thing you have to do is to create a manifest
 file that adheres to some specific rules and include it in a ``LABEL`` instruction in your Docker file.
 
 Input and output data
@@ -43,11 +43,11 @@ Pushing the block
 
 The following three commands are needed to push your custom block to our registry.
 
-``login -u interstellar_user_email registry.interstellar.earth``
+``docker login -u interstellar_user_email registry.interstellar.earth``
 ``docker build -t registry.interstellar.earth/<user_id>/<image_name>:<tag> .``
 ``docker push registry.interstellar.earth/<user_id>/<image_name>:<tag>``
 
 Pushing updates
-+++++++++++++++
+---------------
 
-.. Can somebody provide examples how this would work?
+In order to push updates you simply need to rebuild your Docker image and push it to the same URL.
