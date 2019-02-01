@@ -20,3 +20,4 @@ def upload_file_to_bucket(file_path, bucket_name)
   # create a google storage file
   bucket.create_file(file_path, file_path.gsub(/^build\/html\//, ''))
 end
+
