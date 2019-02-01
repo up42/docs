@@ -2,7 +2,7 @@ version: 2
 workspace-name: &working_directory /tmp/workspace
 project-id-prod: &project-id-prod interstellar-prod-env
 project-id-staging: &project-id-staging interstellar-staging-env
-ruby_docker_image: &python_docker_image python:3.7
+ruby_docker_image: &python_docker_image python:3.7-stretch
 
 machine:
   timezone: Europe/Berlin
@@ -18,7 +18,11 @@ jobs:
           at: *working_directory
       - run:
           name: Setup environment
-          command: pip install --upgrade setuptools
+          command: pip install --upgrade setuptools &&
+            apt-get update &&
+            apt-get install ruby-full -y &&
+            gem install rake bundler &&
+            bundle install
       - run:
           name: Install dependencies
           command: pip install -r requirements.txt

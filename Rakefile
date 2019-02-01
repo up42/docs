@@ -2,7 +2,7 @@ require 'google/cloud/storage'
 require 'pathname'
 
 def doc_files
-  Dir.glob('build/html/**')
+  Dir.glob('build/html/**/*').select { |f| File.file?(f) }
 end
 
 desc 'Upload the generated HTML files to the docs bucket'
