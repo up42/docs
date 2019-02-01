@@ -18,20 +18,25 @@ jobs:
           at: *working_directory
       - run:
           name: Setup environment
-          command: pip install --upgrade setuptools &&
-            apt-get update &&
-            apt-get install ruby-full -y &&
-            gem install rake bundler &&
-            bundle install
+          command: |
+            apt-get update && apt-get install lsb-release -y
+            export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+            echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+            curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+            apt-get update
+            apt-get install google-cloud-sdk -y
+            echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
+            gcloud --quiet config set project ${GOOGLE_CLOUD_PROJECT}
+            gcloud --quiet config set compute/zone europe-west3
       - run:
           name: Install dependencies
-          command: pip install -r requirements.txt
+          command: pip install --upgrade setuptools && pip install -r requirements.txt
       - run:
           name: Build HTML documentation
           command: make html
       - run:
           name: Upload schemas to Google Cloud Storage Bucket
-          command: GOOGLE_CLOUD_CREDENTIALS=$GCLOUD_SERVICE_KEY bundle exec rake upload_generated_files
+          command: gsutil rsync -r -d ./build/html/ gs://$BUCKET_NAME
 
   deploy-to-staging:
     environment:
