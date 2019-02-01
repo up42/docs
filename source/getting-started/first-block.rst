@@ -35,7 +35,7 @@ The manifest string finally needs to be put into a ``LABEL`` instruction like th
 The content of the label needs to be a valid manifest file in string format. One option to create
 this string is e.g.:
 
-``var`=$(<InterstellarManifest.json)``
+``var=$(<InterstellarManifest.json)``
 
 ``jq -nc --arg content "$var" '{ "content": $content }'``
 
