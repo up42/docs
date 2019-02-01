@@ -9,7 +9,7 @@ requirements are enforced - with the notable exception of course that you need t
 have signed up and have an account.
 
 If you are not familiar with Docker we advice you to work through one of the many excellent
-tutorial which are freely available, a starting point is e.g. https://docs.docker.com/get-started/ .
+tutorials which are freely available, a starting point is e.g. https://docs.docker.com/get-started/ .
 
 Besides having a valid account, the only additional thing you have to do is to create a manifest
 file that adheres to some specific rules and include it in a ``LABEL`` instruction in your Docker file.
@@ -28,9 +28,9 @@ Writing the manifest
 
 .. Afterwards we need a way of encoding the json into a string (maybe by using jq)
 
-The manifest string finally needs to be put into a ``LABEL`` instruction like following.
+The manifest string finally needs to be put into a ``LABEL`` instruction like the following.
 
-``LABEL "interstellar_manifest"=...``
+`LABEL "interstellar_manifest"=...``
 
 The content of the label needs to be a valid manifest file in string format. One option to create
 this string is e.g.:
