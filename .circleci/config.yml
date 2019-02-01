@@ -2,7 +2,7 @@ version: 2
 workspace-name: &working_directory /tmp/workspace
 project-id-prod: &project-id-prod interstellar-prod-env
 project-id-staging: &project-id-staging interstellar-staging-env
-ruby_docker_image: &python_docker_image python:3.6-alpine
+ruby_docker_image: &python_docker_image bitnami/python:3.6-debian-9
 
 machine:
   timezone: Europe/Berlin
