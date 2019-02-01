@@ -46,7 +46,7 @@ A job is an instance of a workflow but also includes the following data:
 
 * A query which determines how data should be filtered
 * Parameters that the processing blocks use at runtime
-* The current state of the workflow
+* The status of the job, for example, was the run successful or unsuccessful.
 
 Additional metadata is added when a job is running/complete (logs, result, execution time, etc.)
 
