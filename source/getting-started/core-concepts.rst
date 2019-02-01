@@ -42,7 +42,7 @@ A workflow is responsible for validating the connections between blocks when cre
 Jobs
 ----
 
-A job is an instance of a workflow. They are reated from the following data:
+A job is an instance of a workflow but also includes the following data:
 
 * A query which determines how data should be filtered
 * Parameters that the processing blocks use at runtime
