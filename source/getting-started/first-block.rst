@@ -43,7 +43,7 @@ platform by using e.g. ``curl``
 
 ::
 
-    $ curl -X POST -H 'Content-Type: application/json' -d @InterstellarManifest.json https://api.interstellar.earth/validate-schema/block``
+    $ curl -X POST -H 'Content-Type: application/json' -d @InterstellarManifest.json https://api.interstellar.earth/validate-schema/block
 
 The service endpoint will provide detailed error messages to allow for debugging of the manifest file. If you use an
 IDE like IntelliJ or Eclipse, you can also configure the IDE to provide automatic hinting and validation by fetching
@@ -59,7 +59,7 @@ the following Dockerfile instruction:
 
     LABEL "interstellar_manifest"=<manifest-contents>
 
-The content of the label needs to be an entiure valid manifest file as a string. The easiest way to do this is to provide
+The content of the label needs to be an entire valid manifest file as a string. The easiest way to do this is to provide
 the contents of the manifest as a build arg to Docker.
 
 To do this, create a Dockerfile along these lines:
@@ -127,7 +127,7 @@ Those commands are the following:
 
        # Or following the example above:
        $ docker push registry.interstellar.earth/some-example-user-id/my-block:latest
-       
+
 
 Pushing updates
 ---------------
