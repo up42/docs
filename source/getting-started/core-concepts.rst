@@ -1,24 +1,28 @@
 Core concepts
 =============
 
-Throughout the documentation, we use three core terms; **Blocks**, **Workflows** and **Jobs**.
-So before we get into the more in-depth documentation, here you will find our definitions for these terms.
+Throughout the documentation, we use three core terms; **blocks**, **workflows** and **jobs**.
+
+This page provides an overview of these terms, and explains how each component is used on the platform.
 
 Blocks
 ------
+
 Blocks are the base units of the platform. There are two types of block:
 
-* Data blocks (querying for data)
-* Processing blocks (transforming/analyzing data)
+* Data blocks, which query for data
+* Processing blocks, which transform or analyze data
 
-An example for a data block is the *Pleiades scene block* which allows access to Pleiades imagery
-in its native format.
+An example of a data block is the :ref:`Sentinel-1 GRD block <sentinel1-grd-block>`, which provides Sentinel-1 GRD
+radar data as whole scenes.
 
-An example for a processing block is the *tiling operation* which creates image chips ready to use
-for Machine Learning models.
+.. TODO: update link to tiling block docs when those are ready
 
-Blocks are re-usable between workflows and can be shared with other users of the platform.
-They specify what kind of data they need to run, and what kind of data they output.
+An example of a processing block is the `Tiling Operation block <#>`_, which creates image chips ready to use
+for machine learning models.
+
+Blocks are re-usable between workflows and can be shared with other users of the platform. They specify what kind of
+data they need to run and what kind of data they output via :ref:`their capabilities <block-capabilities>`
 
 You can think of blocks as a function or module with a single responsibility, packaged as a Docker image.
 
@@ -28,29 +32,35 @@ You can think of blocks as a function or module with a single responsibility, pa
 
 Workflows
 ---------
+
 A workflow is a directed acyclic graph of blocks. It describes:
 
-* what data sources (data blocks) will be used
+* What data sources will be used (data blocks)
 * How the fetched data will be processed (processing blocks)
 * How the blocks are connected
 
-A workflow is responsible for validating the connections between blocks when creating a **job**.
+A workflow is responsible for validating the connections between blocks when creating a job.
 
 .. image:: workflow.png
     :align: center
 
 
-
 Jobs
 ----
 
-A job is an instance of a workflow but also includes the following data:
+A job is an instance of a workflow. Jobs are created when :ref:`starting a job <running-jobs>`.
 
-* A query which determines how data should be filtered
-* Parameters that the processing blocks use at runtime
-* The status of the job, for example, was the run successful or unsuccessful.
+In order to start a job, the following data must be provided:
 
-Additional metadata is added when a job is running/complete (logs, result, execution time, etc.)
+* A query to determine how data should be filtered (used by the data blocks)
+* Optional runtime configuration parameters (specified by and used by processing blocks)
+
+While running, and after completion, jobs additionally provide information about:
+
+* The status of the job, e.g. "success", "in progress", or "failed"
+* Logs of each block as it runs
+* Execution time and other metadata
+* The final result of the job
 
 .. image:: jobs.png
     :align: center
