@@ -1,3 +1,5 @@
+.. _builtin-blocks-documentation:
+
 Built-in blocks provided by Interstellar
 ========================================
 
