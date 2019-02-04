@@ -1,5 +1,7 @@
-Block capabilties
-=================
+.. _block-capabilities:
+
+Block capabilities
+==================
 
 .. contents::
 
