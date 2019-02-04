@@ -5,7 +5,7 @@ Data transfer between blocks in a running workflow is handled by the workflow or
 This means that you do not need to handle the storing and retrieving of data for the next
 block in the workflow yourself.
 
-For every block that runs, any input data will be places on the filesystem in the ``/tmp/input`` directory.
+For every block that runs, any input data will be placed on the filesystem in the ``/tmp/input`` directory.
 
 Any block you write should save its output in the ``/tmp/output`` directory.
 
@@ -108,7 +108,7 @@ For simple imagery associated with a feature, you might have some output JSON as
                 "geometry": { ... },
                 "properties": {
                     "data.imagery.optical.generic.multispectral.rgb": "aedf023/rgb.png",
-                    "data.imagery.optical.generic.multispectral.rgb": "aedf023/nir.png",
+                    "data.imagery.optical.generic.multispectral.nir": "aedf023/nir.png",
                     ...
                 }
             },
@@ -117,7 +117,7 @@ For simple imagery associated with a feature, you might have some output JSON as
                 "geometry": { ... },
                 "properties": {
                     "data.imagery.optical.generic.multispectral.rgb": "be051fa1/rgb.png",
-                    "data.imagery.optical.generic.multispectral.rgb": "be051fa1/nir.png",
+                    "data.imagery.optical.generic.multispectral.nir": "be051fa1/nir.png",
                     ...
                 }
             }
@@ -134,7 +134,7 @@ The corresponding file layout that the block should write would then be:
     /tmp/output/be051fa1/rgb.png
     /tmp/output/be051fa1/nir.png
 
-In general, we recommend prefixing files with consistent indentifies that match the corresponding features, to make the
+In general, we recommend prefixing files with consistent identifiers that match the corresponding features, to make the
 file layout more intuitive. These could either be the original id of the imagery from the source data, or a derived or
 new identifier.
 
@@ -165,7 +165,10 @@ Tools and references
 --------------------
 
 * GeoJSON_ article on Wikipedia
-* geojson.org_ site
+* geojson.org_ schemas:
+    - `Geometry <http://geojson.org/schema/Geometry.json>`_
+    - `FeatureCollection <http://geojson.org/schema/FeatureCollection.json>`_
+    - `Feature <http://geojson.org/schema/Feature.json>`_
 * geojson.io_ for testing and visualizing GeoJSON objects
 
 .. _GeoJSON: https://en.wikipedia.org/wiki/GeoJSON

@@ -1,3 +1,5 @@
+.. _running-jobs:
+
 Starting a job from a workflow endpoint
 =======================================
 
