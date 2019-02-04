@@ -1,3 +1,5 @@
+.. _block-manifest:
+
 Block manifest
 ==============
 
@@ -77,6 +79,15 @@ The easiest way to do this is as follows:
     # In other shells
     $ docker build . -t <image-tags> --build-arg manifest="$(cat manifest.txt)"
 
+
+Validating your manifest
+------------------------
+
+Manifests can be validated against the endpoint provided by the platform. With ``curl``:
+
+::
+
+    $ curl -X POST -H 'Content-Type: application/json' -d @InterstellarManifest.json https://api.interstellar.earth/validate-schema/block``
 
 Reference
 ---------

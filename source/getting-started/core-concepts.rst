@@ -5,6 +5,8 @@ Throughout the documentation, we use three core terms; **blocks**, **workflows**
 
 This page provides an overview of these terms, and explains how each component is used on the platform.
 
+.. contents::
+
 Blocks
 ------
 

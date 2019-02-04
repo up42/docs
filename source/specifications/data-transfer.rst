@@ -1,3 +1,5 @@
+.. _data-transfer-format:
+
 Data transfer format
 ====================
 

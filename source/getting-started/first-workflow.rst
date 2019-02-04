@@ -3,6 +3,8 @@ Building your first workflow
 
 This guide will walk you through creating an initial workflow on the platform, using blocks that already exist.
 
+.. contents::
+
 Creating a project and workflow
 -------------------------------
 
