@@ -1,57 +1,69 @@
 Building your first workflow
 ============================
 
+This guide will walk you through creating an initial workflow on the platform, using blocks that already exist.
+
 Creating a project and workflow
 -------------------------------
-After you successfully logged in, you will find yourself on the *welcome page*.
 
-Use the **START PROJECT** button to create your first project. You will be asked to provide a
-project name and an optional description. Once you saved the project, you will see the
-*workflows page*.
+After logging in successfully, you will find yourself on the welcome page.
 
-Use the **CREATE WORKFLOW** button to get started. Once again you will be asked to provide a name
-and a description, this time for the workflow that you are about to create.
+Click on the **Start Project** button to create your first project.
+
+You will be asked to provide a project name and an optional description. Once you saved the project, you will be taken
+to the workflows overview for that project.
+
+Use the **Create Workflow** button to get started. Once again you will be asked to provide a name and a description,
+this time for the workflow that you are about to create. Enter a name and click **Next**.
 
 Adding blocks
 -------------
+
 A workflow consists of *Data blocks* and *Processing blocks*. A workflow always start with a data
-block. Its output can then be used by a processing block - or a chain of processing blocks. Finally
-output is created, the last block in a workflow is responsible for this.
+block. Its output can then be used by a processing block, or a chain of processing blocks.
 
-Your workflow will automatically be saved whenever you added a block. When you are finished with
-putting your workflow together, you can click **NEXT** . The Request description will be displayed.
-This includes the *Total price* needed to run the workflow.
+You should now see the workflow editor. Under the "Data" section, click on **Add Block** and select the "OneAtlas"
+block to view it. Then click **Add Block** at the bottom of the modal dialog. Your workflow will automatically be saved
+whenever you add or remove a block.
 
-Also the *Endpoint* can be found here which can be used to fetch the results of your workflow.
-For convenience an example request how the results can be fetched is also shown.
+Next, under the "Processing" section, follow the same procedure, this time selecting "Airbus R&D Ship Detection".
 
-Triggering the job
-------------------
-If the request parameters look acceptable you can proceed with the **CONFIGURE JOB** button.
-Next you can define your *Area Of Interest* (AOI) using an interactive map. You can also paste
-a GeoJSON describing your AOI into the window section to the right. Then you can define the date
-for the workflow. This pertains to the input data being used, so essentially you can define the
-time where the input data was taken / created.
+When you are done, scroll to the bottom of the workflow editor and click **Next**.
 
-After defined all necessary information for the workflow you can see the summary screen and you are
-finally able to hit **RUN JOB**.
+Configuring and running your job
+--------------------------------
 
-Logs and job status
--------------------
-Next you will be led to the *Jobs* page where all jobs are listed together with information
-regarding the job status, its starting time and more. Using *ACTIONS* it is also possible to rerun
-the job. You can access the *Job details* by clicking on of the jobs.
+You should now see a button labelled **Configure Job** a the bottom of the workflow editor. Click on it to enter the
+parameters you want to run your job with.
 
-Fetching the result
--------------------
-.. I am guessing here as I didn't manage to successfully run a job so far.
+Select an area of interest using the map widget, or by pasting a GeoJSON ``FeatureCollection`` into the text box to the
+right of the map. Then select **Next** and specify what date range you want to use.
 
-The results of your job can be accessed two ways:
+Finally, click **Next** again to review your configuration before clicking on **Run Job** to start the workflow.
 
-1. By using the *Download* link in your job description page or
-2. by fetching them from the *Endpoint* shown earlier.
+You will then be taken to the jobs overview for the current project..
 
+Jobs overview
+-------------
 
-Error handling and debugging
-----------------------------
-.. TBD, couldn't find anything helpful so far.
+Here you can see the job status and metadata about the job, as well as re-run a job using the **Run again** option under
+the **Actions** column on the right.
+
+To view details about a job, click on it to see the job details screen.
+
+Job details: logs and results
+-----------------------------
+
+Once the job has completed, you can download the result data by clicking on the **Download** link at the top of the
+page.
+
+You can also inspect each block that has run by clicking on it to see the individual block status and any logs that the
+block has output.
+
+Running workflows via the API
+-----------------------------
+
+This guide shows how to run workflows via the Interstellar web console. Once you're familiar with how the platform works,
+you can start running workflows via the :ref:`workflow api <running-jobs>`, which makes it easier to script jobs and
+trigger new jobs quickly.
+
