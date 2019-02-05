@@ -28,7 +28,7 @@ Manifest
 ++++++++
 
 .. literalinclude:: sample/InterstellarManifest.json
-   :language: json
+   :language: javascript
 
 Python source code
 ++++++++++++++++++

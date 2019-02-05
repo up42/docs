@@ -21,7 +21,7 @@ every output capability in Block A must appear as an input capability on Block B
 
 So, for example, if the :ref:`manifest <block-manifest>` for Block A contained the following:
 
-::
+.. code-block:: javascript
 
     {
         "_interstellar_specification_version": 1,
@@ -41,7 +41,7 @@ So, for example, if the :ref:`manifest <block-manifest>` for Block A contained t
 
 Then the manifest for Block B **must** have the corresponding input capabilities for the workflow to be valid:
 
-::
+.. code-block:: javascript
 
     {
         "_interstellar_specification_version": 1,

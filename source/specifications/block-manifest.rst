@@ -10,7 +10,7 @@ of the block is pushed.
 
 An example manifest file looks like the following:
 
-::
+.. code-block:: json
 
     {
         "_interstellar_specification_version": 1,
@@ -64,14 +64,14 @@ The easiest way to do this is as follows:
   in most of the documentation.
 * In your Dockerfile, add the following lines below the ``FROM`` directive that sets the base image:
 
-  ::
+  .. code-block:: docker
 
       ARG manifest
       LABEL "interstellar_manifest"=$manifest
 
 * Then, when building the image, specify the contents of the manifest like so:
 
-  ::
+  .. code-block:: bash
 
     # In bash/zsh
     $ docker build . -t <image-tags> --build-arg manifest="$(<manifest.txt)"
@@ -85,7 +85,7 @@ Validating your manifest
 
 Manifests can be validated against the endpoint provided by the platform. With ``curl``:
 
-::
+.. code-block:: bash
 
     $ curl -X POST -H 'Content-Type: application/json' -d @InterstellarManifest.json https://api.interstellar.earth/validate-schema/block
 

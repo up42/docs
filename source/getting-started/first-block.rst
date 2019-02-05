@@ -102,13 +102,13 @@ Those commands are the following:
 
 1. To authenticate against the registry, run ``docker login`` with your Interstellar login credentials:
 
-   ::
+   .. code-block:: bash
 
        $ docker login -u <interstellar-user-email> registry.interstellar.earth
 
 2. When building your block image, tag the image with the Interstellar registry URL you will push the block to:
 
-   ::
+   .. code-block:: bash
 
        $ docker build . -t registry.interstellar.earth/<user_id>/<image_name>:<tag>
 
@@ -121,7 +121,7 @@ Those commands are the following:
 
 3. When you are ready to push your block, you can then run:
 
-   ::
+   .. code-block:: bash
 
        $ docker push registry.interstellar.earth/<user_id>/<image_name>:<tag>
 
