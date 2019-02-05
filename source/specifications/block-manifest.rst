@@ -46,7 +46,7 @@ The most important keys to note here are the following:
   uniqueness.
 * ``description``: free-text explanation of what your block does.
 * ``parameters``: for data blocks, the list of all query parameters the block supports. For processing blocks, the
-  run-time parameters that your block can optionally specify.
+  run-time parameters that your block can optionally specify. See :ref:`the page on parameters <block-params>`
 * ``input_capabilities`` and ``output_capabilities``: the :ref:`capabilities <block-capabilities>` that your block
   requires to run, and/or that it outputs when it is finished. When validating a workflow, every block's output
   capabilties must match exactly the input capabilities of the next block in the workflow. These fields may be

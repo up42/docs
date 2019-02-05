@@ -50,9 +50,11 @@ A workflow is responsible for validating the connections between blocks when cre
 Jobs
 ----
 
-A job is an instance of a workflow. Jobs are created when :ref:`starting a job <running-jobs>`.
+A job is an instance of a workflow. Jobs are created when running a workflow.
 
-In order to start a job, the following data must be provided:
+.. _ :ref:`starting a job <running-jobs>`.
+
+In order to start a job, :ref:`the following data must be provided <block-params>`:
 
 * A query to determine how data should be filtered (used by the data blocks)
 * Optional runtime configuration parameters (specified by and used by processing blocks)
