@@ -7,7 +7,8 @@ Welcome to Interstellar's documentation!
 
    getting-started/index
    specifications/index
-   interstellar-blocks/index
+
+.. interstellar-blocks/index
 
 
 Indices and tables
