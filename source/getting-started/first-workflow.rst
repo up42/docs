@@ -63,7 +63,7 @@ You can also inspect each block that has run by clicking on it to see the indivi
 block has output.
 
 .. Running workflows via the API
-.. _-----------------------------
+.. _ -----------------------------
 
 .. This guide shows how to run workflows via the Interstellar web console. Once you're familiar with how the platform works,
 .. you can start running workflows via the :ref:`workflow api <running-jobs>`, which makes it easier to script jobs and
