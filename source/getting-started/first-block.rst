@@ -27,7 +27,7 @@ Input data can always be read from the ``/tmp/input`` directory, while output da
 At the very least, a block should output a ``/tmp/output/data.json`` file, consisting of a GeoJSON ``FeatureCollection``
 object.
 
-For a full description of how to work with this data, see the `data transfer format <data-transfer-format>`_ section.
+For a full description of how to work with this data, see the :ref:`data transfer format <data-transfer-format>` section.
 
 
 Writing the manifest
@@ -36,7 +36,7 @@ Writing the manifest
 Docker Images intended to run on Interstellar need to provide a valid JSON manifest.
 
 By convention, this JSON data is stored in the ``InterstellarManifest.json`` file inside the block. The
-full manifest specification `can be found here <block-manifest>`_, along with examples.
+full manifest specification :ref:`can be found here <block-manifest>`, along with examples.
 
 Once you have written your manifest file, you can validate it against an endpoint provided by the Interstellar
 platform by using e.g. ``curl``
