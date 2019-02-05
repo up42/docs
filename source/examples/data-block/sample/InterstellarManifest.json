@@ -1,0 +1,29 @@
+{
+  "_interstellar_specification_version": 1,
+  "name": "sample-data-block",
+  "type": "data",
+  "tags": [
+    "generic",
+  ],
+  "display_name": "Sample Data Block",
+  "description": "This is an example data block for outputting RGB images",
+  "parameters": {
+    "intersects": {
+      "type": "geometry"
+    },
+    "contains": {
+      "type": "geometry"
+    },
+    "limit": {
+      "type": "number"
+    },
+    "time": {
+      "type": "daterange"
+    }
+  },
+  "input_capabilities": {
+  },
+  "output_capabilities": {
+    "data.imagery.optical.generic.multispectral.rgb": {},
+  }
+}
