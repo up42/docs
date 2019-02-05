@@ -13,6 +13,7 @@ This section covers material related to writing blocks and running workflows wit
 
    block-manifest
    capabilities
+   parameters
    data-transfer
 
 .. workflows-jobs
