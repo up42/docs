@@ -77,7 +77,7 @@ And then build the Docker image as follows:
 
 ::
 
-    $ docker build . --build-arg manifest=$(<InterstellarManifest.json)
+    $ docker build . --build-arg manifest="$(<InterstellarManifest.json)"
 
 
 Testing your block
@@ -117,7 +117,7 @@ Those commands are the following:
 
        $ docker build . \
             -t registry.interstellar.earth/some-example-user-id/my-block:latest \
-            --build-arg manifest=$(<InterstellarManifest.json)
+            --build-arg manifest="$(<InterstellarManifest.json)"
 
 3. When you are ready to push your block, you can then run:
 
