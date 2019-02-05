@@ -1,7 +1,7 @@
 Creating a block
 ================
 
-Creating a block that runs on Interstellar is as easy as writing a Docker file. Only very few
+Creating a block that runs on Interstellar is as easy as writing a `Dockerfile` in the root directory of your application. Only very few
 requirements are enforced - notably, of course that you need to
 have signed up and have an account.
 
