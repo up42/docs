@@ -1,3 +1,5 @@
+.. _data-transfer-format:
+
 Data transfer format
 ====================
 
@@ -143,10 +145,12 @@ new identifier.
 Scene data example
 ++++++++++++++++++
 
-In some cases, like working with data from whole scenes, you may have more than one file that corresponds to a
-particular capability.
+(This section is in progress)
 
-Take the following example
+.. In some cases, like working with data from whole scenes, you may have more than one file that corresponds to a
+.. particular capability.
+
+.. Take the following example
 
 .. TODO
 
