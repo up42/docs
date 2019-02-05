@@ -17,9 +17,3 @@ For detailed information about writing blocks, see the :ref:`section about writi
 
 .. interstellar-blocks/index
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
