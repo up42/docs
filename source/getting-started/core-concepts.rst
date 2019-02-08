@@ -61,8 +61,8 @@ In order to start a job, :ref:`the following data must be provided <block-params
 
 While running, and after completion, jobs additionally provide information about:
 
-* The status of the job, e.g. "success", "in progress", or "failed"
-* Logs of each block as it runs
+* The status of the job, e.g. "pending", "success", "in progress", or "failed"
+* Logs of each block as it runs as a step in the workflow
 * Execution time and other metadata
 * The final result of the job
 

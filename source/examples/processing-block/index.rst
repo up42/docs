@@ -14,6 +14,18 @@ The full layout on disk would be:
 
 :download:`Download the complete example <processing-block.zip>`
 
+Building the block
+------------------
+
+.. code-block:: bash
+
+    $ wget http://docs.interstellar.earth/_downloads/ec888416df357682082e8cc47a08d5fd/processing-block.zip
+    $ unzip processing-block.zip
+    $ cd processing-block
+    $ docker build . -t processing-block --build-arg manifest="$(<InterstellarManifest.json)"
+
+For more information, see the :ref:`guide on building and pushing blocks <build-and-push-first-block>`.
+
 Source code
 -----------
 

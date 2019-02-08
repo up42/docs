@@ -1,3 +1,5 @@
+.. _example-blocks:
+
 Full block examples
 ===================
 

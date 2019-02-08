@@ -41,7 +41,7 @@ full manifest specification :ref:`can be found here <block-manifest>`, along wit
 Once you have written your manifest file, you can validate it against an endpoint provided by the Interstellar
 platform by using e.g. ``curl``
 
-::
+.. code-block:: bash
 
     $ curl -X POST -H 'Content-Type: application/json' -d @InterstellarManifest.json https://api.interstellar.earth/validate-schema/block
 
@@ -55,7 +55,7 @@ Attaching the manifest to your block
 Once you've written your manifest, it needs to be attached to the Docker image as a ``LABEL``, which you can do using
 the following Dockerfile instruction:
 
-::
+.. code-block:: docker
 
     LABEL "interstellar_manifest"=<manifest-contents>
 
@@ -64,7 +64,7 @@ the contents of the manifest as a build arg to Docker.
 
 To do this, create a Dockerfile along these lines:
 
-::
+.. code-block:: docker
 
     FROM python:3.7-alpine
     ARG manifest
@@ -75,8 +75,9 @@ To do this, create a Dockerfile along these lines:
 
 And then build the Docker image as follows:
 
-::
+.. code-block:: bash
 
+    # Here "$(<file.ext)" is shorthand for "read the contents of the file into the subshell and return it as a string"
     $ docker build . --build-arg manifest="$(<InterstellarManifest.json)"
 
 
@@ -90,6 +91,8 @@ You can then use ``docker build`` and ``docker run`` commands as you normally wo
 locally.
 
 .. TODO: provide documentation on where/how to get sample data to run against
+
+.. _build-and-push-first-block:
 
 Pushing the block
 -----------------
@@ -118,6 +121,11 @@ Those commands are the following:
        $ docker build . \
             -t registry.interstellar.earth/some-example-user-id/my-block:latest \
             --build-arg manifest="$(<InterstellarManifest.json)"
+
+   You will need to replace ``<user_id>``, ``<image_name>``, and ``<tag>`` with your own values. Your **user id** can be
+   found in the example ``docker`` commands shown on the "Custom Blocks" screen. The **image name** is simply what you want
+   to call your block, and should match the name provided in the manifest. The **tag** should be a uniquely identifying
+   tag or UUID so that you can fetch the block later if you need to debug that specific version.
 
 3. When you are ready to push your block, you can then run:
 

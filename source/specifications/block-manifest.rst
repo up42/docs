@@ -74,10 +74,12 @@ The easiest way to do this is as follows:
   .. code-block:: bash
 
     # In bash/zsh
-    $ docker build . -t <image-tags> --build-arg manifest="$(<manifest.txt)"
+    $ docker build . -t <image-tags> --build-arg manifest="$(<InterstellarManifest.json)"
 
     # In other shells
-    $ docker build . -t <image-tags> --build-arg manifest="$(cat manifest.txt)"
+    $ docker build . -t <image-tags> --build-arg manifest="$(cat InterstellarManifest.json)"
+
+You can then push the block with ``docker push`` as covered in the :ref:`guide to building custom blocks <build-and-push-first-block>`.
 
 
 Validating your manifest
@@ -93,6 +95,4 @@ Reference
 ---------
 
 * `Block manifest JSON schema (v1) <http://specs.interstellar.earth/v1/blocks/schema.json>`_
-* `Example data block manifest (v1) <http://specs.interstellar.earth/v1/blocks/example_datablock.json>`_
-* `Example processing block manifest (v1) <http://specs.interstellar.earth/v1/blocks/example_processingblock.json>`_
-
+* :ref:`Example blocks <example-blocks>`

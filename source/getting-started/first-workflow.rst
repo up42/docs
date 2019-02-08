@@ -59,7 +59,9 @@ Job details: logs and results
 Once the job has completed, you can download the result data by clicking on the **Download** link at the top of the
 page.
 
-You can also inspect each block that has run by clicking on it to see the individual block status and any logs that the
+Each step of the workflow is a single block, running with the parameters and data of the workflow.
+
+You can inspect each step that has run by clicking on it to see the individual block status and any logs that the
 block has output.
 
 .. Running workflows via the API
