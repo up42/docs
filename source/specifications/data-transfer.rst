@@ -26,26 +26,26 @@ The metadata in the ``data.json`` file should be a GeoJSON_ ``FeatureCollection`
 
 In short, a ``FeatureCollection`` looks like the following:
 
-::
+.. code-block:: javascript
 
     {
         "type": "FeatureCollection",
         "features": [
-            ...
+            // ...
         ]
     }
 
 The ``"features"`` list can contain zero or more GeoJSON ``Feature`` objects, which look like the following:
 
-::
+.. code-block:: javascript
 
     {
         "type": "Feature",
         "properties": {
-            ...
+            // ...
         },
         "geometry": {
-            ...
+            // ...
         }
     }
 
@@ -63,7 +63,7 @@ a block outputs should have a corresponding key in the ``"properties"`` field of
 For example, if a block outputs the ``data.metadata.example.foo`` capability, then the corresponding output should
 look something like this:
 
-::
+.. code-block:: javascript
 
     {
         "type": "FeatureCollection",
@@ -73,7 +73,7 @@ look something like this:
                 "geometry": { ... },
                 "properties": {
                     "data.metadata.example.foo": "some-value-bar",
-                    ...
+                    // ...
                 }
             }
         ]
@@ -100,27 +100,31 @@ Simple image example
 
 For simple imagery associated with a feature, you might have some output JSON as follows:
 
-::
+.. code-block:: javascript
 
     {
         "type": "FeatureCollection",
         "features": [
             {
                 "type": "Feature",
-                "geometry": { ... },
+                "geometry": {
+                    // ...
+                },
                 "properties": {
                     "data.imagery.optical.generic.multispectral.rgb": "aedf023/rgb.png",
                     "data.imagery.optical.generic.multispectral.nir": "aedf023/nir.png",
-                    ...
+                    // ...
                 }
             },
             {
                 "type": "Feature",
-                "geometry": { ... },
+                "geometry": {
+                    // ...
+                },
                 "properties": {
                     "data.imagery.optical.generic.multispectral.rgb": "be051fa1/rgb.png",
                     "data.imagery.optical.generic.multispectral.nir": "be051fa1/nir.png",
-                    ...
+                    // ...
                 }
             }
         ]

@@ -27,7 +27,7 @@ Input data can always be read from the ``/tmp/input`` directory, while output da
 At the very least, a block should output a ``/tmp/output/data.json`` file, consisting of a GeoJSON ``FeatureCollection``
 object.
 
-For a full description of how to work with this data, see the `data transfer format <data-transfer-format>`_ section.
+For a full description of how to work with this data, see the :ref:`data transfer format <data-transfer-format>` section.
 
 
 Writing the manifest
@@ -36,7 +36,7 @@ Writing the manifest
 Docker Images intended to run on Interstellar need to provide a valid JSON manifest.
 
 By convention, this JSON data is stored in the ``InterstellarManifest.json`` file inside the block. The
-full manifest specification `can be found here <block-manifest>`_, along with examples.
+full manifest specification :ref:`can be found here <block-manifest>`, along with examples.
 
 Once you have written your manifest file, you can validate it against an endpoint provided by the Interstellar
 platform by using e.g. ``curl``
@@ -102,13 +102,13 @@ Those commands are the following:
 
 1. To authenticate against the registry, run ``docker login`` with your Interstellar login credentials:
 
-   ::
+   .. code-block:: bash
 
        $ docker login -u <interstellar-user-email> registry.interstellar.earth
 
 2. When building your block image, tag the image with the Interstellar registry URL you will push the block to:
 
-   ::
+   .. code-block:: bash
 
        $ docker build . -t registry.interstellar.earth/<user_id>/<image_name>:<tag>
 
@@ -121,7 +121,7 @@ Those commands are the following:
 
 3. When you are ready to push your block, you can then run:
 
-   ::
+   .. code-block:: bash
 
        $ docker push registry.interstellar.earth/<user_id>/<image_name>:<tag>
 

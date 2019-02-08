@@ -1,7 +1,7 @@
 Welcome to Interstellar's documentation!
 ========================================
 
-To get started, we recommend beginning in the `Getting Started <getting-started>` section.
+To get started, we recommend beginning in the :ref:`Getting Started <getting-started>` section.
 
 For detailed information about writing blocks, see the :ref:`section about writing blocks <block-specs>`.
 
@@ -17,9 +17,3 @@ For detailed information about writing blocks, see the :ref:`section about writi
 
 .. interstellar-blocks/index
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
