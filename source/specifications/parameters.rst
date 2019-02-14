@@ -38,6 +38,7 @@ In addition to their type, each parameter in the manifest can specify:
 A complete example of filter types from a manifest would look something like this:
 
 .. code-block:: javascript
+
     {
         "_interstellar_specification_version": 1,
         // ...
