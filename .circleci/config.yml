@@ -48,6 +48,7 @@ jobs:
       GOOGLE_CLOUD_PROJECT: *project-id-staging
       WORKING_DIRECTORY: *working_directory
       BUCKET_NAME: docs.staging.interstellar.earth
+      ENV: staging
     <<: *upload-to-bucket
 
   deploy-to-prod:
@@ -55,6 +56,7 @@ jobs:
       GOOGLE_CLOUD_PROJECT: *project-id-prod
       WORKING_DIRECTORY: *working_directory
       BUCKET_NAME: docs.interstellar.earth
+      ENV: prod
     <<: *upload-to-bucket
 
 workflows:
