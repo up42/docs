@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 workspace-name: &working_directory /tmp/workspace
 project-id-prod: &project-id-prod interstellar-prod-env
 project-id-staging: &project-id-staging interstellar-staging-env
@@ -6,6 +6,10 @@ ruby_docker_image: &python_docker_image python:3.7-stretch
 
 machine:
   timezone: Europe/Berlin
+
+orbs:
+  notify-slack: interstellar/notify-slack@0.1.18
+
 jobs:
 
   build-and-upload-to-bucket: &upload-to-bucket
@@ -37,6 +41,7 @@ jobs:
       - run:
           name: Upload schemas to Google Cloud Storage Bucket
           command: gsutil rsync -r -d ./build/html/ gs://$BUCKET_NAME
+      - notify-slack/deploy
 
   deploy-to-staging:
     environment:
