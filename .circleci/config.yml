@@ -65,6 +65,9 @@ workflows:
     jobs:
       - deploy-to-staging:
           context: gcp
+          filters:
+            branches:
+              only: master
       - hold:
           type: approval
           requires:
