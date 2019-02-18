@@ -39,46 +39,46 @@ A complete example of filter types from a manifest would look something like thi
 
 .. code-block:: javascript
 
-    // ...
-
-    "parameters": {
-        "intersects": {
-            "type": "geometry",
-            "required": false,
-            "description": "Return all data whose geometry overlaps this geometry"
-        },
-        "contains": {
-            "type": "geometry",
-            "required": false,
-            "description": "Return all data whose geometry is contained completely by this geometry"
-        },
-        "time": {
-            "type": "date-range",
-            "required": true,
-            "description": "Return all data with an acquisition date in this range"
-        },
-        "limit": {
-            "type": "number",
-            "required": false,
-            "description": "The maximum number of results to return, as an integer"
-        },
-        "cloud_cover": {
-            "type": "range",
-            "options": {
-                "min": 0,
-                "max": 100,
-                "type": "float",
+    {
+        "_interstellar_specification_version": 1,
+        // ...
+        "parameters": {
+            "intersects": {
+                "type": "geometry",
+                "required": false,
+                "description": "Return all data whose geometry overlaps this geometry"
             },
-            "description": "The percentage of cloud cover that is acceptable"
-        },
-        "sort": {
-            "type": "string",
-            "required": false,
-            "description": "The property of the result features to sort by"
-        },
-    ],
-
-    // ...
+            "contains": {
+                "type": "geometry",
+                "required": false,
+                "description": "Return all data whose geometry is contained completely by this geometry"
+            },
+            "time": {
+                "type": "date-range",
+                "required": true,
+                "description": "Return all data with an acquisition date in this range"
+            },
+            "limit": {
+                "type": "number",
+                "required": false,
+                "description": "The maximum number of results to return, as an integer"
+            },
+            "cloud_cover": {
+                "type": "range",
+                "options": {
+                    "min": 0,
+                    "max": 100,
+                    "type": "float"
+                },
+                "description": "The percentage of cloud cover that is acceptable"
+            },
+            "sort": {
+                "type": "string",
+                "required": false,
+                "description": "The property of the result features to sort by"
+            }
+        }
+    }
 
 Processing parameters
 ---------------------
