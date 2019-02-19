@@ -12,6 +12,8 @@ The full layout on disk would be:
         InterstellarManifest.json
         run.py
 
+.. _sample-processing-block-download:
+
 :download:`Download the complete example <processing-block.zip>`
 
 Building the block

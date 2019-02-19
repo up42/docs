@@ -17,3 +17,4 @@ For detailed information about writing blocks, see the :ref:`section about writi
    core-concepts
    first-workflow
    first-block
+   dev-setup

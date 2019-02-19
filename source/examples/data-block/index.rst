@@ -13,6 +13,8 @@ The full layout on disk would be:
         InterstellarManifest.json
         run.py
 
+.. _sample-data-block-download:
+
 :download:`Download the complete example <data-block.zip>`
 
 Building the block
