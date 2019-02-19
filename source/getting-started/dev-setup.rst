@@ -18,8 +18,6 @@ To get started with this example, you'll need to install the following things:
 * **Docker**, which has installation instructions for Linux, macOS, and Windows `in the documentation <https://docs.docker.com/install/>`_
 * **Python 3**, which can be downloaded `on the Python project homepage <https://www.python.org/downloads/>`_ or using your
   system package manager (e.g. Homebrew or Apt, which both have Python 3 packages)
-* **virtualenvwrapper** for managing Python dependencies (optional). Setup instructions can be found `in the
-  relevant documentation <https://virtualenvwrapper.readthedocs.io/en/latest/>`_
 
 Create your environment locally
 -------------------------------
@@ -34,23 +32,6 @@ To start, create the folder you will be working in:
 
     $ mkdir -p ~/workspace/data-block       # You can change this path to whatever you like
     $ cd ~/workspace/data-block
-
-Then set up the virtual environment in Python:
-
-.. code-block:: bash
-
-    $ mkvirtualenv --python="$(which python3)" data-block
-
-Here, the ``--python`` option specifies which Python binary to use. The ``$(which python3)`` command automatically selects
-the path to the binary named ``python3`` in a subshell, and returns the result.
-
-You can change the name of the virtual environment by replacing ``data-block`` with something else.
-
-This command will create the virtual environment and activate it. To deactivate it, simply run the ``deactive`` command.
-To switch back to this virtual environment, run ``workon data-block`` (or whatever your environment is called).
-
-With the virtual environment set up, any Python packages you install will be installed for this environment only, rather
-than system wide. When installing packages, you should use the ``pip`` command **without sudo**.
 
 Next, :ref:`download the sample code <sample-data-block-download>` and unpack it in the directory you created. The
 file layout should look like this:
@@ -165,8 +146,7 @@ You should now have a folder layout as follows:
             InterstellarManifest.json
             run.py
 
-as well as a ``processing-block`` virtual environment. ``cd`` into the processing block directory, and run the build
-command:
+``cd`` into the processing block directory, and run the build command:
 
 .. code-block:: bash
 
@@ -182,7 +162,7 @@ Next, place your sample input data (in this case, you can use the output from th
         -v /tmp/input:/tmp/input
 
 With this version of the ``docker run`` command, we skip the task parameters environmental variable, because our
-processing block as no parameters. Instead, we additionally mount the input directoy in the container so that the
+processing block as no parameters. Instead, we additionally mount the input directory in the container so that the
 block can read the data it needs to analyze.
 
 As before, when the block completes it will write its output into the ``/tmp/output`` directory.
