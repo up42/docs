@@ -129,13 +129,13 @@ Now run the block. The complete command to do that looks like the following:
 .. code-block:: bash
 
     $ docker run data-block \
-        -e INTERSTELLAR_TASK_PARAMETERS="$(cat params.json)" \
+        -e INTERSTELLAR_JOB_INPUTS="$(cat params.json)" \
         -v /tmp/output:/tmp/output
 
 To break that down:
 
 * ``docker run data-block`` runs the container you just built
-* ``-e INTERSTELLAR_TASK_PARAMETERS="$(cat params.json)"`` creates an environmental variable called ``INTERSTELLAR_TASK_PARAMETERS``,
+* ``-e INTERSTELLAR_JOB_INPUTS="$(cat params.json)"`` creates an environmental variable called ``INTERSTELLAR_JOB_INPUTS``,
   whose value will be set to the contents of the ``params.json`` file.
 * ``-v /tmp/output:/tmp/output`` mounts your local directory ``/tmp/output`` into the container, so any files written
   there by the container will be available even after the container completes and shuts down.
