@@ -8,5 +8,5 @@ Built-in blocks provided by Interstellar
    :caption: Contents
 
    sobloo-s1-grd
-   sentinelhub-s2
+   sobloo-s2-l1c
 
