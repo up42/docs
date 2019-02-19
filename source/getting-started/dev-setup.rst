@@ -5,7 +5,7 @@ Setting up a development environment for blocks
 
 This guide provides a quick introduction for setting up and running blocks locally to make development easier.
 
-The examples in this guide use a `bash`-compatible shell (`sh`, `ash`, `dash` or similar) in a Unix-like environment,
+The examples in this guide use a ``bash``-compatible shell (``sh``, ``ash``, ``dash`` or similar) in a Unix-like environment,
 but you can build blocks in any environment that you can run Docker in.
 
 The guide also uses the example block code written in Python, but you can use any programming language to build your blocks.
@@ -168,7 +168,7 @@ You should now have a folder layout as follows:
 as well as a ``processing-block`` virtual environment. ``cd`` into the processing block directory, and run the build
 command:
 
-.. code-block::
+.. code-block:: bash
 
     $ docker build . -t processing-block
 
@@ -178,7 +178,7 @@ Next, place your sample input data (in this case, you can use the output from th
 .. code-block:: bash
 
     $ docker run data-block \
-        -v /tmp/output:/tmp/output
+        -v /tmp/output:/tmp/output \
         -v /tmp/input:/tmp/input
 
 With this version of the ``docker run`` command, we skip the task parameters environmental variable, because our
