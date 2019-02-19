@@ -16,7 +16,6 @@ For detailed information about writing blocks, see the :ref:`section about writi
    getting-started/index
    specifications/index
    examples/index
+   interstellar-blocks/index
    recent-changes
-
-.. interstellar-blocks/index
 
