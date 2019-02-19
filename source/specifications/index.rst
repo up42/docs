@@ -12,6 +12,7 @@ This section covers material related to writing blocks and running workflows wit
    :caption: Contents:
 
    block-manifest
+   block-envvars
    capabilities
    parameters
    data-transfer
