@@ -7,10 +7,7 @@ For detailed information about writing blocks, see the :ref:`section about writi
 
 .. For information about specific blocks, see the :ref:`built-in blocks section <builtin-blocks-documentation>`.
 
-What's new
-----------
-
-See a list of recent changes to the documentation :ref:`here <recent-changes>`.
+.. include:: recent-changes.rst
 
 .. toctree::
    :maxdepth: 2
