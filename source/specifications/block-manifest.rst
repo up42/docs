@@ -52,6 +52,8 @@ The most important keys to note here are the following:
   capabilties must match exactly the input capabilities of the next block in the workflow. These fields may be
   left empty, although this is not recommended.
 
+.. _attaching-manifest:
+
 Attaching a manifest to a block
 -------------------------------
 
