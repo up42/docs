@@ -11,5 +11,4 @@ Built-in blocks provided by Interstellar
    spot
    sobloo-s1-grd
    sobloo-s2-l1c
-   darksky
    tiling
