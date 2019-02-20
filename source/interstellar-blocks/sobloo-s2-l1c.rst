@@ -1,18 +1,14 @@
-.. _sentinel1-grd-block:
+.. _sentinel2-l1c:
 
-Sentinel 1 (full-scene)
-=======================
+Sentinel-2 L1C (full-scene)
+===========================
 
-This block provides full scenes of Sentinel-1 (A/B)’s C-band synthetic aperture radar sensor in processing level L-1C
-Ground Range Detected (GRD) in SAFE folder structure. The output format is identical to the unzipped SAFE folder that
-can be acquired from ESA’s Scihub or other DIAS systems.
+This block provides full scenes of Sentinel-2 (A/B)’s multispectral imaging sensor in processing level L-1C in SAFE
+folder structure. The output format is identical to the unzipped SAFE folder that can be acquired from ESA’s Scihub or
+other DIAS systems. The products are radiometrically and geometrically corrected (including orthorectification).
 
-The main applications for Sentinel-1 imagery are marine monitoring (e.g. sea-ice levels and conditions, ocean oil
-spills, ship activity, marine winds), land monitoring (e.g. agriculture, forestry) or emergency response (flooding,
-landslides and volcanic activity).
-
-Depending on the operational mode, the spatial resolution of Sentinel-1 products is 20x22m (IW interferometric wide
-swath mode, 250km swath), 50x50m (EW extra wide swath mode, 400km swath).
+Important application areas for Sentinel-2 imagery are land cover monitoring (agriculture, forestry), coastal area
+monitoring, inland water monitoring, glacier monitoring and flood mapping.
 
 .. contents::
 
@@ -32,6 +28,7 @@ For more information on STAC filter parameters, see
 Output format
 -------------
 
+
 The output GeoJSON contains the metadata as returned by the Sobloo API, with the ``data.imagery.radar.generic.sar-c.polarimetric.safe``
 capability mapping to the directory containing the `SAFE data <http://earth.esa.int/SAFE/>`_ for the scene.
 
@@ -45,41 +42,41 @@ Example output GeoJSON:
             {
                 "type": "Feature",
                 "bbox": [
-                    13.375777,
-                    52.49418,
-                    13.384849,
-                    52.499467
+                    13.384757,
+                    52.491482,
+                    13.391428,
+                    52.4934
                 ],
                 "geometry": null,
                 "properties": {
-                    "data.imagery.radar.generic.sar-c.polarimetric.safe": "/tmp/output/559ffdc1-d6de-43a0-9a97-2a45c6c1699d"
+                    "data.imagery.optical.generic.safe": "/tmp/output/9be71cf1-c91b-477a-818c-7b6c89ee3eaa"
                 },
                 "metadata": {
-                    "id": "559ffdc1-d6de-43a0-9a97-2a45c6c1699d",
-                    "timestamp": 1550381123883,
+                    "id": "9be71cf1-c91b-477a-818c-7b6c89ee3eaa",
+                    "timestamp": 1550312471024,
                     "geometry": {
                         "type": "Polygon",
                         "coordinates": [
                             [
                                 [
-                                    13.678967,
-                                    50.963955
+                                    12.004760925069467,
+                                    53.21197782662703
                                 ],
                                 [
-                                    9.951602,
-                                    51.374794
+                                    12.071595116334858,
+                                    52.22621087043558
                                 ],
                                 [
-                                    10.326771,
-                                    52.869404
+                                    13.678544065009483,
+                                    52.25515074878083
                                 ],
                                 [
-                                    14.179229,
-                                    52.456017
+                                    13.648341514492438,
+                                    53.24196354764364
                                 ],
                                 [
-                                    13.678967,
-                                    50.963955
+                                    12.004760925069467,
+                                    53.21197782662703
                                 ]
                             ]
                         ]
@@ -87,8 +84,8 @@ Example output GeoJSON:
                     "centroid": {
                         "type": "Point",
                         "coordinates": [
-                            12.03758170838692,
-                            51.91980054362828
+                            12.85077160986956,
+                            52.735680135602536
                         ]
                     }
                 }
@@ -99,7 +96,7 @@ Example output GeoJSON:
 Capabilities
 ------------
 
-This block has a single output capability, ``data.imagery.radar.generic.sar-c.polarimetric``, which maps to the
+This block has a single output capability, ``data.imagery.optical.generic.safe``, which maps to the
 directory containing the `SAFE data <http://earth.esa.int/SAFE/>`_ for the scene.
 
 Download example output
