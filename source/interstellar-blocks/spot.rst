@@ -25,5 +25,59 @@ For more information on STAC filter parameters, see
 Output format
 -------------
 
+.. code-block:: javascript
+    {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "bbox": [
+                    13.31817626953125,
+                    38.2036553180715,
+                    13.3209228515625,
+                    38.205813598134746
+                ],
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [
+                                13.3209228515625,
+                                38.2036553180715
+                            ],
+                            [
+                                13.3209228515625,
+                                38.205813598134746
+                            ],
+                            [
+                                13.31817626953125,
+                                38.205813598134746
+                            ],
+                            [
+                                13.31817626953125,
+                                38.2036553180715
+                            ],
+                            [
+                                13.3209228515625,
+                                38.2036553180715
+                            ]
+                        ]
+                    ]
+                },
+                "properties": {
+                    "data.imagery.optical.generic.multispectral.rgb.pansharpened": "2b3f1d57-f119-4f4e-9321-18df486b41f5.tif"
+                }
+            }
+        ]
+    }
+
 Capabilities
 ------------
+
+This block has a single output capability, ``data.imagery.optical.generic.multispectral.rgb.pansharpened``.
+
+Download example output
+-----------------------
+
+You can create example output to use when :ref:`testing processing blocks built to work with this data <dev-env-setup>`
+by running the block in a workflow via the UI, and downloading the results in the job overview.
