@@ -18,3 +18,5 @@ For detailed information about writing blocks, see the :ref:`section about writi
    first-workflow
    first-block
    dev-setup
+   credentials
+   custom-storage

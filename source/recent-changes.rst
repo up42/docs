@@ -1,6 +1,12 @@
 Recent changes to the documentation
 ===================================
 
+20.02.2019
+----------
+
+* Added a guide on :ref:`working with credentials and secrets in blocks <credentials-secrets>`.
+* Added a guide on :ref:`using custom storage <custom-storage>` in your blocks.
+
 19.02.2019
 ----------
 
