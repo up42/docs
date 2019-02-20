@@ -47,40 +47,38 @@ Example output GeoJSON:
                     13.391428,
                     52.4934
                 ],
-                "geometry": null,
-                "properties": {
-                    "data.imagery.optical.generic.safe": "/tmp/output/9be71cf1-c91b-477a-818c-7b6c89ee3eaa"
-                },
-                "metadata": {
-                    "id": "9be71cf1-c91b-477a-818c-7b6c89ee3eaa",
-                    "timestamp": 1550312471024,
-                    "geometry": {
-                        "type": "Polygon",
-                        "coordinates": [
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
                             [
-                                [
-                                    12.004760925069467,
-                                    53.21197782662703
-                                ],
-                                [
-                                    12.071595116334858,
-                                    52.22621087043558
-                                ],
-                                [
-                                    13.678544065009483,
-                                    52.25515074878083
-                                ],
-                                [
-                                    13.648341514492438,
-                                    53.24196354764364
-                                ],
-                                [
-                                    12.004760925069467,
-                                    53.21197782662703
-                                ]
+                                12.004760925069467,
+                                53.21197782662703
+                            ],
+                            [
+                                12.071595116334858,
+                                52.22621087043558
+                            ],
+                            [
+                                13.678544065009483,
+                                52.25515074878083
+                            ],
+                            [
+                                13.648341514492438,
+                                53.24196354764364
+                            ],
+                            [
+                                12.004760925069467,
+                                53.21197782662703
                             ]
                         ]
-                    },
+                    ]
+                },
+                "properties": {
+                    "data.imagery.optical.generic.safe": "/tmp/output/9be71cf1-c91b-477a-818c-7b6c89ee3eaa",
+                    "id": "9be71cf1-c91b-477a-818c-7b6c89ee3eaa",
+                    "timestamp": 1550312471024,
+                    "geometry": ,
                     "centroid": {
                         "type": "Point",
                         "coordinates": [

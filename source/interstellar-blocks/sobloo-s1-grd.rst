@@ -50,40 +50,37 @@ Example output GeoJSON:
                     13.384849,
                     52.499467
                 ],
-                "geometry": null,
-                "properties": {
-                    "data.imagery.radar.generic.sar-c.polarimetric.safe": "/tmp/output/559ffdc1-d6de-43a0-9a97-2a45c6c1699d"
-                },
-                "metadata": {
-                    "id": "559ffdc1-d6de-43a0-9a97-2a45c6c1699d",
-                    "timestamp": 1550381123883,
-                    "geometry": {
-                        "type": "Polygon",
-                        "coordinates": [
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
                             [
-                                [
-                                    13.678967,
-                                    50.963955
-                                ],
-                                [
-                                    9.951602,
-                                    51.374794
-                                ],
-                                [
-                                    10.326771,
-                                    52.869404
-                                ],
-                                [
-                                    14.179229,
-                                    52.456017
-                                ],
-                                [
-                                    13.678967,
-                                    50.963955
-                                ]
+                                13.678967,
+                                50.963955
+                            ],
+                            [
+                                9.951602,
+                                51.374794
+                            ],
+                            [
+                                10.326771,
+                                52.869404
+                            ],
+                            [
+                                14.179229,
+                                52.456017
+                            ],
+                            [
+                                13.678967,
+                                50.963955
                             ]
                         ]
-                    },
+                    ]
+                },
+                "properties": {
+                    "data.imagery.radar.generic.sar-c.polarimetric.safe": "/tmp/output/559ffdc1-d6de-43a0-9a97-2a45c6c1699d",
+                    "id": "559ffdc1-d6de-43a0-9a97-2a45c6c1699d",
+                    "timestamp": 1550381123883,
                     "centroid": {
                         "type": "Point",
                         "coordinates": [
