@@ -117,7 +117,8 @@ To break that down:
 
 * ``docker run data-block`` runs the container you just built
 * ``-e INTERSTELLAR_JOB_INPUTS="$(cat params.json)"`` creates an environmental variable called ``INTERSTELLAR_JOB_INPUTS``,
-  whose value will be set to the contents of the ``params.json`` file.
+  whose value will be set to the contents of the ``params.json`` file. For more details on this,
+  :ref:`see the section on block environment variables <block-envvars>`.
 * ``-v /tmp/output:/tmp/output`` mounts your local directory ``/tmp/output`` into the container, so any files written
   there by the container will be available even after the container completes and shuts down.
 
