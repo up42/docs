@@ -1,10 +1,23 @@
-SPOT WMTS block
+.. _spot-aoiclipped-block:
+
+SPOT AOI-Clipped block
 ===================
 
 .. contents::
 
-Supported query parameters
---------------------------
+Description
+-----------
+
+Block type: DATA
+
+Supported parameters
+--------------------
+
+.. code-block:: javascript
+    "bbox": {"type": "string", "default": null},
+    "intersects": {"type": "geometry"},
+    "time": {"type": "dateRange"},
+    "limit": {"type": "number", "default": 1}
 
 Output format
 -------------

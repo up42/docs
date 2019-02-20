@@ -1,7 +1,7 @@
-.. _sentinel1-grd-fullscene-block:
+.. _sentinel2-l1c-fullscene-block:
 
-Sentinel-1 GRD Full Scene block
-===============================
+Sentinel-2 Level-1C Full Scene block
+====================================
 
 .. contents::
 
@@ -18,7 +18,7 @@ Supported parameters
     "intersects": {"type": "geometry"},
     "time": {"type": "dateRange"},
     "limit": {"type": "number", "default": 1}
-
+    
 Output format
 -------------
 

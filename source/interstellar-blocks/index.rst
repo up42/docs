@@ -10,6 +10,6 @@ Built-in blocks provided by Interstellar
    pleiades
    spot
    sobloo-s1-grd
-   sentinelhub-s2
-   sentinelhub-landsat8
+   sobloo-s2-l1c
    darksky
+   tiling

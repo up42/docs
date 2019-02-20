@@ -1,10 +1,21 @@
+.. _darksky-block:
+
 Dark Sky Weather data block
 ===========================
 
 .. contents::
 
-Supported query parameters
---------------------------
+Description
+-----------
+
+Block type: DATA
+
+Supported parameters
+--------------------
+
+.. code-block:: javascript
+    "bbox": {"type": "string", "default": null},
+    "intersects": {"type": "geometry"}
 
 Output format
 -------------
