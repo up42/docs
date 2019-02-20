@@ -3,37 +3,18 @@
 Tiling block
 ============
 
-.. contents::
-
-Description
------------
-
 Block type: PROCESSING
+
+.. contents::
 
 Supported parameters
 --------------------
 
-.. code-block:: javascript
-    "tile_width": {
-        "type": "number",
-        "required": true,
-        "description": "Width of a tile in pixels"
-    },
-        "tile_height": {
-        "type": "number",
-        "required": true,
-        "description": "Width of a tile in pixels"
-    },
-        "augmentation_factor": {
-        "type": "number",
-        "required": false,
-        "description": "Factor used to create additional tiles by applying a pixel offset (default 1)"
-    },
-        "output_prefix": {
-        "type": "string",
-        "required": false,
-        "description": "Prefix of tile names, default is to use input filename"
-    }
+* ``tile_width`` - The width of the tile (in pixels).
+* ``tile_height`` – The height of the tile (in pixels).
+* ``augmentation_factor`` – Factor used to create additional tiles by applying a pixel offset (default 1).
+* ``output_prefix`` – Prefix of tile names, default is to use input filename
+
 
 Output format
 -------------

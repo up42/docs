@@ -3,16 +3,13 @@
 Pleiades (AOI-Clipped)
 ======================
 
-.. contents::
-
-Description
------------
-
-Block type: DATA
+Block type: ``DATA``
 
 This block provides pansharpened Pleiades HR imagery clipped to all tiles intersecting a given bounding box or AOI on a given zoom level. The part of the image that does not intersect with these tiles will be black. The block outputs a single GeoTIFF file and will store the AOI within the output feature geometry.
 
 The available output bands of the Pleiades block are: red, green, blue. Pansharpened Pleiades HR imagery has a spatial resolution of 0.5x0.5m.
+
+.. contents::
 
 Supported parameters
 --------------------
