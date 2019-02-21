@@ -20,7 +20,7 @@ For more information on STAC filter parameters, see
   only ``intersects`` **or** ``bbox``.
 * ``time`` – A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``limit`` – An integer number of maximum results to return. Omit this to set no limit.
-
+* ``zoom_level`` - An integer defining the webmercator zoom level of this request, defaults to 17.
 
 Output format
 -------------
