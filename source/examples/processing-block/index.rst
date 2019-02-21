@@ -24,7 +24,7 @@ Building the block
     $ wget http://docs.interstellar.earth/_downloads/ec888416df357682082e8cc47a08d5fd/processing-block.zip
     $ unzip processing-block.zip
     $ cd processing-block
-    $ docker build . -t processing-block --build-arg manifest="$(<InterstellarManifest.json)"
+    $ docker build . -t processing-block --build-arg manifest="$(cat InterstellarManifest.json)"
 
 For more information, see the :ref:`guide on building and pushing blocks <build-and-push-first-block>`.
 

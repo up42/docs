@@ -25,7 +25,7 @@ Building the block
     $ wget http://docs.interstellar.earth/_downloads/d51c1a173014e2a1a976ab6697d54bf9/data-block.zip
     $ unzip data-block.zip
     $ cd data-block
-    $ docker build . -t data-block --build-arg manifest="$(<InterstellarManifest.json)"
+    $ docker build . -t data-block --build-arg manifest="$(cat InterstellarManifest.json)"
 
 For more information, see the :ref:`guide on building and pushing blocks <build-and-push-first-block>`.
 

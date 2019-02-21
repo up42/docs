@@ -75,10 +75,6 @@ The easiest way to do this is as follows:
 
   .. code-block:: bash
 
-    # In bash/zsh
-    $ docker build . -t <image-tags> --build-arg manifest="$(<InterstellarManifest.json)"
-
-    # In other shells
     $ docker build . -t <image-tags> --build-arg manifest="$(cat InterstellarManifest.json)"
 
 You can then push the block with ``docker push`` as covered in the :ref:`guide to building custom blocks <build-and-push-first-block>`.
