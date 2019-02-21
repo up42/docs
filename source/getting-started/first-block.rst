@@ -77,8 +77,7 @@ And then build the Docker image as follows:
 
 .. code-block:: bash
 
-    # Here "$(<file.ext)" is shorthand for "read the contents of the file into the subshell and return it as a string"
-    $ docker build . --build-arg manifest="$(<InterstellarManifest.json)"
+    $ docker build . --build-arg manifest="$(cat InterstellarManifest.json)"
 
 
 Testing your block
