@@ -109,7 +109,7 @@ Now run the block. The complete command to do that looks like the following:
 
 .. code-block:: bash
 
-    $ docker \
+    $ docker run \
         -e INTERSTELLAR_JOB_INPUTS="$(cat params.json)" \
         -v /tmp/output:/tmp/output \
         -t data-block
