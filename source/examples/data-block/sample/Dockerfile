@@ -4,6 +4,6 @@ ARG manifest
 LABEL "interstellar_manifest"=$manifest
 
 WORKDIR /block
-COPY .. /block/
+COPY . /block/
 
 CMD ["python", "/block/run.py"]

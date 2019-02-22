@@ -34,7 +34,7 @@ For example, in the case of a simple API key, you would set up your Dockerfile a
 
 At build time, you would then run the following:
 
-.. code-block::
+.. code-block:: bash
 
     $ docker build . -t <tag-or-url> \
         --build-arg api_key="YOUR_API_KEY_HERE" \

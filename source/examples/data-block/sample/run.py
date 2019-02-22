@@ -6,6 +6,7 @@ import json
 import shutil
 
 MULTISPECTRAL_RGB_CAPABILITY = "data.imagery.optical.generic.multispectral.rgb"
+TILES_DIR = "/block/tiles/"
 
 
 def load_query():
@@ -32,7 +33,7 @@ def run(query):
         "features": [],
     }
 
-    sample_files = [f for f in os.listdir("tiles/") if os.path.isfile(os.path.join("tiles/", f))]
+    sample_files = [os.path.join(TILES_DIR, f) for f in os.listdir(TILES_DIR)]
 
     for file in sample_files:
         # The base filename of the json file, minus the extension
@@ -44,7 +45,7 @@ def run(query):
                 f["properties"][MULTISPECTRAL_RGB_CAPABILITY] = tile_name + ".jpg"
             output_data["features"] += features
         else:
-            shutil.copyfile(file, '/tmp/output/')
+            shutil.copyfile(file, '/tmp/output/%s.jpg' % tile_name)
 
     return output_data
 
@@ -56,7 +57,7 @@ def write_output(result):
     If you are storing image data, you would need to then copy that data into this directory as well.
     """
     with open("/tmp/output/data.json", "w") as fp:
-        fp.write(json.dumps(result))
+        fp.write(json.dumps(result, indent=2))
 
 
 if __name__ == "__main__":
