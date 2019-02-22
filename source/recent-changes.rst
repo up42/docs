@@ -1,6 +1,11 @@
 Recent changes to the documentation
 ===================================
 
+22.02.2019
+----------
+
+* Fixed the ``docker run`` command examples in the section on :ref:`how to set up your development environment <dev-env-setup>`.
+
 20.02.2019
 ----------
 

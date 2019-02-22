@@ -109,9 +109,10 @@ Now run the block. The complete command to do that looks like the following:
 
 .. code-block:: bash
 
-    $ docker run data-block \
+    $ docker \
         -e INTERSTELLAR_JOB_INPUTS="$(cat params.json)" \
-        -v /tmp/output:/tmp/output
+        -v /tmp/output:/tmp/output \
+        -t data-block
 
 To break that down:
 
@@ -158,9 +159,10 @@ Next, place your sample input data (in this case, you can use the output from th
 
 .. code-block:: bash
 
-    $ docker run data-block \
+    $ docker run \
         -v /tmp/output:/tmp/output \
         -v /tmp/input:/tmp/input
+        -t data-block
 
 With this version of the ``docker run`` command, we skip the task parameters environmental variable, because our
 processing block as no parameters. Instead, we additionally mount the input directory in the container so that the
