@@ -1,7 +1,9 @@
-.. _sentinel1-grd-block:
+.. _sentinel1-grd-fullscene-block:
 
-Sentinel 1 (full-scene)
+Sentinel-1 (full-scene)
 =======================
+
+Block type: ``DATA``
 
 This block provides full scenes of Sentinel-1 (A/B)’s C-band synthetic aperture radar sensor in processing level L-1C
 Ground Range Detected (GRD) in SAFE folder structure. The output format is identical to the unzipped SAFE folder that
@@ -16,8 +18,8 @@ swath mode, 250km swath), 50x50m (EW extra wide swath mode, 400km swath).
 
 .. contents::
 
-Supported query parameters
---------------------------
+Supported parameters
+--------------------
 
 For more information on STAC filter parameters, see
 `the STAC spec <https://github.com/radiantearth/stac-spec/blob/master/api-spec/filters.md>`_.

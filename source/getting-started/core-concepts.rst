@@ -15,7 +15,7 @@ Blocks are the base units of the platform. There are two types of block:
 * Data blocks, which query for data
 * Processing blocks, which transform or analyze data
 
-An example of a data block is the :ref:`Sentinel-1 GRD block <sentinel1-grd-block>`, which provides Sentinel-1 GRD
+An example of a data block is the :ref:`Sentinel-1 GRD block <sentinel1-grd-fullscene-block>`, which provides Sentinel-1 GRD
 radar data as whole scenes.
 
 .. TODO: update link to tiling block docs when those are ready

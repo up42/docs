@@ -1,7 +1,9 @@
-.. _sentinel2-l1c:
+.. _sentinel2-l1c-fullscene-block:
 
 Sentinel-2 L1C (full-scene)
 ===========================
+
+Block type: ``DATA``
 
 This block provides full scenes of Sentinel-2 (A/B)’s multispectral imaging sensor in processing level L-1C in SAFE
 folder structure. The output format is identical to the unzipped SAFE folder that can be acquired from ESA’s Scihub or
