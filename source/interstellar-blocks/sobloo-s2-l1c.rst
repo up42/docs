@@ -37,57 +37,395 @@ capability mapping to the directory containing the `SAFE data <http://earth.esa.
 Example output GeoJSON:
 
 .. code-block:: javascript
-
     {
         "type": "FeatureCollection",
         "features": [
             {
                 "type": "Feature",
                 "bbox": [
-                    13.384757,
-                    52.491482,
-                    13.391428,
-                    52.4934
+                    13.319549560546875,
+                    38.20473446610163,
+                    13.3209228515625,
+                    38.205813598134746
                 ],
                 "geometry": {
                     "type": "Polygon",
                     "coordinates": [
                         [
                             [
-                                12.004760925069467,
-                                53.21197782662703
+                                12.69787324061998,
+                                38.76893788774403
                             ],
                             [
-                                12.071595116334858,
-                                52.22621087043558
+                                12.727181572384366,
+                                37.837503416034735
                             ],
                             [
-                                13.678544065009483,
-                                52.25515074878083
+                                13.974663440882,
+                                37.85497766278228
                             ],
                             [
-                                13.648341514492438,
-                                53.24196354764364
+                                13.960615719854195,
+                                38.84437393595428
                             ],
                             [
-                                12.004760925069467,
-                                53.21197782662703
+                                12.714764044944724,
+                                38.826540231789394
+                            ],
+                            [
+                                12.701063652394977,
+                                38.77981080816143
+                            ],
+                            [
+                                12.69787324061998,
+                                38.76893788774403
                             ]
                         ]
                     ]
                 },
                 "properties": {
-                    "data.imagery.optical.generic.safe": "/tmp/output/9be71cf1-c91b-477a-818c-7b6c89ee3eaa",
-                    "id": "9be71cf1-c91b-477a-818c-7b6c89ee3eaa",
-                    "timestamp": 1550312471024,
-                    "geometry": ,
+                    "id": "ef60b465-e3b0-4aa6-98af-8ff5bb1e5f5a",
+                    "timestamp": 1550829029024,
                     "centroid": {
                         "type": "Point",
                         "coordinates": [
-                            12.85077160986956,
-                            52.735680135602536
+                            13.339922543661787,
+                            38.34170201588346
                         ]
-                    }
+                    },
+                    "visibility": {
+                        "deleted": false
+                    },
+                    "illumination": {},
+                    "production": {
+                        "levelCode": "Level-1C",
+                        "ongoing": false
+                    },
+                    "archive": {
+                        "offLine": false,
+                        "size": 780,
+                        "onLine": false
+                    },
+                    "spatialCoverage": {
+                        "verticality": {},
+                        "geometry": {
+                            "geographicBoundingPolygon": {
+                                "coordinates": [
+                                    [
+                                        [
+                                            12.69787324061998,
+                                            38.76893788774403
+                                        ],
+                                        [
+                                            12.727181572384366,
+                                            37.837503416034735
+                                        ],
+                                        [
+                                            13.974663440882,
+                                            37.85497766278228
+                                        ],
+                                        [
+                                            13.960615719854195,
+                                            38.84437393595428
+                                        ],
+                                        [
+                                            12.714764044944724,
+                                            38.826540231789394
+                                        ],
+                                        [
+                                            12.701063652394977,
+                                            38.77981080816143
+                                        ],
+                                        [
+                                            12.69787324061998,
+                                            38.76893788774403
+                                        ]
+                                    ]
+                                ],
+                                "type": "Polygon"
+                            },
+                            "global": false,
+                            "centerPoint": {
+                                "lon": 13.339922543661787,
+                                "lat": 38.34170201588346
+                            }
+                        }
+                    },
+                    "timeStamp": 1550829029024,
+                    "uid": "ef60b465-e3b0-4aa6-98af-8ff5bb1e5f5a",
+                    "enrichment": {
+                        "geonames": [
+                            {
+                                "name": "Italy",
+                                "states": [
+                                    {
+                                        "name": "Sicily",
+                                        "counties": [
+                                            {
+                                                "villages": [
+                                                    {
+                                                        "name": "Mezzojuso"
+                                                    },
+                                                    {
+                                                        "name": "Torretta"
+                                                    },
+                                                    {
+                                                        "name": "Ficarazzi"
+                                                    },
+                                                    {
+                                                        "name": "Carini"
+                                                    },
+                                                    {
+                                                        "name": "Caccamo"
+                                                    },
+                                                    {
+                                                        "name": "Gratteri"
+                                                    },
+                                                    {
+                                                        "name": "Cefalù"
+                                                    },
+                                                    {
+                                                        "name": "Belmonte Mezzagno"
+                                                    },
+                                                    {
+                                                        "name": "Baucina"
+                                                    },
+                                                    {
+                                                        "name": "Ventimiglia di Sicilia"
+                                                    },
+                                                    {
+                                                        "name": "Villafrati"
+                                                    },
+                                                    {
+                                                        "name": "Cefalà Diana"
+                                                    },
+                                                    {
+                                                        "name": "Bagheria"
+                                                    },
+                                                    {
+                                                        "name": "Borgetto"
+                                                    },
+                                                    {
+                                                        "name": "Giardinello"
+                                                    },
+                                                    {
+                                                        "name": "Altavilla Milicia"
+                                                    },
+                                                    {
+                                                        "name": "Bolognetta"
+                                                    },
+                                                    {
+                                                        "name": "Collesano"
+                                                    },
+                                                    {
+                                                        "name": "Aliminusa"
+                                                    },
+                                                    {
+                                                        "name": "Santa Flavia"
+                                                    },
+                                                    {
+                                                        "name": "Capaci"
+                                                    },
+                                                    {
+                                                        "name": "Trabia"
+                                                    },
+                                                    {
+                                                        "name": "Casteldaccia"
+                                                    },
+                                                    {
+                                                        "name": "Monreale"
+                                                    },
+                                                    {
+                                                        "name": "Corleone"
+                                                    },
+                                                    {
+                                                        "name": "Santa Cristina Gela"
+                                                    },
+                                                    {
+                                                        "name": "San Cipirello"
+                                                    },
+                                                    {
+                                                        "name": "Roccamena"
+                                                    },
+                                                    {
+                                                        "name": "Montemaggiore Belsito"
+                                                    },
+                                                    {
+                                                        "name": "Trappeto"
+                                                    },
+                                                    {
+                                                        "name": "Villabate"
+                                                    },
+                                                    {
+                                                        "name": "San Giuseppe Jato"
+                                                    },
+                                                    {
+                                                        "name": "Ciminna"
+                                                    },
+                                                    {
+                                                        "name": "Lascari"
+                                                    },
+                                                    {
+                                                        "name": "Balestrate"
+                                                    },
+                                                    {
+                                                        "name": "Cinisi"
+                                                    },
+                                                    {
+                                                        "name": "Montelepre"
+                                                    },
+                                                    {
+                                                        "name": "Scillato"
+                                                    },
+                                                    {
+                                                        "name": "Sciara"
+                                                    },
+                                                    {
+                                                        "name": "Camporeale"
+                                                    },
+                                                    {
+                                                        "name": "Vicari"
+                                                    },
+                                                    {
+                                                        "name": "Altofonte"
+                                                    },
+                                                    {
+                                                        "name": "Ustica"
+                                                    },
+                                                    {
+                                                        "name": "Polizzi Generosa"
+                                                    },
+                                                    {
+                                                        "name": "Cerda"
+                                                    },
+                                                    {
+                                                        "name": "Misilmeri"
+                                                    },
+                                                    {
+                                                        "name": "Campofelice di Roccella"
+                                                    },
+                                                    {
+                                                        "name": "Isnello"
+                                                    },
+                                                    {
+                                                        "name": "Godrano"
+                                                    },
+                                                    {
+                                                        "name": "Terrasini"
+                                                    },
+                                                    {
+                                                        "name": "Termini Imerese"
+                                                    },
+                                                    {
+                                                        "name": "Isola delle Femmine"
+                                                    },
+                                                    {
+                                                        "name": "Caltavuturo"
+                                                    },
+                                                    {
+                                                        "name": "Sclafani Bagni"
+                                                    },
+                                                    {
+                                                        "name": "Marineo"
+                                                    },
+                                                    {
+                                                        "name": "Partinico"
+                                                    },
+                                                    {
+                                                        "name": "Piana degli Albanesi"
+                                                    }
+                                                ],
+                                                "name": "Palermo"
+                                            },
+                                            {
+                                                "villages": [
+                                                    {
+                                                        "name": "Vita"
+                                                    },
+                                                    {
+                                                        "name": "Calatafimi Segesta"
+                                                    },
+                                                    {
+                                                        "name": "Castellammare del Golfo"
+                                                    },
+                                                    {
+                                                        "name": "Gibellina"
+                                                    },
+                                                    {
+                                                        "name": "Salemi"
+                                                    },
+                                                    {
+                                                        "name": "Alcamo"
+                                                    },
+                                                    {
+                                                        "name": "San Vito Lo Capo"
+                                                    },
+                                                    {
+                                                        "name": "Erice"
+                                                    },
+                                                    {
+                                                        "name": "Buseto Palizzolo"
+                                                    },
+                                                    {
+                                                        "name": "Custonaci"
+                                                    }
+                                                ],
+                                                "name": "Trapani"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "naturallanguage": {
+                            "search_date_string": "2019 February 22 09: 09:50 09:50:29",
+                            "search_quality_string": "quality:?",
+                            "search_cloud_string": "cloud:mostly_cloudy",
+                            "search_incidence_angle_string": "incidence:?"
+                        }
+                    },
+                    "identification": {
+                        "profile": "Image",
+                        "externalId": "S2B_MSIL1C_20190222T095029_N0207_R079_T33SUC_20190222T115501",
+                        "collection": "Sentinel-2",
+                        "type": "S2MSI1C",
+                        "dataset": {}
+                    },
+                    "transmission": {},
+                    "contentDescription": {
+                        "cloudCoverPercentage": 63.1189
+                    },
+                    "acquisition": {
+                        "endViewingDate": 1550829029024,
+                        "mission": "Sentinel-2",
+                        "missionId": "B",
+                        "missionCode": "S2B",
+                        "beginViewingDate": 1550829029024,
+                        "missionName": "Sentinel-2B",
+                        "centerViewingDate": 1550829029024,
+                        "sensorMode": "INS-NOBS",
+                        "sensorId": "MSI"
+                    },
+                    "orbit": {
+                        "relativeNumber": 79,
+                        "number": 10258,
+                        "direction": "DESCENDING"
+                    },
+                    "state": {
+                        "resources": {
+                            "thumbnail": true,
+                            "quicklook": true
+                        },
+                        "services": {
+                            "wmts": false,
+                            "download": "internal",
+                            "wcs": false,
+                            "wms": false
+                        },
+                        "insertionDate": 1550853517863
+                    },
+                    "attitude": {},
+                    "data.scene.sentinel2_l1c": "ef60b465-e3b0-4aa6-98af-8ff5bb1e5f5a"
                 }
             }
         ]
@@ -96,7 +434,7 @@ Example output GeoJSON:
 Capabilities
 ------------
 
-This block has a single output capability, ``data.imagery.optical.generic.safe``, which maps to the
+This block has a single output capability, ``data.scene.sentinel2_l1c``, which maps to the
 directory containing the `SAFE data <http://earth.esa.int/SAFE/>`_ for the scene.
 
 Download example output

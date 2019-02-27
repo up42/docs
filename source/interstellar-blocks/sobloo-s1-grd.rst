@@ -40,56 +40,503 @@ capability mapping to the directory containing the `SAFE data <http://earth.esa.
 Example output GeoJSON:
 
 .. code-block:: javascript
-
     {
         "type": "FeatureCollection",
         "features": [
             {
                 "type": "Feature",
                 "bbox": [
-                    13.375777,
-                    52.49418,
-                    13.384849,
-                    52.499467
+                    13.319549560546875,
+                    38.20473446610163,
+                    13.3209228515625,
+                    38.205813598134746
                 ],
                 "geometry": {
                     "type": "Polygon",
                     "coordinates": [
                         [
                             [
-                                13.678967,
-                                50.963955
+                                15.911173,
+                                36.643414
                             ],
                             [
-                                9.951602,
-                                51.374794
+                                13.050483,
+                                37.048508
                             ],
                             [
-                                10.326771,
-                                52.869404
+                                13.352791,
+                                38.550831
                             ],
                             [
-                                14.179229,
-                                52.456017
+                                16.271927,
+                                38.147507
                             ],
                             [
-                                13.678967,
-                                50.963955
+                                15.911173,
+                                36.643414
                             ]
                         ]
                     ]
                 },
                 "properties": {
-                    "data.imagery.radar.generic.sar-c.polarimetric.safe": "/tmp/output/559ffdc1-d6de-43a0-9a97-2a45c6c1699d",
-                    "id": "559ffdc1-d6de-43a0-9a97-2a45c6c1699d",
-                    "timestamp": 1550381123883,
+                    "id": "0a99c5a1-75c0-4a0d-a7dc-c2a551936be4",
+                    "timestamp": 1550639039852,
                     "centroid": {
                         "type": "Point",
                         "coordinates": [
-                            12.03758170838692,
-                            51.91980054362828
+                            14.648677460217996,
+                            37.599790021398825
                         ]
-                    }
+                    },
+                    "visibility": {
+                        "deleted": false
+                    },
+                    "illumination": {},
+                    "production": {
+                        "levelCode": "L1",
+                        "ongoing": false
+                    },
+                    "archive": {
+                        "offLine": false,
+                        "size": 1648,
+                        "onLine": false
+                    },
+                    "spatialCoverage": {
+                        "verticality": {},
+                        "geometry": {
+                            "geographicBoundingPolygon": {
+                                "coordinates": [
+                                    [
+                                        [
+                                            15.911173,
+                                            36.643414
+                                        ],
+                                        [
+                                            13.050483,
+                                            37.048508
+                                        ],
+                                        [
+                                            13.352791,
+                                            38.550831
+                                        ],
+                                        [
+                                            16.271927,
+                                            38.147507
+                                        ],
+                                        [
+                                            15.911173,
+                                            36.643414
+                                        ]
+                                    ]
+                                ],
+                                "type": "Polygon"
+                            },
+                            "global": false,
+                            "centerPoint": {
+                                "lon": 14.648677460217996,
+                                "lat": 37.599790021398825
+                            }
+                        }
+                    },
+                    "timeStamp": 1550639039852,
+                    "uid": "0a99c5a1-75c0-4a0d-a7dc-c2a551936be4",
+                    "enrichment": {
+                        "geonames": [
+                            {
+                                "name": "Italy",
+                                "states": [
+                                    {
+                                        "name": "Sicily",
+                                        "counties": [
+                                            {
+                                                "villages": [
+                                                    {
+                                                        "name": "Blufi"
+                                                    },
+                                                    {
+                                                        "name": "Aliminusa"
+                                                    },
+                                                    {
+                                                        "name": "Altofonte"
+                                                    },
+                                                    {
+                                                        "name": "Casteldaccia"
+                                                    },
+                                                    {
+                                                        "name": "Termini Imerese"
+                                                    },
+                                                    {
+                                                        "name": "Sciara"
+                                                    },
+                                                    {
+                                                        "name": "Mezzojuso"
+                                                    },
+                                                    {
+                                                        "name": "Scillato"
+                                                    },
+                                                    {
+                                                        "name": "Monreale"
+                                                    },
+                                                    {
+                                                        "name": "Collesano"
+                                                    },
+                                                    {
+                                                        "name": "Campofiorito"
+                                                    },
+                                                    {
+                                                        "name": "Palazzo Adriano"
+                                                    },
+                                                    {
+                                                        "name": "Geraci Siculo"
+                                                    },
+                                                    {
+                                                        "name": "Caccamo"
+                                                    },
+                                                    {
+                                                        "name": "Pollina"
+                                                    },
+                                                    {
+                                                        "name": "Cerda"
+                                                    }
+                                                ],
+                                                "name": "Palermo"
+                                            },
+                                            {
+                                                "villages": [
+                                                    {
+                                                        "name": "Terme Vigliatore"
+                                                    },
+                                                    {
+                                                        "name": "Capizzi"
+                                                    },
+                                                    {
+                                                        "name": "Barcellona Pozzo di Gotto"
+                                                    },
+                                                    {
+                                                        "name": "Limina"
+                                                    },
+                                                    {
+                                                        "name": "Monforte San Giorgio"
+                                                    },
+                                                    {
+                                                        "name": "Letojanni"
+                                                    },
+                                                    {
+                                                        "name": "Valdina"
+                                                    },
+                                                    {
+                                                        "name": "Militello Rosmarino"
+                                                    },
+                                                    {
+                                                        "name": "Roccavaldina"
+                                                    },
+                                                    {
+                                                        "name": "Montalbano Elicona"
+                                                    },
+                                                    {
+                                                        "name": "Patti"
+                                                    },
+                                                    {
+                                                        "name": "Novara di Sicilia"
+                                                    },
+                                                    {
+                                                        "name": "San Filippo del Mela"
+                                                    },
+                                                    {
+                                                        "name": "Mistretta"
+                                                    },
+                                                    {
+                                                        "name": "San Pier Niceto"
+                                                    },
+                                                    {
+                                                        "name": "Capri Leone"
+                                                    },
+                                                    {
+                                                        "name": "Mandanici"
+                                                    }
+                                                ],
+                                                "name": "Messina"
+                                            },
+                                            {
+                                                "villages": [
+                                                    {
+                                                        "name": "Sciacca"
+                                                    },
+                                                    {
+                                                        "name": "Licata"
+                                                    },
+                                                    {
+                                                        "name": "Lucca Sicula"
+                                                    },
+                                                    {
+                                                        "name": "Calamonaci"
+                                                    },
+                                                    {
+                                                        "name": "Camastra"
+                                                    },
+                                                    {
+                                                        "name": "Realmonte"
+                                                    },
+                                                    {
+                                                        "name": "Castrofilippo"
+                                                    },
+                                                    {
+                                                        "name": "Alessandria della Rocca"
+                                                    },
+                                                    {
+                                                        "name": "Sant'Angelo Muxaro"
+                                                    },
+                                                    {
+                                                        "name": "Campobello di Licata"
+                                                    },
+                                                    {
+                                                        "name": "Bivona"
+                                                    },
+                                                    {
+                                                        "name": "Caltabellotta"
+                                                    },
+                                                    {
+                                                        "name": "Naro"
+                                                    },
+                                                    {
+                                                        "name": "Ribera"
+                                                    },
+                                                    {
+                                                        "name": "Santo Stefano Quisquina"
+                                                    },
+                                                    {
+                                                        "name": "Siculiana"
+                                                    },
+                                                    {
+                                                        "name": "Casteltermini"
+                                                    },
+                                                    {
+                                                        "name": "Sambuca di Sicilia"
+                                                    }
+                                                ],
+                                                "name": "Agrigento"
+                                            },
+                                            {
+                                                "villages": [
+                                                    {
+                                                        "name": "Ramacca"
+                                                    },
+                                                    {
+                                                        "name": "Grammichele"
+                                                    },
+                                                    {
+                                                        "name": "Aci Sant'Antonio"
+                                                    },
+                                                    {
+                                                        "name": "Mazzarrone"
+                                                    },
+                                                    {
+                                                        "name": "Maniace"
+                                                    },
+                                                    {
+                                                        "name": "Scordia"
+                                                    },
+                                                    {
+                                                        "name": "Maletto"
+                                                    }
+                                                ],
+                                                "name": "Catania"
+                                            },
+                                            {
+                                                "villages": [
+                                                    {
+                                                        "name": "Scicli"
+                                                    },
+                                                    {
+                                                        "name": "Acate"
+                                                    }
+                                                ],
+                                                "name": "Ragusa"
+                                            },
+                                            {
+                                                "villages": [
+                                                    {
+                                                        "name": "Floridia"
+                                                    },
+                                                    {
+                                                        "name": "Solarino"
+                                                    },
+                                                    {
+                                                        "name": "Sortino"
+                                                    },
+                                                    {
+                                                        "name": "Ferla"
+                                                    },
+                                                    {
+                                                        "name": "Noto"
+                                                    },
+                                                    {
+                                                        "name": "Buscemi"
+                                                    },
+                                                    {
+                                                        "name": "Augusta"
+                                                    },
+                                                    {
+                                                        "name": "Rosolini"
+                                                    },
+                                                    {
+                                                        "name": "Carlentini"
+                                                    },
+                                                    {
+                                                        "name": "Palazzolo Acreide"
+                                                    }
+                                                ],
+                                                "name": "Siracusa"
+                                            },
+                                            {
+                                                "villages": [
+                                                    {
+                                                        "name": "Niscemi"
+                                                    },
+                                                    {
+                                                        "name": "Resuttano"
+                                                    },
+                                                    {
+                                                        "name": "Riesi"
+                                                    },
+                                                    {
+                                                        "name": "Gela"
+                                                    },
+                                                    {
+                                                        "name": "Sutera"
+                                                    },
+                                                    {
+                                                        "name": "Vallelunga Pratameno"
+                                                    }
+                                                ],
+                                                "name": "Caltanissetta"
+                                            },
+                                            {
+                                                "villages": [
+                                                    {
+                                                        "name": "Troina"
+                                                    },
+                                                    {
+                                                        "name": "Aidone"
+                                                    },
+                                                    {
+                                                        "name": "Calascibetta"
+                                                    },
+                                                    {
+                                                        "name": "Nicosia"
+                                                    },
+                                                    {
+                                                        "name": "Nissoria"
+                                                    },
+                                                    {
+                                                        "name": "Agira"
+                                                    },
+                                                    {
+                                                        "name": "Villarosa"
+                                                    },
+                                                    {
+                                                        "name": "Leonforte"
+                                                    },
+                                                    {
+                                                        "name": "Assoro"
+                                                    }
+                                                ],
+                                                "name": "Enna"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "Calabria",
+                                        "counties": [
+                                            {
+                                                "villages": [
+                                                    {
+                                                        "name": "Delianuova"
+                                                    },
+                                                    {
+                                                        "name": "Roccaforte del Greco"
+                                                    },
+                                                    {
+                                                        "name": "Samo"
+                                                    },
+                                                    {
+                                                        "name": "Sinopoli"
+                                                    },
+                                                    {
+                                                        "name": "Sant'Alessio in Aspromonte"
+                                                    },
+                                                    {
+                                                        "name": "Bruzzano Zeffirio"
+                                                    },
+                                                    {
+                                                        "name": "Cardeto"
+                                                    },
+                                                    {
+                                                        "name": "Scilla"
+                                                    },
+                                                    {
+                                                        "name": "Caraffa del Bianco"
+                                                    },
+                                                    {
+                                                        "name": "Condofuri"
+                                                    },
+                                                    {
+                                                        "name": "Palizzi"
+                                                    }
+                                                ],
+                                                "name": "Reggio Calabria"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "naturallanguage": {
+                            "search_date_string": "2019 February 20 05: 05:03 05:03:59",
+                            "search_quality_string": "quality:?",
+                            "search_cloud_string": "cloud:?",
+                            "search_incidence_angle_string": "incidence:?"
+                        }
+                    },
+                    "identification": {
+                        "profile": "Image",
+                        "externalId": "S1B_IW_GRDH_1SDV_20190220T050359_20190220T050424_015025_01C12F_4EA4",
+                        "collection": "Sentinel-1",
+                        "type": "GRD",
+                        "dataset": {}
+                    },
+                    "transmission": {},
+                    "contentDescription": {},
+                    "acquisition": {
+                        "endViewingDate": 1550639064851,
+                        "mission": "Sentinel-1",
+                        "missionId": "B",
+                        "missionCode": "S1B",
+                        "beginViewingDate": 1550639039852,
+                        "missionName": "Sentinel-1B",
+                        "polarization": "VV VH",
+                        "sensorMode": "IW",
+                        "sensorId": "SAR-C SAR"
+                    },
+                    "orbit": {
+                        "relativeNumber": 124,
+                        "direction": "DESCENDING"
+                    },
+                    "state": {
+                        "resources": {
+                            "thumbnail": true,
+                            "quicklook": true
+                        },
+                        "services": {
+                            "wmts": false,
+                            "download": "internal",
+                            "wcs": false,
+                            "wms": false
+                        },
+                        "insertionDate": 1550651014130
+                    },
+                    "attitude": {},
+                    "data.scene.sentinel1_l1c_grd": "0a99c5a1-75c0-4a0d-a7dc-c2a551936be4"
                 }
             }
         ]
@@ -98,7 +545,7 @@ Example output GeoJSON:
 Capabilities
 ------------
 
-This block has a single output capability, ``data.imagery.radar.generic.sar-c.polarimetric``, which maps to the
+This block has a single output capability, ``data.scene.sentinel1_l1c_grd``, which maps to the
 directory containing the `SAFE data <http://earth.esa.int/SAFE/>`_ for the scene.
 
 Download example output

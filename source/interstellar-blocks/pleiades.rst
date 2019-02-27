@@ -70,7 +70,44 @@ Output format
                     ]
                 },
                 "properties": {
-                    "data.imagery.optical.generic.multispectral.rgb.pansharpened": "759b1fbc-98c4-498d-955d-ef07f5cc3123.tif"
+                    "acquisitionDate": "2018-10-27T10:08:59.18Z",
+                    "acquisitionStation": "FR1",
+                    "archivingCenter": "FR1",
+                    "azimuthAngle": 180.0069721072989,
+                    "cloudCover": 12.3,
+                    "commercialReference": "SO18029226",
+                    "constellation": "PHR",
+                    "correlationId": "89919125-a5d2-45a7-91a8-eef14a51baff",
+                    "expirationDate": "2019-10-31T16:56:47.482951894Z",
+                    "format": "image/jp2",
+                    "id": "c7007bfc-63e2-423d-aef3-2a40d375d0aa",
+                    "illuminationAzimuthAngle": 167.0923129366511,
+                    "illuminationElevationAngle": 38.24254044287041,
+                    "incidenceAngle": 16.51857092811261,
+                    "incidenceAngleAcrossTrack": -7.283010087851206,
+                    "incidenceAngleAlongTrack": -14.98217505834965,
+                    "organisationName": "AIRBUS DS GEO",
+                    "parentIdentifier": "DS_PHR1B_201810271008591_FR1_PX_E013N38_0505_02977",
+                    "platform": "PHR1B",
+                    "processingCenter": "FCMUGC",
+                    "processingDate": "2018-10-31T04:51:36.437",
+                    "processingLevel": "SENSOR",
+                    "processorName": "DRS-MM V2.6vV2.6",
+                    "productCategory": "image",
+                    "productType": "bundle",
+                    "productionStatus": "IN_CLOUD",
+                    "publicationDate": "2018-10-31T16:56:47.482951894Z",
+                    "qualified": false,
+                    "resolution": 0.5,
+                    "sensorType": "OPTICAL",
+                    "snowCover": 0,
+                    "sourceIdentifier": "DS_PHR1B_201810271008221_FR1_PX_E013N38_0505_02973",
+                    "spectralRange": "VISIBLE",
+                    "title": "DS_PHR1B_201810271008221_FR1_PX_E013N38_0505_02973",
+                    "workspaceId": "0e33eb50-3404-48ad-b835-b0b4b72a5625",
+                    "workspaceName": "public",
+                    "workspaceTitle": "Public",
+                    "data.aoiclipped": "b32c43f2-2ddc-48d1-82e2-9c4ece2f43e4.tif"
                 }
             }
         ]
@@ -79,7 +116,7 @@ Output format
 Capabilities
 ------------
 
-This block has a single output capability, ``data.imagery.optical.generic.multispectral.rgb.pansharpened``.
+This block has a single output capability, ``data.aoiclipped``.
 
 Download example output
 -----------------------
