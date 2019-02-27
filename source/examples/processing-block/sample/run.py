@@ -21,7 +21,7 @@ def run(data):
         rel_image_path = feature["properties"].get(MULTISPECTRAL_RGB_CAPABILITY)
         image_path = "/tmp/input/%s" % rel_image_path
         print("Feature has an image at %s" % image_path)
-        shutil.copyfile(image_path, '/tmp/output/')
+        shutil.copy(image_path, '/tmp/output/')
     return data
 
 
