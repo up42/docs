@@ -26,6 +26,7 @@ Output format
 -------------
 
 .. code-block:: javascript
+
     {
         "type": "FeatureCollection",
         "features": [
@@ -65,7 +66,44 @@ Output format
                     ]
                 },
                 "properties": {
-                    "data.imagery.optical.generic.multispectral.rgb.pansharpened": "2b3f1d57-f119-4f4e-9321-18df486b41f5.tif"
+                    "acquisitionDate": "2018-07-16T09:36:06.624Z",
+                    "acquisitionStation": "SV1",
+                    "archivingCenter": "FR1",
+                    "azimuthAngle": 208.323208325,
+                    "cloudCover": 4.03,
+                    "commercialReference": "SO18018976",
+                    "constellation": "SPOT",
+                    "correlationId": "7e81802a-e5e4-486d-b6de-da589997dd49",
+                    "expirationDate": "2019-07-29T04:49:20.061037678Z",
+                    "format": "image/jp2",
+                    "id": "728769dc-3da3-4190-8583-bc0f8bd9b80d",
+                    "illuminationAzimuthAngle": 121.543492339,
+                    "illuminationElevationAngle": 63.6956046581,
+                    "incidenceAngle": 13.910878049,
+                    "incidenceAngleAcrossTrack": -7.00769286844,
+                    "incidenceAngleAlongTrack": 12.0359958444,
+                    "organisationName": "AIRBUS DS",
+                    "parentIdentifier": "DS_SPOT7_201807160936066_FR1_FR1_SV1_SV1_E013N38_01790",
+                    "platform": "SPOT7",
+                    "processingCenter": "AOC",
+                    "processingDate": "2018-07-19T18:11:16Z",
+                    "processingLevel": "SENSOR",
+                    "processorName": "IMFv6",
+                    "productCategory": "image",
+                    "productType": "bundle",
+                    "productionStatus": "IN_CLOUD",
+                    "publicationDate": "2018-07-29T04:49:20.061037678Z",
+                    "qualified": false,
+                    "resolution": 1.5805,
+                    "sensorType": "OPTICAL",
+                    "snowCover": 0,
+                    "sourceIdentifier": "SEN_SPOT7_20180716_093606800_000",
+                    "spectralRange": "VISIBLE",
+                    "title": "SEN_SPOT7_20180716_093606800_000",
+                    "workspaceId": "0e33eb50-3404-48ad-b835-b0b4b72a5625",
+                    "workspaceName": "public",
+                    "workspaceTitle": "Public",
+                    "data.aoiclipped": "e9e9524c-a34e-47ed-953d-81d787cbc1f8.tif"
                 }
             }
         ]
@@ -74,7 +112,7 @@ Output format
 Capabilities
 ------------
 
-This block has a single output capability, ``data.imagery.optical.generic.multispectral.rgb.pansharpened``.
+This block has a single output capability, ``data.aoiclipped``.
 
 Download example output
 -----------------------
