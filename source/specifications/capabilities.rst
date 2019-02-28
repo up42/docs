@@ -9,7 +9,7 @@ Input and output capabilities define what kind of data a block provides, and wha
 capabilities are validated when creating a job from a workflow.
 
 For a given sequence of blocks, every block's output capabilities must match the input capabilities of the next block
-in the workflow.
+in the workflow. If left empty for both blocks, a sequence is also considered valid.
 
 For example, in the following workflow:
 
@@ -30,12 +30,7 @@ So, for example, if the :ref:`manifest <block-manifest>` for Block A contained t
         "input_capabilities": {
         },
         "output_capabilities": {
-            "data.imagery.optical.generic.multispectral": {},
-            "data.imagery.optical.generic.multispectral.blue": {},
-            "data.imagery.optical.generic.multispectral.green": {},
-            "data.imagery.optical.generic.multispectral.red": {},
-            "data.imagery.optical.generic.multispectral.nir": {},
-            "data.imagery.optical.generic.panchromatic": {}
+            "data.aoiclipped": {}
         }
     }
 
@@ -48,12 +43,7 @@ Then the manifest for Block B **must** have the corresponding input capabilities
         "name": "block-b",
         // ...
         "input_capabilities": {
-            "data.imagery.optical.generic.multispectral": {},
-            "data.imagery.optical.generic.multispectral.blue": {},
-            "data.imagery.optical.generic.multispectral.green": {},
-            "data.imagery.optical.generic.multispectral.red": {},
-            "data.imagery.optical.generic.multispectral.nir": {},
-            "data.imagery.optical.generic.panchromatic": {}
+            "data.aoiclipped": {}
         },
         "output_capabilities": {
             // ...

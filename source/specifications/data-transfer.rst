@@ -111,8 +111,8 @@ For simple imagery associated with a feature, you might have some output JSON as
                     // ...
                 },
                 "properties": {
-                    "data.imagery.optical.generic.multispectral.rgb": "aedf023/rgb.png",
-                    "data.imagery.optical.generic.multispectral.nir": "aedf023/nir.png",
+                    "data.aoiclipped": "aedf023/rgb.png",
+                    "data.aoiclipped": "aedf023/nir.png",
                     // ...
                 }
             },
@@ -122,8 +122,8 @@ For simple imagery associated with a feature, you might have some output JSON as
                     // ...
                 },
                 "properties": {
-                    "data.imagery.optical.generic.multispectral.rgb": "be051fa1/rgb.png",
-                    "data.imagery.optical.generic.multispectral.nir": "be051fa1/nir.png",
+                    "data.aoiclipped": "be051fa1/rgb.png",
+                    "data.aoiclipped": "be051fa1/nir.png",
                     // ...
                 }
             }
