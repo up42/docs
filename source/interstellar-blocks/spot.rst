@@ -1,7 +1,7 @@
 .. _spot-aoiclipped-block:
 
 SPOT AOI-Clipped block
-===================
+======================
 
 Block type: ``DATA``
 

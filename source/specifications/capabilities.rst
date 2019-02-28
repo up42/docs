@@ -30,7 +30,7 @@ So, for example, if the :ref:`manifest <block-manifest>` for Block A contained t
         "input_capabilities": {
         },
         "output_capabilities": {
-            "data.aoiclipped": {}
+            "data.texture": {}
         }
     }
 
@@ -43,7 +43,7 @@ Then the manifest for Block B **must** have the corresponding input capabilities
         "name": "block-b",
         // ...
         "input_capabilities": {
-            "data.aoiclipped": {}
+            "data.texture": {}
         },
         "output_capabilities": {
             // ...
