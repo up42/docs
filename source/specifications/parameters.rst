@@ -17,7 +17,7 @@ Query filters
 Query filters can be one of the following types:
 
 * ``geometry``: a GeoJSON gemetry
-* ``date-range``: a range of dates, specified in ISO format
+* ``dateRange``: a range of dates, specified in ISO format
 * ``range``: a numerical range (either integers or floats). Range parameters can specfiy the following additional
   options:
     - ``min``: a minimum value
@@ -54,7 +54,7 @@ A complete example of filter types from a manifest would look something like thi
                 "description": "Return all data whose geometry is contained completely by this geometry"
             },
             "time": {
-                "type": "date-range",
+                "type": "dateRange",
                 "required": true,
                 "description": "Return all data with an acquisition date in this range"
             },
