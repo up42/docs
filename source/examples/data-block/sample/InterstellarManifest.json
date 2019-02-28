@@ -24,6 +24,5 @@
   "input_capabilities": {
   },
   "output_capabilities": {
-    "data.imagery.optical.generic.multispectral.rgb": {},
   }
 }
