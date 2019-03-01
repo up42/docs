@@ -9,9 +9,7 @@
   "description": "This is an example processing block for inputting/outputting RGB images",
   "parameters": {},
   "input_capabilities": {
-    "data.imagery.optical.generic.multispectral.rgb": {},
   },
   "output_capabilities": {
-    "data.imagery.optical.generic.multispectral.rgb": {},
   }
 }
