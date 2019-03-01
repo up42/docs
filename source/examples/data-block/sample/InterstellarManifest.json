@@ -21,8 +21,6 @@
       "type": "dateRange"
     }
   },
-  "input_capabilities": {
-  },
-  "output_capabilities": {
-  }
+  "input_capabilities": {},
+  "output_capabilities": {}
 }

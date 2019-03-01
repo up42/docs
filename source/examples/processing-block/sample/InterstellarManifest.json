@@ -3,13 +3,11 @@
   "name": "sample-processing-block",
   "type": "processing",
   "tags": [
-    "generic",
+    "generic"
   ],
   "display_name": "Sample Processing Block",
   "description": "This is an example processing block for inputting/outputting RGB images",
   "parameters": {},
-  "input_capabilities": {
-  },
-  "output_capabilities": {
-  }
+  "input_capabilities": {},
+  "output_capabilities": {}
 }
