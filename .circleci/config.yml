@@ -8,7 +8,7 @@ machine:
   timezone: Europe/Berlin
 
 orbs:
-  notify-slack: interstellar/notify-slack@0.1.18
+  notify-slack: interstellar/notify-slack@0.2.0
 
 jobs:
 
@@ -41,6 +41,9 @@ jobs:
       - run:
           name: Upload schemas to Google Cloud Storage Bucket
           command: gsutil rsync -r -d ./build/html/ gs://$BUCKET_NAME
+      - run:
+          name: Set git commit message environment variable
+          command: echo "export COMMIT_MESSAGE=\"$(git log --format=%s -n 1 ${CIRCLE_SHA1})\"" >> $BASH_ENV
       - notify-slack/deploy
 
   deploy-to-staging:

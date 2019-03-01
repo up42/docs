@@ -3,7 +3,7 @@
   "name": "sample-data-block",
   "type": "data",
   "tags": [
-    "generic",
+    "generic"
   ],
   "display_name": "Sample Data Block",
   "description": "This is an example data block for outputting RGB images",
@@ -18,7 +18,7 @@
       "type": "number"
     },
     "time": {
-      "type": "daterange"
+      "type": "dateRange"
     }
   },
   "input_capabilities": {
