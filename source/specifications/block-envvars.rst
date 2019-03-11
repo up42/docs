@@ -14,7 +14,7 @@ well as processing parameters, depending on if it is a data block or a processin
 UP42_TASK_PARAMETERS
 --------------------
 
-The value of the job inputs variable is a JSON payload structured as follows:
+The value of the task parameters variable is a JSON payload structured as follows:
 
 .. code-block:: javascript
 
@@ -24,7 +24,7 @@ The value of the job inputs variable is a JSON payload structured as follows:
         //...
     }
 
-The content of the JSON payload is variable, though for DATA blocks it needs to adhere to the 
+The content of the JSON payload is variable, though for **data blocks** it needs to adhere to the 
 `STAC query <https://github.com/radiantearth/stac-spec>`_ standard.
 
 How a block interprets the parameters is up to the block

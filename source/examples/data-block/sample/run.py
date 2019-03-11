@@ -14,6 +14,7 @@ def load_query():
     Get the query for the current task
     """
     data = os.environ.get("UP42_TASK_PARAMETERS", '{}')
+    print("Raw task params are: %s", data)
     query_data = json.loads(data)
     return query_data
 
