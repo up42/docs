@@ -8,27 +8,28 @@ workflow context and any run-time parameters that the block should be aware of.
 
 The current variables are:
 
-* ``INTERSTELLAR_JOB_INPUTS`` – the inputs for the job (query and run-time parameters)
-* ``INTERSTELLAR_TASK_NAME`` – the name of the task the block is executing within
+* ``UP42_JOB_MODE`` – the mode to run a job with (default or dry-run)
+* ``UP42_TASK_PARAMETERS`` – the parameters for the job tasks which are meant to be consumed by an individual block instance
 
-INTERSTELLAR_JOB_INPUTS
------------------------
+UP42_TASK_PARAMETERS
+--------------------
 
-The value of the job inputs variable is a JSON payload structured as follows:
+The value of the task parameters variable is a JSON payload structured as follows:
 
 .. code-block:: javascript
 
     {
-        "query": { ... },
-        "parameters": {
-            "example-uuid1-here": { ... },
-            "example-uuid2-here": { ... },
+        "blockname:n": { ... },
+        "blockname:n": {
+            "example-parameter1": { ... },
+            "example-parameter2": { ... },
             // ...
         }
     }
 
-The *query* key is the query for the data block of the job. The value of this key is always a valid
-`STAC query <https://github.com/radiantearth/stac-spec>`_. How the data block interprets this query is up to the block
+The *blockname* is the name of the block in the job. *n* is the instance number of the block in the workflow.
+The value of this key *blockname:n* for data blocks is always a valid
+`STAC query <https://github.com/radiantearth/stac-spec>`_. How the block interprets this value is up to the block
 itself, but it should specify what filters it expects via the :ref:`manifest parameters <block-params>`.
 
 For processing blocks, the parameters provided at run-time will be provided within the *parameters* key. Because a
@@ -52,8 +53,9 @@ In Python, that function is as easy as the following:
         return inputs.get("parameters", {}).get(task_name)
 
 
-INTERSTELLAR_TASK_NAME
-----------------------
 
-This will always be a string containing the ID of the current task, which is used to look up the relevant parameters
-as described in the job inputs section.
+UP42_JOB_MODE
+-------------
+
+The value of the job mode variable is either default or dry-run.
+dry-run mode allows fetches the metadata information of a block whereas default mode runs the actual job.
