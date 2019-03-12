@@ -13,11 +13,9 @@ def load_query():
     """
     Get the query for the current task
     """
-    # The task parameters are always stored in this environmental variable. Within that data, the "query" key contains
-    # the filters that the data block should process.
-    data = os.environ.get("INTERSTELLAR_JOB_INPUTS", '{}')
+    data = os.environ.get("UP42_TASK_PARAMETERS", '{}')
     print("Raw task params are: %s", data)
-    query_data = json.loads(data).get("query", {})
+    query_data = json.loads(data)
     return query_data
 
 
