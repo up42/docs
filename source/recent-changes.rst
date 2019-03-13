@@ -1,6 +1,19 @@
 Recent changes to the documentation
 ===================================
 
+13.03.2019
+----------
+* We've transitioned over to our new :ref:`up42.com <https://up42.com>` domain. We ask you to kindly use this from now on and bare with us whilst we update our branding.
+* We have recently released a feature so you can cancel long-running jobs. Please let us know if you have any feedback.
+* Added :ref:`new block environment variables <block-envvars>` - ``UP42_TASK_PARAMETERS`` and ``UP42_JOB_MODE``.
+* Updated manifest validation endpoint, it now returns a 400 Bad Request when the manifest is invalid. See the :ref:`example responses here <block-manifest.html#validating-your-manifest>`.
+
+22.02.2019
+----------
+
+* Fixed the ``docker run`` command examples in the section on :ref:`how to set up your development environment <dev-env-setup>`.
+* Fixed errors in the :ref:`sample data block <sample-data-block-download>` code.
+
 22.02.2019
 ----------
 
