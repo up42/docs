@@ -80,6 +80,8 @@ The easiest way to do this is as follows:
 You can then push the block with ``docker push`` as covered in the :ref:`guide to building custom blocks <build-and-push-first-block>`.
 
 
+.. _validating-your-manifest:
+
 Validating your manifest
 ------------------------
 
