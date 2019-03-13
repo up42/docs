@@ -8,9 +8,8 @@ workflow context and any run-time parameters that the block should be aware of.
 
 The current variables are:
 
-* ``UP42_TASK_PARAMETERS`` – the parameters for the task (i.e. the running block). These can be query details as
-well as processing parameters, depending on if it is a data block or a processing block.
-* ``UP42_JOB_MODE`` – the mode to run a job with (``default`` or ``dry-run``)
+* ``UP42_TASK_PARAMETERS`` – the parameters for the task (i.e. the running block). These can be query details as well as processing parameters, depending on if it is a data block or a processing block.
+* ``UP42_JOB_MODE`` – the mode to run a job with (``default`` or ``dry-run``).
 
 UP42_TASK_PARAMETERS
 --------------------
@@ -51,7 +50,5 @@ UP42_JOB_MODE
 
 The value of the job mode variable is either ``default`` or ``dry-run`` (case-sensitive!).
 
-``dry-run`` mode allows to fetch only metadata information for a query while the ``default`` mode
-runs the block in regular mode.
-
-``dry-run`` mode is only available for **data** blocks.
+* ``dry-run`` mode allows to fetch only metadata information for a query and is only available for **data** blocks.
+* ``default`` mode refers to a regular block run.
