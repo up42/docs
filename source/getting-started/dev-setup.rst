@@ -64,38 +64,36 @@ fetch the result.
 
 As preparation, first create a file called ``params.json`` and add the following content:
 
-.. code-block:: javascript
+.. code-block:: json
 
     {
-        "query": {
-            "intersects": {
-                "type": "Polygon",
-                "coordinates": [
-                  [
-                    [
-                      13.390274047851562,
-                      52.514967298868314
-                    ],
-                    [
-                      13.405380249023438,
-                      52.514967298868314
-                    ],
-                    [
-                      13.405380249023438,
-                      52.522905940278065
-                    ],
-                    [
-                      13.390274047851562,
-                      52.522905940278065
-                    ],
-                    [
-                      13.390274047851562,
-                      52.514967298868314
-                    ]
-                  ]
-                ]
-            }
-        }
+      "intersects": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.390274047851562,
+              52.514967298868314
+            ],
+            [
+              13.405380249023438,
+              52.514967298868314
+            ],
+            [
+              13.405380249023438,
+              52.522905940278065
+            ],
+            [
+              13.390274047851562,
+              52.522905940278065
+            ],
+            [
+              13.390274047851562,
+              52.514967298868314
+            ]
+          ]
+        ]
+      }
     }
 
 
@@ -110,14 +108,14 @@ Now run the block. The complete command to do that looks like the following:
 .. code-block:: bash
 
     $ docker run \
-        -e INTERSTELLAR_JOB_INPUTS="$(cat params.json)" \
+        -e UP42_TASK_PARAMETERS="$(cat params.json)" \
         -v /tmp/output:/tmp/output \
         -t data-block
 
 To break that down:
 
 * ``docker run data-block`` runs the container you just built
-* ``-e INTERSTELLAR_JOB_INPUTS="$(cat params.json)"`` creates an environmental variable called ``INTERSTELLAR_JOB_INPUTS``,
+* ``-e UP42_TASK_PARAMETERS="$(cat params.json)"`` creates an environmental variable called ``UP42_TASK_PARAMETERS``,
   whose value will be set to the contents of the ``params.json`` file. For more details on this,
   :ref:`see the section on block environment variables <block-envvars>`.
 * ``-v /tmp/output:/tmp/output`` mounts your local directory ``/tmp/output`` into the container, so any files written
