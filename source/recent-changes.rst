@@ -3,7 +3,7 @@ Recent changes to the documentation
 
 13.03.2019
 ----------
-* We've moved over to our new `up42.com <https://up42.com>`_ domain! We ask you to use this from now on and bare with us whilst we update our branding.
+* We've moved over to our new `up42.com <https://up42.com>`_ domain! We ask you to use this from now on and bear with us whilst we update our branding.
 * We have recently released a feature so you can cancel long-running jobs. Please let us know if you have any feedback.
 * Added :ref:`new block environment variables <block-envvars>` - ``UP42_TASK_PARAMETERS`` and ``UP42_JOB_MODE``.
 * Updated manifest validation endpoint, it now returns a 400 Bad Request when the manifest is invalid. See the :ref:`example responses here <validating-your-manifest>`.
