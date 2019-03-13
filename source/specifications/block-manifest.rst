@@ -89,6 +89,29 @@ Manifests can be validated against the endpoint provided by the platform. With `
 
     $ curl -X POST -H 'Content-Type: application/json' -d @InterstellarManifest.json https://api.interstellar.earth/validate-schema/block
 
+Example valid response:
+
+.. code-block:: json
+    Status code: 200
+    Body:
+    {
+        "valid": true,
+        "errors": []
+    }
+
+Example invalid response:
+
+.. code-block:: json
+    Status code: 400
+    Body:
+    {
+        "valid": false,
+        "errors": [
+            "#: required key [name] not found"
+        ]
+    }
+
+
 Reference
 ---------
 
