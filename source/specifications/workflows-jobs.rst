@@ -3,7 +3,7 @@
 Starting a job from a workflow endpoint
 =======================================
 
-Every workflow on the Interstellar platform has a corresponding API endpoint that can be used to run the workflow.
+Every workflow on the UP42 platform has a corresponding API endpoint that can be used to run the workflow.
 
 This endpoint can also be used to fetch information about and results of jobs that were run using that workflow.
 

@@ -1,7 +1,7 @@
 Creating a block
 ================
 
-Creating a block that runs on Interstellar is as easy as writing a `Dockerfile` in the root directory of your application. Only very few
+Creating a block that runs on UP42 is as easy as writing a `Dockerfile` in the root directory of your application. Only very few
 requirements are enforced - notably, of course that you need to
 have signed up and have an account.
 
@@ -17,7 +17,7 @@ file that adheres to some specific rules and include it in a ``LABEL`` instructi
 Input and output data
 ---------------------
 
-Blocks read their input data from the local filesystem, and write their output the same way. The Interstellar workflow
+Blocks read their input data from the local filesystem, and write their output the same way. The UP42 workflow
 orchestrator takes care of copying this data between the blocks and managing storage, so you do not need to connect
 to a storage API to interface with the platform.
 
@@ -33,12 +33,12 @@ For a full description of how to work with this data, see the :ref:`data transfe
 Writing the manifest
 --------------------
 
-Docker Images intended to run on Interstellar need to provide a valid JSON manifest.
+Docker Images intended to run on UP42 need to provide a valid JSON manifest.
 
 By convention, this JSON data is stored in the ``InterstellarManifest.json`` file inside the block. The
 full manifest specification :ref:`can be found here <block-manifest>`, along with examples.
 
-Once you have written your manifest file, you can validate it against an endpoint provided by the Interstellar
+Once you have written your manifest file, you can validate it against an endpoint provided by the UP42
 platform by using e.g. ``curl``
 
 .. code-block:: bash
@@ -102,13 +102,13 @@ If you click on **Push custom block**, the UI will provide you with the commands
 
 Those commands are the following:
 
-1. To authenticate against the registry, run ``docker login`` with your Interstellar login credentials:
+1. To authenticate against the registry, run ``docker login`` with your UP42 login credentials:
 
    .. code-block:: bash
 
-       $ docker login -u <interstellar-user-email> registry.interstellar.earth
+       $ docker login -u <up42-user-email> registry.interstellar.earth
 
-2. When building your block image, tag the image with the Interstellar registry URL you will push the block to:
+2. When building your block image, tag the image with the UP42 registry URL you will push the block to:
 
    .. code-block:: bash
 

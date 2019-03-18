@@ -1,4 +1,4 @@
-Welcome to Interstellar's documentation!
+Welcome to UP42's documentation!
 ========================================
 
 To get started, we recommend beginning in the :ref:`Getting Started <getting-started>` section.
@@ -16,6 +16,5 @@ For detailed information about writing blocks, see the :ref:`section about writi
    getting-started/index
    specifications/index
    examples/index
-   interstellar-blocks/index
+   up42-blocks/index
    recent-changes
-
