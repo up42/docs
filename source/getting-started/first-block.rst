@@ -106,19 +106,19 @@ Those commands are the following:
 
    .. code-block:: bash
 
-       $ docker login -u <up42-user-email> registry.interstellar.earth
+       $ docker login -u <up42-user-email> registry.up42.com
 
 2. When building your block image, tag the image with the UP42 registry URL you will push the block to:
 
    .. code-block:: bash
 
-       $ docker build . -t registry.interstellar.earth/<user_id>/<image_name>:<tag>
+       $ docker build . -t registry.up42.com/<user_id>/<image_name>:<tag>
 
        # You will probably want to combine this with the manifest build arg as shown above. In that case, the full
        # build command (with an example user ID and image name) becomes:
 
        $ docker build . \
-            -t registry.interstellar.earth/some-example-user-id/my-block:latest \
+            -t registry.up42.com/some-example-user-id/my-block:latest \
             --build-arg manifest="$(<InterstellarManifest.json)"
 
    You will need to replace ``<user_id>``, ``<image_name>``, and ``<tag>`` with your own values. Your **user id** can be
@@ -130,10 +130,10 @@ Those commands are the following:
 
    .. code-block:: bash
 
-       $ docker push registry.interstellar.earth/<user_id>/<image_name>:<tag>
+       $ docker push registry.up42.com/<user_id>/<image_name>:<tag>
 
        # Or following the example above:
-       $ docker push registry.interstellar.earth/some-example-user-id/my-block:latest
+       $ docker push registry.up42.com/some-example-user-id/my-block:latest
 
 
 Pushing updates
