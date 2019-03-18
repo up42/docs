@@ -1,6 +1,6 @@
 .. _builtin-blocks-documentation:
 
-Built-in blocks provided by Interstellar
+Built-in blocks provided by UP42
 ========================================
 
 .. toctree::

@@ -4,7 +4,7 @@ This is a sample processing block that always returns the input data.
 import json
 import shutil
 
-MULTISPECTRAL_RGB_CAPABILITY = "data.imagery.optical.generic.multispectral.rgb"
+AOICLIPPED = "data.aoiclipped"
 
 
 def load_input():
@@ -18,7 +18,7 @@ def load_input():
 def run(data):
     for feature in data.get("features"):
         print("Found GeoJSON feature:\n%s" % feature)
-        rel_image_path = feature["properties"].get(MULTISPECTRAL_RGB_CAPABILITY)
+        rel_image_path = feature["properties"].get(AOICLIPPED)
         image_path = "/tmp/input/%s" % rel_image_path
         print("Feature has an image at %s" % image_path)
         shutil.copy(image_path, '/tmp/output/')

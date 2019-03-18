@@ -3,7 +3,7 @@
 Using custom storage
 ====================
 
-The default storage mechanism for Interstellar is *stateless*, in that each job that runs does not have access to the
+The default storage mechanism for UP42 is *stateless*, in that each job that runs does not have access to the
 results of previous jobs.
 
 Additionally, each block only has the output data from the previous block available, meaning that if you want to

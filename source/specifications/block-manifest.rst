@@ -41,8 +41,8 @@ The most important keys to note here are the following:
 * ``type``: either ``"data"`` or ``"processing"``. This provides a hint to the platform when validating workflows.
   The major difference between data and processing blocks is whether they require input data (data blocks do not
   take any input data, only output it based on the :ref:`query parameters <query-format>`).
-* ``tags``: a list of tags used for searching and filtering blocks in the Interstellar UI.
-* ``display_name``: the name of the block as displayed in the Interstellar UI. This name is not checked for
+* ``tags``: a list of tags used for searching and filtering blocks in the UP42 UI.
+* ``display_name``: the name of the block as displayed in the UP42 UI. This name is not checked for
   uniqueness.
 * ``description``: free-text explanation of what your block does.
 * ``parameters``: for data blocks, the list of all query parameters the block supports. For processing blocks, the
@@ -57,7 +57,7 @@ The most important keys to note here are the following:
 Attaching a manifest to a block
 -------------------------------
 
-The data in the manifest file needs to be attached as a ``LABEL`` to the docker image. This enables Interstellar to read
+The data in the manifest file needs to be attached as a ``LABEL`` to the docker image. This enables UP42 to read
 the manifest quickly, without having to repeatedly fetch entire images.
 
 The easiest way to do this is as follows:

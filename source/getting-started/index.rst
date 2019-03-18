@@ -1,9 +1,9 @@
 .. _getting-started:
 
-Getting started with Interstellar
+Getting started with UP42
 =================================
 
-This section provides a quick reference to get started using the Interstellar platform.
+This section provides a quick reference to get started using the UP42 platform.
 
 For detailed information about writing blocks, see the :ref:`section about writing blocks <block-specs>`.
 

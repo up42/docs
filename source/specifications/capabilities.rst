@@ -59,12 +59,11 @@ Built-in capabilities
 The full list of build-in capabilities is available as part of the
 `block manifest JSON schema <http://specs.interstellar.earth/v1/blocks/schema.json>`_.
 
-All blocks provided by Interstellar will use capabilities from this list.
+All blocks provided by UP42 will use capabilities from this list.
 
 Adding custom capabilities
 --------------------------
 
 You may optionally specify your own capabilities, instead of using the built-in ones. Other than ensuring that they
-match the other blocks in the workflow, Interstellar does not put restrictions on what custom capabilities can be
+match the other blocks in the workflow, UP42 does not put restrictions on what custom capabilities can be
 specified.
-

@@ -26,7 +26,7 @@ Query filters can be one of the following types:
 * ``string``: generic string content
 * ``number``: generic number content
 
-How the block handles these parameters is up to the block itself, but the Interstellar UI will provide some validation
+How the block handles these parameters is up to the block itself, but the UP42 UI will provide some validation
 and sanity checking of these parameters.
 
 In addition to their type, each parameter in the manifest can specify:
