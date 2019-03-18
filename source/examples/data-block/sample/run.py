@@ -5,7 +5,7 @@ import os
 import json
 import shutil
 
-MULTISPECTRAL_RGB_CAPABILITY = "data.imagery.optical.generic.multispectral.rgb"
+AOICLIPPED = "data.aoiclipped"
 TILES_DIR = "/block/tiles/"
 
 
@@ -40,7 +40,7 @@ def run(query):
             features = json.loads(open(file).read()).get("features")
             # Add the image path as a capability to the feature(s) in the json data
             for f in features:
-                f["properties"][MULTISPECTRAL_RGB_CAPABILITY] = tile_name + ".jpg"
+                f["properties"][AOICLIPPED] = tile_name + ".jpg"
             output_data["features"] += features
         else:
             shutil.copyfile(file, '/tmp/output/%s.jpg' % tile_name)
