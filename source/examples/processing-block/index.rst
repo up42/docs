@@ -1,3 +1,5 @@
+.. _sample-processing-block:
+
 Sample processing block
 =======================
 
@@ -48,4 +50,3 @@ Python source code
 
 .. literalinclude:: sample/run.py
    :language: python
-

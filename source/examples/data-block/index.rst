@@ -1,3 +1,5 @@
+.. _sample-data-block:
+
 Sample data block
 =================
 
@@ -49,4 +51,3 @@ Python source code
 
 .. literalinclude:: sample/run.py
    :language: python
-
