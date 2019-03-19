@@ -1,6 +1,12 @@
 Recent changes to the documentation
 ===================================
 
+19.03.2019
+----------
+
+* Replaced 'Interstellar' with 'UP42' in the documentation text.
+* Fixed block capability values in the :ref:`data block <sample-data-block>` and :ref:`processing block <sample-processing-block>` downloadable code examples.
+
 13.03.2019
 ----------
 * We've moved over to our new `up42.com <https://up42.com>`_ domain! We ask you to use this from now on and bear with us whilst we update our branding.
