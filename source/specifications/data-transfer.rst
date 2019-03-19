@@ -60,7 +60,7 @@ Capabilities in ``Feature`` properties
 To reduce the amount of guesswork required to pass data between blocks, every :ref:`capability <block-capabilities>` that
 a block outputs should have a corresponding key in the ``"properties"`` field of the features that it generates.
 
-For example, if a block outputs the ``data.metadata.example.foo`` capability, then the corresponding output should
+For example, if a block outputs the ``up42.data.metadata.example.foo`` capability, then the corresponding output should
 look something like this:
 
 .. code-block:: javascript
@@ -72,7 +72,7 @@ look something like this:
                 "type": "Feature",
                 "geometry": { ... },
                 "properties": {
-                    "data.metadata.example.foo": "some-value-bar",
+                    "up42.data.metadata.example.foo": "some-value-bar",
                     // ...
                 }
             }
@@ -111,8 +111,8 @@ For simple imagery associated with a feature, you might have some output JSON as
                     // ...
                 },
                 "properties": {
-                    "up42.data.aoiclipped": "aedf023/rgb.png",
-                    "up42.data.aoiclipped": "aedf023/nir.png",
+                    "up42.data.aoiclipped": "aedf023/rgb.tif",
+                    "up42.data.aoiclipped": "aedf023/nir.tif",
                     // ...
                 }
             },
@@ -122,8 +122,8 @@ For simple imagery associated with a feature, you might have some output JSON as
                     // ...
                 },
                 "properties": {
-                    "up42.data.aoiclipped": "be051fa1/rgb.png",
-                    "up42.data.aoiclipped": "be051fa1/nir.png",
+                    "up42.data.aoiclipped": "be051fa1/rgb.tif",
+                    "up42.data.aoiclipped": "be051fa1/nir.tif",
                     // ...
                 }
             }
@@ -135,10 +135,10 @@ The corresponding file layout that the block should write would then be:
 ::
 
     /tmp/output/data.json
-    /tmp/output/aedf0123/rgb.png
-    /tmp/output/aedf0123/nir.png
-    /tmp/output/be051fa1/rgb.png
-    /tmp/output/be051fa1/nir.png
+    /tmp/output/aedf0123/rgb.tif
+    /tmp/output/aedf0123/nir.tif
+    /tmp/output/be051fa1/rgb.tif
+    /tmp/output/be051fa1/nir.tif
 
 In general, we recommend prefixing files with consistent identifiers that match the corresponding features, to make the
 file layout more intuitive. These could either be the original id of the imagery from the source data, or a derived or
