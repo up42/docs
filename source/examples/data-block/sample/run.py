@@ -5,7 +5,7 @@ import os
 import json
 import shutil
 
-AOICLIPPED = "data.aoiclipped"
+AOICLIPPED = "up42.data.aoiclipped"
 TILES_DIR = "/block/tiles/"
 
 

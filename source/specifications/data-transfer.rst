@@ -111,8 +111,8 @@ For simple imagery associated with a feature, you might have some output JSON as
                     // ...
                 },
                 "properties": {
-                    "data.aoiclipped": "aedf023/rgb.png",
-                    "data.aoiclipped": "aedf023/nir.png",
+                    "up42.data.aoiclipped": "aedf023/rgb.png",
+                    "up42.data.aoiclipped": "aedf023/nir.png",
                     // ...
                 }
             },
@@ -122,8 +122,8 @@ For simple imagery associated with a feature, you might have some output JSON as
                     // ...
                 },
                 "properties": {
-                    "data.aoiclipped": "be051fa1/rgb.png",
-                    "data.aoiclipped": "be051fa1/nir.png",
+                    "up42.data.aoiclipped": "be051fa1/rgb.png",
+                    "up42.data.aoiclipped": "be051fa1/nir.png",
                     // ...
                 }
             }
