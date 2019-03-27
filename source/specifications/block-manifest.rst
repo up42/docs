@@ -25,12 +25,14 @@ An example manifest file looks like the following:
         "description": "This is the Normalized Difference Vegetation Index block to calculate biomass health on a per-pixel basis.",
         "parameters": {
         },
+        "machine": {
+            "type": "medium"
+        }
         "input_capabilities": {
-            "data.imagery.optical.generic.multispectral.red": {},
-            "data.imagery.optical.generic.multispectral.nir": {}
+            "data.aoiclipped": {}
         },
         "output_capabilities": {
-            "data.imagery.optical.generic": {}
+            "data.aoiclipped": {}
         }
     }
 
@@ -47,6 +49,8 @@ The most important keys to note here are the following:
 * ``description``: free-text explanation of what your block does.
 * ``parameters``: for data blocks, the list of all query parameters the block supports. For processing blocks, the
   run-time parameters that your block can optionally specify. See :ref:`the page on parameters <block-params>`
+* ``machine``:``type``: defines the computing resource on which the block will be running. You can choose from four predefined
+machine types: ``small`` (0.5 CPU + 2GB RAM), ``medium`` (1 CPU + 5GB RAM), ``large`` (2 CPU + 10GB RAM), ``x-large`` (4 CPU + 20GB RAM). 
 * ``input_capabilities`` and ``output_capabilities``: the :ref:`capabilities <block-capabilities>` that your block
   requires to run, and/or that it outputs when it is finished. When validating a workflow, every block's output
   capabilties must match exactly the input capabilities of the next block in the workflow. These fields may be

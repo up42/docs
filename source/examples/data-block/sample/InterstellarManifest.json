@@ -21,6 +21,9 @@
       "type": "dateRange"
     }
   },
+  "machine": {
+    "type": "medium"
+  },
   "input_capabilities": {},
   "output_capabilities": {}
 }
