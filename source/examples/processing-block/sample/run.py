@@ -4,7 +4,7 @@ This is a sample processing block that always returns the input data.
 import json
 import shutil
 
-AOICLIPPED = "data.aoiclipped"
+AOICLIPPED = "up42.data.aoiclipped"
 
 
 def load_input():

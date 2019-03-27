@@ -26,11 +26,10 @@ An example manifest file looks like the following:
         "parameters": {
         },
         "input_capabilities": {
-            "data.imagery.optical.generic.multispectral.red": {},
-            "data.imagery.optical.generic.multispectral.nir": {}
+            "up42.data.aoiclipped": {}
         },
         "output_capabilities": {
-            "data.imagery.optical.generic": {}
+            "up42.data.aoiclipped": {}
         }
     }
 

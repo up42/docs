@@ -34,7 +34,7 @@ For more information on STAC filter parameters, see
 Output format
 -------------
 
-The output GeoJSON contains the metadata as returned by the Sobloo API, with the ``data.imagery.radar.generic.sar-c.polarimetric.safe``
+The output GeoJSON contains the metadata as returned by the Sobloo API, with the ``up42.data.scene.sentinel1_l1c_grd``
 capability mapping to the directory containing the `SAFE data <http://earth.esa.int/SAFE/>`_ for the scene.
 
 Example output GeoJSON:
@@ -536,7 +536,7 @@ Example output GeoJSON:
                         "insertionDate": 1550651014130
                     },
                     "attitude": {},
-                    "data.scene.sentinel1_l1c_grd": "0a99c5a1-75c0-4a0d-a7dc-c2a551936be4"
+                    "up42.data.scene.sentinel1_l1c_grd": "0a99c5a1-75c0-4a0d-a7dc-c2a551936be4"
                 }
             }
         ]
@@ -545,7 +545,7 @@ Example output GeoJSON:
 Capabilities
 ------------
 
-This block has a single output capability, ``data.scene.sentinel1_l1c_grd``, which maps to the
+This block has a single output capability, ``up42.data.scene.sentinel1_l1c_grd``, which maps to the
 directory containing the `SAFE data <http://earth.esa.int/SAFE/>`_ for the scene.
 
 Download example output

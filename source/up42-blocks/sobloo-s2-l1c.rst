@@ -31,7 +31,7 @@ Output format
 -------------
 
 
-The output GeoJSON contains the metadata as returned by the Sobloo API, with the ``data.imagery.radar.generic.sar-c.polarimetric.safe``
+The output GeoJSON contains the metadata as returned by the Sobloo API, with the ``up42.data.scene.sentinel2_l1c``
 capability mapping to the directory containing the `SAFE data <http://earth.esa.int/SAFE/>`_ for the scene.
 
 Example output GeoJSON:
@@ -425,7 +425,7 @@ Example output GeoJSON:
                         "insertionDate": 1550853517863
                     },
                     "attitude": {},
-                    "data.scene.sentinel2_l1c": "ef60b465-e3b0-4aa6-98af-8ff5bb1e5f5a"
+                    "up42.data.scene.sentinel2_l1c": "ef60b465-e3b0-4aa6-98af-8ff5bb1e5f5a"
                 }
             }
         ]
@@ -434,7 +434,7 @@ Example output GeoJSON:
 Capabilities
 ------------
 
-This block has a single output capability, ``data.scene.sentinel2_l1c``, which maps to the
+This block has a single output capability, ``up42.data.scene.sentinel2_l1c``, which maps to the
 directory containing the `SAFE data <http://earth.esa.int/SAFE/>`_ for the scene.
 
 Download example output

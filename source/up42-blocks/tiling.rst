@@ -24,4 +24,4 @@ Output and input format are identical.
 
 Capabilities
 ------------
-The block takes a ``data.aoiclipped`` product and delivers the same - just clipped into smaller pieces.
+The block takes a ``up42.data.aoiclipped`` product and delivers the same - just clipped into smaller pieces.
