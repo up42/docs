@@ -27,7 +27,7 @@ An example manifest file looks like the following:
         },
         "machine": {
             "type": "medium"
-        }
+        },
         "input_capabilities": {
             "data.aoiclipped": {}
         },
