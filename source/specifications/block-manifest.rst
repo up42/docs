@@ -38,7 +38,7 @@ An example manifest file looks like the following:
 
 The most important keys to note here are the following:
 
-* ``_interstellar_specification_version``: currently should always be set to ``1``.
+* ``_up42_specification_version``: currently should always be set to ``1``.
 * ``name``: the name of your block. This name **must** be unique for your account.
 * ``type``: either ``"data"`` or ``"processing"``. This provides a hint to the platform when validating workflows.
   The major difference between data and processing blocks is whether they require input data (data blocks do not
@@ -49,8 +49,13 @@ The most important keys to note here are the following:
 * ``description``: free-text explanation of what your block does.
 * ``parameters``: for data blocks, the list of all query parameters the block supports. For processing blocks, the
   run-time parameters that your block can optionally specify. See :ref:`the page on parameters <block-params>`
-* ``machine``:``type``: defines the computing resource on which the block will be running. You can choose from four predefined
-machine types: ``small`` (0.5 CPU + 2GB RAM), ``medium`` (1 CPU + 5GB RAM), ``large`` (2 CPU + 10GB RAM), ``xlarge`` (4 CPU + 20GB RAM). 
+* ``machine``:``type``: defines the computing resource on which the block will be running. You can choose from four predefined machine types:
+
+    * ``small`` (0.5 CPU + 2GB RAM),
+    * ``medium`` (1 CPU + 5GB RAM),
+    * ``large`` (2 CPU + 10GB RAM),
+    * ``xlarge`` (4 CPU + 20GB RAM).
+
 * ``input_capabilities`` and ``output_capabilities``: the :ref:`capabilities <block-capabilities>` that your block
   requires to run, and/or that it outputs when it is finished. When validating a workflow, every block's output
   capabilties must match exactly the input capabilities of the next block in the workflow. These fields may be
