@@ -29,10 +29,10 @@ An example manifest file looks like the following:
             "type": "medium"
         },
         "input_capabilities": {
-            "data.aoiclipped": {}
+            "up42.data.aoiclipped": {}
         },
         "output_capabilities": {
-            "data.aoiclipped": {}
+            "up42.data.aoiclipped": {}
         }
     }
 

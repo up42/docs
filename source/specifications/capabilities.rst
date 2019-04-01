@@ -30,7 +30,7 @@ So, for example, if the :ref:`manifest <block-manifest>` for Block A contained t
         "input_capabilities": {
         },
         "output_capabilities": {
-            "data.texture": {}
+            "up42.data.texture": {}
         }
     }
 
@@ -43,7 +43,7 @@ Then the manifest for Block B **must** have the corresponding input capabilities
         "name": "block-b",
         // ...
         "input_capabilities": {
-            "data.texture": {}
+            "up42.data.texture": {}
         },
         "output_capabilities": {
             // ...
@@ -59,11 +59,14 @@ Built-in capabilities
 The full list of build-in capabilities is available as part of the
 `block manifest JSON schema <http://specs.interstellar.earth/v1/blocks/schema.json>`_.
 
-All blocks provided by UP42 will use capabilities from this list.
+All blocks provided by UP42 will use the ``up42.``-prefixed capabilities from this list. ``up42.``
+is a protected namespace and only the UP42-defined capabilities will pass validation. The next
+section will explain how you can define and use your own custom capabilities.
 
 Adding custom capabilities
 --------------------------
 
-You may optionally specify your own capabilities, instead of using the built-in ones. Other than ensuring that they
-match the other blocks in the workflow, UP42 does not put restrictions on what custom capabilities can be
-specified.
+You may optionally specify your own capabilities, instead of using the built-in ones. Besides ensuring that they
+match the other blocks in the workflow, UP42 forces them to carry the ``custom.`` prefix. For example, the following
+custom capabilities would be valid: ``custom.acmecorp.capability1``, ``custom.foo1.bar``. Capabilities that
+are not prefixed by ``custom.`` or ``up42.`` are deprecated and will be valid.
