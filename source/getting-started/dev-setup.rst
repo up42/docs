@@ -42,7 +42,7 @@ file layout should look like this:
         data-block/
             tiles/      # Data files that the block serves are here
             Dockerfile
-            InterstellarManifest.json
+            UP42Manifest.json
             run.py
 
 Building and running the block

@@ -1,6 +1,11 @@
 Recent changes to the documentation
 ===================================
 
+02.04.2019
+----------
+
+* Reflect move from 'interstellar' to 'up42' in manifest files, api endpoints and their references.
+
 19.03.2019
 ----------
 

@@ -24,7 +24,7 @@ So, for example, if the :ref:`manifest <block-manifest>` for Block A contained t
 .. code-block:: javascript
 
     {
-        "_interstellar_specification_version": 1,
+        "_up42_specification_version": 1,
         "name": "block-a",
         // ...
         "input_capabilities": {
@@ -39,7 +39,7 @@ Then the manifest for Block B **must** have the corresponding input capabilities
 .. code-block:: javascript
 
     {
-        "_interstellar_specification_version": 1,
+        "_up42_specification_version": 1,
         "name": "block-b",
         // ...
         "input_capabilities": {
@@ -57,7 +57,7 @@ Built-in capabilities
 ---------------------
 
 The full list of build-in capabilities is available as part of the
-`block manifest JSON schema <http://specs.interstellar.earth/v1/blocks/schema.json>`_.
+`block manifest JSON schema <http://specs.up42.com/v1/blocks/schema.json>`_.
 
 All blocks provided by UP42 will use the ``up42.``-prefixed capabilities from this list. ``up42.``
 is a protected namespace and only the UP42-defined capabilities will pass validation. The next
