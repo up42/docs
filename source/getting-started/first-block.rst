@@ -35,7 +35,7 @@ Writing the manifest
 
 Docker Images intended to run on UP42 need to provide a valid JSON manifest.
 
-By convention, this JSON data is stored in the ``InterstellarManifest.json`` file inside the block. The
+By convention, this JSON data is stored in the ``UP42Manifest.json`` file inside the block. The
 full manifest specification :ref:`can be found here <block-manifest>`, along with examples.
 
 Once you have written your manifest file, you can validate it against an endpoint provided by the UP42
@@ -43,11 +43,11 @@ platform by using e.g. ``curl``
 
 .. code-block:: bash
 
-    $ curl -X POST -H 'Content-Type: application/json' -d @InterstellarManifest.json https://api.interstellar.earth/validate-schema/block
+    $ curl -X POST -H 'Content-Type: application/json' -d @InterstellarManifest.json https://api.up42.com/validate-schema/block
 
 The service endpoint will provide detailed error messages to allow for debugging of the manifest file. If you use an
 IDE like IntelliJ or Eclipse, you can also configure the IDE to provide automatic hinting and validation by fetching
-the manifest specification `from the publicly available link <http://specs.interstellar.earth/v1/blocks/schema.json>`_.
+the manifest specification `from the publicly available link <http://specs.up42.com/v1/blocks/schema.json>`_.
 
 Attaching the manifest to your block
 ++++++++++++++++++++++++++++++++++++
@@ -57,7 +57,7 @@ the following Dockerfile instruction:
 
 .. code-block:: docker
 
-    LABEL "interstellar_manifest"=<manifest-contents>
+    LABEL "up42_manifest"=<manifest-contents>
 
 The content of the label needs to be an entire valid manifest file as a string. The easiest way to do this is to provide
 the contents of the manifest as a build arg to Docker.
@@ -69,7 +69,7 @@ To do this, create a Dockerfile along these lines:
     FROM python:3.7-alpine
     ARG manifest
 
-    LABEL "interstellar_manifest"=$manifest
+    LABEL "up42_manifest"=$manifest
 
     ...
 
@@ -77,7 +77,7 @@ And then build the Docker image as follows:
 
 .. code-block:: bash
 
-    $ docker build . --build-arg manifest="$(cat InterstellarManifest.json)"
+    $ docker build . --build-arg manifest="$(cat UP42Manifest.json)"
 
 
 Testing your block
@@ -119,7 +119,7 @@ Those commands are the following:
 
        $ docker build . \
             -t registry.up42.com/some-example-user-id/my-block:latest \
-            --build-arg manifest="$(<InterstellarManifest.json)"
+            --build-arg manifest="$(<UP42Manifest.json)"
 
    You will need to replace ``<user_id>``, ``<image_name>``, and ``<tag>`` with your own values. Your **user id** can be
    found in the example ``docker`` commands shown on the "Custom Blocks" screen. The **image name** is simply what you want

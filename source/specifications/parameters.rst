@@ -40,7 +40,7 @@ A complete example of filter types from a manifest would look something like thi
 .. code-block:: javascript
 
     {
-        "_interstellar_specification_version": 1,
+        "_up42_specification_version": 1,
         // ...
         "parameters": {
             "intersects": {

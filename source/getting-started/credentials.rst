@@ -28,7 +28,7 @@ For example, in the case of a simple API key, you would set up your Dockerfile a
     ARG api_key
 
     ENV API_KEY $api_key
-    LABEL "interstellar_manifest"=$manifest
+    LABEL "up42_manifest"=$manifest
 
     # ...
 
@@ -38,7 +38,7 @@ At build time, you would then run the following:
 
     $ docker build . -t <tag-or-url> \
         --build-arg api_key="YOUR_API_KEY_HERE" \
-        --build-arg manifest="$(cat InterstellarManifest.json)"
+        --build-arg manifest="$(cat UP42Manifest.json)"
 
 to set both the API ey and the manifest values.
 

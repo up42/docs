@@ -13,7 +13,7 @@ An example manifest file looks like the following:
 .. code-block:: json
 
     {
-        "_interstellar_specification_version": 1,
+        "_up42_specification_version": 1,
         "name": "ndvi",
         "type": "processing",
         "tags": [
@@ -78,13 +78,13 @@ The easiest way to do this is as follows:
   .. code-block:: docker
 
       ARG manifest
-      LABEL "interstellar_manifest"=$manifest
+      LABEL "up42_manifest"=$manifest
 
 * Then, when building the image, specify the contents of the manifest like so:
 
   .. code-block:: bash
 
-    $ docker build . -t <image-tags> --build-arg manifest="$(cat InterstellarManifest.json)"
+    $ docker build . -t <image-tags> --build-arg manifest="$(cat UP42Manifest.json)"
 
 You can then push the block with ``docker push`` as covered in the :ref:`guide to building custom blocks <build-and-push-first-block>`.
 
@@ -98,7 +98,7 @@ Manifests can be validated against the endpoint provided by the platform. With `
 
 .. code-block:: bash
 
-    $ curl -X POST -H 'Content-Type: application/json' -d @InterstellarManifest.json https://api.interstellar.earth/validate-schema/block
+    $ curl -X POST -H 'Content-Type: application/json' -d @UP42Manifest.json https://api.up42.com/validate-schema/block
 
 Example valid response:
 

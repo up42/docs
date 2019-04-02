@@ -1,5 +1,5 @@
 {
-  "_interstellar_specification_version": 1,
+  "_up42_specification_version": 1,
   "name": "sample-processing-block",
   "type": "processing",
   "tags": [
