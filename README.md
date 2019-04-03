@@ -22,8 +22,8 @@ To ge tstarted with contributing to these docs, set up a virtual environment
 for the project with Python 3 and clone the repo:
 
 ```
-$ mkvirtualenv interstellar-docs --python=$(which python3)
-$ git clone git@github.com:project-interstellar/docs.git
+$ mkvirtualenv up42-docs --python=$(which python3)
+$ git clone git@github.com:up42/docs.git
 $ cd docs
 $ pip install -r requirements.txt
 ```
