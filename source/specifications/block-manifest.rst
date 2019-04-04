@@ -128,5 +128,5 @@ Example invalid response:
 Reference
 ---------
 
-* `Block manifest JSON schema (v1) <http://specs.interstellar.earth/v1/blocks/schema.json>`_
+* `Block manifest JSON schema (v1) <http://specs.up42.com/v1/blocks/schema.json>`_
 * :ref:`Example blocks <example-blocks>`

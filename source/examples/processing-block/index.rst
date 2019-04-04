@@ -23,7 +23,7 @@ Building the block
 
 .. code-block:: bash
 
-    $ wget http://docs.interstellar.earth/_downloads/ec888416df357682082e8cc47a08d5fd/processing-block.zip
+    $ wget http://docs.up42.com/_downloads/ec888416df357682082e8cc47a08d5fd/processing-block.zip
     $ unzip processing-block.zip
     $ cd processing-block
     $ docker build . -t processing-block --build-arg manifest="$(cat InterstellarManifest.json)"
