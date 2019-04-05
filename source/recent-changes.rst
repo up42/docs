@@ -1,6 +1,12 @@
 Recent changes to the documentation
 ===================================
 
+02.05.2019
+----------
+
+* Improve the documentation around :ref:`block parameters and filters <block-params>`, particularly regarding processing
+  blocks.
+
 02.04.2019
 ----------
 
@@ -41,8 +47,8 @@ Recent changes to the documentation
 ----------
 
 * Added a section describing :ref:`environmental variables set while a block is running <block-envvars>`.
-* Added documentation for the :ref:`Sentinel 1 block <sentinel1-grd-block>`.
-* Added documentation for the :ref:`Sentinel 2 block <sentinel2-l1c>`.
+* Added documentation for the :ref:`Sentinel 1 block <sentinel1-grd-fullscene-block>`.
+* Added documentation for the :ref:`Sentinel 2 block <sentinel2-l1c-fullscene-block>`.
 
 18.02.2019
 ----------

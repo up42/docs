@@ -11,7 +11,7 @@ The full layout on disk would be:
 
     processing-block/
         Dockerfile
-        InterstellarManifest.json
+        UP42Manifest.json
         run.py
 
 .. _sample-processing-block-download:
@@ -42,7 +42,7 @@ Dockerfile
 Manifest
 ++++++++
 
-.. literalinclude:: sample/InterstellarManifest.json
+.. literalinclude:: sample/UP42Manifest.json
    :language: javascript
 
 Python source code
