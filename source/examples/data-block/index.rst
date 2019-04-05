@@ -12,7 +12,7 @@ The full layout on disk would be:
     data-block/
         tiles/      # Data files that the block serves are here
         Dockerfile
-        InterstellarManifest.json
+        UP42Manifest.json
         run.py
 
 .. _sample-data-block-download:
@@ -43,7 +43,7 @@ Dockerfile
 Manifest
 ++++++++
 
-.. literalinclude:: sample/InterstellarManifest.json
+.. literalinclude:: sample/UP42Manifest.json
    :language: javascript
 
 Python source code

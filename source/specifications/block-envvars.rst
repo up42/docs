@@ -26,10 +26,10 @@ The value of the task parameters variable is a JSON payload structured as follow
 
 The content of the JSON payload is variable, though for **data blocks** it needs to adhere to the 
 `STAC query <https://github.com/radiantearth/stac-spec>`_ standard. Be aware that the parameters 
-``intersects``, ``contains``, ``bbox``, ``limit`` and ``time`` are special parameters that MUST adhere 
+``intersects``, ``contains``, ``bbox``, ``limit``, and ``time`` are special parameters that MUST adhere
 to their definitions in the `STAC query <https://github.com/radiantearth/stac-spec>`_ specifications. 
 
-See also the allowed parameters for the :ref:`builtin blocks <builtin-blocks-documentation>`
+See also the allowed parameters for the :ref:`builtin blocks <builtin-blocks-documentation>`.
 
 How a block interprets the parameters is up to the block
 itself, but it should specify what parameters it expects via the :ref:`manifest parameters <block-params>`.
