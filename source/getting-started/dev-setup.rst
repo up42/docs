@@ -160,7 +160,7 @@ Next, place your sample input data (in this case, you can use the output from th
     $ docker run \
         -v /tmp/output:/tmp/output \
         -v /tmp/input:/tmp/input
-        -t data-block
+        -t processing-block
 
 With this version of the ``docker run`` command, we skip the task parameters environmental variable, because our
 processing block as no parameters. Instead, we additionally mount the input directory in the container so that the
