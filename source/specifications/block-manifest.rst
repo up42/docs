@@ -71,7 +71,7 @@ the manifest quickly, without having to repeatedly fetch entire images.
 
 The easiest way to do this is as follows:
 
-* Keep your manifest as a seperate file, so that it's easier to maintain. By convention, we use ``InterstellarManifest.json``
+* Keep your manifest as a seperate file, so that it's easier to maintain. By convention, we use ``UP42Manifest.json``
   in most of the documentation.
 * In your Dockerfile, add the following lines below the ``FROM`` directive that sets the base image:
 

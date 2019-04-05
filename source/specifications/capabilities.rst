@@ -30,7 +30,7 @@ So, for example, if the :ref:`manifest <block-manifest>` for Block A contained t
         "input_capabilities": {
         },
         "output_capabilities": {
-            "up42.data.texture": {}
+            "up42.processing.texture": {}
         }
     }
 
@@ -43,7 +43,7 @@ Then the manifest for Block B **must** have the corresponding input capabilities
         "name": "block-b",
         // ...
         "input_capabilities": {
-            "up42.data.texture": {}
+            "up42.processing.texture": {}
         },
         "output_capabilities": {
             // ...
@@ -69,4 +69,4 @@ Adding custom capabilities
 You may optionally specify your own capabilities, instead of using the built-in ones. Besides ensuring that they
 match the other blocks in the workflow, UP42 forces them to carry the ``custom.`` prefix. For example, the following
 custom capabilities would be valid: ``custom.acmecorp.capability1``, ``custom.foo1.bar``. Capabilities that
-are not prefixed by ``custom.`` or ``up42.`` are deprecated and will be valid.
+are not prefixed by ``custom.`` or ``up42.`` are not valid.
