@@ -60,7 +60,7 @@ Capabilities in ``Feature`` properties
 To reduce the amount of guesswork required to pass data between blocks, every :ref:`capability <block-capabilities>` that
 a block outputs should have a corresponding key in the ``"properties"`` field of the features that it generates.
 
-For example, if a block outputs the ``up42.data.metadata.example.foo`` capability, then the corresponding output should
+For example, if a block outputs the ``custom.data.metadata.example.foo`` capability, then the corresponding output should
 look something like this:
 
 .. code-block:: javascript
@@ -72,7 +72,7 @@ look something like this:
                 "type": "Feature",
                 "geometry": { ... },
                 "properties": {
-                    "up42.data.metadata.example.foo": "some-value-bar",
+                    "custom.data.metadata.example.foo": "some-value-bar",
                     // ...
                 }
             }
