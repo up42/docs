@@ -82,6 +82,34 @@ look something like this:
 This also applies to :ref:`imagery and binary data <imagery-and-binary-data>`, where the value should be the path of the
 corresponding file, relative to the base input or output directory.
 
+.. _quicklooks:
+
+Quicklooks (preview images)
++++++++++++++++++++++++++++
+
+To give users an idea how a dataset looks like before the actual data is fetched, it is possible to supply preview images
+as part of the geojson. The images need to be base64-encoded and put into a property with the name
+``quicklook``. An example would look like this:
+
+.. code-block:: javascript
+
+    {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "geometry": { ... },
+                "properties": {
+                    "up42.data.aoiclipped": "e18542c4-d3b6-4e74-9eb6-8899ad4276be.tif",
+                    "quicklook": "/9j/4AAQSkZJRgAIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMj..."
+                }
+            }
+        ]
+    }
+
+The images should be of format png or jpeg and of size 512 x 512 pixels and will be displayed both in dry-run mode as well as during actual
+fetching of image data.
+
 .. _imagery-and-binary-data:
 
 Imagery and binary data

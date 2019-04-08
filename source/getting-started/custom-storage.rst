@@ -14,7 +14,7 @@ While a more permanent solution is on the platform roadmap, in the meantime you 
 data for access outside the existing mechanism:
 
 * Set up an AWS S3 bucket, or Google Cloud Storage bucket with your own account
-* Provide your block(s) with :ref:`the credentials they need to access the storage <credetials-secrets>`
+* Provide your block(s) with :ref:`the credentials they need to access the storage <credentials-secrets>`
 * Have your blocks directly load/store the data they want to process
 
 For example, given the following steps:
