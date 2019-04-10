@@ -1,7 +1,12 @@
 Recent changes to the documentation
 ===================================
 
-02.05.2019
+09.04.2019
+----------
+
+* Provide API specifications for :ref:`UP42 public APIs <UP42-apis>`
+
+02.04.2019
 ----------
 
 * Improve the documentation around :ref:`block parameters and filters <block-params>`, particularly regarding processing

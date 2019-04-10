@@ -18,7 +18,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 ## Set up the project
 
-To ge tstarted with contributing to these docs, set up a virtual environment
+To get started with contributing to these docs, set up a virtual environment
 for the project with Python 3 and clone the repo:
 
 ```

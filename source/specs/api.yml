@@ -1,280 +1,77 @@
+---
 swagger: '2.0'
 info:
-  description: <Add description>
+  description: "UP42 APIs to create and run jobs for a project"
   version: '1.0'
-  title: Interstellar Core Backend!
-  termsOfService: <Interstellar T&Cs URL>
+  title: UP42 API specifications
   contact:
-    name: Interstellar
-    url: <Interstellar URL>
-    email: <Interstellar Email>
-  license:
-    name: license
-    url: licenseUrl
-host: 'localhost:8080'
-basePath: /
+    name: UP42
+    url: "up42.com"
+host: localhost:8080
+basePath: "/"
 tags:
-  - name: blocks-controller
-    description: Blocks Controller
-  - name: docker-auth-controller
-    description: Docker Auth Controller
-  - name: healthz-controller
-    description: Healthz Controller
-  - name: jobs-controller
-    description: Jobs Controller
-  - name: projects-controller
-    description: Projects Controller
-  - name: revoke-token-endpoint
-    description: Revoke Token Endpoint
-  - name: schema-validation-controller
-    description: Schema Validation Controller
-  - name: tasks-controller
-    description: Tasks Controller
-  - name: users-controller
-    description: Users Controller
-  - name: workflow-controller
-    description: Workflow Controller
+- name: get-accesstoken-endpoint
+  description: Endpoint to get the oauth access token for a project
+- name: projects-controller
+  description: Endpoint to view created projects
+- name: revoke-token-endpoint
+  description: Endpoint to revoke access token for a project
+- name: schema-validation-controller
+  description: Endpoint to validate job schema
+- name: workflow-controller
+  description: Endpoints to view created workflows for a given project
+- name: jobs-controller
+  description: Endpoints to view, create and run jobs for a workflow
 paths:
-  /:
-    get:
-      tags:
-        - healthz-controller
-      summary: ok
-      operationId: okUsingGET
-      produces:
-        - '*/*'
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/ResponseEntity'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  /blocks:
-    get:
-      tags:
-        - blocks-controller
-      summary: getBlocks
-      operationId: getBlocksUsingGET
-      produces:
-        - '*/*'
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Block'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  '/blocks/{id}':
-    get:
-      tags:
-        - blocks-controller
-      summary: getBlock
-      operationId: getBlockUsingGET
-      produces:
-        - '*/*'
-      parameters:
-        - name: id
-          in: path
-          description: id
-          required: true
-          type: string
-          format: uuid
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Block'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  /docker/auth:
-    get:
-      tags:
-        - docker-auth-controller
-      summary: dockerAuth
-      operationId: dockerAuthUsingGET
-      produces:
-        - '*/*'
-      parameters:
-        - name: X-Original-Uri
-          in: header
-          description: X-Original-Uri
-          required: false
-          type: string
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/ResponseEntity'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  /healthz:
-    get:
-      tags:
-        - healthz-controller
-      summary: healthz
-      operationId: healthzUsingGET
-      produces:
-        - '*/*'
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/ResponseEntity'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  '/jobs/{jobId}':
-    get:
-      tags:
-        - jobs-controller
-      summary: getJob
-      operationId: getJobUsingGET
-      produces:
-        - '*/*'
-      parameters:
-        - name: jobId
-          in: path
-          description: jobId
-          required: true
-          type: string
-          format: uuid
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Job'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  '/jobs/{jobId}/tasks/{taskId}/logs':
-    get:
-      tags:
-        - tasks-controller
-      summary: getLogs
-      operationId: getLogsUsingGET
-      produces:
-        - '*/*'
-      parameters:
-        - name: jobId
-          in: path
-          description: jobId
-          required: true
-          type: string
-          format: uuid
-        - name: taskId
-          in: path
-          description: taskId
-          required: true
-          type: string
-          format: uuid
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: string
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  /me/blocks:
-    get:
-      tags:
-        - blocks-controller
-      summary: getBlocksByUserId
-      operationId: getBlocksByUserIdUsingGET
-      produces:
-        - '*/*'
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Block'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  '/me/blocks/{id}':
-    get:
-      tags:
-        - blocks-controller
-      summary: getBlockInProjectById
-      operationId: getBlockInProjectByIdUsingGET
-      produces:
-        - '*/*'
-      parameters:
-        - name: id
-          in: path
-          description: id
-          required: true
-          type: string
-          format: uuid
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Block'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  /oauth/revokeToken:
+  "/oauth/token":
     post:
       tags:
-        - revoke-token-endpoint
-      summary: revokeToken
+      - get-accesstoken-endpoint
+      summary: Get access token for a project
+      operationId: getTokenUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: grant_type
+        in: query
+        required: true
+        type: string
+        format: client_credentials
+      - name: Authorization
+        in: header
+        description: Basic Authorization where username is the project UUID and password is the apikey for the project
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/oauth/revokeToken":
+    post:
+      tags:
+      - revoke-token-endpoint
+      summary: Revoke access token for a project
       operationId: revokeTokenUsingPOST
       consumes:
-        - application/json
+      - application/json
       produces:
-        - application/json
+      - application/json
       parameters:
-        - name: Authorization
-          in: header
-          description: Authorization
-          required: true
-          type: string
+      - name: Authorization
+        in: header
+        description: Authorization
+        required: true
+        type: string
       responses:
         '200':
           description: OK
@@ -287,78 +84,26 @@ paths:
         '404':
           description: Not Found
       deprecated: false
-  /projects:
+  "/projects/{id}":
     get:
       tags:
-        - projects-controller
-      summary: getProjects
-      operationId: getProjectsUsingGET
-      produces:
-        - '*/*'
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Project'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-    post:
-      tags:
-        - projects-controller
-      summary: createProject
-      operationId: createProjectUsingPOST
-      consumes:
-        - application/json
-      produces:
-        - '*/*'
-      parameters:
-        - in: body
-          name: projectRequest
-          description: projectRequest
-          required: true
-          schema:
-            $ref: '#/definitions/Project'
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Project'
-        '201':
-          description: Created
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  '/projects/{id}':
-    get:
-      tags:
-        - projects-controller
-      summary: getProject
+      - projects-controller
+      summary: Get an existing project by UUID
       operationId: getProjectUsingGET
       produces:
-        - '*/*'
+      - "*/*"
       parameters:
-        - name: id
-          in: path
-          description: id
-          required: true
-          type: string
-          format: uuid
+      - name: id
+        in: path
+        description: id
+        required: true
+        type: string
+        format: uuid
       responses:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Project'
+            "$ref": "#/definitions/Response«Project»"
         '401':
           description: Unauthorized
         '403':
@@ -366,86 +111,26 @@ paths:
         '404':
           description: Not Found
       deprecated: false
-    put:
-      tags:
-        - projects-controller
-      summary: updateProject
-      operationId: updateProjectUsingPUT
-      consumes:
-        - application/json
-      produces:
-        - '*/*'
-      parameters:
-        - name: id
-          in: path
-          description: id
-          required: true
-          type: string
-          format: uuid
-        - in: body
-          name: projectRequest
-          description: projectRequest
-          required: true
-          schema:
-            $ref: '#/definitions/Project'
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Project'
-        '201':
-          description: Created
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-    delete:
-      tags:
-        - projects-controller
-      summary: deleteProject
-      operationId: deleteProjectUsingDELETE
-      produces:
-        - '*/*'
-      parameters:
-        - name: id
-          in: path
-          description: id
-          required: true
-          type: string
-          format: uuid
-      responses:
-        '204':
-          description: No Content
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-      deprecated: false
-  '/projects/{projectId}/jobs':
+  "/projects/{projectId}/jobs":
     get:
       tags:
-        - jobs-controller
-      summary: getAllJobsForProject
+      - jobs-controller
+      summary: Get all existing jobs for a project
       operationId: getAllJobsForProjectUsingGET
       produces:
-        - '*/*'
+      - "*/*"
       parameters:
-        - name: projectId
-          in: path
-          description: projectId
-          required: true
-          type: string
-          format: uuid
+      - name: projectId
+        in: path
+        description: projectId
+        required: true
+        type: string
+        format: uuid
       responses:
         '200':
           description: OK
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Job'
+            "$ref": "#/definitions/Response«List«Job»»"
         '401':
           description: Unauthorized
         '403':
@@ -453,28 +138,160 @@ paths:
         '404':
           description: Not Found
       deprecated: false
-  '/projects/{projectId}/workflows':
+  "/projects/{projectId}/jobs/{id}/cancel":
+    post:
+      tags:
+      - jobs-controller
+      summary: Cancel a running job
+      operationId: cancelJobUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        type: string
+        format: uuid
+      - name: projectId
+        in: path
+        description: projectId
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '201':
+          description: Created
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/projects/{projectId}/jobs/{jobId}":
     get:
       tags:
-        - workflow-controller
-      summary: getWorkflowsInProject
+      - jobs-controller
+      summary: Get job by job id
+      operationId: getJobUsingGET
+      produces:
+      - "*/*"
+      parameters:
+      - name: jobId
+        in: path
+        description: jobId
+        required: true
+        type: string
+        format: uuid
+      - name: projectId
+        in: path
+        description: projectId
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Response«Job»"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/projects/{projectId}/jobs/{jobId}/outputs/data-json":
+    get:
+      tags:
+      - jobs-controller
+      summary: getJobDataJson
+      operationId: getJobDataJsonUsingGET
+      produces:
+      - text/plain;charset=UTF-8
+      parameters:
+      - name: jobId
+        in: path
+        description: jobId
+        required: true
+        type: string
+        format: uuid
+      - name: projectId
+        in: path
+        description: projectId
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/InputStreamResource"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/projects/{projectId}/jobs/{jobId}/outputs/directory":
+    get:
+      tags:
+      - jobs-controller
+      summary: Download the result of the completed job in a output.tar.gz file
+      operationId: getOutputDirUsingGET
+      produces:
+      - application/tar+gzip
+      parameters:
+      - name: jobId
+        in: path
+        description: jobId
+        required: true
+        type: string
+        format: uuid
+      - name: projectId
+        in: path
+        description: projectId
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/InputStreamResource"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/projects/{projectId}/workflows":
+    get:
+      tags:
+      - workflow-controller
+      summary: Get all workflows in a project
       operationId: getWorkflowsInProjectUsingGET
       produces:
-        - '*/*'
+      - "*/*"
       parameters:
-        - name: projectId
-          in: path
-          description: projectId
-          required: true
-          type: string
-          format: uuid
+      - name: projectId
+        in: path
+        description: projectId
+        required: true
+        type: string
+        format: uuid
       responses:
         '200':
           description: OK
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Workflow'
+            "$ref": "#/definitions/Response«List«WorkflowResponse»»"
         '401':
           description: Unauthorized
         '403':
@@ -482,68 +299,32 @@ paths:
         '404':
           description: Not Found
       deprecated: false
-    post:
-      tags:
-        - workflow-controller
-      summary: createWorkflow
-      operationId: createWorkflowUsingPOST
-      consumes:
-        - application/json
-      produces:
-        - '*/*'
-      parameters:
-        - name: projectId
-          in: path
-          description: projectId
-          required: true
-          type: string
-          format: uuid
-        - in: body
-          name: workflowRequest
-          description: workflowRequest
-          required: true
-          schema:
-            $ref: '#/definitions/WorkflowDto'
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Workflow'
-        '201':
-          description: Created
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  '/projects/{projectId}/workflows/{workflowId}':
+  "/projects/{projectId}/workflows/{workflowId}":
     get:
       tags:
-        - workflow-controller
-      summary: getWorkflow
+      - workflow-controller
+      summary: Get workflow by porject id and workflow id
       operationId: getWorkflowUsingGET
       produces:
-        - '*/*'
+      - "*/*"
       parameters:
-        - name: projectId
-          in: path
-          description: projectId
-          required: true
-          type: string
-          format: uuid
-        - name: workflowId
-          in: path
-          description: workflowId
-          required: true
-          type: string
-          format: uuid
+      - name: projectId
+        in: path
+        description: projectId
+        required: true
+        type: string
+        format: uuid
+      - name: workflowId
+        in: path
+        description: workflowId
+        required: true
+        type: string
+        format: uuid
       responses:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Workflow'
+            "$ref": "#/definitions/Response«WorkflowResponse»"
         '401':
           description: Unauthorized
         '403':
@@ -551,144 +332,41 @@ paths:
         '404':
           description: Not Found
       deprecated: false
-    put:
-      tags:
-        - workflow-controller
-      summary: editWorkflow
-      operationId: editWorkflowUsingPUT
-      consumes:
-        - application/json
-      produces:
-        - '*/*'
-      parameters:
-        - name: projectId
-          in: path
-          description: projectId
-          required: true
-          type: string
-          format: uuid
-        - name: workflowId
-          in: path
-          description: workflowId
-          required: true
-          type: string
-          format: uuid
-        - in: body
-          name: workflowRequest
-          description: workflowRequest
-          required: true
-          schema:
-            $ref: '#/definitions/WorkflowDto'
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Workflow'
-        '201':
-          description: Created
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-    delete:
-      tags:
-        - workflow-controller
-      summary: deleteWorkflow
-      operationId: deleteWorkflowUsingDELETE
-      produces:
-        - '*/*'
-      parameters:
-        - name: projectId
-          in: path
-          description: projectId
-          required: true
-          type: string
-          format: uuid
-        - name: workflowId
-          in: path
-          description: workflowId
-          required: true
-          type: string
-          format: uuid
-      responses:
-        '204':
-          description: No Content
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-      deprecated: false
-  '/projects/{projectId}/workflows/{workflowId}/jobs':
-    get:
-      tags:
-        - jobs-controller
-      summary: getAllJobs
-      operationId: getAllJobsUsingGET
-      produces:
-        - '*/*'
-      parameters:
-        - name: projectId
-          in: path
-          description: projectId
-          required: true
-          type: string
-          format: uuid
-        - name: workflowId
-          in: path
-          description: workflowId
-          required: true
-          type: string
-          format: uuid
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Job'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
+  "/projects/{projectId}/workflows/{workflowId}/jobs":
     post:
       tags:
-        - jobs-controller
-      summary: createAndRunJob
+      - jobs-controller
+      summary: Run a job for a given workflow with the a job configuration
       operationId: createAndRunJobUsingPOST
       consumes:
-        - application/json
+      - application/json
       produces:
-        - '*/*'
+      - "*/*"
       parameters:
-        - name: projectId
-          in: path
-          description: projectId
-          required: true
-          type: string
-          format: uuid
-        - in: body
-          name: rawQuery
-          description: rawQuery
-          required: true
-          schema:
-            type: string
-        - name: workflowId
-          in: path
-          description: workflowId
-          required: true
-          type: string
-          format: uuid
+      - in: body
+        name: jsonNode
+        description: JsonNode containing the name of each workflow task in the workflow with a valid configuration for
+          each task. These can be query details as well as processing parameters, depending on if it is a data block or a processing block.
+        required: true
+        schema:
+          "$ref": "#/definitions/JsonNode"
+      - name: projectId
+        in: path
+        description: projectId
+        required: true
+        type: string
+        format: uuid
+      - name: workflowId
+        in: path
+        description: workflowId
+        required: true
+        type: string
+        format: uuid
       responses:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Job'
+            "$ref": "#/definitions/Response«Job»"
         '201':
           description: Created
         '401':
@@ -698,63 +376,28 @@ paths:
         '404':
           description: Not Found
       deprecated: false
-  '/projects/{projectId}/workflows/{workflowId}/jobs/{id}':
-    get:
-      tags:
-        - jobs-controller
-      summary: getJobById
-      operationId: getJobByIdUsingGET
-      produces:
-        - '*/*'
-      parameters:
-        - name: id
-          in: path
-          description: id
-          required: true
-          type: string
-          format: uuid
-        - name: projectId
-          in: path
-          description: projectId
-          required: true
-          type: string
-          format: uuid
-        - name: workflowId
-          in: path
-          description: workflowId
-          required: true
-          type: string
-          format: uuid
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Job'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  /users:
+  "/validate-schema/block":
     post:
       tags:
-        - users-controller
-      summary: createUser
-      operationId: createUserUsingPOST
+      - schema-validation-controller
+      summary: Validate job configuration
+      operationId: validateBlockManifestUsingPOST
       consumes:
-        - application/json
+      - application/json
       produces:
-        - '*/*'
+      - "*/*"
       parameters:
-        - in: body
-          name: userCredentialDto
-          description: userCredentialDto
-          required: true
-          schema:
-            $ref: '#/definitions/UserCredentialDto'
+      - in: body
+        name: jsonNode
+        description: JsonNode containing the job configuration to run the job with
+        required: true
+        schema:
+          "$ref": "#/definitions/JsonNode"
       responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/ResponseEntity"
         '201':
           description: Created
         '401':
@@ -763,238 +406,103 @@ paths:
           description: Forbidden
         '404':
           description: Not Found
-      deprecated: false
-  /users/me:
-    get:
-      tags:
-        - users-controller
-      summary: getUser
-      operationId: getUserUsingGET
-      produces:
-        - '*/*'
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/UserDto'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  /users/me/email-address:
-    put:
-      tags:
-        - users-controller
-      summary: updateEmailAddress
-      operationId: updateEmailAddressUsingPUT
-      consumes:
-        - application/json
-      produces:
-        - '*/*'
-      parameters:
-        - in: body
-          name: changeUserEmailDto
-          description: changeUserEmailDto
-          required: true
-          schema:
-            $ref: '#/definitions/ChangeUserEmailDto'
-      responses:
-        '200':
-          description: OK
-        '201':
-          description: Created
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  /users/me/password:
-    put:
-      tags:
-        - users-controller
-      summary: updatePassword
-      operationId: updatePasswordUsingPUT
-      consumes:
-        - application/json
-      produces:
-        - '*/*'
-      parameters:
-        - in: body
-          name: changeUserPasswordDto
-          description: changeUserPasswordDto
-          required: true
-          schema:
-            $ref: '#/definitions/ChangeUserPasswordDto'
-      responses:
-        '200':
-          description: OK
-        '201':
-          description: Created
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  /validate-schema/block:
-    post:
-      tags:
-        - schema-validation-controller
-      summary: validateWorkflow
-      operationId: validateWorkflowUsingPOST
-      consumes:
-        - application/json
-      produces:
-        - '*/*'
-      parameters:
-        - in: body
-          name: subject
-          description: subject
-          required: true
-          schema:
-            $ref: '#/definitions/JsonNode'
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/SchemaValidationResponse'
-        '201':
-          description: Created
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  /workflows:
-    get:
-      tags:
-        - workflow-controller
-      summary: getWorkflowsByProjectId
-      operationId: getWorkflowsByProjectIdUsingGET
-      produces:
-        - '*/*'
-      parameters:
-        - name: projectId
-          in: query
-          description: projectId
-          required: true
-          type: string
-          format: uuid
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Workflow'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  '/workflows/{workflowId}':
-    get:
-      tags:
-        - workflow-controller
-      summary: getWorkflowById
-      operationId: getWorkflowByIdUsingGET
-      produces:
-        - '*/*'
-      parameters:
-        - name: workflowId
-          in: path
-          description: workflowId
-          required: true
-          type: string
-          format: uuid
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Workflow'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-    put:
-      tags:
-        - workflow-controller
-      summary: updateWorkflowById
-      operationId: updateWorkflowByIdUsingPUT
-      consumes:
-        - application/json
-      produces:
-        - '*/*'
-      parameters:
-        - name: workflowId
-          in: path
-          description: workflowId
-          required: true
-          type: string
-          format: uuid
-        - in: body
-          name: workflowRequest
-          description: workflowRequest
-          required: true
-          schema:
-            $ref: '#/definitions/WorkflowDto'
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Workflow'
-        '201':
-          description: Created
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-    delete:
-      tags:
-        - workflow-controller
-      summary: deleteWorkflowById
-      operationId: deleteWorkflowByIdUsingDELETE
-      produces:
-        - '*/*'
-      parameters:
-        - name: workflowId
-          in: path
-          description: workflowId
-          required: true
-          type: string
-          format: uuid
-      responses:
-        '204':
-          description: No Content
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
       deprecated: false
 definitions:
   Block:
     type: object
     properties:
-      capabilities:
+      createdAt:
+        type: string
+        format: date-time
+      displayName:
+        type: string
+      id:
+        type: string
+        format: uuid
+      isPublic:
+        type: boolean
+      latestPublicVersion:
+        "$ref": "#/definitions/BlockVersion"
+      latestVersion:
+        "$ref": "#/definitions/BlockVersion"
+      name:
+        type: string
+      provider:
+        type: string
+      publicVersions:
         type: array
         items:
-          $ref: '#/definitions/BlockCapability'
+          "$ref": "#/definitions/BlockVersion"
+      tags:
+        type: array
+        items:
+          type: string
+      type:
+        type: string
+        enum:
+        - PROCESSING
+        - DATA
+      updatedAt:
+        type: string
+        format: date-time
+      versions:
+        type: array
+        items:
+          "$ref": "#/definitions/BlockVersion"
+    title: Block
+  BlockMarketplaceMetadata:
+    type: object
+    properties:
+      blockMarketplaceSampleData:
+        type: array
+        items:
+          "$ref": "#/definitions/BlockMarketplaceSampleData"
+      createdAt:
+        type: string
+        format: date-time
+      iconUrl:
+        type: string
+      id:
+        type: string
+        format: uuid
+      overview:
+        type: string
+      pricingStrategy:
+        "$ref": "#/definitions/PricingStrategy"
+      termsAndConditionsUrl:
+        type: string
+      updatedAt:
+        type: string
+        format: date-time
+    title: BlockMarketplaceMetadata
+  BlockMarketplaceSampleData:
+    type: object
+    properties:
+      createdAt:
+        type: string
+        format: date-time
+      id:
+        type: string
+        format: uuid
+      type:
+        type: string
+        enum:
+        - IMAGE
+        - JSON
+        - TEXT
+      updatedAt:
+        type: string
+        format: date-time
+      value:
+        type: string
+    title: BlockMarketplaceSampleData
+  BlockResponse:
+    type: object
+    properties:
+      availableVersions:
+        type: array
+        items:
+          type: string
       containerUrl:
         type: string
       createdAt:
@@ -1010,20 +518,34 @@ definitions:
       inputCapabilities:
         type: array
         items:
-          $ref: '#/definitions/BlockCapability'
+          "$ref": "#/definitions/Capability"
+      isDryRunSupported:
+        type: boolean
+      isPublic:
+        type: boolean
+      isRunnableByUser:
+        type: boolean
+      isValid:
+        type: boolean
+      machineName:
+        type: string
+        enum:
+        - SMALL
+        - MEDIUM
+        - LARGE
+        - XLARGE
+      metadata:
+        "$ref": "#/definitions/BlockMarketplaceMetadata"
       name:
         type: string
       outputCapabilities:
         type: array
         items:
-          $ref: '#/definitions/BlockCapability'
-      price:
-        type: number
-        format: double
+          "$ref": "#/definitions/Capability"
+      parameters:
+        "$ref": "#/definitions/JsonNode"
       provider:
         type: string
-      public:
-        type: boolean
       tags:
         type: array
         items:
@@ -1031,54 +553,218 @@ definitions:
       type:
         type: string
         enum:
-          - PROCESSING
-          - DATA
+        - PROCESSING
+        - DATA
       updatedAt:
         type: string
         format: date-time
-      workflowUsageCount:
-        type: integer
-        format: int32
-    title: Block
-  BlockCapability:
+      version:
+        type: string
+    title: BlockResponse
+  BlockVersion:
     type: object
     properties:
-      capability:
-        $ref: '#/definitions/Capability'
-      type:
+      blockMarketplaceMetadata:
+        "$ref": "#/definitions/BlockMarketplaceMetadata"
+      containerUrl:
+        type: string
+      createdAt:
+        type: string
+        format: date-time
+      id:
+        type: string
+        format: uuid
+      inputCapabilities:
+        type: array
+        items:
+          "$ref": "#/definitions/Capability"
+      isDryRunSupported:
+        type: boolean
+      isPublic:
+        type: boolean
+      isValid:
+        type: boolean
+      machineName:
         type: string
         enum:
-          - INPUT
-          - OUTPUT
-    title: BlockCapability
+        - SMALL
+        - MEDIUM
+        - LARGE
+        - XLARGE
+      manifestDescription:
+        type: string
+      outputCapabilities:
+        type: array
+        items:
+          "$ref": "#/definitions/Capability"
+      parameters:
+        "$ref": "#/definitions/JsonNode"
+      updatedAt:
+        type: string
+        format: date-time
+      versionTag:
+        type: string
+    title: BlockVersion
   Capability:
     type: object
     properties:
       name:
         type: string
     title: Capability
-  ChangeUserEmailDto:
+  ErrorResponse«Job»:
     type: object
     properties:
-      emailAddress:
+      code:
         type: string
-      password:
+        enum:
+        - UNKNOWN_ERROR
+        - VALIDATION_ERROR
+        - RESOURCE_NOT_FOUND
+        - CLIENT_ERROR
+        - CONFLICT
+        - INVALID_REQUEST
+        - TOO_MANY_REQUESTS
+      details:
+        "$ref": "#/definitions/Job"
+      message:
         type: string
-    title: ChangeUserEmailDto
-  ChangeUserPasswordDto:
+    title: ErrorResponse«Job»
+  ErrorResponse«List«Job»»:
     type: object
     properties:
-      newPassword:
+      code:
         type: string
-      password:
+        enum:
+        - UNKNOWN_ERROR
+        - VALIDATION_ERROR
+        - RESOURCE_NOT_FOUND
+        - CLIENT_ERROR
+        - CONFLICT
+        - INVALID_REQUEST
+        - TOO_MANY_REQUESTS
+      details:
+        type: array
+        items:
+          "$ref": "#/definitions/Job"
+      message:
         type: string
-    title: ChangeUserPasswordDto
-  GrantedAuthority:
+    title: ErrorResponse«List«Job»»
+  ErrorResponse«List«WorkflowResponse»»:
     type: object
     properties:
-      authority:
+      code:
         type: string
-    title: GrantedAuthority
+        enum:
+        - UNKNOWN_ERROR
+        - VALIDATION_ERROR
+        - RESOURCE_NOT_FOUND
+        - CLIENT_ERROR
+        - CONFLICT
+        - INVALID_REQUEST
+        - TOO_MANY_REQUESTS
+      details:
+        type: array
+        items:
+          "$ref": "#/definitions/WorkflowResponse"
+      message:
+        type: string
+    title: ErrorResponse«List«WorkflowResponse»»
+  ErrorResponse«Project»:
+    type: object
+    properties:
+      code:
+        type: string
+        enum:
+        - UNKNOWN_ERROR
+        - VALIDATION_ERROR
+        - RESOURCE_NOT_FOUND
+        - CLIENT_ERROR
+        - CONFLICT
+        - INVALID_REQUEST
+        - TOO_MANY_REQUESTS
+      details:
+        "$ref": "#/definitions/Project"
+      message:
+        type: string
+    title: ErrorResponse«Project»
+  ErrorResponse«WorkflowResponse»:
+    type: object
+    properties:
+      code:
+        type: string
+        enum:
+        - UNKNOWN_ERROR
+        - VALIDATION_ERROR
+        - RESOURCE_NOT_FOUND
+        - CLIENT_ERROR
+        - CONFLICT
+        - INVALID_REQUEST
+        - TOO_MANY_REQUESTS
+      details:
+        "$ref": "#/definitions/WorkflowResponse"
+      message:
+        type: string
+    title: ErrorResponse«WorkflowResponse»
+  File:
+    type: object
+    properties:
+      absolute:
+        type: boolean
+      absoluteFile:
+        "$ref": "#/definitions/File"
+      absolutePath:
+        type: string
+      canonicalFile:
+        "$ref": "#/definitions/File"
+      canonicalPath:
+        type: string
+      directory:
+        type: boolean
+      file:
+        type: boolean
+      freeSpace:
+        type: integer
+        format: int64
+      hidden:
+        type: boolean
+      name:
+        type: string
+      parent:
+        type: string
+      parentFile:
+        "$ref": "#/definitions/File"
+      path:
+        type: string
+      totalSpace:
+        type: integer
+        format: int64
+      usableSpace:
+        type: integer
+        format: int64
+    title: File
+  InputStream:
+    type: object
+    title: InputStream
+  InputStreamResource:
+    type: object
+    properties:
+      description:
+        type: string
+      file:
+        "$ref": "#/definitions/File"
+      filename:
+        type: string
+      inputStream:
+        "$ref": "#/definitions/InputStream"
+      open:
+        type: boolean
+      readable:
+        type: boolean
+      uri:
+        "$ref": "#/definitions/URI"
+      url:
+        "$ref": "#/definitions/URL"
+    title: InputStreamResource
   Job:
     type: object
     properties:
@@ -1091,35 +777,43 @@ definitions:
       id:
         type: string
         format: uuid
-      query:
+      inputs:
+        "$ref": "#/definitions/JsonNode"
+      mode:
         type: string
-      result:
-        type: string
+        enum:
+        - dry-run
+        - default
       startedAt:
         type: string
         format: date-time
       status:
         type: string
         enum:
-          - NOT_STARTED
-          - PENDING
-          - RUNNING
-          - SUCCEEDED
-          - FAILED
-          - CANCELLED
+        - NOT_STARTED
+        - PENDING
+        - RUNNING
+        - SUCCEEDED
+        - FAILED
+        - CANCELLED
+        - CANCELLING
       tasks:
         type: array
         items:
-          $ref: '#/definitions/JobTask'
+          "$ref": "#/definitions/JobTask"
       updatedAt:
         type: string
         format: date-time
       workflow:
-        $ref: '#/definitions/Workflow'
+        "$ref": "#/definitions/Workflow"
     title: Job
   JobTask:
     type: object
     properties:
+      block:
+        "$ref": "#/definitions/Block"
+      blockVersion:
+        "$ref": "#/definitions/BlockVersion"
       createdAt:
         type: string
         format: date-time
@@ -1129,24 +823,27 @@ definitions:
       id:
         type: string
         format: uuid
+      inputs:
+        "$ref": "#/definitions/JsonNode"
       name:
         type: string
       parents:
         type: array
         items:
-          $ref: '#/definitions/JobTask'
+          "$ref": "#/definitions/JobTask"
       startedAt:
         type: string
         format: date-time
       status:
         type: string
         enum:
-          - NOT_STARTED
-          - PENDING
-          - RUNNING
-          - SUCCEEDED
-          - FAILED
-          - CANCELLED
+        - NOT_STARTED
+        - PENDING
+        - RUNNING
+        - SUCCEEDED
+        - FAILED
+        - CANCELLED
+        - CANCELLING
       updatedAt:
         type: string
         format: date-time
@@ -1183,15 +880,15 @@ definitions:
       nodeType:
         type: string
         enum:
-          - ARRAY
-          - BINARY
-          - BOOLEAN
-          - MISSING
-          - 'NULL'
-          - NUMBER
-          - OBJECT
-          - POJO
-          - STRING
+        - ARRAY
+        - BINARY
+        - BOOLEAN
+        - MISSING
+        - 'NULL'
+        - NUMBER
+        - OBJECT
+        - POJO
+        - STRING
       'null':
         type: boolean
       number:
@@ -1207,6 +904,28 @@ definitions:
       valueNode:
         type: boolean
     title: JsonNode
+  PricingStrategy:
+    type: object
+    properties:
+      createdAt:
+        type: string
+        format: date-time
+      credits:
+        type: integer
+        format: int32
+      id:
+        type: string
+        format: uuid
+      type:
+        type: string
+        enum:
+        - SQUARE_KM
+        - MEGABYTE
+        - SCENE
+      updatedAt:
+        type: string
+        format: date-time
+    title: PricingStrategy
   Project:
     type: object
     properties:
@@ -1223,12 +942,6 @@ definitions:
       updatedAt:
         type: string
         format: date-time
-      user:
-        $ref: '#/definitions/User'
-      workflows:
-        type: array
-        items:
-          $ref: '#/definitions/Workflow'
     title: Project
   ResponseEntity:
     type: object
@@ -1238,138 +951,188 @@ definitions:
       statusCode:
         type: string
         enum:
-          - 100 CONTINUE
-          - 101 SWITCHING_PROTOCOLS
-          - 102 PROCESSING
-          - 103 CHECKPOINT
-          - 200 OK
-          - 201 CREATED
-          - 202 ACCEPTED
-          - 203 NON_AUTHORITATIVE_INFORMATION
-          - 204 NO_CONTENT
-          - 205 RESET_CONTENT
-          - 206 PARTIAL_CONTENT
-          - 207 MULTI_STATUS
-          - 208 ALREADY_REPORTED
-          - 226 IM_USED
-          - 300 MULTIPLE_CHOICES
-          - 301 MOVED_PERMANENTLY
-          - 302 FOUND
-          - 302 MOVED_TEMPORARILY
-          - 303 SEE_OTHER
-          - 304 NOT_MODIFIED
-          - 305 USE_PROXY
-          - 307 TEMPORARY_REDIRECT
-          - 308 PERMANENT_REDIRECT
-          - 400 BAD_REQUEST
-          - 401 UNAUTHORIZED
-          - 402 PAYMENT_REQUIRED
-          - 403 FORBIDDEN
-          - 404 NOT_FOUND
-          - 405 METHOD_NOT_ALLOWED
-          - 406 NOT_ACCEPTABLE
-          - 407 PROXY_AUTHENTICATION_REQUIRED
-          - 408 REQUEST_TIMEOUT
-          - 409 CONFLICT
-          - 410 GONE
-          - 411 LENGTH_REQUIRED
-          - 412 PRECONDITION_FAILED
-          - 413 PAYLOAD_TOO_LARGE
-          - 413 REQUEST_ENTITY_TOO_LARGE
-          - 414 URI_TOO_LONG
-          - 414 REQUEST_URI_TOO_LONG
-          - 415 UNSUPPORTED_MEDIA_TYPE
-          - 416 REQUESTED_RANGE_NOT_SATISFIABLE
-          - 417 EXPECTATION_FAILED
-          - 418 I_AM_A_TEAPOT
-          - 419 INSUFFICIENT_SPACE_ON_RESOURCE
-          - 420 METHOD_FAILURE
-          - 421 DESTINATION_LOCKED
-          - 422 UNPROCESSABLE_ENTITY
-          - 423 LOCKED
-          - 424 FAILED_DEPENDENCY
-          - 426 UPGRADE_REQUIRED
-          - 428 PRECONDITION_REQUIRED
-          - 429 TOO_MANY_REQUESTS
-          - 431 REQUEST_HEADER_FIELDS_TOO_LARGE
-          - 451 UNAVAILABLE_FOR_LEGAL_REASONS
-          - 500 INTERNAL_SERVER_ERROR
-          - 501 NOT_IMPLEMENTED
-          - 502 BAD_GATEWAY
-          - 503 SERVICE_UNAVAILABLE
-          - 504 GATEWAY_TIMEOUT
-          - 505 HTTP_VERSION_NOT_SUPPORTED
-          - 506 VARIANT_ALSO_NEGOTIATES
-          - 507 INSUFFICIENT_STORAGE
-          - 508 LOOP_DETECTED
-          - 509 BANDWIDTH_LIMIT_EXCEEDED
-          - 510 NOT_EXTENDED
-          - 511 NETWORK_AUTHENTICATION_REQUIRED
+        - 100 CONTINUE
+        - 101 SWITCHING_PROTOCOLS
+        - 102 PROCESSING
+        - 103 CHECKPOINT
+        - 200 OK
+        - 201 CREATED
+        - 202 ACCEPTED
+        - 203 NON_AUTHORITATIVE_INFORMATION
+        - 204 NO_CONTENT
+        - 205 RESET_CONTENT
+        - 206 PARTIAL_CONTENT
+        - 207 MULTI_STATUS
+        - 208 ALREADY_REPORTED
+        - 226 IM_USED
+        - 300 MULTIPLE_CHOICES
+        - 301 MOVED_PERMANENTLY
+        - 302 FOUND
+        - 302 MOVED_TEMPORARILY
+        - 303 SEE_OTHER
+        - 304 NOT_MODIFIED
+        - 305 USE_PROXY
+        - 307 TEMPORARY_REDIRECT
+        - 308 PERMANENT_REDIRECT
+        - 400 BAD_REQUEST
+        - 401 UNAUTHORIZED
+        - 402 PAYMENT_REQUIRED
+        - 403 FORBIDDEN
+        - 404 NOT_FOUND
+        - 405 METHOD_NOT_ALLOWED
+        - 406 NOT_ACCEPTABLE
+        - 407 PROXY_AUTHENTICATION_REQUIRED
+        - 408 REQUEST_TIMEOUT
+        - 409 CONFLICT
+        - 410 GONE
+        - 411 LENGTH_REQUIRED
+        - 412 PRECONDITION_FAILED
+        - 413 PAYLOAD_TOO_LARGE
+        - 413 REQUEST_ENTITY_TOO_LARGE
+        - 414 URI_TOO_LONG
+        - 414 REQUEST_URI_TOO_LONG
+        - 415 UNSUPPORTED_MEDIA_TYPE
+        - 416 REQUESTED_RANGE_NOT_SATISFIABLE
+        - 417 EXPECTATION_FAILED
+        - 418 I_AM_A_TEAPOT
+        - 419 INSUFFICIENT_SPACE_ON_RESOURCE
+        - 420 METHOD_FAILURE
+        - 421 DESTINATION_LOCKED
+        - 422 UNPROCESSABLE_ENTITY
+        - 423 LOCKED
+        - 424 FAILED_DEPENDENCY
+        - 426 UPGRADE_REQUIRED
+        - 428 PRECONDITION_REQUIRED
+        - 429 TOO_MANY_REQUESTS
+        - 431 REQUEST_HEADER_FIELDS_TOO_LARGE
+        - 451 UNAVAILABLE_FOR_LEGAL_REASONS
+        - 500 INTERNAL_SERVER_ERROR
+        - 501 NOT_IMPLEMENTED
+        - 502 BAD_GATEWAY
+        - 503 SERVICE_UNAVAILABLE
+        - 504 GATEWAY_TIMEOUT
+        - 505 HTTP_VERSION_NOT_SUPPORTED
+        - 506 VARIANT_ALSO_NEGOTIATES
+        - 507 INSUFFICIENT_STORAGE
+        - 508 LOOP_DETECTED
+        - 509 BANDWIDTH_LIMIT_EXCEEDED
+        - 510 NOT_EXTENDED
+        - 511 NETWORK_AUTHENTICATION_REQUIRED
       statusCodeValue:
         type: integer
         format: int32
     title: ResponseEntity
-  SchemaValidationResponse:
+  Response«Job»:
     type: object
     properties:
-      errors:
-        type: array
-        items:
-          type: string
-      valid:
-        type: boolean
-    title: SchemaValidationResponse
-  User:
+      data:
+        "$ref": "#/definitions/Job"
+      error:
+        "$ref": "#/definitions/ErrorResponse«Job»"
+    title: Response«Job»
+  Response«List«Job»»:
     type: object
     properties:
-      accountNonExpired:
-        type: boolean
-      accountNonLocked:
-        type: boolean
-      authorities:
+      data:
         type: array
         items:
-          $ref: '#/definitions/GrantedAuthority'
-      blocks:
-        type: array
-        items:
-          $ref: '#/definitions/Block'
-      createdAt:
-        type: string
-        format: date-time
-      credentialsNonExpired:
-        type: boolean
-      emailAddress:
-        type: string
-      enabled:
-        type: boolean
-      id:
-        type: string
-        format: uuid
-      projects:
-        type: array
-        items:
-          $ref: '#/definitions/Project'
-      updatedAt:
-        type: string
-        format: date-time
-      username:
-        type: string
-    title: User
-  UserCredentialDto:
+          "$ref": "#/definitions/Job"
+      error:
+        "$ref": "#/definitions/ErrorResponse«List«Job»»"
+    title: Response«List«Job»»
+  Response«List«WorkflowResponse»»:
     type: object
     properties:
-      emailAddress:
-        type: string
-      password:
-        type: string
-    title: UserCredentialDto
-  UserDto:
+      data:
+        type: array
+        items:
+          "$ref": "#/definitions/WorkflowResponse"
+      error:
+        "$ref": "#/definitions/ErrorResponse«List«WorkflowResponse»»"
+    title: Response«List«WorkflowResponse»»
+  Response«Project»:
     type: object
     properties:
-      registryUrl:
+      data:
+        "$ref": "#/definitions/Project"
+      error:
+        "$ref": "#/definitions/ErrorResponse«Project»"
+    title: Response«Project»
+  Response«WorkflowResponse»:
+    type: object
+    properties:
+      data:
+        "$ref": "#/definitions/WorkflowResponse"
+      error:
+        "$ref": "#/definitions/ErrorResponse«WorkflowResponse»"
+    title: Response«WorkflowResponse»
+  URI:
+    type: object
+    properties:
+      absolute:
+        type: boolean
+      authority:
         type: string
-    title: UserDto
+      fragment:
+        type: string
+      host:
+        type: string
+      opaque:
+        type: boolean
+      path:
+        type: string
+      port:
+        type: integer
+        format: int32
+      query:
+        type: string
+      rawAuthority:
+        type: string
+      rawFragment:
+        type: string
+      rawPath:
+        type: string
+      rawQuery:
+        type: string
+      rawSchemeSpecificPart:
+        type: string
+      rawUserInfo:
+        type: string
+      scheme:
+        type: string
+      schemeSpecificPart:
+        type: string
+      userInfo:
+        type: string
+    title: URI
+  URL:
+    type: object
+    properties:
+      authority:
+        type: string
+      content:
+        type: object
+      defaultPort:
+        type: integer
+        format: int32
+      file:
+        type: string
+      host:
+        type: string
+      path:
+        type: string
+      port:
+        type: integer
+        format: int32
+      protocol:
+        type: string
+      query:
+        type: string
+      ref:
+        type: string
+      userInfo:
+        type: string
+    title: URL
   Workflow:
     type: object
     properties:
@@ -1386,28 +1149,42 @@ definitions:
       tasks:
         type: array
         items:
-          $ref: '#/definitions/WorkflowTask'
+          "$ref": "#/definitions/WorkflowTask"
       updatedAt:
         type: string
         format: date-time
     title: Workflow
-  WorkflowDto:
+  WorkflowResponse:
     type: object
     properties:
+      createdAt:
+        type: string
+        format: date-time
       description:
         type: string
+      id:
+        type: string
+        format: uuid
       name:
         type: string
       tasks:
         type: array
         items:
-          $ref: '#/definitions/WorkflowTaskDto'
-    title: WorkflowDto
+          "$ref": "#/definitions/WorkflowTaskResponse"
+      totalProcessingTime:
+        type: integer
+        format: int64
+      updatedAt:
+        type: string
+        format: date-time
+    title: WorkflowResponse
   WorkflowTask:
     type: object
     properties:
       block:
-        $ref: '#/definitions/Block'
+        "$ref": "#/definitions/Block"
+      blockVersion:
+        "$ref": "#/definitions/BlockVersion"
       createdAt:
         type: string
         format: date-time
@@ -1419,18 +1196,24 @@ definitions:
       parents:
         type: array
         items:
-          $ref: '#/definitions/WorkflowTask'
+          "$ref": "#/definitions/WorkflowTask"
       updatedAt:
         type: string
         format: date-time
     title: WorkflowTask
-  WorkflowTaskDto:
+  WorkflowTaskResponse:
     type: object
     properties:
+      block:
+        "$ref": "#/definitions/BlockResponse"
       blockName:
+        type: string
+      blockVersionTag:
         type: string
       name:
         type: string
-      parentName:
-        type: string
-    title: WorkflowTaskDto
+      parents:
+        type: array
+        items:
+          "$ref": "#/definitions/WorkflowTask"
+    title: WorkflowTaskResponse
