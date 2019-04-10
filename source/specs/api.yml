@@ -243,7 +243,7 @@ paths:
     get:
       tags:
       - jobs-controller
-      summary: getOutputDir
+      summary: Download the result of the completed job in a output.tar.gz file
       operationId: getOutputDirUsingGET
       produces:
       - application/tar+gzip
@@ -388,8 +388,8 @@ paths:
       - "*/*"
       parameters:
       - in: body
-        name: subject
-        description: subject
+        name: jsonNode
+        description: JsonNode containing the job configuration to run the job with
         required: true
         schema:
           "$ref": "#/definitions/JsonNode"
