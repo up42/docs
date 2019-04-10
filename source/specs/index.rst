@@ -8,4 +8,4 @@ UP42 API specification
    :caption: Contents
 
    public-apis
-   `API specs <../../docs/build/html/api/index.html>`
+   API specs <../api/index.html#http://>
