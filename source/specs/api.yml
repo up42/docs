@@ -7,7 +7,7 @@ info:
   contact:
     name: UP42
     url: "up42.com"
-host: localhost:8080
+host: api.up42.com
 basePath: "/"
 tags:
 - name: get-accesstoken-endpoint
@@ -47,6 +47,8 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            $ref: '#/definitions/Token'
         '201':
           description: Created
         '401':
@@ -408,6 +410,21 @@ paths:
           description: Not Found
       deprecated: false
 definitions:
+  Token:
+    type: object
+    properties:
+      access_token:
+        type: string
+        description: The access token string as issued by the authorization server
+      token_type:
+        type: string
+        enum:
+        - Bearer
+        description: The type of token this is, typically just the string “Bearer”
+      expires_in:
+        type: integer
+        format: int32
+        description: The lifetime in seconds of the access token
   Block:
     type: object
     properties:
