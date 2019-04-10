@@ -4,7 +4,7 @@ Recent changes to the documentation
 09.04.2019
 ----------
 
-* Provide API specifications for :ref:`UP42 public APIs <specs>`
+* Provide API specifications for :ref:`UP42 public APIs <UP42-apis>`
 
 02.04.2019
 ----------

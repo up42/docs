@@ -8,4 +8,4 @@ UP42 API specification
    :caption: Contents
 
    public-apis
-.. openapi:: specs/api.yml
+   `API specs <../../docs/build/html/api/index.html>`
