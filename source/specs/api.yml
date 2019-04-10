@@ -17,7 +17,7 @@ tags:
 - name: revoke-token-endpoint
   description: Endpoint to revoke access token for a project
 - name: schema-validation-controller
-  description: Endpoint to validate job schema
+  description: Endpoint to validate block schema
 - name: workflow-controller
   description: Endpoints to view created workflows for a given project
 - name: jobs-controller
@@ -382,7 +382,7 @@ paths:
     post:
       tags:
       - schema-validation-controller
-      summary: Validate job configuration
+      summary: Validate block schema
       operationId: validateBlockManifestUsingPOST
       consumes:
       - application/json
@@ -391,7 +391,7 @@ paths:
       parameters:
       - in: body
         name: jsonNode
-        description: JsonNode containing the job configuration to run the job with
+        description: JsonNode containing the block manifest to validate
         required: true
         schema:
           "$ref": "#/definitions/JsonNode"

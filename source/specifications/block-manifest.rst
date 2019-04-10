@@ -107,8 +107,11 @@ Example valid response:
     Status code: 200
     Body:
     {
-        "valid": true,
-        "errors": []
+        "error": null,
+        "data": {
+            "valid": true,
+            "errors": []
+        }
     }
 
 Example invalid response:
@@ -118,10 +121,13 @@ Example invalid response:
     Status code: 400
     Body:
     {
+        "error": null,
+        "data": {
         "valid": false,
         "errors": [
             "#: required key [name] not found"
         ]
+        }
     }
 
 
