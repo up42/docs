@@ -3,21 +3,22 @@
 UP42 APIs
 =========
 
-Create and run jobs on the platform using the `UP42 apis <../api/index.html#http://>`_ .
+Clients can create, view and run jobs on the UP42 platform using the `UP42 apis <../api/index.html#http://>`_ .
 
 .. contents::
 
-Oauth access token
-------------------
+Authentication
+--------------
 
-In order to work with the public apis, an access token is required for a given project .
+In order to work with the public apis the client has to send an access token for all endpoints.
 `Client Credentials <https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/>`_ grant is used to request an access token .
 This can be obtained from the ``/oauth/token`` POST endpoint whose definition is provided in the `UP42 API specs <../api/index.html#http://tag/get-accesstoken-endpoint>`_ .
 
 The username for the basic authentication to get the access token is the project UUID and the password is the api-key.
+This access token is then sent as the Bearer token in all subsequent api requests.
 
-Token Validity
---------------
+Access Token Validity
+---------------------
 
 The access token is initially valid for a lifetime of 60 minutes. A new access token can then be requested if the current token expires.
 
