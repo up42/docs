@@ -16,7 +16,7 @@ The structure inside these directories should always be as follows:
 * A single ``data.json`` file, containing the `GeoJSON metadata`_
 * Any number of additional resources/files, which are linked to from the GeoJSON metadata
 
-(The output of the last block in the workflow will be treated as the :ref:`result <job-result>` of any job run based on
+(The output of the last block in the workflow will be treated as the result of any job run based on
 that workflow.)
 
 GeoJSON metadata

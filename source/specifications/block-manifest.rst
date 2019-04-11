@@ -42,7 +42,7 @@ The most important keys to note here are the following:
 * ``name``: the name of your block. This name **must** be unique for your account.
 * ``type``: either ``"data"`` or ``"processing"``. This provides a hint to the platform when validating workflows.
   The major difference between data and processing blocks is whether they require input data (data blocks do not
-  take any input data, only output it based on the :ref:`query parameters <query-format>`).
+  take any input data, only output it).
 * ``tags``: a list of tags used for searching and filtering blocks in the UP42 UI.
 * ``display_name``: the name of the block as displayed in the UP42 UI. This name is not checked for
   uniqueness.

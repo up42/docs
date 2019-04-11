@@ -20,9 +20,9 @@ Query filters and processing parameters can be one of the following types:
 * ``dateRange``: a range of dates, specified in the STAC format using ISO dates, for example: ``"2018-02-12T00:00:00Z/2018-03-18T12:31:12Z"``
 * ``range``: a numerical range (either integers or floats). Range parameters can specify the following additional
   options:
-    - ``min``: a minimum value
-    - ``max``: a maximum value
-    - ``type``: either ``integer`` or ``float``, depending on what values the block accepts
+  - ``min``: a minimum value
+  - ``max``: a maximum value
+  - ``type``: either ``integer`` or ``float``, depending on what values the block accepts
 * ``string``: generic string content. May be the empty string or ``null``
 * ``number``: generic number content, either integer or float, or ``null``
 * ``array``: a simple array of strings or numbers, an empty array, or ``null``
