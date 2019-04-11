@@ -102,7 +102,7 @@ Manifests can be validated against the endpoint provided by the platform. With `
 
 Example valid response:
 
-.. code-block:: json
+.. code-block:: text
 
     Status code: 200
     Body:
@@ -116,7 +116,7 @@ Example valid response:
 
 Example invalid response:
 
-.. code-block:: json
+.. code-block:: text
 
     Status code: 400
     Body:

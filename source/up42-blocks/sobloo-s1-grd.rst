@@ -40,6 +40,7 @@ capability mapping to the directory containing the `SAFE data <http://earth.esa.
 Example output GeoJSON:
 
 .. code-block:: javascript
+
     {
         "type": "FeatureCollection",
         "features": [

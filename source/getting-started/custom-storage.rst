@@ -25,7 +25,7 @@ For example, given the following steps:
 
 you could set up the workflow as follows:
 
-1. Use the existing :ref:`Sentinel-2 block <sentinel2-l1c>` to fetch the scene you want
+1. Use the existing :ref:`Sentinel-2 block <sentinel2-l1c-fullscene-block>` to fetch the scene you want
 2. Build a custom block to process SAFE files into a COG
     * This block would read the data as usual from the ``/tmp/input`` directory
     * Instead of writing to ``/tmp/output`` it would push the resulting COG to your own storage solution

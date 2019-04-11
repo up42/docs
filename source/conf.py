@@ -19,16 +19,16 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Interstellar'
-copyright = '2019, Interstellar Team'
-author = 'Interstellar Team'
+project = 'UP42'
+copyright = '2019, UP42 Team'
+author = 'UP42 Team'
 
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
 release = ''
 
-html_logo = "logo.png"
+html_logo = "logo.svg"
 html_favicon = "favicon.png"
 
 # -- General configuration ---------------------------------------------------
@@ -111,7 +111,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Interstellardoc'
+htmlhelp_basename = 'UP42doc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -138,8 +138,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'Interstellar.tex', 'Interstellar Documentation',
-     'Interstellar Team', 'manual'),
+    (master_doc, 'UP42.tex', 'UP42 Documentation',
+     'UP42 Team', 'manual'),
 ]
 
 
@@ -148,7 +148,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'interstellar', 'Interstellar Documentation',
+    (master_doc, 'UP42', 'UP42 Documentation',
      [author], 1)
 ]
 
@@ -159,9 +159,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'Interstellar', 'Interstellar Documentation',
-     author, 'Interstellar', 'One line description of project.',
-     'Miscellaneous'),
+    (master_doc, 'UP42', 'UP42 Documentation',
+     author, 'UP42', '', ''),
 ]
 
 
@@ -200,7 +199,7 @@ todo_include_todos = True
 # See: https://sphinxcontrib-redoc.readthedocs.io/en/stable/
 redoc = [
     {
-        'name': 'Interstellar API',
+        'name': 'UP42 API',
         'page': 'api/index',
         'spec': 'specs/api.yml',
         'embed': True,
