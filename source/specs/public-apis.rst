@@ -12,7 +12,9 @@ For a complete listing of endpoints, along with examples of how to use them, see
 Authentication
 --------------
 
-The UP42 API uses the `OAuth2 spec <https://www.oauth.com/>`_ for authentication.
+The UP42 API uses the `OAuth2 spec <https://www.oauth.com/>`_ for authentication. The
+`Client Credentials <https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/>`_ grant is used to request
+an access token.
 
 The authentication flow is as follows:
 
