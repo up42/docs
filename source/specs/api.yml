@@ -936,9 +936,13 @@ definitions:
       type:
         type: string
         enum:
-        - SQUARE_KM
-        - MEGABYTE
-        - SCENE
+        - SQUARE_KM_INPUT
+        - SQUARE_KM_OUTPUT
+        - MEGABYTE_INPUT
+        - MEGABYTE_OUTPUT
+        - SCENE_INPUT
+        - SCENE_OUTPUT
+        - MEGAPIXEL_INPUT
       updatedAt:
         type: string
         format: date-time
