@@ -1,7 +1,7 @@
 .. _sentinelhub-landsat8-aoiclipped-block:
 
-Sentinel Hub Landsat-8 (AOI-Clipped)
-====================================
+Sentinel (AOI-Clipped)
+======================
 
 Block type: ``DATA``
 

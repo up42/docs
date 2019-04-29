@@ -1,7 +1,7 @@
 .. _sentinelhub-sentinel2-aoiclipped-block:
 
-Sentinel Hub Sentinel-2 (AOI-Clipped)
-=====================================
+Sentinel-2 (AOI-Clipped)
+========================
 
 Block type: ``DATA``
 
