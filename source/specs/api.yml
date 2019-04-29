@@ -943,6 +943,7 @@ definitions:
         - SCENE_INPUT
         - SCENE_OUTPUT
         - MEGAPIXEL_INPUT
+        - MEGAPIXEL_OUTPUT
       updatedAt:
         type: string
         format: date-time
