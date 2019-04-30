@@ -12,3 +12,5 @@ complete overview of blocks that can be run on the platform. Together, they form
 
    data-block/index
    processing-block/index
+
+Additionally, a complete land cover demo block using k-means clustering and wrapped into some Tensorflow code can be found here: https://github.com/up42/land-cover-classification-demo
