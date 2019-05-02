@@ -1,283 +1,25 @@
 ---
 swagger: '2.0'
 info:
-  description: "UP42 APIs to create and run jobs for a project"
   version: '1.0'
-  title: UP42 API specifications
+  title: UP42 API Documentation
   contact:
     name: UP42
     url: "up42.com"
 host: api.up42.com
 basePath: "/"
 tags:
-- name: get-accesstoken-endpoint
-  description: Endpoint to get the oauth access token for a project
-- name: projects-controller
-  description: Endpoint to view created projects
-- name: revoke-token-endpoint
-  description: Endpoint to revoke access token for a project
-- name: schema-validation-controller
-  description: Endpoint to validate block schema
-- name: workflow-controller
-  description: Endpoints to view created workflows for a given project
-- name: jobs-controller
+- name: Workflows
+  description: Endpoints to view created workflows for a project
+- name: Jobs
   description: Endpoints to view, create and run jobs for a workflow
+- name: Validate Block Manifest
+  description: An endpoint to validate UP42Manifest json for your custom blocks 
 paths:
-  "/oauth/token":
-    post:
-      tags:
-      - get-accesstoken-endpoint
-      summary: Get access token for a project
-      operationId: getTokenUsingPOST
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      parameters:
-      - name: grant_type
-        in: query
-        required: true
-        type: string
-        format: client_credentials
-      - name: Authorization
-        in: header
-        description: Basic Authorization where username is the project UUID and password is the apikey for the project
-        required: true
-        type: string
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Token'
-        '201':
-          description: Created
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  "/oauth/revokeToken":
-    post:
-      tags:
-      - revoke-token-endpoint
-      summary: Revoke access token for a project
-      operationId: revokeTokenUsingPOST
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      parameters:
-      - name: Authorization
-        in: header
-        description: Authorization
-        required: true
-        type: string
-      responses:
-        '200':
-          description: OK
-        '201':
-          description: Created
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  "/projects/{id}":
-    get:
-      tags:
-      - projects-controller
-      summary: Get an existing project by UUID
-      operationId: getProjectUsingGET
-      produces:
-      - "*/*"
-      parameters:
-      - name: id
-        in: path
-        description: id
-        required: true
-        type: string
-        format: uuid
-      responses:
-        '200':
-          description: OK
-          schema:
-            "$ref": "#/definitions/Response«Project»"
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  "/projects/{projectId}/jobs":
-    get:
-      tags:
-      - jobs-controller
-      summary: Get all existing jobs for a project
-      operationId: getAllJobsForProjectUsingGET
-      produces:
-      - "*/*"
-      parameters:
-      - name: projectId
-        in: path
-        description: projectId
-        required: true
-        type: string
-        format: uuid
-      responses:
-        '200':
-          description: OK
-          schema:
-            "$ref": "#/definitions/Response«List«Job»»"
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  "/projects/{projectId}/jobs/{id}/cancel":
-    post:
-      tags:
-      - jobs-controller
-      summary: Cancel a running job
-      operationId: cancelJobUsingPOST
-      consumes:
-      - application/json
-      produces:
-      - "*/*"
-      parameters:
-      - name: id
-        in: path
-        description: id
-        required: true
-        type: string
-        format: uuid
-      - name: projectId
-        in: path
-        description: projectId
-        required: true
-        type: string
-        format: uuid
-      responses:
-        '201':
-          description: Created
-        '204':
-          description: No Content
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  "/projects/{projectId}/jobs/{jobId}":
-    get:
-      tags:
-      - jobs-controller
-      summary: Get job by job id
-      operationId: getJobUsingGET
-      produces:
-      - "*/*"
-      parameters:
-      - name: jobId
-        in: path
-        description: jobId
-        required: true
-        type: string
-        format: uuid
-      - name: projectId
-        in: path
-        description: projectId
-        required: true
-        type: string
-        format: uuid
-      responses:
-        '200':
-          description: OK
-          schema:
-            "$ref": "#/definitions/Response«Job»"
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  "/projects/{projectId}/jobs/{jobId}/outputs/data-json":
-    get:
-      tags:
-      - jobs-controller
-      summary: getJobDataJson
-      operationId: getJobDataJsonUsingGET
-      produces:
-      - text/plain;charset=UTF-8
-      parameters:
-      - name: jobId
-        in: path
-        description: jobId
-        required: true
-        type: string
-        format: uuid
-      - name: projectId
-        in: path
-        description: projectId
-        required: true
-        type: string
-        format: uuid
-      responses:
-        '200':
-          description: OK
-          schema:
-            "$ref": "#/definitions/InputStreamResource"
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  "/projects/{projectId}/jobs/{jobId}/outputs/directory":
-    get:
-      tags:
-      - jobs-controller
-      summary: Download the result of the completed job in a output.tar.gz file
-      operationId: getOutputDirUsingGET
-      produces:
-      - application/tar+gzip
-      parameters:
-      - name: jobId
-        in: path
-        description: jobId
-        required: true
-        type: string
-        format: uuid
-      - name: projectId
-        in: path
-        description: projectId
-        required: true
-        type: string
-        format: uuid
-      responses:
-        '200':
-          description: OK
-          schema:
-            "$ref": "#/definitions/InputStreamResource"
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
   "/projects/{projectId}/workflows":
     get:
       tags:
-      - workflow-controller
+      - Workflows
       summary: Get all workflows in a project
       operationId: getWorkflowsInProjectUsingGET
       produces:
@@ -304,8 +46,8 @@ paths:
   "/projects/{projectId}/workflows/{workflowId}":
     get:
       tags:
-      - workflow-controller
-      summary: Get workflow by porject id and workflow id
+      - Workflows
+      summary: Get an individual workflow
       operationId: getWorkflowUsingGET
       produces:
       - "*/*"
@@ -334,11 +76,38 @@ paths:
         '404':
           description: Not Found
       deprecated: false
+  "/projects/{projectId}/jobs":
+    get:
+      tags:
+      - Jobs
+      summary: Get all existing jobs for a project
+      operationId: getAllJobsForProjectUsingGET
+      produces:
+      - "*/*"
+      parameters:
+      - name: projectId
+        in: path
+        description: projectId
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Response«List«Job»»"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
   "/projects/{projectId}/workflows/{workflowId}/jobs":
     post:
       tags:
-      - jobs-controller
-      summary: Run a job for a given workflow with the a job configuration
+      - Jobs
+      summary: Create a job to start running an instance of a workflow
       operationId: createAndRunJobUsingPOST
       consumes:
       - application/json
@@ -378,10 +147,144 @@ paths:
         '404':
           description: Not Found
       deprecated: false
+  "/projects/{projectId}/jobs/{jobId}":
+    get:
+      tags:
+      - Jobs
+      summary: Get an individual job
+      operationId: getJobUsingGET
+      produces:
+      - "*/*"
+      parameters:
+      - name: jobId
+        in: path
+        description: jobId
+        required: true
+        type: string
+        format: uuid
+      - name: projectId
+        in: path
+        description: projectId
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Response«Job»"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/projects/{projectId}/jobs/{jobId}/outputs/data-json":
+    get:
+      tags:
+      - Jobs
+      summary: Get the data.json file that is output from a successfully completed job
+      operationId: getJobDataJsonUsingGET
+      produces:
+      - text/plain;charset=UTF-8
+      parameters:
+      - name: jobId
+        in: path
+        description: jobId
+        required: true
+        type: string
+        format: uuid
+      - name: projectId
+        in: path
+        description: projectId
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/InputStreamResource"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/projects/{projectId}/jobs/{jobId}/outputs/directory":
+    get:
+      tags:
+      - Jobs
+      summary: Get the compressed output directory of a completed job
+      operationId: getOutputDirUsingGET
+      produces:
+      - application/tar+gzip
+      parameters:
+      - name: jobId
+        in: path
+        description: jobId
+        required: true
+        type: string
+        format: uuid
+      - name: projectId
+        in: path
+        description: projectId
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/InputStreamResource"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/projects/{projectId}/jobs/{id}/cancel":
+    post:
+      tags:
+      - Jobs
+      summary: Cancel a running job
+      operationId: cancelJobUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        type: string
+        format: uuid
+      - name: projectId
+        in: path
+        description: projectId
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '201':
+          description: Created
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
   "/validate-schema/block":
     post:
       tags:
-      - schema-validation-controller
+      - Validate Block Manifest
       summary: Validate block schema
       operationId: validateBlockManifestUsingPOST
       consumes:
