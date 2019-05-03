@@ -5,9 +5,10 @@ info:
   title: UP42 API Documentation
   contact:
     name: UP42
-    url: "up42.com"
+    url: https://up42.com
 host: api.up42.com
 basePath: "/"
+scheme: https
 tags:
 - name: Workflows
   description: Endpoints to view created workflows for a project
