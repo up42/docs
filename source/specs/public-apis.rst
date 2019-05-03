@@ -5,7 +5,7 @@ Getting started with the UP42 API
 
 Clients can create, view and run jobs on the UP42 platform using the API.
 
-For a complete listing of endpoints, along with examples of how to use them, see the `API specification <../api/index.html>`_.
+A complete reference of API endpoints with examples and how to use them is coming soon.
 
 .. contents::
 

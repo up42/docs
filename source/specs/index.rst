@@ -1,6 +1,6 @@
 .. _api-spec-documentation:
 
-UP42 API specification
+UP42 API documentation
 ======================
 
 .. toctree::
@@ -8,4 +8,4 @@ UP42 API specification
    :caption: Contents
 
    public-apis
-   API specs <../api/index.html#http://>
+   docs-coming-soon
