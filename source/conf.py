@@ -29,7 +29,7 @@ version = ''
 release = ''
 
 html_logo = "logo.svg"
-html_favicon = "favicon.png"
+html_favicon = "favicon.ico"
 
 # -- General configuration ---------------------------------------------------
 
