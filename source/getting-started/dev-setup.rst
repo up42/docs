@@ -163,7 +163,7 @@ Next, place your sample input data (in this case, you can use the output from th
         -t processing-block
 
 With this version of the ``docker run`` command, we skip the task parameters environmental variable, because our
-processing block as no parameters. Instead, we additionally mount the input directory in the container so that the
+processing block has no parameters. Instead, we additionally mount the input directory in the container so that the
 block can read the data it needs to analyze.
 
 As before, when the block completes it will write its output into the ``/tmp/output`` directory.
