@@ -63,6 +63,53 @@ The most important keys to note here are the following:
 
 .. _attaching-manifest:
 
+Optional Features
+-----------------
+The manifest file also supports optional features i.e. functionality that a block can, but not must, support. So far
+these are only available for data blocks. See in the following the manifest used for our built-in Landsat8 block as an
+example.
+
+.. code-block:: json
+
+    {
+      "_up42_specification_version": 1,
+      "name": "landsat8-aoiclipped",
+      "type": "data",
+      "tags": [
+        "Landsat",
+        "MSI",
+        "Imagery"
+      ],
+      "display_name": "Landsat-8 Level 1 (TOA) AOI clipped",
+      "description": "This block provides Landsat-8 imagery clipped to all webmercator tiles intersecting a given bounding box or AOI on a given zoom level. The part of the image that does not intersect with these tiles will be black. The block outputs a single GeoTIFF file and will store the AOI within the output feature geometry.",
+      "parameters": {
+        "bbox": { "type": "string", "default": null},
+        "intersects": {"type": "geometry"},
+        "time": {"type": "dateRange", "default": null},
+        "limit": {"type": "number", "default": 1},
+        "zoom_level": {"type": "number", "default": 17}
+      },
+      "machine": {
+        "type": "large"
+      },
+      "optional_features": {
+          "quicklook_supported": true,
+          "dry_run_supported": true
+      },
+      "input_capabilities": {
+      },
+      "output_capabilities": {
+          "up42.data.aoiclipped": {}
+      }
+    }
+
+You will notice the ``optional_features`` element. ``quicklook_supported`` indicates that the data block supports creation
+of quicklooks as described in :ref:`Data transfer format <data-transfer-format>`. If ``dry_run_supported`` is set to ``true``,
+the data block is able to do test runs, i.e. it fetches information about availability of datasets according to the
+specified query parameters without actually fetching any data. See the UP42_JOB_MODE paragraph in the
+:ref:`Environmental variables in running blocks <block-envvars>` section. how this behaviour is invoked.
+
+
 Attaching a manifest to a block
 -------------------------------
 
