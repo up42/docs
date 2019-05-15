@@ -4,6 +4,7 @@
  
 Mail to [support@up42.com](mailto:support@up42.com). 
  
+<<<<<<< HEAD
 ## How do I signup for an account?
 
  1. Go to our [homepage](https://up42.com).
@@ -24,3 +25,14 @@ No **all** images in our Docker registry are **private**.
 
 Yes. Containers are programming language agnostic. You can write in
 whatever programming language suits your needs and preferences.
+ 
+## Two blocks (e.g. Landsat 8 and Airbus ship detection) can be run together as their capabilities match, but the ship detection then fails. Why is that so?
+ 
+ Matching capabilities in a workflow is a necessary requirement to run
+ it and automatically checked by the workflow editor. This avoids
+ mismatches such as an algorithm expecting a Sentinel-1 GRD image file
+ is started with a RGB image from a multispectral sensor. Currently
+ the capabilities matching process though is not able to identify all
+ mismatches between blocks. Please read the [block description](https://docs.up42.com/specifications/capabilities.html#block-capabilities)
+ carefully to understand if the input requirements are met before
+ trying to use a block in your workflow.
