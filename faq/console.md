@@ -1,29 +1,30 @@
 # Console FAQ
 
- Q: How can I change my password?
+## How can I change my password?
 
- A: 
+ 1. Go to the [change password page](https://up42.com/settings/password).
+ 2. Enter the old and new password in the respective fields. 
+ 3. Click on the **Update Password** button.
+ 4. Done.
  
- Q: I haven't received a verification code to validate my email
-    address for my account how can I get this code to be resent?
+## I haven't received a verification code to validate my email address for my account how can I get this code to be resent?
  
- A: 
+ 1. Go to the [verify mail page](https://up42.com/verify-mail).
+ 2. Click on the **Resend code** link.
+ 3. Done.
 
- Q: Where can I find the UUID associated with my UP42 user?
+## Where can I find the UUID associated with my UP42 user?
  
- A: The
- [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)
- associated with your UP42 user can be found in the **custom blocks**
- menu item.
+The [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)
+associated with your UP42 user can be found in the **Custom Blocks**
+left menu item. Note that this is what we call `<user_id>` in our
+documentation.
  
- ![custom blocks menu item](_assets/select_custom_blocks.png "Custom blocks menu item")
+## Can I change the email address associated with my UP42 account?
  
+Currently this is not possible. We will provide this feature in a
+upcoming release. 
  
- Q: Can I change the email address associated with my UP42 account?
+## Can I have multiple email addresses associated with my account?
  
- A: Currently that is not possible. We will provide this feature in a
-    upcoming release. 
- 
- Q: Can I have multiple email addresses associated with my account?
- 
- A: Not yet. That feature will come later in our product development.
+Not yet. That feature will come later in our product development.
