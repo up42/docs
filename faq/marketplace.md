@@ -12,8 +12,7 @@
  There are many possibilities for that. [Get in touch](mailto:support@up42.com) 
  with us to know more.
  
-## Is the **I**ntellectual **P**roperty (IP) embedded in my
- marketplace blocks safe?
+## Is the **I**ntellectual **P**roperty (IP) embedded in my marketplace blocks safe?
  
  The long and short answer is **yes** it is. Why? Because:
  
@@ -21,11 +20,17 @@
     internals. Once your block is published in our **private** Docker
     registry **you and only you** have access to it. 
     
- 2. We treat your block as **black box** it gets inputs and sets
+ 2. We treat your block as a **black box** it gets inputs and sets
     outputs. That's all.
  
- 2. Users can only add/remove your block to/from their workflow. They
+ 3. Users can only add/remove your block to/from their workflow. They
     cannot do anything else with it.
+ 
+ 4. Please note that it is up to you to define the logging in your block in a way that
+    doesn't reveal any inside details about it. If you are
+    curious about how a block might look like check our 
+    [land cover demo block](https://github.com/up42/land-cover-classification-demo) 
+    to have and idea on how to build your own block.
  
 ## How and when does UP42 pay me?
 
