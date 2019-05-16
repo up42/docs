@@ -4,7 +4,6 @@
  
 Mail to [support@up42.com](mailto:support@up42.com). 
  
-<<<<<<< HEAD
 ## How do I signup for an account?
 
  1. Go to our [homepage](https://up42.com).
