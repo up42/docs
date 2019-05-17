@@ -35,9 +35,3 @@ whatever programming language suits your needs and preferences.
  mismatches between blocks. Please read the [block description](https://docs.up42.com/specifications/capabilities.html#block-capabilities)
  carefully to understand if the input requirements are met before
  trying to use a block in your workflow.
-
-## What browsers and respective versions are supported by the UP42 console
- 
- * Firefox versions greater than 64.
- * Chrome versions greater than 72.
- * Microsoft Edge.

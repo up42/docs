@@ -1,12 +1,18 @@
 # Console FAQ
 
+## What browsers and respective versions are supported by the UP42 console?
+ 
+ * Firefox versions greater than 64.
+ * Chrome versions greater than 72.
+ * Microsoft Edge.
+
 ## How can I change my password?
 
  1. Go to the [change password page](https://up42.com/settings/password).
  2. Enter the old and new password in the respective fields. 
  3. Click on the **Update Password** button.
  4. Done.
- 
+
 ## I haven't received a verification code to validate my email address for my account how can I get this code to be resent?
  
  1. Go to the [verify mail page](https://up42.com/verify-mail).
