@@ -22,15 +22,19 @@
 ## Where can I find the UUID associated with my UP42 user?
  
 The [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)
-associated with your UP42 user can be found in the **Custom Blocks**
-left menu item. Note that this is what we call `<user_id>` in our
-documentation.
+associated with your UP42 user can be found in the **Custom Blocks** left menu item. Note that this is what we call `<user_id>` in our documentation.
  
 ## Can I change the email address associated with my UP42 account?
  
-Currently this is not possible. We will provide this feature in a
-upcoming release. 
+Currently this is not possible. We will provide this feature in a upcoming release. 
  
 ## Can I have multiple email addresses associated with my account?
  
 Not yet. That feature will come later in our product development.
+
+<!-- 
+Local Variables:
+eval: (auto-fill-mode 0) 
+eval: (visual-line-mode 1)
+End:
+-->
