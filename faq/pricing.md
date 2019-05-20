@@ -1,8 +1,10 @@
 ## What is an UP42 credit?
-An UP42 credit is a token of value that hides from the developer thepricing complexity across all data and processing blocks.
 
+An UP42 credit is a token of value that hides from the developer the pricing complexity across all data and processing blocks.
+
+## How do I buy UP42 credits?
  
-Credits come in prepaid bundles. Just go to[settings/credits/purchase](https://up42.com/settings/credit/purchase),select the plan with the number of credits you want and enter yourcredit card information. If you want to buy credits in larger bundles,please contact our [sales team](mailto:sales@up42.com)
+Credits come in prepaid bundles. Just go to[settings/credits/purchase](https://up42.com/settings/credit/purchase), select the plan with the number of credits you want and enter yourcredit card information. If you want to buy credits in larger bundles,please contact our [sales team](mailto:sales@up42.com)
 
 ## How are credits used on UP42?
 
@@ -14,7 +16,7 @@ Every time you run a job for a workflow credits are consumed in:
 
 ## Why are there different prices/credit values for blocks?
 
-It depends on the particular block, be it data or processing. Thepricing is dictated by our data provider and processing partners.
+It depends on the particular block, be it data or processing. The pricing is dictated by our data provider and processing partners.
 
  1. Free data, e.g., freely made available on the Internet you only pay the data transfer and the infrastructure usage required to acquire the data for that particular data block.
  2. Commercial data is priced by our data provider partners: we reflect their cost and add our data transfer and infrastructure costs.
@@ -26,8 +28,7 @@ In each block details page you will find details on the exact definition of the 
 
 ## Can I estimate upfront how many credits my job will consume?
 
-You can get an idea of the overall credit usage for a particular job
-by:
+You can get an idea of the overall credit usage for a particular job by:
 
  1. Looking at the details of each block in your workflow
  2. Run test jobs with small **A**reas **O**f **I**nterest (AOIs) to get an idea on credit usage before running a job with a larger AOI.
