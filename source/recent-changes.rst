@@ -1,6 +1,11 @@
 Recent changes to the documentation
 ===================================
 
+17.05.2019
+----------
+
+* Job mode environment variable now uses uppercase values.
+
 09.04.2019
 ----------
 
