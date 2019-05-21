@@ -1,32 +1,32 @@
 ## What is an UP42 credit?
 
-An UP42 credit is a token of value that abstracts pricing complexity across all data and processing blocks. It allows a simple way to pay for usage of data, processing and infrastructure blocks with different underlying pricing mechanisms.
+An UP42 credit is a token of value that abstracts pricing complexity across all data and processing blocks. It allows a simple way to pay for usage of data and processing blocks as well as infrastructure while each having different pricing mechanisms.
 
 ## How do I buy UP42 credits?
  
-Credits come in prepaid bundles. Just go to[settings/credits/purchase](https://up42.com/settings/credit/purchase), select the plan with the number of credits you want and enter yourcredit card information. If you want to buy credits in larger bundles,please contact our [sales team](mailto:sales@up42.com)
+Credits come in prepaid bundles. Just go to[settings/credits/purchase](https://up42.com/settings/credit/purchase), select the plan with the number of credits you want and enter your credit card information. If you want to buy credits in larger bundles, please contact our [sales team](mailto:sales@up42.com).
 
 ## How are credits used on UP42?
 
 Every time you run a job for a workflow credits are consumed in:
 
- 1. **Data** how much data you consumed from the chosen data block
- 2. **Processing** how much work was done by the processing blocks in your workflow
- 4. **Infrastructure** costs: how much machine time you used on UP42´s infrastructure
+ 1. **Data** how much data you consumed from the chosen data block.
+ 2. **Processing** how much work was done by the processing blocks in your workflow.
+ 4. **Infrastructure** costs: how much machine time you used on UP42´s infrastructure.
 
 ## Why are there different prices/credit values for blocks?
 
-Blocks are priced differently because they deliver different value. Some blocks deliver high-resolution commercial data or specially trained machine learning algorithms. Other blocks provide access to open data or open source image processing algorithms. UP42 allows variation on pricing on a block level so that we can support both commercial and open data and algorithms. The price is always set by our block providers, not by UP42. In addition to setting the price, the block providers also specificy how the usage of their block should be counted (e.g. in MB, square kilometers, scenes, megapixels processed etc).
+Blocks are priced differently because they deliver different value. Some blocks deliver high-resolution commercial data or specially trained machine learning algorithms. Other blocks provide access to open data or open source image processing algorithms. UP42 allows variation on pricing on a block level so that we can support both commercial and open data and algorithms. The price is always set by our block providers, not by UP42. In addition to setting the price, the block providers also specify how the usage of their block should be counted (e.g., in MB, square kilometers, scenes, megapixels processed, etc).
 
 ## Where can I find information on individual block pricing and license terms?
 
-In the details page of each block you can find details on the definition of the counting unit for that block and the number of credits per unit, as well as a link to the End User License Agreeement you need to accept before using the data or processing block.
+In the details page of each block you can find details on the definition of the counting unit for that block and the number of credits per unit, as well as a link to the **E**nd **U**ser **License** **Agreement** (EULA) you need to accept before using the data or processing block.
 
 ## Can I estimate upfront how many credits my job will consume?
 
 We are still working on a job estimation engine. In the meantime, you can get an idea of the overall credit usage for a particular job by:
 
- 1. Looking at the details of each block in your workflow
+ 1. Looking at the details of each block in your workflow.
  2. Run test jobs with small **A**reas **O**f **I**nterest (AOIs) to get an idea on credit usage before running a job with a larger AOI.
 
 ## Is the data sources I can access dependent on the credit package I acquire?
@@ -36,7 +36,7 @@ No. The different credit packages are based purely on volume of credits. Note th
 
 ## Can I get a refund for credits I no longer need?
 
-No, credits are not refundable. If you don't know how many you need, it's better to start with smaller packs of credits and only upgrade to larger credit packs once you have an idea of how many credits you need for your use case.
+No, credits are not refundable. If you don't know how many you need, it's better to start with smaller packages of credits and only upgrade to larger credit packages once you have an idea of how many credits you need for your use case.
 
 
 ## My job stopped in the middle of the process. Will I still get charged?
@@ -49,7 +49,7 @@ We recommend starting with a package that will last you approximately 1 month. S
 
 ## What happens if I run out of credits?
 
-You will not be able to start any new jobs if you have less than 1000 credits.
+You will not be able to start any new jobs if you have less than **1000** credits.
 
 <!-- 
 Local Variables:
