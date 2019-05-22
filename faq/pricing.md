@@ -41,7 +41,7 @@ No, credits are not refundable. If you don't know how many you need, it's better
 
 ## My job stopped in the middle of the process. Will I still get charged?
 
-You will be charged for any tasks that have successfully completed. You will not get charged for any dry run jobs. To be clear, this means specifically running a job using the "Test Data Query" functionality of UP42.
+You will be charged for any tasks that have successfully completed. You will not get charged for any dry run jobs. To be clear, this means specifically running a job using the **Test Data Query** functionality of UP42.
 
 ## How do I choose the right package?
 
