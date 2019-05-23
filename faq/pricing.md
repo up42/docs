@@ -4,7 +4,7 @@ An UP42 credit is a token of value that abstracts pricing complexity across all 
 
 ## How do I buy UP42 credits?
  
-Credits come in prepaid bundles. Just go to[settings/credits/purchase](https://up42.com/settings/credit/purchase), select the plan with the number of credits you want and enter your credit card information. If you want to buy credits in larger bundles, please contact our [sales team](mailto:sales@up42.com).
+Credits come in prepaid bundles. Just go to[settings/credits/purchase](https://up42.com/settings/credit/purchase), select the plan with the number of credits you want and enter your credit card information. If you want to buy credits in larger bundles, please contact our [sales team](mailto:sales@up42.com). To browse the currently available credit packages go to our [pricing page](https://up42.com/pricing).
 
 ## How are credits used on UP42?
 
