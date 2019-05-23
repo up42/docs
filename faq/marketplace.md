@@ -20,7 +20,7 @@
  
  3. Users can only add/remove your block to/from their workflow. They cannot do anything else with it.
  
- 4. Please note that it is up to you to define the logging in your block in a way that doesn't reveal any inside details about it. If you are curious about how a block might look like check our [land cover demo block](https://github.com/up42/land-cover-classification-demo) to have and idea on how to build your own block.
+ 4. Please note that it is up to you to define the logging in your block in a way that doesn't reveal any inside details about it. If you are curious about how a block might look like check our [land cover demo block](https://github.com/up42/land-cover-classification-demo) to have an idea on how to build your own block.
  
 ## How and when does UP42 pay me?
 
