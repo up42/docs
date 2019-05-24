@@ -12,7 +12,7 @@ Every time you run a job for a workflow credits are consumed in:
 
  1. **Data** how much data you consumed from the chosen data block.
  2. **Processing** how much work was done by the processing blocks in your workflow.
- 4. **Infrastructure** costs: how much machine time you used on UP42´s infrastructure.
+ 4. **Infrastructure** costs: how much machine time you used on UP42's infrastructure.
 
 ## Why are there different prices/credit values for blocks?
 
