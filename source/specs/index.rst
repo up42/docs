@@ -8,4 +8,4 @@ UP42 API documentation
    :caption: Contents
 
    public-apis
-   gAPI specs <../api/index.html#http://>
+   API specs <../api/index.html#http://>
