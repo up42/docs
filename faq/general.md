@@ -9,7 +9,7 @@ Mail to [support@up42.com](mailto:support @up42.com).
  1. Go to our [homepage](https://up42.com).
  2. Scroll to the bottom of the page.
  3. Fill in the field with your email address.
- 4. Click on the **Register for Beta**
+ 4. Click on the **Register for Beta**.
  5. Done.
 
 ## Where can I learn more about Docker?
