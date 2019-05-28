@@ -38,12 +38,40 @@ Example query searching for images using Strip Mode, using ``bbox`` and ``limit`
 .. code-block:: javascript
 
     {
-        "sobloo-s1-grd-fullscene:1":
-            {
-                "bbox": [120.15181, -11.4624, 130.3847, -5.3785],
-                "acquisition_mode": "SM",
-                "limit": 2
-            }
+      "sobloo-s1-grd-fullscene:1": {
+        "ids": null,
+        "bbox": null,
+        "time": null,
+        "limit": 2,
+        "intersects": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                117.006454,
+                -7.208708
+              ],
+              [
+                118.208256,
+                -13.340351
+              ],
+              [
+                128.891945,
+                -11.483389
+              ],
+              [
+                128.575573,
+                -6.83559
+              ],
+              [
+                117.006454,
+                -7.208708
+              ]
+            ]
+          ]
+        },
+        "acquisition_mode": "SM"
+      }
     }
 
 Example query using identifiers:
@@ -54,7 +82,7 @@ Example query using identifiers:
         "sobloo-s1-grd-fullscene:1":
             {
                 "ids": ["S1A_IW_GRDH_1SDV_20190519T051717_20190519T051742_027292_0313E9_8C63",
-                "S1A_IW_GRDH_1SDV_20190519T051652_20190519T051717_027292_0313E9_7F45"],
+                "S1A_IW_GRDH_1SDV_20190519T051652_20190519T051717_027292_0313E9_7F45"]
             }
     }
 
