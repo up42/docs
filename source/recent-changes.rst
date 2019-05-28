@@ -1,6 +1,12 @@
 Recent changes to the documentation
 ===================================
 
+28.5.2019
+---------
+
+* Added support for ``ids`` and ``acquisition_mode`` filters to Sentinel-1 and Sentinel-2 scene blocks
+* Added example queries for different types of filters to to Sentinel-1 and Sentinel-2 scene blocks
+
 17.05.2019
 ----------
 
