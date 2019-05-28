@@ -33,7 +33,7 @@ For more information on STAC filter parameters, see
 * ``ids`` – An array of image identifiers. The S1 identifiers are described here: https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/naming-conventions; the file extension is omitted. This parameter is mainly meant for use via the API.
 * ``acquisition_mode`` – A string allowing querying for specific acquisition modes, see https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes. for details.
 
-Example query searching for images using Strip Mode:
+Example query searching for images using Strip Mode, using ``bbox`` and ``limit``:
 
 .. code-block:: javascript
 
@@ -44,8 +44,7 @@ Example query searching for images using Strip Mode:
                 "acquisition_mode": "SM",
                 "limit": 2
             }
-
-}
+    }
 
 Example query using identifiers:
 
@@ -57,7 +56,8 @@ Example query using identifiers:
                 "ids": ["S1A_IW_GRDH_1SDV_20190519T051717_20190519T051742_027292_0313E9_8C63",
                 "S1A_IW_GRDH_1SDV_20190519T051652_20190519T051717_027292_0313E9_7F45"],
             }
-}
+    }
+
 
 Output format
 -------------
