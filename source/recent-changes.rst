@@ -1,6 +1,10 @@
 Recent changes to the documentation
 ===================================
 
+31.5.2019
+---------
+* Added ``bbox`` example query to :ref:`Pleiades AOI clipped <pleiades-aoiclipped-block>` built-in block
+
 28.5.2019
 ---------
 
