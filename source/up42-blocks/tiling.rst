@@ -22,48 +22,48 @@ Example parameters using the SPOT AOIClipped block as data source and then apply
 
 .. code-block:: javascript
 
-{
-  "oneatlas-spot-aoiclipped:1": {
-    "bbox": null,
-    "time": null,
-    "limit": 3,
-    "intersects": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [
-            18.42631,
-            -33.902732
-          ],
-          [
-            18.420799,
-            -33.922741
-          ],
-          [
-            18.45355,
-            -33.924784
-          ],
-          [
-            18.451069,
-            -33.903781
-          ],
-          [
-            18.42631,
-            -33.902732
+    {
+      "oneatlas-spot-aoiclipped:1": {
+        "bbox": null,
+        "time": null,
+        "limit": 3,
+        "intersects": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                18.42631,
+                -33.912732
+              ],
+              [
+                18.420799,
+                -33.922741
+              ],
+              [
+                18.44355,
+                -33.924784
+              ],
+              [
+                18.441069,
+                -33.913781
+              ],
+              [
+                18.42631,
+                -33.912732
+              ]
+            ]
           ]
-        ]
-      ]
-    },
-    "zoom_level": 17
-  },
-  "tiling:1": {
-    "tile_width": 768,
-    "tile_height": 768,
-    "match_extents": true,
-    "output_prefix": "",
-    "augmentation_factor": 1
-  }
-}
+        },
+        "zoom_level": 17
+      },
+      "tiling:1": {
+        "tile_width": 768,
+        "tile_height": 768,
+        "match_extents": true,
+        "output_prefix": "",
+        "augmentation_factor": 1
+      }
+    }
 
 
 Output format

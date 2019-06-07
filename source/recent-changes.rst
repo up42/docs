@@ -1,6 +1,10 @@
 Recent changes to the documentation
 ===================================
 
+7.6.2019
+--------
+* Added description of new ``match_extents`` parameter to :ref:`Tiling <tiling-block>` built-in block as well as an example query.
+
 31.5.2019
 ---------
 * Added ``bbox`` example query to :ref:`Pleiades AOI clipped <pleiades-aoiclipped-block>` built-in block.
