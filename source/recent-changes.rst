@@ -1,7 +1,7 @@
 Recent changes to the documentation
 ===================================
 
-13.06.2ß19
+13.06.2019
 ----------
 
 * FAQ added.
