@@ -1,7 +1,7 @@
 .. _sentinel1-grd-fullscene-block:
 
-Sentinel-1 (full-scene)
-=======================
+Sentinel-1 GRD (full-scene)
+===========================
 
 Block type: ``DATA``
 
@@ -30,6 +30,62 @@ For more information on STAC filter parameters, see
   only ``intersects`` **or** ``bbox``.
 * ``time`` – A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``limit`` – An integer number of maximum results to return. Omit this to set no limit.
+* ``ids`` – An array of image identifiers. The S1 identifiers are described here: https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/naming-conventions; the file extension is omitted. This parameter is mainly meant for use via the API.
+* ``acquisition_mode`` – A string allowing querying for specific acquisition modes, see https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes. for details.
+
+Example query searching for images using Strip Mode, using ``intersects`` and ``limit``:
+
+.. code-block:: javascript
+
+    {
+      "sobloo-s1-grd-fullscene:1": {
+        "ids": null,
+        "bbox": null,
+        "time": null,
+        "limit": 2,
+        "intersects": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                117.006454,
+                -7.208708
+              ],
+              [
+                118.208256,
+                -13.340351
+              ],
+              [
+                128.891945,
+                -11.483389
+              ],
+              [
+                128.575573,
+                -6.83559
+              ],
+              [
+                117.006454,
+                -7.208708
+              ]
+            ]
+          ]
+        },
+        "acquisition_mode": "SM"
+      }
+    }
+
+Example query using identifiers:
+
+.. code-block:: javascript
+
+    {
+        "sobloo-s1-grd-fullscene:1":
+            {
+                "ids": ["S1A_IW_GRDH_1SDV_20190519T051717_20190519T051742_027292_0313E9_8C63",
+                "S1A_IW_GRDH_1SDV_20190519T051652_20190519T051717_027292_0313E9_7F45"]
+            }
+    }
+
 
 Output format
 -------------
