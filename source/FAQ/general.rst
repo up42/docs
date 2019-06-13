@@ -1,6 +1,8 @@
 General FAQ
 ===========
 
+.. _support-request:
+
 How can I get support from UP42 for my projects?
 ------------------------------------------------
 
@@ -14,6 +16,11 @@ How do I signup for an account?
 3. Fill in the field with your email address.
 4. Click on the **Register for Beta**.
 5. Done.
+
+My job gives strange results or it keeps failing. Can you help me debug it?
+-------------------------------------------------------------------------------------
+
+We might. No guarantees. Create a :ref:`support request <support-request>` and please provide the job **parameters**, available on the UI on the parameters tab in the job page.
 
 Where can I learn more about Docker?
 ------------------------------------
