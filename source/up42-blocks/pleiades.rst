@@ -24,7 +24,26 @@ For more information on STAC filter parameters, see
   only ``intersects`` **or** ``bbox``.
 * ``time`` – A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``limit`` – An integer number of maximum results to return. Defaults to ``1``.
-* ``zoom_level`` - An integer defining the webmercator zoom level of this request, defaults to 17.
+* ``zoom_level`` - An integer defining the webmercator zoom level of this request, defaults to 18.
+
+
+Example query using Strip Mode, using ``bbox``, ``limit`` and ``zoom_level``:
+
+.. code-block:: javascript
+
+    {
+      "oneatlas-pleiades-aoiclipped:1": {
+        "bbox": [
+          89.213,
+          22.30,
+          89.217,
+          22.304
+        ],
+        "limit": 1,
+        "zoom_level": 18
+      }
+    }
+
 
 Output format
 -------------

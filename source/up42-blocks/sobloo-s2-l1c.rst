@@ -26,10 +26,64 @@ For more information on STAC filter parameters, see
   only ``intersects`` **or** ``bbox``.
 * ``time`` – A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``limit`` – An integer number of maximum results to return. Omit this to set no limit.
+* ``ids`` – An array of image identifiers. The S1 identifiers are described here:
+  https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/naming-convention; the file extension is omitted.
+  This parameter is mainly meant for use via the API and cannot be used in combination with dry-run mode.
+
+Example query searching for images using ``intersects``, ``time`` and ``limit``:
+
+.. code-block:: javascript
+
+    {
+      "sobloo-s2-l1c-fullscene:1": {
+        "time": "2018-03-10T16:47:48+00:00/2019-03-10T16:47:49+00:00",
+        "limit": 1,
+        "intersects": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -5.36598,
+                36.149412
+              ],
+              [
+                -5.362652,
+                36.111316
+              ],
+              [
+                -5.342433,
+                36.116044
+              ],
+              [
+                -5.336751,
+                36.146741
+              ],
+              [
+                -5.36598,
+                36.149412
+              ]
+            ]
+          ]
+        },
+        "acquisition_mode": null
+      }
+    }
+
+Example query using identifiers:
+
+.. code-block:: javascript
+
+    {
+        "sobloo-s2-l1c-fullscene:1":
+            {
+                "ids": ["S2A_MSIL1C_20190524T101031_N0207_R022_T32UQD_20190524T111235"]
+            }
+    }
+
+
 
 Output format
 -------------
-
 
 The output GeoJSON contains the metadata as returned by the Sobloo API, with the ``up42.data.scene.sentinel2_l1c``
 capability mapping to the directory containing the `SAFE data <http://earth.esa.int/SAFE/>`_ for the scene.

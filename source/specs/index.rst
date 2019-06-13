@@ -8,4 +8,4 @@ UP42 API documentation
    :caption: Contents
 
    public-apis
-   docs-coming-soon
+   API specs <../api/index.html#http://>
