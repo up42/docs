@@ -6,7 +6,7 @@ To get started, we recommend beginning in the :ref:`Getting Started <getting-sta
 For detailed information about writing blocks, see the :ref:`section about writing blocks <block-specs>`.
 
 .. For information about specific blocks, see the :ref:`built-in blocks section <builtin-blocks-documentation>`.
-
+   
 .. include:: recent-changes.rst
 
 .. toctree::
@@ -18,4 +18,5 @@ For detailed information about writing blocks, see the :ref:`section about writi
    examples/index
    up42-blocks/index
    specs/index
+   FAQ/index
    recent-changes

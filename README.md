@@ -59,3 +59,18 @@ When writing documentation, please keep in mind the following:
   obscure or complex language, especially when it is non-technical.
 - Spelling, punctuation, and grammar are important to enhance readability, especially given the
   above point. Please pay attention to this in code reviews as well!
+
+## TODO
+
+ 1. Expand the API documentation. Currently we only have how to get
+    the token given the project key. We need to add how to do CRUD
+    operations on workflows and jobs.
+ 2. The API specification is very incomplete. It lacks headers,
+    example values for requests and responses.
+ 3. Provide a tl;dr kind of thing for people want to run
+    workflows/jobs from the API at scale without learning the basic
+    concepts.
+ 4. Fix the broken link to the STAC spec. This requires rewriting
+    since the filters no longer have a dedicated file in the spec.
+ 5. Move all code examples to github with a MIT license. Becoming part
+    of our FLOSS offerings.
