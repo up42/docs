@@ -3,7 +3,7 @@
 Frequently Asked Questions
 =================================
 
-This section provides the answers to some frequentlz asked
+This section provides the answers to some frequently asked
 questions. They are organized according to the topic being addressed.
 
 .. toctree::
