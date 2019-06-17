@@ -19,8 +19,31 @@ For more information on STAC filter parameters, see
 * ``intersects`` – A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use
   only ``intersects`` **or** ``bbox``.
 * ``time`` – A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
+* ``time_series`` – An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``limit`` – An integer number of maximum results to return. Omit this to set no limit.
 * ``zoom_level`` - An integer defining the webmercator zoom level of this request, defaults to 17.
+
+Example query using the ``time_series`` in combination with ``bbox``  ``limit`` and ``zoom_level``:
+
+.. code-block:: javascript
+
+    {
+      "oneatlas-spot-aoiclipped:1": {
+        "bbox": [
+          13.321567,
+          38.203003,
+          13.323345,
+          38.205106
+        ],
+        "time": null,
+        "limit": 1,
+        "zoom_level": 17,
+        "time_series": ["2018-01-01T16:47:49/2018-07-01T16:47:49",
+                        "2018-07-01T16:47:49/2019-01-01T16:47:49",
+                        "2019-01-01T16:47:49/2019-06-01T16:47:49"]
+      }
+  }
+
 
 Output format
 -------------
