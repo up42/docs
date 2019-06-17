@@ -43,12 +43,16 @@ Data blocks and processing blocks use the same parameter types, however certain 
 specifying the filers for a data block, to ensure that the filter specification does not conflict with the STAC standard.
 (For more information on how to use these reserved filter names when building a data block, see the :ref:`section on using envvars in blocks <block-envvars>`.)
 
-This means that if you use any of the names ``intersects``, ``contains``, ``bbox``, ``limit``, and ``time`` as filters
-on a data block, their filter types *must* match the types in a STAC query (``geometry``, ``geometry``, ``array``,
-``number``, and ``dateRange`` respectively).
+This means that if you use any of the names ``intersects``, ``contains``, ``bbox``, ``limit``, ``ids`` and ``time`` or
+``time_series`` as filters on a data block, their filter types *must* match the types in a STAC query (``geometry``,
+``geometry``, ``array``, ``number`` , ``array``, ``dateRange`` and  ``array`` respectively).
 
-A complete example of filter types from a data block manifest would look something like the following (this example is
-based on the :ref:`Pleiades AOI clipped <pleiades-aoiclipped-block>` built-in block):
+Note that the ``time_series`` filter is not defined in the STAC specification, it is an UP42 specific extenstion. It allows
+to query multiple date spans in one query and if defined, the ``time`` filter will be ignored. Also, the ``limit`` parameter
+would apply for each date span individuall, so if three date spans are defined and ``limit`` is set to 3, up to 6 results
+can be expected.
+
+A complete example of filter types from a data block manifest would look something like the following:
 
 .. code-block:: javascript
 
@@ -56,59 +60,33 @@ based on the :ref:`Pleiades AOI clipped <pleiades-aoiclipped-block>` built-in bl
         "_up42_specification_version": 1,
         // ...
         "parameters": {
-            "intersects": {
-                "type": "geometry",
-                "required": false,
-                "description": "Return all data whose geometry overlaps this geometry"
-            },
-            "contains": {
-                "type": "geometry",
-                "required": false,
-                "description": "Return all data whose geometry is contained completely by this geometry"
-            },
-            "time": {
-                "type": "dateRange",
-                "required": true,
-                "description": "Return all data with an acquisition date in this range"
-            },
-            "limit": {
-                "type": "number",
-                "required": false,
-                "description": "The maximum number of results to return, as an integer"
-            },
-            "zoom_level": {
-                "type": "range",
-                "options": {
-                    "min": 0,
-                    "max": 17,
-                    "type": "integer"
-                },
-                "description": "The WebMercator zoom level to use for constructing the image moasic"
-            },
-            "sort": {
-                "type": "string",
-                "required": false,
-                "description": "The property of the result features to sort by"
-            }
-        }
+          "ids": {"type": "array", "default": null},
+          "bbox": {"type": "array", "default": null},
+          "intersects": {"type": "geometry"},
+          "contains": {"type": "geometry"},
+          "time": {"type": "dateRange", "default": null},
+          "time_series": {"type":  "array", "default": [],
+          "limit": {"type": "number", "default": 1}
+    },
+        // ...
     }
 
-The corresponding job configuration section for the above options would then be as follows:
+A valid job configuration section for the above options would then be as follows:
 
 .. code-block:: javascript
 
-  "oneatlas-pleiades-aoiclipped:1": {
-    "bbox": [5.5, 46, 8, 47.4],
-    "time": "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z",
-    "limit": 1,
-    "intersects": {
-        "type": "Geometry",
-        "coordinates": [
-            // ...
-        ]
-    },
-    "zoom_level": 17
-  }
+    {
+      "oneatlas-spot-aoiclipped:1": {
+        "bbox": [
+          13.321567,
+          38.203003,
+          13.323345,
+          38.205106
+      ],
+      "time": "2018-01-01T16:47:49/2018-07-01T16:47:49",
+      "limit": 2
+      }
+    }
 
 Processing parameters
 ---------------------
