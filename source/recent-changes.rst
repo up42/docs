@@ -1,6 +1,12 @@
 Recent changes to the documentation
 ===================================
 
+17.06.2019
+----------
+
+* Update definition of supported data filter options in :ref:`Query filters <block-params>` including new ``time_series`` filter.
+* Add ``time_series`` filter to :ref:`SPOT AOI clipped <spot-aoiclipped-block>` built-in block.
+
 13.06.2019
 ----------
 
