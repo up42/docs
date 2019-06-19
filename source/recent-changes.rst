@@ -1,6 +1,10 @@
 Recent changes to the documentation
 ===================================
 
+19.06.2019
+----------
+* Added description how auxiliary files can be accessed to FAQ.
+
 17.06.2019
 ----------
 

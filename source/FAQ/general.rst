@@ -52,6 +52,13 @@ description <https://docs.up42.com/specifications/capabilities.html#block-capabi
 carefully to understand if the input requirements are met before trying
 to use a block in your workflow.
 
+My block needs auxiliary files. Where should I store them and how should I fetch them?
+--------------------------------------------------------------------------------------
+So far we don't have a defined mechanisme for storing and accessing auxiliary files which are e.g. needed for
+calibration of an algorithm. As the processing cluster is not firewalled off so far it is possible to store such files
+on a storage space in the internet e.g. by using AWS, Google Cloud or Azure. In the future we might need to implement
+tighter security measures, so please inform us if your block uses such a mechanism.
+
 .. raw:: html
 
    <!-- 
