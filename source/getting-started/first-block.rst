@@ -43,7 +43,7 @@ platform by using e.g. ``curl``
 
 .. code-block:: bash
 
-    $ curl -X POST -H 'Content-Type: application/json' -d @InterstellarManifest.json https://api.up42.com/validate-schema/block
+    $ curl -X POST -H 'Content-Type: application/json' -d @UP42Manifest.json https://api.up42.com/validate-schema/block
 
 The service endpoint will provide detailed error messages to allow for debugging of the manifest file. If you use an
 IDE like IntelliJ or Eclipse, you can also configure the IDE to provide automatic hinting and validation by fetching
