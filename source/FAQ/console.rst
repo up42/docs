@@ -44,6 +44,25 @@ Can I have multiple email addresses associated with my account?
 
 Not yet. That feature will come later in our product development.
 
+The results are provided via the console as a ``result.tgz`` file. What is that and how can extract the files inside?
+---------------------------------------------------------------------------------------------------------------------
+
+The ``result.tgz`` is a `gzipped <https://en.wikipedia.org/wiki/Gzip>`__
+`tarball <https://en.wikipedia.org/wiki/Tar_(computing)>`__. Inside there are the result files delivered as a directory with `GeoTIFF <https://en.wikipedia.org/wiki/GeoTIFF>`__          
+and a top level `GeoJSON <https://en.wikipedia.org/wiki/GeoJSON>`__. Here is how to inspect the file contents using the ``tar`` utility available in OS X and Linux.
+
+.. code:: bash
+
+   > tar ztvf result.tgz
+
+   drwxrwxrwx  0 root   root        0 Jul  3 00:39 output
+   -rw-r--r--  0 root   root   432316 Jul  3 00:39 output/data.json
+   -rw-r--r--  0 root   root  5515635 Jul  3 00:39 output/e3650bac-bfbe-4ed2-bec4-9ea50245d2c0_land_cover.tif
+
+If you are in Windows then tar is not available by default, there however `alternatives
+<https://wiki.haskell.org/How_to_unpack_a_tar_file_in_Windows>`__ to
+extract a tarball in Windows.
+
 .. raw:: html
 
    <!-- 

@@ -274,7 +274,7 @@ Inspect the retrieved tarball:
 
 .. code:: bash
 
-   > tar tar ztvf output_$JOB.tar.gz
+   > tar ztvf output_$JOB.tar.gz
 
    drwxrwxrwx  0 root   root        0 Jul  3 00:39 output
    -rw-r--r--  0 root   root   432316 Jul  3 00:39 output/data.json

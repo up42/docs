@@ -51,13 +51,23 @@ blocks. Please read the `block
 description <https://docs.up42.com/specifications/capabilities.html#block-capabilities>`__
 carefully to understand if the input requirements are met before trying
 to use a block in your workflow.
-
+   
 My block needs auxiliary files. Where should I store them and how should I fetch them?
 --------------------------------------------------------------------------------------
-So far we don't have a defined mechanisme for storing and accessing auxiliary files which are e.g. needed for
+So far we don't have a defined mechanism for storing and accessing auxiliary files which are e.g. needed for
 calibration of an algorithm. As the processing cluster is not firewalled off so far it is possible to store such files
 on a storage space in the internet e.g. by using AWS, Google Cloud or Azure. In the future we might need to implement
 tighter security measures, so please inform us if your block uses such a mechanism.
+
+I tried to obtain some imagery for Pleaides and/or SPOT and when using the `Airbus GeoStore <https://www.intelligence-airbusds.com/geostore/>`__ I get more images. Why is that?
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+The imagery we have on our platform for Pleiades and/or SPOT are
+provided to us via the `OneAtlas Living Library API <https://oneatlas.airbus.com/living-library/free-trial>`.  The images
+available are filtered for cloud cover and incidence angle. Therefore you might obtain an image in the Airbus GeoStore that has too many
+clouds and/or the incidence angle is not optimal. Those images will be discarded by the OneAtlas Living Library. One Atlas imposes image quality thresholds that are
+not imposed by the Airbus GeoStore.
+
 
 .. raw:: html
 
