@@ -1,44 +1,46 @@
-User-facing documentation for UP42
+# User-facing documentation for UP42
 
-# Setup
+## Setup
 
-## Dependencies
+### Dependencies
 
-You need `virtualenvwrapper` installed. If you have Homebrew set up already,
-do:
-```
-$ brew install pyenv-virtualenvwrapper
+You must install `virtualenvwrapper` and a requirement is
+Python 3. You can install it with brew. Once you do that you should
+have pip3.
+
+```bash
+pip3 install virtualenvwrapper
 ```
 
 And add these two lines to your `~/.bash_profile`:
-```
+```bash
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 ```
 
-## Set up the project
+### Set up the project
 
 To get started with contributing to these docs, set up a virtual environment
 for the project with Python 3 and clone the repo:
 
-```
+```bash
 $ mkvirtualenv up42-docs --python=$(which python3)
 $ git clone git@github.com:up42/docs.git
 $ cd docs
 $ pip install -r requirements.txt
 ```
 
-# Building the static files
+## Building the static files
 
 Documentation will be built and pushed to the documentation site on merge or
 push to master. If you want to build the documentation locally to try it out,
 then run:
-```
+```bash
 $ make html
 ```
 and the output will be written to the `build/` directory.
 
-# Contributing
+## Contributing
 
 Sphinx documentation is written in ReStructured Text. There is a quick primer
 [available here](http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html).
@@ -62,15 +64,9 @@ When writing documentation, please keep in mind the following:
 
 ## TODO
 
- 1. Expand the API documentation. Currently we only have how to get
-    the token given the project key. We need to add how to do CRUD
-    operations on workflows and jobs.
- 2. The API specification is very incomplete. It lacks headers,
-    example values for requests and responses.
- 3. Provide a tl;dr kind of thing for people want to run
-    workflows/jobs from the API at scale without learning the basic
-    concepts.
- 4. Fix the broken link to the STAC spec. This requires rewriting
+ 1. The API specification is basically empty. Starting from scratch.
+ 2. Add example on how to run a job in `DRY_RUN` mode.
+ 3. Fix the broken link to the STAC spec. This requires rewriting
     since the filters no longer have a dedicated file in the spec.
- 5. Move all code examples to github with a MIT license. Becoming part
+ 4. Move all code examples to github with a MIT license. Becoming part
     of our FLOSS offerings.
