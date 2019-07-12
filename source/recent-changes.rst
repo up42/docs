@@ -1,6 +1,11 @@
 Recent changes to the documentation
 ===================================
 
+12.07.2019
+----------
+* Added API walktrough.
+* Removed API spec since it is currently empty. To be re-added later.
+
 19.06.2019
 ----------
 * Added description how auxiliary files can be accessed to FAQ.
