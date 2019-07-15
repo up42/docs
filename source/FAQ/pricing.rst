@@ -66,7 +66,7 @@ can get an idea of the overall credit usage for a particular job by:
 Is the data sources I can access dependent on the credit package I acquire?
 ---------------------------------------------------------------------------
 
-No. The different credit packages are based purely on volume of credits.
+No. The different credit packages are based purely on volume of credits.
 Note that certain data blocks, due to the sensitivity of the provided
 data, require you to go through a compliance check before you are
 allowed to use them. This is independent of the credit package you
@@ -100,6 +100,29 @@ What happens if I run out of credits?
 
 You will not be able to start any new jobs if you have less than
 **1000** credits.
+
+What is VAT?
+------------
+
+VAT is the `Value Added Tax <https://en.wikipedia.org/wiki/Value-added_tax>`__ UP42 GmbH is a
+company operating in the European Union (EU) therefore is obliged to charge VAT for every monetary transaction taking place
+in our platform: selling credits to customers.
+
+
+My company operates inside the EU, do I have to pay VAT?
+--------------------------------------------------------
+
+If your company operates inside the EU just provide your
+`VAT identification number <https://en.wikipedia.org/wiki/VAT_identification_number#European_Union_VAT_identification_numbers>`__, while
+filling up the billing address in the console when adding a credit/debit card to your account and you won't be charged any VAT.
+
+
+My company is located outside the EU, do I still have to pay VAT when using UP42?
+---------------------------------------------------------------------------------
+
+No. Companies located outside the `EU <https://en.wikipedia.org/wiki/European_Union>`__ do not pay VAT.
+
+
 
 .. raw:: html
 

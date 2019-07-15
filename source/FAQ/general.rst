@@ -63,7 +63,7 @@ I tried to obtain some imagery for Pleaides and/or SPOT and when using the Airbu
 --------------------------------------------------------------------------------------------------------------------------
 
 The imagery we have on our platform for Pleiades and/or SPOT are
-provided to us via the **OneAtlas Living Library API** .  The images
+provided to us via the **OneAtlas Living Library API**.  The images
 available are filtered for cloud cover and incidence angle. Therefore
 you might obtain an image in the Airbus GeoStore that has too many
 clouds and/or the incidence angle is not optimal. Those images will be
