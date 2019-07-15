@@ -113,7 +113,7 @@ My company operates inside the EU: do I have to pay VAT?
 
 If your company operates inside the EU just provide your
 `VAT identification number <https://en.wikipedia.org/wiki/VAT_identification_number#European_Union_VAT_identification_numbers>`__, while
-filling up the billing address in the console when adding a credit/debit card to your account and you won't be charged any VAT.
+filling up the billing address in the console and adding a credit/debit card to your account, and you won't be charged any VAT.
 
 
 My company is located outside the EU: do I still have to pay VAT?
