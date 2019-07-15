@@ -104,12 +104,11 @@ You will not be able to start any new jobs if you have less than
 What is VAT?
 ------------
 
-VAT is the `Value Added Tax <https://en.wikipedia.org/wiki/Value-added_tax>`__ UP42 GmbH is a
-company operating in the European Union (EU) therefore is obliged to charge VAT for every monetary transaction taking place
-in our platform: selling credits to customers.
+VAT is the `Value Added Tax <https://en.wikipedia.org/wiki/Value-added_tax>`__. UP42 GmbH is a
+company operating in the `European Union <https://en.wikipedia.org/wiki/European_Union>`__ (EU) therefore is obliged to charge VAT for every monetary transaction taking place in our platform: selling credits to customers.
 
 
-My company operates inside the EU, do I have to pay VAT?
+My company operates inside the EU: do I have to pay VAT?
 --------------------------------------------------------
 
 If your company operates inside the EU just provide your
@@ -117,10 +116,10 @@ If your company operates inside the EU just provide your
 filling up the billing address in the console when adding a credit/debit card to your account and you won't be charged any VAT.
 
 
-My company is located outside the EU, do I still have to pay VAT when using UP42?
----------------------------------------------------------------------------------
+My company is located outside the EU: do I still have to pay VAT?
+-----------------------------------------------------------------
 
-No. Companies located outside the `EU <https://en.wikipedia.org/wiki/European_Union>`__ do not pay VAT.
+No. Companies located outside the EU do not pay VAT.
 
 
 
