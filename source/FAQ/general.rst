@@ -51,7 +51,7 @@ blocks. Please read the `block
 description <https://docs.up42.com/specifications/capabilities.html#block-capabilities>`__
 carefully to understand if the input requirements are met before trying
 to use a block in your workflow.
-s   
+  
 My block needs auxiliary files. Where should I store them and how should I fetch them?
 --------------------------------------------------------------------------------------
 So far we don't have a defined mechanism for storing and accessing auxiliary files which are e.g. needed for
