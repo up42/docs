@@ -42,7 +42,7 @@ whatever programming language suits your needs and preferences.
 Two blocks (e.g. Landsat 8 and Airbus ship detection) can be run together as their capabilities match, but the ship detection then fails. Why is that so?
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Matching capabilities in a workflow is a necessary requirement to runit
+Matching capabilities in a workflow is a necessary requirement to run it
 and automatically checked by the workflow editor. This avoids mismatches
 such as an algorithm expecting a Sentinel-1 GRD image file is started
 with a RGB image from a multispectral sensor. Currently the capabilities
@@ -51,7 +51,7 @@ blocks. Please read the `block
 description <https://docs.up42.com/specifications/capabilities.html#block-capabilities>`__
 carefully to understand if the input requirements are met before trying
 to use a block in your workflow.
-   
+s   
 My block needs auxiliary files. Where should I store them and how should I fetch them?
 --------------------------------------------------------------------------------------
 So far we don't have a defined mechanism for storing and accessing auxiliary files which are e.g. needed for
@@ -63,7 +63,7 @@ I tried to obtain some imagery for Pleaides and/or SPOT and when using the `Airb
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 The imagery we have on our platform for Pleiades and/or SPOT are
-provided to us via the `OneAtlas Living Library API <https://oneatlas.airbus.com/living-library/free-trial>`.  The images
+provided to us via the `OneAtlas Living Library API <https://oneatlas.airbus.com/living-library/free-trial>`__.  The images
 available are filtered for cloud cover and incidence angle. Therefore you might obtain an image in the Airbus GeoStore that has too many
 clouds and/or the incidence angle is not optimal. Those images will be discarded by the OneAtlas Living Library. One Atlas imposes image quality thresholds that are
 not imposed by the Airbus GeoStore.
