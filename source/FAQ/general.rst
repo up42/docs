@@ -59,8 +59,8 @@ calibration of an algorithm. As the processing cluster is not firewalled off so 
 on a storage space in the internet e.g. by using AWS, Google Cloud or Azure. In the future we might need to implement
 tighter security measures, so please inform us if your block uses such a mechanism.
 
-I tried to obtain some imagery for Pleaides and/or SPOT and when using the `Airbus GeoStore <https://www.intelligence-airbusds.com/geostore/>`__ I get more images. Why is that?
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+I tried to obtain some imagery for Pleaides and/or SPOT and when using the Airbus GeoStore I get more images. Why is that?
+--------------------------------------------------------------------------------------------------------------------------
 
 The imagery we have on our platform for Pleiades and/or SPOT are
 provided to us via the **OneAtlas Living Library API** .  The images
