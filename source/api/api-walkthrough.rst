@@ -50,7 +50,7 @@ Requirements
 `Bash <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`__ is the shell
 used in this guide.
 
-All outputs (response bodies) deemed to large to be shown here are given
+All outputs (response bodies) deemed too large to be shown here are given
 as Github
 `gists <https://help.github.com/en/articles/creating-gists#about-gists>`__
 linked below as they are returned by the API.
