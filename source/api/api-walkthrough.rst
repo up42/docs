@@ -8,26 +8,27 @@ The UP42 API allows for doing the following things on a given project:
 
 1. Work with jobs:
 
-   -  get jobs
+   -  `get jobs <#get-jobs>`__
    -  get job   
    -  cancel job
-   -  create & run job
-   -  get job output (``data.json``)
-   -  get job output directory
+   - `create & run job <#create-run-job>`__
+   - `get job output <#results-geojson>`__ (``data.json``)
+   - `get job output directory <#results-directory>`__
 
 2. Work with jobs and tasks:
 
+   - `get job logs <#get-job-logs>`__
    -  get job task logs
-   -  get job task outputs (``data.json``)
-   -  get job tasks output directory
+   - `get job tasks output <#task-results-geojson>`__ (``data.json``)
+   - `get job output directory <#task-results-directory>`__
 
 3. Work with workflows:
 
-   -  get workflows
-   -  get workflow
+   - `get workflows <#get-workflows>`__
+   - `get workflow <#get-workflow>`__
+   - `create workflow <#create-workflow>`__
    -  update workflow
-   -  create workflow
-
+   
 It means that a **project key** is **always** needed. Therefore you
 always need to create a project **through the UI**.
 
@@ -89,6 +90,8 @@ such that the line start with a space like done here.
 
 Working with jobs
 -----------------
+
+.. _get-jobs:
 
 List all the jobs for a given project
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -217,6 +220,8 @@ In this case it returns:
 
 This means that the job is still running.
 
+.. _get-job-logs:
+
 Get the jobs logs
 ~~~~~~~~~~~~~~~~~
 
@@ -252,6 +257,8 @@ and/or the output directory delivered as a
 `gzipped <https://en.wikipedia.org/wiki/Gzip>`__
 `tarball <https://en.wikipedia.org/wiki/Tar_(computing)>`__.
 
+.. _results-geojson:
+
 Get the results: GeoJSON
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -262,6 +269,8 @@ Get the results: GeoJSON
 
 Produces this
 `output <https://gist.github.com/perusio/4597361dc4792dfdda8a7260b39e9baf>`__.
+
+.. _results-directory:
 
 Get the results: tarball
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -332,6 +341,8 @@ Create two shell variables, one for each task:
 Now with the individual tasks IDs let us proceed to get the respective
 results.
 
+.. _task-results-geojson:
+
 First task results: GeoJSON
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -343,6 +354,8 @@ The first task is the Landsat 8 data acquisition. The output GeoJSON is:
 
 returning the following
 `file <https://gist.github.com/perusio/f9407da92c65a1bcb76621b658185ad6>`__.
+
+.. _task-results-directory:
 
 First task results: tarball
 '''''''''''''''''''''''''''
@@ -404,6 +417,8 @@ The workflow API allows you to manipulate workflows. You can do all
 `CRUD <https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`__
 operations on workflows.
 
+.. _get-workflows:
+
 Get all the workflows
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -440,6 +455,8 @@ returns:
 As you can see it is the same workflow ID as we extracted before in
 `creating and running the job <#create-run-job>`__.
 
+.. _get-workflow:
+
 Get a particular workflow
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -452,6 +469,8 @@ for a particular workflow.
 
 Returns the
 `file <https://gist.github.com/perusio/7c8ec9f06de6be3695e04a0b627b1535>`__.
+
+.. _create-workflow:
 
 Create a workflow
 ~~~~~~~~~~~~~~~~~
