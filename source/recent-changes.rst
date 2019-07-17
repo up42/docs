@@ -1,6 +1,11 @@
 Recent changes to the documentation
 ===================================
 
+17.07.2019
+----------
+
+* Added VAT questions to FAQ.
+
 12.07.2019
 ----------
 * Added API walktrough.
