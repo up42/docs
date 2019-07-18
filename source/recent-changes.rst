@@ -1,6 +1,11 @@
 Recent changes to the documentation
 ===================================
 
+16.07.2019
+----------
+
+* Describe new quicklook mechanism in :ref:`Data transfer format <data-transfer-format>`.
+
 17.07.2019
 ----------
 
