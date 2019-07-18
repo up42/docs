@@ -50,7 +50,8 @@ The ``"features"`` list can contain zero or more GeoJSON ``Feature`` objects, wh
     }
 
 where the ``"geometry"`` is a GeoJSON geometry, and ``"properties"`` is an arbitrary key/value mapping.
-
+A ``Feature`` can have an ``id``. This is generally optional, but a requirement for data blocks that provide quicklook
+(preview) images (see further below). If the ``id`` is set, then it has to be used as the stem of output file names.
 
 .. _feature-capabilities:
 
@@ -88,8 +89,9 @@ Quicklooks (preview images)
 +++++++++++++++++++++++++++
 
 To give users an idea how a dataset looks like before the actual data is fetched, it is possible to supply preview images
-in RGB or grayscale. The images need to be saved in a separate folder named ``/tmp/quicklooks`` and should use the same
-file name as the actual dataset, but with a different file extension, e.g. if the output geojson looks like the following:
+in RGB or grayscale. The images need to be saved in a separate folder named ``/tmp/quicklooks`` and should use the ``Feature``
+``id`` as file name as the actual dataset (+ the corresponding file extension), e.g. if the output geojson looks like
+the following:
 
 .. code-block:: javascript
 
@@ -98,6 +100,7 @@ file name as the actual dataset, but with a different file extension, e.g. if th
         "features": [
             {
                 "type": "Feature",
+                "id": "e18542c4-d3b6-4e74-9eb6-8899ad4276be",
                 "geometry": { ... },
                 "properties": {
                     "up42.data.aoiclipped": "e18542c4-d3b6-4e74-9eb6-8899ad4276be.tif"
@@ -108,8 +111,8 @@ file name as the actual dataset, but with a different file extension, e.g. if th
 
 
 Then the quicklook image would be stored as ``/tmp/quicklooks/e18542c4-d3b6-4e74-9eb6-8899ad4276be.jpg`` or
-``/tmp/quicklooks/e18542c4-d3b6-4e74-9eb6-8899ad4276be.png`` The images should be of format png or jpeg and of size 512 x 512 pixels and will be displayed both in dry-run mode as
-well as during actual fetching of image data.
+``/tmp/quicklooks/e18542c4-d3b6-4e74-9eb6-8899ad4276be.png`` The images should be of format png or jpeg and of size
+512 x 512 pixels and will be displayed both in dry-run mode as well as during actual fetching of image data.
 
 .. _imagery-and-binary-data:
 
