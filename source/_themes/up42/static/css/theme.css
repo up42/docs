@@ -4219,7 +4219,7 @@ a .icon {
 .rst-content .wy-alert-neutral.seealso .admonition-title,
 .rst-content .wy-alert-neutral.admonition-todo .admonition-title,
 .rst-content .wy-alert-neutral.admonition .admonition-title {
-  color: #404040;
+  color: #121315;
   background: #e1e4e5
 }
 
@@ -4236,7 +4236,7 @@ a .icon {
 .rst-content .wy-alert-neutral.seealso a,
 .rst-content .wy-alert-neutral.admonition-todo a,
 .rst-content .wy-alert-neutral.admonition a {
-  color: #2980B9
+  color: #262A59
 }
 
 .wy-alert p:last-child,
@@ -4285,7 +4285,7 @@ a .icon {
 }
 
 .wy-tray-container li.wy-tray-item-info {
-  background: #2980B9
+  background: #262A59
 }
 
 .wy-tray-container li.wy-tray-item-warning {
@@ -4426,7 +4426,7 @@ button[disabled] {
 }
 
 .btn-info {
-  background-color: #2980B9 !important
+  background-color: #262A59 !important
 }
 
 .btn-info:hover {
@@ -4435,16 +4435,16 @@ button[disabled] {
 
 .btn-neutral {
   background-color: #f3f6f6 !important;
-  color: #404040 !important
+  color: #121315 !important
 }
 
 .btn-neutral:hover {
   background-color: #e5ebeb !important;
-  color: #404040
+  color: #121315
 }
 
 .btn-neutral:visited {
-  color: #404040 !important
+  color: #121315 !important
 }
 
 .btn-success {
@@ -4481,7 +4481,7 @@ button[disabled] {
 
 .btn-link {
   background-color: transparent !important;
-  color: #2980B9;
+  color: #262A59;
   box-shadow: none;
   border-color: transparent !important
 }
@@ -4548,7 +4548,7 @@ button[disabled] {
 .wy-dropdown-menu>dd>a {
   display: block;
   clear: both;
-  color: #404040;
+  color: #121315;
   white-space: nowrap;
   font-size: 90%;
   padding: 0 12px;
@@ -4556,7 +4556,7 @@ button[disabled] {
 }
 
 .wy-dropdown-menu>dd>a:hover {
-  background: #2980B9;
+  background: #262A59;
   color: #fff
 }
 
@@ -4605,7 +4605,7 @@ button[disabled] {
 }
 
 .wy-dropdown.wy-dropdown-bubble .wy-dropdown-menu a:hover {
-  background: #2980B9;
+  background: #262A59;
   color: #fff
 }
 
@@ -5086,7 +5086,7 @@ input[type="checkbox"][disabled] {
 .wy-checkbox,
 .wy-radio {
   margin: 6px 0;
-  color: #404040;
+  color: #121315;
   display: block
 }
 
@@ -5237,7 +5237,7 @@ input[type="checkbox"][disabled] {
 }
 
 .wy-inline-validate.wy-inline-validate-info .wy-input-context {
-  color: #2980B9
+  color: #262A59
 }
 
 .rotate-90 {
@@ -5546,17 +5546,17 @@ input[type="checkbox"][disabled] {
 }
 
 a {
-  color: #2980B9;
+  color: #D40FA9;
   text-decoration: none;
   cursor: pointer
 }
 
 a:hover {
-  color: #3091d1
+  color: #B0027C;
 }
 
 a:visited {
-  color: #9B59B6
+  color: #820050;
 }
 
 html {
@@ -5567,7 +5567,7 @@ html {
 body {
   font-family: "Source Sans Pro", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
   font-weight: normal;
-  color: #404040;
+  color: #121315;
   min-height: 100%;
   overflow-x: hidden;
   background: #edf0f2
@@ -5611,7 +5611,7 @@ a.wy-text-warning:hover {
 }
 
 .wy-text-info {
-  color: #2980B9 !important
+  color: #262A59 !important
 }
 
 a.wy-text-info:hover {
@@ -5635,7 +5635,7 @@ a.wy-text-danger:hover {
 }
 
 .wy-text-neutral {
-  color: #404040 !important
+  color: #121315 !important
 }
 
 a.wy-text-neutral:hover {
@@ -5847,7 +5847,7 @@ article ol li ul li {
 .wy-breadcrumbs li code.literal,
 .wy-breadcrumbs li .rst-content tt.literal,
 .rst-content .wy-breadcrumbs li tt.literal {
-  color: #404040
+  color: #121315
 }
 
 .wy-breadcrumbs-extra {
@@ -5909,11 +5909,11 @@ html {
 }
 
 .wy-menu-horiz li.divide-left {
-  border-left: solid 1px #404040
+  border-left: solid 1px #121315
 }
 
 .wy-menu-horiz li.divide-right {
-  border-right: solid 1px #404040
+  border-right: solid 1px #121315
 }
 
 .wy-menu-horiz a {
@@ -5929,7 +5929,7 @@ html {
 
 .wy-menu-vertical header,
 .wy-menu-vertical p.caption {
-  color: #3a7ca8;
+  color: #1DD7F0;
   height: 32px;
   display: inline-block;
   line-height: 32px;
@@ -5947,11 +5947,11 @@ html {
 }
 
 .wy-menu-vertical li.divide-top {
-  border-top: solid 1px #404040
+  border-top: solid 1px #121315
 }
 
 .wy-menu-vertical li.divide-bottom {
-  border-bottom: solid 1px #404040
+  border-bottom: solid 1px #121315
 }
 
 .wy-menu-vertical li.current {
@@ -5984,12 +5984,12 @@ html {
   margin-left: -1.2em;
   font-size: .8em;
   line-height: 1.6em;
-  color: #4d4d4d
+  color: #1DD7F0;
 }
 
 .wy-menu-vertical li.on a,
 .wy-menu-vertical li.current>a {
-  color: #404040;
+  color: #121315;
   padding: .4045em 1.618em;
   font-weight: bold;
   position: relative;
@@ -6024,7 +6024,7 @@ html {
 .wy-menu-vertical li.toctree-l2 a,
 .wy-menu-vertical li.toctree-l3 a,
 .wy-menu-vertical li.toctree-l4 a {
-  color: #404040
+  color: #121315
 }
 
 .wy-menu-vertical li.toctree-l1.current li.toctree-l2>ul,
@@ -6109,16 +6109,16 @@ html {
 }
 
 .wy-menu-vertical a:hover {
-  background-color: #4e4a4a;
+  background-color: #3B3F69;
   cursor: pointer
 }
 
 .wy-menu-vertical a:hover span.toctree-expand {
-  color: #d9d9d9
+  color: #1DD7F0;
 }
 
 .wy-menu-vertical a:active {
-  background-color: #2980B9;
+  background-color: #262A59;
   cursor: pointer;
   color: #fff
 }
@@ -6133,7 +6133,7 @@ html {
   padding: .809em;
   margin-bottom: .809em;
   z-index: 200;
-  background-color: #2980B9;
+  background-color: #262A59;
   text-align: center;
   padding: .809em;
   display: block;
@@ -6153,7 +6153,7 @@ html {
   margin: auto auto .809em auto;
   height: 45px;
   width: 45px;
-  background-color: #2980B9;
+  background-color: #262A59;
   padding: 5px;
   border-radius: 100%
 }
@@ -6197,7 +6197,7 @@ html {
 }
 
 .wy-nav .wy-menu-vertical header {
-  color: #2980B9
+  color: #262A59
 }
 
 .wy-nav .wy-menu-vertical a {
@@ -6205,7 +6205,7 @@ html {
 }
 
 .wy-nav .wy-menu-vertical a:hover {
-  background-color: #2980B9;
+  background-color: #262A59;
   color: #fff
 }
 
@@ -6258,7 +6258,7 @@ html {
   overflow-y: hidden;
   min-height: 100%;
   color: #9b9b9b;
-  background: #343131;
+  background: #262A59;
   z-index: 200
 }
 
@@ -6272,7 +6272,7 @@ html {
 
 .wy-nav-top {
   display: none;
-  background: #2980B9;
+  background: #262A59;
   color: #fff;
   padding: .4045em .809em;
   position: relative;
@@ -6301,7 +6301,7 @@ html {
   margin-right: 12px;
   height: 45px;
   width: 45px;
-  background-color: #2980B9;
+  background-color: #262A59;
   padding: 5px;
   border-radius: 100%
 }
@@ -6490,7 +6490,7 @@ footer span.commit .rst-content tt,
 }
 
 .rst-versions a {
-  color: #2980B9;
+  color: #262A59;
   text-decoration: none
 }
 
@@ -6844,7 +6844,7 @@ footer span.commit .rst-content tt,
 }
 
 .rst-content .toc-backref {
-  color: #404040
+  color: #121315
 }
 
 .rst-content .align-right {
@@ -7076,7 +7076,7 @@ a .rst-content tt,
 a .rst-content tt,
 a .rst-content code {
   font-weight: bold;
-  color: #404040
+  color: #121315
 }
 
 .rst-content pre,
@@ -7088,7 +7088,7 @@ a .rst-content code {
 .rst-content a tt,
 .rst-content a tt,
 .rst-content a code {
-  color: #2980B9
+  color: #262A59
 }
 
 .rst-content dl {
@@ -7122,7 +7122,7 @@ a .rst-content code {
   font-size: 90%;
   line-height: normal;
   background: #e7f2fa;
-  color: #2980B9;
+  color: #262A59;
   border-top: solid 3px #6ab0de;
   padding: 6px;
   position: relative
@@ -7133,7 +7133,7 @@ a .rst-content code {
 }
 
 .rst-content dl:not(.docutils) dt .headerlink {
-  color: #404040;
+  color: #121315;
   font-size: 100% !important
 }
 
@@ -7146,7 +7146,7 @@ a .rst-content code {
 }
 
 .rst-content dl:not(.docutils) dl dt .headerlink {
-  color: #404040;
+  color: #121315;
   font-size: 100% !important
 }
 
@@ -7251,57 +7251,9 @@ a .rst-content code {
 }
 
 span[id*='MathJax-Span'] {
-  color: #404040
+  color: #121315
 }
 
 .math {
   text-align: center
-}
-
-@font-face {
-  font-family: "Source Sans Pro";
-  src: url("../fonts/Source Sans Pro/lato-regular.eot");
-  src: url("../fonts/Source Sans Pro/lato-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Source Sans Pro/lato-regular.woff2") format("woff2"), url("../fonts/Source Sans Pro/lato-regular.woff") format("woff"), url("../fonts/Source Sans Pro/lato-regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal
-}
-
-@font-face {
-  font-family: "Source Sans Pro";
-  src: url("../fonts/Source Sans Pro/lato-bold.eot");
-  src: url("../fonts/Source Sans Pro/lato-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Source Sans Pro/lato-bold.woff2") format("woff2"), url("../fonts/Source Sans Pro/lato-bold.woff") format("woff"), url("../fonts/Source Sans Pro/lato-bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal
-}
-
-@font-face {
-  font-family: "Source Sans Pro";
-  src: url("../fonts/Source Sans Pro/lato-bolditalic.eot");
-  src: url("../fonts/Source Sans Pro/lato-bolditalic.eot?#iefix") format("embedded-opentype"), url("../fonts/Source Sans Pro/lato-bolditalic.woff2") format("woff2"), url("../fonts/Source Sans Pro/lato-bolditalic.woff") format("woff"), url("../fonts/Source Sans Pro/lato-bolditalic.ttf") format("truetype");
-  font-weight: 700;
-  font-style: italic
-}
-
-@font-face {
-  font-family: "Source Sans Pro";
-  src: url("../fonts/Source Sans Pro/lato-italic.eot");
-  src: url("../fonts/Source Sans Pro/lato-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/Source Sans Pro/lato-italic.woff2") format("woff2"), url("../fonts/Source Sans Pro/lato-italic.woff") format("woff"), url("../fonts/Source Sans Pro/lato-italic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic
-}
-
-@font-face {
-  font-family: "Roboto Condensed";
-  font-style: normal;
-  font-weight: 400;
-  src: url("../fonts/RobotoSlab/roboto-slab.eot");
-  src: url("../fonts/RobotoSlab/roboto-slab-v7-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoSlab/roboto-slab-v7-regular.woff2") format("woff2"), url("../fonts/RobotoSlab/roboto-slab-v7-regular.woff") format("woff"), url("../fonts/RobotoSlab/roboto-slab-v7-regular.ttf") format("truetype")
-}
-
-@font-face {
-  font-family: "Roboto Condensed";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../fonts/RobotoSlab/roboto-slab-v7-bold.eot");
-  src: url("../fonts/RobotoSlab/roboto-slab-v7-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoSlab/roboto-slab-v7-bold.woff2") format("woff2"), url("../fonts/RobotoSlab/roboto-slab-v7-bold.woff") format("woff"), url("../fonts/RobotoSlab/roboto-slab-v7-bold.ttf") format("truetype")
 }
