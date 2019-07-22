@@ -68,7 +68,7 @@ Example parameters using the SPOT AOIClipped block as data source and then apply
 
 Output format
 -------------
-Output and input format are identical.
+Output and input format are identical. All metadata elements provided by the input dataset as properties are propagated to the output tiles.
 
 Capabilities
 ------------
