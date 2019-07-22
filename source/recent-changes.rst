@@ -1,6 +1,11 @@
 Recent changes to the documentation
 ===================================
 
+22.07.2019
+----------
+
+* Describe that :ref:`Tiling <tiling-block>` now propagates metadata.
+
 16.07.2019
 ----------
 
