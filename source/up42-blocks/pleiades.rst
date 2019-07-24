@@ -17,17 +17,20 @@ Supported parameters
 For more information on STAC filter parameters, see
 `the STAC spec <https://github.com/radiantearth/stac-spec/blob/master/api-spec/filters.md>`_.
 
-* ``bbox`` - The bounding box to use as an AOI (e.g. ``[16.234188,48.162994,16.481037,48.249026]``
-  for the city of Vienna). Will return all scenes that intersect with this box. Use only ``box``
-  **or** ``intersects``.
-* ``intersects`` – A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use
-  only ``intersects`` **or** ``bbox``.
+* ``bbox`` - The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
+  **or** ``intersects`` **or** ``contains``.
+* ``intersects`` – A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use only ``box``
+  **or** ``intersects`` **or** ``contains``.
+* ``contains`` – A GeoJSON geometry to use as an AOI. Will return all scenes that completely cover this geometry. Use only ``box``
+  **or** ``intersects`` **or** ``contains``.
 * ``time`` – A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
-* ``limit`` – An integer number of maximum results to return. Defaults to ``1``.
+* ``time_series`` – An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
+* ``limit`` – An integer number of maximum results to return. Omit this to set no limit.
 * ``zoom_level`` - An integer defining the webmercator zoom level of this request, defaults to 18.
+* ``panchromatic_band`` - If set to ``true``, the panchromatic band is added to the output.
 
 
-Example query using Strip Mode, using ``bbox``, ``limit`` and ``zoom_level``:
+Example query using Strip Mode, using ``bbox``, ``limit``,  ``zoom_level`` and ``panchromatic_band``:
 
 .. code-block:: javascript
 
@@ -40,7 +43,8 @@ Example query using Strip Mode, using ``bbox``, ``limit`` and ``zoom_level``:
           22.304
         ],
         "limit": 1,
-        "zoom_level": 18
+        "zoom_level": 18,
+        "panchromatic_band": true
       }
     }
 
