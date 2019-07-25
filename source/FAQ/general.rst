@@ -62,14 +62,17 @@ tighter security measures, so please inform us if your block uses such a mechani
 I tried to obtain some imagery for Pleaides and/or SPOT and when using the Airbus GeoStore I get more images. Why is that?
 --------------------------------------------------------------------------------------------------------------------------
 
-The imagery we have on our platform for Pleiades and/or SPOT are
-provided to us via the **OneAtlas Living Library API**.  The images
-available are filtered for cloud cover and incidence angle. Therefore
-you might obtain an image in the Airbus GeoStore that has too many
-clouds and/or the incidence angle is not optimal. Those images will be
-discarded by the OneAtlas Living Library. One Atlas imposes image
-quality thresholds that are not imposed by the Airbus GeoStore.
+GeoStore enables a full access to the 30-year archive of Airbus data
+in FTP (download only), covering both optical and radar imagery.
 
+OneAtlas provides a cloud access to a selection of premium Airbus
+imagery over the last 3 years (SPOT 6/7 & Pléiades, with 20% cloud
+cover maximum and 30° incidence angle maximum for Pléiades). These
+images are optimized for streaming (using `WMS <https://en.wikipedia.org/wiki/Web_Map_Service>`__,
+`WMTS <https://en.wikipedia.org/wiki/Web_Map_Tile_Service>`__ protocols) and on
+the fly processing for downloads. So it is possible for data to exist
+in Geostore but not in OneAtlas. Airbus aims for data parity between
+Geostore and OneAtlas over time.
 
 .. raw:: html
 
