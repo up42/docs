@@ -14,11 +14,11 @@ Supported parameters
 For more information on STAC filter parameters, see
 `the STAC spec <https://github.com/radiantearth/stac-spec/blob/master/api-spec/filters.md>`_.
 
-* ``bbox`` - The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
+* ``bbox`` - The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``bbox``
   **or** ``intersects`` **or** ``contains``.
-* ``intersects`` – A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use only ``box``
+* ``intersects`` – A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use only ``bbox``
   **or** ``intersects`` **or** ``contains``.
-* ``contains`` – A GeoJSON geometry to use as an AOI. Will return all scenes that completely cover this geometry. Use only ``box``
+* ``contains`` – A GeoJSON geometry to use as an AOI. Will return all scenes that completely cover this geometry. Use only ``bbox``
   **or** ``intersects`` **or** ``contains``.
 * ``time`` – A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``time_series`` – An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
