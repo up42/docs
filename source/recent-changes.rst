@@ -1,6 +1,11 @@
 Recent changes to the documentation
 ===================================
 
+24.07.2019
+----------
+
+* Add options ``contains`` and ``panchromatic_band`` to :ref:`Pleiades AOI clipped <pleiades-aoiclipped-block>` and :ref:`SPOT AOI clipped <spot-aoiclipped-block>` built-in blocks.
+
 22.07.2019
 ----------
 
