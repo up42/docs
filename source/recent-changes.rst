@@ -1,6 +1,12 @@
 Recent changes to the documentation
 ===================================
 
+25.07.2019
+----------
+
+* Improved FAQ question on Airbus Geostore/OneAtlas differences.
+* Improved FAQ question on where to find the user ID on the console. 
+
 24.07.2019
 ----------
 
@@ -11,15 +17,16 @@ Recent changes to the documentation
 
 * Describe that :ref:`Tiling <tiling-block>` now propagates metadata.
 
-16.07.2019
-----------
-
-* Describe new quicklook mechanism in :ref:`Data transfer format <data-transfer-format>`.
-
 17.07.2019
 ----------
 
 * Added VAT questions to FAQ.
+
+  
+16.07.2019
+----------
+
+* Describe new quicklook mechanism in :ref:`Data transfer format <data-transfer-format>`.
 
 12.07.2019
 ----------
