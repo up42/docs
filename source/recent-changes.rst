@@ -1,6 +1,11 @@
 Recent changes to the documentation
 ===================================
 
+26.07.2019
+----------
+
+* Add precise definitions of predefined :ref:`Block capabilities <block-capabilities>`
+
 25.07.2019
 ----------
 

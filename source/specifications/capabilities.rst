@@ -59,6 +59,18 @@ Built-in capabilities
 The full list of build-in capabilities is available as part of the
 `block manifest JSON schema <http://specs.up42.com/v1/blocks/schema.json>`_.
 
+The meaning of those capabilities is:
+
+``up42.data.aoiclipped``: A multi-band geotiff. The name derives from the fact that data blocks using this as output
+capability will only provide data covering the query AOI. This is the standard recommended input capability for most
+processing blocks.
+
+``up42.data.scene.sentinel1_l1c_grd``: A Sentinel-1 dataset in SAFE format. The image will *not* be clipped to the
+query AOI, but always delivered in its full size.
+
+``up42.data.scene.sentinel2_l1c``:  A Sentinel-2 dataset in SAFE format. The image will *not* be clipped to the
+query AOI, but always delivered in its full size.
+
 All blocks provided by UP42 will use the ``up42.``-prefixed capabilities from this list. ``up42.``
 is a protected namespace and only the UP42-defined capabilities will pass validation. The next
 section will explain how you can define and use your own custom capabilities.
