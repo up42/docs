@@ -66,8 +66,9 @@ Output format
             ]
           },
           "properties": {
-            "up42.data.aoiclipped": "666ee747-3564-494c-ba71-208e7cceb2b1.tif"
-          }
+            "up42.data.aoiclipped": "666ee747-3564-494c-ba71-208e7cceb2b1.tif",
+            "acquisitionDate": "2018-03-16T04:32:39Z",
+            "cloudCoverPercentage": 5.4
         }
       ]
     }
