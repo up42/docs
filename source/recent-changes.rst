@@ -1,6 +1,11 @@
 Recent changes to the documentation
 ===================================
 
+29.9.2019
+---------
+
+* Add metadata to :ref:`Landsat-8 AOI clipped <sentinelhub-landsat8-aoiclipped-block>` and :ref:`Sentinel-2 AOI clipped <sentinelhub-sentinel2-aoiclipped-block>`
+
 26.07.2019
 ----------
 
