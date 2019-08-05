@@ -33,11 +33,11 @@ Currently the documentation is spread across multiple tools.
     workflow using MODIS + Land Cover.
  2. Going further:
     * Basic Concepts
-      a. Blocks.
-      b. Workflows.
-      c. Jobs.
-      d. Tasks.
-      e. Logs.
+      1. Blocks.
+      2. Workflows.
+      3. Jobs.
+      4. Tasks.
+      5. Logs.
  
 ### Moving ahead
  
@@ -45,12 +45,12 @@ Currently the documentation is spread across multiple tools.
     custom block.
  2. Going further:
     * Basic Concepts
-      a. Structure: Manifest, Dockerfile, Block code.
-      b. Writing the Manifest.
-      c. Validating the Manifest.
-      d. Build.
-      e. Run.
-      f. Push.
+      1. Structure: Manifest, Dockerfile, Block code.
+      2. Writing the Manifest.
+      3. Validating the Manifest.
+      4. Build.
+      5. Run.
+      6. Push.
       
 ### Going to the next level: Custom block development
 
@@ -59,19 +59,19 @@ Currently the documentation is spread across multiple tools.
  3. Running the block.
  4. Working with input data.
  5. Calling external APIs from the block: 
-    a. Use a simple API like
+    1. Use a simple API like
        [Metaweather](https://www.metaweather.com/api/).
        No credentials needed at all. 
-    b. Acquire meteo data for the given acquisition date of the image(s)
+    2. Acquire meteo data for the given acquisition date of the image(s)
        in the GeoJSON metadata.
-    c. Save that date in the GeoJSON metadata.
+    3. Save that date in the GeoJSON metadata.
   6. Using custom storage:
-     a. Use <http://termbin.com>. Very simple API. Requires `netcat`.
-     b. Push the GeoJSON to `termbin.com`.
+     1. Use <http://termbin.com>. Very simple API. Requires `netcat`.
+     2. Push the GeoJSON to [termbin.com](http://termbin.com).
         ```bash
-            cat data.json | jq '.' | nc termbin.com 9999
+          cat data.json | jq '.' | nc termbin.com 9999
         ```
-     c. Put small script in docker container to push & pull data from
+     3. Put small script in docker container to push & pull data from
         termbin.
 
 ### Using the UP42 API
@@ -79,14 +79,14 @@ Currently the documentation is spread across multiple tools.
  1. Getting started: (tl;dr) Run a job of the above workflow.
  2. Going further:
     * Basic Concepts
-      a. Project key & project ID.
-      b. API Connector (scripts).
-      c. Get job information.
-      d. Create and run job.
-      e. Get results.
-      f. Get task results.
-      g. Get logs.
-      h. Get task logs.
+      1. Project key & project ID.
+      2. API Connector (scripts).
+      3. Get job information.
+      4. Create and run job.
+      5. Get results.
+      6. Get task results.
+      7. Get logs.
+      8. Get task logs.
     * Query for data (TestQuery/`DRY_RUN`).
     * Data uniqueness guarantees using image IDs
     * Bring it all together: data immutable jobs.
