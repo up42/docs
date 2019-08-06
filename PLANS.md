@@ -18,7 +18,7 @@ Currently the documentation is spread across multiple tools.
     [swagger 2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md)
     which is no longer current. Should move to
     [Open API Specification 3.0.2](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md).
-    As far as I can tell this soecification is generated via an
+    As far as I can tell this specification is generated via an
     extension for SpringBoot that from code annotations generates the
     swagger file. 
  3. There is also a [Postman collection](https://team-up42.postman.co/collections/5764460-35e0ab3e-f5d9-4fcf-a4ea-2e2495318b08?version=latest&workspace=cd4eb771-f5c5-4896-8511-3c9f1127bd9b)
