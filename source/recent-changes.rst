@@ -1,7 +1,13 @@
 Recent changes to the documentation
 ===================================
 
-29.9.2019
+7.8.2019
+--------
+
+* Add new :ref:`Sentinel-1 SLC Full Scene Block <sentinel1-slc-fullscene-block>`.
+
+
+29.7.2019
 ---------
 
 * Add metadata to :ref:`Landsat-8 AOI clipped <sentinelhub-landsat8-aoiclipped-block>` and :ref:`Sentinel-2 AOI clipped <sentinelhub-sentinel2-aoiclipped-block>`
