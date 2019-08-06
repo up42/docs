@@ -25,6 +25,11 @@ Currently the documentation is spread across multiple tools.
     but is not up to date with the above specification obtained from
     code annotations.
 
+## Guidelines
+
+ 1. For code: [Google Python style guide](https://google.github.io/styleguide/pyguide.html).
+ 2. For documentation: [Google developer/technical style guide](https://developers.google.com/style/).
+
 ## Structure and organization
 
 ### First steps
