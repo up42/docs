@@ -145,7 +145,7 @@ examples on the type of computational task each type is suited for.
   if you run your virtual machine for 30 seconds, you will be billed
   for 1 minute of usage.
 + After 1 minute, instances are charged in 1 second increments.
-
++ Credit accounting is rounded up: ½ credit usage gets charged as 1 credit.
 
 What are the typical loads for each machine type?
 =================================================
