@@ -1,8 +1,9 @@
-Pricing FAQ
-===========
+=============
+ Pricing FAQ
+=============
 
 What is an UP42 credit?
------------------------
+=======================
 
 An UP42 credit is a token of value that abstracts pricing complexity
 across all data and processing blocks. It allows a simple way to pay for
@@ -10,7 +11,7 @@ usage of data and processing blocks as well as infrastructure while each
 having different pricing mechanisms.
 
 How do I buy UP42 credits?
---------------------------
+==========================
 
 Credits come in prepaid bundles. Just go
 to\ `settings/credits/purchase <https://up42.com/settings/credit/purchase>`__,
@@ -21,7 +22,7 @@ currently available credit packages go to our `pricing
 page <https://up42.com/pricing>`__.
 
 How are credits used on UP42?
------------------------------
+=============================
 
 Every time you run a job for a workflow credits are consumed in:
 
@@ -32,7 +33,7 @@ Every time you run a job for a workflow credits are consumed in:
    infrastructure.
 
 Why are there different prices/credit values for blocks?
---------------------------------------------------------
+========================================================
 
 Blocks are priced differently because they deliver different value. Some
 blocks deliver high-resolution commercial data or specially trained
@@ -45,7 +46,7 @@ specify how the usage of their block should be counted (e.g., in MB,
 square kilometers, scenes, megapixels processed, etc).
 
 Where can I find information on individual block pricing and license terms?
----------------------------------------------------------------------------
+===========================================================================
 
 In the details page of each block you can find details on the definition
 of the counting unit for that block and the number of credits per unit,
@@ -53,7 +54,7 @@ as well as a link to the **E**\ nd **U**\ ser **License** **Agreement**
 (EULA) you need to accept before using the data or processing block.
 
 Can I estimate upfront how many credits my job will consume?
-------------------------------------------------------------
+============================================================
 
 We are still working on a job estimation engine. In the meantime, you
 can get an idea of the overall credit usage for a particular job by:
@@ -64,7 +65,7 @@ can get an idea of the overall credit usage for a particular job by:
    AOI.
 
 Is the data sources I can access dependent on the credit package I acquire?
----------------------------------------------------------------------------
+===========================================================================
 
 No. The different credit packages are based purely on volume of credits.
 Note that certain data blocks, due to the sensitivity of the provided
@@ -73,7 +74,7 @@ allowed to use them. This is independent of the credit package you
 acquire.
 
 Can I get a refund for credits I no longer need?
-------------------------------------------------
+================================================
 
 No, credits are not refundable. If you don’t know how many you need,
 it’s better to start with smaller packages of credits and only upgrade
@@ -81,7 +82,7 @@ to larger credit packages once you have an idea of how many credits you
 need for your use case.
 
 My job stopped in the middle of the process. Will I still get charged?
-----------------------------------------------------------------------
+======================================================================
 
 You will be charged for any tasks that have successfully completed. You
 will not get charged for any dry run jobs. To be clear, this means
@@ -89,81 +90,106 @@ specifically running a job using the **Test Data Query** functionality
 of UP42.
 
 How do I choose the right package?
-----------------------------------
+==================================
 
 We recommend starting with a package that will last you approximately 1
 month. Start with smaller credit packs and upgrade once you get more
 insights into how many credits your workflows and jobs consume on UP42.
 
 What happens if I run out of credits?
--------------------------------------
+=====================================
 
 You will not be able to start any new jobs if you have less than
 **1000** credits.
 
 
 What type of machine instances are available in UP42?
------------------------------------------------------
+=====================================================
 
 The table below explains the type of machines available and also gives
-examples the type of computational task each type is suited for.
+examples on the type of computational task each type is suited for.
 
 
 .. table:: UP42 Machine types
    :align: center
-   :widths: 10,10,10,10,10,50
 
-   +----------------------+------+----------+------+-----------+-------------------------------------------------------------------------------+
-   | Machine              | CPU  | Memory   | GPU  | Credits   | Example block                                                                 |
-   +======================+======+==========+======+===========+===============================================================================+
-   | small                | 0.5  | 2GB      | n/a  | 37/hour   | Data block that                                                               |
-   |                      |      |          |      |           | simply downloads                                                              |
-   |                      |      |          |      |           | some images, or a                                                             |
-   |                      |      |          |      |           | very basic                                                                    |
-   |                      |      |          |      |           | processing block.                                                             |
-   +----------------------+------+----------+------+-----------+-------------------------------------------------------------------------------+
-   | medium               | 1    | 5GB      | n/a  | 74/hour   | Some basic                                                                    |
-   |                      |      |          |      |           | processing tasks,                                                             |
-   |                      |      |          |      |           | e.g., `UP42 block <https://github.com/up42/land-cover-classification-demo>`__ |
-   |                      |      |          |      |           | for land-cover classification.                                                |
-   +----------------------+------+----------+------+-----------+-------------------------------------------------------------------------------+
-   | large                | 2    | 10GB     | n/a  | 148/hour  | SNAP toolkit with more advanced tasks, e.g., using                            |
-   |                      |      |          |      |           | Range Doppler Terrain Correction based on the                                 |
-   |                      |      |          |      |           | `Aster GDEM <https://asterweb.jpl.nasa.gov/gdem.asp>`__.                      |
-   +----------------------+------+----------+------+-----------+-------------------------------------------------------------------------------+
-   | xlarge               | 4    | 20GB     | n/a  | 296/hour  | Multi-band image                                                              |
-   |                      |      |          |      |           | analysis that is                                                              |
-   |                      |      |          |      |           | not                                                                           |
-   |                      |      |          |      |           | parallelizable by                                                             |
-   |                      |      |          |      |           | tiling.                                                                       |
-   +----------------------+------+----------+------+-----------+-------------------------------------------------------------------------------+
-   | gpu_nvidia_tesla_k80 | 4    | 20GB     | 1    | 772/hour  | GPU intensive                                                                 |
-   |                      |      |          | GPU  |           | machine learning                                                              |
-   |                      |      |          | + 12 |           | algorithm.                                                                    |
-   |                      |      |          | GB   |           | Includes xlarge                                                               |
-   |                      |      |          | GDDR |           | machine plus                                                                  |
-   |                      |      |          | 5    |           | added                                                                         |
-   |                      |      |          | SDRAM|           | `NVIDIA Tesla K80 GPU <https://www.nvidia.com/en-gb/data-center/tesla-k80>`__.|
-   +----------------------+------+----------+------+-----------+-------------------------------------------------------------------------------+
+   +----------------------+------+----------+-------------------+
+   | Machine              | CPU  | Memory   | Credits [per hour]|
+   +======================+======+==========+===================+
+   | small                | 0.5  | 2GB      | 37                |
+   |                      |      |          |                   |
+   +----------------------+------+----------+-------------------+
+   | medium               | 1    | 5GB      | 74                |
+   |                      |      |          |                   |
+   |                      |      |          |                   |
+   |                      |      |          |                   |
+   +----------------------+------+----------+-------------------+
+   | large                | 2    | 10GB     | 148               | 
+   |                      |      |          |                   |
+   |                      |      |          |                   |
+   +----------------------+------+----------+-------------------+
+   | xlarge               | 4    | 20GB     | 296               |
+   |                      |      |          |                   |
+   |                      |      |          |                   |
+   |                      |      |          |                   |
+   |                      |      |          |                   |
+   +----------------------+------+----------+-------------------+
+   | gpu_nvidia_tesla_k80 | 4    | 20GB     | 772               |
+   |                      |      |          |                   |
+   +----------------------+------+----------+-------------------+
 
 
 **Notes**
 
-+ All vCPUs and GPUs are charged a minimum of 1 minute. For example, if you run your virtual machine for 30 seconds, you will be billed for 1 minute of usage.
++ All vCPUs and GPUs are charged a minimum of 1 minute. For example,
+  if you run your virtual machine for 30 seconds, you will be billed
+  for 1 minute of usage.
 + After 1 minute, instances are charged in 1 second increments.
-+ All prices rounded up to nearest EURO cent (partial cent treated as whole cent).
-+ All credits rounded to nearest credit (partial credit treated as whole credit).					
+
+
+What are the typical loads for each machine type?
+=================================================
+
+.. |br| raw:: html
+
+   <br/>           
+              
+.. table:: Example loads for each machine type
+   :align: left
+           
+   +----------------------+-------------------------------------------------------------------------------------------------------------------+
+   | Machine              | Example load                                                                                                      |        
+   +======================+===================================================================================================================+
+   | small                | Data block that simply downloads  some images, or a very basic processing block.                                  |
+   +----------------------+-------------------------------------------------------------------------------------------------------------------+ 
+   | medium               |  Some basic processing tasks, e.g., `Land cover <https://github.com/up42/land-cover-classification-demo>`__       |
+   |                      |  UP42 demo block.                                                                                                 |
+   +----------------------+-------------------------------------------------------------------------------------------------------------------+ 
+   | large                | `SNAP toolbox <http://step.esa.int/main/toolboxes/snap/>`__ with more advanced tasks, e.g., using Range           | 
+   |                      | Doppler Terrain Correction |br| based on the `Aster GDEM <https://asterweb.jpl.nasa.gov/gdem.asp>`__.             |
+   +----------------------+-------------------------------------------------------------------------------------------------------------------+ 
+   | xlarge               |  Multi-band analysis not parallelizable by tiling.                                                                |
+   +----------------------+-------------------------------------------------------------------------------------------------------------------+ 
+   | gpu_nvidia_tesla_k80 |  GPU intensive ML algorithm, e.g., `Sentinel 2 Super-resolution <https://github.com/up42/s2-superresolution>`__   |
+   |                      |  by UP42. |br|                                                                                                    |
+   |                      |  Includes xlarge machine with `NVIDIA Tesla K80 GPU <https://www.nvidia.com/en-gb/data-center/tesla-k80>`__       |
+   |                      |  and extra 12 GB of `GDDR5 SDRAM <https://en.wikipedia.org/wiki/GDDR5_SDRAM>`__.                                  |
+   +----------------------+-------------------------------------------------------------------------------------------------------------------+
+   
 
 
 What is VAT?
 ------------
 
-VAT is the `Value Added Tax <https://en.wikipedia.org/wiki/Value-added_tax>`__. UP42 GmbH is a
-company operating in the `European Union <https://en.wikipedia.org/wiki/European_Union>`__ (EU) therefore is obliged to charge VAT for every monetary transaction taking place in our platform: selling credits to customers. The application of VAT is dependent on the legal status of a customer: **company** or **private** person.
+VAT is the `Value Added Tax <https://en.wikipedia.org/wiki/Value-added_tax>`__. 
+UP42 GmbH is a company operating in the `European Union <https://en.wikipedia.org/wiki/European_Union>`__
+(EU) therefore is obliged to charge VAT for every monetary transaction taking place in
+our platform: selling credits to customers. The application of VAT is dependent on the
+legal status of a customer: **company** or **private** person.
 
 
 My company operates inside the EU: do I have to pay VAT?
---------------------------------------------------------
+========================================================
 
 If your company operates inside the EU just provide your
 `VAT identification number <https://en.wikipedia.org/wiki/VAT_identification_number#European_Union_VAT_identification_numbers>`__, while
@@ -171,13 +197,13 @@ filling up the billing address in the console and adding a credit/debit card to 
 
 
 I am located outside the EU: do I still have to pay VAT?
------------------------------------------------------------------
+========================================================
 
 No. Customers located outside the EU do not pay VAT.
 
 
 I am a private customer located in Germany: do I pay VAT?
----------------------------------------------------------
+=========================================================
 
 Yes. You will pay the `current <https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/taxation/vat/how_vat_works/rates/vat_rates_en.pdf>`__ tax rate of 19%.
 
