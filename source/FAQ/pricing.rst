@@ -111,32 +111,33 @@ examples the type of computational task each type is suited for.
 
 .. table:: UP42 Machine types
    :align: center
+   :widths: 10,10,10,10,10,50
 
    +----------------------+------+----------+------+-----------+-------------------------------------------------------------------------------+
    | Machine              | CPU  | Memory   | GPU  | Credits   | Example block                                                                 |
    +======================+======+==========+======+===========+===============================================================================+
-   | small                | 0.5  | 2GB      | n/a  | 37        | Data block that                                                               |
+   | small                | 0.5  | 2GB      | n/a  | 37/hour   | Data block that                                                               |
    |                      |      |          |      |           | simply downloads                                                              |
    |                      |      |          |      |           | some images, or a                                                             |
    |                      |      |          |      |           | very basic                                                                    |
    |                      |      |          |      |           | processing block.                                                             |
    +----------------------+------+----------+------+-----------+-------------------------------------------------------------------------------+
-   | medium               | 1    | 5GB      | n/a  | 74        | Some basic                                                                    |
+   | medium               | 1    | 5GB      | n/a  | 74/hour   | Some basic                                                                    |
    |                      |      |          |      |           | processing tasks,                                                             |
    |                      |      |          |      |           | e.g., `UP42 block <https://github.com/up42/land-cover-classification-demo>`__ |
    |                      |      |          |      |           | for land-cover classification.                                                |
    +----------------------+------+----------+------+-----------+-------------------------------------------------------------------------------+
-   | large                | 2    | 10GB     | n/a  | 148       | SNAP toolkit with more advanced tasks, e.g., using                            |
+   | large                | 2    | 10GB     | n/a  | 148/hour  | SNAP toolkit with more advanced tasks, e.g., using                            |
    |                      |      |          |      |           | Range Doppler Terrain Correction based on the                                 |
    |                      |      |          |      |           | `Aster GDEM <https://asterweb.jpl.nasa.gov/gdem.asp>`__.                      |
    +----------------------+------+----------+------+-----------+-------------------------------------------------------------------------------+
-   | xlarge               | 4    | 20GB     | n/a  | 296       | Multi-band image                                                              |
+   | xlarge               | 4    | 20GB     | n/a  | 296/hour  | Multi-band image                                                              |
    |                      |      |          |      |           | analysis that is                                                              |
    |                      |      |          |      |           | not                                                                           |
    |                      |      |          |      |           | parallelizable by                                                             |
    |                      |      |          |      |           | tiling.                                                                       |
    +----------------------+------+----------+------+-----------+-------------------------------------------------------------------------------+
-   | gpu_nvidia_tesla_k80 | 4    | 20GB     | 1    | 772       | GPU intensive                                                                 |
+   | gpu_nvidia_tesla_k80 | 4    | 20GB     | 1    | 772/hour  | GPU intensive                                                                 |
    |                      |      |          | GPU  |           | machine learning                                                              |
    |                      |      |          | + 12 |           | algorithm.                                                                    |
    |                      |      |          | GB   |           | Includes xlarge                                                               |
