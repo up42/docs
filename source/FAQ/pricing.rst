@@ -141,7 +141,7 @@ examples on the type of computational task each type is suited for.
 
 **Notes**
 
-+ All vCPUs and GPUs are charged a minimum of 1 minute. For example,
++ All CPUs and GPUs are charged a minimum of 1 minute. For example,
   if you run your virtual machine for 30 seconds, you will be billed
   for 1 minute of usage.
 + After 1 minute, instances are charged in 1 second increments.
