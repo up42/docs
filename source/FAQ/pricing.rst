@@ -8,7 +8,7 @@ What is an UP42 credit?
 An UP42 credit is a token of value that abstracts pricing complexity
 across all data and processing blocks. It allows a simple way to pay for
 usage of data and processing blocks as well as infrastructure while each
-having different pricing mechanisms.
+having different pricing mechanisms. A **credit** equals **0,01 EUR** (1 cent).
 
 How do I buy UP42 credits?
 ==========================
