@@ -105,45 +105,45 @@ You will not be able to start any new jobs if you have less than
 What type of machine instances are available in UP42?
 -----------------------------------------------------
 
+The table below explains the type of machines available and also gives
+examples the type of computational task each type is suited for.
 
-+-----------+------+----------+------+-----------+-------------------+
-| Machine   | CPU  | Memory   | GPU  | Credits   | Example block     |
-+===========+======+==========+======+===========+===================+
-| small     | 0.5  | 2Gb      | n/a  | 37        | Data block that   |
-|           |      |          |      |           | simply downloads  |
-|           |      |          |      |           | some images, or a |
-|           |      |          |      |           | very basic        |
-|           |      |          |      |           | processing block. |
-+-----------+------+----------+------+-----------+-------------------+
-| medium    | 1    | 5Gb      | n/a  | 74        | Some basic        |
-|           |      |          |      |           | processing tasks, |
-|           |      |          |      |           | our tensorflow    |
-|           |      |          |      |           | block for         |
-|           |      |          |      |           | land-cover        |
-|           |      |          |      |           | classification    |
-+-----------+------+----------+------+-----------+-------------------+
-| large     | 2    | 10Gb     | n/a  | 148       | Snap toolkit,     |
-|           |      |          |      |           | more advanced     |
-|           |      |          |      |           | tasks             |
-+-----------+------+----------+------+-----------+-------------------+
-| large     | 2    | 10Gb     | n/a  | 148       | Snap toolkit,     |
-|           |      |          |      |           | more advanced     |
-|           |      |          |      |           | tasks             |
-+-----------+------+----------+------+-----------+-------------------+
-| xlarge    | 4    | 20Gb     | n/a  | 296       | Multi-band image  |
-|           |      |          |      |           | analysis that is  |
-|           |      |          |      |           | not               |
-|           |      |          |      |           | parallelizable by |
-|           |      |          |      |           | tiling            |
-+-----------+------+----------+------+-----------+-------------------+
-| GPU 1     | 4    | 20Gb     | 1    | 772       | GPU intensive     |
-|           |      |          | GPU  |           | machine learning  |
-|           |      |          | + 12 |           | algorithm.        |
-|           |      |          | GB   |           | Includes xlarge   |
-|           |      |          | GDDR |           | machine plus      |
-|           |      |          | 5    |           | added NVIDIA®     |
-|           |      |          |      |           | Tesla® K80 GPU    |
-+-----------+------+----------+------+-----------+-------------------+
+
+.. table:: UP42 Machine types
+   :align: center
+
+   +----------------------+------+----------+------+-----------+-------------------------------------------------------------------------------+
+   | Machine              | CPU  | Memory   | GPU  | Credits   | Example block                                                                 |
+   +======================+======+==========+======+===========+===============================================================================+
+   | small                | 0.5  | 2GB      | n/a  | 37        | Data block that                                                               |
+   |                      |      |          |      |           | simply downloads                                                              |
+   |                      |      |          |      |           | some images, or a                                                             |
+   |                      |      |          |      |           | very basic                                                                    |
+   |                      |      |          |      |           | processing block.                                                             |
+   +----------------------+------+----------+------+-----------+-------------------------------------------------------------------------------+
+   | medium               | 1    | 5GB      | n/a  | 74        | Some basic                                                                    |
+   |                      |      |          |      |           | processing tasks,                                                             |
+   |                      |      |          |      |           | e.g., `UP42 block <https://github.com/up42/land-cover-classification-demo>`__ |
+   |                      |      |          |      |           | for land-cover classification.                                                |
+   +----------------------+------+----------+------+-----------+-------------------------------------------------------------------------------+
+   | large                | 2    | 10GB     | n/a  | 148       | SNAP toolkit with more advanced tasks, e.g., using                            |
+   |                      |      |          |      |           | Range Doppler Terrain Correction based on the                                 |
+   |                      |      |          |      |           | `Aster GDEM <https://asterweb.jpl.nasa.gov/gdem.asp>`__.                      |
+   +----------------------+------+----------+------+-----------+-------------------------------------------------------------------------------+
+   | xlarge               | 4    | 20GB     | n/a  | 296       | Multi-band image                                                              |
+   |                      |      |          |      |           | analysis that is                                                              |
+   |                      |      |          |      |           | not                                                                           |
+   |                      |      |          |      |           | parallelizable by                                                             |
+   |                      |      |          |      |           | tiling.                                                                       |
+   +----------------------+------+----------+------+-----------+-------------------------------------------------------------------------------+
+   | gpu_nvidia_tesla_k80 | 4    | 20GB     | 1    | 772       | GPU intensive                                                                 |
+   |                      |      |          | GPU  |           | machine learning                                                              |
+   |                      |      |          | + 12 |           | algorithm.                                                                    |
+   |                      |      |          | GB   |           | Includes xlarge                                                               |
+   |                      |      |          | GDDR |           | machine plus                                                                  |
+   |                      |      |          | 5    |           | added                                                                         |
+   |                      |      |          | SDRAM|           | `NVIDIA Tesla K80 GPU <https://www.nvidia.com/en-gb/data-center/tesla-k80>`__.|
+   +----------------------+------+----------+------+-----------+-------------------------------------------------------------------------------+
 
 
 **Notes**
