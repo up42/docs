@@ -93,13 +93,66 @@ How do I choose the right package?
 
 We recommend starting with a package that will last you approximately 1
 month. Start with smaller credit packs and upgrade once you get more
-insights into how many credits your workflows and jobs consumer on UP42.
+insights into how many credits your workflows and jobs consume on UP42.
 
 What happens if I run out of credits?
 -------------------------------------
 
 You will not be able to start any new jobs if you have less than
 **1000** credits.
+
+
+What type of machine instances are available in UP42?
+-----------------------------------------------------
+
+
++-----------+------+----------+------+-----------+-------------------+
+| Machine   | CPU  | Memory   | GPU  | Credits   | Example block     |
++===========+======+==========+======+===========+===================+
+| small     | 0.5  | 2Gb      | n/a  | 37        | Data block that   |
+|           |      |          |      |           | simply downloads  |
+|           |      |          |      |           | some images, or a |
+|           |      |          |      |           | very basic        |
+|           |      |          |      |           | processing block. |
++-----------+------+----------+------+-----------+-------------------+
+| medium    | 1    | 5Gb      | n/a  | 74        | Some basic        |
+|           |      |          |      |           | processing tasks, |
+|           |      |          |      |           | our tensorflow    |
+|           |      |          |      |           | block for         |
+|           |      |          |      |           | land-cover        |
+|           |      |          |      |           | classification    |
++-----------+------+----------+------+-----------+-------------------+
+| large     | 2    | 10Gb     | n/a  | 148       | Snap toolkit,     |
+|           |      |          |      |           | more advanced     |
+|           |      |          |      |           | tasks             |
++-----------+------+----------+------+-----------+-------------------+
+| large     | 2    | 10Gb     | n/a  | 148       | Snap toolkit,     |
+|           |      |          |      |           | more advanced     |
+|           |      |          |      |           | tasks             |
++-----------+------+----------+------+-----------+-------------------+
+| xlarge    | 4    | 20Gb     | n/a  | 296       | Multi-band image  |
+|           |      |          |      |           | analysis that is  |
+|           |      |          |      |           | not               |
+|           |      |          |      |           | parallelizable by |
+|           |      |          |      |           | tiling            |
++-----------+------+----------+------+-----------+-------------------+
+| GPU 1     | 4    | 20Gb     | 1    | 772       | GPU intensive     |
+|           |      |          | GPU  |           | machine learning  |
+|           |      |          | + 12 |           | algorithm.        |
+|           |      |          | GB   |           | Includes xlarge   |
+|           |      |          | GDDR |           | machine plus      |
+|           |      |          | 5    |           | added NVIDIA®     |
+|           |      |          |      |           | Tesla® K80 GPU    |
++-----------+------+----------+------+-----------+-------------------+
+
+
+**Notes**
+
++ All vCPUs and GPUs are charged a minimum of 1 minute. For example, if you run your virtual machine for 30 seconds, you will be billed for 1 minute of usage.
++ After 1 minute, instances are charged in 1 second increments.
++ All prices rounded up to nearest EURO cent (partial cent treated as whole cent).
++ All credits rounded to nearest credit (partial credit treated as whole credit).					
+
 
 What is VAT?
 ------------
