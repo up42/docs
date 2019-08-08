@@ -1,6 +1,6 @@
 .. _sentinel1-slc-fullscene-block:
 
-Sentinel-1 GRD (full-scene)
+Sentinel-1 SLC (full-scene)
 ===========================
 
 Block type: ``DATA``
