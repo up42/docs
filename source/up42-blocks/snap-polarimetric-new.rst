@@ -15,7 +15,7 @@ Local development HOWTO
 Clone the repository in a given ``<directory>``:
 
 .. code-block:: bash
-    $ git clone https://github.com/up42/snap-polarimetric.git <directory>
+$ git clone https://github.com/up42/snap-polarimetric.git <directory>
 
 then do ``d <directory>``.
 
