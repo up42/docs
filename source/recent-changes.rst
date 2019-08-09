@@ -4,7 +4,7 @@ Recent changes to the documentation
 9.8.2019
 --------
 
-* Add a new documentation for ``S2-superresolution`` block.
+* Add a new documentation for :ref:`S2-superresolution <s2-superresolution-block>` block.
 * Update the documentation for :ref:`SNAP-polarimetric block <snap-polarimetric-block>`.
 
 7.8.2019
