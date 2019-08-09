@@ -76,7 +76,6 @@ In the next step you can use the ``params.json`` file to define which polarizati
 and whether you want to have land-sea mask or terrain-correction as pre-processing steps. Please note that if you choose to have land-sea mask, you can only set ``land`` or ``sea`` as a parameter.
 
 An example of params.json file is shown below:
-
 .. code-block:: javascript
     {
         "polarisations": ["VV"],
