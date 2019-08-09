@@ -99,7 +99,9 @@ Run the processing block
  * To run an end-to-end test locally you first need to download a Sentinel-1 dataset from the UP42 platform. Run a job
  with the ``Sentinel-1 L1C GRD Full Scenes`` block and download its result. Copy the result (both the folder as well as
  data.json) into anew directory with the name ``/tmp/e2e_snap_polarimetric/``.
+ 
  * Build the docker image as outlined above.
+ 
  * Run the following command:
  
 .. code-block:: bash
