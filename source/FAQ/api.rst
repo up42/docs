@@ -11,7 +11,7 @@ What can be done through the API?
 ---------------------------------
 
 Using the project key available at
-``https://up42.com/console/projects/<project_id>/settings``, where
+``https://console.up42.com/projects/<project_id>/settings``, where
 ``<project_id>`` is your project assigned
 `UUID <https://en.wikipedia.org/wiki/Universally_unique_identifier>`__,
 you can do everything within the project:
@@ -25,7 +25,7 @@ Where can I learn more about the UP42 API?
 ------------------------------------------
 
 To learn more about our API and the concepts underlying it go to our
-`documentation <https://docs.up42.com>`__ site.
+`documentation <https://docs.up42.com/api/index.html>`__ site.
 
 .. raw:: html
 

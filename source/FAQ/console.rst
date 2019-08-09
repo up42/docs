@@ -13,7 +13,7 @@ How can I change my password?
 =============================
 
 1. Go to the `change password
-   page <https://up42.com/settings/password>`__.
+   page <https://console.up42.com/settings/password>`__.
 2. Enter the old and new password in the respective fields.
 3. Click on the **Update Password** button.
 4. Done.

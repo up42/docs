@@ -14,7 +14,7 @@ How do I buy UP42 credits?
 ==========================
 
 Credits come in prepaid bundles. Just go
-to\ `settings/credits/purchase <https://up42.com/settings/credit/purchase>`__,
+to `settings/credits/purchase <https://console.up42.com/settings/credit/purchase>`__,
 select the plan with the number of credits you want and enter your
 credit card information. If you want to buy credits in larger bundles,
 please contact our `sales team <mailto:sales@up42.com>`__. To browse the
