@@ -72,4 +72,4 @@ AOI.clipped GeoTIFF format. Also in the output file, for each polarization a sep
 
 Capabilities
 ------------
-The block takes a ``up42.data.scene.sentinel1_l1c_grd`` product and delivers ``up42.processing.aoiclipped``.
+The block takes a ``up42.data.scene.sentinel1_l1c_grd`` product and delivers ``up42.data.aoiclipped``.
