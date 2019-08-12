@@ -14,6 +14,7 @@ Built-in blocks provided by UP42
    sobloo-s2-l1c
    sentinelhub-s2
    sentinelhub-landsat8
+   modis
    tiling
    snap-polarimetric
    s2-superresolution
