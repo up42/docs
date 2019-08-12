@@ -1,7 +1,7 @@
 .. _snap-polarimetric-block:
 
-SNAP polarimetric block
-=======================
+SNAP polarimetric block (Processing)
+====================================
 
 Block type: ``PROCESSING``
 

@@ -1,7 +1,7 @@
 .. _tiling-block:
 
-Tiling block
-============
+Tiling block (Processing)
+=========================
 
 Block type: ``PROCESSING``
 
