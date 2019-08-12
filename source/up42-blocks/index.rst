@@ -16,4 +16,5 @@ Built-in blocks provided by UP42
    sentinelhub-landsat8
    tiling
    snap-polarimetric
+   s2-superresolution
 
