@@ -1,6 +1,11 @@
 Recent changes to the documentation
 ===================================
 
+13.8.2019
+---------
+
+* add ``time_series`` filter to all Sobloo-based blocks i.e. :ref:`Sentinel-2 Full Scene Block <sentinel2-l1c-fullscene-block>`, :ref:`Sentinel-1 GRD Full Scene Block <sentinel1-grd-fullscene-block>` and :ref:`Sentinel-1 SLC Full Scene Block <sentinel1-slc-fullscene-block>`.
+
 12.8.2019
 ---------
 
