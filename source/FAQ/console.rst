@@ -21,9 +21,19 @@ How can I change my password?
 I haven’t received a verification code to validate my email address for my account how can I get this code to be resent?
 ========================================================================================================================
 
-1. Go to the `verify mail page <https://up42.com/verify-mail>`__.
-2. Click on the **Resend code** link.
-3. Done.
+There are two possible situations when that happens:
+
+ + You are on the signup process final stage, after filling the two
+   first forms, one with the personal details and another one with the
+   company details: just click on the **Resend code** button on the
+   verification code window.
+
+ + You forgot to validate your account and you no longer have the
+   verification code window open: in that case **sign-in** and you
+   should have the the confirmation code window reappear after you
+   sign in. Click the **Resend code** button.
+
+In both cases you will get a new verification code by email.
 
 Where can I find the UUID associated with my UP42 user?
 =======================================================

@@ -11,12 +11,14 @@ Mail to `support@up42.com <mailto:support%20@up42.com>`__.
 How do I signup for an account?
 -------------------------------
 
-1. Go to our `homepage <https://up42.com>`__.
-2. Scroll to the bottom of the page.
-3. Fill in the field with your email address.
-4. Click on the **Register for Beta**.
-5. Done.
-
+1. Go to the `Sign up page <https://console.up42.com/sign-up>`__.
+2. Fill in your personal details and choose a password.
+3. Fill in your company details.
+4. Check your inbox for the confirmation code.
+5. Enter the confirmation code.
+6. Your account has been credited with 100 EUR of free credits and also a demo project that you can use immediately.
+7. Done.
+   
 My job gives strange results or it keeps failing. Can you help me debug it?
 -------------------------------------------------------------------------------------
 
