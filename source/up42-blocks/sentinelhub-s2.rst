@@ -15,9 +15,11 @@ For more information on STAC filter parameters, see
 `the STAC spec <https://github.com/radiantearth/stac-spec/blob/master/api-spec/filters.md>`_.
 
 * ``bbox`` - The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
-  **or** ``intersects``.
+  **or** ``intersects`` **or** ``contains``.
 * ``intersects`` – A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use
-  only ``intersects`` **or** ``bbox``.
+  only ``intersects`` **or** ``bbox`` **or** ``contains``.
+* ``contains`` – A GeoJSON geometry to use as an AOI. Will return all scenes that completely cover this geometry. Use only ``contains``
+  **or** ``intersects`` **or** ``bbox``
 * ``time`` – A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``limit`` – An integer number of maximum results to return. Omit this to set no limit.
 * ``zoom_level`` - An integer defining the webmercator zoom level of this request, defaults to 17.
