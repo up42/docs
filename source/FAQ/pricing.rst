@@ -50,7 +50,7 @@ Where can I find information on individual block pricing and license terms?
 
 In the details page of each block you can find details on the definition
 of the counting unit for that block and the number of credits per unit,
-as well as a link to the **E**\ nd **U**\ ser **License** **Agreement**
+as well as a link to the **E**\ nd **U**\ ser **L**\ icense **A**\ greement
 (EULA) you need to accept before using the data or processing block.
 
 Can I estimate upfront how many credits my job will consume?
