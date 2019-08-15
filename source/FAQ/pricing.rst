@@ -81,8 +81,8 @@ it’s better to start with smaller packages of credits and only upgrade
 to larger credit packages once you have an idea of how many credits you
 need for your use case.
 
-My job stopped in the middle of the process. Will I still get charged?
-======================================================================
+My job stopped in the middle of the process. Will I still be charged for credits on it?
+=======================================================================================
 
 You will be charged for any tasks that have successfully completed. You
 will not get charged for any dry run jobs. To be clear, this means
