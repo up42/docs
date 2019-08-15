@@ -1,6 +1,12 @@
 Marketplace FAQ
 ===============
 
+Why should I become a UP42 partner --- joining the marketplace?
+---------------------------------------------------------------
+
+There many reasons for that. A few of them are listed
+`here <https://up42.com/data-and-processing>`__.
+
 How can I get my block on the UP42 marketplace?
 -----------------------------------------------
 
