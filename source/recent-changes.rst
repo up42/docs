@@ -1,12 +1,11 @@
 Recent changes to the documentation
 ===================================
 
-<<<<<<< HEAD
 16.8.2019
 --------
 
 * Add options ``contains`` to :ref:`Sentinel-2 AOI clipped <sentinelhub-sentinel2-aoiclipped-block>` and :ref:`Landsat-8 AOI clipped <sentinelhub-landsat8-aoiclipped-block>`
-=======
+
 13.8.2019
 ---------
 
@@ -16,7 +15,7 @@ Recent changes to the documentation
 ---------
 
 * Add new :ref:`MODIS block <modis-aoiclipped-block>`.
->>>>>>> master
+
 
 9.8.2019
 --------
