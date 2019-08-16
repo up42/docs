@@ -14,6 +14,7 @@ For detailed information about writing blocks, see the :ref:`section about writi
    :caption: Contents:
 
    getting-started/index
+   going-further/index
    specifications/index
    examples/index
    up42-blocks/index
