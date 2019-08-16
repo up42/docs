@@ -14,7 +14,7 @@ How do I buy UP42 credits?
 ==========================
 
 Credits come in prepaid bundles. Just go
-to\ `settings/credits/purchase <https://up42.com/settings/credit/purchase>`__,
+to `settings/credits/purchase <https://console.up42.com/settings/credit/purchase>`__,
 select the plan with the number of credits you want and enter your
 credit card information. If you want to buy credits in larger bundles,
 please contact our `sales team <mailto:sales@up42.com>`__. To browse the
@@ -50,7 +50,7 @@ Where can I find information on individual block pricing and license terms?
 
 In the details page of each block you can find details on the definition
 of the counting unit for that block and the number of credits per unit,
-as well as a link to the **E**\ nd **U**\ ser **License** **Agreement**
+as well as a link to the **E**\ nd **U**\ ser **L**\ icense **A**\ greement
 (EULA) you need to accept before using the data or processing block.
 
 Can I estimate upfront how many credits my job will consume?
@@ -81,8 +81,8 @@ it’s better to start with smaller packages of credits and only upgrade
 to larger credit packages once you have an idea of how many credits you
 need for your use case.
 
-My job stopped in the middle of the process. Will I still get charged?
-======================================================================
+My job stopped in the middle of the process. Will I still be charged for credits on it?
+=======================================================================================
 
 You will be charged for any tasks that have successfully completed. You
 will not get charged for any dry run jobs. To be clear, this means
@@ -103,18 +103,14 @@ You will not be able to start any new jobs if you have less than
 **1000** credits.
 
 
-What type of machine instances are available in UP42?
-=====================================================
-
-The table below explains the type of machines available and also gives
-examples on the type of computational task each type is suited for.
-
+What type of machine instances are available and what are the costs?
+====================================================================
 
 .. table:: UP42 Machine types
    :align: center
-
+           
    +----------------------+------+----------+-------------------+
-   | Machine              | CPU  | Memory   | Credits [per hour]|
+   | Machine type         | CPUs | Memory   | Credits [per hour]|
    +======================+======+==========+===================+
    | small                | 0.5  | 2GB      | 37                |
    |                      |      |          |                   |
@@ -141,14 +137,18 @@ examples on the type of computational task each type is suited for.
 
 **Notes**
 
-+ All CPUs and GPUs are charged a minimum of 1 minute. For example,
-  if you run your virtual machine for 30 seconds, you will be billed
-  for 1 minute of usage.
++ All CPUs and GPUs are charged a **minimum** of 1 minute. For example, if
+  you run your machine instance for 30 seconds or less, you will be
+  billed for 1 minute of usage.
 + After 1 minute, instances are charged in 1 second increments.
-+ Credit accounting is rounded up: ½ credit usage gets charged as 1 credit.
++ Credit accounting is **rounded up**: any fractional credit usage
+  gets rounded up to 1 credit, e.g., **0.1** credit is billed as **1**
+  credit.
 
-What are the typical loads for each machine type?
-=================================================
+.. _machine_typical_loads:
+  
+What are examples of typical loads for each machine type?
+=========================================================
 
 .. |br| raw:: html
 
@@ -158,9 +158,9 @@ What are the typical loads for each machine type?
    :align: left
            
    +----------------------+-------------------------------------------------------------------------------------------------------------------+
-   | Machine              | Example load                                                                                                      |        
+   | Machine type         | Example load                                                                                                      |        
    +======================+===================================================================================================================+
-   | small                | Data block that simply downloads  some images, or a very basic processing block.                                  |
+   | small                | Data block that simply downloads some images, or a very basic processing block.                                   |
    +----------------------+-------------------------------------------------------------------------------------------------------------------+ 
    | medium               |  Some basic processing tasks, e.g., `Land cover <https://github.com/up42/land-cover-classification-demo>`__       |
    |                      |  UP42 demo block.                                                                                                 |
@@ -168,7 +168,7 @@ What are the typical loads for each machine type?
    | large                | `SNAP toolbox <http://step.esa.int/main/toolboxes/snap/>`__ with more advanced tasks, e.g., using Range           | 
    |                      | Doppler Terrain Correction |br| based on the `Aster GDEM <https://asterweb.jpl.nasa.gov/gdem.asp>`__.             |
    +----------------------+-------------------------------------------------------------------------------------------------------------------+ 
-   | xlarge               |  Multi-band analysis not parallelizable by tiling.                                                                |
+   | xlarge               |  Multi-band imagery analysis not parallelizable by raster tiling.                                                 |
    +----------------------+-------------------------------------------------------------------------------------------------------------------+ 
    | gpu_nvidia_tesla_k80 |  GPU intensive ML algorithm, e.g., `Sentinel 2 Super-resolution <https://github.com/up42/s2-superresolution>`__   |
    |                      |  by UP42. |br|                                                                                                    |

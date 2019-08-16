@@ -1,15 +1,27 @@
 Recent changes to the documentation
 ===================================
 
+<<<<<<< HEAD
 16.8.2019
 --------
 
 * Add options ``contains`` to :ref:`Sentinel-2 AOI clipped <sentinelhub-sentinel2-aoiclipped-block>` and :ref:`Landsat-8 AOI clipped <sentinelhub-landsat8-aoiclipped-block>`
+=======
+13.8.2019
+---------
+
+* add ``time_series`` filter to all Sobloo-based blocks i.e. :ref:`Sentinel-2 Full Scene Block <sentinel2-l1c-fullscene-block>`, :ref:`Sentinel-1 GRD Full Scene Block <sentinel1-grd-fullscene-block>` and :ref:`Sentinel-1 SLC Full Scene Block <sentinel1-slc-fullscene-block>`.
+
+12.8.2019
+---------
+
+* Add new :ref:`MODIS block <modis-aoiclipped-block>`.
+>>>>>>> master
 
 9.8.2019
 --------
 
-* Add a new documentation for :ref:`S2-superresolution <s2-superresolution-block>` block.
+* Add a new documentation for :ref:`S2-superresolution block <s2-superresolution-block>`.
 * Update the documentation for :ref:`SNAP-polarimetric block <snap-polarimetric-block>`.
 
 7.8.2019
@@ -17,16 +29,15 @@ Recent changes to the documentation
 
 * Add new :ref:`Sentinel-1 SLC Full Scene Block <sentinel1-slc-fullscene-block>`.
 
-
 29.7.2019
 ---------
 
-* Add metadata to :ref:`Landsat-8 AOI clipped <sentinelhub-landsat8-aoiclipped-block>` and :ref:`Sentinel-2 AOI clipped <sentinelhub-sentinel2-aoiclipped-block>`
+* Add metadata to :ref:`Landsat-8 AOI clipped <sentinelhub-landsat8-aoiclipped-block>` and :ref:`Sentinel-2 AOI clipped <sentinelhub-sentinel2-aoiclipped-block>`.
 
 26.07.2019
 ----------
 
-* Add precise definitions of predefined :ref:`Block capabilities <block-capabilities>`
+* Add precise definitions of predefined :ref:`Block capabilities <block-capabilities>`.
 
 25.07.2019
 ----------
