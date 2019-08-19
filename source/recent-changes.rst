@@ -1,11 +1,17 @@
 Recent changes to the documentation
 ===================================
 
+19.8.2019
+---------
+
+* FAQ improvements.
+
 16.8.2019
---------
+---------
 
 * Add options ``contains`` to :ref:`Sentinel-2 AOI clipped <sentinelhub-sentinel2-aoiclipped-block>` and :ref:`Landsat-8 AOI clipped <sentinelhub-landsat8-aoiclipped-block>`
-
+* New `page :ref:adding-gpu-support-block` on using GPU in a block.
+  
 13.8.2019
 ---------
 

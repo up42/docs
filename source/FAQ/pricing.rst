@@ -32,6 +32,11 @@ Every time you run a job for a workflow credits are consumed in:
 3. **Infrastructure** costs: how much machine time you used on UP42’s
    infrastructure.
 
+In the job page you can see the breakdown of the credit usage in a
+table where each row is a step on the workflow. Above the table
+shows the applicable credit usage per type of task: **Data**,
+**Processing**, and **Infrastructure**.
+
 Why are there different prices/credit values for blocks?
 ========================================================
 
