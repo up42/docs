@@ -77,7 +77,10 @@ language = None
 exclude_patterns = []
 
 # Extra paths to consider.
-html_extra_path = ['robots.txt']
+html_extra_path = [
+    'robots.txt',
+    'google316f09bf5f56a9dd.html'
+]
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'friendly'
