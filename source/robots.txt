@@ -1116,3 +1116,7 @@ User-agent: ZumBot
 Disallow:/
 User-agent: ZyBorg
 Disallow:/
+
+# Sitemap.
+Sitemap: https://docs.up42.com/sitemap.xml
+
