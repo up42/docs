@@ -46,7 +46,11 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'sphinxcontrib.redoc',
+    'sphinx_sitemap'
 ]
+
+# Base URL for the site.
+html_baseurl = 'https://docs.up42.com'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -72,9 +76,11 @@ language = None
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
-# The name of the Pygments (syntax highlighting) style to use.
-pygments_style = None
+# Extra paths to consider.
+html_extra_path = ['robots.txt']
 
+# The name of the Pygments (syntax highlighting) style to use.
+pygments_style = 'friendly'
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -96,6 +102,9 @@ html_theme_options = {
 
 # Do not show the built with Sphinx on the footer.
 html_show_sphinx = False
+
+# Do not show the view source link.
+html_show_sourcelink = False
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
