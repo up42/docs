@@ -50,7 +50,7 @@ extensions = [
 ]
 
 # Base URL for the site.
-html_baseurl = 'https://docs.up42.com'
+html_baseurl = 'https://docs.up42.com/'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
