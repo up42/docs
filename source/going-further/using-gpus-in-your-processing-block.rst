@@ -73,7 +73,7 @@ Note also the
 file with the ``machine`` object ``type``  field specifying a **GPU
 enabled** machine type.
 
-.. code-block:: json
+.. code-block:: js
 
    "machine": {
 	"type": "gpu_nvidia_tesla_k80"
