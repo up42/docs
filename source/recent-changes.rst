@@ -1,6 +1,11 @@
 Recent changes to the documentation
 ===================================
 
+20.8.2019
+---------
+
+* Add ``time_series`` filter to both SentinelHub-based blocks i.e. :ref:`Sentinel-2 AOI clipped Block <sentinelhub-sentinel2-aoiclipped-block>` and :ref:`Landsat-8 AOI clipped Block <sentinelhub-landsat8-aoiclipped-block>`.
+
 19.8.2019
 ---------
 
@@ -10,12 +15,12 @@ Recent changes to the documentation
 ---------
 
 * Add options ``contains`` to :ref:`Sentinel-2 AOI clipped <sentinelhub-sentinel2-aoiclipped-block>` and :ref:`Landsat-8 AOI clipped <sentinelhub-landsat8-aoiclipped-block>`
-* New `page :ref:adding-gpu-support-block` on using GPU in a block.
+* New :ref:`page <adding-gpu-support-block>` on using GPU in a block.
   
 13.8.2019
 ---------
 
-* add ``time_series`` filter to all Sobloo-based blocks i.e. :ref:`Sentinel-2 Full Scene Block <sentinel2-l1c-fullscene-block>`, :ref:`Sentinel-1 GRD Full Scene Block <sentinel1-grd-fullscene-block>` and :ref:`Sentinel-1 SLC Full Scene Block <sentinel1-slc-fullscene-block>`.
+* Add ``time_series`` filter to all Sobloo-based blocks i.e. :ref:`Sentinel-2 Full Scene Block <sentinel2-l1c-fullscene-block>`, :ref:`Sentinel-1 GRD Full Scene Block <sentinel1-grd-fullscene-block>` and :ref:`Sentinel-1 SLC Full Scene Block <sentinel1-slc-fullscene-block>`.
 
 12.8.2019
 ---------
