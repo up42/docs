@@ -10,7 +10,7 @@ Recent changes to the documentation
 ---------
 
 * Add options ``contains`` to :ref:`Sentinel-2 AOI clipped <sentinelhub-sentinel2-aoiclipped-block>` and :ref:`Landsat-8 AOI clipped <sentinelhub-landsat8-aoiclipped-block>`
-* New `page :ref:adding-gpu-support-block` on using GPU in a block.
+* New :ref:`page <adding-gpu-support-block>` on using GPU in a block.
   
 13.8.2019
 ---------
