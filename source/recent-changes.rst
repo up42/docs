@@ -155,13 +155,13 @@ Recent changes to the documentation
 22.02.2019
 ----------
 
-* Fixed the ``docker run`` command examples in the section on :ref:`how to set up your development environment <dev-env-setup>`.
+* Fixed the ``docker run`` command examples in the section on :ref:`how to set up your development environment <custom-processing-block>`.
 * Fixed errors in the :ref:`sample data block <sample-data-block-download>` code.
 
 22.02.2019
 ----------
 
-* Fixed the ``docker run`` command examples in the section on :ref:`how to set up your development environment <dev-env-setup>`.
+* Fixed the ``docker run`` command examples in the section on :ref:`how to set up your development environment <custom-processing-block>`.
 * Fixed errors in the :ref:`sample data block <sample-data-block-download>` code.
 
 20.02.2019
@@ -180,4 +180,4 @@ Recent changes to the documentation
 18.02.2019
 ----------
 
-* Added a section on :ref:`how to set up your development environment <dev-env-setup>` when building blocks.
+* Added a section on :ref:`how to set up your development environment <custom-processing-block>` when building blocks.

@@ -105,5 +105,5 @@ This block has a single output capability, ``up42.data.aoiclipped``.
 Download example output
 -----------------------
 
-You can create example output to use when :ref:`testing processing blocks built to work with this data <dev-env-setup>`
+You can create example output to use when :ref:`testing processing blocks built to work with this data <custom-processing-block>`
 by running the block in a workflow via the UI, and downloading the results in the job overview.

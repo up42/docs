@@ -139,3 +139,10 @@ The corresponding job configuration section for the above options would then be 
     "output_prefix": "t_",
     "augmentation_factor": 1
   }
+
+
+Reference
+^^^^^^^^^
+
+Here you have the full `job parameters JSON schema <https://specs.up42.com/v1/job_inputs/schema.json>`_.
+

@@ -185,5 +185,5 @@ Example invalid response:
 Reference
 ---------
 
-* `Block manifest JSON schema (v1) <http://specs.up42.com/v1/blocks/schema.json>`_
-* :ref:`Example blocks <example-blocks>`
+Here you have the full `job parameters JSON schema <https://specs.up42.com/v1/blocks/schema.json>`_.
+
