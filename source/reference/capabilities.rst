@@ -61,6 +61,8 @@ The full list of build-in capabilities is available as part of the
 
 The meaning of those capabilities is:
 
+.. _aoi-clipped:
+
 ``up42.data.aoiclipped``: A multi-band geotiff. The name derives from the fact that data blocks using this as output
 capability will only provide data covering the query AOI. This is the standard recommended input capability for most
 processing blocks.

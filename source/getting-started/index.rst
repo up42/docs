@@ -14,9 +14,6 @@ For detailed information about writing blocks, see the :ref:`section about writi
    :maxdepth: 2
    :caption: Contents:
 
-   core-concepts
    first-workflow
    first-block
-   dev-setup
-   credentials
-   custom-storage
+
