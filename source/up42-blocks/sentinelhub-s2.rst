@@ -5,9 +5,6 @@ Sentinel-2 (AOI-Clipped)
 
 Block type: ``DATA``
 
-.. contents::
-
-
 Supported parameters
 --------------------
 

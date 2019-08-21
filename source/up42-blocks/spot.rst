@@ -5,9 +5,6 @@ SPOT (AOI-Clipped)
 
 Block type: ``DATA``
 
-.. contents::
-
-
 Supported parameters
 --------------------
 

@@ -3,8 +3,6 @@
 Block manifest
 ==============
 
-.. contents::
-
 The block manifest defines metadata about the block, and is used to update the block info every time a new version
 of the block is pushed.
 

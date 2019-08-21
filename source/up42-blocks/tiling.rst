@@ -7,8 +7,6 @@ Block type: ``PROCESSING``
 
 This block clips rasters into rectangle-shaped tiles ready for consumption by machine learning algorithms (it creates "image chips". Augmentation by using offsets and effectively creating more training data is also supported. The block is agnostic to used resolution, coordinate reference system or data type. This also means that if an input dataset has more than 4 bands, the output will have the same. Some ML algorithms can therefore have problems with the tiles if they only support RGB.
 
-.. contents::
-
 Supported parameters
 --------------------
 

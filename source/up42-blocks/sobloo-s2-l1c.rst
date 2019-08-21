@@ -12,8 +12,6 @@ other DIAS systems. The products are radiometrically and geometrically corrected
 Important application areas for Sentinel-2 imagery are land cover monitoring (agriculture, forestry), coastal area
 monitoring, inland water monitoring, glacier monitoring and flood mapping.
 
-.. contents::
-
 Supported query parameters
 --------------------------
 

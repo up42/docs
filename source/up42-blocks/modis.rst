@@ -11,8 +11,6 @@ The block is different than most other data blocks. MODIS data is provided as a 
 are not considered. This means that all geometric filters have essentilly the same functionality: the dataset of the
 corresponding date for the supplied AOI will be provided.
 
-.. contents::
-
 Supported parameters
 --------------------
 
