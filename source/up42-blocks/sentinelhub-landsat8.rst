@@ -5,9 +5,6 @@ Landsat-8 (AOI-Clipped)
 
 Block type: ``DATA``
 
-.. contents::
-
-
 Supported parameters
 --------------------
 

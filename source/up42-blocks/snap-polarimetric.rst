@@ -7,8 +7,6 @@ Block type: ``PROCESSING``
 
 This block provides a common polarimetric processing workflow with SNAP that operates ESA SAFE format scenes. The SNAP block takes a Level 1C GRD file and brings it into a format ready for analysis by using a median filter for speck filtering, creating a land-sea mask, and converting the format to a GeoTIFF.
 
-.. contents::
-
 Supported parameters
 --------------------
 

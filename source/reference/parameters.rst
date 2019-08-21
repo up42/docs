@@ -9,8 +9,6 @@ they use to modify their behaviour.
 What filters or parameters a block supports are specified in the :ref:`manifest file <block-manifest>`. In both cases,
 they are specified in the ``parameters`` field of the manifest, and the same input types are available.
 
-.. contents::
-
 Filter and parameter types
 --------------------------
 

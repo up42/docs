@@ -9,8 +9,6 @@ This block provides pansharpened Pleiades HR imagery clipped to all tiles inters
 
 The available output bands of the Pleiades block are: red, green, blue. Pansharpened Pleiades HR imagery has a spatial resolution of 0.5x0.5m.
 
-.. contents::
-
 Supported parameters
 --------------------
 

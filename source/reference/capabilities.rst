@@ -3,8 +3,6 @@
 Block capabilities
 ==================
 
-.. contents::
-
 Input and output capabilities define what kind of data a block provides, and what kind of data a block outputs. These
 capabilities are validated when creating a job from a workflow.
 
