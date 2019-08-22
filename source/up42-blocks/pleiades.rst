@@ -26,6 +26,7 @@ For more information on STAC filter parameters, see
 * ``time`` – A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``time_series`` – An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``limit`` – An integer number of maximum results to return. Omit this to set no limit.
+* ``ids`` – An array of image identifiers. If defined, either ``bbox`` **or** ``intersects`` **or** ``contains`` should be selected as well. This will assure that, by defining ``ids`` filter, you will get tiles only based on your AOI.
 * ``zoom_level`` - An integer defining the webmercator zoom level of this request, defaults to 18.
 * ``panchromatic_band`` - If set to ``true``, the panchromatic band is added to the output.
 
@@ -46,6 +47,22 @@ Example query using Strip Mode, using ``bbox``, ``limit``,  ``zoom_level`` and `
         "zoom_level": 18,
         "panchromatic_band": true
       }
+    }
+
+Example query using identifiers:
+
+.. code-block:: javascript
+
+    {
+        "oneatlas-pleiades-aoiclipped:1": {
+           "bbox": [
+             114.206193,
+              22.308647,
+              114.217469,
+              22.315789
+              ],
+           "ids": ["36ca5438-0d54-4982-8e1e-6e7e5a50a6ca"]
+        }
     }
 
 
