@@ -1,6 +1,12 @@
 Recent changes to the documentation
 ===================================
 
+22.8.2019
+---------
+* Add options ``contains`` to all Sobloo-based blocks i.e. :ref:`Sentinel-2 Full Scene Block <sentinel2-l1c-fullscene-block>`, :ref:`Sentinel-1 GRD Full Scene Block <sentinel1-grd-fullscene-block>` and :ref:`Sentinel-1 SLC Full Scene Block <sentinel1-slc-fullscene-block>`.
+* Add options ``ids`` to :ref:`Pleiades AOI clipped <pleiades-aoiclipped-block>` and :ref:`SPOT AOI clipped <spot-aoiclipped-block>` built-in blocks.
+
+
 20.8.2019
 ---------
 
