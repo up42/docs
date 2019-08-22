@@ -57,10 +57,12 @@ You can use the search box to lock for a particular location of
 interest to you. Then either choose to use a **Bounding box** or a
 **Intersects** or **Contains**. Click on the map and draw your AOI.
 
+.. gist:: https://gist.github.com/perusio/f8d8f3fe8ebb590cb3d8a5810c7a6060
+
 Once you are content with the selected AOI click on **Run Job** to
 launch the job consisting of the created workflow.
 
-You will then be taken to the jobs overview for the current project..
+You will then be taken to the jobs overview for the current project.
 
 Jobs overview
 -------------
@@ -125,4 +127,7 @@ then the final result.
    :alt: Overlayed ships and original SPOT image
          
    Detected ships overlayed with image.
-    
+
+And finally the detected ships overlayed with the base map.
+   
+.. gist:: https://gist.github.com/perusio/6f666485dadab8fec62879ef9a4f3291
