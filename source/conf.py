@@ -47,6 +47,7 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinxcontrib.redoc',
     'sphinx_sitemap',
+    'sphinxcontrib.gist'
 ]
 
 # Base URL for the site.
