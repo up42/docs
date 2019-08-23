@@ -40,8 +40,7 @@ When you are done, scroll to the bottom of the workflow editor and
 click **Next**.  You should now see a button labelled **Configure
 Job** a the bottom of the workflow editor.
 
-Click on it and you will be taken to the **A**\ rea **O**\ f **I**\ nterest
-(AOI) selector.
+Click on it and you will be taken to the :term:`AOI` selector.
 
 Configuring and running your job
 --------------------------------
