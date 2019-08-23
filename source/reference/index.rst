@@ -15,5 +15,5 @@ For information about specific blocks, see the :ref:`built-in blocks section <bu
    capabilities
    parameters
    data-transfer
-
-.. workflows-jobs
+   glossary
+   
