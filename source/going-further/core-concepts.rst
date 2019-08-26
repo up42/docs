@@ -21,8 +21,9 @@ An example of a data block is the :ref:`Sentinel-1 GRD block
 <sentinel1-grd-fullscene-block>`, which provides Sentinel-1 GRD radar
 data as a whole scene.
 
-An example of a processing block is the :ref:`Tiling Operation block <tiling-block>`, which creates image tiles ready to use
-for machine learning models, for example.
+An example of a processing block is the :ref:`Tiling Operation block
+<tiling-block>`, which creates image tiles ready to use for machine
+learning models, for example.
 
 Blocks specify what kind of data they need to run and what kind of
 data they output via :ref:`their capabilities <block-capabilities>`.
@@ -30,10 +31,13 @@ data they output via :ref:`their capabilities <block-capabilities>`.
 You can think of blocks as a function that receives some input and
 returns some output, packaged as a Docker image.
 
+.. _workflows-definition:
+
 Workflows
 =========
 
-A **workflow** is a directed acyclic graph of blocks. It describes:
+A **workflow** is a `Directed Acyclic Graph
+<https://en.wikipedia.org/wiki/Directed_acyclic_graph>`__ (DAG )of blocks [#]_. It describes:
 
 * What data sources will be used: data blocks.
 * How the fetched data will be processed: processing blocks.
@@ -111,3 +115,12 @@ Additionally you also get information on:
  + Execution time.
  + Total cost of the job: data, processing and infrastructure costs,
    with the breakdown per task.  
+
+
+.. rubric:: Footnotes
+
+.. [#] Currently the workflow is a `linked list
+       <https://en.wikipedia.org/wiki/Linked_list>`__
+       of blocks. With a data
+       block always at the root. Full DAG based workflows will be
+       implemented in the future.            
