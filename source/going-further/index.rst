@@ -11,6 +11,7 @@ further and explore custom block creation and using the API.
    :caption: Contents
 
    core-concepts
+   filters
    custom-processing-block-dev
    using-gpus-in-your-processing-block
    credentials

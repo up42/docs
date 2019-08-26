@@ -8,15 +8,17 @@ Creating a project and workflow
 
 After logging in successfully, you will find yourself on the welcome page.
 
-Click on the **Start a Project** button to create your first project
+Click on the **Start a Project** button to create your first :term:`project`
 -- besides the demo project.
 
-You will be asked to provide a project name and an optional description. Once you saved the project, you will be taken
-to the workflows overview for that project.
+You will be asked to provide a project name and an optional
+description. Once you saved the project, you will be taken to the
+workflows overview for that project.
 
 Use the **Create Workflow** button to get started. Once again you will
-be asked to provide a name and an optional description,
-this time for the workflow that you are about to create. Enter a name and click **Next**.
+be asked to provide a name and an optional description, this time for
+the :term:`workflow` that you are about to create. Enter a name and
+click **Next**.
 
 Adding blocks
 -------------
@@ -37,20 +39,20 @@ Add another processing block by clicking on the **+** sign under the
 previously added Raster Tiling block. This time the  "Ship Detection" block.
 
 When you are done, scroll to the bottom of the workflow editor and
-click **Next**.  You should now see a button labelled **Configure
+click **Next**.  You should now see a button labeled **Configure
 Job** a the bottom of the workflow editor.
 
 Click on it and you will be taken to the :term:`AOI` selector.
 
-Configuring and running your job
---------------------------------
+Configuring and running your :term:`job`
+----------------------------------------
 
 Select an AOI using the map widget, or by pasting a GeoJSON
-``FeatureCollection`` into the text box to the left of the map. Zou
-can also set the date, date range and limit, i.e., the maxmium number
+``FeatureCollection`` into the text box to the left of the map. You
+can also set the date, date range and limit, i.e., the maximum number
 of images to returned. By default the most recent image is
 returned. For a value of limit greater than 1, the images are returned
-by descending chronological order. From most recents to least recents..
+by descending chronological order. From most recent to least recent.
 
 You can use the search box to lock for a particular location of
 interest to you. Then either choose to use a **Bounding box** or a
@@ -94,9 +96,8 @@ Job results
 Once the job has completed, you can download the result data by
 clicking on the **Download** link at the top of the page. You can also
 get a preview of the resulting GeoJSON file by clicking **Preview** at
-the top. A low resolution RGB bitmap image is provided:
-quicklooks. You can view by clicking on the **Quick looks** button at
-the top. 
+the top. A low resolution preview is given: :term:`quicklooks`. You
+can view it by clicking on the **Quick looks** button at the top.
 
 Here are the results, first for each step (task) of the workflow and
 then the final result.
