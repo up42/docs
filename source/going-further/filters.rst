@@ -128,4 +128,4 @@ ids
 .. rubric:: Footnotes
 
 .. [1] It might happen that a data provider structures the data in a
-       way that makes it impossible to implement a certain filter.           
+       way that makes it impossible to implement a certain filter.

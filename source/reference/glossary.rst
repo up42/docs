@@ -53,7 +53,6 @@
       A directed acyclic graph of blocks [#]_. See :ref:`definition <workflows-definition>`.
 
 
-
 .. rubric:: Footnotes
 
 .. [#] Currently the workflow is a `linked list
