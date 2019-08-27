@@ -7,7 +7,8 @@
 Developing a custom processing block
 ====================================
 
-This guide provides a quick introduction for setting up and running blocks locally to make development easier.
+This guide provides a quick introduction for setting up and running
+blocks locally to make development easier.
 
 The examples in this guide use a ``bash``-compatible shell (``sh``, ``ash``, ``dash`` or similar) in a Unix-like environment,
 but you can build blocks in any environment that you can run Docker
