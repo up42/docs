@@ -1,3 +1,7 @@
+.. meta::
+   :description: UP42 General frequently asked questions
+   :keywords: faq, general, support 
+
 General FAQ
 ===========
 

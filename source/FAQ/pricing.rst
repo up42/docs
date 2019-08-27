@@ -1,3 +1,7 @@
+.. meta::
+   :description: UP42 Frequently asked questions about pricing
+   :keywords: faq, pricing, support 
+
 =============
  Pricing FAQ
 =============
