@@ -1,3 +1,7 @@
+.. meta::
+   :description: UP42 going further: using custom storage in custom block
+   :keywords: custom block, custom storage, howto, development  
+
 .. _custom-storage:
 
 Using custom storage

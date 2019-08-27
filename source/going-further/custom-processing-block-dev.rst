@@ -1,3 +1,7 @@
+.. meta::
+   :description: UP42 going further: develop custom processing block
+   :keywords: custom block, development, processing 
+
 .. _custom-processing-block:
 
 Developing a custom processing block

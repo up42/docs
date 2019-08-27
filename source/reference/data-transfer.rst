@@ -1,3 +1,7 @@
+.. meta::
+   :description: UP42 reference: data transfer between blocks 
+   :keywords: reference, input, output, data transfer, custom block, development 
+
 .. _data-transfer-format:
 
 Data transfer format

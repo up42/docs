@@ -1,3 +1,7 @@
+.. meta::
+   :description: UP42 going further: API usage howto
+   :keywords: API, howto, curl  
+
 UP42 API walktrough
 ===================
 

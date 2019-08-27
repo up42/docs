@@ -1,3 +1,8 @@
+.. meta::
+   :description: UP42 reference: environment variables in block
+                 invocation and development
+   :keywords: variables, job execution, docker, platform, development, docker 
+
 .. _block-envvars:
 
 Environmental variables in running blocks

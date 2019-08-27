@@ -1,3 +1,7 @@
+.. meta::
+   :description: UP42 reference: block manifest writing
+   :keywords: manifest, development, custom block, docker 
+
 .. _block-manifest:
 
 Block manifest
@@ -45,7 +49,8 @@ The most important keys to note here are the following:
 * ``display_name``: the name of the block as displayed in the UP42 UI. This name is not checked for
   uniqueness.
 * ``description``: free-text explanation of what your block does.
-* ``parameters``: for data blocks, the list of all query parameters the block supports. For processing blocks, the
+* ``parameters``: for data blocks, the list of all :ref:`query
+  parameters <filters>` the block supports. For processing blocks, the
   run-time parameters that your block can optionally specify. See :ref:`the page on parameters <block-params>`
 * ``machine``:``type``: defines the computing resource on which the block will be running. You can choose from four predefined machine types:
 

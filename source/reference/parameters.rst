@@ -1,3 +1,7 @@
+.. meta::
+   :description: UP42 reference: filters and run time parameters
+   :keywords: parameters, job inputs, query filters, custom block, development  
+
 .. _block-params:
 
 Query filters and runtime parameters
@@ -38,7 +42,8 @@ Query filters
 -------------
 
 Data blocks and processing blocks use the same parameter types, however certain names are treated as reserved keys when
-specifying the filers for a data block, to ensure that the filter specification does not conflict with the STAC standard.
+specifying the filters for a data block, to ensure that the filter
+specification does not conflict with UP 42 defined :ref:`filters <filters>`.
 (For more information on how to use these reserved filter names when building a data block, see the :ref:`section on using envvars in blocks <block-envvars>`.)
 
 This means that if you use any of the names ``intersects``, ``contains``, ``bbox``, ``limit``, ``ids`` and ``time`` or

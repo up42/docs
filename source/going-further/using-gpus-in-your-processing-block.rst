@@ -1,3 +1,7 @@
+.. meta::
+   :description: UP42 going further: GPU enabled custom block development 
+   :keywords: gpu, custom block, development, processing, deep
+              learning, howto 
 
 .. _adding-gpu-support-block:
 
