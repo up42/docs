@@ -17,8 +17,9 @@ compliant interface. Our API does not strictly adhere to the STAC
 specification, adapting from it what makes sense and adding other
 filters that makes sense in the UP42 platform context.
      
-The following filters are supported:
 
+Supported filters
+-----------------
 
 limit
    The maximum number of results to be returned. Default is 1. The
@@ -55,3 +56,9 @@ intersects
 ids 
    bla
 
+
+Examples
+--------
+
+
+   
