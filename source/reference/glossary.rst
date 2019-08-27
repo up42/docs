@@ -11,11 +11,30 @@
       **A**\ rea **O**\ f **I**\ nterest is a
       polygonal region on a map defining the area where a given action
       is to be performed: data acquisition, data processing, etc.
+
+   AOI clipped
+      Data block output that includes only the items that either:
+      intersect the AOI or fully contain that AOI depending on the
+      chosen :ref:`filter <filters>`.
       
    block
-      A unit corresponding to either a data acquisition or a
+      Unit corresponding to either a data acquisition or a
       processing stage in a :term:`workflow`.
 
+   bounding box
+      GeoJSON geometry represented by a rectangle
+      containing the coordinates of the southwesterly most extent --
+      bottom left corner of the box -- followed by the coordinates of
+      the northeasterly most extent -- top right corner of the box --
+      specified in Longitude/Latitude based on `WGS 84
+      <http://www.opengis net/def/crs/OGC/1.3/CR 84>`__.
+
+   full scene
+      Data block output that includes the complete area covered by
+      the satellite instrument when it it was over that area. In this
+      case the selected AOI is used to search for the scene(s) that
+      include(s) the specified AOI.
+      
    job
       An instance of a :term:`workflow`.
 

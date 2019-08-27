@@ -1,3 +1,7 @@
+.. meta::
+   :description: UP42 reference documentation: block capabilities
+   :keywords: blocks, workflows, matching processing and data blocks 
+
 .. _block-capabilities:
 
 Block capabilities
