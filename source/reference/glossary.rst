@@ -1,3 +1,6 @@
+.. meta:: 
+   :description: UP42 reference documentation: glosssary
+   :keywords: glossary, UP42 platform, reference 
 
 .. _glossary:
 

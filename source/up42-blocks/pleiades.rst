@@ -1,3 +1,7 @@
+.. meta:: 
+   :description: UP42 data blocks: Pléaides block description
+   :keywords: Pléiades 1A/1B, Airbus Defense & Space, AOI clipped, block description 
+
 .. _pleiades-aoiclipped-block:
 
 Pleiades (AOI-Clipped)
@@ -12,8 +16,7 @@ The available output bands of the Pleiades block are: red, green, blue. Pansharp
 Supported parameters
 --------------------
 
-For more information on STAC filter parameters, see
-`the STAC spec <https://github.com/radiantearth/stac-spec/blob/master/api-spec/filters.md>`_.
+For more information on supported filters, see :ref:`query filter section  <filters>`.
 
 * ``bbox`` - The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``bbox``
   **or** ``intersects`` **or** ``contains``.

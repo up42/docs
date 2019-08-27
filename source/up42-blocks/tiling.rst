@@ -1,3 +1,7 @@
+.. meta:: 
+   :description: UP42 processing blocks: Raster tiling block description
+   :keywords: UP42, processing, raster tiling, deep learning, block description 
+
 .. _tiling-block:
 
 Tiling block (Processing)

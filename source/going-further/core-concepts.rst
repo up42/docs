@@ -1,3 +1,7 @@
+.. meta::
+   :description: UP42 going further: platform core concepts
+   :keywords: core concepts, blocks, workflows, tasks, projects  
+
 ===============
  Core concepts
 ===============
@@ -48,7 +52,6 @@ Blocks can be shared among workflows.
 
 .. image:: workflow.png
     :align: center
-
 
 Jobs
 ====

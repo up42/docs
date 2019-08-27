@@ -1,3 +1,8 @@
+.. meta:: 
+   :description: UP42 data blocks: Sentinel 1 SLC L1C block description
+   :keywords: Sentinel 1, ESA, SAR C band, radar, SLC, full scene, block description 
+
+
 .. _sentinel1-slc-fullscene-block:
 
 Sentinel-1 SLC (full-scene)

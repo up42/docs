@@ -100,8 +100,10 @@ ids
       
    Note that the way this ID is built will vary from sensor to
    sensor. Here is an example from the :ref:`Sentinel 1 GRD L1C full
-   scene <sentinel1-grd-fullscene-block>` data block.
+   scene <sentinel1-grd-fullscene-block>` data
+   block:
    ``S1A_EW_GRDM_1SDH_20190308T132545_20190308T132643_026247_02EEA0_D71A``.
+
    The above list is by no means exhaustive.
 
    **AOI clipped**

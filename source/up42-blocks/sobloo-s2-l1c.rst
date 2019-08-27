@@ -1,3 +1,7 @@
+.. meta:: 
+   :description: UP42 data blocks: Sentinel 2 L1C MSI block description
+   :keywords: Sentinel 2, ESA, multispectral, full scene, block description 
+
 .. _sentinel2-l1c-fullscene-block:
 
 Sentinel-2 L1C (full-scene)
@@ -15,8 +19,7 @@ monitoring, inland water monitoring, glacier monitoring and flood mapping.
 Supported query parameters
 --------------------------
 
-For more information on STAC filter parameters, see
-`the STAC spec <https://github.com/radiantearth/stac-spec/blob/master/api-spec/filters.md>`_.
+For more information on supported filters, see :ref:`query filter section  <filters>`.
 
 * ``bbox`` - The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.

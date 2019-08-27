@@ -1,3 +1,8 @@
+.. meta:: 
+   :description: UP42 processing blocks: SNAP toolbox block
+   :keywords: Sentinel 1 and 2, processing, full scene, terrain
+              correction, block description 
+
 .. _snap-polarimetric-block:
 
 SNAP polarimetric block (Processing)

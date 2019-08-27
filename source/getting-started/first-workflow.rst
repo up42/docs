@@ -1,7 +1,12 @@
+.. meta::
+   :description: UP42 getting started: how to build a workflow
+   :keywords: workflow howto, tutorial, data and processing blocks 
+
 Building your first workflow
 ============================
 
-This guide will walk you through creating an initial workflow on the platform, using blocks that already exist.
+This guide will walk you through creating an initial workflow on the
+platform, using blocks that already exist.
 
 Creating a project and workflow
 -------------------------------

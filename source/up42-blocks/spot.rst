@@ -1,3 +1,7 @@
+.. meta:: 
+   :description: UP42 data blocks: SPOT 5/6 block description
+   :keywords: SPOT, Airbus Defense & Space, AOI clipped, block description 
+
 .. _spot-aoiclipped-block:
 
 SPOT (AOI-Clipped)
@@ -8,8 +12,7 @@ Block type: ``DATA``
 Supported parameters
 --------------------
 
-For more information on STAC filter parameters, see
-`the STAC spec <https://github.com/radiantearth/stac-spec/blob/master/api-spec/filters.md>`_.
+For more information on supported filters, see :ref:`query filter section  <filters>`.
 
 * ``bbox`` - The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``bbox``
   **or** ``intersects`` **or** ``contains``.

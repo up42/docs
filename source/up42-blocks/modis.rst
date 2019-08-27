@@ -1,3 +1,7 @@
+.. meta:: 
+   :description: UP42 documentation: MODIS block description
+   :keywords: MODIS, NASA, AOI clipped, block description, floss, open source 
+
 .. _modis-aoiclipped-block:
 
 MODIS (AOI-Clipped)
@@ -14,8 +18,7 @@ corresponding date for the supplied AOI will be provided.
 Supported parameters
 --------------------
 
-For more information on STAC filter parameters, see
-`the STAC spec <https://github.com/radiantearth/stac-spec/blob/master/api-spec/filters.md>`_.
+For more information on supported filters, see :ref:`query filter section  <filters>`.
 
 * ``bbox`` - The bounding box to use as an AOI. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
 * ``intersects`` – A GeoJSON geometry to use as an AOI. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.

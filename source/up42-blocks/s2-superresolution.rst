@@ -1,3 +1,8 @@
+.. meta::
+   :description: UP42 processing blocks: Super-resolution Sentinel 2
+   :keywords: Sentinel 2, super-resolution, multispectral, deep
+              learning, floss, open source  
+
 .. _s2-superresolution-block:
 
 S2-superresolution block (Processing)
