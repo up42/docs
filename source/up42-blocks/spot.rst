@@ -1,6 +1,6 @@
 .. meta:: 
-   :description: UP42 data blocks: SPOT 5/6 block description
-   :keywords: SPOT, Airbus Defense & Space, AOI clipped, block description 
+   :description: UP42 data blocks: SPOT 6/7 block description
+   :keywords: SPOT 6/7, Airbus Defense & Space, AOI clipped, block description 
 
 .. _spot-aoiclipped-block:
 
