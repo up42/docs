@@ -2,6 +2,8 @@
    :description: UP42 getting started: how to build a workflow
    :keywords: workflow howto, tutorial, data and processing blocks 
 
+.. _build-first-workflow:
+              
 Building your first workflow
 ============================
 
@@ -70,8 +72,10 @@ launch the job consisting of the created workflow.
 
 You will then be taken to the jobs overview for the current project.
 
-Jobs overview
--------------
+.. _job-overview:
+
+Job overview
+------------
 
 Here you can see the job status and metadata about the job,
 as well perform multiple actions on the job.
@@ -94,6 +98,8 @@ Once a job has finished a new column **ACTIONS** becomes visible and
 by hovering the **...** the **Run again** button appears. clicking on
 it relaunches that step of your job, i.e., it reruns that particular
 block.
+
+.. _job-results:
 
 Job results
 -----------

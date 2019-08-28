@@ -10,6 +10,8 @@ Throughout the documentation, we use three core terms; **blocks**, **workflows**
 
 This page provides an overview of these terms, and explains how each component is used on the platform.
 
+.. _blocks-definition:
+
 Blocks
 ======
 
@@ -53,6 +55,8 @@ Blocks can be shared among workflows.
 .. image:: workflow.png
     :align: center
 
+.. _jobs-definition:
+            
 Jobs
 ====
 
@@ -70,7 +74,9 @@ In order to start a job, :ref:`the following data must be provided <block-params
 
 In the context of a job, a block is also called a **task**: each
 step in the workflow is a task.
-  
+
+.. _before-start-job-statuses:
+
 Before starting job statuses
 ----------------------------
 
@@ -79,6 +85,8 @@ Before starting a job/task can be in one of the following states:
   + ``not started``: the job/task hasn't started yet.
   + ``pending``: the job/task hasn't started yet but is pending to start.
 
+.. _while-running-job-statuses:
+    
 While running job statuses
 --------------------------
 
@@ -88,6 +96,8 @@ While a job/task is running it can be in one of the follwing states:
   + ``cancelling``: a request for cancelling a job has been issued and
     that action is being taken, but the job is not **yet** cancelled.  
 
+.. _after-running-job-statuses:
+    
 After running job statuses
 --------------------------
 

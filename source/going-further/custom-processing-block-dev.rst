@@ -16,6 +16,8 @@ in. It assumes you have previous knowledge of Docker, if that is not
 the case then please go to `docker documentation
 <https://docs.docker.com>`__ to familiarize yourself with it.
 
+.. _land_cover_demo_block:
+
 Using an UP42 free software block
 ---------------------------------
 

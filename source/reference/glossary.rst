@@ -32,6 +32,19 @@
       specified in Longitude/Latitude based on `WGS 84
       <http://www.opengis net/def/crs/OGC/1.3/CR 84>`__.
 
+   console
+      The **U**\ ser **I**\ nterface of the UP42 platform. It allows
+      you to do all actions related with :term:`project`,
+      :term:`workflow`, :term:`job` as well as manage your account and
+      credit settings.
+      
+   demo project
+      Project that is created when a customer confirms the
+      email address associated with his/her account. This project
+      comes with consists of a simple :term:`workflow` of a data and
+      processing :term:`block`. The workflow is also automatically
+      instantiated (run) to provide a first :term:`job` output.
+
    full scene
       Data block output that includes the complete area covered by
       the satellite instrument when it it was over that area. In this
@@ -42,7 +55,8 @@
       An instance of a :term:`workflow`.
 
    project
-      A named single collection of workflows and corresponding jobs.
+      A named single collection of workflows and their corresponding
+      jobs.
 
    quicklooks
       A low resolution RGB bitmap image for previewing a given output.
@@ -63,5 +77,3 @@
        of blocks. With a data
        block always at the root. Full DAG based workflows will be
        implemented in the future.            
-
-      
