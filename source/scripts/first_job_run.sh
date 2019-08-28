@@ -99,16 +99,16 @@ EOF
 )
 
 ## Get the access token for the project.
-PTOKEN=$($CURL -sX POST "https://$PROJ:$PKEY@api.up42.dev/oauth/token"  \
+PTOKEN=$($CURL -sX POST "https://$PROJ:$PKEY@api.up42.com/oauth/token"  \
                -H 'Content-Type: application/x-www-form-urlencoded' \
                -d 'grant_type=client_credentials' | $JQ -j '.data.accessToken')
 
 ## Get the workflow ID.
 WORKFLOW_ID=$($CURL -s -L -H "Authorization: Bearer $PTOKEN" \
-                    "https://api.up42.dev/projects/$PROJ/jobs" | $JQ -j '.data[0] | .workflow.id')
+                    "https://api.up42.com/projects/$PROJ/jobs" | $JQ -j '.data[0] | .workflow.id')
 
 # Create the endpoint URL as variable.
-URL_POST_JOB="https://api.up42.dev/projects/$PROJ/workflows/$WORKFLOW_ID/jobs?name=$JOB_NAME"
+URL_POST_JOB="https://api.up42.com/projects/$PROJ/workflows/$WORKFLOW_ID/jobs?name=$JOB_NAME"
 
 ## Create and run the job.
 JOB="$($CURL -s -L -X POST -H "Authorization: Bearer $PTOKEN" \
@@ -126,7 +126,7 @@ fi
 JOB_ID=$(echo $JOB | $JQ -j '.data.id')
 
 ## Get the job status immediately after creating & launching it.
-JOB_STATUS_URL="https://api.up42.dev/projects/$PROJ/jobs/$JOB_ID"
+JOB_STATUS_URL="https://api.up42.com/projects/$PROJ/jobs/$JOB_ID"
 
 JOB_STATUS=$($CURL -s -L -H "Authorization: Bearer $PTOKEN" \
                     $JOB_STATUS_URL | $JQ -j '.data.status')
