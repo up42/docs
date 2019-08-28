@@ -14,7 +14,7 @@ For detailed information about writing blocks, see the :ref:`section about writi
    :maxdepth: 2
    :caption: Contents:
 
-   run-first-job          
+   first-job-run          
    first-workflow
    first-api-request
    first-custom-block
