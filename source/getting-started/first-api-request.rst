@@ -32,8 +32,8 @@ There two options to get the script.
      
 Download script
 +++++++++++++++
-     
-Get `here <https://gist.github.com/perusio/b4ce43bd9f7ff78a721db4f960275e23/archive/98edbbe361f1eddc0a0890c5e63cf1c9b507d2a1.zip>`__ the script, unzip the archive and make it executable with:
+
+Get `here <https://gist.github.com/perusio/b4ce43bd9f7ff78a721db4f960275e23/archive/ab418a94c343a50410afa32f617ff76fdc16d5a7.zip>`__ the script, unzip the archive and make it executable with:
 
 .. code:: bash
 
