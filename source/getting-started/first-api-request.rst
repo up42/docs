@@ -33,7 +33,7 @@ There two options to get the script.
 Download script
 +++++++++++++++
 
-Get `here <https://gist.github.com/perusio/b4ce43bd9f7ff78a721db4f960275e23/archive/ab418a94c343a50410afa32f617ff76fdc16d5a7.zip>`__ the script, unzip the archive and make it executable with:
+Get `here <https://gist.github.com/perusio/b4ce43bd9f7ff78a721db4f960275e23/archive/39596f5fa93db4067807c3cf030509727b334217.zip>`__ the script, unzip the archive and make it executable with:
 
 .. code:: bash
 
