@@ -6,9 +6,11 @@
  Core concepts
 ===============
 
-Throughout the documentation, we use three core terms; **blocks**, **workflows** and **jobs**.
+Throughout the documentation, we use three core concepts: **blocks**,
+**workflows** and **jobs**.  This section gives a comprehensive
+explanation of these concepts and the role they play in the platform.
 
-This page provides an overview of these terms, and explains how each component is used on the platform.
+For a quick explanation please refer to the :ref:`Glossary <glossary>`.
 
 .. _blocks-definition:
 
@@ -22,14 +24,14 @@ Blocks are the base units of the platform. There are two types of blocks:
 
 .. figure:: data-block.png
     :align: center
-    :scale: 50      
+    :scale: 35 %     
     :alt: Data block diagram
 
     Data block.
 
 .. figure:: processing-block.png
     :align: center
-    :scale: 50
+    :scale: 35 %
     :alt: Processing block diagram
 
     Processing block.
@@ -46,7 +48,7 @@ Blocks specify what kind of data they need to run and what kind of
 data they output via :ref:`their capabilities <block-capabilities>`.
 
 You can think of blocks as a function that receives some input and
-returns some output, packaged as a Docker image.
+returns some output -- packaged as a Docker image.
 
 .. _workflows-definition:
 
@@ -60,27 +62,28 @@ A **workflow** is a `Directed Acyclic Graph
 * How the fetched data will be processed: processing blocks.
 * How the blocks are connected.
 
-A workflow is responsible for validating the connections between blocks when creating a job.
+A workflow is responsible for validating the connections between
+blocks when creating a :ref:`job <jobs-definition>`.
 Blocks can be shared among workflows.
 
-.. image:: workflow.png
+.. figure:: workflow.png
     :align: center
+    :scale: 35 %
+    :alt: Workflow block diagram
 
+    Example workflow with one data block and two cascaded processing blocks.
+          
 .. _jobs-definition:
-            
+
 Jobs
 ====
 
 A **job** is an instance of a workflow. Jobs are created when running a workflow.
 
-.. _ :ref:`starting a job <running-jobs>`.
-
-.. image:: jobs.png
-    :align: center
-
 In order to start a job, :ref:`the following data must be provided <block-params>`:
 
-* A **query** to determine how data should be filtered -- in the case of data blocks.
+* A **query** to determine how data should be :ref:`filtered <filters>` -- in
+  the case of data blocks.
 * Optional runtime **configuration** parameters -- in the case of processing blocks.
 
 In the context of a job, a block is also called a **task**: each
@@ -147,4 +150,4 @@ Additionally you also get information on:
        <https://en.wikipedia.org/wiki/Linked_list>`__
        of blocks. With a data
        block always at the root. Full DAG based workflows will be
-       implemented in the future.            
+       implemented in the future.

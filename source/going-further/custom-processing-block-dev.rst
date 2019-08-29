@@ -2,8 +2,8 @@
    :description: UP42 going further: develop custom processing block
    :keywords: custom block, development, processing 
 
-.. _custom-processing-block:
-
+.. _custom-processing-block-dev:
+              
 Developing a custom processing block
 ====================================
 
@@ -42,10 +42,10 @@ Option 1 implies you logging into the docker registry and providing
 your user ID to ``make``.    
 
 Option 2 implies you providing the necessary data, either an image
-with a small **A**rea **O**f **I**nterest (AOI) from an
-:ref:`AOI clipped <aoi-clipped>` data block. If you want to use a larger AOI then please
-provide a tiled image. You can get that by having a workflow with just
-a data block and `tiling <tiling-block>`__ as the processing block.
+with a :term:`AOI` from an :ref:`AOI clipped <aoi-clipped>` data
+block. If you want to use a larger AOI then please provide a tiled
+image. You can get that by having a workflow with just a data block
+and `tiling <tiling-block>`__ as the processing block.
 
 Building and running the block
 ++++++++++++++++++++++++++++++
@@ -154,15 +154,16 @@ To do this, create a Dockerfile along these lines:
 
     ...
 
-Testing your block
-++++++++++++++++++
+Testing the block
++++++++++++++++++
 
+When testing your block locally, you can mount any directory you like
+into the container as the input/output directories using `Docker
+volumes <https://docs.docker.com/storage/volumes/>`_ (the ``-v`` or
+``--mount`` options).
 
-When testing your block locally, you can mount any directory you like into the container as the input/output directories
-using `Docker volumes <https://docs.docker.com/storage/volumes/>`_ (the ``-v`` or ``--mount`` options).
-
-You can then use ``docker build`` and ``docker run`` commands as you normally would to build and run the container
-locally.
+You can then use ``docker build`` and ``docker run`` commands as you
+normally would to build and run the container locally.
 
 .. TODO: provide documentation on where/how to get sample data to run against
 
@@ -214,7 +215,8 @@ Those commands are the following:
 Pushing updates
 +++++++++++++++
 
-In order to push updates you simply need to rebuild your Docker image and run the ``docker push`` command again.
+In order to push updates you simply need to rebuild your Docker image
+and run the ``docker push`` command again.
 
 When running a workflow that contains your block, the latest version
 will always be used.

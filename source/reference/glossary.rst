@@ -37,6 +37,11 @@
       you to do all actions related with :term:`project`,
       :term:`workflow`, :term:`job` as well as manage your account and
       credit settings.
+
+   custom block
+      A :term:`block` that is pushed by a costumer to the UP42 docker
+      registry and is therefore private, i.e., it can only used by
+      that customer.
       
    demo project
       Project that is created when a customer confirms the
@@ -53,6 +58,13 @@
       
    job
       An instance of a :term:`workflow`.
+
+   job inputs
+      See :term:`job parameters`.
+      
+   job parameters
+      The JSON that includes the configuration for each :term:`block`
+      in a given :term:`workflow`.
 
    project
       A named single collection of workflows and their corresponding
