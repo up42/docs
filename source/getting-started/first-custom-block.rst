@@ -2,9 +2,9 @@
    :description: UP42 Getting started: pushing your first custom block
    :keywords: custom block, tutorial, howto, demo project 
 
-============================
- Run your first custom block
-============================
+==============================
+ Push your first custom block
+==============================
 
 This section guides towards pushing your first :term:`custom block` to
 your account. Then you will be able to make use of it in any

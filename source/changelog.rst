@@ -1,52 +1,68 @@
-Recent changes to the documentation
-===================================
+.. meta:: 
+   :description: UP42 documentation: changelog
+   :keywords: documentation, UP42, changelog
 
-22.8.2019
+.. _changelog:
+              
+Changelog
+=========
+
+29.8.2019
+---------
+
+* Added new passed structure to docs.
+* Added many things in all sections.
+* Added metatags to all sections.
+* Added output of jobs.
+* Moved recent changes to be a real changelog.
+* Much, much more.
+
+22.08.2019
 ---------
 * Add options ``contains`` to all Sobloo-based blocks i.e. :ref:`Sentinel-2 Full Scene Block <sentinel2-l1c-fullscene-block>`, :ref:`Sentinel-1 GRD Full Scene Block <sentinel1-grd-fullscene-block>` and :ref:`Sentinel-1 SLC Full Scene Block <sentinel1-slc-fullscene-block>`.
 * Add options ``ids`` to :ref:`Pleiades AOI clipped <pleiades-aoiclipped-block>` and :ref:`SPOT AOI clipped <spot-aoiclipped-block>` built-in blocks.
 
 
-20.8.2019
----------
+20.08.2019
+----------
 
 * Add ``time_series`` filter to both SentinelHub-based blocks i.e. :ref:`Sentinel-2 AOI clipped Block <sentinelhub-sentinel2-aoiclipped-block>` and :ref:`Landsat-8 AOI clipped Block <sentinelhub-landsat8-aoiclipped-block>`.
 
-19.8.2019
----------
+19.08.2019
+----------
 
 * FAQ improvements.
 
-16.8.2019
----------
+16.08.2019
+----------
 
 * Add options ``contains`` to :ref:`Sentinel-2 AOI clipped <sentinelhub-sentinel2-aoiclipped-block>` and :ref:`Landsat-8 AOI clipped <sentinelhub-landsat8-aoiclipped-block>`
 * New :ref:`page <adding-gpu-support-block>` on using GPU in a block.
   
-13.8.2019
----------
+13.08.2019
+----------
 
 * Add ``time_series`` filter to all Sobloo-based blocks i.e. :ref:`Sentinel-2 Full Scene Block <sentinel2-l1c-fullscene-block>`, :ref:`Sentinel-1 GRD Full Scene Block <sentinel1-grd-fullscene-block>` and :ref:`Sentinel-1 SLC Full Scene Block <sentinel1-slc-fullscene-block>`.
 
-12.8.2019
----------
+12.08.2019
+----------
 
 * Add new :ref:`MODIS block <modis-aoiclipped-block>`.
 
 
-9.8.2019
---------
+09.08.2019
+---------
 
 * Add a new documentation for :ref:`S2-superresolution block <s2-superresolution-block>`.
 * Update the documentation for :ref:`SNAP-polarimetric block <snap-polarimetric-block>`.
 
-7.8.2019
---------
+07.08.2019
+----------
 
 * Add new :ref:`Sentinel-1 SLC Full Scene Block <sentinel1-slc-fullscene-block>`.
 
-29.7.2019
----------
+29.07.2019
+----------
 
 * Add metadata to :ref:`Landsat-8 AOI clipped <sentinelhub-landsat8-aoiclipped-block>` and :ref:`Sentinel-2 AOI clipped <sentinelhub-sentinel2-aoiclipped-block>`.
 
@@ -102,18 +118,18 @@ Recent changes to the documentation
 
 * FAQ added.
 
-7.6.2019
---------
+07.06.2019
+----------
 
 * Added description of new ``match_extents`` parameter to :ref:`Tiling <tiling-block>` built-in block as well as an example query.
 
-31.5.2019
----------
+31.05.2019
+----------
 
 * Added ``bbox`` example query to :ref:`Pleiades AOI clipped <pleiades-aoiclipped-block>` built-in block.
 
-28.5.2019
----------
+28.05.2019
+----------
 
 * Added support for ``ids`` and ``acquisition_mode`` filters to Sentinel-1 and Sentinel-2 scene blocks.
 * Added example queries for different types of filters to to Sentinel-1 and Sentinel-2 scene blocks.

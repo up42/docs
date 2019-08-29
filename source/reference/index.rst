@@ -1,10 +1,14 @@
-.. _block-specs:
+.. meta:: 
+   :description: UP42 reference documentation: index page
+   :keywords: reference, API, custom blocks, development, UP42
+
+.. _reference-documentation:
 
 Reference documentation
 =======================
 
-This section contains the references for the various aspects of UP42.
-For information about specific blocks, see the :ref:`built-in blocks section <builtin-blocks-documentation>`.
+This section contains the reference for the various aspects of the UP42
+platform.
 
 .. toctree::
    :maxdepth: 1
