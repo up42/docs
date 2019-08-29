@@ -1,3 +1,7 @@
+.. meta::
+   :description: UP42 reference: filters and run time parameters
+   :keywords: parameters, job inputs, query filters, custom block, development  
+
 .. _block-params:
 
 Query filters and runtime parameters
@@ -8,8 +12,6 @@ they use to modify their behaviour.
 
 What filters or parameters a block supports are specified in the :ref:`manifest file <block-manifest>`. In both cases,
 they are specified in the ``parameters`` field of the manifest, and the same input types are available.
-
-.. contents::
 
 Filter and parameter types
 --------------------------
@@ -40,7 +42,8 @@ Query filters
 -------------
 
 Data blocks and processing blocks use the same parameter types, however certain names are treated as reserved keys when
-specifying the filers for a data block, to ensure that the filter specification does not conflict with the STAC standard.
+specifying the filters for a data block, to ensure that the filter
+specification does not conflict with UP 42 defined :ref:`filters <filters>`.
 (For more information on how to use these reserved filter names when building a data block, see the :ref:`section on using envvars in blocks <block-envvars>`.)
 
 This means that if you use any of the names ``intersects``, ``contains``, ``bbox``, ``limit``, ``ids`` and ``time`` or
@@ -139,3 +142,9 @@ The corresponding job configuration section for the above options would then be 
     "output_prefix": "t_",
     "augmentation_factor": 1
   }
+
+
+Reference
+^^^^^^^^^
+Here you have the full `job parameters JSON schema <https://specs.up42.com/v1/job_inputs/schema.json>`_.
+

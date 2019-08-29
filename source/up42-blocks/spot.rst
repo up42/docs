@@ -1,3 +1,7 @@
+.. meta:: 
+   :description: UP42 data blocks: SPOT 6/7 block description
+   :keywords: SPOT 6/7, Airbus Defense & Space, AOI clipped, block description 
+
 .. _spot-aoiclipped-block:
 
 SPOT (AOI-Clipped)
@@ -5,14 +9,10 @@ SPOT (AOI-Clipped)
 
 Block type: ``DATA``
 
-.. contents::
-
-
 Supported parameters
 --------------------
 
-For more information on STAC filter parameters, see
-`the STAC spec <https://github.com/radiantearth/stac-spec/blob/master/api-spec/filters.md>`_.
+For more information on supported filters, see :ref:`query filter section  <filters>`.
 
 * ``bbox`` - The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``bbox``
   **or** ``intersects`` **or** ``contains``.
@@ -161,5 +161,5 @@ This block has a single output capability, ``up42.data.aoiclipped``.
 Download example output
 -----------------------
 
-You can create example output to use when :ref:`testing processing blocks built to work with this data <dev-env-setup>`
+You can create example output to use when :ref:`testing processing blocks built to work with this data <custom-processing-block>`
 by running the block in a workflow via the UI, and downloading the results in the job overview.

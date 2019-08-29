@@ -1,3 +1,7 @@
+.. meta::
+   :description: UP42 going further: using custom storage in custom block
+   :keywords: custom block, custom storage, howto, development  
+
 .. _custom-storage:
 
 Using custom storage
@@ -19,9 +23,9 @@ data for access outside the existing mechanism:
 
 For example, given the following steps:
 
-1. Fetch a Sentinel-2 scene
-2. Create a cloud-optimized GeoTiff from the SAFE archive
-3. Store the COG for later use in another workflow
+1. Fetch a Sentinel-2 full scene.
+2. Create a cloud-optimized GeoTIFF from the SAFE archive.
+3. Store the COG for later use in another workflow.
 
 you could set up the workflow as follows:
 

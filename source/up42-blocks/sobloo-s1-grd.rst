@@ -1,3 +1,7 @@
+.. meta:: 
+   :description: UP42 data blocks: Sentinel 1 GRD L1C block description
+   :keywords: Sentinel 1, ESA, SAR C band, radar, full scene, block description 
+
 .. _sentinel1-grd-fullscene-block:
 
 Sentinel-1 GRD (full-scene)
@@ -21,8 +25,7 @@ swath mode, 250km swath), 50x50m (EW extra wide swath mode, 400km swath).
 Supported parameters
 --------------------
 
-For more information on STAC filter parameters, see
-`the STAC spec <https://github.com/radiantearth/stac-spec/blob/master/api-spec/filters.md>`_.
+For more information on supported filters, see :ref:`query filter section  <filters>`.
 
 * ``bbox`` - The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.
@@ -611,5 +614,5 @@ directory containing the `SAFE data <http://earth.esa.int/SAFE/>`_ for the scene
 Download example output
 -----------------------
 
-You can create example output to use when :ref:`testing processing blocks built to work with this data <dev-env-setup>`
+You can create example output to use when :ref:`testing processing blocks built to work with this data <custom-processing-block>`
 by running the block in a workflow via the UI, and downloading the results in the job overview.

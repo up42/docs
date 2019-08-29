@@ -1,3 +1,7 @@
+.. meta::
+   :description: UP42 Frequently asked questions about the marketplace
+   :keywords: faq, marketplace, support 
+
 Marketplace FAQ
 ===============
 

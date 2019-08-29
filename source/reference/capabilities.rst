@@ -1,9 +1,11 @@
+.. meta::
+   :description: UP42 reference documentation: block capabilities
+   :keywords: blocks, workflows, matching processing and data blocks 
+
 .. _block-capabilities:
 
 Block capabilities
 ==================
-
-.. contents::
 
 Input and output capabilities define what kind of data a block provides, and what kind of data a block outputs. These
 capabilities are validated when creating a job from a workflow.
@@ -60,6 +62,8 @@ The full list of build-in capabilities is available as part of the
 `block manifest JSON schema <http://specs.up42.com/v1/blocks/schema.json>`_.
 
 The meaning of those capabilities is:
+
+.. _aoi-clipped:
 
 ``up42.data.aoiclipped``: A multi-band geotiff. The name derives from the fact that data blocks using this as output
 capability will only provide data covering the query AOI. This is the standard recommended input capability for most

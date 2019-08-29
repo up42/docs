@@ -1,9 +1,11 @@
+.. meta::
+   :description: UP42 reference: block manifest writing
+   :keywords: manifest, development, custom block, docker 
+
 .. _block-manifest:
 
 Block manifest
 ==============
-
-.. contents::
 
 The block manifest defines metadata about the block, and is used to update the block info every time a new version
 of the block is pushed.
@@ -47,7 +49,8 @@ The most important keys to note here are the following:
 * ``display_name``: the name of the block as displayed in the UP42 UI. This name is not checked for
   uniqueness.
 * ``description``: free-text explanation of what your block does.
-* ``parameters``: for data blocks, the list of all query parameters the block supports. For processing blocks, the
+* ``parameters``: for data blocks, the list of all :ref:`query
+  parameters <filters>` the block supports. For processing blocks, the
   run-time parameters that your block can optionally specify. See :ref:`the page on parameters <block-params>`
 * ``machine``:``type``: defines the computing resource on which the block will be running. You can choose from four predefined machine types:
 
@@ -57,8 +60,7 @@ The most important keys to note here are the following:
     * ``xlarge`` (4 CPU + 20GB RAM).
     * ``gpu_nvidia_tesla_k80`` (4 CPU + 1 GPU + 20GB RAM). 
 
-See :ref:`table <machine_typical_loads>` of typical loads for each
-machine type.     
+See :ref:`a table <machine-typical-loads>` of typical loads for each machine type.     
       
 * ``input_capabilities`` and ``output_capabilities``: the :ref:`capabilities <block-capabilities>` that your block
   requires to run, and/or that it outputs when it is finished. When validating a workflow, every block's output
@@ -185,5 +187,5 @@ Example invalid response:
 Reference
 ---------
 
-* `Block manifest JSON schema (v1) <http://specs.up42.com/v1/blocks/schema.json>`_
-* :ref:`Example blocks <example-blocks>`
+Here you have the full `job parameters JSON schema <https://specs.up42.com/v1/blocks/schema.json>`_.
+

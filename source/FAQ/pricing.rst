@@ -1,3 +1,7 @@
+.. meta::
+   :description: UP42 Frequently asked questions about pricing
+   :keywords: faq, pricing, support 
+
 =============
  Pricing FAQ
 =============
@@ -150,7 +154,7 @@ What type of machine instances are available and what are the costs?
   gets rounded up to 1 credit, e.g., **0.1** credit is billed as **1**
   credit.
 
-.. _machine_typical_loads:
+.. _machine-typical-loads:
   
 What are examples of typical loads for each machine type?
 =========================================================

@@ -1,3 +1,8 @@
+.. meta::
+   :description: UP42 going further: using credentials and secrets in
+                 custom block
+   :keywords: custom block, development, credentials howto, secrets howto 
+
 .. _credentials-secrets:
 
 Using credentials and secrets with blocks

@@ -1,3 +1,7 @@
+.. meta:: 
+   :description: UP42 data blocks: Landsat 8 data block description
+   :keywords: Landsat 8, NASA, AOI clipped, block description 
+
 .. _sentinelhub-landsat8-aoiclipped-block:
 
 Landsat-8 (AOI-Clipped)
@@ -5,14 +9,10 @@ Landsat-8 (AOI-Clipped)
 
 Block type: ``DATA``
 
-.. contents::
-
-
 Supported parameters
 --------------------
 
-For more information on STAC filter parameters, see
-`the STAC spec <https://github.com/radiantearth/stac-spec/blob/master/api-spec/filters.md>`_.
+For more information on supported filters, see :ref:`query filter section  <filters>`.
 
 * ``bbox`` - The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.
@@ -85,5 +85,5 @@ This block has a single output capability, ``up42.data.aoiclipped``.
 Download example output
 -----------------------
 
-You can create example output to use when :ref:`testing processing blocks built to work with this data <dev-env-setup>`
+You can create example output to use when :ref:`testing processing blocks built to work with this data <custom-processing-block>`
 by running the block in a workflow via the UI, and downloading the results in the job overview.

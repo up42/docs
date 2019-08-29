@@ -1,3 +1,7 @@
+.. meta::
+   :description: UP42 reference: data transfer between blocks 
+   :keywords: reference, input, output, data transfer, custom block, development 
+
 .. _data-transfer-format:
 
 Data transfer format
@@ -18,6 +22,8 @@ The structure inside these directories should always be as follows:
 
 (The output of the last block in the workflow will be treated as the result of any job run based on
 that workflow.)
+
+.. _geojson-metadata:
 
 GeoJSON metadata
 ----------------

@@ -1,3 +1,7 @@
+.. meta:: 
+   :description: UP42 data blocks: Sentinel 2 L1C MSI block description
+   :keywords: Sentinel 2, ESA, multispectral, full scene, block description 
+
 .. _sentinel2-l1c-fullscene-block:
 
 Sentinel-2 L1C (full-scene)
@@ -12,13 +16,10 @@ other DIAS systems. The products are radiometrically and geometrically corrected
 Important application areas for Sentinel-2 imagery are land cover monitoring (agriculture, forestry), coastal area
 monitoring, inland water monitoring, glacier monitoring and flood mapping.
 
-.. contents::
-
 Supported query parameters
 --------------------------
 
-For more information on STAC filter parameters, see
-`the STAC spec <https://github.com/radiantearth/stac-spec/blob/master/api-spec/filters.md>`_.
+For more information on supported filters, see :ref:`query filter section  <filters>`.
 
 * ``bbox`` - The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.
@@ -498,5 +499,5 @@ directory containing the `SAFE data <http://earth.esa.int/SAFE/>`_ for the scene
 Download example output
 -----------------------
 
-You can create example output to use when :ref:`testing processing blocks built to work with this data <dev-env-setup>`
+You can create example output to use when :ref:`testing processing blocks built to work with this data <custom-processing-block>`
 by running the block in a workflow via the UI, and downloading the results in the job overview.

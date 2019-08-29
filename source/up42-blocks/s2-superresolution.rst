@@ -1,3 +1,8 @@
+.. meta::
+   :description: UP42 processing blocks: Super-resolution Sentinel 2
+   :keywords: Sentinel 2, super-resolution, multispectral, deep
+              learning, floss, open source  
+
 .. _s2-superresolution-block:
 
 S2-superresolution block (Processing)
@@ -6,8 +11,6 @@ S2-superresolution block (Processing)
 Block type: ``PROCESSING``
 
 This block takes an Sentinel-2 L1C MSI Full Scenes image and runs superresolution algorithm on it. This algorithm creates a 10m resolution for all the existing spectral bands within 20m and 60m resolutions by using a trained convolutional neural network.
-
-.. contents::
 
 Supported parameters
 --------------------

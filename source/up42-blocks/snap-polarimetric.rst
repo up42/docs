@@ -1,3 +1,8 @@
+.. meta:: 
+   :description: UP42 processing blocks: SNAP toolbox block
+   :keywords: Sentinel 1 and 2, processing, full scene, terrain
+              correction, block description 
+
 .. _snap-polarimetric-block:
 
 SNAP polarimetric block (Processing)
@@ -6,8 +11,6 @@ SNAP polarimetric block (Processing)
 Block type: ``PROCESSING``
 
 This block provides a common polarimetric processing workflow with SNAP that operates ESA SAFE format scenes. The SNAP block takes a Level 1C GRD file and brings it into a format ready for analysis by using a median filter for speck filtering, creating a land-sea mask, and converting the format to a GeoTIFF.
-
-.. contents::
 
 Supported parameters
 --------------------

@@ -1,3 +1,8 @@
+.. meta::
+   :description: UP42 Frequently asked questions about the console
+   :keywords: faq, console, support 
+
+
 =============
  Console FAQ
 =============
