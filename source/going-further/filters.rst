@@ -66,15 +66,20 @@ contains
 .. _time-filter:    
     
 time
-   Single date and time or range -- dates separated by ``/`` --
-   formatted according to
-   `RFC 3339 section 5.6 <https://tools.ietf.org/html/rfc3339#sec on-5.6>`__.
+   Searches items acccording to a single date and time or range --
+   dates separated by ``/`` -- formatted according to `RFC 3339
+   section 5.6 <https://tools.ietf.org/html/rfc3339#sec on-5.6>`__.
 
 .. _time_series-filter:
    
 time_series
-   
-   
+    Searches items according to an array of :ref:`time ranges
+    <time-filter>` each specifying the desired date ranges.
+    It returns the the specified :ref:`limit <limit-filters>` for each
+    given time range. If the ranges overlap then there will be
+    repeated items. How many depends on the specific overlap of the
+    given time ranges.
+    
 .. _ids-filter:
    
 ids
