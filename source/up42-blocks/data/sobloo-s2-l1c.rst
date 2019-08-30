@@ -21,16 +21,16 @@ Supported query parameters
 
 For more information on supported filters, see :ref:`query filter section  <filters>`.
 
-* ``bbox`` - The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
+* ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.
 * ``intersects`` – A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use
   only ``intersects`` **or** ``bbox``.
-* ``contains`` – A GeoJSON geometry to use as an AOI. Will return all scenes that completely cover this geometry. Use only ``contains``
+* ``contains``: A GeoJSON geometry to use as an AOI. Will return all scenes that completely cover this geometry. Use only ``contains``
   **or** ``intersects`` **or** ``bbox``.
-* ``time`` – A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
-* ``time_series`` – An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
-* ``limit`` – An integer number of maximum results to return. Omit this to set no limit.
-* ``ids`` – An array of image identifiers. The S1 identifiers are described here:
+* ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
+* ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
+* ``limit``: An integer number of maximum results to return. Omit this to set no limit.
+* ``ids``: An array of image identifiers. The S1 identifiers are described here:
   https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/naming-convention; the file extension is omitted.
   This parameter is mainly meant for use via the API and cannot be used in combination with dry-run mode.
 
@@ -499,5 +499,7 @@ directory containing the `SAFE data <http://earth.esa.int/SAFE/>`_ for the scene
 Download example output
 -----------------------
 
-You can create example output to use when :ref:`testing processing blocks built to work with this data <custom-processing-block>`
-by running the block in a workflow via the UI, and downloading the results in the job overview.
+You can create example output to use when :ref:`testing processing
+blocks built to work with this data <custom-processing-block-dev>` by
+running the block in a workflow via the :term:`console`, and
+downloading the results in the :ref:`job overview <job-overview>`.

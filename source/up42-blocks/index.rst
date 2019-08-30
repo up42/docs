@@ -11,18 +11,9 @@ This section provides an comprehensive description of the blocks built
 by UP42.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Contents
 
-   pleiades
-   spot
-   sobloo-s1-grd
-   sobloo-s1-slc
-   sobloo-s2-l1c
-   sentinelhub-s2
-   sentinelhub-landsat8
-   modis
-   tiling
-   snap-polarimetric
-   s2-superresolution
+   data/index
+   processing/index
 

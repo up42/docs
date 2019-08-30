@@ -20,14 +20,13 @@ Supported parameters
 
 For more information on supported filters, see :ref:`query filter section  <filters>`.
 
-* ``bbox`` - The bounding box to use as an AOI. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
-* ``intersects`` – A GeoJSON geometry to use as an AOI. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
-* ``contains`` – A GeoJSON geometry to use as an AOI. Use only ``bbox``
-  **or** ``intersects`` **or** ``contains``.
-* ``time`` – A date range to filter scenes on. Newest daily coverages up to the ``limit`` will be provided.
-* ``limit`` – An integer number of maximum results to return. Omit this to set limit to 1.
-* ``zoom_level`` - An integer defining the webmercator zoom level of this request, defaults to 9.
-
+ * ``bbox``: The bounding box to use as an AOI. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
+ * ``intersects``: A GeoJSON geometry to use as an AOI. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
+ * ``contains``: A GeoJSON geometry to use as an AOI. Use only
+   ``bbox`` **or** ``intersects`` **or** ``contains``.
+ * ``time``: A date range to filter scenes on. Newest daily coverages up to the ``limit`` will be provided.
+ * ``limit``: An integer number of maximum results to return. Omit this to set limit to 1.
+ * ``zoom_level``: An integer defining the webmercator zoom level of this request, defaults to 9.
 
 .. code-block:: javascript
 
@@ -106,5 +105,8 @@ This block has a single output capability, ``up42.data.aoiclipped``.
 Download example output
 -----------------------
 
-You can create example output to use when :ref:`testing processing blocks built to work with this data <custom-processing-block>`
-by running the block in a workflow via the UI, and downloading the results in the job overview.
+You can create example output to use when :ref:`testing processing
+blocks built to work with this data <custom-processing-block-dev>` by
+running the block in a workflow via the :term:`console`, and
+downloading the results in the :ref:`job overview <job-overview>`.
+

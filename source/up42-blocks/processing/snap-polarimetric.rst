@@ -5,8 +5,8 @@
 
 .. _snap-polarimetric-block:
 
-SNAP polarimetric block (Processing)
-====================================
+SNAP polarimetric block
+=======================
 
 Block type: ``PROCESSING``
 
@@ -15,11 +15,22 @@ This block provides a common polarimetric processing workflow with SNAP that ope
 Supported parameters
 --------------------
 
-* ``polarisations`` - Requested polarisations, either one of [VV, VH], [HH, HV], [VV], [VH], [HV] or [HH]. The operation will fail and give a corresponding error message if the requested polarization is not part of the input file.
-* ``mask`` - It masks either ``land`` or ``sea``. Please note that you can not choose both at the same time.
-* ``tcorrection`` - It applies Range Doppler Terrain Correction based on a suitable Digital ELevation Model (DEM).
+* ``polarisations``: Requested polarisations, either one of
+  - [VV, VH]
+  - [HH, HV]
+  - [VV]
+  - [VH]
+  - [HV]
+  - [HH]
+  The operation will fail and give a corresponding error message if the requested polarization is not
+  part of the input file.
+* ``mask``: It masks either ``land`` or ``sea``. Please note that you can not choose both at the same time.
+* ``tcorrection``: It applies Range Doppler Terrain Correction based on a suitable Digital ELevation Model (DEM).
 
-Example parameters using the Sentinel-1 L1C GRD Full Scenes block as data source and then applying SNAP-polarimetric with ``tcorrection`` and masking for ``land``:
+Example parameters using the
+:ref:`Sentinel-1 L1C GRD Full Scene block <sentinel1-grd-fullscene-block>` as
+data source and then applying SNAP-polarimetric with ``tcorrection``
+and masking for ``land``:
 
 .. code-block:: javascript
 
@@ -71,8 +82,21 @@ Example parameters using the Sentinel-1 L1C GRD Full Scenes block as data source
 
 Output format
 -------------
-AOI.clipped GeoTIFF format. Also in the output file, for each polarization a separate band will be associated.
+
+AOI.clipped GeoTIFF format. Also in the output file, for each
+polarization a separate band will be associated.
 
 Capabilities
 ------------
-The block takes a ``up42.data.scene.sentinel1_l1c_grd`` product and delivers ``up42.data.aoiclipped``.
+
+The block takes a ``up42.data.scene.sentinel1_l1c_grd`` product and
+delivers ``up42.data.aoiclipped``.
+
+
+Download example output
+-----------------------
+
+You can create example output to use when :ref:`testing processing
+blocks built to work with this data <custom-processing-block-dev>` by
+running the block in a workflow via the :term:`console`, and
+downloading the results in the :ref:`job overview <job-overview>`.

@@ -4,8 +4,8 @@
 
 .. _tiling-block:
 
-Tiling block (Processing)
-=========================
+Tiling block
+============
 
 Block type: ``PROCESSING``
 
@@ -14,13 +14,15 @@ This block clips rasters into rectangle-shaped tiles ready for consumption by ma
 Supported parameters
 --------------------
 
-* ``tile_width`` - The width of the tile (in pixels).
-* ``tile_height`` – The height of the tile (in pixels).
-* ``match_extents`` – If set to true, the tile extents (bounding boxes) of all input layers will perfectly match.
-* ``augmentation_factor`` – Factor used to create additional tiles by applying a pixel offset (default 1).
-* ``output_prefix`` – Prefix of tile names, default is to use input filename
+* ``tile_width``: The width of the tile (in pixels).
+* ``tile_height``: The height of the tile (in pixels).
+* ``match_extents``: If set to true, the tile extents (bounding boxes) of all input layers will perfectly match.
+* ``augmentation_factor``: Factor used to create additional tiles by applying a pixel offset (default 1).
+* ``output_prefix``: Prefix of tile names, default is to use input filename
 
-Example parameters using the SPOT AOIClipped block as data source and then applying tiling with ``match_extents``:
+Example parameters using the :ref:`SPOT AOIClipped block
+<spot-aoiclipped-block>` as data source and then applying tiling with
+``match_extents``:
 
 .. code-block:: javascript
 
@@ -74,6 +76,7 @@ Output and input format are identical. All metadata elements provided by the inp
 
 Capabilities
 ------------
+
 The block takes a ``up42.data.aoiclipped`` product and delivers the same - just clipped into smaller pieces.
 For change detection purposes the ``match_extents`` parameter is crucial. If the tiling block is provided multiple
 input images and this option is set, the resulting tiles will have the same extents across all input layers. This

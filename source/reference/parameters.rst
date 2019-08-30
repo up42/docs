@@ -7,21 +7,28 @@
 Query filters and runtime parameters
 ====================================
 
-Data blocks specify what filters they support, while processing blocks can optionally specify runtime parameters that
-they use to modify their behaviour.
+Data blocks specify what :ref:`filters <filters>` they support, while
+processing blocks can optionally specify runtime parameters that they
+use to modify their behaviour.
 
-What filters or parameters a block supports are specified in the :ref:`manifest file <block-manifest>`. In both cases,
-they are specified in the ``parameters`` field of the manifest, and the same input types are available.
+What filters or parameters a block supports are specified in the
+:ref:`manifest file <block-manifest>`. In both cases, they are
+specified in the ``parameters`` field of the manifest, and the same
+input types are available.
 
 Filter and parameter types
 --------------------------
 
-Query filters and processing parameters can be one of the following types:
+Query filters and processing parameters can be one of the following
+JSON Schema `types/formats <https://json-schema.org/latest/json-schema-validation.htm>`__:
 
-* ``geometry``: means that this parameter or filter must be a valid GeoJSON geometry
-* ``dateRange``: a range of dates, specified in the STAC format using ISO dates, for example: ``"2018-02-12T00:00:00Z/2018-03-18T12:31:12Z"``
-* ``range``: a numerical range (either integers or floats). Range parameters can specify the following additional
-  options:
+* ``geometry``: means that this parameter or filter must be a valid
+  GeoJSON geometry
+* ``dateRange``: a range of dates, specified in the STAC format using
+  ISO dates, for example:
+  ``"2018-02-12T00:00:00Z/2018-03-18T12:31:12Z"``
+* ``range``: a numerical range (either integers or floats). Range
+  parameters can specify the following additional options:
   - ``min``: a minimum value
   - ``max``: a maximum value
   - ``type``: either ``integer`` or ``float``, depending on what values the block accepts
@@ -29,31 +36,38 @@ Query filters and processing parameters can be one of the following types:
 * ``number``: generic number content, either integer or float, or ``null``
 * ``array``: a simple array of strings or numbers, an empty array, or ``null``
 
-How the block handles these parameters is up to the block itself, but the UP42 UI will provide some validation
-and sanity checking of these parameters.
+How the block handles these parameters is up to the block itself, but
+the UP42 platform will provide some validation and sanity checking of these
+parameters.
 
-In addition to their type, each parameter in the manifest can specify:
+In addition to their type/format, each parameter in the manifest can specify:
 
-* A description, which will be displayed to the user
-* An optional default value
-* Whether it is a required filter
+* A description, which will be displayed to the customer.
+* An optional default value.
+* Whether it is a required filter.
 
 Query filters
 -------------
 
-Data blocks and processing blocks use the same parameter types, however certain names are treated as reserved keys when
-specifying the filters for a data block, to ensure that the filter
-specification does not conflict with UP 42 defined :ref:`filters <filters>`.
-(For more information on how to use these reserved filter names when building a data block, see the :ref:`section on using envvars in blocks <block-envvars>`.)
+Data blocks and processing blocks use the same parameter types,
+however certain names are treated as reserved keys when specifying the
+filters for a data block, to ensure that the filter specification does
+not conflict with UP 42 defined :ref:`filters <filters>`. (For more
+information on how to use these reserved filter names when building a
+data block, see the :ref:`section on using envvars in blocks
+<block-envvars>`.)
 
-This means that if you use any of the names ``intersects``, ``contains``, ``bbox``, ``limit``, ``ids`` and ``time`` or
-``time_series`` as filters on a data block, their filter types *must* match the types in a STAC query (``geometry``,
-``geometry``, ``array``, ``number`` , ``array``, ``dateRange`` and  ``array`` respectively).
+This means that if you use any of the names ``intersects``,
+``contains``, ``bbox``, ``limit``, ``ids`` and ``time`` or
+``time_series`` as filters on a data block, their filter types *must*
+match the types in a filter query -- ``geometry``, ``array``,
+``number`` , ``array``, ``dateRange`` and ``array`` respectively.
 
-Note that the ``time_series`` filter is not defined in the STAC specification, it is an UP42 specific extenstion. It allows
-to query multiple date spans in one query and if defined, the ``time`` filter will be ignored. Also, the ``limit`` parameter
-would apply for each date span individuall, so if three date spans are defined and ``limit`` is set to 3, up to 6 results
-can be expected.
+The ``time_series`` filter to query multiple date spans in one query
+and if defined, the ``time`` filter will be ignored. Also, the
+``limit`` parameter would apply for each date span individuall, so if
+three date spans are defined and ``limit`` is set to 3, up to 6
+results can be expected.
 
 A complete example of filter types from a data block manifest would look something like the following:
 
@@ -69,7 +83,7 @@ A complete example of filter types from a data block manifest would look somethi
           "contains": {"type": "geometry"},
           "time": {"type": "dateRange", "default": null},
           "time_series": {"type":  "array", "default": [],
-          "limit": {"type": "number", "default": 1}
+          "limit": {"type": "integer", "default": 1}
     },
         // ...
     }
@@ -79,7 +93,7 @@ A valid job configuration section for the above options would then be as follows
 .. code-block:: javascript
 
     {
-      "oneatlas-spot-aoiclipped:1": {
+      "oneatlas-spot-aoiclipped:1": {0
         "bbox": [
           13.321567,
           38.203003,
@@ -96,8 +110,9 @@ Processing parameters
 
 For processing parameters, there are no restrictions on the names of the parameters.
 
-A complete example of parameters for a processing block would look like the following (this example is taken from the
-:ref:`Raster Tiling <tiling-block>` built-in block):
+A complete example of parameters for a processing block would look
+like the following (this example is taken from the :ref:`Raster Tiling
+<tiling-block>` built-in block):
 
 .. code-block:: javascript
 
