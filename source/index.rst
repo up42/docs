@@ -16,4 +16,4 @@ To get started, we recommend beginning in the :ref:`Getting Started <getting-sta
    reference/index
    up42-blocks/index
    FAQ/index
-   changelog
+   administrivia/index
