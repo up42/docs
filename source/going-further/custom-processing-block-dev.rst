@@ -194,8 +194,8 @@ Those commands are the following:
        # build command (with an example user ID and image name) becomes:
 
        $ docker build . \
-            -t registry.up42.com/some-example-user-id/my-block:latest \
-            --build-arg manifest="$(<UP42Manifest.json)"
+            -t registry.up42.com/<user_id>/my-block:latest \
+            --build-arg manifest="$(UP42Manifest.json)"
 
    You will need to replace ``<user_id>``, ``<image_name>``, and ``<tag>`` with your own values. Your **user id** can be
    found in the example ``docker`` commands shown on the "Custom Blocks" screen. The **image name** is simply what you want
@@ -209,7 +209,7 @@ Those commands are the following:
        $ docker push registry.up42.com/<user_id>/<image_name>:<tag>
 
        # Or following the example above:
-       $ docker push registry.up42.com/some-example-user-id/my-block:latest
+       $ docker push registry.up42.com/<user_id>/my-block:latest
 
 
 Pushing updates

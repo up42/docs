@@ -69,6 +69,11 @@ time
    Single date and time or range -- dates separated by ``/`` --
    formatted according to
    `RFC 3339 section 5.6 <https://tools.ietf.org/html/rfc3339#sec on-5.6>`__.
+
+.. _time_series-filter:
+   
+time_series
+   
    
 .. _ids-filter:
    
