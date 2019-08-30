@@ -26,8 +26,7 @@ How do I signup for an account?
 My job gives strange results or it keeps failing. Can you help me debug it?
 -------------------------------------------------------------------------------------
 
-We might. No guarantees. Create a :ref:`support request <support-request>` and please provide the job **parameters**, available on the UI on the PARAMETERS tab in the job page.
-Additionaly you can provide the job **log output** available in the JOB PROGRESS tab in the job page.
+Create a :ref:`support request <support-request>` and please provide the job **parameters**, available on the UI on the PARAMETERS tab in the job page. Additionaly you can provide the job **log output** available in the JOB PROGRESS tab in the job page.
 
 Where can I learn more about Docker?
 ------------------------------------
