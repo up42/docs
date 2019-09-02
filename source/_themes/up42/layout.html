@@ -53,13 +53,8 @@
         <script type="text/javascript" src="{{ pathto(scriptfile, 1) }}"></script>
       {%- endfor %}
     {% endif %}
-    
-  {# Extra scripts for the theme: https://github.com/sphinx-doc/sphinx/issues/6088 #}  
-  {% block scripts %}
-    <script type="text/javascript" src="{{ pathto('_static/js/up42.js', 1) }}"></script>
-  {% endblock %}
   
-   {# OPENSEARCH #}
+  {# OPENSEARCH #}
     {%- if use_opensearch %}
     <link rel="search" type="application/opensearchdescription+xml"
           title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}"
@@ -216,7 +211,12 @@
           SphinxRtdTheme.Navigation.enable({{ 'true' if theme_sticky_navigation|tobool else 'false' }});
       });
   </script>
-
+  
+  {# Extra scripts for the theme: https://github.com/sphinx-doc/sphinx/issues/6088 #}  
+  {% block scripts %}
+    <script async type="text/javascript" src="{{ pathto('_static/js/up42.js', 1) }}"></script>
+  {% endblock %}
+  
   {# Do not conflict with RTD insertion of analytics script #}
   {% if not READTHEDOCS %}
     {% if theme_analytics_id %}
