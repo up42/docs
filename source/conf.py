@@ -108,6 +108,11 @@ html_theme_options = {
     "collapse_navigation": False,
 }
 
+# Add extra JS to the
+# theme: https://github.com/sphinx-doc/sphinx/issues/6088#issuecomment-466239708.
+# def setup(app):
+#     app.add_js_file('js/up42.js')
+
 # Do not show the built with Sphinx on the footer.
 html_show_sphinx = False
 
@@ -202,7 +207,6 @@ epub_title = project
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
-
 
 # -- Extension configuration -------------------------------------------------
 
