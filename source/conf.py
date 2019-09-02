@@ -110,8 +110,8 @@ html_theme_options = {
 
 # Add extra JS to the
 # theme: https://github.com/sphinx-doc/sphinx/issues/6088#issuecomment-466239708.
-# def setup(app):
-#     app.add_js_file('js/up42.js')
+def setup(app):
+    app.add_js_file('js/up42.js')
 
 # Do not show the built with Sphinx on the footer.
 html_show_sphinx = False
