@@ -2,6 +2,8 @@
    :description: UP42 going further: platform core concepts
    :keywords: core concepts, blocks, workflows, tasks, projects  
 
+.. _core-concepts:
+              
 ===============
  Core concepts
 ===============

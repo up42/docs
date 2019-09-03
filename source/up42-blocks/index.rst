@@ -13,6 +13,7 @@ by UP42.
 .. toctree::
    :maxdepth: 2
    :caption: Contents
+   :includehidden:
 
    data/index
    processing/index

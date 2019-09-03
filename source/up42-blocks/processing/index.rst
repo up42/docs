@@ -13,6 +13,7 @@ by UP42.
 .. toctree::
    :maxdepth: 1
    :caption: Contents
+   :includehidden:
 
    tiling
    snap-polarimetric
