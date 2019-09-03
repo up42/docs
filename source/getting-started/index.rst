@@ -15,7 +15,7 @@ We start with :ref:`exploring <first-job-run>` the very first
 :term:`job` that is automatically run once you confirm your UP42
 account. Proceed by :ref:`creating <build-first-workflow>` your own
 first workflow. Then take a sneek peek into more advanced topics like
-:ref:`running <first-api-request>` and/or experiment with your first
+:ref:`running a job via the API <first-api-request>` and/or experiment with your first
 :ref:`custom block <first-custom-block>`.
 
 .. toctree::
@@ -26,4 +26,4 @@ first workflow. Then take a sneek peek into more advanced topics like
    first-job-run          
    first-workflow
    first-api-request
-   first-custom-block
+  first-custom-block

@@ -14,8 +14,8 @@ the :ref:`core concepts <core-concepts>` and understand what
 
 
 If you are looking into a first run through our API end to end then
-take a look at the :ref:`API walkthrough <api-walkthrough>`. If you
-are considering developing your first custom block then look
+take a look at the :ref:`API walkthrough <api-walkthrough>`.
+Are you considering developing your first custom block? Then look
 :ref:`here <custom-processing-block>`. Might happen that the algorithm
 implemented in your processing block benefits from :ref:`using GPUs
 <adding-gpu-support-block>`. What about if your block needs
