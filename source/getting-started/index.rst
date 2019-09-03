@@ -12,6 +12,7 @@ This section provides a quick reference to get started using the UP42 platform.
 .. toctree::
    :maxdepth: 1
    :caption: Contents:
+   :includehidden:
 
    first-job-run          
    first-workflow

@@ -13,6 +13,7 @@ platform.
 .. toctree::
    :maxdepth: 1
    :caption: Contents:
+   :includehidden:             
 
    block-manifest
    block-envvars

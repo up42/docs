@@ -2,6 +2,8 @@
    :description: UP42 Getting started: pushing your first custom block
    :keywords: custom block, tutorial, howto, demo project 
 
+.. _first-custom-block:
+              
 ==============================
  Push your first custom block
 ==============================

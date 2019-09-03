@@ -9,6 +9,7 @@ questions. They are organized according to the topic being addressed.
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   :includehidden:
 
    general
    console

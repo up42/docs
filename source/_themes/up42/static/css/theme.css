@@ -7257,3 +7257,37 @@ span[id*='MathJax-Span'] {
 .math {
   text-align: center
 }
+
+/* Landing page specific */
+div#welcome-to-the-up42-documentation.section  ul.simple {
+    width: auto;
+    height: 4em;
+    margin: 5em auto;
+}
+
+/* Only add border to bottom of <li>. */
+div#welcome-to-the-up42-documentation.section ul.simple li {
+    border: 1px solid #ccc;
+    /* Border radius for Chrome, Webkit and other good browsers */
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -border-radius: 10px;
+    border-radius: 10px;
+    padding: 0.5em;
+    width: 25%;
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    
+}
+
+div#welcome-to-the-up42-documentation.section ul.simple li a {
+    padding: 1em;
+    display: block;
+}
+
+/* Get rid of the last <li>'s bottom border to stop overlap with
+   <ul>'s border. :last-child works in IE7+ */
+/* div#welcome-to-the-up42-documentation.section ul.simple li:last-child { */
+/*     border-bottom: none; */
+/* } */

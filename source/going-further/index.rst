@@ -13,6 +13,7 @@ further and explore custom block creation and using the API.
 .. toctree::
    :maxdepth: 1
    :caption: Contents
+   :includehidden:
 
    core-concepts
    filters
