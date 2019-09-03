@@ -7,8 +7,8 @@
 Built-in processing blocks provided by UP42
 ===========================================
 
-This section provides an comprehensive description of the blocks built
-by UP42.
+This section provides an comprehensive description of the processing
+blocks built by UP42.
 
 .. toctree::
    :maxdepth: 1
