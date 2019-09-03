@@ -7286,8 +7286,3 @@ div#welcome-to-the-up42-documentation.section ul.simple li a {
     display: block;
 }
 
-/* Get rid of the last <li>'s bottom border to stop overlap with
-   <ul>'s border. :last-child works in IE7+ */
-/* div#welcome-to-the-up42-documentation.section ul.simple li:last-child { */
-/*     border-bottom: none; */
-/* } */
