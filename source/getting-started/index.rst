@@ -7,11 +7,20 @@
 Getting started with UP42
 =========================
 
-This section provides a quick reference to get started using the UP42 platform.
+This is the section for beginners to UP42. It provides you with an
+introductory overview of the many things that you can do in our
+platform.
+
+We start with :ref:`exploring <first-job-run>` the very first
+:term:`job` that is automatically run once you confirm your UP42
+account. Proceed by :ref:`creating <build-first-workflow>` your own
+first workflow. Then take a sneek peek into more advanced topics like
+:ref:`running <first-api-request>` and/or experiment with your first
+:ref:`custom block <first-custom-block>`.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
+   :caption: Contents
    :includehidden:
 
    first-job-run          

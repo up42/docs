@@ -7,8 +7,20 @@
 Going further with UP42
 =======================
 
-After learning the basics of using UP42 now you are ready to go
-further and explore custom block creation and using the API. 
+If you are already familiar with the topics discussed in the :ref:`introductory
+<getting-started>` materials then is time to go further and explore
+the :ref:`core concepts <core-concepts>` and understand what
+:ref:`data filters <filters>` are available and how they work.
+
+
+If you are looking into a first run through our API end to end then
+take a look at the :ref:`API walkthrough <api-walkthrough>`. If you
+are considering developing your first custom block then look
+:ref:`here <custom-processing-block>`. Might happen that the algorithm
+implemented in your processing block benefits from :ref:`using GPUs
+<adding-gpu-support-block>`. What about if your block needs
+:ref:`credentials <credentials-secrets>` to call an external API or
+requires :ref:`custom storage <custom-storage>`?
 
 .. toctree::
    :maxdepth: 1

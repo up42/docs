@@ -5,7 +5,7 @@
 .. _builtin-data-blocks-documentation:
 
 Built-in data blocks provided by UP42
-===========================================
+=====================================
 
 This section provides an comprehensive description of the data blocks
 built by UP42.
