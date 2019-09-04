@@ -32,6 +32,9 @@ be asked to provide a name and an optional description, this time for
 the :term:`workflow` that you are about to create. Enter a name and
 click **Next**.
 
+.. tip::
+   Have a look at our :ref:`Core concepts <core-concepts>` page to find out more about Projects, Workflows and Jobs.
+
 Adding blocks
 -------------
 
@@ -43,6 +46,11 @@ click on **Add Block** and select the "SPOT 6/7 AOI - Clipped" block
 to view it. Then click **Add Block** at the bottom of the modal
 dialog. Your workflow will automatically be saved whenever you add or
 remove a block.
+
+.. tip::
+   Click on top of the each *Data block* to find out more information about the
+   data source like the provider name and the data format. All *Data block* is listed
+   in our `Marketplace <https://up42.com/marketplace/>`_.
 
 Next, under the "Processing" section, follow the same procedure, this
 time selecting "Raster Tiling".
@@ -76,6 +84,11 @@ or :ref:`Contains <contains-filter>`. Click on the map and draw your AOI.
 
 Here are the :term:`job parameters`:
           
+.. tip::
+   You can also generate a ``FeatureCollection`` with `geojson.io <http://geojson.io/>`_.
+
+Here are the :term:`job parameters` used in this example:
+
 .. gist:: https://gist.github.com/perusio/f8d8f3fe8ebb590cb3d8a5810c7a6060
 
 Once you are content with the selected AOI click on **Run Job** to
@@ -151,3 +164,6 @@ then the final result.
 And finally the detected ships overlayed with the base map.
    
 .. gist:: https://gist.github.com/perusio/6f666485dadab8fec62879ef9a4f3291
+.. tip::
+   You can add the resulting GeoJSON into QGIS <https://qgis.org/en/site/>`_
+   for further inspection.
