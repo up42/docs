@@ -7258,31 +7258,35 @@ span[id*='MathJax-Span'] {
   text-align: center
 }
 
-/* Landing page specific */
-div#welcome-to-the-up42-documentation.section  ul.simple {
-    width: auto;
-    height: 4em;
-    margin: 5em auto;
-}
+/* 
+   Right now the blocks in the landing page don't scale with narrower
+   screen sizes. So this is a easy way out until the landing page
+   becomes fully responsive. 
+*/
+@media only screen and (min-device-width: 1048px) {
+    /* Landing page specific */
+    div#welcome-to-the-up42-documentation.section  ul.simple {
+        width: auto;
+        height: 4em;
+        margin: 5em auto;
+    }
 
-/* Only add border to bottom of <li>. */
-div#welcome-to-the-up42-documentation.section ul.simple li {
-    border: 1px solid #ccc;
-    /* Border radius for Chrome, Webkit and other good browsers */
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -border-radius: 10px;
-    border-radius: 10px;
-    padding: 0.5em;
-    width: 25%;
-    list-style: none;
-    display: inline-block;
-    text-align: center;
-    
-}
+    div#welcome-to-the-up42-documentation.section ul.simple li {
+        border: 1px solid #ccc;
+        /* Border radius for Chrome, Webkit and other good browsers. */
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -border-radius: 10px;
+        border-radius: 10px;
+        padding: 0.5em;
+        width: 25%;
+        list-style: none;
+        display: inline-block;
+        text-align: center;
+    }
 
-div#welcome-to-the-up42-documentation.section ul.simple li a {
-    padding: 1em;
-    display: block;
+    div#welcome-to-the-up42-documentation.section ul.simple li a {
+        padding: 1em;
+        display: block;
+    }
 }
-
