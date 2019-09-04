@@ -1,14 +1,19 @@
 .. meta::
    :description: UP42 getting started: how to build a workflow
-   :keywords: workflow howto, tutorial, data and processing blocks 
+   :keywords: workflow how to, tutorial, data and processing blocks
 
 .. _build-first-workflow:
-              
+
 Building your first workflow
 ============================
 
-This guide will walk you through creating an initial workflow on the
-platform, using blocks that already exist.
+This guide will walk you through creating an workflow on the
+platform, using blocks that already exist. The goal is to generate **ship detections**
+in the harbour of Leixões, Portugal using SPOT data.
+
+.. figure:: spot_image_overlayed_ships.png
+   :align: center
+   :alt: Overlayed ships and original SPOT image
 
 Creating a project and workflow
 -------------------------------
