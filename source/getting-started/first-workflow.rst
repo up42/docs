@@ -70,10 +70,13 @@ Configuring and running your :term:`job`
 Select an AOI using the map widget, or by pasting a GeoJSON
 ``FeatureCollection`` into the text box to the left of the map. You
 can also set the :ref:`date or date range <time-filter>` and
-:ref:`limit <limit-filter>`, i.e., the maximum number
-of images to returned. By default the most recent image is
-returned. For a value of limit greater than 1, the images are returned
-by descending chronological order. From most recent to least recent.
+:ref:`limit <limit-filter>`, for instance, the maximum number
+of images to return.
+
+.. attention::
+  By default the most recent image is returned. For a value of limit
+  greater than 1, the images are returned by descending chronological order, that is,
+  from most recent to least recent.
 
 You can use the search box to lock for a particular location of
 interest to you. Then either choose to use a :ref:`Bounding box
