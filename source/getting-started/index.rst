@@ -1,4 +1,4 @@
-.. meta:: 
+.. meta::
    :description: UP42 getting started documentation: index page
    :keywords: tutorial, howto, console, UP42
 
@@ -10,6 +10,12 @@ Getting started with UP42
 This is the section for beginners to UP42. It provides you with an
 introductory overview of the many things that you can do in our
 platform.
+
+.. figure:: ../../screenshots/selenium-screenshot-1.png
+   :align: center
+   :alt: The UP42 Console
+
+   The UP42 Console
 
 We start with :ref:`exploring <first-job-run>` the very first
 :term:`job` that is automatically run once you confirm your UP42
@@ -23,7 +29,7 @@ first workflow. Then take a sneek peek into more advanced topics like
    :caption: Contents
    :includehidden:
 
-   first-job-run          
+   first-job-run
    first-workflow
    first-api-request
-  first-custom-block
+   first-custom-block
