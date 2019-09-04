@@ -15,12 +15,12 @@ in the harbour of Leixões, Portugal using SPOT data.
    :align: center
    :alt: Overlayed ships and original SPOT image
 
-Creating a project and workflow
--------------------------------
+   Matosinhos harbour, Portugal.
 
-After logging in successfully, you will find yourself on the welcome page.
+Creating a :term:`project` and :term:`workflow`
+-----------------------------------------------
 
-Click on the **Start a Project** button to create your first :term:`project`
+After logging in successfully, click on the **Start a Project** button to create your first :term:`project`
 -- besides the demo project.
 
 You will be asked to provide a project name and an optional
