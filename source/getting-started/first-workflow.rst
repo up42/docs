@@ -91,8 +91,8 @@ Here are the :term:`job parameters` used in this example:
 
 .. gist:: https://gist.github.com/perusio/f8d8f3fe8ebb590cb3d8a5810c7a6060
 
-Once you are content with the selected AOI click on **Run Job** to
-launch the job consisting of the created workflow.
+Once you selected the AOI click on **Run Job** to
+launch the ship detection workflow.
 
 You will then be taken to the jobs overview for the current project.
 
@@ -106,21 +106,20 @@ as well perform multiple actions on the job.
 
  + **Rerun Job**: to re-run a job that is running or has finished.
  + **Cancel Job**: to cancel a job that is running.
- + **JOB PROGRESS**: clicking on it displays a log of the running job.
- + **PARAMETERS**: displays the job parameters, including, selected
-   AOI and other block specific parameter values being used on the job. 
+ + **Job Progress**: clicking on it displays a log of the running job.
+ + **Parameters**: displays the job parameters, including, selected
+   AOI and other block specific parameter values being used on the job.
 
 Each step of the workflow is a single block, running with the
 parameters and data of the workflow.
-   
-There is a table in which each row correspond to a block in the
-created workflow. Clicking on the **NAME** of the block takes to a
-specific block job overview page, showing the logs for that block
-when running the job.
 
-Once a job has finished a new column **ACTIONS** becomes visible and
-by hovering the **...** the **Run again** button appears. clicking on
-it relaunches that step of your job, i.e., it reruns that particular
+There is a table in which each row correspond to a block in the
+created workflow - this is a :term:`task`. Clicking on the **name** of a block takes you to a
+specific task overview page, showing the logs for that task.
+
+Once a job has finished a new column (**Actions**) becomes visible and
+by hovering the **...** the **Run again** button appears. Clicking on
+it relaunches that step of your job, that is, it reruns that particular
 block.
 
 .. _job-results:
