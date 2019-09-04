@@ -58,6 +58,12 @@ time selecting "Raster Tiling".
 Add another processing block by clicking on the **+** sign under the
 previously added Raster Tiling block. This time the  "Ship Detection" block.
 
+.. figure:: screenshot-first-workflow.png
+   :align: center
+   :alt: Screenshot of your first workflow. Link: https://console.up42.com/projects/b45630bf-c6e1-4713-8f33-eeadaa536c44/workflows/a8f353a1-1bf4-43a3-a533-682355c3a3c2
+
+   This is the workflow you have just created.
+
 When you are done, scroll to the bottom of the workflow editor and
 click **Next**.  You should now see a button labeled **Configure
 Job** a the bottom of the workflow editor.
@@ -78,15 +84,19 @@ of images to return.
   greater than 1, the images are returned by descending chronological order, that is,
   from most recent to least recent.
 
-You can use the search box to lock for a particular location of
+You can use the search box to look for a particular location of
 interest to you. Then either choose to use a :ref:`Bounding box
-<bbox-filter>` or a :ref:`Intersects <intersects-filter>`
-or :ref:`Contains <contains-filter>`. Click on the map and draw your AOI.
+<bbox-filter>`, :ref:`Intersects <intersects-filter>`
+or :ref:`Contains <contains-filter>` filter. Click on the map and draw your AOI.
+
+.. figure:: screenshot-aoi-selector.png
+   :align: center
+   :alt: Screenshot of your first workflow. Link: https://console.up42.com/projects/b45630bf-c6e1-4713-8f33-eeadaa536c44/workflows/a8f353a1-1bf4-43a3-a533-682355c3a3c2/configure-job
+
+   This is the AOI selector.
 
 .. gist:: https://gist.github.com/perusio/7dc5803b4fa8fb87d8ffa62909dc5fc4
 
-Here are the :term:`job parameters`:
-          
 .. tip::
    You can also generate a ``FeatureCollection`` with `geojson.io <http://geojson.io/>`_.
 
