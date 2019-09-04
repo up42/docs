@@ -15,7 +15,7 @@ in the harbour of Leixões, Portugal using SPOT data.
    :align: center
    :alt: Overlayed ships and original SPOT image
 
-   Matosinhos harbour, Portugal.
+   Ship detection in Matosinhos harbour, Portugal.
 
 Creating a :term:`project` and :term:`workflow`
 -----------------------------------------------
