@@ -188,5 +188,5 @@ And finally the detected ships overlaid with the base map.
 .. gist:: https://gist.github.com/perusio/6f666485dadab8fec62879ef9a4f3291
 
 .. tip::
-   You can add the resulting GeoJSON into QGIS <https://qgis.org/en/site/>`_
+   You can add the resulting GeoJSON into `QGIS <https://qgis.org/en/site/>`_
    for further inspection.
