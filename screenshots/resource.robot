@@ -1,22 +1,20 @@
 ** Settings ***
 Documentation     A resource file with keywords and variables.
 Library           Selenium2Library
+Library  Selenium2Screenshots
 
 *** Variables ***
 ${SERVER}         console.up42.com
 ${BROWSER}        headlesschrome
 ${DELAY}          2
-${USER}           rodrigo.almeida@up42.com
-${VALID USER}     rodrigo.almeida@up42.com
-${VALID PASSWORD}  xpNZvNEACAyq6sH6Dtr9E2J*
 ${LOGIN URL}      https://${SERVER}/sign-in
-${PROJECTS URL}   https://${SERVER}/projects/42879c8a-59a5-44f0-997a-cb317ec8b499
+${PROJECTS URL}   https://${SERVER}/projects
 ${RESULTS}   screenshots/
 
 *** Keywords ***
 Open Browser To Login Page
     Open Browser    ${LOGIN URL}    ${BROWSER}
-    Set Window Size    1024    768
+    Set Window Size    1600    1200
     Maximize Browser Window
     Set Selenium Speed    ${DELAY}
     Dismiss Cookies
@@ -48,3 +46,9 @@ Projects Page Should Be Open
     Title Should Be    Dashboard · Demo Project · UP42
 
 Set Screenshot Directory ${RESULTS}
+
+Go To Workflow Page
+    Go To    ${PROJECTS URL}/b45630bf-c6e1-4713-8f33-eeadaa536c44/workflows/a8f353a1-1bf4-43a3-a533-682355c3a3c2
+
+Go To Job Page
+    Go To    ${PROJECTS URL}/b45630bf-c6e1-4713-8f33-eeadaa536c44/workflows/a8f353a1-1bf4-43a3-a533-682355c3a3c2/configure-job
