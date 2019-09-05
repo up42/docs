@@ -46,6 +46,9 @@ sensor. The effective resolution is 15 meters, i.e. one pixel in the image repre
 
    Landsat 8 image and the resulting land cover classification
 
+.. gist:: https://gist.github.com/perusio/26c0c134a9d9e9dd88e10e55bf04e903
+
+|
 Run your first job
 -------------------
 
