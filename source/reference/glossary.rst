@@ -42,7 +42,10 @@
       A :term:`block` that is pushed by a costumer to the UP42 docker
       registry and is therefore private, i.e., it can only used by
       that customer.
-      
+
+   data block
+      A :term:`block` that provides satellite image data or other geospatial data.
+
    demo project
       Project that is created when a customer confirms the
       email address associated with his/her account. This project
@@ -65,6 +68,9 @@
    job parameters
       The JSON that includes the configuration for each :term:`block`
       in a given :term:`workflow`.
+
+   processing block
+      A :term:`block` that takes input from a :term:`data block` and applies a processing operation to the data.
 
    project
       A named single collection of workflows and their corresponding
