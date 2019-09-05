@@ -40,6 +40,21 @@ $ make html
 ```
 and the output will be written to the `build/` directory.
 
+## Screenshots
+
+To generate the auto screenshots you need to add the path of the Chrome driver to
+your environment. Note that you need to have Chrome installed (at least version 76).
+Additionally, also add a valid User and Password for the platform. Run this:
+```bash
+$ export PATH=$PATH:`chromedriver-path`
+$ export UP42_USER=!!YOUR USER NAME!!
+$ export UP42_PASSWORD=!!YOUR USER PASSWORD!!
+```
+To update all the screenshots simply run:
+```bash
+$ robot screenshots
+```
+
 ## Contributing
 
 Sphinx documentation is written in ReStructured Text. There is a quick primer
