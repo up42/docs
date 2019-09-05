@@ -31,21 +31,20 @@ We created a simple **Demo Project** for you to explore. The project page contai
 :term:`data block` for the satellite imagery, and one :term:`processing block` for the land cover classification.
 We already ran the workflow for you, explore the results in the **Jobs** section.
 
-This demo workflow takes a **satellite image**, clips it to an :term:`area of interest (AOI)<AOI>` near Berlin,
-Germany, and **classifies the land cover classes**. The example is using the :ref:`Landsat 8 <sentinelhub-landsat8-aoiclipped-block>`
-sensor. The effective resolution is 15 meters, i.e. one pixel in the image represents 15 meters on the ground.
-
 .. figure:: demo_blocks.png
-   :scale: 45%
+   :scale: 40%
    :align: center
    :alt: Blocks used in the Demo workflow.
+
+This demo workflow takes a **satellite image**, clips it to an :term:`area of interest (AOI)<AOI>` near Orford, UK, and
+**classifies the land cover**. The example is using the :ref:`Landsat 8 <sentinelhub-landsat8-aoiclipped-block>`
+sensor. The effective resolution is 15 meters, i.e. one pixel in the image represents 15 meters on the ground.
 
 .. figure:: demo_sat_result.png
    :align: center
    :alt: AOI for demo project in the UK near the sea and the river Ore
 
-   Landsat 8 image and the land cover classification result.
-
+   Landsat 8 image and the resulting land cover classification
 
 Run your first job
 -------------------
@@ -54,4 +53,5 @@ In order to run a job on your own, just click the ``Rerun Job`` button at the to
 :ref:`Job overview<job-overview>` page. This will instantiate the **Demo Workflow**, after a brief moment the status will
 change from **pending** to **successful**.
 
-Congratualtions! Your are ready to learn more about UP42 in the :ref:`Building your first workflow<build-first-workflow>` section!
+Congratualtions! Your are ready to learn more about UP42 in the :ref:`Building your first workflow<build-first-workflow>`
+section!
