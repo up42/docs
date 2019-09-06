@@ -49,16 +49,16 @@ Explore other topics
 Look at the blocks developed by UP42 and at the reference
 documentation. Still have questions? Then look into our FAQ.
 
+
 + :ref:`Delve into UP42 blocks <builtin-blocks-documentation>`
 + :ref:`Browse the reference <reference-documentation>`
 + :ref:`Frequently asked questions <FAQ>`
 
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents
-   :hidden:          
-             
+   :hidden:
+      
    getting-started/index
    going-further/index
    reference/index
