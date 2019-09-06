@@ -19,6 +19,10 @@ Workflow Page
     Input Password    %{UP42_PASSWORD}
     Submit Credentials
     Go To Workflow Page
+    Set Window Size    1280    1700
+    Bootstrap jQuery
+    Highlight
+    ...  css=#app > section > main > div > div.vueStepper_2rtvS0sR
     Capture Page Screenshot    ./source/getting-started/screenshot-first-workflow.png
     [Teardown]    Close Browser
 
