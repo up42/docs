@@ -7286,7 +7286,7 @@ footer p {
    screen sizes. So this is a easy way out until the landing page
    becomes fully responsive. 
 */
-@media only screen and (min-device-width: 1048px) {
+@media only screen and (min-device-width: 1070px) {
     /* Landing page specific */
     div#welcome-to-the-up42-documentation.section  ul.simple {
         width: auto;
