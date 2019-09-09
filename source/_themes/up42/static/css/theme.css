@@ -7336,3 +7336,8 @@ footer p {
     }
 
 }
+
+/* Improve the display of the icons in mobile devices. */
+div#welcome-to-the-up42-documentation.section ul.simple li img.first {
+    padding: 0.25em;
+}
