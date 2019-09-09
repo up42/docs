@@ -37,6 +37,13 @@ html_favicon = "favicon.ico"
 #
 # needs_sphinx = '1.0'
 
+# Own extensions.
+# from os import path as po
+# from sys import path as ps
+
+# # Add specific extensions for the UP42 site.
+# ps.append(po.abspath("./_ext"))
+
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
@@ -47,7 +54,7 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinxcontrib.redoc',
     'sphinx_sitemap',
-    'sphinxcontrib.gist'
+    'sphinxcontrib.gist',
 ]
 
 # Base URL for the site.
@@ -112,7 +119,7 @@ html_theme_options = {
 # theme: https://github.com/sphinx-doc/sphinx/issues/6088#issuecomment-466239708.
 def setup(app):
     app.add_js_file('js/up42.js')
-
+    
 # Do not show the built with Sphinx on the footer.
 html_show_sphinx = False
 
@@ -219,6 +226,7 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
 
 # Swagger/OpenAPI
 # TODO: Configure this to fetch it automatically from the production swagger endpoint

@@ -436,7 +436,7 @@ textarea,
 .clearfix:before,
 .clearfix:after {
   display: table;
-  content: ""
+<  content: ""
 }
 
 .clearfix:after {
@@ -5906,8 +5906,7 @@ html {
 }
 
 .wy-menu-horiz li:hover {
-  background: rgba(255, 255, 255, 0.1)
-}
+  background: rgba(255, 255, 255, 0.1)}
 
 .wy-menu-horiz li.divide-left {
   border-left: solid 1px #121315
@@ -7259,6 +7258,30 @@ span[id*='MathJax-Span'] {
   text-align: center
 }
 
+/* Footer styling. */
+/*                 */
+footer div.rst-footer-buttons a.btn,
+footer div.rst-footer-buttons a.btn.btn-neutral,
+footer div.rst-footer-buttons a.btn:visited,
+footer div.rst-footer-buttons a.btn.btn-neutral:visited {
+    font-weight: bold;
+    color: #fff !important;
+    background-color: #D40FA9 !important;
+    line-height: 120%;
+    border-radius: 4px;
+}
+
+footer div.rst-footer-buttons a.btn .fa,
+footer div.rst-footer-buttons a.btn.btn-neutral .fa,
+footer hr {
+    display: none;
+}
+
+footer p {
+    margin: 2.5em auto 12px;
+}
+
+
 /* 
    Right now the blocks in the landing page don't scale with narrower
    screen sizes. So this is a easy way out until the landing page
@@ -7294,11 +7317,23 @@ span[id*='MathJax-Span'] {
         font-weight: bold;
         font-size: 16px;
         line-height: 24px;
-
     }
 
     div#welcome-to-the-up42-documentation.section ul.simple li a {
         padding: 1em;
         display: block;
     }
+
+    div#welcome-to-the-up42-documentation.section ul.simple li img {
+        display: inline;
+        float: left;
+        vertical-align: middle;
+        padding: 0.5em;
+        margin-right: 0.5em;
+    }
+
+    div#welcome-to-the-up42-documentation.section ul.simple li img.first {
+        margin-top: 0.75em;
+    }
+
 }
