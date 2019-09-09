@@ -1,11 +1,16 @@
-.. meta:: 
+.. meta::
    :description: UP42 documentation: changelog
    :keywords: documentation, UP42, changelog
 
 .. _changelog:
-              
+
 Changelog
 =========
+
+9.9.2019
+--------
+
+* Added ``discard_empty_tiles`` parameter to :ref:`Tiling <tiling>` block.
 
 29.8.2019
 ---------
@@ -38,7 +43,7 @@ Changelog
 
 * Add options ``contains`` to :ref:`Sentinel-2 AOI clipped <sentinelhub-sentinel2-aoiclipped-block>` and :ref:`Landsat-8 AOI clipped <sentinelhub-landsat8-aoiclipped-block>`
 * New :ref:`page <adding-gpu-support-block>` on using GPU in a block.
-  
+
 13.08.2019
 ----------
 
@@ -75,7 +80,7 @@ Changelog
 ----------
 
 * Improved FAQ question on Airbus Geostore/OneAtlas differences.
-* Improved FAQ question on where to find the user ID on the console. 
+* Improved FAQ question on where to find the user ID on the console.
 
 24.07.2019
 ----------
@@ -92,7 +97,7 @@ Changelog
 
 * Added VAT questions to FAQ.
 
-  
+
 16.07.2019
 ----------
 
