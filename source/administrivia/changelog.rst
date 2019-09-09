@@ -10,7 +10,7 @@ Changelog
 9.9.2019
 --------
 
-* Added ``discard_empty_tiles`` parameter to :ref:`Tiling <tiling>` block.
+* Added ``discard_empty_tiles`` parameter to :ref:`Tiling <tiling-block>` block.
 
 29.8.2019
 ---------
