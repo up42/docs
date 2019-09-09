@@ -56,7 +56,6 @@ Explore other topics
 Look at the blocks developed by UP42 and at the reference
 documentation. Still have questions? Then look into our FAQ.
 
-
 + |up42-block| :ref:`Delve into UP42 blocks <builtin-blocks-documentation>`
 + |reference| :ref:`Browse the reference <reference-documentation>`
 + |faq| :ref:`Consult the FAQ <FAQ>`
