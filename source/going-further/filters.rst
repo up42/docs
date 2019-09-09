@@ -73,9 +73,10 @@ time
 .. _time_series-filter:
    
 time_series
-    Searches items according to an array of :ref:`time ranges
-    <time-filter>` each specifying the desired date ranges.
-    It returns the the specified :ref:`limit <limit-filters>` for each
+    Searches items according to an array of
+    :ref:`time ranges <time-filter>`
+    each specifying the desired date ranges.
+    It returns the the specified :ref:`limit <limit-filter>` for each
     given time range. If the ranges overlap then there will be
     repeated items. How many depends on the specific overlap of the
     given time ranges.

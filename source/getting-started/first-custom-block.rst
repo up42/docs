@@ -77,7 +77,7 @@ where ``me@example.com`` should be replaced by your username, which is
 the email address associated with your UP42 account.
 
 Now all the steps for building and pushing a custom block should work.
-You will be asked to login in to teh UP42 docker registry with your
+You will be asked to login in to the UP42 docker registry with your
 account password.
 
 After all is done, in

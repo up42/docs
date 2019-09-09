@@ -436,7 +436,7 @@ textarea,
 .clearfix:before,
 .clearfix:after {
   display: table;
-  content: ""
+<  content: ""
 }
 
 .clearfix:after {
@@ -4204,7 +4204,7 @@ a .icon {
 .rst-content .wy-alert-neutral.warning .wy-alert-title,
 .rst-content .wy-alert-neutral.seealso .wy-alert-title,
 .rst-content .wy-alert-neutral.admonition-todo .wy-alert-title,
-.rst-content .wy-alert-neutral.admonition .wy-alert-title,
+<.rst-content .wy-alert-neutral.admonition .wy-alert-title,
 .wy-alert.wy-alert-neutral .rst-content .admonition-title,
 .rst-content .wy-alert.wy-alert-neutral .admonition-title,
 .rst-content .wy-alert-neutral.note .admonition-title,
@@ -5567,7 +5567,7 @@ html {
 body {
   font-family: "Source Sans Pro", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
   font-weight: normal;
-  color: #121315;
+  color: #777C85;
   min-height: 100%;
   overflow-x: hidden;
   background: #edf0f2
@@ -5652,7 +5652,8 @@ h6,
 legend {
   margin-top: 0;
   font-weight: 700;
-  font-family: "Roboto Condensed", "ff-tisa-web-pro", "Georgia", Arial, sans-serif
+  font-family: "Roboto Condensed", "ff-tisa-web-pro", "Georgia", Arial, sans-serif;
+  color: #121315
 }
 
 p {
@@ -5905,8 +5906,7 @@ html {
 }
 
 .wy-menu-horiz li:hover {
-  background: rgba(255, 255, 255, 0.1)
-}
+  background: rgba(255, 255, 255, 0.1)}
 
 .wy-menu-horiz li.divide-left {
   border-left: solid 1px #121315
@@ -7258,6 +7258,29 @@ span[id*='MathJax-Span'] {
   text-align: center
 }
 
+/* Footer styling. */
+/*                 */
+footer div.rst-footer-buttons a.btn,
+footer div.rst-footer-buttons a.btn.btn-neutral,
+footer div.rst-footer-buttons a.btn:visited,
+footer div.rst-footer-buttons a.btn.btn-neutral:visited {
+    font-weight: bold;
+    color: #fff !important;
+    background-color: #D40FA9 !important;
+    line-height: 120%;
+    border-radius: 4px;
+}
+
+footer div.rst-footer-buttons a.btn .fa,
+footer div.rst-footer-buttons a.btn.btn-neutral .fa,
+footer hr {
+    display: none;
+}
+
+footer p {
+    margin: 2.5em auto 12px;
+}
+
 /* 
    Right now the blocks in the landing page don't scale with narrower
    screen sizes. So this is a easy way out until the landing page
@@ -7274,19 +7297,42 @@ span[id*='MathJax-Span'] {
     div#welcome-to-the-up42-documentation.section ul.simple li {
         border: 1px solid #ccc;
         /* Border radius for Chrome, Webkit and other good browsers. */
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        -border-radius: 10px;
-        border-radius: 10px;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        -border-radius: 6px;
+        border-radius: 6px;
+        background: #FFFFFF;
+        /* Shadow / Default */
+        box-shadow: 0px 2px 6px rgba(18, 19, 21, 0.16);
         padding: 0.5em;
         width: 25%;
         list-style: none;
         display: inline-block;
         text-align: center;
+        /* Typography  */
+        /* Heading / Extra Small */
+        font-family: Roboto Condensed;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 24px;
     }
 
     div#welcome-to-the-up42-documentation.section ul.simple li a {
         padding: 1em;
         display: block;
     }
+
+    div#welcome-to-the-up42-documentation.section ul.simple li img {
+        display: inline;
+        float: left;
+        vertical-align: middle;
+        padding: 0.5em;
+        margin-right: 0.5em;
+    }
+
+    div#welcome-to-the-up42-documentation.section ul.simple li img.first {
+        margin-top: 0.75em;
+    }
+
 }
