@@ -1,6 +1,6 @@
-.. meta:: 
+.. meta::
    :description: UP42 processing blocks: Raster tiling block description
-   :keywords: UP42, processing, raster tiling, deep learning, block description 
+   :keywords: UP42, processing, raster tiling, deep learning, block description
 
 .. _tiling-block:
 
@@ -18,7 +18,8 @@ Supported parameters
 * ``tile_height``: The height of the tile (in pixels).
 * ``match_extents``: If set to true, the tile extents (bounding boxes) of all input layers will perfectly match.
 * ``augmentation_factor``: Factor used to create additional tiles by applying a pixel offset (default 1).
-* ``output_prefix``: Prefix of tile names, default is to use input filename
+* ``output_prefix``: Prefix of tile names, default is to use input filename.
+* ``discard_empty_tiles``:  If set to True, tiles that only consist of nodata (as defined by an alpha band or a set nodata value) will not be returned.
 
 Example parameters using the :ref:`SPOT AOIClipped block
 <spot-aoiclipped-block>` as data source and then applying tiling with
