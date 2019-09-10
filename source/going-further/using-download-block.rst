@@ -36,6 +36,9 @@ Currently two DIMAP download blocks are available: the :ref:`Pleaides DIMAP down
 
 Both of these blocks return a DIMAP file and the :term:`AOI` within the output feature geometry.
 
+This block allows you to forecast how many credits will be used in the workflow you have setup.
+An estimation of the number of credits is reported in the Task Logs once you run a Test Query.
+
 .. warning::
 
 	The DIMAP download blocks only accepts AOI with an **area greater than 0.1 sqkm** or 1000 sqm. Any AOI smaller than this will return an empty result.
