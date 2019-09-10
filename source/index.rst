@@ -6,15 +6,14 @@ Welcome to the UP42 documentation
 =================================
 
 Here you can find comprehensive information on how to use UP42 in all
-its aspects. Below we provide you quick & easy entry points into our
+its aspects and find quick & easy entry points into our
 documentation.
 
 First steps
 -----------
 
-Relying on the :term:`console` go from running and looking at the
-job results for the demo project to running a job using the API, passing
-by creating a workflow.
+Use the :term:`console` for running you first job, then learn how to
+create a workflow. Finally, run a job via the API. 
 
 + |first-job| :ref:`Run your first UP42 job <first-job-run>`
 + |first-workflow| :ref:`Your first workflow <build-first-workflow>`
@@ -25,9 +24,9 @@ by creating a workflow.
 Going further
 -------------
 
-Get to understand the concepts underliyng UP42. What type of data
-filters are available and how they work. Walkthrough the API: what endpoints
-are available and how to request them.
+Now that you know the basics, grasp the concepts and terminology
+specific to UP42. How to query for data: what filters are available.
+Walkthrough the API: get an overview of what can be done via the API.
 
 + |first-job| :ref:`Core concepts <core-concepts>` |br|
 + |filters| :ref:`Data filters <filters>` |br|
@@ -38,11 +37,13 @@ are available and how to request them.
 Introduction to running your own code
 -------------------------------------
 
-Use our demo processing block offered as free software on
-`Github <https://github.com/up42/land-cover-classification-demo>`_ to
-create your first custom block. Then learn how to develop **your own**
-processing block and, if need be, make use of GPUs to speed it up.
-
+If you are looking into **developing** a processing algorithm and/or
+use your own data sources, then start your journey into it by
+experimenting with our demo processing block, offered as free software
+on `Github
+<https://github.com/up42/land-cover-classification-demo>`_. Learn how
+to develop **your own** processing block and, if need be, make use of
+GPUs to speed it up.
 
 + |first-block| :ref:`Push your first block <first-custom-block>`    
 + |develop-block| :ref:`Develop your block <custom-processing-block-dev>`
@@ -53,7 +54,7 @@ processing block and, if need be, make use of GPUs to speed it up.
 Explore other topics
 --------------------
 
-Look at the blocks developed by UP42 and at the reference
+Look into the blocks developed by UP42 and at the reference
 documentation. Still have questions? Then look into our FAQ.
 
 + |up42-block| :ref:`Delve into UP42 blocks <builtin-blocks-documentation>`
