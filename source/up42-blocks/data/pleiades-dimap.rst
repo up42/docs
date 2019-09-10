@@ -13,6 +13,10 @@ This block provides Pleiades HR imagery intersecting a given bounding box or AOI
 
 The available output bands of the Pleiades block are: panchromatic, red, green, blue and near infrared. Pansharpened Pleiades HR imagery has a spatial resolution of 0.5x0.5m. The multispectral bands have a resolution of 2x2m.
 
+.. tip::
+
+	Find out more about the DIMAP image format `here <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`_. DIMAP is a GDAL supported `raster format <https://gdal.org/drivers/raster/dimap.html>`_.
+
 Supported parameters
 --------------------
 
