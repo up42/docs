@@ -137,6 +137,23 @@ from a certain data
    i.e., you are guaranteed to always get a precise piece of data
    using the ids filter.
 
+Implemented filters
+-------------------
+.. csv-table::
+ :header: "Data block", "``limit``", "``bbox``", "``intersects``", "``contains``", "``time``", "``time_series``", "``ids``"
+ :widths: auto
+
+ ":ref:`Pleiades (AOI-Clipped) <pleiades-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Pleiades DIMAP Download <pleiades-dimap-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`SPOT (AOI-Clipped) <pleiades-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`SPOT DIMAP Download <pleiades-dimap-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Sentinel-1 GRD (full-scene) <sentinel1-grd-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Sentinel-1 SLC (full-scene) <sentinel1-slc-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Sentinel-2 L1C (full-scene)  <sentinel2-l1c-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Sentinel-2 (AOI-Clipped)  <sentinelhub-sentinel2-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**,
+ ":ref:`Landsat-8 (AOI-Clipped) <sentinelhub-landsat8-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**,
+ ":ref:`MODIS <modis-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, ,
+
 .. Examples
 .. --------
 
