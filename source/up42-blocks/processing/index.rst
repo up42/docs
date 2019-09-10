@@ -1,4 +1,4 @@
-.. meta:: 
+.. meta::
    :description: UP42 builtin processing blocks documentation: index page
    :keywords: blocks, builtin, marketplace, processing blocks
 
@@ -16,7 +16,6 @@ blocks built by UP42.
    :includehidden:
 
    tiling
+   data-format-type-conversion-block
    snap-polarimetric
    s2-superresolution
- 
-
