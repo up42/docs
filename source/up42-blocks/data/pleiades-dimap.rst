@@ -9,9 +9,9 @@ Pleiades DIMAP Download
 
 Block type: ``DATA``
 
-This block provides pansharpened Pleiades HR imagery clipped to all tiles intersecting a given bounding box or AOI on a given zoom level. The part of the image that does not intersect with these tiles will be black. The block outputs a single GeoTIFF file and will store the AOI within the output feature geometry.
+This block provides Pleiades HR imagery intersecting a given bounding box or AOI. The block outputs a DIMAP file and will store the AOI within the output feature geometry.
 
-The available output bands of the Pleiades block are: red, green, blue. Pansharpened Pleiades HR imagery has a spatial resolution of 0.5x0.5m.
+The available output bands of the Pleiades block are: panchromatic, red, green, blue and near infrared. Pansharpened Pleiades HR imagery has a spatial resolution of 0.5x0.5m. The multispectral bands have a resolution of 2x2m.
 
 Supported parameters
 --------------------
@@ -28,25 +28,24 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``limit``: An integer number of maximum results to return. Omit this to set no limit.
 * ``ids``: An array of image identifiers. If defined, either ``bbox`` **or** ``intersects`` **or** ``contains`` should be selected as well. This will assure that, by defining ``ids`` filter, you will get tiles only based on your AOI.
-* ``zoom_level``: An integer defining the webmercator zoom level of this request, defaults to 18.
-* ``panchromatic_band``: If set to ``true``, the panchromatic band is added to the output.
 
-
-Example using ``bbox``, ``limit``,  ``zoom_level`` and ``panchromatic_band``:
+Example using ``bbox`` and ``limit``:
 
 .. code-block:: javascript
 
     {
-      "oneatlas-pleiades-aoiclipped:1": {
+      "oneatlas-pleiades-fullscene:1": {
         "bbox": [
-          89.213,
-          22.30,
-          89.217,
-          22.304
+          13.331577926874163,
+          52.496424479360506,
+          13.356125503778458,
+          52.50697865413412
         ],
+        "ids": null,
+        "time": null,
         "limit": 1,
-        "zoom_level": 18,
-        "panchromatic_band": true
+        "order_ids": null,
+        "time_series": null
       }
     }
 
@@ -55,7 +54,7 @@ Example query using identifiers:
 .. code-block:: javascript
 
     {
-        "oneatlas-pleiades-aoiclipped:1": {
+        "oneatlas-pleiades-fullscene:1": {
            "bbox": [
              114.206193,
               22.308647,
@@ -75,89 +74,94 @@ Output format
     {
         "type": "FeatureCollection",
         "features": [
-            {
-                "type": "Feature",
-                "bbox": [
-                    13.31817626953125,
-                    38.2036553180715,
-                    13.3209228515625,
-                    38.205813598134746
-                ],
-                "geometry": {
-                    "type": "Polygon",
-                    "coordinates": [
-                        [
-                            [
-                                13.3209228515625,
-                                38.2036553180715
-                            ],
-                            [
-                                13.3209228515625,
-                                38.205813598134746
-                            ],
-                            [
-                                13.31817626953125,
-                                38.205813598134746
-                            ],
-                            [
-                                13.31817626953125,
-                                38.2036553180715
-                            ],
-                            [
-                                13.3209228515625,
-                                38.2036553180715
-                            ]
-                        ]
-                    ]
-                },
-                "properties": {
-                    "acquisitionDate": "2018-10-27T10:08:59.18Z",
-                    "acquisitionStation": "FR1",
-                    "archivingCenter": "FR1",
-                    "azimuthAngle": 180.0069721072989,
-                    "cloudCover": 12.3,
-                    "commercialReference": "SO18029226",
-                    "constellation": "PHR",
-                    "correlationId": "89919125-a5d2-45a7-91a8-eef14a51baff",
-                    "expirationDate": "2019-10-31T16:56:47.482951894Z",
-                    "format": "image/jp2",
-                    "id": "c7007bfc-63e2-423d-aef3-2a40d375d0aa",
-                    "illuminationAzimuthAngle": 167.0923129366511,
-                    "illuminationElevationAngle": 38.24254044287041,
-                    "incidenceAngle": 16.51857092811261,
-                    "incidenceAngleAcrossTrack": -7.283010087851206,
-                    "incidenceAngleAlongTrack": -14.98217505834965,
-                    "organisationName": "AIRBUS DS GEO",
-                    "parentIdentifier": "DS_PHR1B_201810271008591_FR1_PX_E013N38_0505_02977",
-                    "platform": "PHR1B",
-                    "processingCenter": "FCMUGC",
-                    "processingDate": "2018-10-31T04:51:36.437",
-                    "processingLevel": "SENSOR",
-                    "processorName": "DRS-MM V2.6vV2.6",
-                    "productCategory": "image",
-                    "productType": "bundle",
-                    "productionStatus": "IN_CLOUD",
-                    "publicationDate": "2018-10-31T16:56:47.482951894Z",
-                    "qualified": false,
-                    "resolution": 0.5,
-                    "sensorType": "OPTICAL",
-                    "snowCover": 0,
-                    "sourceIdentifier": "DS_PHR1B_201810271008221_FR1_PX_E013N38_0505_02973",
-                    "spectralRange": "VISIBLE",
-                    "title": "DS_PHR1B_201810271008221_FR1_PX_E013N38_0505_02973",
-                    "workspaceId": "0e33eb50-3404-48ad-b835-b0b4b72a5625",
-                    "workspaceName": "public",
-                    "workspaceTitle": "Public",
-                    "up42.data.aoiclipped": "b32c43f2-2ddc-48d1-82e2-9c4ece2f43e4.tif"
-                }
-            }
+          {
+            "type": "Feature",
+            "bbox": [
+              13.377228,
+              52.501803,
+              13.385296,
+              52.506609
+            ],
+            "id": "f3092a17-cecc-4bad-9394-5263bc6663b3",
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    13.377228,
+                    52.505982
+                  ],
+                  [
+                    13.384609,
+                    52.506609
+                  ],
+                  [
+                    13.385296,
+                    52.501803
+                  ],
+                  [
+                    13.377399,
+                    52.501803
+                  ],
+                  [
+                    13.377228,
+                    52.505982
+                  ]
+                ]
+              ]
+            },
+            "properties": {
+              "acquisitionDate": "2018-10-16T10:39:43.431Z",
+              "acquisitionIdentifier": "DS_PHR1B_201810161039434_FR1_PX_E013N52_0513_01711",
+              "acquisitionStation": "FR1",
+              "archivingCenter": "FR1",
+              "azimuthAngle": 180.0635393149922,
+              "cloudCover": 0.73,
+              "commercialReference": "SO18027985",
+              "constellation": "PHR",
+              "correlationId": "24777a99-7610-4d29-9785-f8081303c150",
+              "expirationDate": "2019-10-24T13:38:25.378961223Z",
+              "format": "image/jp2",
+              "id": "f3092a17-cecc-4bad-9394-5263bc6663b3",
+              "illuminationAzimuthAngle": 176.3474493164755,
+              "illuminationElevationAngle": 28.63961239799443,
+              "incidenceAngle": 28.09416394841554,
+              "incidenceAngleAcrossTrack": -27.99515470131492,
+              "incidenceAngleAlongTrack": 2.783320454512895,
+              "organisationName": "AIRBUS DS GEO",
+              "parentIdentifier": "DS_PHR1B_201810161039434_FR1_PX_E013N52_0513_01711",
+              "platform": "PHR1B",
+              "processingCenter": "FCMUGC",
+              "processingDate": "2018-10-17T16:53:01.998",
+              "processingLevel": "SENSOR",
+              "processorName": "DRS-MM V2.6vV2.6",
+              "productCategory": "image",
+              "productType": "bundle",
+              "productionStatus": "IN_CLOUD",
+              "publicationDate": "2018-10-24T13:38:25.378961223Z",
+              "qualified": false,
+              "resolution": 0.5,
+              "sensorType": "OPTICAL",
+              "snowCover": 0,
+              "sourceIdentifier": "DS_PHR1B_201810161039064_FR1_PX_E013N52_0513_01707",
+              "spectralRange": "VISIBLE",
+              "title": "DS_PHR1B_201810161039064_FR1_PX_E013N52_0513_01707",
+              "workspaceId": "0e33eb50-3404-48ad-b835-b0b4b72a5625",
+              "workspaceName": "public",
+              "workspaceTitle": "Public",
+              "up42.data.scene.dimap": "f3092a17-cecc-4bad-9394-5263bc6663b3/e1d4aabb-bed0-4e17-87f9-4cbffadb0841"
+            },
+            "orderID": "e1d4aabb-bed0-4e17-87f9-4cbffadb0841",
+            "oaCredits": 2052,
+            "areaKm2": 0.26
+          }
         ]
-    }
+      }
 
 Capabilities
 ------------
 
-This block has a single output capability, ``up42.data.aoiclipped``.
+This block has a single output capability, ``up42.data.scene.dimap``.
 
 Download example output
 -----------------------
