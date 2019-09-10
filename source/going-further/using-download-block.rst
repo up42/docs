@@ -56,7 +56,31 @@ The Data Format and Type Conversion block
 The :ref:`Data Format and Type Conversion <data-format-type-conversion-block>` allows you to generate a ``GTiff`` product out of a DIMAP download block.
 
 If you make use of the default parameters only the multispectral bands of the product will be used and included in the ``GTiff`` output of the block.
-If you also want to obtain the pansharpened product you can set the ``pan`` parameter to ``true``.
+If you want to obtain the pansharpened product **only** you can set the ``ms`` parameter to ``false`` and the ``pan`` parameter to ``true``.
+
+For example, to convert a :ref:`SPOT DIMAP download <spot-dimap-block>` to a panchromatic ``GTiff`` use:
+
+.. code-block:: javascript
+
+    {
+      "oneatlas-spot-fullscene:1": {
+        "bbox": [
+          13.405215963721279,
+          52.48480326228838,
+          13.4388092905283,
+          52.505278605259086
+        ],
+        "ids": null,
+        "time": null,
+        "limit": 1,
+        "order_ids": null,
+        "time_series": null
+      },
+      "converter:1": {
+        "ms": false,
+        "pan": true
+      }
+    }
 
 Try it out
 ----------

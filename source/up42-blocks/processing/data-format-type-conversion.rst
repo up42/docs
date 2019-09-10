@@ -14,8 +14,12 @@ This block converts from the DIMAP format to the ``GTiff`` format.
 Supported parameters
 --------------------
 
-* ``ms``: Return multispectral data.
-* ``pan``: Return panchromatic data.
+* ``ms``: Convert only multispectral data.
+* ``pan``: Convert only panchromatic data.
+
+.. warning::
+
+	You can only set to ``true`` one of the two parameters (``ms`` or ``pan``).
 
 Example parameters using the :ref:`SPOT DIMAP download block
 <spot-dimap-block>` as data source, returning the multispectral product only:
