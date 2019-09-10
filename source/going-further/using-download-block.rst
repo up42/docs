@@ -41,7 +41,7 @@ An estimation of the number of credits is reported in the Task Logs once you run
 
 .. warning::
 
-	The DIMAP download blocks only accepts AOI with an **area greater than 0.1 sqkm** or 1000 sqm. Any AOI smaller than this will return an empty result.
+	The DIMAP download blocks only accepts AOI with an **area greater than 0.1 sqkm** or 100000 sqm. Any AOI smaller than this will return an empty result.
 
 One of the main differences between the DIMAP block vs. the AOI-Clipped block is the fact that with the DIMAP block you obtain a **permanent license that you can use in perpetuity for the image** you have purchased.
 Once you have run the DIMAP download block, you will have an ``order_id`` that you can reuse in other Workflows in order to reuse the same imagery.
