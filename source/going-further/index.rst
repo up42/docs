@@ -1,7 +1,7 @@
-.. meta:: 
+.. meta::
    :description: UP42 documentation going further: index page
    :keywords: next steps, exploring, API, custom blocks, UP42
-              
+
 .. _going-further:
 
 Going further with UP42
@@ -30,6 +30,7 @@ requires :ref:`custom storage <custom-storage>`?
    core-concepts
    filters
    api-walkthrough
+   using-download-block
    custom-processing-block-dev
    using-gpus-in-your-processing-block
    credentials
