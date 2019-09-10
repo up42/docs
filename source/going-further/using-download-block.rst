@@ -22,7 +22,7 @@ relies on the full multispectral instruments' capabilities.
   NDVI map generated from SPOT imagery in Berlin. Darker green suggest higher vegetation vitality.
 
 First we will give you an introduction on the DIMAP download blocks, and secondly we will discuss the
-converter block that allows you to continue your workflow with this datasets within the platform.
+converter block that allows you to continue your workflow with this datasets with regular processing blocks.
 
 The DIMAP download block
 ------------------------
@@ -62,7 +62,7 @@ Let's spin up this block! First create a project described in :ref:`Building you
 
 In the Project page you just created create a Workflow and add a :ref:`SPOT DIMAP Download <spot-dimap-block>` as the data block.
 
-Also add the :ref:`Data Format and Type Conversion <data-format-type-conversion-block>` as a processing block. **Click next.
+Also add the :ref:`Data Format and Type Conversion <data-format-type-conversion-block>` as a processing block. **Click next.**
 
 Run the job as a :term:`Test Query` with the following parameters:
 
@@ -111,11 +111,7 @@ it will give you an estimation of the number of :term:`credits` that will be cha
 
 .. warning::
 
-	In addition to the Data credits used by the :ref:`SPOT DIMAP Download <spot-dimap-block>`,
-  credits will also be deducted for infrastructure and processing so the total amount of
-  credits for the Workflow will always be higher than the estimation provided in the Logs displayed before.
-
-## warn about infra credits
+	In addition to the Data credits used by the :ref:`SPOT DIMAP Download <spot-dimap-block>`, credits will also be deducted for Infrastructure and Processing so the total amount of credits for the Workflow will always be higher than the estimation provided in the Logs displayed before.
 
 If you're happy about the selected image, click **Run as real job**.
 
