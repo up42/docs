@@ -1,6 +1,6 @@
-.. meta:: 
+.. meta::
    :description: UP42 reference documentation: glosssary
-   :keywords: glossary, UP42 platform, reference 
+   :keywords: glossary, UP42 platform, reference
 
 .. _glossary:
 
@@ -19,7 +19,7 @@
       Data block output that includes only the items that either:
       intersect the AOI or fully contain that AOI depending on the
       chosen :ref:`filter <filters>`.
-      
+
    block
       Unit corresponding to either a data acquisition or a
       processing stage in a :term:`workflow`.
@@ -58,13 +58,18 @@
       the satellite instrument when it it was over that area. In this
       case the selected AOI is used to search for the scene(s) that
       include(s) the specified AOI.
-      
+
+   NDVI
+      **N**\ ormalized **D**\ ifference **V**\ egetation **I**\ ndex. One of the most widespread
+      vegetation indexes used to determine vegetation health and vitality. Is computed by making use of
+      the Near Infrared Band and the
+
    job
       An instance of a :term:`workflow`.
 
    job inputs
       See :term:`job parameters`.
-      
+
    job parameters
       The JSON that includes the configuration for each :term:`block`
       in a given :term:`workflow`.
@@ -83,7 +88,7 @@
       A block in the context of a job, e.g., the :ref:`Pleiades data
       block <pleiades-aoiclipped-block>` is a task in a :term:`job`
       for a :term:`workflow` that uses this data block.
-      
+
    workflow
       A directed acyclic graph of blocks [#]_. See :ref:`definition <workflows-definition>`.
 
@@ -94,4 +99,4 @@
        <https://en.wikipedia.org/wiki/Linked_list>`__
        of blocks. With a data
        block always at the root. Full DAG based workflows will be
-       implemented in the future.            
+       implemented in the future.

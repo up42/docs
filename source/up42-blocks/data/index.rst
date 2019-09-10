@@ -1,4 +1,4 @@
-.. meta:: 
+.. meta::
    :description: UP42 builtin processing blocks documentation: index page
    :keywords: blocks, builtin, marketplace, data blocks
 
@@ -16,13 +16,12 @@ built by UP42.
    :includehidden:
 
    pleiades
+   pleiades-dimap
    spot
+   spot-dimap
    sobloo-s1-grd
    sobloo-s1-slc
    sobloo-s2-l1c
    sentinelhub-s2
    sentinelhub-landsat8
    modis
-
- 
-
