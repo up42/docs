@@ -5,7 +5,7 @@
 .. _pleiades-dimap-block:
 
 Pleiades DIMAP Download
-======================
+=======================
 
 Block type: ``DATA``
 

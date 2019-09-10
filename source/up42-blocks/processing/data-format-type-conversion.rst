@@ -18,7 +18,7 @@ Supported parameters
 * ``pan``: Return panchromatic data.
 
 Example parameters using the :ref:`SPOT DIMAP download block
-<oneatlas-spot-fullscene>` as data source, returning the multispectral product only:
+<spot-dimap-block>` as data source, returning the multispectral product only:
 
 .. code-block:: javascript
 

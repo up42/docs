@@ -58,13 +58,13 @@ If you also want to obtain the pansharpened product you can set the ``pan`` para
 Try it out
 ----------
 
-Let's spin up this block! First create a project described in :ref:`Building your first workflow <first-workflow>`.
+Let's spin up this block! First create a project described in :ref:`Building your first workflow <build-first-workflow>`.
 
 In the Project page you just created create a Workflow and add a :ref:`SPOT DIMAP Download <spot-dimap-block>` as the data block.
 
 Also add the :ref:`Data Format and Type Conversion <data-format-type-conversion-block>` as a processing block. **Click next.**
 
-Run the job as a :term:`Test Query` with the following parameters:
+Run the job as a **Test Query** with the following parameters:
 
 .. code-block:: javascript
 
@@ -107,7 +107,7 @@ Once the :term:`job` is ``Successful``, click on the name of the :term:`task`
   2019-09-10 11:42:53,309 - spot - DEBUG - Saving 1 result features
 
 Using the Test Query allows you to understand what images you will be using and
-it will give you an estimation of the number of :term:`credits` that will be charged, before running the Real Job.
+it will give you an estimation of the number of credits that will be charged, before running the Real Job.
 
 .. warning::
 

@@ -5,7 +5,7 @@
 .. _spot-dimap-block:
 
 SPOT DIMAP Download
-==================
+===================
 
 Block type: ``DATA``
 
