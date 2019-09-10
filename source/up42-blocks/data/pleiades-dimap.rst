@@ -156,8 +156,7 @@ Output format
               "up42.data.scene.dimap": "f3092a17-cecc-4bad-9394-5263bc6663b3/e1d4aabb-bed0-4e17-87f9-4cbffadb0841"
             },
             "orderID": "e1d4aabb-bed0-4e17-87f9-4cbffadb0841",
-            "oaCredits": 2052,
-            "areaKm2": 0.26
+            "fileSize": 2052,
           }
         ]
       }

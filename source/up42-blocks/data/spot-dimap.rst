@@ -139,8 +139,7 @@ Example query using identifiers:
             "up42.data.scene.dimap": "1bb7f9a2-5657-4f40-812b-df2373949ff1/0a20a6f3-c589-4adf-b978-8159dd82172e"
           },
           "orderID": "0a20a6f3-c589-4adf-b978-8159dd82172e",
-          "oaCredits": 1070,
-          "areaKm2": 0.13
+          "fileSize": 1070,
         }
       ]
     }
