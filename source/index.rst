@@ -71,7 +71,7 @@ documentation. Still have questions? Then look into our FAQ.
    reference/index
    up42-blocks/index
    FAQ/index
-   administrivia/index
+   changelog.rst
 
 .. Specific first page directives.
    
