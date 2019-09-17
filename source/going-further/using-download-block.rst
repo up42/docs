@@ -76,7 +76,7 @@ For example, to convert a :ref:`SPOT DIMAP download <spot-dimap-block>` to a pan
         "order_ids": null,
         "time_series": null
       },
-      "converter:1": {
+      "data-conversion:1": {
         "ms": false,
         "pan": true
       }
@@ -109,7 +109,7 @@ Run the job as a **Test Query** with the following parameters:
         "order_ids": null,
         "time_series": null
       },
-      "converter:1": {
+      "data-conversion:1": {
         "ms": true,
         "pan": false
       }
