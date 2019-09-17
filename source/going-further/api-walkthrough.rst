@@ -1,9 +1,9 @@
 .. meta::
    :description: UP42 going further: API usage howto
-   :keywords: API, howto, curl  
+   :keywords: API, howto, curl
 
 .. _api-walkthrough:
-              
+
 UP42 API walktrough
 ===================
 
@@ -15,18 +15,18 @@ The UP42 API allows for doing the following things on a given project:
 1. Work with jobs:
 
    -  `get jobs <#get-jobs>`__
-   -  get job   
+   -  get job
    -  cancel job
    - `create & run job <#create-run-job>`__
    - `get job output <#results-geojson>`__ (``data.json``)
-   - `get job output directory <#results-directory>`__
+   - `get job output directory <#results-results>`__
 
 2. Work with jobs and tasks:
 
    - `get job logs <#get-job-logs>`__
    -  get job task logs
    - `get job tasks output <#task-results-geojson>`__ (``data.json``)
-   - `get job output directory <#task-results-directory>`__
+   - `get job output directory <#task-downloads-results>`__
 
 3. Work with workflows:
 
@@ -34,7 +34,7 @@ The UP42 API allows for doing the following things on a given project:
    - `get workflow <#get-workflow>`__
    - `create workflow <#create-workflow>`__
    -  update workflow
-   
+
 It means that a **project key** is **always** needed. Therefore you
 always need to create a project **through the UI**.
 
@@ -84,7 +84,8 @@ Now you can echo the token in the shell:
 
 .. code:: bash
 
-   echo $PTOKEN
+   > echo $PTOKEN
+   
    eyJ0eXAiOiJKV1QiLCJraWQiOiIxIiwidG9rZW5fdHlwZSI6IkFDQ0VTUyIsImFsZyI6IlJTNTEyIn0.eyJpc3MiOiJiYWNrZW5kLWNvcmUiLCJqdGkiOiI5ZGYyMzY3MC02NDRkLTRkMGEtYTFlNi1hODIwN2QxZGQwNDgiLCJpYXQiOjE1NjE3MTc0ODcsInN1YiI6IjVhMjFlYWZmLWNkYWEtNDhhYi1iZWRmLTU0NTQxMTZkMTZmZiIsImF1ZCI6IjVhMjFlYWZmLWNkYWEtNDhhYi1iZWRmLTU0NTQxMTZkMTZmZiIsImV4cCI6MTU2MTcxNzc4NywiYXV0aG9yaXRpZXMiOlsiUlVOX0pPQiIsIlZJRVdfUFJPSkVDVCJdfQ.DLEUuifHzksf_Q_ReMF0aQXY-MOoy_nDu-noCGu7F8_Z2dBEJXbKILcvTB1t7ABVZmnd2eGlLiBuAF5zuz-L7nGuxqqzPawYy4GMB_ICc7HTuicYnx3fOGakby6qUGRuWlOmPGbcsgS_tRbt4pcjOPMvK0LbBXKobZb1HZYMdns4wiKVHE6IEyWn57k0eVm_y5fKImLIvGbqz060AakIamQ6O9uAHADOZwej9rnbkQO9e5LqP3hbb59sluyOhke0hYuJqA5VhssX743xxa3MZpxBRRhwR5YG_oxWEdOShhFq7T9S5i8fCZvhuoR3eQSkakTEfIMxLYQfDcycdptHJqXN5twtlYJ0hKTKuW0ezgELeTHtuSobg3xbZW7M8opX7lqtnnsVPVApo19ndqdaJtfTFiU1WgcveS0o47sXkPVtB7ohug420g5ux3XRCxgAY6vFHlvNWZZP6F6bSh-Ah7Gqm5jsW76DrloZyedOVz2qVoFU6XCicyXEsBSuo0giRlVHnVtRmqmHbTvyxFjndTbsoahxSH2rKX4H1AWjIyw_jEcZGBx4XZG2dWPYSNOR1SCx59i4XL9BzTVywjxNt50MpV92eIRI7doNSK-UXo6DClrXPl8-VskJrS_fTjyK-qD8P1tCHYs8eytnfKG0BZwrlhYAVYMHumvOtxxG0NE
 
 This token is valid for **5** minutes. To get a new token repeat the
@@ -118,22 +119,33 @@ Create and run a job
 To create and run a job you need to get first the workflow IDs.
 
 .. code:: bash
+   # Get all different workflows.
+   cat jobs_$PROJ.json | jq -r '.data[] | .workflowId' | uniq
 
-   WORKFLOW=$(curl -s -L -H "Authorization: Bearer $PTOKEN" "https://api.up42.com/projects/$PROJ/jobs" | jq -j '.data[0] | .workflow.id')
+we get a single element, since there is a single workflow in this project.
 
-that returns a single element, since there is only one workflow for this
-project:
+.. code:: bash
+          
+   21415975-390f-4215-becb-8d46aaf5156c
+
+We assign this value to a variable.
+
+.. code:: bash
+          
+   WORKFLOW=$(cat jobs_$PROJ.json | jq -r '.data[] | .workflowId' | uniq)
 
 .. code:: bash
 
-   echo $WORKFLOW 21415975-390f-4215-becb-8d46aaf5156c
+   > echo $WORKFLOW
+
+   21415975-390f-4215-becb-8d46aaf5156c
 
 You also need to get the job parameters. In this case you are just
 copying from a previous job. Using the previously saved job list.
 
 .. code:: bash
 
-   cat jobs_5a21eaff-cdaa-48ab-bedf-5454116d16ff.json | jq '.data[0].inputs' > job_params_5a21eaff-cdaa-48ab-bedf-5454116d16ff.json
+   cat jobs_$PROJ.json | jq '.data[0].inputs' > job_params_$PROJ.json
 
 The first returned job parameters are:
 
@@ -186,8 +198,8 @@ Finally you can create and run the job:
 
    # Create the URL as variable.
    URL_POST_JOB="https://api.up42.com/projects/$PROJ/workflows/$WORKFLOW/jobs"
-   curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' $URL_POST_JOB -d @job_params_5a21eaff-cdaa-48ab-bedf-5454116d16ff.json
-
+   curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' $URL_POST_JOB -d@job_params_$PROJ.json | jq '.' > job_create_response.json 
+ 
 You can see the job parameters
 `here <https://gist.github.com/perusio/fc948f4876897968e6d7e345f79ee0da>`__.
 
@@ -199,10 +211,10 @@ the following way:
 
 .. code:: bash
 
+   # Variable with the job ID.    
+   JOB=$(cat job_create_response.json | jq -j '.data.id')       
    # Job URL.
-   URL_JOB_INFO=https://api.up42.com/projects/$PROJ/jobs/$JOB"
-   # Variable with the job ID.
-   JOB=96b4c117-ab4d-44cf-afb1-0922d91031d4
+   URL_JOB_INFO="https://api.up42.com/projects/$PROJ/jobs/$JOB"
    curl -s -L -H "Authorization: Bearer $PTOKEN" $URL_JOB_INFO | jq '.' > jobs_job-$JOB.json
 
 It returns the
@@ -215,8 +227,8 @@ Get the job status
 Now filter the previous request to get the job status.
 
 .. code:: bash
-
-   curl -s -L -H "Authorization: Bearer $PTOKEN" "https://api.up42.com/projects/$PROJ/jobs/96b4c117-ab4d-44cf-afb1-0922d91031d4" | jq -r '.data.status'
+          
+   curl -s -L -H "Authorization: Bearer $PTOKEN" "$URL_JOB_INFO" | jq -r '.data.status'
 
 In this case it returns:
 
@@ -232,19 +244,28 @@ Get the jobs logs
 ~~~~~~~~~~~~~~~~~
 
 To get the log of a running job you first need to identify the task that
-is running. For that you use ``jq`` to query the previously saved file
-containing the job information.
+is running. For that we query the endpoint for the tasks of the
+above created job:
 
 .. code:: bash
 
-   TASK=$(cat jobs_job-96b4c117-ab4d-44cf-afb1-0922d91031d4.json | jq -j '.data.tasks[] as $task | if $task.status == "RUNNING" then $task.id else "" end')
+   # JOb tasks endpoint.       
+   URL_JOB_TASKS_INFO="https://api.up42.com/projects/$PROJ/jobs/$JOB/tasks"      
+   curl -s -L -H "Authorization: Bearer $PTOKEN" $URL_JOB_TASKS_INFO | jq '.' > jobs_job_tasks-$JOB.json
+
+Now we extract the task ID from the previously saved file.
+
+.. code:: bash
+          
+   TASK=$(cat jobs_job-$JOB.json | jq -j '.data[] as $task | if $task.status == "RUNNING" then $task.id else "" end')
 
 It returns:
 
 .. code:: bash
 
-   echo $TASK
-   24c78a98-3def-4ee5-853d-2d5150757f2b
+   > echo $TASK
+
+   79512809-fcd7-41d4-9701-cf38c3355ab3
 
 .. code:: bash
 
@@ -276,14 +297,18 @@ Get the results: GeoJSON
 Produces this
 `output <https://gist.github.com/perusio/4597361dc4792dfdda8a7260b39e9baf>`__.
 
-.. _results-directory:
+.. _results-results:
 
 Get the results: tarball
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code:: bash
+To get the resulting tarball you need first to get the signed URL to
+be able to download it.
 
-   curl -s -L -H "Authorization: Bearer $PTOKEN" -o output-$JOB.tar.gz "$OUTPUT_URL/directory"
+.. code:: bash
+   DOWNLOAD_URL="https://api.up42.com/projects/$PROJ/jobs/$JOB/downloads"
+   TARBALL_URL=$(curl -s -L -H "Authorization: Bearer $PTOKEN" "$DOWNLOAD_URL/results" | jq -j '.data.url')
+   curl -s -L -H "Authorization: Bearer $PTOKEN" -o output-$JOB.tar.gz "$TARBALL_URL"
 
 Inspect the retrieved tarball:
 
@@ -291,9 +316,9 @@ Inspect the retrieved tarball:
 
    > tar ztvf output_$JOB.tar.gz
 
-   drwxrwxrwx  0 root   root        0 Jul  3 00:39 output
-   -rw-r--r--  0 root   root   432316 Jul  3 00:39 output/data.json
-   -rw-r--r--  0 root   root  5515635 Jul  3 00:39 output/e3650bac-bfbe-4ed2-bec4-9ea50245d2c0_land_cover.tif
+   drwxrwxrwx  0 root   root        0 Sep 16 19:40 output
+   -rw-r--r--  0 root   root  5515635 Sep 16 19:40 output/56f3c47a-92a8-4e89-a005-ff1bbd567ac9_land_cover.tif
+   -rw-r--r--  0 root   root   399659 Sep 16 19:40 output/data.json
 
 There is both the GeoJSON file and the output as a
 `GeoTIFF <https://en.wikipedia.org/wiki/GeoTIFF>`__ file. The file name
@@ -318,14 +343,14 @@ Iterating through the tasks in the job file.
 
 .. code:: bash
 
-   cat jobs_job-$JOB.json | jq -r '.data.tasks[] | .id  + "_" + .name'
+   cat jobs_job_tasks-$JOB.json | jq -r '.data[] | .id  + "_" + .name'
 
 which outputs:
 
 .. code:: bash
 
-   3344b712-aa9a-4cdb-94ae-7f3e379b7369 sentinelhub-landsat8-aoiclipped:1
-   24c78a98-3def-4ee5-853d-2d5150757f2b land_cover_classification:1
+   6505eaf8-dc63-44a9-878f-831eecae3f62_sentinelhub-landsat8-aoiclipped:1
+   79512809-fcd7-41d4-9701-cf38c3355ab3_land_cover_classification:1       
 
 The first is the task ID and the second is the task name, clearly
 identifying the task ID and what it corresponds to in terms of the
@@ -335,14 +360,14 @@ Create two shell variables, one for each task:
 
 .. code:: bash
 
-   TASK1=$(cat jobs_job-$JOB.json | jq -j '.data.tasks[0] | .id')
-   TASK2=$(cat jobs_job-$JOB.json | jq -j '.data.tasks[1] | .id')
+   TASK1=$(cat jobs_job_tasks-$JOB.json | jq -j '.data[0] | .id')
+   TASK2=$(cat jobs_job_tasks-$JOB.json | jq -j '.data[1] | .id')
 
 .. code:: bash
 
    > echo $TASK1 $TASK2
 
-   3344b712-aa9a-4cdb-94ae-7f3e379b7369 24c78a98-3def-4ee5-853d-2d5150757f2b
+   6505eaf8-dc63-44a9-878f-831eecae3f62 79512809-fcd7-41d4-9701-cf38c3355ab3
 
 Now with the individual tasks IDs let us proceed to get the respective
 results.
@@ -356,29 +381,33 @@ The first task is the Landsat 8 data acquisition. The output GeoJSON is:
 
 .. code:: bash
 
+   TASK1_URL="https://api.up42.com/projects/$PROJ/jobs/$JOB/tasks/$TASK1"       
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK1_URL/outputs/data-json" | jq '.' > output_task-$TASK1.json
 
 returning the following
 `file <https://gist.github.com/perusio/f9407da92c65a1bcb76621b658185ad6>`__.
 
-.. _task-results-directory:
+.. _task-downloads-results:
 
 First task results: tarball
 '''''''''''''''''''''''''''
 
+Again we need to get the signed URL pointing to the first task tarball.
+
 .. code:: bash
 
-   curl -s -L -H "Authorization: Bearer $PTOKEN" -o output_$TASK1.tar.gz "$TASK1_URL/outputs/directory"
+   TASK1_TARBALL_URL=$(curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK1_URL/downloads/results" | jq -j '.data.url')   
+   curl -s -L -H "Authorization: Bearer $PTOKEN" -o output_$TASK1.tar.gz "$TASK1_TARBALL_URL"
 
 Inspecting the tarball:
 
 .. code:: bash
 
    > tar ztvf output_$TASK1.tar.gz
-   drwxrwxrwx  0 root   root        0 Jul  3 00:23 output
-
-   -rw-r--r--  0 root   root    36197 Jul  3 00:23 output/data.json
-   -rw-r--r--  0 root   root 132209093 Jul  3 00:23 output/e3650bac-bfbe-4ed2-bec4-9ea50245d2c0.tif
+   
+   drwxrwxrwx  0 root   root        0 Sep 16 19:21 output
+   -rw-r--r--  0 root   root 132209093 Sep 16 19:21 output/56f3c47a-92a8-4e89-a005-ff1bbd567ac9.tif
+   -rw-r--r--  0 root   root     35363 Sep 16 19:21 output/data.json
 
 you can see the resulting Landsat 8 GeoTIFF image there.
 
@@ -387,7 +416,9 @@ Second task results: GeoJSON
 
 .. code:: bash
 
-    curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK2_URL/outputs/data-json" | jq '.' > output_task-$TASK2.json
+
+   TASK2_URL="https://api.up42.com/projects/$PROJ/jobs/$JOB/tasks/$TASK2"       
+   curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK2_URL/outputs/data-json" | jq '.' > output_task-$TASK2.json
 
 This will be the same GeoJSON as we got above for the job results. They
 may look sintatically different, but semantically they are the same, as
@@ -396,19 +427,20 @@ you can confirm in this `gist <96b4c117-ab4d-44cf-afb1-0922d91031d4>`__.
 Second task results: tarball
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Similarly for the tarball:
+Similar to wath you did for the :ref:`first task <task-downloads-results>` tarball:
 
 .. code:: bash
 
-   curl -s -L -H "Authorization: Bearer $PTOKEN" -o output_task-$TASK2.tar.gz "$TASK2_URL/outputs/directory"
-
+   TASK2_TARBALL_URL=$(curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK2_URL/downloads/results" | jq -j '.data.url')   
+   curl -s -L -H "Authorization: Bearer $PTOKEN" -o output_$TASK2.tar.gz "$TASK2_TARBALL_URL"
+          
 .. code:: bash
 
    > tar ztvf output_task-$TASK2.tar.gz
 
-   drwxrwxrwx  0 root   root        0 Jul  3 00:39 output
-   -rw-r--r--  0 root   root   432316 Jul  3 00:39 output/data.json
-   -rw-r--r--  0 root   root  5515635 Jul  3 00:39 output/e3650bac-bfbe-4ed2-bec4-9ea50245d2c0_land_cover.tif
+   drwxrwxrwx  0 root   root        0 Sep 16 19:40 output
+   -rw-r--r--  0 root   root  5515635 Sep 16 19:40 output/56f3c47a-92a8-4e89-a005-ff1bbd567ac9_land_cover.tif
+   -rw-r--r--  0 root   root   399659 Sep 16 19:40 output/data.json
 
 As you can see the results are the same as for the job. Which means
 that:
@@ -430,32 +462,48 @@ Get all the workflows
 
 .. code:: bash
 
-   URL_WORKFLOWS="https://api.up42.dev/projects/$PROJ/workflows"
+   URL_WORKFLOWS="https://api.up42.com/projects/$PROJ/workflows"
    curl -s -L -H "Authorization: Bearer $PTOKEN" $URL_WORKFLOWS | jq '.' > workflows-$PROJ.json
 
 `This <https://gist.github.com/perusio/3a5bd15878caa25f99e8d12e2a1774d5>`__
 is the output file.
 
-In this case there is only one workflow. You can verifiy this by issuing
+In this case there is only one workflow. You can verify this by issuing
 the following command:
 
 .. code:: bash
 
    cat workflows-5a21eaff-cdaa-48ab-bedf-5454116d16ff.json | jq '.data | length'
 
-giving ``1``. Hence it is confirmed that there is a single workflow in
-this project.
+giving ``5``. We are in the first workflow for this project.
+
+.. code:: bash
+
+   cat workflows-5a21eaff-cdaa-48ab-bedf-5454116d16ff.json | jq '.data[0]'
+
+.. code:: js
+
+   {
+     "id": "21415975-390f-4215-becb-8d46aaf5156c",
+     "name": "Land cover + landsat8",
+     "description": "",
+     "createdAt": "2019-05-16T13:38:57.996Z",
+     "updatedAt": "2019-05-16T13:39:16.735Z",
+     "totalProcessingTime": 10193
+   }       
 
 Extracting the workflow ID:
 
 .. code:: bash
 
-   cat workflows-5a21eaff-cdaa-48ab-bedf-5454116d16ff.json | jq -j '.data[] | .id'
+   WORKFLOW=$(cat workflows-5a21eaff-cdaa-48ab-bedf-5454116d16ff.json | jq -j '.data[0].id')
 
 returns:
 
 .. code:: bash
 
+   > echo $WORKFLOW
+   
    21415975-390f-4215-becb-8d46aaf5156c
 
 As you can see it is the same workflow ID as we extracted before in
@@ -463,15 +511,15 @@ As you can see it is the same workflow ID as we extracted before in
 
 .. _get-workflow:
 
-Get a particular workflow
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Get a particular workflow details
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now reusing the ``WORKFLOW`` variable from above to obtain the details
 for a particular workflow.
 
 .. code:: bash
 
-   curl -s -L -H "Authorization: Bearer $PTOKEN" "$URL_WORKFLOWS/$WORKFLOW" | jq '.' > workflow-$WORKFLOW.json
+   curl -s -L -H "Authorization: Bearer $PTOKEN" "$URL_WORKFLOWS/$WORKFLOW/tasks" | jq '.' > workflow-$WORKFLOW.json
 
 Returns the
 `file <https://gist.github.com/perusio/7c8ec9f06de6be3695e04a0b627b1535>`__.
@@ -496,7 +544,7 @@ To create a new workflow we need to give a JSON as the request body.
 
    {
      "id": null,
-     "name": "Create a new landsat 8 + Land cover workflow",
+     "name": "Create a brand new landsat 8 + Land cover workflow",
      "description": "Just trying out workflow creation",
      "projectId": "5a21eaff-cdaa-48ab-bedf-5454116d16ff",
      "tasks": []
@@ -526,18 +574,17 @@ And this is the response body.
    {
      "error": null,
      "data": {
-       "id": "ce6f6b93-f227-42d8-b998-a043762c8c5c",
-       "name": "Create a new landsat 8 + Land cover workflow",
-       "description": "Just trying out workflow creation",
-       "tasks": [],
-       "createdAt": "2019-07-10T17:51:26.371Z",
-       "updatedAt": "2019-07-10T17:51:26.375Z",
-       "totalProcessingTime": 0
+        "id": "c5085052-509b-4cba-951a-8e6a18aee9bb",
+        "name": "Create a new landsat 8 + Land cover workflow",
+        "description": "Just trying out workflow creation",
+        "createdAt": "2019-09-17T11:36:27.084Z",
+        "updatedAt": "2019-09-17T11:36:27.088Z",
+        "totalProcessingTime": 0
      }
    }
 
 The resource has been created with the ID
-``ce6f6b93-f227-42d8-b998-a043762c8c5c``.
+``c5085052-509b-4cba-951a-8e6a18aee9bb``.
 
 The ID is the last component of the URL when creating tasks, since it
 refers to a specific resource: the just created workflow.
@@ -554,7 +601,7 @@ To confirm the value:
 
    > echo $NEW_WORKFLOW
 
-   ce6f6b93-f227-42d8-b998-a043762c8c5c
+   c5085052-509b-4cba-951a-8e6a18aee9bb
 
 Now using the ID you can populate the workflow with the tasks. Task
 creation will be done one by one. Since the workflow has two tasks there
@@ -565,23 +612,17 @@ Creating the the first task: data block addition
 
 Adding the data block: Landsat 8 AOI clipped.
 
-First you need to create the response body for the PUT request.
+First you need to create the response body for the POST request.
 
 .. code:: js
 
-   {
-     "id": "ce6f6b93-f227-42d8-b998-a043762c8c5c",
-     "name": "Create a new landsat 8 + Land cover workflow",
-     "description": "Just trying out workflow creation",
-     "projectId": "5a21eaff-cdaa-48ab-bedf-5454116d16ff",
-     "tasks": [
-       {
-         "name": "First task_ Landsat 8 AOI clipped data block",
-         "parentName": null,
-         "blockName": "sentinelhub-landsat8-aoiclipped"
-       }
-     ]
-   }
+   [
+     {
+       "name": "First task Landsat 8 AOI clipped data block",
+       "parentName": null,
+       "blockName": "sentinelhub-landsat8-aoiclipped"
+     }
+   ]
 
 where we have the fields given when creating the workflow resource (POST
 request) plus the workflow ID and the first task specific fields:
@@ -592,11 +633,14 @@ request) plus the workflow ID and the first task specific fields:
    ``null``.
 -  ``blockName``: the block machine name.
 
-Now issuing the request:
+We put the above JSON payload in the file
+``workflow_task1_created-$NEW_WORKFLOW.json``, where ``NEW_WORKFLOW``
+is the above obtained workflow ID:
+``c5085052-509b-4cba-951a-8e6a18aee9bb``. Now issuing the request:
 
 .. code:: bash
 
-   curl -s -L -X PUT -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$NEW_WORKFLOW" -d @create_task1_workflow-ce6f6b93-f227-42d8-b998-a043762c8c5c.json | jq '.' > workflow_task1_created-$NEW_WORKFLOW.json
+   curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$NEW_WORKFLOW/tasks" -d @create_task1_workflow-$NEW_WORKFLOW.json | jq '.' > workflow_task1_created-$NEW_WORKFLOW.json
 
 generates the `response
 body <https://gist.github.com/perusio/d544bfc158035c483867fa74a9697ef8>`__.
@@ -612,24 +656,19 @@ The new block needs to be added to the task list (a JS array).
 
 .. code:: js
 
-   {
-     "id": "ce6f6b93-f227-42d8-b998-a043762c8c5c",
-     "name": "Create a new landsat 8 + Land cover workflow",
-     "description": "Just trying out workflow creation",
-     "projectId": "5a21eaff-cdaa-48ab-bedf-5454116d16ff",
-     "tasks": [
-       {
-         "name": "First task_ Landsat 8 AOI clipped data block",
-         "parentName": null,
-         "blockName": "sentinelhub-landsat8-aoiclipped"
-       },
-      {
-        "name": "land_cover_classification:1",
-        "parentName": "First task_ Landsat 8 AOI clipped data block",
-        "blockName": "land_cover_classification"
-      }
-     ]
-   }
+
+   [
+     {
+       "name": "First task Landsat 8 AOI clipped data block",
+       "parentName": null,
+       "blockName": "sentinelhub-landsat8-aoiclipped"
+     },
+    {
+      "name": "land-cover-classification",
+      "parentName": "First task Landsat 8 AOI clipped data block",
+      "blockName": "land-cover-classification"
+    }
+  ]
 
 The task list has now two entries, the second being the
 ``land_cover_classification`` block. Notice that ``parentName`` is set
@@ -640,7 +679,7 @@ To add the second block the API call is:
 
 .. code:: bash
 
-   curl -s -L -X PUT -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$NEW_WORKFLOW" -d @create_task2_workflow-ce6f6b93-f227-42d8-b998-a043762c8c5c.json | jq '.' > workflow_task2_created-$NEW_WORKFLOW.json
+   curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$NEW_WORKFLOW/tasks" -d @create_task2_workflow-$NEW_WORKFLOW.json | jq '.' > workflow_task2_created-$NEW_WORKFLOW.json
 
 that outputs the following
 `file <https://gist.github.com/perusio/d27bd895bc383635b4e4b3d1469bdebb>`__
@@ -650,9 +689,48 @@ Now querying the workflow endpoint:
 
 .. code:: bash
 
-   curl -s -L -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$NEW_WORKFLOW" | jq '.' > workflow-$NEW_WORKFLOW.json
+   curl -s -L -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$NEW_WORKFLOW/tasks" | jq '.' > workflow-$NEW_WORKFLOW.json
 
 and comparing the current output with the
 `output <https://gist.github.com/perusio/d27bd895bc383635b4e4b3d1469bdebb>`__
-when creating the second task you can cerify that they are identical.
+when creating the second task you can certify that they are identical.
 
+Delete a workflow
+^^^^^^^^^^^^^^^^^
+
+To delete a workflow we need get the workflow ID of the workflow to
+be deleted. From the file we obtained :ref:`before <get-workflows>` we
+see that there is a workflow that is called ``another test workflow``.
+
+.. code:: bash
+
+   # Get the workflow ID of the workflow to be deleted.       
+   DEL_WORKFLOW=$(cat workflows-$PROJ.json | jq -j '.data[] as $wf | if $wf.name == "another test workflow" then $wf.id else "" end')       
+
+   > echo echo $DEL_WORKFLOW
+
+   40866305-323f-4a79-8ec2-106ae8ebb88c
+
+To delete this workflow the request is:
+
+.. code:: bash
+
+   curl -si -L -X DELETE -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$DEL_WORKFLOW"
+   
+   HTTP/2 204
+   date: Tue, 17 Sep 2019 15:01:55 GMT
+   x-content-type-options: nosniff
+   x-xss-protection: 1; mode=block
+   cache-control: no-cache, no-store, max-age=0, must-revalidate
+   pragma: no-cache
+   expires: 0
+   x-frame-options: SAMEORIGIN
+   referrer-policy: same-origin
+   x-powered-by: Rocket Fuel
+   access-control-allow-credentials: true
+   access-control-allow-methods: GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS
+   access-control-allow-headers: DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization
+   access-control-expose-headers: Content-Disposition
+   strict-transport-security: max-age=31536000; includeSubDomains; preload
+
+The HTTP status `204 No Content <https://httpstatuses.com/204>`__ 
