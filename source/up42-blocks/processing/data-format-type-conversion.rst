@@ -40,7 +40,7 @@ Example parameters using the :ref:`SPOT download block
         "order_ids": null,
         "time_series": null
       },
-      "converter:1": {
+      "data-conversion:1": {
         "ms": true,
         "pan": false
       }
