@@ -7,6 +7,19 @@
 Changelog
 =========
 
+17.9.2019
+---------
+
+* Add new :ref:`Pansharpen <pansharpen-block>` block.
+
+
+10.9.2019
+--------
+
+* Add new :ref:`Pleiades DIMAP Download <pleiades-dimap-block>` and :ref:`SPOT DIMAP Download block <spot-dimap-block>`.
+* Add new :ref:`Data Format and Type Conversion block <data-format-type-conversion-block>`.
+* Add tutorial on :ref:`Using DIMAP download blocks <using-download-block>`.
+
 9.9.2019
 --------
 
