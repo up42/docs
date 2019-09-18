@@ -19,7 +19,7 @@ The UP42 API allows for doing the following things on a given project:
    -  cancel job
    - `create & run job <#create-run-job>`__
    - `get job output <#results-geojson>`__ (``data.json``)
-   - `get job output directory <#results-results>`__
+   - `get job output directory <#downloads-results>`__
 
 2. Work with jobs and tasks:
 
@@ -33,7 +33,8 @@ The UP42 API allows for doing the following things on a given project:
    - `get workflows <#get-workflows>`__
    - `get workflow <#get-workflow>`__
    - `create workflow <#create-workflow>`__
-   -  update workflow
+   -  `update workflow <#update-workflow>`__
+   - `delete workflow <#delete-workflow>`__   
 
 It means that a **project key** is **always** needed. Therefore you
 always need to create a project **through the UI**.
@@ -695,6 +696,38 @@ and comparing the current output with the
 `output <https://gist.github.com/perusio/d27bd895bc383635b4e4b3d1469bdebb>`__
 when creating the second task you can certify that they are identical.
 
+.. _update-workflow:
+
+Update a workflow
+^^^^^^^^^^^^^^^^^
+
+To update a workflow you just overwrite it by sending a POST request
+to the workflow task endpoint. As an example we are going to replace
+the Landsat 8 AOI Clipped data block by the SPOT 6/7 AOI Clipped
+data block. For that we have the following payload, enumerating all
+the tasks:
+
+.. code:: js
+
+   [
+     {
+       "name": "First task SPOT 6/7 AOI clipped data block",
+       "parentName": null,
+       "blockName": "oneatlas-spot-aoiclipped"
+     },
+    {
+      "name": "land-cover-classification",
+      "parentName": "First task SPOT 6/7 AOI clipped data block",
+      "blockName": "land-cover-classification"
+    }
+  ]
+
+.. code:: bash
+
+   curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$NEW_WORKFLOW/tasks" -d @update_workflow-$NEW_WORKFLOW.json | jq '.' > workflow_updated-$NEW_WORKFLOW.json
+
+.. _delete-workflow:
+   
 Delete a workflow
 ^^^^^^^^^^^^^^^^^
 
