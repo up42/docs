@@ -21,7 +21,7 @@ central workspace of UP42. It allows you to create
 :term:`blocks<block>` to put together custom
 :term:`workflows<workflow>` and run them as :term:`jobs<job>`.
 
-.. figure:: console.png
+.. figure:: _assets/console.png
    :align: center
    :alt: The UP42 console
 
@@ -36,7 +36,7 @@ for the satellite imagery, and one :term:`processing block` for the
 land cover classification.  We already ran the workflow for you,
 explore the results in the **Jobs** section.
 
-.. figure:: demo_blocks.png
+.. figure:: _assets/demo_blocks.png
    :scale: 40%
    :align: center
    :alt: Blocks used in the Demo workflow.
@@ -48,7 +48,7 @@ the land cover**. The example is using the :ref:`Landsat 8
 resolution is 15 meters, i.e. one pixel in the image represents 15
 meters on the ground.
 
-.. figure:: demo_sat_result.png
+.. figure:: _assets/demo_sat_result.png
    :align: center
    :alt: AOI for demo project in the UK near the sea and the river Ore
 

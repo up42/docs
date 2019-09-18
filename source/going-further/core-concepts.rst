@@ -24,7 +24,7 @@ Blocks are the base units of the platform. There are two types of blocks:
 * **data blocks**: which query for data.
 * **processing blocks**: which transform and/or analyze data.
 
-.. figure:: data-block.png
+.. figure:: _assets/data-block.png
     :align: center
     :scale: 35 %     
     :alt: Data block diagram
