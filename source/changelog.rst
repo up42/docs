@@ -14,7 +14,7 @@ Changelog
 
 
 10.9.2019
---------
+---------
 
 * Add new :ref:`Pleiades DIMAP Download <pleiades-dimap-block>` and :ref:`SPOT DIMAP Download block <spot-dimap-block>`.
 * Add new :ref:`Data Format and Type Conversion block <data-format-type-conversion-block>`.

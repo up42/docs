@@ -14,23 +14,23 @@ This block pansharpens Pleiades and SPOT imagery.
 Supported parameters
 --------------------
 
-* ``method``: Method used in pansharpening procedure. Default is ``SFIM`` or Smoothing Filter-based Intensity Modulation as described in [Liu2000]_. Additional options are ``Brovey`` or ``Esri``.
+* ``method``: Method used in pansharpening procedure. Default is ``SFIM`` or Smoothing Filter-based Intensity Modulation as described in Liu2000_. Additional options are ``Brovey`` or ``Esri``.
 
 * ``include_pan``: Include the panchromatic band in the output pansharpened image.
 
 Methods
 ~~~~~~~
 
-In [Vivone2014]_ an extensive review of pansharpening procedures was performed, with results being assessed on the geometric detail of the final result and additionally the spectral correspondence of the pansharpened result with the input multispectral imagery.
+In Vivone2014_ an extensive review of pansharpening procedures was performed, with results being assessed on the geometric detail of the final result and additionally the spectral correspondence of the pansharpened result with the input multispectral imagery.
 
-In this paper, **SFIM**, or **S**\ moothing **F**\ ilter-based **I**\ ntensity **M**\ odulation (based on [Liu2000]_), has one of the top performances in all of the metrics assessed and because of this we have selected this method as the **default pansharpening procedure**.
+In this paper, **SFIM**, or **S**\ moothing **F**\ ilter-based **I**\ ntensity **M**\ odulation (based on Liu2000_), has one of the top performances in all of the metrics assessed and because of this we have selected this method as the **default pansharpening procedure**.
 
 Additionally, two other methods have been implemented, **Brovey** or Weighted Brovey and **Esri**, as described below.
 
 ``SFIM``
 <<<<<<<<
 
-SFIM has been developed based on a simplified solar radiation and land surface reflection model. By using a ratio between a higher resolution image (panchromatic band) and its low pass filtered (with a smoothing filter) image, spatial details can be modulated to a lower resolution multispectral image without altering its spectral properties and contrast. An additional (optional) parameter has been added to control the blurred edges that appear in the pansharpened result (``edge_sharpen_factor``) - setting this factor to ``1.7`` (the default) removes most of this effect. Read more about this procedure in the paper from [Liu2000]_.
+SFIM has been developed based on a simplified solar radiation and land surface reflection model. By using a ratio between a higher resolution image (panchromatic band) and its low pass filtered (with a smoothing filter) image, spatial details can be modulated to a lower resolution multispectral image without altering its spectral properties and contrast. An additional (optional) parameter has been added to control the blurred edges that appear in the pansharpened result (``edge_sharpen_factor``) - setting this factor to ``1.7`` (the default) removes most of this effect. Read more about this procedure in the paper from Liu2000_.
 
 Example of parameters to use in the pansharpening block with the ``SFIM`` method:
 
@@ -143,5 +143,6 @@ Capabilities
 
 The block takes a ``up42.data.scene.dimap`` product and delivers a ``up42.data.aoiclipped``.
 
-.. [Liu2000] Liu, J. G. (2000). Smoothing filter-based intensity modulation: A spectral preserve image fusion technique for improving spatial details. International Journal of Remote Sensing, 21(18), 3461-3472.
 .. [Vivone2014] Vivone, G., Alparone, L., Chanussot, J., Dalla Mura, M., Garzelli, A., Licciardi, G. A. & Wald, L. (2014). A critical comparison among pansharpening algorithms. IEEE Transactions on Geoscience and Remote Sensing, 53(5), 2565-2586.
+
+.. [Liu2000] Liu, J. G. (2000). Smoothing filter-based intensity modulation: A spectral preserve image fusion technique for improving spatial details. International Journal of Remote Sensing, 21(18), 3461-3472.
