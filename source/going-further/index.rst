@@ -30,6 +30,7 @@ requires :ref:`custom storage <custom-storage>`?
    core-concepts
    filters
    api-walkthrough
+   download-block-howto
    using-download-block
    custom-processing-block-dev
    using-gpus-in-your-processing-block

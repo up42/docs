@@ -31,7 +31,7 @@ Blocks are the base units of the platform. There are two types of blocks:
 
     Data block.
 
-.. figure:: processing-block.png
+.. figure:: _assets/processing-block.png
     :align: center
     :scale: 35 %
     :alt: Processing block diagram
@@ -68,7 +68,7 @@ A workflow is responsible for validating the connections between
 blocks when creating a :ref:`job <jobs-definition>`.
 Blocks can be shared among workflows.
 
-.. figure:: workflow.png
+.. figure:: _assets/workflow.png
     :align: center
     :scale: 35 %
     :alt: Workflow block diagram

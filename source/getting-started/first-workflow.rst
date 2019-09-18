@@ -11,7 +11,7 @@ This guide will walk you through creating an workflow on the
 platform, using blocks that already exist. The goal is to generate **ship detections**
 in the harbour of Leixões, Portugal using SPOT data.
 
-.. figure:: spot_image_overlayed_ships.png
+.. figure:: _assets/spot_image_overlayed_ships.png
    :align: center
    :alt: Overlayed ships and original SPOT image
 
