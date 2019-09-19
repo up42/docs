@@ -124,7 +124,6 @@ Example of parameters to use in the pansharpening block with the ``Esri`` method
       }
     }
 
-Example of parameters to use in the pansharpening block with the ``Esri`` method with SPOT imagery:
 
 .. code-block:: javascript
     :caption: SPOT weights
