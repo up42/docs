@@ -14,9 +14,48 @@ This block pansharpens Pleiades and SPOT imagery.
 Supported parameters
 --------------------
 
-* ``method``: Method used in pansharpening procedure. Default is ``SFIM`` or Smoothing Filter-based Intensity Modulation as described in Liu2000_. Additional options are ``Brovey`` or ``Esri``.
+* ``method``: Method used in pansharpening procedure. Default is ``SFIM`` or Smoothing Filter-based Intensity Modulation as described in Liu2000_.
 
 * ``include_pan``: Include the panchromatic band in the output pansharpened image.
+
+Example parameters using the :ref:`SPOT DIMAP download block
+<spot-dimap-block>` as data source, returning the pansharpened multispectral
+product appended with the panchromatic band:
+
+.. code-block:: javascript
+
+    {
+      "oneatlas-spot-fullscene:1": {
+        "ids": null,
+        "bbox": [
+          13.405215963721279,
+          52.48480326228838,
+          13.4388092905283,
+          52.505278605259086
+        ],
+        "time": null,
+        "limit": 1,
+        "order_ids": null,
+        "time_series": null
+      },
+      "pansharpen:1": {
+        "include_pan":true
+      }
+    }
+
+
+Output format
+-------------
+
+AOI.clipped GeoTIFF format.
+
+Capabilities
+------------
+
+The block takes a ``up42.data.scene.dimap`` product and delivers a ``up42.data.aoiclipped``.
+
+Advanced
+--------
 
 Methods
 ~~~~~~~
@@ -107,41 +146,6 @@ Optional parameters
 
 * ``weights``: Used only for ``Esri`` method. The weights in sequence for each multispectral bands that depend on the overlap of the spectral sensitivity curves of the multispectral bands with the panchromatic band. For Pleiades weights are ``[0.2, 0.34, 0.34, 0.23]`` while for SPOT weights are ``[0.24, 0.2, 0.24, 0]``.
 
-Example parameters using the :ref:`SPOT DIMAP download block
-<spot-dimap-block>` as data source, returning the pansharpened multispectral
-product appended with the panchromatic band:
-
-.. code-block:: javascript
-
-    {
-      "oneatlas-spot-fullscene:1": {
-        "ids": null,
-        "bbox": [
-          13.405215963721279,
-          52.48480326228838,
-          13.4388092905283,
-          52.505278605259086
-        ],
-        "time": null,
-        "limit": 1,
-        "order_ids": null,
-        "time_series": null
-      },
-      "pansharpen:1": {
-        "include_pan":true
-      }
-    }
-
-
-Output format
--------------
-
-AOI.clipped GeoTIFF format.
-
-Capabilities
-------------
-
-The block takes a ``up42.data.scene.dimap`` product and delivers a ``up42.data.aoiclipped``.
 
 .. [Vivone2014] Vivone, G., Alparone, L., Chanussot, J., Dalla Mura, M., Garzelli, A., Licciardi, G. A. & Wald, L. (2014). A critical comparison among pansharpening algorithms. IEEE Transactions on Geoscience and Remote Sensing, 53(5), 2565-2586.
 
