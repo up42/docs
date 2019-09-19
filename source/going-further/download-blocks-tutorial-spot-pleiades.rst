@@ -258,7 +258,7 @@ because we are using only one image we downloaded previously, but if
 you want to use multiple previously downloaded images just add
 all the order IDs in this array.
 
-Here is the output shown here converted from GeoTIFF to a JPEG.
+And the output shown here converted from GeoTIFF to a JPEG.
 
 .. figure:: _assets/download_block_ms_output.png
    :align: center

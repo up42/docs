@@ -1,6 +1,6 @@
 .. meta::
-   :description: UP42 data blocks: Pléaides block description
-%   :keywords: Pléiades 1A/1B, Airbus Defense & Space, AOI clipped, block description
+  :description: UP42 data blocks: Pléaides download block description
+  :keywords: Pléiades 1A/1B, Airbus Defense & Space, download block, block description
 
 .. _pleiades-download-block:
 
@@ -15,7 +15,7 @@ The available output bands of the Pleiades block are: panchromatic, red, green, 
 
 .. tip::
 
-	Find out more about the DIMAP image format `here <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`_. DIMAP is a GDAL supported `raster format <https://gdal.org/drivers/raster/dimap.html>`_.
+   Find out more about the DIMAP image format `here <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`_. DIMAP is a GDAL supported `raster format <https://gdal.org/drivers/raster/dimap.html>`_.
 
 Supported parameters
 --------------------

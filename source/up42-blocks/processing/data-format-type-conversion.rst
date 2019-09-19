@@ -1,6 +1,6 @@
 .. meta::
-   :description: UP42 processing blocks: Data format and type conversion block description
-   :keywords: UP42, processing, data format, data type, block description
+  :description: UP42 processing blocks: Data format and type conversion block description
+  :keywords: UP42, processing, data format, data type, block description
 
 .. _data-format-type-conversion-block:
 
@@ -9,7 +9,7 @@ Data Format and Type Conversion block
 
 Block type: ``PROCESSING``
 
-This block converts from the DIMAP format to the ``GTiff`` format.
+This block converts from the DIMAP format to the ``GeoTIFF`` format.
 
 Supported parameters
 --------------------
@@ -21,8 +21,8 @@ Supported parameters
 
 	You can only set to ``true`` one of the two parameters (``ms`` or ``pan``).
 
-Example parameters using the :ref:`SPOT DIMAP download block
-<spot-dimap-block>` as data source, returning the multispectral product only:
+Example parameters using the :ref:`SPOT download block
+<spot-download-block>` as data source, returning the multispectral product only:
 
 .. code-block:: javascript
 

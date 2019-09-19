@@ -80,6 +80,24 @@ the fly processing for downloads. So it is possible for data to exist
 in Geostore but not in OneAtlas. Airbus aims for data parity between
 Geostore and OneAtlas over time.
 
+.. _acquire-hi-res-data:
+
+How can I acquire very-high resolution images with indefinite rights of usage?
+------------------------------------------------------------------------------
+
+Use one of the available download blocks:
+
+ + :ref:`Pléiades <pleiades-download-block>`.
+ + :ref:`SPOT 6/7 <spot-download-block>`.
+
+Read the :ref:`tutorial <download-blocks-tutorial-spot-pleiades>` on
+how to do it.
+
+How can I get very-high resolution images in the Near Infra-Red (NIR) band?
+---------------------------------------------------------------------------
+
+See :ref:`above <acquire-hi-res-data>`.
+
 .. raw:: html
 
    <!-- 

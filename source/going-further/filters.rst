@@ -144,9 +144,9 @@ Implemented filters
  :widths: auto
 
  ":ref:`Pleiades (AOI-Clipped) <pleiades-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
- ":ref:`Pleiades DIMAP Download <pleiades-dimap-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Pleiades Download <pleiades-download-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`SPOT (AOI-Clipped) <pleiades-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
- ":ref:`SPOT DIMAP Download <pleiades-dimap-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`SPOT Download <pleiades-download-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`Sentinel-1 GRD (full-scene) <sentinel1-grd-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`Sentinel-1 SLC (full-scene) <sentinel1-slc-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`Sentinel-2 L1C (full-scene)  <sentinel2-l1c-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
