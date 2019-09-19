@@ -1,6 +1,6 @@
 .. meta::
-   :description: UP42 going further: Download block how to
-   :keywords: spot, pleiades, data block, very-high resolution, download, multispectral
+   :description: UP42 going further: Download blocks tutorial
+   :keywords: spot, pleiades, data block, very-high resolution, download, multi-spectral
 
 .. _download-blocks-tutorial-spot-pleiades:
 
