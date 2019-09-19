@@ -2,7 +2,7 @@
    :description: UP42 data blocks: SPOT 6/7 block description
    :keywords: SPOT 6/7, Airbus Defense & Space, AOI clipped, block description
 
-.. _spot-dimap-block:
+.. _spot-download-block:
 
 SPOT DIMAP Download
 ===================

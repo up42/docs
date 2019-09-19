@@ -11,7 +11,7 @@ This is the section for beginners to UP42. It provides you with an
 introductory overview of the many things that you can do in our
 platform.
 
-.. figure:: up42-console.png
+.. figure:: _assets/up42-console.png
    :align: center
    :alt: The UP42 Console
 

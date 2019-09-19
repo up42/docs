@@ -11,7 +11,7 @@ This guide will walk you through creating an workflow on the
 platform, using blocks that already exist. The goal is to generate **ship detections**
 in the harbour of Leixões, Portugal using SPOT data.
 
-.. figure:: spot_image_overlayed_ships.png
+.. figure:: _assets/spot_image_overlayed_ships.png
    :align: center
    :alt: Overlayed ships and original SPOT image
 
@@ -58,7 +58,7 @@ time selecting "Raster Tiling".
 Add another processing block by clicking on the **+** sign under the
 previously added Raster Tiling block. This time the  "Ship Detection" block.
 
-.. figure:: screenshot-first-workflow.png
+.. figure:: _assets/screenshot-first-workflow.png
    :align: center
    :alt: Screenshot of your first workflow. Link: https://console.up42.com/projects/b45630bf-c6e1-4713-8f33-eeadaa536c44/workflows/a8f353a1-1bf4-43a3-a533-682355c3a3c2
 
@@ -89,7 +89,7 @@ interest to you. Then either choose to use a :ref:`Bounding box
 <bbox-filter>`, :ref:`Intersects <intersects-filter>`
 or :ref:`Contains <contains-filter>` filter. Click on the map and draw your AOI.
 
-.. figure:: screenshot-aoi-selector.png
+.. figure:: _assets/screenshot-aoi-selector.png
    :align: center
    :alt: Screenshot of your first workflow. Link: https://console.up42.com/projects/b45630bf-c6e1-4713-8f33-eeadaa536c44/workflows/a8f353a1-1bf4-43a3-a533-682355c3a3c2/configure-job
 
@@ -153,7 +153,7 @@ then the final result.
 
 Input data
 ~~~~~~~~~~
-.. figure:: spot_original_image.png
+.. figure:: _assets/spot_original_image.png
    :align: center
    :alt: SPOT image from Matosinhos port Portugal
 
@@ -161,7 +161,7 @@ Input data
 
 Tiling result
 ~~~~~~~~~~~~~
-.. figure:: spot_tiling.png
+.. figure:: _assets/spot_tiling.png
    :align: center
    :alt: Tiled Matosinhos port image
 
@@ -169,7 +169,7 @@ Tiling result
 
 Detected ships
 ~~~~~~~~~~~~~~
-.. figure:: spot_detected_ships.png
+.. figure:: _assets/spot_detected_ships.png
    :align: center
    :alt: Mask with found ships in Matosinhos port
 
@@ -177,7 +177,7 @@ Detected ships
 
 Detected ships with input data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. figure:: spot_image_overlayed_ships.png
+.. figure:: _assets/spot_image_overlayed_ships.png
    :align: center
    :alt: Overlayed ships and original SPOT image
 

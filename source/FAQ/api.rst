@@ -22,14 +22,13 @@ you can do everything within the project:
 
 1. Add/remove blocks, thus modifying the workflow.
 2. Create, run, cancel jobs.
-3. And much, much more: see the `API
-   documentation <https://docs.up42.com/api/index.html>`__.
+3. And much, much more: see the :ref:`API walkthrough <api-walkthrough>`.
 
 Where can I learn more about the UP42 API?
 ------------------------------------------
 
 To learn more about our API and the concepts underlying it go to our
-`documentation <https://docs.up42.com/api/index.html>`__ site.
+:ref:`documentation <api-walkthrough>` site.
 
 .. raw:: html
 

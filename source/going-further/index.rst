@@ -12,6 +12,9 @@ If you are already familiar with the topics discussed in the :ref:`introductory
 the :ref:`core concepts <core-concepts>` and understand what
 :ref:`data filters <filters>` are available and how they work.
 
+The :ref:`download blocks <download-block-howto>` how-to explains the
+procedure for downloading very-high resolution multi-spectral
+imagery.
 
 If you are looking into a first run through our API end to end then
 take a look at the :ref:`API walkthrough <api-walkthrough>`.
@@ -30,7 +33,7 @@ requires :ref:`custom storage <custom-storage>`?
    core-concepts
    filters
    api-walkthrough
-   using-download-block
+   download-block-howto
    custom-processing-block-dev
    using-gpus-in-your-processing-block
    credentials

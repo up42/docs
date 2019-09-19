@@ -1,10 +1,10 @@
 .. meta::
    :description: UP42 data blocks: Pléaides block description
-   :keywords: Pléiades 1A/1B, Airbus Defense & Space, AOI clipped, block description
+%   :keywords: Pléiades 1A/1B, Airbus Defense & Space, AOI clipped, block description
 
-.. _pleiades-dimap-block:
+.. _pleiades-download-block:
 
-Pleiades DIMAP Download
+Pléiades DIMAP Download
 =======================
 
 Block type: ``DATA``

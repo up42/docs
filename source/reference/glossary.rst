@@ -59,11 +59,6 @@
       case the selected AOI is used to search for the scene(s) that
       include(s) the specified AOI.
 
-   NDVI
-      **N**\ ormalized **D**\ ifference **V**\ egetation **I**\ ndex. One of the most widespread
-      vegetation indexes used to determine vegetation health and vitality. Is computed by making use of
-      the Near Infrared Band and the
-
    job
       An instance of a :term:`workflow`.
 
@@ -73,6 +68,11 @@
    job parameters
       The JSON that includes the configuration for each :term:`block`
       in a given :term:`workflow`.
+      
+   NDVI
+      **N**\ ormalized **D**\ ifference **V**\ egetation **I**\
+      ndex. One of the most widespread vegetation indexes used to
+      infer vegetation health and vitality.
 
    processing block
       A :term:`block` that takes input from a :term:`data block` and applies a processing operation to the data.
@@ -89,6 +89,13 @@
       block <pleiades-aoiclipped-block>` is a task in a :term:`job`
       for a :term:`workflow` that uses this data block.
 
+   testquery
+      A job that consisting only in querying for data given a set of
+      :ref:`filters <filters>` from an upstream data provider. Not all
+      data providers might implement this functionality. The output
+      is a GeoJSON enumerating the available data items. If no data
+      exists for a particular query an empty GeoJSON is returned.
+      
    workflow
       A directed acyclic graph of blocks [#]_. See :ref:`definition <workflows-definition>`.
 

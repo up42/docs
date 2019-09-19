@@ -1,0 +1,249 @@
+.. meta::
+   :description: UP42 going further: Download block how to
+   :keywords: spot, pleiades, data block, very-high resolution, download, multispectral
+
+.. _download-block-howto:
+
+=====================
+Download block how-to
+=====================
+
+Introduction
+------------
+
+You have currently two options to acquire very-high resolution (SPOT
+6/7 and Pléiades) satellite imagery in UP42:
+
+ \1. Streaming 
+   Based on a specified :term:`AOI` **stream** the tiles related to that
+   AOI as images and use them in your :term:`workflow` as you see
+   fit. This provides the RGB bands, and optionally, also the
+   panchromatic band. This data is to be used only once, i.e., each
+   :term:`job` of a given workflow, for the **same** AOI, will **always**
+   acquires the data. Which means that you are paying for it each time
+   you rerun a job or run a job where the AOI is unchanged. This means
+   that there is no way to re-use the acquired images in your workflow.
+
+ \2. Downloading   
+   Based on a specified :term:`AOI` **download** the image
+   related to that AOI in `DIMAP
+   <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`__
+   format. This data can be used indefinitely, i.e., you now own
+   this image. Note that the returned image fits exactly to the
+   specified AOI if you use a :ref:`contains <contains-filter>`
+   for the data query in the :term:`job parameters`.  
+
+   
+What do download blocks offer?
+------------------------------
+
+As described above :ref:`SPOT 6/7 <spot-download-block>` and
+:ref:`Pléiades <pleiades-download-block>` download blocks allow to
+re-use images and also provide all the available bands in each
+satellite. Which are, respectively:
+
+.. table:: SPOT available bands
+   :align: center
+          
+   =============  ================
+    band           wavelength [μm]
+   =============  ================
+   Panchromatic   0.450-0.745
+   Blue           0.450-0.520
+   Green          0.530-0.590
+   Red            0.625-0.695
+   Near Infrared  0.760-0.890
+   =============  ================
+
+
+.. table:: Pléiades available bands
+   :align: center
+
+   =============  ================
+    band           wavelength [μm]
+   =============  ================        
+   Panchromatic   0.470-0.830
+   Blue           0.430-0.550
+   Green          0.500-0.620
+   Red            0.590-0.710
+   Near Infrared  0.740-0.940
+   =============  ================
+   
+This allows you to use algorithms like :term:`NDVI` for vegetation
+analysis or any other algorithm that relies on multi-spectral data
+in your workflow.
+
+.. figure:: _assets/ndvi-spot-example.png
+   :align: center
+   :alt: NDVI map generated from SPOT imagery in Berlin
+
+NDVI map generated from SPOT imagery in Berlin. Darker shade of green suggests higher vegetation vitality.
+
+
+Get a price estimate
+--------------------
+
+To get a price estimate you need to run a :term:`TestQuery`. In the
+returned GeoJSON. When you select an AOI in the console by default the
+job runs as a TestQuery.
+
+Here is an example with the job parameters:
+
+.. code:: javascript
+          
+   {
+     "config": {
+     "mode": "DRY_RUN"
+     },
+     "oneatlas-pleiades-fullscene:1": {
+        "ids": null,
+        "time": null,
+        "limit": 1,
+        "order_ids": null,
+        "intersects": {
+          "type": "Polygon",
+          "coordinates": [
+             [
+               [
+                 -8.710999,
+                 41.187342
+               ],
+               [
+                 -8.701859,
+                 41.190701
+               ],
+               [
+                 -8.701047,
+                 41.189484
+               ],
+               [
+                 -8.71018,
+                 41.186517
+               ],
+               [
+                 -8.710999,
+                 41.187342
+             ]
+            ]
+          ]
+        },
+        "time_series": null
+      }
+    }
+       
+Downloading the output we have the following GeoJSON:
+
+.. gist:: https://gist.github.com/perusio/dd284a2c20800d776de6f5dceb0bc838
+
+Looking at the raw data we have the _extra_ fields:
+
+.. code:: javascript
+
+   {
+     ...       
+        fileSize: 1449,
+        estimatedCredits: 111
+     ...
+   }
+        
+``estimatedCredits`` is the price estimation, in this case 111
+credits. 
+
+.. warning::
+
+   Both download blocks only accept an AOI with an **area greater
+   than 0.1 sqkm** or 100000 sqm. Any AOI smaller than this will
+   return an empty result.
+
+
+Download the image
+------------------
+
+Now you have the price estimate we can proceed and acquire the
+image. To do this we rerun the job as a real job by clicking on the
+**Run as real job** button. When the job is launched, the upstream
+creates an order ID. This is the unique identifier for the downloaded
+image.
+
+.. gist:: https://gist.github.com/perusio/5aab70f4ab7e32a8cd649ed2b0f3cb2c
+
+Looking at the raw output there is the field ``orderID``:
+
+.. code:: javascript
+ 
+   {
+      ...
+         "orderID": "002e11d3-3b46-43a5-a07d-855a94c72817",
+         "fileSize": 1449
+      ... 
+   }
+          
+This ID is **required** whenever you want to re-use the image. This
+way you won have to pay for it again.
+
+Re-use it in a workflow
+-----------------------
+
+As explained above the download blocks return the acquired images in
+DIMAP format. In order to use those images in any :term:`workflow` you
+need to use the The :ref:`Data Format and Type Conversion
+<data-format-type-conversion-block>` block so that a GeoTIFF is
+generated. Thus allowing you to use any :term:`processing block` in
+this image.
+
+We are going to build a workflow consisting of a
+:ref:`Pléiades <pleiades-download-block>`, the :ref:`Data Format and Type Conversion
+<data-format-type-conversion-block>` and finally the :ref:`tiling
+<tiling-block>`. This could then be followed by a Ship or car
+detection block, for example.
+
+Now you have the ``order ID`` generated when the image was downloaded
+from the upstream data provider. Since you already payed for this
+image you can re-use it indefinitely. To do this you enter the order
+ID as a parameter for your job. For this particular workflow:
+
+.. gist:: https://gist.github.com/perusio/4e2d1d19f7d4caa422609c2b5f92e331
+
+You can see the field ``order_ids``:
+
+.. code:: javascript
+
+   ...       
+   "order_ids": [
+      "002e11d3-3b46-43a5-a07d-855a94c72817"
+     ],
+   ...
+
+which is an array of order IDs. In this case it has only one entry,
+because we are using only one image we downloaded previously, but if
+you want to use multiple previously downloaded images you just add
+all the order IDs in this array.
+
+Here is the output shown here converted from GeoTIFF to a JPEG.
+
+.. figure:: _assets/download_block_ms_output.png
+   :align: center
+   :alt: Example download block image
+
+The downloaded image as a PNG with a black background.
+
+.. figure:: _assets/download_block_ms_output_4x.png
+   :align: center
+   :alt: Example download block image
+
+The downloaded image as a PNG with a black background and up-scaled 4x
+using a convolutional neural network. 
+
+
+.. warning::
+
+    Note that the original GeoTIFF image is comprised only of the
+    portion corresponding to the given AOI.
+
+.. tip::
+
+    Find out more about the DIMAP image format `here
+    <https://www.intelligence-airbusds.com/en/8722-the-download-format>`_. DIMAP
+    is a GDAL supported `raster format
+    <https://gdal.org/drivers/raster/dimap.html>`_.
+

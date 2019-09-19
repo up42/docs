@@ -4,9 +4,9 @@
 
 .. _using-download-block:
 
-=============================================
+===========================
 Using DIMAP download blocks
-=============================================
+===========================
 
 In order to make use of all the available bands present in certain datasets
 (such as SPOT and Pleiades) you will have to make use of the DIMAP download blocks.
@@ -15,7 +15,7 @@ Making use of the additional multispectral bands (other than red, green and blue
 to do detailed vegetation analysis (calculating :term:`NDVI` for instance) or any workflow that
 relies on the full multispectral instruments' capabilities.
 
-.. figure:: ndvi-spot-example.png
+.. figure:: _assets/ndvi-spot-example.png
   :align: center
   :alt: NDVI map generated from SPOT imagery in Berlin
 
@@ -32,7 +32,10 @@ Currently two DIMAP download blocks are available: the :ref:`Pleaides DIMAP down
 
 .. tip::
 
-	Find out more about the DIMAP image format `here <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`_. DIMAP is a GDAL supported `raster format <https://gdal.org/drivers/raster/dimap.html>`_.
+    Find out more about the DIMAP image format `here
+    <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`_. DIMAP
+    is a GDAL supported `raster format
+    <https://gdal.org/drivers/raster/dimap.html>`_.
 
 Both of these blocks return a DIMAP file and the :term:`AOI` within the output feature geometry.
 
@@ -41,13 +44,22 @@ An estimation of the number of credits is reported in the Task Logs once you run
 
 .. warning::
 
-	The DIMAP download blocks only accepts AOI with an **area greater than 0.1 sqkm** or 100000 sqm. Any AOI smaller than this will return an empty result.
+   The DIMAP download blocks only accepts AOI with an **area greater
+   than 0.1 sqkm** or 100000 sqm. Any AOI smaller than this will
+   return an empty result.
 
-One of the main differences between the DIMAP block vs. the AOI-Clipped block is the fact that with the DIMAP block you obtain a **permanent license that you can use in perpetuity for the image** you have purchased.
-Once you have run the DIMAP download block, you will have an ``order_id`` that you can reuse in other Workflows in order to reuse the same imagery.
+One of the main differences between the DIMAP block vs. the
+AOI-Clipped block is the fact that with the DIMAP block you obtain a
+**permanent license that you can use in perpetuity for the image** you
+have purchased.  Once you have run the DIMAP download block, you will
+have an ``order_id`` that you can reuse in other Workflows in order to
+reuse the same imagery.
 
-The ``order_id`` is an hash string (such as ``9e5122b5-a24c-43b3-82fd-40430449039b``) and you can use it directly in the ``order_id`` filter in the corresponding data block. You can find this ``order_id`` in the
-logs of the Task (such as ``oneatlas-spot-fullscene`` or ``oneatlas-pleiades-fullscene``).
+The ``order_id`` is an hash string (such as
+``9e5122b5-a24c-43b3-82fd-40430449039b``) and you can use it directly
+in the ``order_id`` filter in the corresponding data block. You can
+find this ``order_id`` in the logs of the Task (such as
+``oneatlas-spot-fullscene`` or ``oneatlas-pleiades-fullscene``).
 
 
 The Data Format and Type Conversion block

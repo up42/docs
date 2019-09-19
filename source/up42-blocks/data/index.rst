@@ -16,9 +16,9 @@ built by UP42.
    :includehidden:
 
    pleiades
-   pleiades-dimap
+   pleiades-download
    spot
-   spot-dimap
+   spot-download
    sobloo-s1-grd
    sobloo-s1-slc
    sobloo-s2-l1c
