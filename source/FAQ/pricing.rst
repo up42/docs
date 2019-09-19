@@ -6,6 +6,8 @@
  Pricing FAQ
 =============
 
+.. _credit:
+
 What is an UP42 credit?
 =======================
 
