@@ -143,7 +143,7 @@ Optional parameters
 
 * ``weight``: Used only for ``Brovey`` method.
 
-* ``weights``: Used only for ``Esri`` method. The weights in sequence for each multispectral bands that depend on the overlap of the spectral sensitivity curves of the multispectral bands with the panchromatic band. For Pleiades weights are ``[0.2, 0.34, 0.34, 0.23]`` while for SPOT weights are ``[0.24, 0.2, 0.24, 0]``.
+* ``weights``: Used only for ``Esri`` method. The weights in sequence for each multispectral bands that depend on the overlap of the spectral sensitivity curves of the multispectral bands with the panchromatic band. For Pleiades the default weights are ``[0.2, 0.34, 0.34, 0.23]`` while for SPOT weights are ``[0.24, 0.2, 0.24, 0]``.
 
 
 .. [Vivone2014] Vivone, G., Alparone, L., Chanussot, J., Dalla Mura, M., Garzelli, A., Licciardi, G. A. & Wald, L. (2014). A critical comparison among pansharpening algorithms. IEEE Transactions on Geoscience and Remote Sensing, 53(5), 2565-2586.
