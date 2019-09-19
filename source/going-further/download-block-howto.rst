@@ -20,18 +20,18 @@ You have currently two options to acquire very-high resolution (SPOT
    fit. This provides the RGB bands, and optionally, also the
    panchromatic band. This data is to be used only once, i.e., each
    :term:`job` of a given workflow, for the **same** AOI, will **always**
-   acquires the data. Which means that you are paying for it each time
+   acquire the data. Which means that you are paying for it each time
    you rerun a job or run a job where the AOI is unchanged. This means
    that there is no way to re-use the acquired images in your workflow.
 
  \2. Downloading   
-   Based on a specified :term:`AOI` **download** the image
-   related to that AOI in `DIMAP
+   Based on a specified :term:`AOI` **download** the image related to
+   that AOI in `DIMAP
    <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`__
-   format. This data can be used indefinitely, i.e., you now own
+   format. This data can be used **indefinitely**, i.e., you now own
    this image. Note that the returned image fits exactly to the
-   specified AOI if you use a :ref:`contains <contains-filter>`
-   for the data query in the :term:`job parameters`.  
+   specified AOI if you use a :ref:`contains <contains-filter>` for
+   the data query in the :term:`job parameters`.
 
    
 What do download blocks offer?
@@ -70,14 +70,15 @@ satellite. Which are, respectively:
    =============  ================
    
 This allows you to use algorithms like :term:`NDVI` for vegetation
-analysis or any other algorithm that relies on multi-spectral data
+analysis and/or any other algorithm that relies on multi-spectral data
 in your workflow.
 
 .. figure:: _assets/ndvi-spot-example.png
    :align: center
    :alt: NDVI map generated from SPOT imagery in Berlin
 
-NDVI map generated from SPOT imagery in Berlin. Darker shade of green suggests higher vegetation vitality.
+NDVI map generated from SPOT imagery in Berlin. Darker shade of green
+suggests higher vegetation vitality.
 
 
 Get a price estimate
@@ -130,12 +131,20 @@ Here is an example with the job parameters:
         "time_series": null
       }
     }
-       
+
+This AOI as comprises an area of 0.11 sqkm.
+
+.. warning::
+
+   Both download blocks only accept an AOI with an **area greater
+   than 0.1 sqkm** or 100000 sqm. Any AOI smaller than this results
+   in the output returning no images.
+
 Downloading the output we have the following GeoJSON:
 
 .. gist:: https://gist.github.com/perusio/dd284a2c20800d776de6f5dceb0bc838
 
-Looking at the raw data we have the _extra_ fields:
+Looking at the raw data we have the *extra* fields:
 
 .. code:: javascript
 
@@ -147,23 +156,16 @@ Looking at the raw data we have the _extra_ fields:
    }
         
 ``estimatedCredits`` is the price estimation, in this case 111
-credits. 
-
-.. warning::
-
-   Both download blocks only accept an AOI with an **area greater
-   than 0.1 sqkm** or 100000 sqm. Any AOI smaller than this will
-   return an empty result.
-
+:ref:`credits <credit>`.
 
 Download the image
 ------------------
 
-Now you have the price estimate we can proceed and acquire the
+Now that you have the price estimate we can proceed and acquire the
 image. To do this we rerun the job as a real job by clicking on the
-**Run as real job** button. When the job is launched, the upstream
-creates an order ID. This is the unique identifier for the downloaded
-image.
+**Run as real job** button on the console job details page. When the
+job is launched, the upstream creates an order ID. This is the unique
+identifier for the downloaded image.
 
 .. gist:: https://gist.github.com/perusio/5aab70f4ab7e32a8cd649ed2b0f3cb2c
 
@@ -186,21 +188,22 @@ Re-use it in a workflow
 
 As explained above the download blocks return the acquired images in
 DIMAP format. In order to use those images in any :term:`workflow` you
-need to use the The :ref:`Data Format and Type Conversion
+need to use the The :ref:`Data Format and type conversion
 <data-format-type-conversion-block>` block so that a GeoTIFF is
-generated. Thus allowing you to use any :term:`processing block` in
-this image.
+generated from the downloaded DIMAP. Thus allowing you to use any
+:term:`processing block` in this image.
 
-We are going to build a workflow consisting of a
-:ref:`Pléiades <pleiades-download-block>`, the :ref:`Data Format and Type Conversion
-<data-format-type-conversion-block>` and finally the :ref:`tiling
-<tiling-block>`. This could then be followed by a Ship or car
-detection block, for example.
+We are going to build a workflow consisting of a :ref:`Pléiades
+<pleiades-download-block>`, data block, the :ref:`Data Format and type
+conversion <data-format-type-conversion-block>` and finally the
+:ref:`tiling <tiling-block>` block. This could then be followed by a
+Ship or car detection block, for example.
 
 Now you have the ``order ID`` generated when the image was downloaded
 from the upstream data provider. Since you already payed for this
-image you can re-use it indefinitely. To do this you enter the order
-ID as a parameter for your job. For this particular workflow:
+image you can re-use it indefinitely. To do this you **must** enter
+the order ID as a parameter for your job. For this particular
+workflow:
 
 .. gist:: https://gist.github.com/perusio/4e2d1d19f7d4caa422609c2b5f92e331
 
@@ -216,7 +219,7 @@ You can see the field ``order_ids``:
 
 which is an array of order IDs. In this case it has only one entry,
 because we are using only one image we downloaded previously, but if
-you want to use multiple previously downloaded images you just add
+you want to use multiple previously downloaded images just add
 all the order IDs in this array.
 
 Here is the output shown here converted from GeoTIFF to a JPEG.
@@ -229,16 +232,17 @@ The downloaded image as a PNG with a black background.
 
 .. figure:: _assets/download_block_ms_output_4x.png
    :align: center
-   :alt: Example download block image
+   :alt: Example download block image upscaled 4x
 
 The downloaded image as a PNG with a black background and up-scaled 4x
-using a convolutional neural network. 
-
+using a convolutional neural network. Shown here just for illustration
+purposes.
 
 .. warning::
 
     Note that the original GeoTIFF image is comprised only of the
-    portion corresponding to the given AOI.
+    portion corresponding to the given AOI. Also bear in mind that
+    this AOI has the minimum allowed area: 0.11 sqkm.
 
 .. tip::
 
