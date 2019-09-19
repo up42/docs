@@ -45,33 +45,33 @@ satellite. Which are, respectively:
 .. table:: SPOT available bands
    :align: center
           
-   =============  ================
-    band           wavelength [μm]
-   =============  ================
-   Panchromatic   0.450-0.745
-   Blue           0.450-0.520
-   Green          0.530-0.590
-   Red            0.625-0.695
-   Near Infrared  0.760-0.890
-   =============  ================
+   =============  ================  ================
+    band           wavelength [μm]   resolution [m]
+   =============  ================  ================
+   Panchromatic   0.450-0.745            1.5
+   Blue           0.450-0.520            6
+   Green          0.530-0.590            6
+   Red            0.625-0.695            6
+   Near Infrared  0.760-0.890            6 
+   =============  ================  ================
 
 
 .. table:: Pléiades available bands
    :align: center
 
-   =============  ================
-    band           wavelength [μm]
-   =============  ================        
-   Panchromatic   0.470-0.830
-   Blue           0.430-0.550
-   Green          0.500-0.620
-   Red            0.590-0.710
-   Near Infrared  0.740-0.940
-   =============  ================
+   =============  ================ ================
+    band           wavelength [μm]  resolution [m] 
+   =============  ================ ================       
+   Panchromatic   0.470-0.830           0.5        
+   Blue           0.430-0.550            2         
+   Green          0.500-0.620            2         
+   Red            0.590-0.710            2         
+   Near Infrared  0.740-0.940            2         
+   =============  ================ ================
    
 This allows you to use algorithms like :term:`NDVI` for vegetation
 analysis and/or any other algorithm that relies on multi-spectral data
-in your workflow.
+in your :term:`workflow`.
 
 .. figure:: _assets/ndvi-spot-example.png
    :align: center
@@ -225,6 +225,15 @@ We are going to build a workflow consisting of a :ref:`Pléiades
 conversion <data-format-type-conversion-block>` and finally the
 :ref:`tiling <tiling-block>` block. This could then be followed by a
 Ship or car detection block, for example.
+
+.. warning::
+
+   The currently available ship detection, car detection and similar
+   processing blocks algorithms where trained using `pan-sharpened
+   <https://landsat.usgs.gov/what-pan-sharpening-and-how-can-i-create-pan-sharpened-image>`__
+   8 bit RGB images and not on the *raw* images --- no pan-sharpening
+   --- presently returned by the :ref:`Data Format and type conversion
+   <data-format-type-conversion-block>` block.
 
 Now you have the ``order ID`` generated when the image was downloaded
 from the upstream data provider. Since you already payed for this
