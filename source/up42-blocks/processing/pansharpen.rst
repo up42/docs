@@ -14,7 +14,7 @@ This block pansharpens images of the Pleiades or SPOT sensor. It creates a singl
 Supported parameters
 --------------------
 
-* ``method``: Method used in the pansharpening procedure. Default is ``SFIM` (Smoothing Filter-based Intensity Modulation) as described in Liu2000_.
+* ``method``: Method used in the pansharpening procedure. Default is ``SFIM`` (Smoothing Filter-based Intensity Modulation) as described in Liu2000_.
 
 * ``include_pan``: Include the panchromatic band in the output pansharpened image.
 
