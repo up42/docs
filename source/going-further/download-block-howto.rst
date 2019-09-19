@@ -4,9 +4,9 @@
 
 .. _download-block-howto:
 
-====================
-Download block howto
-====================
+=====================
+Download block how-to
+=====================
 
 Introduction
 ------------
@@ -19,7 +19,7 @@ You have currently two options to acquire very-high resolution (SPOT
    AOI as images and use them in your :term:`workflow` as you see
    fit. This provides the RGB bands, and optionally, also the
    panchromatic band. This data is to be used only once, i.e., each
-   :term:`job` of a given worklflow, for the **same** AOI, will **always**
+   :term:`job` of a given workflow, for the **same** AOI, will **always**
    acquires the data. Which means that you are paying for it each time
    you rerun a job or run a job where the AOI is unchanged. This means
    that there is no way to re-use the acquired images in your workflow.
@@ -69,41 +69,176 @@ satellite. Which are, respectively:
    Near Infrared  0.740-0.940
    =============  ================
    
-You need to use the **download** data blocks in your :term:`workflow`.  
-
 This allows you to use algorithms like :term:`NDVI` for vegetation
-analysis or any other algorithm that relies on multispectral data
+analysis or any other algorithm that relies on multi-spectral data
 in your workflow.
 
-
 .. figure:: _assets/ndvi-spot-example.png
-  :align: center
-  :alt: NDVI map generated from SPOT imagery in Berlin
+   :align: center
+   :alt: NDVI map generated from SPOT imagery in Berlin
 
-  NDVI map generated from SPOT imagery in Berlin. Darker green suggests higher vegetation vitality.
+NDVI map generated from SPOT imagery in Berlin. Darker shade of green suggests higher vegetation vitality.
+
 
 Get a price estimate
 --------------------
+
+To get a price estimate you need to run a :term:`TestQuery`. In the
+returned GeoJSON. When you select an AOI in the console by default the
+job runs as a TestQuery.
+
+Here is an example with the job parameters:
+
+.. code:: javascript
+          
+   {
+     "config": {
+     "mode": "DRY_RUN"
+     },
+     "oneatlas-pleiades-fullscene:1": {
+        "ids": null,
+        "time": null,
+        "limit": 1,
+        "order_ids": null,
+        "intersects": {
+          "type": "Polygon",
+          "coordinates": [
+             [
+               [
+                 -8.710999,
+                 41.187342
+               ],
+               [
+                 -8.701859,
+                 41.190701
+               ],
+               [
+                 -8.701047,
+                 41.189484
+               ],
+               [
+                 -8.71018,
+                 41.186517
+               ],
+               [
+                 -8.710999,
+                 41.187342
+             ]
+            ]
+          ]
+        },
+        "time_series": null
+      }
+    }
+       
+Downloading the output we have the following GeoJSON:
+
+.. gist:: https://gist.github.com/perusio/dd284a2c20800d776de6f5dceb0bc838
+
+Looking at the raw data we have the _extra_ fields:
+
+.. code:: javascript
+
+   {
+     ...       
+        fileSize: 1449,
+        estimatedCredits: 111
+     ...
+   }
+        
+``estimatedCredits`` is the price estimation, in this case 111
+credits. 
+
+.. warning::
+
+   Both download blocks only accept an AOI with an **area greater
+   than 0.1 sqkm** or 100000 sqm. Any AOI smaller than this will
+   return an empty result.
 
 
 Download the image
 ------------------
 
+Now you have the price estimate we can proceed and acquire the
+image. To do this we rerun the job as a real job by clicking on the
+**Run as real job** button. When the job is launched, the upstream
+creates an order ID. This is the unique identifier for the downloaded
+image.
 
-Use it in a workflow
---------------------
+.. gist:: https://gist.github.com/perusio/5aab70f4ab7e32a8cd649ed2b0f3cb2c
+
+Looking at the raw output there is the field ``orderID``:
+
+.. code:: javascript
+ 
+   {
+      ...
+         "orderID": "002e11d3-3b46-43a5-a07d-855a94c72817",
+         "fileSize": 1449
+      ... 
+   }
+          
+This ID is **required** whenever you want to re-use the image. This
+way you won have to pay for it again.
+
+Re-use it in a workflow
+-----------------------
+
+As explained above the download blocks return the acquired images in
+DIMAP format. In order to use those images in any :term:`workflow` you
+need to use the The :ref:`Data Format and Type Conversion
+<data-format-type-conversion-block>` block so that a GeoTIFF is
+generated. Thus allowing you to use any :term:`processing block` in
+this image.
+
+We are going to build a workflow consisting of a
+:ref:`Pléiades <pleiades-download-block>`, the :ref:`Data Format and Type Conversion
+<data-format-type-conversion-block>` and finally the :ref:`tiling
+<tiling-block>`. This could then be followed by a Ship or car
+detection block, for example.
+
+Now you have the ``order ID`` generated when the image was downloaded
+from the upstream data provider. Since you already payed for this
+image you can re-use it indefinitely. To do this you enter the order
+ID as a parameter for your job. For this particular workflow:
+
+.. gist:: https://gist.github.com/perusio/4e2d1d19f7d4caa422609c2b5f92e331
+
+You can see the field ``order_ids``:
+
+.. code:: javascript
+
+   ...       
+   "order_ids": [
+      "002e11d3-3b46-43a5-a07d-855a94c72817"
+     ],
+   ...
+
+which is an array of order IDs. In this case it has only one entry,
+because we are using only one image we downloaded previously, but if
+you want to use multiple previously downloaded images you just add
+all the order IDs in this array.
+
+Here is the output shown here converted from GeoTIFF to a JPEG.
+
+.. figure:: _assets/download_block_ms_output.png
+   :align: center
+   :alt: Example download block image
+
+The downloaded image as a PNG with a black background.
+
+.. figure:: _assets/download_block_ms_output_4x.png
+   :align: center
+   :alt: Example download block image
+
+The downloaded image as a PNG with a black background and up-scaled 4x
+using a convolutional neural network. 
 
 
-The DIMAP download block
-------------------------
+.. warning::
 
-
-Re-use a previously acquired image
-----------------------------------
-
-
-Currently two DIMAP download blocks are available: the :ref:`Pleaides DIMAP download <pleiades-download-block>` and the
-:ref:`SPOT DIMAP download <spot-download-block>`.
+    Note that the original GeoTIFF image is comprised only of the
+    portion corresponding to the given AOI.
 
 .. tip::
 
@@ -112,157 +247,3 @@ Currently two DIMAP download blocks are available: the :ref:`Pleaides DIMAP down
     is a GDAL supported `raster format
     <https://gdal.org/drivers/raster/dimap.html>`_.
 
-Both of these blocks return a DIMAP file and the :term:`AOI` within the output feature geometry.
-
-This block allows you to forecast how many credits will be used in the workflow you have setup.
-An estimation of the number of credits is reported in the Task Logs once you run a Test Query.
-
-.. warning::
-
-   The DIMAP download blocks only accepts AOI with an **area greater
-   than 0.1 sqkm** or 100000 sqm. Any AOI smaller than this will
-   return an empty result.
-
-One of the main differences between the DIMAP block vs. the
-AOI-Clipped block is the fact that with the DIMAP block you obtain a
-**permanent license that you can use in perpetuity for the image** you
-have purchased.  Once you have run the DIMAP download block, you will
-have an ``order_id`` that you can reuse in other Workflows in order to
-reuse the same imagery.
-
-The ``order_id`` is an hash string (such as
-``9e5122b5-a24c-43b3-82fd-40430449039b``) and you can use it directly
-in the ``order_id`` filter in the corresponding data block. You can
-find this ``order_id`` in the logs of the Task (such as
-``oneatlas-spot-fullscene`` or ``oneatlas-pleiades-fullscene``).
-
-
-The Data Format and Type Conversion block
------------------------------------------
-
-The :ref:`Data Format and Type Conversion
-<data-format-type-conversion-block>` allows you to generate a
-``GTiff`` product out of a DIMAP download block.
-
-If you make use of the default parameters only the multispectral bands
-of the product will be used and included in the ``GTiff`` output of
-the block.  If you want to obtain the pansharpened product **only**
-you can set the ``ms`` parameter to ``false`` and the ``pan``
-parameter to ``true``.
-
-For example, to convert a :ref:`SPOT DIMAP download
-<spot-download-block>` to a panchromatic ``GTiff`` use:
-
-.. code-block:: javascript
-
-    {
-      "oneatlas-spot-fullscene:1": {
-        "bbox": [
-          13.405215963721279,
-          52.48480326228838,
-          13.4388092905283,
-          52.505278605259086
-        ],
-        "ids": null,
-        "time": null,
-        "limit": 1,
-        "order_ids": null,
-        "time_series": null
-      },
-      "converter:1": {
-        "ms": false,
-        "pan": true
-      }
-    }
-
-Try it out
-----------
-
-Let's spin up this block! First create a project described in
-:ref:`Building your first workflow <build-first-workflow>`.
-
-In the Project page you just created create a Workflow and add a
-:ref:`SPOT DIMAP Download <spot-download-block>` as the data block.
-
-Also add the :ref:`Data Format and Type Conversion
-<data-format-type-conversion-block>` as a processing block. **Click
-next.**
-
-Run the job as a **Test Query** with the following parameters:
-
-.. code-block:: javascript
-
-    {
-      "oneatlas-spot-fullscene:1": {
-        "bbox": [
-          13.405215963721279,
-          52.48480326228838,
-          13.4388092905283,
-          52.505278605259086
-        ],
-        "ids": null,
-        "time": null,
-        "limit": 1,
-        "order_ids": null,
-        "time_series": null
-      },
-      "converter:1": {
-        "ms": true,
-        "pan": false
-      }
-    }
-
-Once the :term:`job` is ``Successful``, click on the name of the :term:`task`
-(``oneatlas-spot-fullscene``) and scroll down on the logs. You should see this output:
-
-.. code-block:: bash
-
-  2019-09-10 11:42:50,340 - blockutils.common - DEBUG - Raw task parameters from
-        UP42_TASK_PARAMETERS are: {"bbox": [13.405215963721279,52.48480326228838,
-        13.4388092905283,52.505278605259086],"ids":null,"time":null,"limit":1,
-        "order_ids":null,"time_series":null}
-
-  ...
-
-  2019-09-10 11:42:53,309 - spot - INFO - ======================================
-  2019-09-10 11:42:53,309 - spot - INFO - Estimated credits for this job: 3802
-  2019-09-10 11:42:53,309 - spot - INFO - ======================================
-
-  2019-09-10 11:42:53,309 - spot - DEBUG - Saving 1 result features
-
-Using the Test Query allows you to understand what images you will be
-using and it will give you an estimation of the number of credits that
-will be charged, before running the Real Job.
-
-.. warning::
-
-   In addition to the Data credits used by the :ref:`SPOT DIMAP
-   Download <spot-download-block>`, credits will also be deducted for
-   Infrastructure and Processing so the total amount of credits for
-   the Workflow will always be higher than the estimation provided in
-   the Logs displayed before.
-
-If you're happy about the selected image, click **Run as real job**.
-
-After the Real Job is ``Successful``, go to the Job page, and click on the first Task (``oneatlas-spot-fullscene``) and go to Logs.
-Scroll down an you should see both the number of tiles returned and your ``order_id``:
-
-.. code-block:: bash
-
-  2019-09-10 11:50:59,219 - blockutils.common - DEBUG - Raw task parameters from
-    UP42_TASK_PARAMETERS are: {"ids":null,"bbox":[13.405215963721279,52.48480326228838,
-    13.4388092905283,52.505278605259086],"time":null,"limit":1,"order_ids":null,
-    "time_series":null}
-
-  ...
-
-  2019-09-10 11:53:25,956 - spot - INFO - ==================================================================
-  2019-09-10 11:53:25,956 - spot - INFO - The following orders were created and processed and can be re-used
-  2019-09-10 11:53:25,956 - spot - INFO - 9e5122b5-a24c-43b3-82fd-40430449039b
-  2019-09-10 11:53:25,956 - spot - INFO - ==================================================================
-
-  2019-09-10 11:53:25,956 - spot - DEBUG - Saving 1 result features
-
-If you then click on the Results of this workflow you will be able to download a ``GTiff`` product resulting from the DIMAP converter.
-
-This GeoTiff product can then be used with all the regular processing blocks included in our platform.

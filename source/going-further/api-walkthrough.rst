@@ -120,7 +120,8 @@ Create and run a job
 To create and run a job you need to get first the workflow IDs.
 
 .. code:: bash
-   # Get all different workflows.
+
+  # Get all different workflows.
    cat jobs_$PROJ.json | jq -r '.data[] | .workflowId' | uniq
 
 we get a single element, since there is a single workflow in this project.
@@ -307,6 +308,7 @@ To get the resulting tarball you need first to get the signed URL to
 be able to download it.
 
 .. code:: bash
+
    DOWNLOAD_URL="https://api.up42.com/projects/$PROJ/jobs/$JOB/downloads"
    TARBALL_URL=$(curl -s -L -H "Authorization: Bearer $PTOKEN" "$DOWNLOAD_URL/results" | jq -j '.data.url')
    curl -s -L -H "Authorization: Bearer $PTOKEN" -o output-$JOB.tar.gz "$TARBALL_URL"
