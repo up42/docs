@@ -112,7 +112,7 @@ at all with the panchromatic band should get a weight of 0. By changing the
 near-infrared weight value, the green output can be made more or less
 vibrant. Read more about this `here <http://desktop.arcgis.com/en/arcmap/10.3/manage-data/raster-and-images/fundamentals-of-panchromatic-sharpening.htm>`_.
 
-Example of parameters to use in the pansharpening block with the ``Esri`` method with Pleiades imagery:
+Example of parameters to use in the pansharpening block with the ``Esri`` method with Pleiades or Spot imagery:
 
 .. code-block:: javascript
     :caption: Pleiades weights
