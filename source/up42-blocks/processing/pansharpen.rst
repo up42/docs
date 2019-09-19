@@ -9,7 +9,7 @@ Pansharpen block
 
 Block type: ``PROCESSING``
 
-This block pansharpens Pleiades and SPOT imagery.
+This block pansharpens images of the Pleiades or SPOT sensor. It creates a single high-resolution color image from the high-resolution panchromatic and lower resolution multispectral image bands.
 
 Supported parameters
 --------------------
