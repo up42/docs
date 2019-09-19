@@ -33,6 +33,9 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``limit``: An integer number of maximum results to return. Omit this to set no limit.
 * ``ids``: An array of image identifiers. If defined, either ``bbox`` **or** ``intersects`` **or** ``contains`` should be selected as well. This will assure that, by defining ``ids`` filter, you will get tiles only based on your AOI.
 
+Example
+-------
+
 Example query using the ``time_series`` in combination with ``bbox`` and  ``limit``:
 
 .. code-block:: javascript

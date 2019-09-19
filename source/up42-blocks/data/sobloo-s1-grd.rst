@@ -39,6 +39,9 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``ids``: An array of image identifiers. The S1 identifiers are described here: https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/naming-conventions; the file extension is omitted. This parameter is mainly meant for use via the API.
 * ``acquisition_mode``: A string allowing querying for specific acquisition modes, see https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes. for details.
 
+Example
+-------
+
 Example query searching for images using Strip Mode, using ``intersects`` and ``limit``:
 
 .. code-block:: javascript

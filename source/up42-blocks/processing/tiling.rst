@@ -21,8 +21,10 @@ Supported parameters
 * ``output_prefix``: Prefix of tile names, default is to use input filename.
 * ``discard_empty_tiles``:  If set to True, tiles that only consist of nodata (as defined by an alpha band or a set nodata value) will not be returned.
 
-Example parameters using the :ref:`SPOT AOIClipped block
-<spot-aoiclipped-block>` as data source and then applying tiling with
+Example
+-------
+
+Example using the :ref:`SPOT AOIClipped block <spot-aoiclipped-block>` as data source and then applying tiling with
 ``match_extents``:
 
 .. code-block:: javascript

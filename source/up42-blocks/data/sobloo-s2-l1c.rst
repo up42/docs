@@ -34,6 +34,9 @@ For more information on supported filters, see :ref:`query filter section  <filt
   https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/naming-convention; the file extension is omitted.
   This parameter is mainly meant for use via the API and cannot be used in combination with dry-run mode.
 
+Example
+-------
+
 Example query searching for images using ``intersects``, ``time`` and ``limit``:
 
 .. code-block:: javascript

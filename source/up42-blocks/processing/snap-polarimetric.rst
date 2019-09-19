@@ -27,7 +27,10 @@ Supported parameters
 * ``mask``: It masks either ``land`` or ``sea``. Please note that you can not choose both at the same time.
 * ``tcorrection``: It applies Range Doppler Terrain Correction based on a suitable Digital ELevation Model (DEM).
 
-Example parameters using the
+Example
+-------
+
+Example using the
 :ref:`Sentinel-1 L1C GRD Full Scene block <sentinel1-grd-fullscene-block>` as
 data source and then applying SNAP-polarimetric with ``tcorrection``
 and masking for ``land``:

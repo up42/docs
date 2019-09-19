@@ -24,7 +24,10 @@ Supported parameters
 * ``roi_lon_lat``: Defines a sub image by specifying the range of longitudes and latitudes. Then this sub image will be cropped from the initial input image for further processing.
 * ``copy_original_bands``: If it set to be ``true``,  the original 10m resolution band will also be included in the output image.
 
-Example parameters using the Sentinel:2 L1C MSI Full Scenes block as
+Example
+-------
+
+Example using the Sentinel:2 L1C MSI Full Scenes block as
 data source and then applying s2-superresolution block with a specific
 ``roi_x_y``:
 

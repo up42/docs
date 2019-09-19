@@ -25,6 +25,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``limit``: An integer number of maximum results to return. Omit this to set no limit.
 * ``zoom_level`` : An integer defining the webmercator zoom level of this request, defaults to 17.
 
+
 Output format
 -------------
 

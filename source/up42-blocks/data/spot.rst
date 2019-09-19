@@ -27,6 +27,9 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``zoom_level``: An integer defining the webmercator zoom level of this request, defaults to 17.
 * ``panchromatic_band``: If set to ``true``, the panchromatic band is added to the output.
 
+Example
+-------
+
 Example query using the ``time_series`` in combination with ``bbox``,  ``limit`` and ``zoom_level``:
 
 .. code-block:: javascript
