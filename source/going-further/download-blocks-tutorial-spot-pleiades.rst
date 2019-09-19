@@ -2,11 +2,11 @@
    :description: UP42 going further: Download block how to
    :keywords: spot, pleiades, data block, very-high resolution, download, multispectral
 
-.. _download-block-howto:
+.. _download-blocks-tutorial-spot-pleiades:
 
-=====================
-Download block how-to
-=====================
+==========================================
+Spot and Pléiades download blocks tutorial
+==========================================
 
 Introduction
 ------------
@@ -158,6 +158,18 @@ Looking at the raw data we have the *extra* fields:
 ``estimatedCredits`` is the price estimation, in this case 111
 :ref:`credits <credit>`.
 
+Alternatively you can look into the logs for the :term:`task` and
+at the end see the estimated credits.
+
+.. code:: bash
+          
+   ...       
+   2019-09-16 14:00:10,725 - pleiades - INFO -======================================= ===========================
+   2019-09-16 14:00:10,725 - pleiades - INFO - Estimated credits for this job: 111
+   2019-09-16 14:00:10,725 - pleiades - INFO - =================================================================
+
+   2019-09-16 14:00:10,725 - pleiades - DEBUG - Saving 1 result features to data.json
+   
 Download the image
 ------------------
 
@@ -183,6 +195,21 @@ Looking at the raw output there is the field ``orderID``:
 This ID is **required** whenever you want to re-use the image. This
 way you won have to pay for it again.
 
+Alternatively you can look in the task log for the :term:`job` to get
+the order ID. At the end of the log:
+
+.. code:: bash
+
+   2019-09-19 05:02:51,685 - pleiades - INFO - ==================================================================
+   2019-09-19 05:02:51,685 - pleiades - INFO - ==================================================================
+   2019-09-19 05:02:51,686 - pleiades - INFO - The following orders were created and processed and can be re-used
+   2019-09-19 05:02:51,686 - pleiades - INFO - 002e11d3-3b46-43a5-a07d-855a94c72817
+   2019-09-19 05:02:51,686 - pleiades - INFO - ==================================================================
+
+   2019-09-19 05:02:51,686 - pleiades - DEBUG - Saving 1 result features to data.json       
+
+the order ID is ``002e11d3-3b46-43a5-a07d-855a94c72817``.
+ 
 Re-use it in a workflow
 -----------------------
 
@@ -229,14 +256,6 @@ Here is the output shown here converted from GeoTIFF to a JPEG.
    :alt: Example download block image
 
 The downloaded image as a PNG with a black background.
-
-.. figure:: _assets/download_block_ms_output_4x.png
-   :align: center
-   :alt: Example download block image upscaled 4x
-
-The downloaded image as a PNG with a black background and up-scaled 4x
-using a convolutional neural network. Shown here just for illustration
-purposes.
 
 .. warning::
 
