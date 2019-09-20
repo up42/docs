@@ -10,30 +10,38 @@ UP42 API walktrough
 Introduction
 ------------
 
-The UP42 API allows for doing the following things on a given project:
+The API is the UP42 fulcral point: everything runs on top
+it. Therefore if you want to automate/scale your usage of UP42 the API
+is the way to go. 
 
-1. Work with jobs:
+The current publicly available API functions in the context of a
+project. Here are the actions that you can perform using the API:
+
+Familiarity with the :ref:`core concepts <core-concepts>` is assumed,
+as well as minimal proficiency with using a UNIX like shell.
+
+1. :ref:`Work with jobs <working-jobs>`:
 
    -  `get jobs <#get-jobs>`__
-   -  get job
-   -  cancel job
+   -  :ref:`get job <get-single-job>`
    - `create & run job <#create-run-job>`__
    - `get job output <#results-geojson>`__ (``data.json``)
    - `get job output directory <#downloads-results>`__
-
-2. Work with jobs and tasks:
+   - :ref:`cancel job <cancel-job>`
+   
+2. :ref:`Work with jobs and tasks <working-job-tasks>`:
 
    - `get job logs <#get-job-logs>`__
    -  get job task logs
    - `get job tasks output <#task-results-geojson>`__ (``data.json``)
    - `get job output directory <#task-downloads-results>`__
 
-3. Work with workflows:
+3. :ref:`Work with workflows <working-workflows>`:
 
    - `get workflows <#get-workflows>`__
    - `get workflow <#get-workflow>`__
    - `create workflow <#create-workflow>`__
-   -  `update workflow <#update-workflow>`__
+   - `update workflow <#update-workflow>`__
    - `delete workflow <#delete-workflow>`__   
 
 It means that a **project key** is **always** needed. Therefore you
@@ -79,7 +87,7 @@ order to perform any type of operation on your project.
    # Set the project key.
     PKEY=aoiTOv31.hab0M74qT9cB7K57wO6ue1glddcL3t5zsxb
    # Get the token.
-   PTOKEN=$(curl -sX POST "https://$PROJ:$PKEY@api.up42.com/oauth/token"   -H 'Content-Type: application/x-www-form-urlencoded' -d 'grant_type=client_credentials' | jq -r '.data.accessToken')
+   PTOKEN=$(curl -sX POST "https://$PROJ:$PKEY@api.up42.com/oauth/token" -H 'Content-Type: application/x-www-form-urlencoded' -d 'grant_type=client_credentials' | jq -r '.data.accessToken')
 
 Now you can echo the token in the shell:
 
@@ -96,6 +104,8 @@ cURL request above.
 started with a space we recommend you set the ``PKEY`` variable above
 such that the line start with a space like done here.
 
+.. _working-jobs:
+
 Working with jobs
 -----------------
 
@@ -106,12 +116,57 @@ List all the jobs for a given project
 
 .. code:: bash
 
-   curl -s -L -H "Authorization: Bearer $PTOKEN" "https://api.up42.com/projects/$PROJ/jobs" | jq '.' > jobs_$PROJ.json
+   JOBS_URL="https://api.up42.com/projects/$PROJ/jobs"      
+          
+   curl -s -L -H "Authorization: Bearer $PTOKEN" "$JOBS_URL" | jq '.' > jobs_$PROJ.jsonq
 
 This creates the following
-`jobs_5a21eaff-cdaa-48ab-bedf-5454116d16ff.json <https://gist.github.com/perusio/4e228693b0e0c10492d7ccc706d69a2a>`__
+`jobs_5a21eaff-cdaa-48ab-bedf-5454116d16ff.json <https://gist.github.com/up42-epicycles/937c9a9219fcdc7ffeaa248162d6e95b>`__
 file.
 
+.. _get-single-job:
+
+List a specific job
+~~~~~~~~~~~~~~~~~~~
+
+Iterating through the previously obtained list of jobs you can select
+one in particular to get all the information about it. First list all
+the job IDs.
+
+.. code:: bash
+
+   > cat jobs_$PROJ.json  | jq '.data[].id'
+   
+   "96b4c117-ab4d-44cf-afb1-0922d91031d4"
+   "eb9ed37e-eb87-439c-a5f7-6a1eccf5c68b"
+   "e5a4b9ba-4ad7-4ba3-a95c-cd7c1bb39661"
+   "af0cfabc-fe81-405f-ae32-7478eba97ee6"
+   "e58a7278-2b7e-4b15-ac89-cf02db7bee26"
+   "b92dad3f-1a0f-4272-aadc-68ef260874d5"
+   "22bbc2e9-09c4-4311-a4ed-96b2d505f5f0"
+   "eecb3ac2-ad8a-4f66-8e50-b81cdb40ff0b"       
+
+Picking any of the above job IDs, for example, the third, i.e., index
+``2``.
+
+.. code:: bash
+
+   ONE_JOB=$(cat jobs_$PROJ.json  | jq -j '.data[2].id')       
+
+.. code:: bash
+  
+   > echo $ONE_JOB
+
+   e5a4b9ba-4ad7-4ba3-a95c-cd7c1bb39661
+
+Querying the API for this job information.
+
+.. code:: bash
+
+   curl -s -L -H "Authorization: Bearer $PTOKEN" "$JOBS_URL/$ONE_JOB" | jq '.' > jobs_job-$ONE_JOB.json       
+   
+Thus generating the file `<https://gist.github.com/up42-epicycles/790c798b1ff2c08d0954beb85762e1f9>`__.
+   
 .. _create-run-job:
 
 Create and run a job
@@ -203,7 +258,7 @@ Finally you can create and run the job:
    curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' $URL_POST_JOB -d@job_params_$PROJ.json | jq '.' > job_create_response.json 
  
 You can see the job parameters
-`here <https://gist.github.com/perusio/fc948f4876897968e6d7e345f79ee0da>`__.
+`here <https://gist.github.com/up42-epicycles/306d3c92fdacd88e884cbf16d551e02c>`__.
 
 Get the previously launched job information
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -220,7 +275,7 @@ the following way:
    curl -s -L -H "Authorization: Bearer $PTOKEN" $URL_JOB_INFO | jq '.' > jobs_job-$JOB.json
 
 It returns the
-`JSON <https://gist.github.com/perusio/e4e00cd7190ed97da3f25f78600c042e>`__
+`JSON <https://gist.github.com/up42-epicycles/19b9c32a51154bc7123cc9b319df17ff>`__
 containing all the job information.
 
 Get the job status
@@ -297,7 +352,7 @@ Get the results: GeoJSON
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$OUTPUT_URL/data-json"  | jq '.' > output-$JOB.json
 
 Produces this
-`output <https://gist.github.com/perusio/4597361dc4792dfdda8a7260b39e9baf>`__.
+`output <https://gist.github.com/up42-epicycles/72f1676a72a8e8fafd30db093f187dd9>`__.
 
 .. _results-results:
 
@@ -327,6 +382,12 @@ There is both the GeoJSON file and the output as a
 `GeoTIFF <https://en.wikipedia.org/wiki/GeoTIFF>`__ file. The file name
 is constructed from the first task ID and part of the block name. See
 below for an explanation of what tasks are.
+
+
+.. _working-job-tasks:
+
+Working with jobs and tasks
+---------------------------
 
 Get individual tasks results
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -419,13 +480,13 @@ Second task results: GeoJSON
 
 .. code:: bash
 
-
    TASK2_URL="https://api.up42.com/projects/$PROJ/jobs/$JOB/tasks/$TASK2"       
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK2_URL/outputs/data-json" | jq '.' > output_task-$TASK2.json
 
 This will be the same GeoJSON as we got above for the job results. They
 may look sintatically different, but semantically they are the same, as
-you can confirm in this `gist <96b4c117-ab4d-44cf-afb1-0922d91031d4>`__.
+you can confirm in this
+`gist <https://gist.github.com/up42-epicycles/907e5b3cf7348b2c1990ba18a72e7169>`__.
 
 Second task results: tarball
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -451,8 +512,10 @@ that:
    the final task of a workflow produces the same results as the job
    itself
 
-Workflow API
-------------
+.. _working-workflows:
+   
+Working with workflows
+----------------------
 
 The workflow API allows you to manipulate workflows. You can do all
 `CRUD <https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`__
@@ -460,15 +523,15 @@ operations on workflows.
 
 .. _get-workflows:
 
-Get all the workflows
-~~~~~~~~~~~~~~~~~~~~~
+Get all workflows
+~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
    URL_WORKFLOWS="https://api.up42.com/projects/$PROJ/workflows"
    curl -s -L -H "Authorization: Bearer $PTOKEN" $URL_WORKFLOWS | jq '.' > workflows-$PROJ.json
 
-`This <https://gist.github.com/perusio/3a5bd15878caa25f99e8d12e2a1774d5>`__
+`This <https://gist.github.com/up42-epicycles/ac7c2e352bdac60b79f2a9619c880628>`__
 is the output file.
 
 In this case there is only one workflow. You can verify this by issuing
@@ -514,8 +577,8 @@ As you can see it is the same workflow ID as we extracted before in
 
 .. _get-workflow:
 
-Get a particular workflow details
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Get a specific workflow
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Now reusing the ``WORKFLOW`` variable from above to obtain the details
 for a particular workflow.
@@ -525,7 +588,7 @@ for a particular workflow.
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$URL_WORKFLOWS/$WORKFLOW/tasks" | jq '.' > workflow-$WORKFLOW.json
 
 Returns the
-`file <https://gist.github.com/perusio/7c8ec9f06de6be3695e04a0b627b1535>`__.
+`file <https://gist.github.com/up42-epicycles/4224fa6bc3975063d018b6020f439028>`__.
 
 .. _create-workflow:
 
@@ -539,7 +602,7 @@ two steps:
 2. Populate that resource via a PUT request.
 
 POST request: creating the resource
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++++++++
 
 To create a new workflow we need to give a JSON as the request body.
 
@@ -611,7 +674,7 @@ creation will be done one by one. Since the workflow has two tasks there
 are two separate PUT requests.
 
 Creating the the first task: data block addition
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++++++++++++++++++
 
 Adding the data block: Landsat 8 AOI clipped.
 
@@ -646,12 +709,12 @@ is the above obtained workflow ID:
    curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$NEW_WORKFLOW/tasks" -d @create_task1_workflow-$NEW_WORKFLOW.json | jq '.' > workflow_task1_created-$NEW_WORKFLOW.json
 
 generates the `response
-body <https://gist.github.com/perusio/d544bfc158035c483867fa74a9697ef8>`__.
+body <https://gist.github.com/up42-epicycles/f210680676060df4bd82d9629c8ca4aa>`__.
 
 The workflow has now the first task in place.
 
 Creating the the second task: processing block addition
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Adding the processing block: Land cover classification.
 
@@ -674,7 +737,7 @@ The new block needs to be added to the task list (a JS array).
   ]
 
 The task list has now two entries, the second being the
-``land_cover_classification`` block. Notice that ``parentName`` is set
+``land-cover-classification`` block. Notice that ``parentName`` is set
 to be the first task in the workflow:
 ``First task Landsat 8 AOI-Clipped data block``.
 
@@ -685,7 +748,7 @@ To add the second block the API call is:
    curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$NEW_WORKFLOW/tasks" -d @create_task2_workflow-$NEW_WORKFLOW.json | jq '.' > workflow_task2_created-$NEW_WORKFLOW.json
 
 that outputs the following
-`file <https://gist.github.com/perusio/d27bd895bc383635b4e4b3d1469bdebb>`__
+`file <https://gist.github.com/up42-epicycles/e8fda2f6d18471939f16e08e184cc7fe>`__
 in the response body.
 
 Now querying the workflow endpoint:
@@ -694,9 +757,10 @@ Now querying the workflow endpoint:
 
    curl -s -L -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$NEW_WORKFLOW/tasks" | jq '.' > workflow-$NEW_WORKFLOW.json
 
-and comparing the current output with the
-`output <https://gist.github.com/perusio/d27bd895bc383635b4e4b3d1469bdebb>`__
-when creating the second task you can certify that they are identical.
+Comparing the `output <https://gist.github.com/up42-epicycles/4703bf9a8a7e315462bcb2c8d18e53a1>`__
+when creating the second task you can certify that they are identical
+except for some minor details, like ``createdAt``, ``updatedat``,
+``displayId``, ``id`` and the ordering of the fields in the JSON.
 
 .. _update-workflow:
 
@@ -728,6 +792,8 @@ the tasks:
 
    curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$NEW_WORKFLOW/tasks" -d @update_workflow-$NEW_WORKFLOW.json | jq '.' > workflow_updated-$NEW_WORKFLOW.json
 
+.. Which gives the following `response <>`__
+   
 .. _delete-workflow:
    
 Delete a workflow
