@@ -1,6 +1,6 @@
 .. meta::
    :description: UP42 processing blocks: Pansharpen block description
-   :keywords: proprocessing, pansharpen
+   :keywords: preprocessing, pansharpen
 
 .. _pansharpen-block:
 
