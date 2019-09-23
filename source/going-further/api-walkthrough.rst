@@ -23,12 +23,11 @@ as well as minimal proficiency with using a UNIX like shell.
 1. :ref:`Work with jobs <working-jobs>`:
 
    -  `get jobs <#get-jobs>`__
-   -  :ref:`get job <get-single-job>`
+   -  :ref:`get a specific job <get-single-job>`
    - `create & run job <#create-run-job>`__
    - `get job output <#results-geojson>`__ (``data.json``)
    - `get job output directory <#downloads-results>`__
-   - :ref:`cancel job <cancel-job>`
-   
+.. - :ref:`cancel job <cancel-job>` 
 2. :ref:`Work with jobs and tasks <working-job-tasks>`:
 
    - `get job logs <#get-job-logs>`__
@@ -766,7 +765,6 @@ except for some minor details, like ``createdAt``, ``updatedat``,
 
 Update a workflow
 ^^^^^^^^^^^^^^^^^
-
 To update a workflow you just overwrite it by sending a POST request
 to the workflow task endpoint. As an example we are going to replace
 the Landsat 8 AOI Clipped data block by the SPOT 6/7 AOI Clipped
@@ -808,7 +806,7 @@ see that there is a workflow that is called ``another test workflow``.
    # Get the workflow ID of the workflow to be deleted.       
    DEL_WORKFLOW=$(cat workflows-$PROJ.json | jq -j '.data[] as $wf | if $wf.name == "another test workflow" then $wf.id else "" end')       
 
-   > echo echo $DEL_WORKFLOW
+   > echo $DEL_WORKFLOW
 
    40866305-323f-4a79-8ec2-106ae8ebb88c
 
@@ -817,6 +815,10 @@ To delete this workflow the request is:
 .. code:: bash
 
    curl -si -L -X DELETE -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$DEL_WORKFLOW"
+
+And the response:
+
+.. code:: 
    
    HTTP/2 204
    date: Tue, 17 Sep 2019 15:01:55 GMT
@@ -834,4 +836,5 @@ To delete this workflow the request is:
    access-control-expose-headers: Content-Disposition
    strict-transport-security: max-age=31536000; includeSubDomains; preload
 
-The HTTP status `204 No Content <https://httpstatuses.com/204>`__ 
+The HTTP status `204 No Content <https://httpstatuses.com/204>`__
+means that the request was sucessful but no data is returned.
