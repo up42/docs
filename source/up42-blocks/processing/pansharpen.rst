@@ -1,6 +1,6 @@
 .. meta::
    :description: UP42 processing blocks: Pansharpen block description
-   :keywords: preprocessing, pansharpen
+   :keywords: preprocessing, pansharpen, SPOT 6/7, Pléiades, very-high resolution
 
 .. _pansharpen-block:
 
