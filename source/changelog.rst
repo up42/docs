@@ -7,25 +7,25 @@
 Changelog
 =========
 
-17.9.2019
+17.09.2019
 ---------
 
 * Add new :ref:`Pansharpen <pansharpen-block>` block.
 
 
-10.9.2019
+10.09.2019
 ---------
 
 * Add new :ref:`Pleiades DIMAP Download <pleiades-dimap-block>` and :ref:`SPOT DIMAP Download block <spot-dimap-block>`.
 * Add new :ref:`Data Format and Type Conversion block <data-format-type-conversion-block>`.
 * Add tutorial on :ref:`Using DIMAP download blocks <using-download-block>`.
 
-9.9.2019
+09.09.2019
 --------
 
 * Added ``discard_empty_tiles`` parameter to :ref:`Tiling <tiling-block>` block.
 
-29.8.2019
+29.08.2019
 ---------
 
 * Added new passed structure to docs.
