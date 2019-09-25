@@ -17,5 +17,6 @@ blocks built by UP42.
 
    tiling
    data-format-type-conversion
+   pansharpen
    snap-polarimetric
    s2-superresolution
