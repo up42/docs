@@ -20,7 +20,7 @@ corresponding date for the supplied AOI will be provided.
 
 .. tip::
 
-  The MODIS AOI-Clipped block is one of the UP42 open source blocks. This block is intended to help you build your own custom data block from scratch. Checkout the source code in the public repository `here <https://github.com/up42/modis>`_.
+  The MODIS AOI-Clipped block is one of the UP42 open source blocks. This block is intended to help you build your own custom data block from scratch. Checkout the source code in the `public repository <https://github.com/up42/modis>`_.
 
 
 Supported parameters
@@ -131,16 +131,21 @@ Additional layers
 The full list of available layers to be used with this block can be found `here <https://github.com/up42/modis/blob/master/available_layers.json>`_.
 These are layers available in `GIBS <https://wiki.earthdata.nasa.gov/display/GIBS/GIBS+Available+Imagery+Products>`_ that have the **same extent and resolution** and the MODIS RGB layer (``MODIS_Terra_CorrectedReflectance_TrueColor``).
 
-Potentially interesting layers are:
-=============  ================  ================
- Identifier    Description       Link
-=============  ================  ================
-Panchromatic   0.450-0.745            1.5
-Blue           0.450-0.520            6
-Green          0.530-0.590            6
-Red            0.625-0.695            6
-Near Infrared  0.760-0.890            6
-=============  ================  ================
+.. list-table:: 5 Potentially interesting layers
+   :header-rows: 1
+
+   * - Identifier
+     - Description
+   * - ``MODIS_Aqua_CorrectedReflectance_TrueColor``
+     - Aqua is the second MODIS satellite with an afternoon crossing time (as opposed to Terra with a morning crossing time).
+   * - ``MODIS_Terra_NDVI_8Day``
+     - This is a rolling 8 day NDVI (**N**\ ormalized **D**\ ifference** **V**\ egetation** **I**\ ndex) average computed with MODIS Terra imagery.
+   * - ``MODIS_Terra_EVI_8Day``
+     - This is a rolling 8 day EVI (**E**\ nhanced **V**\ egetation** **I**\ ndex) average computed with MODIS Terra imagery.
+   * - ``MODIS_Terra_CorrectedReflectance_Bands367``
+     - Bands 3,6 and 7 are especially useful for determining Land/Cloud/Aerosols properties. Checkout the `MODIS band definition <https://modis.gsfc.nasa.gov/about/specifications.php>`_.
+   * - ``MODIS_Terra_CorrectedReflectance_Bands721``
+     - Bands 7,2 and 1 are especially useful for determining Land/Cloud/Aerosols boundaries. Checkout the `MODIS band definition <https://modis.gsfc.nasa.gov/about/specifications.php>`_.
 
 The output file (``GTiff``) will include all the layers included in the ``layers`` parameter appended in the order passed in the parameters. Tags are also written into the output file with the provenance of each of the bands.
 
@@ -166,8 +171,9 @@ For example, with these input parameters:
 
 The output file will include this ``GTiff`` tags:
 
-.. code-block:: javascript
-    Band 1
+.. code-block:: python
+
+    # Band 1
     band=1
     layer=MODIS_Terra_CorrectedReflectance_TrueColor
     STATISTICS_MAXIMUM=172
@@ -176,7 +182,7 @@ The output file will include this ``GTiff`` tags:
     STATISTICS_STDDEV=32.577449855152
     STATISTICS_VALID_PERCENT=100
 
-    Band 2
+    # Band 2
     band=2
     layer=MODIS_Terra_CorrectedReflectance_TrueColor
     STATISTICS_MAXIMUM=161
@@ -185,7 +191,7 @@ The output file will include this ``GTiff`` tags:
     STATISTICS_STDDEV=27.374023175968
     STATISTICS_VALID_PERCENT=100
 
-    Band 3
+    # Band 3
     band=3
     layer=MODIS_Terra_CorrectedReflectance_TrueColor
     STATISTICS_MAXIMUM=137
@@ -194,7 +200,7 @@ The output file will include this ``GTiff`` tags:
     STATISTICS_STDDEV=18.293162181991
     STATISTICS_VALID_PERCENT=100
 
-    Band 4
+    # Band 4
     band=1
     layer=MODIS_Terra_EVI_8Day
 
@@ -202,4 +208,4 @@ You can very easily use ``rasterio`` to read these tags as described in the `doc
 
 .. warning::
 
-  When loading a 4 band image with unsigned integer as data type into a software like ``QGIS``, by default band 4 is assumed to be the alpha band (or transparency band). Go to the layer properties in ``QGIS`` to remove band 4 as the alpha band.
+  When loading a 4 band image with ``uint8`` as data type into a software like ``QGIS``, by default, band 4 is assumed to be the alpha band (or transparency band). Go to the layer properties in ``QGIS`` to remove band 4 as the alpha band.
