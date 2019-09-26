@@ -132,6 +132,7 @@ The full list of available layers to be used with this block can be found `here 
 These are layers available in `GIBS <https://wiki.earthdata.nasa.gov/display/GIBS/GIBS+Available+Imagery+Products>`_ that have the **same extent and resolution** and the MODIS RGB layer (``MODIS_Terra_CorrectedReflectance_TrueColor``).
 
 .. list-table:: 5 Potentially interesting layers
+   :widths: auto
    :header-rows: 1
 
    * - Identifier
@@ -139,9 +140,9 @@ These are layers available in `GIBS <https://wiki.earthdata.nasa.gov/display/GIB
    * - ``MODIS_Aqua_CorrectedReflectance_TrueColor``
      - Aqua is the second MODIS satellite with an afternoon crossing time (as opposed to Terra with a morning crossing time).
    * - ``MODIS_Terra_NDVI_8Day``
-     - This is a rolling 8 day NDVI (**N**\ ormalized **D**\ ifference** **V**\ egetation** **I**\ ndex) average computed with MODIS Terra imagery.
+     - This is a rolling 8 day NDVI (**N**\ ormalized **D**\ ifference **V**\ egetation** **I**\ ndex) average computed with MODIS Terra imagery.
    * - ``MODIS_Terra_EVI_8Day``
-     - This is a rolling 8 day EVI (**E**\ nhanced **V**\ egetation** **I**\ ndex) average computed with MODIS Terra imagery.
+     - This is a rolling 8 day EVI (**E**\ nhanced **V**\ egetation **I**\ ndex) average computed with MODIS Terra imagery.
    * - ``MODIS_Terra_CorrectedReflectance_Bands367``
      - Bands 3,6 and 7 are especially useful for determining Land/Cloud/Aerosols properties. Checkout the `MODIS band definition <https://modis.gsfc.nasa.gov/about/specifications.php>`_.
    * - ``MODIS_Terra_CorrectedReflectance_Bands721``
