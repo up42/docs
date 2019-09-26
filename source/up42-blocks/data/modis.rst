@@ -18,6 +18,11 @@ The block is different than most other data blocks. MODIS data is provided as a 
 are not considered. This means that all geometric filters have essentially the same functionality: the dataset of the
 corresponding date for the supplied AOI will be provided.
 
+.. tip::
+
+  The MODIS AOI-Clipped block is one of the UP42 open source blocks. This block is intended to help you build your own custom data block from scratch. Checkout the source code in the public repository `here <https://github.com/up42/modis>`_.
+
+
 Supported parameters
 --------------------
 
@@ -123,4 +128,78 @@ Advanced
 Additional layers
 ~~~~~~~~~~~~~~~~~
 
-.. gist:: https://raw.githubusercontent.com/up42/modis/gibs-layers/available_layers.json
+The full list of available layers to be used with this block can be found `here <https://github.com/up42/modis/blob/master/available_layers.json>`_.
+These are layers available in `GIBS <https://wiki.earthdata.nasa.gov/display/GIBS/GIBS+Available+Imagery+Products>`_ that have the **same extent and resolution** and the MODIS RGB layer (``MODIS_Terra_CorrectedReflectance_TrueColor``).
+
+Potentially interesting layers are:
+=============  ================  ================
+ Identifier    Description       Link
+=============  ================  ================
+Panchromatic   0.450-0.745            1.5
+Blue           0.450-0.520            6
+Green          0.530-0.590            6
+Red            0.625-0.695            6
+Near Infrared  0.760-0.890            6
+=============  ================  ================
+
+The output file (``GTiff``) will include all the layers included in the ``layers`` parameter appended in the order passed in the parameters. Tags are also written into the output file with the provenance of each of the bands.
+
+For example, with these input parameters:
+
+.. code-block:: javascript
+
+    {
+      "nasa-modis:1": {
+        "bbox": [
+          10.285749882459642,
+          36.81990749171028,
+          10.40604628622532,
+          36.9023036894614
+        ],
+        "time": null,
+        "limit": 1,
+        "zoom_level": 9,
+        "layers": ["MODIS_Terra_CorrectedReflectance_TrueColor",
+                   "MODIS_Terra_EVI_8Day"]
+      }
+    }
+
+The output file will include this ``GTiff`` tags:
+
+.. code-block:: javascript
+    Band 1
+    band=1
+    layer=MODIS_Terra_CorrectedReflectance_TrueColor
+    STATISTICS_MAXIMUM=172
+    STATISTICS_MEAN=48.219268798828
+    STATISTICS_MINIMUM=0
+    STATISTICS_STDDEV=32.577449855152
+    STATISTICS_VALID_PERCENT=100
+
+    Band 2
+    band=2
+    layer=MODIS_Terra_CorrectedReflectance_TrueColor
+    STATISTICS_MAXIMUM=161
+    STATISTICS_MEAN=52.64714050293
+    STATISTICS_MINIMUM=9
+    STATISTICS_STDDEV=27.374023175968
+    STATISTICS_VALID_PERCENT=100
+
+    Band 3
+    band=3
+    layer=MODIS_Terra_CorrectedReflectance_TrueColor
+    STATISTICS_MAXIMUM=137
+    STATISTICS_MEAN=40.355880737305
+    STATISTICS_MINIMUM=3
+    STATISTICS_STDDEV=18.293162181991
+    STATISTICS_VALID_PERCENT=100
+
+    Band 4
+    band=1
+    layer=MODIS_Terra_EVI_8Day
+
+You can very easily use ``rasterio`` to read these tags as described in the `documentation <https://rasterio.readthedocs.io/en/stable/topics/tags.html>`_.
+
+.. warning::
+
+  When loading a 4 band image with unsigned integer as data type into a software like ``QGIS``, by default band 4 is assumed to be the alpha band (or transparency band). Go to the layer properties in ``QGIS`` to remove band 4 as the alpha band.
