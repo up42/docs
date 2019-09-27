@@ -27,46 +27,26 @@ Example parameters using the :ref:`Pléiades DIMAP download block
 .. code-block:: javascript
 
     {
-      "oneatlas-spot-aoiclipped:1": {
-        "bbox": null,
+      "oneatlas-pleiades-fullscene:1": {
+        "ids": null,
+        "bbox": [
+          112.92237013578416,
+          0.8438737493332328,
+          112.93480049818756,
+          0.8715453455591357
+        ],
         "time": null,
-        "limit": 3,
-        "intersects": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                18.42631,
-                -33.912732
-              ],
-              [
-                18.420799,
-                -33.922741
-              ],
-              [
-                18.44355,
-                -33.924784
-              ],
-              [
-                18.441069,
-                -33.913781
-              ],
-              [
-                18.42631,
-                -33.912732
-              ]
-            ]
-          ]
-        },
-        "zoom_level": 17
+        "limit": 1,
+        "order_ids": null,
+        "time_series": null
       },
-      "tiling:1": {
-        "tile_width": 768,
-        "tile_height": 768,
-        "match_extents": true,
-        "output_prefix": "",
-        "augmentation_factor": 1
-      }
+      "pansharpen:1": {
+        "method": "SFIM",
+        "include_pan": false
+      },
+      "ndvi:1": {
+        "output_original_raster": false
+        }
     }
 
 
