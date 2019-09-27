@@ -7,26 +7,30 @@
 Changelog
 =========
 
+26.09.2019
+----------
+
+* Add new :ref:`NDVI <ndvi-block>` block.
+
 17.09.2019
----------
+----------
 
 * Add new :ref:`Pansharpen <pansharpen-block>` block.
 
-
 10.09.2019
----------
+----------
 
-* Add new :ref:`Pleiades DIMAP Download <pleiades-dimap-block>` and :ref:`SPOT DIMAP Download block <spot-dimap-block>`.
+* Add new :ref:`Pleiades DIMAP Download <pleiades-download-block>` and :ref:`SPOT DIMAP Download block <spot-download-block>`.
 * Add new :ref:`Data Format and Type Conversion block <data-format-type-conversion-block>`.
 * Add tutorial on :ref:`Using DIMAP download blocks <using-download-block>`.
 
 09.09.2019
---------
+----------
 
 * Added ``discard_empty_tiles`` parameter to :ref:`Tiling <tiling-block>` block.
 
 29.08.2019
----------
+----------
 
 * Added new passed structure to docs.
 * Added many things in all sections.
@@ -66,7 +70,6 @@ Changelog
 ----------
 
 * Add new :ref:`MODIS block <modis-aoiclipped-block>`.
-
 
 09.08.2019
 ----------
