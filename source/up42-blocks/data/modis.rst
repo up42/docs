@@ -35,7 +35,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
  * ``time``: A date range to filter scenes on. Newest daily coverages up to the ``limit`` will be provided.
  * ``limit``: An integer number of maximum results to return. Omit this to set limit to 1.
  * ``zoom_level``: An integer defining the webmercator zoom level of this request, defaults to 9.
- * ``layers``: An array of layer identifiers available from `GIBS <https://wiki.earthdata.nasa.gov/display/GIBS/GIBS+Available+Imagery+Products>`_. Checkout the `Additional layers`_ section to find out more. Default is ``MODIS_Terra_CorrectedReflectance_TrueColor`` (RGB).
+ * ``imagery_layers``: An array of layer identifiers available from `GIBS <https://wiki.earthdata.nasa.gov/display/GIBS/GIBS+Available+Imagery+Products>`_. See the `Additional imagery layers`_ section to find out more. Default is ``MODIS_Terra_CorrectedReflectance_TrueColor`` (RGB).
 
 .. code-block:: javascript
 
@@ -50,7 +50,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
         "time": null,
         "limit": 1,
         "zoom_level": 9,
-        "layers": ["MODIS_Terra_CorrectedReflectance_TrueColor"]
+        "imagery_layers": ["MODIS_Terra_CorrectedReflectance_TrueColor"]
       }
     }
 
@@ -123,15 +123,15 @@ downloading the results in the :ref:`job overview <job-overview>`.
 Advanced
 --------
 
-.. _modis-additional-layers:
+.. _modis-additional-imagery-layers:
 
-Additional layers
-~~~~~~~~~~~~~~~~~
+Additional imagery layers
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The full list of available layers to be used with this block can be found `here <https://github.com/up42/modis/blob/master/available_layers.json>`_.
+The full list of available imagery layers to be used with this block can be found `here <https://github.com/up42/modis/blob/master/available_layers.json>`_.
 These are layers available in `GIBS <https://wiki.earthdata.nasa.gov/display/GIBS/GIBS+Available+Imagery+Products>`_ that have the **same extent and resolution** and the MODIS RGB layer (``MODIS_Terra_CorrectedReflectance_TrueColor``).
 
-.. list-table:: 5 Potentially interesting layers
+.. list-table:: 5 Potentially interesting imagery layers
    :widths: auto
    :header-rows: 1
 
@@ -148,7 +148,7 @@ These are layers available in `GIBS <https://wiki.earthdata.nasa.gov/display/GIB
    * - ``MODIS_Terra_CorrectedReflectance_Bands721``
      - Bands 7,2 and 1 are especially useful for determining Land/Cloud/Aerosols boundaries. Checkout the `MODIS band definition <https://modis.gsfc.nasa.gov/about/specifications.php>`_.
 
-The output file (``GTiff``) will include all the layers included in the ``layers`` parameter appended in the order passed in the parameters. Tags are also written into the output file with the provenance of each of the bands.
+The output file (``GTiff``) will include all the layers included in the ``imagery_layers`` parameter appended in the order passed in the parameters. Tags are also written into the output file with the provenance of each of the bands.
 
 For example, with these input parameters:
 
@@ -165,7 +165,7 @@ For example, with these input parameters:
         "time": null,
         "limit": 1,
         "zoom_level": 9,
-        "layers": ["MODIS_Terra_CorrectedReflectance_TrueColor",
+        "imagery_layers": ["MODIS_Terra_CorrectedReflectance_TrueColor",
                    "MODIS_Terra_EVI_8Day"]
       }
     }
