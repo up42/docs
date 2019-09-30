@@ -10,7 +10,9 @@ Changelog
 26.09.2019
 ----------
 
+* Add additional layers to :ref:`MODIS <modis-aoiclipped-block>` block.
 * Add new :ref:`NDVI <ndvi-block>` block.
+
 
 17.09.2019
 ----------
