@@ -74,8 +74,8 @@
       ndex. One of the most widespread vegetation indexes used to
       infer vegetation health and vitality.
 
-  EVI
-    **E**\ nhanced **V**\ egetation **I**\ ndex.
+   EVI
+      **E**\ nhanced **V**\ egetation **I**\ ndex.
 
    processing block
       A :term:`block` that takes input from a :term:`data block` and applies a processing operation to the data.

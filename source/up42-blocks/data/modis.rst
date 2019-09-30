@@ -174,39 +174,24 @@ The output file will include this ``GeoTIFF`` tags:
 
 .. code-block:: python
 
-    # Band 1
-    band=1
-    layer=MODIS_Terra_CorrectedReflectance_TrueColor
-    STATISTICS_MAXIMUM=172
-    STATISTICS_MEAN=48.219268798828
-    STATISTICS_MINIMUM=0
-    STATISTICS_STDDEV=32.577449855152
-    STATISTICS_VALID_PERCENT=100
+    # Band 1.
+    band = 1
+    layer = MODIS_Terra_CorrectedReflectance_TrueColor
 
-    # Band 2
-    band=2
-    layer=MODIS_Terra_CorrectedReflectance_TrueColor
-    STATISTICS_MAXIMUM=161
-    STATISTICS_MEAN=52.64714050293
-    STATISTICS_MINIMUM=9
-    STATISTICS_STDDEV=27.374023175968
-    STATISTICS_VALID_PERCENT=100
+    # Band 2.
+    band = 2
+    layer = MODIS_Terra_CorrectedReflectance_TrueColor
 
-    # Band 3
-    band=3
-    layer=MODIS_Terra_CorrectedReflectance_TrueColor
-    STATISTICS_MAXIMUM=137
-    STATISTICS_MEAN=40.355880737305
-    STATISTICS_MINIMUM=3
-    STATISTICS_STDDEV=18.293162181991
-    STATISTICS_VALID_PERCENT=100
+    # Band 3.
+    band = 3
+    layer = MODIS_Terra_CorrectedReflectance_TrueColor
 
-    # Band 4
-    band=1
-    layer=MODIS_Terra_EVI_8Day
+    # Band 4.
+    band = 1
+    layer = MODIS_Terra_EVI_8Day
 
 You can very easily use ``rasterio`` to read these tags as described in the `documentation <https://rasterio.readthedocs.io/en/stable/topics/tags.html>`_.
 
 .. warning::
 
-  When loading a 4 band image with ``uint8`` as data type into a software like ``QGIS``, by default, band 4 is assumed to be the alpha band (or transparency band). Go to the layer properties in ``QGIS`` to remove band 4 as the alpha band.
+  When loading a 4 band image with ``uint8`` as data type into a software like `QGIS <https://qgis.org/en/site/>`_, by default, band 4 is assumed to be the alpha band (or transparency band). Go to the layer properties in `QGIS <https://qgis.org/en/site/>`_ to remove band 4 as the alpha band.
