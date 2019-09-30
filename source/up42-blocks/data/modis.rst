@@ -140,13 +140,13 @@ These are layers available in `GIBS <https://wiki.earthdata.nasa.gov/display/GIB
    * - ``MODIS_Aqua_CorrectedReflectance_TrueColor``
      - Aqua is the second MODIS satellite with an afternoon crossing time (as opposed to Terra with a morning crossing time).
    * - ``MODIS_Terra_NDVI_8Day``
-     - This is a rolling 8 day NDVI (**N**\ ormalized **D**\ ifference **V**\ egetation** **I**\ ndex) average computed with MODIS Terra imagery.
+     - This is a rolling 8 day :term:`NDVI` average computed with MODIS Terra imagery.
    * - ``MODIS_Terra_EVI_8Day``
-     - This is a rolling 8 day EVI (**E**\ nhanced **V**\ egetation **I**\ ndex) average computed with MODIS Terra imagery.
+     - This is a rolling 8 day :term:`EVI` average computed with MODIS Terra imagery.
    * - ``MODIS_Terra_CorrectedReflectance_Bands367``
-     - Bands 3,6 and 7 are especially useful for determining Land/Cloud/Aerosols properties. Checkout the `MODIS band definition <https://modis.gsfc.nasa.gov/about/specifications.php>`_.
+     - Bands 3,6 and 7 are especially useful for determining Land/Cloud/Aerosols properties. See the `MODIS band definition <https://modis.gsfc.nasa.gov/about/specifications.php>`_.
    * - ``MODIS_Terra_CorrectedReflectance_Bands721``
-     - Bands 7,2 and 1 are especially useful for determining Land/Cloud/Aerosols boundaries. Checkout the `MODIS band definition <https://modis.gsfc.nasa.gov/about/specifications.php>`_.
+     - Bands 7,2 and 1 are especially useful for determining Land/Cloud/Aerosols boundaries. See the `MODIS band definition <https://modis.gsfc.nasa.gov/about/specifications.php>`_.
 
 The output file (``GeoTIFF``) will include all the layers included in the ``imagery_layers`` parameter appended in the order passed in the parameters. Tags are also written into the output file with the provenance of each of the bands.
 
