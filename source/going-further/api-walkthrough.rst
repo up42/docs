@@ -27,7 +27,9 @@ as well as minimal proficiency with using a UNIX like shell.
    - `create & run job <#create-run-job>`__
    - `get job output <#results-geojson>`__ (``data.json``)
    - `get job output directory <#downloads-results>`__
-.. - :ref:`cancel job <cancel-job>` 
+   -  :ref:`create and run a named job <create-run-named-job>` 
+   - :ref:`cancel a running job <cancel-job>`
+      
 2. :ref:`Work with jobs and tasks <working-job-tasks>`:
 
    - `get job logs <#get-job-logs>`__
@@ -115,9 +117,9 @@ List all the jobs for a given project
 
 .. code:: bash
 
-   JOBS_URL="https://api.up42.com/projects/$PROJ/jobs"      
+   JOBS_URL="https://api.up42.com/projects/$PROJ/jobs" 
           
-   curl -s -L -H "Authorization: Bearer $PTOKEN" "$JOBS_URL" | jq '.' > jobs_$PROJ.jsonq
+   curl -s -L -H "Authorization: Bearer $PTOKEN" "$JOBS_URL" | jq '.' > jobs_$PROJ.json
 
 This creates the following
 `jobs_5a21eaff-cdaa-48ab-bedf-5454116d16ff.json <https://gist.github.com/up42-epicycles/937c9a9219fcdc7ffeaa248162d6e95b>`__
@@ -277,6 +279,8 @@ It returns the
 `JSON <https://gist.github.com/up42-epicycles/19b9c32a51154bc7123cc9b319df17ff>`__
 containing all the job information.
 
+.. _get-job-status:
+
 Get the job status
 ~~~~~~~~~~~~~~~~~~
 
@@ -329,7 +333,7 @@ It returns:
    curl -s -L -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: text/plain' "$RUNNING_TASK_URL/logs" > task_log-$TASK.txt
 
 This command returns the log file available at
-`https://gist.github.com/perusio/60639d67a47e241cdc8356d8c30a1ff9 <https://gist.github.com/perusio/60639d67a47e241cdc8356d8c30a1ff9>`__.
+`https://gist.github.com/up42-epicycles/86249d36e881d9493d22c70d20a5c626 <https://gist.github.com/up42-epicycles/86249d36e881d9493d22c70d20a5c626>`__.
 
 Get the job results
 ~~~~~~~~~~~~~~~~~~~
@@ -382,6 +386,124 @@ There is both the GeoJSON file and the output as a
 is constructed from the first task ID and part of the block name. See
 below for an explanation of what tasks are.
 
+.. _create-run-named-job:
+
+Create and run a named job
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+By default a when a job is created it cane only be identified by
+its ID. The ID is unique. This is essential to avoid unambiguity in
+when having machine to machine interactions, but you may want to name
+a job to make it easier to identify and recognize, without the need to
+have a map of the job ID to a human easily recognizable name. 
+
+To name a job you need to pass the name as an argument in the URL
+query string. Be aware that being in a URL implies that certain
+chracters need to be `encoded
+<https://en.wikipedia.org/wiki/Percent-encoding>`__. In the case of
+space you can use a ``+`` sign for encoding a `space
+<https://en.wikipedia.org/wiki/Percent-encoding#The_application/x-www-form-urlencoded_type>`__.
+
+.. code:: bash
+
+   # Job name with spaces: + represents space.       
+   JOB_NAME='Just+a+named+job+example'
+   # The URL to post a named job. Note the query string argument: name.
+   URL_POST_NAMED_JOB="https://api.up42.com/projects/$PROJ/workflows/$WORKFLOW/jobs?name=$JOB_NAME"
+   
+   curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' $URL_POST_NAMED_JOB -d@job_params_$PROJ.json | jq '.' > named_job_create_response.json
+
+If we now extract the name from the created  `file <https://gist.github.com/up42-epicycles/e8eb22c5a467dd21c7402d9c206bfd84>`__.
+
+.. code:: bash
+          
+   cat named_job_create_response.json | jq -r '.data.name'
+
+Printing:
+
+.. code:: bash
+
+   Just a named job example      
+
+.. _cancel-job:
+   
+Cancel a job
+~~~~~~~~~~~~
+
+You can cancel a job once is launched and while is running. For that
+we are going to use a named job.
+
+.. code:: bash
+
+   # Job name with spaces: + represents space.       
+   JOB_NAME='Job+to+be+canceled'
+   # The URL to post a named job. Note the query string argument: name.
+   URL_POST_NAMED_JOB="https://api.up42.com/projects/$PROJ/workflows/$WORKFLOW/jobs?name=$JOB_NAME"
+
+   curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' $URL_POST_NAMED_JOB -d@job_params_$PROJ.json | jq '.' > job2cancel_create_response.json
+
+We can now get the job status as exemplified :ref:`above <get-job-status>`.
+
+.. code:: bash
+
+   JOB2CANCEL=$(cat job2cancel_create_response.json | jq -j '.data.id')       
+
+Echoing the created shell variable:
+   
+.. code:: bash
+
+   > echo $JOB2CANCEL
+
+   f47729b1-c727-4048-9db1-5697d49dc77e        
+
+New we get the current job status:
+
+.. code:: bash
+
+   # Job to cancel URL.       
+   URL_JOB2CANCEL_INFO="https://api.up42.com/projects/$PROJ/jobs/$JOB2CANCEL"       
+   curl -s -L -H "Authorization: Bearer $PTOKEN" "$URL_JOB2CANCEL_INFO" | jq -r '.data.status'
+          
+It returns:
+
+.. code:: bash
+
+   RUNNING
+
+To cancel the job issue the request:
+
+.. code:: bash
+
+   curl -si -L -X POST -H "Authorization: Bearer $PTOKEN" "$URL_JOB2CANCEL_INFO/cancel"
+
+.. code::
+          
+   HTTP/2 204
+   date: Fri, 27 Sep 2019 18:26:54 GMT
+   x-content-type-options: nosniff
+   x-xss-protection: 1; mode=block
+   cache-control: no-cache, no-store, max-age=0, must-revalidate
+   pragma: no-cache
+   expires: 0
+   x-frame-options: SAMEORIGIN
+   referrer-policy: same-origin
+   x-powered-by: Rocket Fuel
+   access-control-allow-credentials: true
+   access-control-allow-methods: GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS
+   access-control-allow-headers: DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization
+   access-control-expose-headers: Content-Disposition
+   strict-transport-security: max-age=31536000; includeSubDomains; preload       
+
+The HTTP status `204 No Content <https://httpstatuses.com/204>`__
+means that the request was sucessful but no data is returned.
+   
+Querying again for the job status.
+          
+.. code:: bash
+
+   curl -s -L -H "Authorization: Bearer $PTOKEN" "$URL_JOB2CANCEL_INFO" | jq -r '.data.status'
+   
+   CANCELLED       
 
 .. _working-job-tasks:
 
@@ -508,8 +630,10 @@ Similar to wath you did for the :ref:`first task <task-downloads-results>` tarba
 As you can see the results are the same as for the job. Which means
 that:
 
-   the final task of a workflow produces the same results as the job
-   itself
+.. tip::
+   
+   The final task of a workflow produces the same results as the job
+   itself.
 
 .. _working-workflows:
    
@@ -533,7 +657,7 @@ Get all workflows
 `This <https://gist.github.com/up42-epicycles/ac7c2e352bdac60b79f2a9619c880628>`__
 is the output file.
 
-In this case there is only one workflow. You can verify this by issuing
+In this case there are 5 workflows. You can verify this by issuing
 the following command:
 
 .. code:: bash
@@ -765,11 +889,12 @@ except for some minor details, like ``createdAt``, ``updatedat``,
 
 Update a workflow
 ^^^^^^^^^^^^^^^^^
+
 To update a workflow you just overwrite it by sending a POST request
 to the workflow task endpoint. As an example we are going to replace
-the Landsat 8 AOI Clipped data block by the SPOT 6/7 AOI Clipped
-data block. For that we have the following payload, enumerating all
-the tasks:
+the Landsat 8 AOI Clipped data block by the :ref:`SPOT 6/7 AOI Clipped
+<spot-aoiclipped-block>` data block. For that we have the following
+payload, enumerating all the tasks:
 
 .. code:: js
 
@@ -790,7 +915,7 @@ the tasks:
 
    curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$NEW_WORKFLOW/tasks" -d @update_workflow-$NEW_WORKFLOW.json | jq '.' > workflow_updated-$NEW_WORKFLOW.json
 
-.. Which gives the following `response <>`__
+Which gives the following `response <https://gist.github.com/up42-epicycles/59882a5ed08396c13321f0217db0e914>`__.
    
 .. _delete-workflow:
    
@@ -838,3 +963,4 @@ And the response:
 
 The HTTP status `204 No Content <https://httpstatuses.com/204>`__
 means that the request was sucessful but no data is returned.
+
