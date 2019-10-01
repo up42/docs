@@ -148,7 +148,7 @@ These are layers available in `GIBS <https://wiki.earthdata.nasa.gov/display/GIB
    * - ``MODIS_Terra_CorrectedReflectance_Bands721``
      - Bands 7,2 and 1 are especially useful for determining Land/Cloud/Aerosols boundaries. See the `MODIS band definition <https://modis.gsfc.nasa.gov/about/specifications.php>`_.
 
-The output file (``GeoTIFF``) will include all the layers included in the ``imagery_layers`` parameter appended in the order passed in the parameters. Tags are also written into the output file with the provenance of each of the bands.
+The output file (``GeoTIFF``) will include all the layers in the ``imagery_layers`` job parameter appended in the order passed in the parameters. In other words, each added layer in the job parameters produces output for each layer in all the available bands. Tags are also written into the output file with the provenance of each of the bands.
 
 For example, with these input parameters:
 
