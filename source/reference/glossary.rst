@@ -68,11 +68,14 @@
    job parameters
       The JSON that includes the configuration for each :term:`block`
       in a given :term:`workflow`.
-      
+
    NDVI
       **N**\ ormalized **D**\ ifference **V**\ egetation **I**\
       ndex. One of the most widespread vegetation indexes used to
       infer vegetation health and vitality.
+
+   EVI
+      **E**\ nhanced **V**\ egetation **I**\ ndex.
 
    processing block
       A :term:`block` that takes input from a :term:`data block` and applies a processing operation to the data.
@@ -95,7 +98,7 @@
       data providers might implement this functionality. The output
       is a GeoJSON enumerating the available data items. If no data
       exists for a particular query an empty GeoJSON is returned.
-      
+
    workflow
       A directed acyclic graph of blocks [#]_. See :ref:`definition <workflows-definition>`.
 
