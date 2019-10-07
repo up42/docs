@@ -136,6 +136,12 @@ Example of parameters to use in the pansharpening block with the ``Esri`` method
     }
 
 
+Processing
+~~~~~~~~~~
+
+Additional local interpolation of outlier values in the panchromatic bands of Pleiades and Spot data ensures a consistent pansharpened multispectral image.
+
+
 Optional parameters
 ~~~~~~~~~~~~~~~~~~~
 
