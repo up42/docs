@@ -744,7 +744,7 @@ as you can see we have the following fields:
 -  ``id``: the workflow ID, it is ``null`` because the ID will be given
    in the response once the resource is created.
 -  ``name``: the name you want to give to the workflow.
-q-  ``description``: the workflow description.
+-  ``description``: the workflow description.
 -  ``projectId``: the project ID we defined above.
 -  ``tasks``: the tasks in this workflow. Since we just created the
    workflow this is currently empty. Therefore we set it to an empty
