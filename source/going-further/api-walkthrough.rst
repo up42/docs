@@ -575,7 +575,7 @@ returning the following
 .. _task-downloads-results:
 
 First task results: tarball
-'''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Again we need to get the signed URL pointing to the first task tarball.
 
@@ -710,22 +710,22 @@ for a particular workflow.
 
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$URL_WORKFLOWS/$WORKFLOW/tasks" | jq '.' > workflow-$WORKFLOW.json
 
-Returns the
-`file <https://gist.github.com/up42-epicycles/4224fa6bc3975063d018b6020f439028>`__.
+Returns the file 
+`workflow-21415975-390f-4215-becb-8d46aaf5156c.json <https://gist.github.com/up42-epicycles/4224fa6bc3975063d018b6020f439028>`__.
 
 .. _create-workflow:
 
 Create a workflow
 ~~~~~~~~~~~~~~~~~
 
-You can think of workflow creation as being an operation consiting of
+You can think of workflow creation as being an operation consisting of
 two steps:
 
 1. Create the workflow resource via a POST request.
 2. Populate that resource via a PUT request.
 
 POST request: creating the resource
-+++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To create a new workflow we need to give a JSON as the request body.
 
@@ -763,17 +763,17 @@ And this is the response body.
    {
      "error": null,
      "data": {
-        "id": "c5085052-509b-4cba-951a-8e6a18aee9bb",
+        "id": "39275f92-f4e1-4696-a668-f01cdd84bfb6",
         "name": "Create a new landsat 8 + Land cover workflow",
         "description": "Just trying out workflow creation",
-        "createdAt": "2019-09-17T11:36:27.084Z",
-        "updatedAt": "2019-09-17T11:36:27.088Z",
+        "createdAt": "2019-10-08T09:50:00.054Z",
+        "updatedAt": "2019-10-08T09:50:00.054Z",
         "totalProcessingTime": 0
      }
    }
 
 The resource has been created with the ID
-``c5085052-509b-4cba-951a-8e6a18aee9bb``.
+``39275f92-f4e1-4696-a668-f01cdd84bfb6``.
 
 The ID is the last component of the URL when creating tasks, since it
 refers to a specific resource: the just created workflow.
@@ -790,18 +790,65 @@ To confirm the value:
 
    > echo $NEW_WORKFLOW
 
-   c5085052-509b-4cba-951a-8e6a18aee9bb
+   39275f92-f4e1-4696-a668-f01cdd84bfb6
 
 Now using the ID you can populate the workflow with the tasks. Task
 creation will be done one by one. Since the workflow has two tasks there
 are two separate PUT requests.
 
+.. _get-workflow-block-ids:
+
+Preamble to creating the workflow tasks: getting the block IDs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+First you need to create the response body for the POST request. In
+the body we need the block ID that uniquely identifies a particular
+block. So the first thing to do is to extract the block IDs. In this
+case we are just going to re-use the :ref:`previously <get-workflow>`
+obtained file.
+
+.. code:: bash
+
+   > cat workflow-21415975-390f-4215-becb-8d46aaf5156c.json | jq -r '.data[] | .blockName + ": " + .block.id'
+
+   sentinelhub-landsat8-aoiclipped: e0b133ae-7b9c-435c-99ac-c4527cc8d9cf
+   land-cover-classification: 3f5f4490-9e58-490f-80e0-9a464355d5ce
+          
+We see then that we have the following:
+
+.. table:: Block names and IDs in this workflow
+   :align: center
+      
+   =============================== ====================================  
+    block name                      block ID
+   =============================== ====================================  
+   sentinelhub-landsat8-aoiclipped e0b133ae-7b9c-435c-99ac-c4527cc8d9cf
+   land-cover-classification       3f5f4490-9e58-490f-80e0-9a464355d5ce
+   =============================== ====================================  
+
+Create two variables with block IDs.
+
+.. code:: bash
+
+    TASK1_BLOCK_ID=$(cat workflow-21415975-390f-4215-becb-8d46aaf5156c.json | jq -r '.data[0].block.id')
+    TASK2_BLOCK_ID=$(cat workflow-21415975-390f-4215-becb-8d46aaf5156c.json | jq -r '.data[1].block.id')
+
+.. code:: bash
+
+    > echo $TASK1_BLOCK_ID $TASK2_BLOCK_ID
+    
+    e0b133ae-7b9c-435c-99ac-c4527cc8d9cf 3f5f4490-9e58-490f-80e0-9a464355d5ce
+
+Now we can proceed to create the first task for this workflow. 
+    
 Creating the the first task: data block addition
-++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Adding the data block: Landsat 8 AOI clipped.
-
-First you need to create the response body for the POST request.
+Adding the data block: Landsat 8 AOI clipped. Let us start with an
+empty ``blockId`` field and make use of ``jq`` to set the blockId
+programmatically. This is the file named
+``empty_task1_workflow-39275f92-f4e1-4696-a668-f01cdd84bfb6.json``
+with the contents.
 
 .. code:: js
 
@@ -809,10 +856,28 @@ First you need to create the response body for the POST request.
      {
        "name": "First task Landsat 8 AOI clipped data block",
        "parentName": null,
-       "blockName": "sentinelhub-landsat8-aoiclipped"
+       "blockId": null
      }
    ]
 
+.. code:: bash
+
+   cat empty_task1_workflow-$NEW_WORKFLOW.json | jq ". | .[0].blockId |= \"$TASK1_BLOCK_ID\"" > create_task1_workflow-$NEW_WORKFLOW.json
+
+It gives us the file
+``create_task1_workflow-39275f92-f4e1-4696-a668-f01cdd84bfb6.json``
+with the contents.
+   
+.. code:: js
+
+   [
+     {
+       "name": "First task Landsat 8 AOI clipped data block",
+       "parentName": null,
+       "blockId": "e0b133ae-7b9c-435c-99ac-c4527cc8d9cf"
+     }
+   ]
+   
 where we have the fields given when creating the workflow resource (POST
 request) plus the workflow ID and the first task specific fields:
 
@@ -820,12 +885,12 @@ request) plus the workflow ID and the first task specific fields:
 -  ``parentName``: the name of the parent task, i.e., the task that
    precedes the current task. Since this is the first task, it is
    ``null``.
--  ``blockName``: the block machine name.
+-  ``blockId``: the block ID as obtained :ref:`above <get-workflow-block-ids>`.
 
 We put the above JSON payload in the file
 ``workflow_task1_created-$NEW_WORKFLOW.json``, where ``NEW_WORKFLOW``
 is the above obtained workflow ID:
-``c5085052-509b-4cba-951a-8e6a18aee9bb``. Now issuing the request:
+``39275f92-f4e1-4696-a668-f01cdd84bfb6``. Now issuing the request:
 
 .. code:: bash
 
@@ -837,32 +902,59 @@ body <https://gist.github.com/up42-epicycles/f210680676060df4bd82d9629c8ca4aa>`_
 The workflow has now the first task in place.
 
 Creating the the second task: processing block addition
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Adding the processing block: Land cover classification.
+Adding the processing block: Land cover classification. We are going
+to rely again on ``jq`` to make sure the values set for the request
+body are correct.  
 
-The new block needs to be added to the task list (a JS array).
+The new block needs to be added to the task list (a JS array). We
+start with the following JSON.
 
 .. code:: js
 
+   [
+      {
+        "name": "First task Landsat 8 AOI clipped data block",
+        "parentName": null,
+        "blockId": "e0b133ae-7b9c-435c-99ac-c4527cc8d9cf"
+      },
+      {
+        "name": "land-cover-classification",
+        "parentName": null,
+        "blockId": null
+      }
+   ]
+
+Now we set the values of the second task object based on the first:
+
+.. code:: bash
+
+   cat empty_task2_workflow-$NEW_WORKFLOW.json | jq '. | .[0] as $bn | .[1].parentName |= $bn.name' | jq ". | .[1].blockId |= \"$TASK2_BLOCK_ID\"" > create_task2_workflow-$NEW_WORKFLOW.json
+
+This generates the JSON:
+
+.. code:: js
 
    [
-     {
-       "name": "First task Landsat 8 AOI clipped data block",
-       "parentName": null,
-       "blockName": "sentinelhub-landsat8-aoiclipped"
-     },
-    {
-      "name": "land-cover-classification",
-      "parentName": "First task Landsat 8 AOI clipped data block",
-      "blockName": "land-cover-classification"
-    }
-  ]
+      {
+         "name": "First task Landsat 8 AOI clipped data block",
+         "parentName": null,
+         "blockId": "e0b133ae-7b9c-435c-99ac-c4527cc8d9cf"
+      },
+      {
+         "name": "land-cover-classification",
+         "parentName": "First task Landsat 8 AOI clipped data block",
+         "blockId": "3f5f4490-9e58-490f-80e0-9a464355d5ce"
+      }
+   ]
+       
 
 The task list has now two entries, the second being the
 ``land-cover-classification`` block. Notice that ``parentName`` is set
 to be the first task in the workflow:
-``First task Landsat 8 AOI-Clipped data block``.
+``First task Landsat 8 AOI-Clipped data block`` and ``blockId`` is set
+to the block ID of the data block.
 
 To add the second block the API call is:
 
@@ -888,7 +980,7 @@ except for some minor details, like ``createdAt``, ``updatedat``,
 .. _update-workflow:
 
 Update a workflow
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~
 
 To update a workflow you just overwrite it by sending a POST request
 to the workflow task endpoint. As an example we are going to replace
@@ -896,17 +988,28 @@ the Landsat 8 AOI Clipped data block by the :ref:`SPOT 6/7 AOI Clipped
 <spot-aoiclipped-block>` data block. For that we have the following
 payload, enumerating all the tasks:
 
+We are going to use the ``blockID``, in this case the ID is:
+``0f15e07f-efcc-4598-939b-18aade349c5``.
+
+
+.. warning::
+   
+   The block ID is obtained via the blocks API. This API is not yet
+   public. If you aim to build workflows programatically then the
+   blcoks API is of essence. If that is the case then `contact us
+   <mailto:support@up42.com>`__.
+  
 .. code:: js
 
    [
      {
        "name": "First task SPOT 6/7 AOI clipped data block",
        "parentName": null,
-       "blockName": "oneatlas-spot-aoiclipped"
+       "blockID": "0f15e07f-efcc-4598-939b-18aade349c5"
      },
     {
       "name": "land-cover-classification",
-      "parentName": "First task SPOT 6/7 AOI clipped data block",
+      "parentID": "0f15e07f-efcc-4598-939b-18aade349c5",
       "blockName": "land-cover-classification"
     }
   ]
@@ -920,20 +1023,20 @@ Which gives the following `response <https://gist.github.com/up42-epicycles/5988
 .. _delete-workflow:
    
 Delete a workflow
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~
 
 To delete a workflow we need get the workflow ID of the workflow to
 be deleted. From the file we obtained :ref:`before <get-workflows>` we
-see that there is a workflow that is called ``another test workflow``.
+see that there is a workflow that is called ``Create brand a new landsat 8 + Land cover workflow``.
 
 .. code:: bash
 
    # Get the workflow ID of the workflow to be deleted.       
-   DEL_WORKFLOW=$(cat workflows-$PROJ.json | jq -j '.data[] as $wf | if $wf.name == "another test workflow" then $wf.id else "" end')       
+   DEL_WORKFLOW=$(cat workflows-$PROJ.json | jq -j '.data[] as $wf | if $wf.name == "Create brand a new landsat 8 + Land cover workflow" then $wf.id else "" end')       
 
    > echo $DEL_WORKFLOW
 
-   40866305-323f-4a79-8ec2-106ae8ebb88c
+   c5085052-509b-4cba-951a-8e6a18aee9bb
 
 To delete this workflow the request is:
 
@@ -946,7 +1049,7 @@ And the response:
 .. code:: 
    
    HTTP/2 204
-   date: Tue, 17 Sep 2019 15:01:55 GMT
+   date: Wed, 09 Sep 2019 17:55:34 GMT
    x-content-type-options: nosniff
    x-xss-protection: 1; mode=block
    cache-control: no-cache, no-store, max-age=0, must-revalidate
@@ -964,3 +1067,22 @@ And the response:
 The HTTP status `204 No Content <https://httpstatuses.com/204>`__
 means that the request was sucessful but no data is returned.
 
+If we now try to access the deleted workflow we get:
+
+.. code:: bash
+
+   curl -s -L -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$DEL_WORKFLOW" | jq '.'     
+    
+.. code:: js
+
+   {
+      "error": {
+         "code": "RESOURCE_NOT_FOUND",
+         "message": "Workflow not found for id c5085052-509b-4cba-951a-8e6a18aee9bb and projectId 5a21eaff-cdaa-48ab-bedf-5454116d16ff and userId 8cd5de7b-82e2-4625-b094-d5392f1cf780",
+         "details": null
+      },
+     "data": null
+   }
+          
+The workflow was deleted therefore it no longer exists, hence the
+`404 Not Found <https://httpstatuses.com/404>`__.
