@@ -251,19 +251,22 @@ The first returned job parameters are:
        }
    }
 
-Validate the job parameters
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..
+   Validate the job parameters
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Before creating the job we need to validate the job parameters. 
+   Before creating the job we need to validate the job parameters. 
 
-.. code:: bash
+   .. code:: bash
 
-   # URL for job parameter validation.       
-   URL_VALIDATE_JOB="https://api.up42.com/validate-schema/job-input"      
+      # URL for job parameter validation.       
+      URL_VALIDATE_JOB="https://api.up42.com/validate-schema/job-input"      
 
-   curl -s -L -X POST -H 'Content-Type: application/json' $URL_VALIDATE_JOB_JOB -d@job_params_$PROJ.json 
+      curl -s -L -X POST -H 'Content-Type: application/json' $URL_VALIDATE_JOB_JOB -d@job_params_$PROJ.json 
 
-Now that the job is validated, finally, you can create and run the job:
+     Now that the job is validated,
+
+Finally, you can create and run the job:
 
 .. code:: bash
 
@@ -658,6 +661,7 @@ Now we can, iterating over the given JSON array ``data`` get all the quicklooks
 images, this case is only one.
 
 .. code:: bash
+          
     # Loop over all available quicklooks images and get them.      
    for i in $(cat quicklooks_6505eaf8-dc63-44a9-878f-831eecae3f62.json | jq -j '.data[]')
        do curl -s -L -O -H "Authorization: Bearer $PTOKEN" "$TASK1_URL/outputs/quicklooks/$i"
