@@ -33,10 +33,11 @@ as well as minimal proficiency with using a UNIX like shell.
 2. :ref:`Work with jobs and tasks <working-job-tasks>`:
 
    - `get job logs <#get-job-logs>`__
-   -  get job task logs
+   - :ref:`get job task logs <task-results-logs>`
    - `get job tasks output <#task-results-geojson>`__ (``data.json``)
-   - `get job output directory <#task-downloads-results>`__
-
+   - `get job tasks output directory <#task-downloads-results>`__
+   -  :ref:`get job tasks quicklooks <task-results-quicklooks>`
+     
 3. :ref:`Work with workflows <working-workflows>`:
 
    - `get workflows <#get-workflows>`__
@@ -177,7 +178,7 @@ To create and run a job you need to get first the workflow IDs.
 
 .. code:: bash
 
-  # Get all different workflows.
+   # Get all different workflows.
    cat jobs_$PROJ.json | jq -r '.data[] | .workflowId' | uniq
 
 we get a single element, since there is a single workflow in this project.
@@ -250,7 +251,22 @@ The first returned job parameters are:
        }
    }
 
-Finally you can create and run the job:
+..
+   Validate the job parameters
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+   Before creating the job we need to validate the job parameters. 
+
+   .. code:: bash
+
+      # URL for job parameter validation.       
+      URL_VALIDATE_JOB="https://api.up42.com/validate-schema/job-input"      
+
+      curl -s -L -X POST -H 'Content-Type: application/json' $URL_VALIDATE_JOB_JOB -d@job_params_$PROJ.json 
+
+     Now that the job is validated,
+
+Finally, you can create and run the job:
 
 .. code:: bash
 
@@ -297,7 +313,7 @@ In this case it returns:
    RUNNING
 
 This means that the job is still running.
-
+   
 .. _get-job-logs:
 
 Get the jobs logs
@@ -339,11 +355,16 @@ Get the job results
 ~~~~~~~~~~~~~~~~~~~
 
 Once the job completes you can query the API to get the results.
-Obtaining the `GeoJSON <https://en.wikipedia.org/wiki/GeoJSON>`__ file
-and/or the output directory delivered as a
-`gzipped <https://en.wikipedia.org/wiki/Gzip>`__
-`tarball <https://en.wikipedia.org/wiki/Tar_(computing)>`__.
+There are 3 types of results:
 
+ 1. A `GeoJSON <https://en.wikipedia.org/wiki/GeoJSON>`__ file with
+    the geometry of the used :term:`AOI` and metadata.
+ 2. The output directory delivered as a
+    `gzipped <https://en.wikipedia.org/wiki/Gzip>`__
+    `tarball <https://en.wikipedia.org/wiki/Tar_(computing)>`__.
+ 3. A set of low resolution RGB images, :term:`quicklooks`. These are
+    only available as task specific results and not available as job results.
+    
 .. _results-geojson:
 
 Get the results: GeoJSON
@@ -510,8 +531,10 @@ Querying again for the job status.
 Working with jobs and tasks
 ---------------------------
 
-Get individual tasks results
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Similarly to jobs results you can access each task results and logs.
+
+Get individual tasks results and logs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The job is composed of two tasks, each corresponding to a block in the
 workflow: the first is obtaining the `Landsat
@@ -557,6 +580,20 @@ Create two shell variables, one for each task:
 Now with the individual tasks IDs let us proceed to get the respective
 results.
 
+
+.. _task-results-logs:
+
+First task logs
+^^^^^^^^^^^^^^^
+
+To get the first task log we issue the API request:
+
+.. code:: bash
+
+   curl -s -L -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: text/plain' "$TASK1_URL/logs" > task_log-$TASK1.txt       
+
+The resulting `file <https://gist.github.com/up42-epicycles/48b0082868629dd7f10030cbac01f159>`__.   
+
 .. _task-results-geojson:
 
 First task results: GeoJSON
@@ -596,9 +633,53 @@ Inspecting the tarball:
 
 you can see the resulting Landsat 8 GeoTIFF image there.
 
+.. _task-results-quicklooks:
+
+First task results: quicklooks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+First we need to get the list of available images.
+
+
+.. code:: bash
+
+   curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK1_URL/outputs/quicklooks" | jq '.'  > quicklooks_list_$TASK1.json     
+
+This gives us the JSON:
+
+.. code:: javascript
+
+   {
+      "error": null,
+      "data": [
+        "b8c9698b-0c42-47ac-b503-a956bf45b5f2.jpg"
+      ]
+   }
+
+          
+Now we can, iterating over the given JSON array ``data`` get all the quicklooks
+images, this case is only one.
+
+.. code:: bash
+          
+    # Loop over all available quicklooks images and get them.      
+   for i in $(cat quicklooks_6505eaf8-dc63-44a9-878f-831eecae3f62.json | jq -j '.data[]')
+       do curl -s -L -O -H "Authorization: Bearer $PTOKEN" "$TASK1_URL/outputs/quicklooks/$i"
+   done   
+
+Second task logs
+^^^^^^^^^^^^^^^^
+
+To get the second task logs we issue the API request:
+
+.. code:: bash
+
+   curl -s -L -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: text/plain' "$TASK2_URL/logs" > task_log-$TASK2.txt       
+
+The resulting `task_log-79512809-fcd7-41d4-9701-cf38c3355ab3.txt <https://gist.github.com/up42-epicycles/1d837f8ae946fdba337ce74483759c2d>`__.
+
 Second task results: GeoJSON
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 .. code:: bash
 
    TASK2_URL="https://api.up42.com/projects/$PROJ/jobs/$JOB/tasks/$TASK2"       
@@ -634,6 +715,21 @@ that:
    
    The final task of a workflow produces the same results as the job
    itself.
+
+Second task results: quicklooks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Again like we did :ref:`before <task-results-quicklooks>` we now get
+the list of quicklooks for the second task.
+
+.. code:: javascript
+
+   {
+     "error": null,
+     "data": []
+   }
+
+As we can see this task hasn't created any quicklooks.          
 
 .. _working-workflows:
    
