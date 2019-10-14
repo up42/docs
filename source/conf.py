@@ -230,7 +230,6 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
 
-
 # Swagger/OpenAPI
 # TODO: Configure this to fetch it automatically from the production swagger endpoint
 # See: https://sphinxcontrib-redoc.readthedocs.io/en/stable/
