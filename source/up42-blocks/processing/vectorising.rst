@@ -1,0 +1,94 @@
+.. meta::
+   :description: UP42 processing blocks: Raster vectorising block description
+   :keywords: UP42, processing, raster vectorising, conversion, geojson
+
+.. _vectorising-block:
+
+Vectorising block
+=================
+
+Block type: ``PROCESSING``
+
+This block vectorises raster files into ``GeoJSON`` format.
+
+.. warning::
+
+  The input for this block should be a **thematic raster dataset** with relatively few
+  possible values so that the output geometry is meaningful. A suitable input
+  is the result of a **K-Means Clustering** or a **Land Cover Classification**.
+
+
+Supported parameters
+--------------------
+
+* ``n_sieve_pixels``: Minimum number of pixels in each geometry patch. Default is 1.
+
+Example parameters using the :ref:`SPOT AOIClipped block
+<spot-aoiclipped-block>` as data source and then applying :ref:`K-Means Clustering <kmeans-clustering>`
+and :ref:`Vectorising block <vectorising-block>`.
+
+.. code-block:: javascript
+
+    {
+      "oneatlas-spot-aoiclipped:1": {
+        "bbox": null,
+        "time": null,
+        "limit": 3,
+        "intersects": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                18.42631,
+                -33.912732
+              ],
+              [
+                18.420799,
+                -33.922741
+              ],
+              [
+                18.44355,
+                -33.924784
+              ],
+              [
+                18.441069,
+                -33.913781
+              ],
+              [
+                18.42631,
+                -33.912732
+              ]
+            ]
+          ]
+        },
+        "zoom_level": 17
+      },
+      "k-means-clustering:1": {
+        "n_clusters":8
+      },
+      "vectorising:1": {
+        "n_sieve_pixels": 20
+      }
+    }
+
+
+Output format
+-------------
+Output format is a ```GeoJSON`` file.
+
+Capabilities
+------------
+
+The block takes a ``up42.data.aoiclipped`` product and delivers a ``up42.data.vector.geojson``.
+
+Advanced
+--------
+
+Additional parameters
+~~~~~~~~~~~~~~~~~~~~~
+
+You can additionally set this parameters if needed:
+
+* ``dst_crs``: Coordinate reference system to use to save output. Set with the :term:`EPSG` code. Default is ``EPSG:4326`` or WGS 84.
+* ``src_band``: Band number to use for vectorisation. Default is 1 or first band.
+* ``n_connectivity_pixels``: Number of connected pixels required to make a patch. Default is 4, 8 is another possible value (includes diagonal connections).
