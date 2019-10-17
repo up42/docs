@@ -9,7 +9,7 @@ K-Means Clustering block
 
 Block type: ``PROCESSING``
 
-This block provides a simple [unsupervised classification](https://en.wikipedia.org/wiki/Cluster_analysis) algorithm - K-Means clustering. It will create a set number of classes in each dataset and classify each pixel in one of this classes.
+This block provides a simple `unsupervised classification <https://en.wikipedia.org/wiki/Cluster_analysis>`_ algorithm - K-Means clustering. It will create a set number of classes in each dataset and classify each pixel in one of this classes.
 
 Supported parameters
 --------------------
@@ -60,7 +60,7 @@ Example parameters using the :ref:`SPOT AOIClipped block
       "k-means-clustering:1": {
         "n_clusters": 6,
         "n_iterations": 10,
-        "n_sieve_pixels": 64 
+        "n_sieve_pixels": 64
       }
     }
 
