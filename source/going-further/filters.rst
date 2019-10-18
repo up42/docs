@@ -74,7 +74,7 @@ from a certain data
    Searches items according to a single date and time or range --
    dates separated by ``/`` -- formatted according to `RFC 3339
    section 5.6 <https://tools.ietf.org/html/rfc3339#sec on-5.6>`__.
-   In general format the format is ``%Y-%m-%dT%H:%M:%S+00:00``.
+   In general the date format is ``%Y-%m-%dT%H:%M:%S+00:00``.
 
    For example, to select an image from February 2019 you can use
    ``"2019-02-01T00:00:00+00:00/2019-03-01T00:00:00+00:00"``.
@@ -92,9 +92,13 @@ from a certain data
 
     For example, to select an image from every February from 2017 till 2019
     you can use:
-    ``["2019-02-01T00:00:00+00:00/2019-03-01T00:00:00+00:00",
-     "2018-02-01T00:00:00+00:00/2018-03-01T00:00:00+00:00",
-     "2017-02-01T00:00:00+00:00/2017-03-01T00:00:00+00:00"]``.
+
+    .. code-block::
+      python
+
+      ["2019-02-01T00:00:00+00:00/2019-03-01T00:00:00+00:00",
+       "2018-02-01T00:00:00+00:00/2018-03-01T00:00:00+00:00",
+       "2017-02-01T00:00:00+00:00/2017-03-01T00:00:00+00:00"]
 
 .. _ids-filter:
 
