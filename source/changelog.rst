@@ -7,6 +7,11 @@
 Changelog
 =========
 
+22.10.2019
+----------
+
+* Add :ref:`CRS conversion <crs-conversion>` block.
+
 18.10.2019
 ----------
 
