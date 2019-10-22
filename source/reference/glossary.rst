@@ -43,6 +43,10 @@
       registry and is therefore private, i.e., it can only used by
       that customer.
 
+   CRS
+      **C**\ oordinate **R**\ eference **S**\ ystem or **S**\ patial **R**\ eference **S**\ ystem
+      is a coordinate-based local, regional or global system used to locate geographical entities.
+
    data block
       A :term:`block` that provides satellite image data or other geospatial data.
 
@@ -79,6 +83,10 @@
 
    EPSG
     **E**\ uropean **P**\ etroleum **S**\ urvey **G**\ roup **G**\ eodetic Parameter Dataset (also EPSG registry) is a public registry of spatial reference systems, Earth ellipsoids, coordinate transformations and related units of measurement mantained by the International Association of Oil & Gas Producers (IOGP), formerly known as the European Petroleum Survey Group (EPSG). Each entity is assigned an EPSG code between 1024-32767 along with a standard machine-readable well-known text (WKT) representation. See more in `here <https://www.epsg-registry.org/>`_.
+
+   UTM
+    **U**\ niversal **T**\ ransverse **M**\ ercator. A UTM zone is a 6‎° segment of the Earth,
+    it's one of the most common map projections used today.
 
    processing block
       A :term:`block` that takes input from a :term:`data block` and applies a processing operation to the data.
