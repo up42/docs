@@ -21,7 +21,7 @@ This block vectorises raster files into ``GeoJSON`` format.
 Supported parameters
 --------------------
 
-* ``n_sieve_pixels``: Minimum number of pixels in each geometry patch. Default is 1.
+* ``n_sieve_pixels``: Minimum number of pixels in each geometry patch. Default is **1**.
 
 Example parameters using the :ref:`SPOT AOIClipped block
 <spot-aoiclipped-block>` as data source and then applying :ref:`K-Means Clustering <kmeans-clustering>`
@@ -89,6 +89,6 @@ Additional parameters
 
 You can additionally set this parameters if needed:
 
-* ``dst_crs``: Coordinate reference system to use to save output. Set with the :term:`EPSG` code. Default is ``EPSG:4326`` or WGS 84.
-* ``src_band``: Band number to use for vectorisation. Default is 1 or first band.
-* ``n_connectivity_pixels``: Number of connected pixels required to make a patch. Default is 4, 8 is another possible value (includes diagonal connections).
+* ``dst_crs``: Coordinate reference system to use to save output. Set with the :term:`EPSG` code. Default is ``EPSG:4326`` or **WGS 84**.
+* ``src_band``: Band number to use for vectorisation. Default is **1** or first band.
+* ``n_connectivity_pixels``: Number of connected pixels required to make a patch. Default is **4**, 8 is another possible value (includes diagonal connections).
