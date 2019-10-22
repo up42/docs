@@ -71,9 +71,13 @@ from a certain data
 
 ``time``
 ~~~~~~~~
-   Searches items acccording to a single date and time or range --
+   Searches items according to a single date and time or range --
    dates separated by ``/`` -- formatted according to `RFC 3339
    section 5.6 <https://tools.ietf.org/html/rfc3339#sec on-5.6>`__.
+   In general the date format is ``%Y-%m-%dT%H:%M:%S+00:00``.
+
+   For example, to select an image from February 2019 you can use
+   ``"2019-02-01T00:00:00+00:00/2019-03-01T00:00:00+00:00"``.
 
 .. _time_series-filter:
 
@@ -82,10 +86,19 @@ from a certain data
     Searches items according to an array of
     :ref:`time ranges <time-filter>`
     each specifying the desired date ranges.
-    It returns the the specified :ref:`limit <limit-filter>` for each
-    given time range. If the ranges overlap then there will be
-    repeated items. How many depends on the specific overlap of the
-    given time ranges.
+    The :ref:`limit <limit-filter>` parameter is used for each
+    of the time ranges. If the ranges overlap then there will be
+    repeated items.
+
+    For example, to select an image from every February from 2017 till 2019
+    you can use:
+
+    .. code-block::
+      python
+
+      ["2019-02-01T00:00:00+00:00/2019-03-01T00:00:00+00:00",
+       "2018-02-01T00:00:00+00:00/2018-03-01T00:00:00+00:00",
+       "2017-02-01T00:00:00+00:00/2017-03-01T00:00:00+00:00"]
 
 .. _ids-filter:
 
