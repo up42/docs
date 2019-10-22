@@ -17,7 +17,8 @@ convert to that CRS.
 Supported parameters
 --------------------
 
-* ``epsg_code``: :term:`EPSG` code of the output raster file. By default uses the best fitting UTM zone.
+* ``resampling_method``: The resampling method to use when reprojecting the raster image. Default is ``cubic``, suitable for imagery or continuous data. Use ``nearest`` if working with categorical data, for instance with the K-Means Clustering result.
+* ``output_epsg_code``: :term:`EPSG` code of the output raster file. By default uses the best fitting UTM zone.
 
 .. tip::
 
@@ -45,7 +46,8 @@ Example parameters using the :ref:`SPOT streaming block
         "panchromatic_band": false
       },
       "crs-conversion:1": {
-        "epsg_code": 3857
+        "resampling_method": "cubic",
+        "output_epsg_code": 3857
       }
     }
 
