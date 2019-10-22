@@ -7,6 +7,11 @@
 Changelog
 =========
 
+18.10.2019
+----------
+
+* Add :ref:`K-Means Clustering <kmeans-clustering-block>` block.
+
 17.10.2019
 ----------
 
