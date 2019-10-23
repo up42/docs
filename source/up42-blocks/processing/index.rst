@@ -23,3 +23,4 @@ blocks built by UP42.
    ndvi
    vectorising
    kmeans-clustering
+   crs-conversion
