@@ -22,3 +22,4 @@ blocks built by UP42.
    s2-superresolution
    ndvi
    vectorising
+   kmeans-clustering
