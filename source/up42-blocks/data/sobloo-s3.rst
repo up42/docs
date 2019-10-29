@@ -13,9 +13,10 @@ This block provides full scenes of Sentinel-3 data products in `netcdf <https://
 Important application areas for Sentinel-3 are **climate change analysis, ocean forecasting and pollution monitoring**.
 The output format is identical to the unzipped netcdf files that can be acquired from ESA’s Scihub.
 
-Processing blocks for Sentinel-3 will be coming soon to **UP42**! In the meantime,
-you can use the downloaded data e.g. via the `ESA SNAP toolbox <https://step.esa.int/main/toolboxes/snap/>`_ .
-EUMETSAT provides a `video tutorial <https://youtu.be/3PjTwEMlCMs?t=130>`_ on how to load and visualize Sentinel data with SNAP.
+.. tip::
+    Processing blocks for Sentinel-3 will arrive soon on **UP42!** In the meantime,
+    you can use the downloaded data e.g. via the `ESA SNAP toolbox <https://step.esa.int/main/toolboxes/snap/>`_ .
+    EUMETSAT provides a `video tutorial <https://youtu.be/3PjTwEMlCMs?t=130>`_ on how to load and visualize Sentinel data with SNAP.
 
 Supported query parameters
 --------------------------
