@@ -151,8 +151,8 @@ Example query using specific image ids:
 Output format
 -------------
 
-The output GeoJSON contains the metadata as returned by the Sobloo API, with the ``up42.data.scene.netcdf``
-capability mapping to the directory containing the `netcdf`_ for the scene. Example output GeoJSON:
+The output GeoJSON contains the metadata as returned by the upstream provider API, `Sobloo <https://sobloo.eu>`_.
+The ``up42.data.scene.netcdf`` capability maps to the directory containing the `netcdf`_ for the scene. Example output GeoJSON:
 
 .. code-block:: javascript
 
