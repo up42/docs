@@ -20,7 +20,7 @@ Changelog
 17.10.2019
 ----------
 
-* Add :ref:`Vectorising <vectorising-block>` block.
+* Add :ref:`Vectorization <vectorization-block>` block.
 
 26.09.2019
 ----------

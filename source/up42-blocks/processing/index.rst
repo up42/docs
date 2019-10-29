@@ -21,6 +21,6 @@ blocks built by UP42.
    snap-polarimetric
    s2-superresolution
    ndvi
-   vectorising
+   vectorization
    kmeans-clustering
    crs-conversion
