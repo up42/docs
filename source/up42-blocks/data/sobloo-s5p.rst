@@ -38,6 +38,8 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``ids``: An array of image identifiers. The S5P identifiers are described `here <https://earth.esa.int/web/sentinel/technical-guides/sentinel-5p/products-algorithms>`_. The file extension is omitted.
   This parameter is mainly meant for use via the API and cannot be used in combination with the dry-run mode.
 
+.. _sentinel-5p-imagery-layers:
+
 Imagery layers
 --------------
 
@@ -113,7 +115,7 @@ Imagery layers
 Example queries
 ---------------
 
-Example query searching for images using a data range via ``time``, ``limit```` and ``intersects`` with a geometry:
+Example query searching for images using a data range via ``time``, ``limit`` and ``intersects`` with a geometry:
 
 .. code-block:: javascript
 
@@ -168,8 +170,8 @@ Example query using specific image ids:
 Output format
 -------------
 
-The output GeoJSON contains the metadata as returned by the Sobloo API, with the ``up42.data.scene.netcdf``
-capability mapping to the directory containing the `netcdf`_ for the scene. Example output GeoJSON:
+The output GeoJSON contains the metadata as returned by the upstream provider API, `Sobloo <https://sobloo.eu>`_.
+The ``up42.data.scene.netcdf`` capability maps to the directory containing the `netcdf`_ for the scene. Example output GeoJSON:
 
 .. code-block:: javascript
 
