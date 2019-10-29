@@ -13,16 +13,22 @@ This block provides full scenes of Sentinel-5 Precursor data products in `netcdf
 Important application areas for Sentinel-5P are **monitoring of air quality, ozone and surface UV and climate research**.
 The output format is identical to the unzipped netcdf files that can be acquired from ESA’s Scihub.
 
+.. tip::
+    Processing blocks for Sentinel-5P will arrive soon on **UP42!** In the meantime,
+    you can use the downloaded data e.g. via the `ESA SNAP toolbox <https://step.esa.int/main/toolboxes/snap/>`_ .
+    EUMETSAT provides a `video tutorial <https://youtu.be/3PjTwEMlCMs?t=130>`_ on how to load and visualize Sentinel data with SNAP.
+
 
 Supported query parameters
 --------------------------
 
 For more information on supported filters, see :ref:`query filter section  <filters>`.
 
-* ``ìmagery_layer``: A string for the selection of one of the 15 available Sentinel-3 image products (default is ``"L2__CH4___"``, corresponding to the *Methane (CH4)* product). See the next chapter for more details on the available layers.
+* ``ìmagery_layer``: A string for the selection of one of the 20 available Sentinel-5 image products (default is ``"L2__CH4___"``, corresponding to the *Methane (CH4)* product).
+  See chapter :ref:`Imagery layers <sentinel-5p-imagery-layers>` for more details on the available layers.
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.
-* ``intersects`` – A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use
+* ``intersects``: A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use
   only ``intersects`` **or** ``bbox``.
 * ``contains``: A GeoJSON geometry to use as an AOI. Will return all scenes that completely cover this geometry. Use only ``contains``
   **or** ``intersects`` **or** ``bbox``.
