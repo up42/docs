@@ -23,5 +23,7 @@ built by UP42.
    sobloo-s1-slc
    sobloo-s2-l1c
    sentinelhub-s2
+   sobloo-s3
+   sobloo-s5p
    sentinelhub-landsat8
    modis
