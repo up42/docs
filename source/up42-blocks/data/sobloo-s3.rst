@@ -19,7 +19,8 @@ Supported query parameters
 
 For more information on supported filters, see :ref:`query filter section  <filters>`.
 
-* ``ìmagery_layer``: A string for the selection of one of the 15 available Sentinel-3 image products (default is ``"SL_1_RBT___"``, corresponding to the *brightness temperatures and radiances* product). See the next chapter for more details on the available layers.
+* ``ìmagery_layer``: A string for the selection of one of the 15 available Sentinel-3 image products (default is ``"SL_1_RBT___"``, corresponding to the *brightness temperatures and radiances* product).
+  See chapter :ref:`Imagery layers <sentinel-3-imagery-layers>` more details on the available layers.
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.
 * ``intersects`` – A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use
