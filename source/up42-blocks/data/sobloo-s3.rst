@@ -33,6 +33,9 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``ids``: An array of image identifiers. The S3 identifiers naming scheme is described `here <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-3-olci/naming-convention>`_.
   The file extension is omitted. This parameter is mainly meant for use via the API and cannot be used in combination with dry-run mode.
 
+
+.. _sentinel-3-imagery-layers:
+
 Imagery layers
 --------------
 
