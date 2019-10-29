@@ -74,7 +74,7 @@ and :ref:`Vectorization block <vectorization-block>`.
 
 Output format
 -------------
-Output format is a ```GeoJSON`` file.
+Output format is a ``GeoJSON`` file.
 
 Capabilities
 ------------
