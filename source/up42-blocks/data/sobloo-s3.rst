@@ -33,6 +33,63 @@ For more information on supported filters, see :ref:`query filter section  <filt
   https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/naming-convention; the file extension is omitted.
   This parameter is mainly meant for use via the API and cannot be used in combination with dry-run mode.
 
+Imagery layers
+--------------
+
+.. list-table::
+   :widths: 15 15 50
+   :header-rows: 1
+
+   * - Parameter
+     - ~ File size (GB)
+     - Product name
+   * - SL_1_RBT___
+     - 0.5
+     - Brightness temperatures and radiances
+   * - OL_1_EFR___
+     - 0.7
+     - Full Resolution top of atmosphere
+   * - OL_2_LFR___
+     - 0.2
+     - Full Resolution Land and Atmosphere parameters
+   * - OL_2_WFR___
+     - 0.05
+     - Full Resolution Water & atmosphere parameters
+   * - SL_2_WST___
+     - 0.7
+     - Level 2P Sea Surface Temperature (GHRSST like)
+   * - SL_2_LST___
+     - 1.9
+     - Land Surface Temperature Parameters
+   * - SY_2_SYN___
+     - 0.3
+     - Surface Reflectances and Aerosol measurements over Land
+   * - SR_2_LAN___
+     - 0.1
+     - 1Hz and 20Hz Ku and C bands parameters (LRM/SAR), waveforms. Over land, coastal areas, land ice and inland water
+   * - SR_2_WAT___
+     - 0.06
+     - 1Hz and 20Hz Ku and C bands parameters (LRM/SAR), waveforms. Over open ocean, coastal areas, sea-ice and part of land within a certain distance from the coastline
+   * - OL_1_ERR___
+     - 0.8
+     - Reduced Resolution top of atmosphere
+   * - OL_2_LRR___
+     - 0.2
+     - Reduced Resolution Land and Atmosphere parameters
+   * - OL_2_WRR___
+     - 0.03
+     - Reduced Resolution Water & atmosphere parameters
+   * - SY_2_VGP___
+     - 0.03
+     - 1 km VEGETATION Like product (VGT-P) - TOA Reflectances
+   * - SY_2_VG1___
+     - 0.1
+     - 1 km VEGETATION Like product (VGT-S1) 1 day synthesis surface reflectances and NDVI
+   * - SY_2_V10___
+     - 0.3
+     - 1 km VEGETATION Like product (VGT-S10) 10 days synthesis surface reflectances and NDVI
+
+
 Example queries
 ---------------
 
