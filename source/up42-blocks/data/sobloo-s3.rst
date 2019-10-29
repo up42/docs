@@ -27,7 +27,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
   See chapter :ref:`Imagery layers <sentinel-3-imagery-layers>` more details on the available layers.
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.
-* ``intersects`` – A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use
+* ``intersects``: A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use
   only ``intersects`` **or** ``bbox``.
 * ``contains``: A GeoJSON geometry to use as an AOI. Will return all scenes that completely cover this geometry. Use only ``contains``
   **or** ``intersects`` **or** ``bbox``.
