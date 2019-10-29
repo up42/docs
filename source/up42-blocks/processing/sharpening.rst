@@ -9,7 +9,7 @@ Sharpening block
 
 Block type: ``PROCESSING``
 
-This block enhances the sharpness of a raster image by applying an `unsharp mask filter algorithm <https://en.wikipedia.org/wiki/Unsharp_masking>`_.
+This block enhances the sharpness of a raster image by applying an `unsharpen mask filter algorithm <https://en.wikipedia.org/wiki/Unsharp_masking>`_.
 It supports three possible sharpening strength options. Both the input and output are **GeoTIFF** files.
 
 
