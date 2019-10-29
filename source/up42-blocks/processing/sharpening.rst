@@ -16,7 +16,7 @@ It supports three possible sharpening strength options. Both the input and outpu
 Supported parameters
 --------------------
 
-* ``strength``: Strength of the image sharpening operation, ``light``, ``medium`` **(default)** or ``strong``.
+* ``strength``: Strength of the image sharpening operation, ``light``, ``medium`` and ``strong`` (default: medium).
 
 
 Example usage
