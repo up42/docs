@@ -93,7 +93,7 @@ Imagery layers
 Example queries
 ---------------
 
-Example query searching for images using a data range via ``time``, ``limit```` and ``intersects`` with a geometry:
+Example query searching for images using a data range via ``time``, ``limit`` and ``intersects`` with a geometry:
 
 .. code-block:: javascript
 
