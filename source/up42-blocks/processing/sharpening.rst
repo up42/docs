@@ -9,17 +9,14 @@ Sharpening block
 
 Block type: ``PROCESSING``
 
-This block sharpens raster files by applying a highpass filter. Both the input and output are **geotiff** files.
+This block enhances the sharpness of a raster image by applying an `unsharp mask filter algorithm <https://en.wikipedia.org/wiki/Unsharp_masking>`_.
+It supports three possible sharpening strength options. Both the input and output are **geotiff** files.
 
 
 Supported parameters
 --------------------
 
-* ``n_sieve_pixels``: Minimum number of pixels in each geometry patch. Default is **1**.
-
-Example parameters using the :ref:`SPOT AOIClipped block
-<spot-aoiclipped-block>` as data source and then applying :ref:`K-Means Clustering <kmeans-clustering>`
-and :ref:`Vectorising block <vectorising-block>`.
+* ``strength``: Strength of the image sharpening operation, ``light``, ``medium`` **(default)** or ``strong``.
 
 
 Example usage
