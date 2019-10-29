@@ -4,21 +4,22 @@
 
 .. _sentinel-3-block:
 
-Sentinel-3 (full-scene)
-===========================
+Sentinel-3
+==========
 
 Block type: ``DATA``
 
-This block provides full scenes of Sentinel-3 data products in netcdf format. The output format is identical to
-the unzipped netcdf files that can be acquired from ESA’s Scihub or other DIAS systems.
+This block provides full scenes of Sentinel-3 data products in `netcdf <https://en.wikipedia.org/wiki/NetCDF>`_ format.
+Important application areas for Sentinel-3 are **climate change analysis, ocean forecasting and pollution monitoring**.
+The output format is identical to the unzipped netcdf files that can be acquired from ESA’s Scihub.
 
-Important application areas for Sentinel-3 imagery are climate change analysis, ocean forecasting and pollution monitoring.
 
 Supported query parameters
 --------------------------
 
 For more information on supported filters, see :ref:`query filter section  <filters>`.
 
+* ``ìmagery_layer``: A string for the selection of one of the 15 available Sentinel-3 image products (default is ``"SL_1_RBT___"``, corresponding to the *brightness temperatures and radiances* product). See the next chapter for more details on the available layers.
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.
 * ``intersects`` – A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use
@@ -31,10 +32,11 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``ids``: An array of image identifiers. The S1 identifiers are described here:
   https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/naming-convention; the file extension is omitted.
   This parameter is mainly meant for use via the API and cannot be used in combination with dry-run mode.
-* ``ìmagery_layer``: A string describing the
 
+Example queries
+---------------
 
-Example query searching for images using ``intersects``, ``time`` and ``limit``:
+Example query searching for images using a data range via ``time``, ``limit```` and ``intersects`` with a geometry:
 
 .. code-block:: javascript
 
