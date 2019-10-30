@@ -37,7 +37,7 @@ CURL=$(command -v curl) || exit 1
 JQ=$(command -v jq) || exit 2
 
 function print_usage() {
-    echo "Usage: $SCRIPTNAME -k <project API ke> -p <project ID>"
+    echo "Usage: $SCRIPTNAME -k <project API key> -p <project ID>"
 }
 
 ## Check number of arguments.
@@ -114,7 +114,7 @@ PTOKEN=$($CURL -sX POST "https://$PROJ:$PKEY@api.up42.com/oauth/token"  \
 
 ## Get the workflow ID.
 WORKFLOW_ID=$($CURL -s -L -H "Authorization: Bearer $PTOKEN" \
-                    "https://api.up42.com/projects/$PROJ/jobs" | $JQ -j '.data[0] | .workflow.id')
+                    "https://api.up42.com/projects/$PROJ/jobs" | $JQ -j '.data[0] | .workflowId')
 
 # Create the endpoint URL as variable.
 URL_POST_JOB="https://api.up42.com/projects/$PROJ/workflows/$WORKFLOW_ID/jobs?name=$JOB_NAME"
