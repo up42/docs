@@ -4,8 +4,8 @@
 
 .. _sentinel-3-block:
 
-Sentinel-3
-==========
+Sentinel-3 (full-scene)
+=======================
 
 Block type: ``DATA``
 
