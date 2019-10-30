@@ -1,4 +1,4 @@
-.. meta:: 
+.. meta::
    :description: UP42 data blocks: Sentinel 3 block description
    :keywords: Sentinel 3, ESA, climate change analysis, ocean forecasting, pollution monitoring, full scene, block description
 
@@ -13,10 +13,13 @@ This block provides full scenes of Sentinel-3 data products in `netcdf <https://
 Important application areas for Sentinel-3 are **climate change analysis, ocean forecasting and pollution monitoring**.
 The output format is identical to the unzipped netcdf files that can be acquired from ESA’s Scihub.
 
-.. tip::
-    Processing blocks for Sentinel-3 will arrive soon on **UP42!** In the meantime,
-    you can use the downloaded data e.g. via the `ESA SNAP toolbox <https://step.esa.int/main/toolboxes/snap/>`_ .
-    EUMETSAT provides a `video tutorial <https://youtu.be/3PjTwEMlCMs?t=130>`_ on how to load and visualize Sentinel data with SNAP.
+.. tip:: Processing blocks for Sentinel-3 will be available shortly
+    on UP42. In the meantime, you can use the downloaded data
+    e.g. via the `ESA SNAP toolbox
+    <https://step.esa.int/main/toolboxes/snap/>`_ .  `EUMETSAT
+    <https://en.wikipedia.org/wiki/European_Organisation_for_the_Exploitation_of_Meteorological_Satellites>`_
+    provides a `video tutorial <https://youtu.be/3PjTwEMlCMs?t=130>`_
+    on how to load and visualize Sentinel data with SNAP.
 
 Supported query parameters
 --------------------------
@@ -28,27 +31,32 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.
 * ``intersects``: A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use
-  only ``intersects`` **or** ``bbox``.
-* ``contains``: A GeoJSON geometry to use as an AOI. Will return all scenes that completely cover this geometry. Use only ``contains``
+  only one of ``intersects`` **or** ``bbox``.
+* ``contains``: A GeoJSON geometry to use as an AOI. Will return all
+  scenes that completely cover this geometry. Use only one of ``contains``
   **or** ``intersects`` **or** ``bbox``.
 * ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
-* ``limit``: An integer number of maximum results to return. Omit this to set no limit.
+* ``limit``: An integer number specifying the maximum numbetr of results to return. Omit it to set no limit.
 * ``ids``: An array of image identifiers. The S3 identifiers naming scheme is described `here <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-3-olci/naming-convention>`_.
-  The file extension is omitted. This parameter is mainly meant for use via the API and cannot be used in combination with dry-run mode.
-
+  The file extension is omitted. This parameter is mainly meant for
+  use via the API and cannot be used in combination with a :term:`TestQuery`.
 
 .. _sentinel-3-imagery-layers:
 
 Imagery layers
 --------------
 
-.. list-table::
+.. |br| raw:: html
+
+   <br/>
+
+.. list-table:: Available imagery layers for Sentinel 3
    :widths: 15 15 50
    :header-rows: 1
 
    * - Parameter
-     - ~ File size (GB)
+     - ~ File size [GB]
      - Product name
    * - SL_1_RBT___
      - 0.5
@@ -73,10 +81,14 @@ Imagery layers
      - Surface Reflectances and Aerosol measurements over Land
    * - SR_2_LAN___
      - 0.1
-     - 1Hz and 20Hz Ku and C bands parameters (LRM/SAR), waveforms. Over land, coastal areas, land ice and inland water
+     - 1Hz and 20Hz Ku and C bands parameters (LRM/SAR),
+       waveforms. |br| Over land, coastal areas, land ice and inland water
    * - SR_2_WAT___
      - 0.06
-     - 1Hz and 20Hz Ku and C bands parameters (LRM/SAR), waveforms. Over open ocean, coastal areas, sea-ice and part of land within a certain distance from the coastline
+     - 1Hz and 20Hz Ku and C bands parameters (LRM/SAR),
+       waveforms. |br|
+       Over open ocean, coastal areas, sea-ice and part of land |br|
+       within a certain distance from the coastline
    * - OL_1_ERR___
      - 0.8
      - Reduced Resolution top of atmosphere
@@ -91,10 +103,12 @@ Imagery layers
      - 1 km VEGETATION Like product (VGT-P) - TOA Reflectances
    * - SY_2_VG1___
      - 0.1
-     - 1 km VEGETATION Like product (VGT-S1) 1 day synthesis surface reflectances and NDVI
+     - 1 km VEGETATION Like product (VGT-S1) 1 day synthesis surface
+       |br| reflectances and NDVI
    * - SY_2_V10___
      - 0.3
-     - 1 km VEGETATION Like product (VGT-S10) 10 days synthesis surface reflectances and NDVI
+     - 1 km VEGETATION Like product (VGT-S10) 10 days synthesis |br|
+       surface reflectances and NDVI
 
 
 Example queries
@@ -139,7 +153,7 @@ Example query searching for images using a data range via ``time``, ``limit`` an
       }
     }
 
-Example query using specific image ids:
+Example query using specific image IDs:
 
 .. code-block:: javascript
 

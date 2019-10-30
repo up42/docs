@@ -13,10 +13,13 @@ This block provides full scenes of Sentinel-5 Precursor data products in `netcdf
 Important application areas for Sentinel-5P are **monitoring of air quality, ozone and surface UV and climate research**.
 The output format is identical to the unzipped netcdf files that can be acquired from ESA’s Scihub.
 
-.. tip::
-    Processing blocks for Sentinel-5P will arrive soon on **UP42!** In the meantime,
-    you can use the downloaded data e.g. via the `ESA SNAP toolbox <https://step.esa.int/main/toolboxes/snap/>`_ .
-    EUMETSAT provides a `video tutorial <https://youtu.be/3PjTwEMlCMs?t=130>`_ on how to load and visualize Sentinel data with SNAP.
+.. tip:: Processing blocks for Sentinel-5P will be available shortly
+    on UP42. In the meantime, you can use the downloaded data
+    e.g. via the `ESA SNAP toolbox
+    <https://step.esa.int/main/toolboxes/snap/>`_ .  `EUMETSAT
+    <https://en.wikipedia.org/wiki/European_Organisation_for_the_Exploitation_of_Meteorological_Satellites>`_
+    provides a `video tutorial <https://youtu.be/3PjTwEMlCMs?t=130>`_
+    on how to load and visualize Sentinel data with SNAP.
 
 
 Supported query parameters
@@ -29,26 +32,27 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.
 * ``intersects``: A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use
-  only ``intersects`` **or** ``bbox``.
-* ``contains``: A GeoJSON geometry to use as an AOI. Will return all scenes that completely cover this geometry. Use only ``contains``
+  only one of ``intersects`` **or** ``bbox``.
+* ``contains``: A GeoJSON geometry to use as an AOI. Will return all
+  scenes that completely cover this geometry. Use only one of ``contains``
   **or** ``intersects`` **or** ``bbox``.
 * ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``limit``: An integer number of maximum results to return. Omit this to set no limit.
 * ``ids``: An array of image identifiers. The S5P identifiers are described `here <https://earth.esa.int/web/sentinel/technical-guides/sentinel-5p/products-algorithms>`_. The file extension is omitted.
-  This parameter is mainly meant for use via the API and cannot be used in combination with the dry-run mode.
+  This parameter is mainly meant for use via the API and cannot be used in combination with the :term:`TestQuery`.
 
 .. _sentinel-5p-imagery-layers:
 
 Imagery layers
 --------------
 
-.. list-table::
+.. list-table:: Sentinel 5P imagery layers
    :widths: 15 15 50
    :header-rows: 1
 
    * - Parameter
-     - ~ File size (GB)
+     - ~ File size [GB]
      - Product name
    * - L2__AER_AI
      - 0.2
@@ -154,7 +158,7 @@ Example query searching for images using a data range via ``time``, ``limit`` an
       }
     }
 
-Example query using specific image ids:
+Example query using specific image IDs:
 
 .. code-block:: javascript
 
