@@ -1,15 +1,15 @@
 .. meta::
-   :description: UP42 processing blocks: Raster vectorising block description
-   :keywords: UP42, processing, raster vectorising, conversion, geojson
+   :description: UP42 processing blocks: Raster Vectorization block description
+   :keywords: UP42, processing, raster vectorization, conversion, geojson
 
-.. _vectorising-block:
+.. _ vectorization-block:
 
-Vectorising block
-=================
+Vectorization block
+===================
 
 Block type: ``PROCESSING``
 
-This block vectorises raster files into ``GeoJSON`` format.
+This block vectorizes raster files into ``GeoJSON`` format.
 
 .. warning::
 
@@ -25,7 +25,7 @@ Supported parameters
 
 Example parameters using the :ref:`SPOT AOIClipped block
 <spot-aoiclipped-block>` as data source and then applying :ref:`K-Means Clustering <kmeans-clustering>`
-and :ref:`Vectorising block <vectorising-block>`.
+and :ref:`Vectorization block <vectorization-block>`.
 
 .. code-block:: javascript
 
@@ -74,7 +74,7 @@ and :ref:`Vectorising block <vectorising-block>`.
 
 Output format
 -------------
-Output format is a ```GeoJSON`` file.
+Output format is a ``GeoJSON`` file.
 
 Capabilities
 ------------
