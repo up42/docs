@@ -23,7 +23,7 @@ Getting the script
 
 To simplify things a Bash script is used provided as a Github gist.
 
-.. gist:: https://gist.github.com/perusio/b4ce43bd9f7ff78a721db4f960275e23
+.. gist:: https://gist.github.com/up42-epicycles/cb241bbd104aab30274d80ced9e4b313
 
 There two options to get the script.
 
@@ -35,7 +35,7 @@ There two options to get the script.
 Download script
 +++++++++++++++
 
-Get `here <https://gist.github.com/perusio/b4ce43bd9f7ff78a721db4f960275e23/archive/39596f5fa93db4067807c3cf030509727b334217.zip>`__ the script, unzip the archive and make it executable with:
+Get `here <https://gist.github.com/up42-epicycles/cb241bbd104aab30274d80ced9e4b313/archive/2f39b06e4294f70dc820c29437012942d89e3bce.zip>`__ the script, unzip the archive and make it executable with:
 
 .. code:: bash
 
@@ -50,7 +50,7 @@ Do:
 
 .. code:: bash
 
-    git clone https://gist.github.com/b4ce43bd9f7ff78a721db4f960275e23.git up42-first-api-script
+    git clone https://gist.github.com/cb241bbd104aab30274d80ced9e4b313.git up42-first-api-script
     cd up42-first-api-script
 
 You should now have the script and you can run it with no arguments:
