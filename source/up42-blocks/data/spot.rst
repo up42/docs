@@ -47,7 +47,8 @@ Example query using the ``time_series`` in combination with ``bbox``,  ``limit``
         "time_series": ["2018-01-01T16:47:49/2018-07-01T16:47:49",
                         "2018-07-01T16:47:49/2019-01-01T16:47:49",
                         "2019-01-01T16:47:49/2019-06-01T16:47:49"],
-        "panchromatic_band": false
+        "panchromatic_band": false,
+        "max_cloud_cover": 5
       }
   }
 

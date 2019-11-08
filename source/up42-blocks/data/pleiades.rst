@@ -48,7 +48,8 @@ Example using ``bbox``, ``limit``,  ``zoom_level`` and ``panchromatic_band``:
         ],
         "limit": 1,
         "zoom_level": 18,
-        "panchromatic_band": true
+        "panchromatic_band": true,
+        "max_cloud_cover": 5
       }
     }
 

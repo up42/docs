@@ -52,6 +52,7 @@ Example query using the ``time_series`` in combination with ``bbox`` and  ``limi
         "time_series": ["2018-01-01T16:47:49/2018-07-01T16:47:49",
                         "2018-07-01T16:47:49/2019-01-01T16:47:49",
                         "2019-01-01T16:47:49/2019-06-01T16:47:49"],
+       "max_cloud_cover": 5
       }
   }
 

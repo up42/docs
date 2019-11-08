@@ -51,7 +51,8 @@ Example using ``bbox`` and ``limit``:
         "time": null,
         "limit": 1,
         "order_ids": null,
-        "time_series": null
+        "time_series": null,
+        "max_cloud_cover": 5
       }
     }
 
