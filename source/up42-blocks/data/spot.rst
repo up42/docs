@@ -1,6 +1,6 @@
-.. meta:: 
+.. meta::
    :description: UP42 data blocks: SPOT 6/7 block description
-   :keywords: SPOT 6/7, Airbus Defense & Space, AOI clipped, block description 
+   :keywords: SPOT 6/7, Airbus Defense & Space, AOI clipped, block description
 
 .. _spot-aoiclipped-block:
 
@@ -26,6 +26,8 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``ids``: An array of image identifiers. If defined, either ``bbox`` **or** ``intersects`` **or** ``contains`` should be selected as well. This will assure that, by defining ``ids`` filter, you will get tiles only based on your AOI.
 * ``zoom_level``: An integer defining the webmercator zoom level of this request, defaults to 17.
 * ``panchromatic_band``: If set to ``true``, the panchromatic band is added to the output.
+* ``max_cloud_cover``: A percentage (0 to 100) defining the maximum cloud cover of any returned imagery. Defaults is **100**.
+
 
 Example query using the ``time_series`` in combination with ``bbox``,  ``limit`` and ``zoom_level``:
 
