@@ -34,7 +34,6 @@ Supported filters
 These are the filters that UP42 implements. Note that it is the
 data block implementation that determines if a block supports a
 a certain filter or not [1]_.
-from a certain data
 
 .. _limit-filter:
 
