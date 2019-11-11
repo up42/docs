@@ -29,7 +29,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``limit``: An integer number of maximum results to return. Omit this to set no limit.
 * ``ids``: An array of image identifiers. The S2 identifiers are described `here <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/naming-convention>`_; the file extension is omitted. This parameter is mainly meant for use via the API.
-* ``max_cloud_cover``: A percentage (0 to 100) defining the maximum cloud cover of any returned imagery. Default is **100**.
+* ``max_cloud_cover``: A percentage (0 to 100) defining the maximum :term:`cloud cover` of any returned imagery. Default is **100**.
 
 Example query searching for images using ``bbox``, ``time``. ``limit`` and ``max_cloud_cover``:
 
