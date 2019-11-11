@@ -154,7 +154,7 @@ a certain filter or not [1]_.
 ``max_cloud_cover``
 ~~~~~~~~~~~~~~~~~~~
   Integer that defines the maximum :term:`cloud cover` percentage (0 to 100) that the returned
-  optical imagery should have. Only applicable to optical imagery (e.g. Pleiades or SPOT imagery).
+  optical imagery should have. Only applicable to optical imagery (e.g. Pléiades, SPOT, Sentinel 2).
 
 
 Implemented filters
