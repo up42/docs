@@ -10,7 +10,7 @@ Changelog
 08.11.2019
 ----------
 
-* Add ``max_cloud_cover`` parameter to OneAtlas and Sobloo blocks (:ref:`Pleiades DIMAP Download <pleiades-download-block>`, :ref:`Pleiades AOI clipped <pleiades-aoiclipped-block>`, :ref:`SPOT DIMAP Download block <spot-download-block>`, :ref:`SPOT AOI clipped <spot-aoiclipped-block>`, :ref:`Sentinel-2 Full Scene Block <sentinel2-l1c-fullscene-block>`).
+* Add ``max_cloud_cover`` parameter to OneAtlas and Sobloo blocks (:ref:`Pleiades DIMAP Download <pleiades-download-block>`, :ref:`Pleiades AOI clipped <pleiades-aoiclipped-block>`, :ref:`SPOT DIMAP Download <spot-download-block>`, :ref:`SPOT AOI clipped <spot-aoiclipped-block>`, :ref:`Sentinel-2 AOI clipped <sentinel2-l1c-aoiclipped-block>`, :ref:`Sentinel-2 Full Scene <sentinel2-l1c-fullscene-block>`).
 
 22.10.2019
 ----------
