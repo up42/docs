@@ -9,7 +9,7 @@ Sentinel-2 L1C (AOI-Clipped)
 
 Block type: ``DATA``
 
-This block provides AOI Clipped scenes of Sentinel-2 (A/B)’s multispectral imaging sensor in processing level L-1C in GTiff format. The products are radiometrically and geometrically corrected (including orthorectification).
+This block provides AOI Clipped scenes of Sentinel-2 (A/B)’s multispectral imaging sensor in processing level L-1C in ``GTiff`` format. The products are radiometrically and geometrically corrected (including orthorectification).
 
 Important application areas for Sentinel-2 imagery are land cover monitoring (agriculture, forestry), coastal area
 monitoring, inland water monitoring, glacier monitoring and flood mapping.
@@ -28,9 +28,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``limit``: An integer number of maximum results to return. Omit this to set no limit.
-* ``ids``: An array of image identifiers. The S1 identifiers are described here:
-  https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/naming-convention; the file extension is omitted.
-  This parameter is mainly meant for use via the API and cannot be used in combination with dry-run mode.
+* ``ids``: An array of image identifiers. The S2 identifiers are described `here <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/naming-convention>`_; the file extension is omitted. This parameter is mainly meant for use via the API.
 * ``max_cloud_cover``: A percentage (0 to 100) defining the maximum cloud cover of any returned imagery. Default is **100**.
 
 Example query searching for images using ``bbox``, ``time``. ``limit`` and ``max_cloud_cover``:
