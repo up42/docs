@@ -47,6 +47,9 @@
       **C**\ oordinate **R**\ eference **S**\ ystem or **S**\ patial **R**\ eference **S**\ ystem
       is a coordinate-based local, regional or global system used to locate geographical entities.
 
+   cloud cover
+      Percentage or ratio of the given individual scene or region that is fully covered by clouds as defined by a cloud mask. Different cloud masks will returned different results depending on considerations on haze and cloud type.
+
    data block
       A :term:`block` that provides satellite image data or other geospatial data.
 
