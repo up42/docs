@@ -34,7 +34,6 @@ Supported filters
 These are the filters that UP42 implements. Note that it is the
 data block implementation that determines if a block supports a
 a certain filter or not [1]_.
-from a certain data
 
 .. _limit-filter:
 
@@ -150,19 +149,28 @@ from a certain data
    i.e., you are guaranteed to always get a precise piece of data
    using the ids filter.
 
+.. _max-cloud-cover-filter:
+
+``max_cloud_cover``
+~~~~~~~~~~~~~~~~~~~
+  Integer that defines the maximum :term:`cloud cover` percentage (0 to 100) that the returned
+  optical imagery should have. Only applicable to optical imagery (e.g. Pléiades, SPOT, Sentinel 2).
+
+
 Implemented filters
 -------------------
 .. csv-table::
- :header: "Data block", "``limit``", "``bbox``", "``intersects``", "``contains``", "``time``", "``time_series``", "``ids``"
+ :header: "Data block", "``limit``", "``bbox``", "``intersects``", "``contains``", "``time``", "``time_series``", "``ids``", "``max_cloud_cover``"
  :widths: auto
 
- ":ref:`Pleiades (AOI-Clipped) <pleiades-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
- ":ref:`Pleiades Download <pleiades-download-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
- ":ref:`SPOT (AOI-Clipped) <pleiades-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
- ":ref:`SPOT Download <pleiades-download-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
- ":ref:`Sentinel-1 GRD (full-scene) <sentinel1-grd-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
- ":ref:`Sentinel-1 SLC (full-scene) <sentinel1-slc-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
- ":ref:`Sentinel-2 L1C (full-scene)  <sentinel2-l1c-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Pleiades (AOI-Clipped) <pleiades-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Pleiades Download <pleiades-download-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`SPOT (AOI-Clipped) <pleiades-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`SPOT Download <pleiades-download-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Sentinel-1 GRD (full-scene) <sentinel1-grd-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**,
+ ":ref:`Sentinel-1 SLC (full-scene) <sentinel1-slc-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**,
+ ":ref:`Sentinel-2 L1C (full-scene)  <sentinel2-l1c-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Sentinel-2 L1C (AOI-Clipped)  <sentinel2-l1c-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`Sentinel-2 (AOI-Clipped)  <sentinelhub-sentinel2-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**,
  ":ref:`Landsat-8 (AOI-Clipped) <sentinelhub-landsat8-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**,
  ":ref:`MODIS <modis-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, ,

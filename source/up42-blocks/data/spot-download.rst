@@ -32,6 +32,8 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``limit``: An integer number of maximum results to return. Omit this to set no limit.
 * ``ids``: An array of image identifiers. If defined, either ``bbox`` **or** ``intersects`` **or** ``contains`` should be selected as well. This will assure that, by defining ``ids`` filter, you will get tiles only based on your AOI.
+* ``max_cloud_cover``: A percentage (0 to 100) defining the maximum :term:`cloud cover` of any returned imagery. Default is **100**.
+
 
 Example query using the ``time_series`` in combination with ``bbox`` and  ``limit``:
 
@@ -50,6 +52,7 @@ Example query using the ``time_series`` in combination with ``bbox`` and  ``limi
         "time_series": ["2018-01-01T16:47:49/2018-07-01T16:47:49",
                         "2018-07-01T16:47:49/2019-01-01T16:47:49",
                         "2019-01-01T16:47:49/2019-06-01T16:47:49"],
+       "max_cloud_cover": 5
       }
   }
 
