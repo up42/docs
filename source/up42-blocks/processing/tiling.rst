@@ -20,6 +20,7 @@ Supported parameters
 * ``augmentation_factor``: Factor used to create additional tiles by applying a pixel offset (default 1).
 * ``output_prefix``: Prefix of tile names, default is to use input filename.
 * ``discard_empty_tiles``:  If set to True, tiles that only consist of nodata (as defined by an alpha band or a set nodata value) will not be returned.
+* ``nodata``: Value representing nodata within each raster band. If not set, defaults to the nodata value of the input raster.
 
 Example parameters using the :ref:`SPOT AOIClipped block
 <spot-aoiclipped-block>` as data source and then applying tiling with
@@ -66,7 +67,8 @@ Example parameters using the :ref:`SPOT AOIClipped block
         "tile_height": 768,
         "match_extents": true,
         "output_prefix": "",
-        "augmentation_factor": 1
+        "augmentation_factor": 1,
+        "nodata": 0
       }
     }
 
