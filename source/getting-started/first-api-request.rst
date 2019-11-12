@@ -23,7 +23,7 @@ Getting the script
 
 To simplify things a Bash script is used provided as a Github gist.
 
-.. gist:: https://gist.github.com/up42-epicycles/cb241bbd104aab30274d80ced9e4b313
+.. gist:: https://gist.github.com/up42-epicycles/254ea9fb6fca467c54e284e48a2a7b68
 
 There two options to get the script.
 
@@ -35,7 +35,7 @@ There two options to get the script.
 Download script
 +++++++++++++++
 
-Get `here <https://gist.github.com/up42-epicycles/cb241bbd104aab30274d80ced9e4b313/archive/2f39b06e4294f70dc820c29437012942d89e3bce.zip>`__ the script, unzip the archive and make it executable with:
+Get `here <https://gist.github.com/up42-epicycles/cb241bbd104aab30274d80ced9e4b313/archive/a69e315e54323d71b413a4600221e3e42b495d16.zip>`__ the script, unzip the archive and make it executable with:
 
 .. code:: bash
 

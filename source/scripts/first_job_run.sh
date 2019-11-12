@@ -65,44 +65,23 @@ OPTIND=1
 ## Job input.
 JOB_INPUT=$(cat <<EOF
 {
-    "land_cover_classification:1": {
-        "n_clusters": 6,
-        "n_iterations": 10,
-        "n_sieve_pixels": 64
-    },
-    "sentinelhub-landsat8-aoiclipped:1": {
-        "bbox": null,
-        "time": null,
-        "limit": 1,
-        "intersects": {
-            "type": "Polygon",
-            "coordinates": [
-                [
-                    [
-                        -8.877645,
-                        40.152078
-                    ],
-                    [
-                        -8.871337,
-                        40.139659
-                    ],
-                    [
-                        -8.849105,
-                        40.141048
-                    ],
-                    [
-                        -8.860468,
-                        40.152447
-                    ],
-                    [
-                        -8.877645,
-                        40.152078
-                    ]
-                ]
-            ]
-        },
-        "zoom_level": 17
-    }
+  "ndvi:1": {
+    "output_original_raster": false
+  },
+  "pansharpen:1": {
+    "method": "SFIM",
+    "include_pan": false
+  },
+  "oneatlas-pleiades-fullscene:1": {
+    "ids": null,
+    "time": null,
+    "limit": 1,
+    "order_ids": [
+      "44c5c936-4738-448e-94b3-65cb9d175afc"
+    ],
+    "intersects": null,
+    "time_series": null
+  }
 }
 EOF
 )
