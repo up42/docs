@@ -1,0 +1,116 @@
+.. meta::
+   :description: UP42 data blocks: Sentinel 1 GRD L1C block description
+   :keywords: Sentinel 1, ESA, SAR C band, radar, aoi clipped, block description
+
+.. _sentinel1-grd-aoiclipped-block:
+
+Sentinel-1 GRD (AOI-Clipped)
+============================
+
+Block type: ``DATA``
+
+This block provides AOI clipped scenes of Sentinel-1 (A/B)’s C-band synthetic aperture radar sensor in processing level L-1C
+Ground Range Detected (GRD) in ``GTiff`` format.
+
+The main applications for Sentinel-1 imagery are marine monitoring (e.g. sea-ice levels and conditions, ocean oil
+spills, ship activity, marine winds), land monitoring (e.g. agriculture, forestry) or emergency response (flooding,
+landslides and volcanic activity).
+
+Depending on the operational mode, the spatial resolution of Sentinel-1 products is 20x22m (IW interferometric wide
+swath mode, 250km swath), 50x50m (EW extra wide swath mode, 400km swath).
+
+Supported query parameters
+--------------------------
+
+For more information on supported filters, see :ref:`query filter section  <filters>`.
+
+* ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
+  **or** ``intersects``.
+* ``intersects`` – A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use
+  only ``intersects`` **or** ``bbox``.
+* ``contains``: A GeoJSON geometry to use as an AOI. Will return all scenes that completely cover this geometry. Use only ``contains``
+  **or** ``intersects`` **or** ``bbox``.
+* ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
+* ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
+* ``limit``: An integer number of maximum results to return. Omit this to set no limit.
+* ``ids``: An array of image identifiers. The S1 identifiers are described here: https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/naming-conventions; the file extension is omitted. This parameter is mainly meant for use via the API.
+* ``acquisition_mode``: A string allowing querying for specific acquisition modes, see https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes. for details.
+
+Example query searching for images using Strip Mode, using ``intersects`` and ``limit``:
+
+.. code-block:: javascript
+
+    {
+      "sobloo-s1-grd-aoiclipped:1": {
+        "ids": null,
+        "bbox": null,
+        "time": null,
+        "limit": 2,
+        "intersects": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                117.006454,
+                -7.208708
+              ],
+              [
+                118.208256,
+                -13.340351
+              ],
+              [
+                128.891945,
+                -11.483389
+              ],
+              [
+                128.575573,
+                -6.83559
+              ],
+              [
+                117.006454,
+                -7.208708
+              ]
+            ]
+          ]
+        },
+        "acquisition_mode": "SM"
+      }
+    }
+
+Example query using identifiers:
+
+.. code-block:: javascript
+
+    {
+        "sobloo-s1-grd-aoiclipped:1":
+            {
+                "ids": ["S1A_IW_GRDH_1SDV_20190519T051717_20190519T051742_027292_0313E9_8C63",
+                "S1A_IW_GRDH_1SDV_20190519T051652_20190519T051717_027292_0313E9_7F45"]
+            }
+    }
+
+
+Output format
+-------------
+
+The output GeoJSON contains the metadata as returned by the Sobloo API, with the ``up42.data.aoiclipped``
+capability mapping to the corresponding ``GTiff`` file for the scene.
+
+Example output GeoJSON:
+
+.. code-block:: javascript
+
+
+Capabilities
+------------
+
+This block has a single output capability, ``up42.data.aoiclipped``, which maps to the
+directory containing the ``GTiff`` for the scene.
+
+Download example output
+-----------------------
+
+You can create example output to use when :ref:`testing processing
+blocks built to work with this data <custom-processing-block-dev>` by
+running the block in a workflow via the :term:`console`, and
+downloading the results in the :ref:`job overview <job-overview>`.
