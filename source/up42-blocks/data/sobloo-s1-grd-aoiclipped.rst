@@ -36,57 +36,47 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``ids``: An array of image identifiers. The S1 identifiers are described here: https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/naming-conventions; the file extension is omitted. This parameter is mainly meant for use via the API.
 * ``acquisition_mode``: A string allowing querying for specific acquisition modes, see https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes. for details.
 
-Example query searching for images using Strip Mode, using ``intersects`` and ``limit``:
+
+Example queries
+---------------
+
+Example query searching for images using a data range via ``time``, ``limit`` and ``intersects`` with geometry:
 
 .. code-block:: javascript
 
     {
       "sobloo-s1-grd-aoiclipped:1": {
+        "bbox": [
+          13.33811722738717,
+          52.519865287972955,
+          13.395578491712516,
+          52.54775714049645
+        ],
         "ids": null,
-        "bbox": null,
-        "time": null,
-        "limit": 2,
-        "intersects": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                117.006454,
-                -7.208708
-              ],
-              [
-                118.208256,
-                -13.340351
-              ],
-              [
-                128.891945,
-                -11.483389
-              ],
-              [
-                128.575573,
-                -6.83559
-              ],
-              [
-                117.006454,
-                -7.208708
-              ]
-            ]
-          ]
-        },
-        "acquisition_mode": "SM"
+        "time": "2018-01-01T00:00:00+00:00/2019-12-31T23:59:59+00:00",
+        "limit": 1,
+        "time_series": null,
+        "acquisition_mode": null
       }
     }
 
-Example query using identifiers:
+Example query using specific image IDs and a geometry:
 
 .. code-block:: javascript
 
     {
-        "sobloo-s1-grd-aoiclipped:1":
-            {
-                "ids": ["S1A_IW_GRDH_1SDV_20190519T051717_20190519T051742_027292_0313E9_8C63",
-                "S1A_IW_GRDH_1SDV_20190519T051652_20190519T051717_027292_0313E9_7F45"]
-            }
+      "sobloo-s1-grd-aoiclipped:1": {
+        "ids": [
+          "S1A_IW_GRDH_1SDV_20190519T051717_20190519T051742_027292_0313E9_8C63",
+          "S1A_IW_GRDH_1SDV_20190519T051652_20190519T051717_027292_0313E9_7F45"
+        ],
+        "bbox": [
+          13.364805423071779,
+          52.49154923571397,
+          13.408859507172465,
+          52.514421754047675
+        ]
+      }
     }
 
 
