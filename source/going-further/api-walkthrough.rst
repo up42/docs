@@ -10,7 +10,7 @@ UP42 API walktrough
 Introduction
 ------------
 
-The API is the UP42 fulcral point: everything runs on top
+The API is the UP42 pivotal point: everything runs on top
 it. Therefore if you want to automate/scale your usage of UP42 the API
 is the way to go. 
 
@@ -540,7 +540,7 @@ The job is composed of two tasks, each corresponding to a block in the
 workflow: the first is obtaining the `Landsat
 8 <https://up42.com/marketplace/block/95519b2d-09d7-4cd0-a321-4d6a46bef6c1>`__
 data, the second is runnning the `Land cover
-classification <https://up42.com/marketplace/block/ae2113e8-05df-41e6-9871-5d782705d8e1>`__.
+classification <https://up42.com/marketplace/block/a03345a7-8fff-4ba9-8958-951dc23943e1>`__.
 We can obtain the partial results, i.e., we can get the results from
 each task in the job.
 

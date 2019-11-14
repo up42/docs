@@ -10,7 +10,7 @@ General FAQ
 How can I get support from UP42 for my projects?
 ------------------------------------------------
 
-Mail to `support@up42.com <mailto:support%20@up42.com>`__.
+Mail to `support@up42.com <mailto:support@up42.com>`__.
 
 How do I signup for an account?
 -------------------------------
@@ -53,17 +53,19 @@ and automatically checked by the workflow editor. This avoids mismatches
 such as an algorithm expecting a Sentinel-1 GRD image file is started
 with a RGB image from a multispectral sensor. Currently the capabilities
 matching process though is not able to identify all mismatches between
-blocks. Please read the `block
-description <https://docs.up42.com/specifications/capabilities.html#block-capabilities>`__
+blocks. Please read the about :ref:`block capabilities <block-capabilities>`
 carefully to understand if the input requirements are met before trying
 to use a block in your workflow.
   
 My block needs auxiliary files. Where should I store them and how should I fetch them?
 --------------------------------------------------------------------------------------
-So far we don't have a defined mechanism for storing and accessing auxiliary files which are e.g. needed for
-calibration of an algorithm. As the processing cluster is not firewalled off so far it is possible to store such files
-on a storage space in the internet e.g. by using AWS, Google Cloud or Azure. In the future we might need to implement
-tighter security measures, so please inform us if your block uses such a mechanism.
+So far we don't have a defined mechanism for storing and accessing
+auxiliary files which are e.g. needed for calibration of an
+algorithm. As the processing cluster is not firewalled off so far it
+is possible to store such files on a storage space in the internet
+e.g. by using AWS, Google Cloud or Azure. In the future we might need
+to implement tighter security measures, so please inform us if your
+block uses such a mechanism.
 
 I tried to obtain some imagery for Pleaides and/or SPOT and when using the Airbus GeoStore I get more images. Why is that?
 --------------------------------------------------------------------------------------------------------------------------
@@ -97,6 +99,18 @@ How can I get very-high resolution images in the Near Infra-Red (NIR) band?
 ---------------------------------------------------------------------------
 
 See :ref:`above <acquire-hi-res-data>`.
+
+
+.. _delete-account:
+
+How can I delete my UP42 account?
+---------------------------------
+It makes us sad that you made such a decision, but is your choice.
+Send an email to: `privacy@up42.com <privacy@up42.com>`__.
+We will pick it up from there and notify once your account is deleted.
+
+In the future we will make it possible for you delete your account
+directly from the console.
 
 .. raw:: html
 

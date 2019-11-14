@@ -176,10 +176,10 @@ What are examples of typical loads for each machine type?
    | medium               |  Some basic processing tasks, e.g., `Land cover <https://github.com/up42/land-cover-classification-demo>`__       |
    |                      |  UP42 demo block.                                                                                                 |
    +----------------------+-------------------------------------------------------------------------------------------------------------------+ 
-   | large                | `SNAP toolbox <http://step.esa.int/main/toolboxes/snap/>`__ with more advanced tasks, e.g., using Range           | 
-   |                      | Doppler Terrain Correction |br| based on the `Aster GDEM <https://asterweb.jpl.nasa.gov/gdem.asp>`__.             |
+   | large                |  Multi-band imagery analysis not parallelizable by raster tiling.                                                 |
    +----------------------+-------------------------------------------------------------------------------------------------------------------+ 
-   | xlarge               |  Multi-band imagery analysis not parallelizable by raster tiling.                                                 |
+   | xlarge               | `SNAP toolbox <http://step.esa.int/main/toolboxes/snap/>`__ with more advanced tasks, e.g., using Range           | 
+   |                      | Doppler Terrain Correction |br| based on the `Aster GDEM <https://asterweb.jpl.nasa.gov/gdem.asp>`__.             |
    +----------------------+-------------------------------------------------------------------------------------------------------------------+ 
    | gpu_nvidia_tesla_k80 |  GPU intensive ML algorithm, e.g., `Sentinel 2 Super-resolution <https://github.com/up42/s2-superresolution>`__   |
    |                      |  by UP42. |br|                                                                                                    |
@@ -187,8 +187,6 @@ What are examples of typical loads for each machine type?
    |                      |  and extra 12 GB of `GDDR5 SDRAM <https://en.wikipedia.org/wiki/GDDR5_SDRAM>`__.                                  |
    +----------------------+-------------------------------------------------------------------------------------------------------------------+
    
-
-
 What is VAT?
 ------------
 
