@@ -9,7 +9,7 @@ Sentinel-2 L1C (AOI-Clipped)
 
 Block type: ``DATA``
 
-This block provides AOI Clipped scenes of Sentinel-2 (A/B)’s multispectral imaging sensor in processing level L-1C in ``GTiff`` format. The products are radiometrically and geometrically corrected (including orthorectification).
+This block provides AOI Clipped scenes of Sentinel-2 (A/B)’s multispectral imaging sensor in processing level L-1C in ``GeoTIFF`` format. The products are radiometrically and geometrically corrected (including orthorectification).
 
 Important application areas for Sentinel-2 imagery are land cover monitoring (agriculture, forestry), coastal area
 monitoring, inland water monitoring, glacier monitoring and flood mapping.
@@ -57,7 +57,7 @@ Output format
 -------------
 
 The output GeoJSON contains the metadata as returned by the Sobloo API, with the ``up42.data.aoiclipped``
-capability mapping to the corresponding ``GTiff`` file for the scene.
+capability mapping to the corresponding ``GeoTIFF`` file for the scene.
 
 Example output GeoJSON:
 
@@ -686,7 +686,7 @@ Capabilities
 ------------
 
 This block has a single output capability, ``up42.data.aoiclipped``, which maps to the
-directory containing the ``GTiff`` for the scene.
+directory containing the ``GeoTIFF`` for the scene.
 
 Download example output
 -----------------------

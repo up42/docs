@@ -65,12 +65,12 @@ find this ``order_id`` in the logs of the Task (such as
 The Data Format and Type Conversion block
 -----------------------------------------
 
-The :ref:`Data Format and Type Conversion <data-format-type-conversion-block>` allows you to generate a ``GTiff`` product out of a DIMAP download block.
+The :ref:`Data Format and Type Conversion <data-format-type-conversion-block>` allows you to generate a ``GeoTIFF`` product out of a DIMAP download block.
 
-If you make use of the default parameters only the multispectral bands of the product will be used and included in the ``GTiff`` output of the block.
+If you make use of the default parameters only the multispectral bands of the product will be used and included in the ``GeoTIFF`` output of the block.
 If you want to obtain the pansharpened product **only** you can set the ``ms`` parameter to ``false`` and the ``pan`` parameter to ``true``.
 
-For example, to convert a :ref:`SPOT DIMAP download <spot-dimap-block>` to a panchromatic ``GTiff`` use:
+For example, to convert a :ref:`SPOT DIMAP download <spot-dimap-block>` to a panchromatic ``GeoTIFF`` use:
 
 .. code-block:: javascript
 
@@ -173,6 +173,6 @@ Scroll down an you should see both the number of tiles returned and your ``order
 
   2019-09-10 11:53:25,956 - spot - DEBUG - Saving 1 result features
 
-If you then click on the Results of this workflow you will be able to download a ``GTiff`` product resulting from the DIMAP converter.
+If you then click on the Results of this workflow you will be able to download a ``GeoTIFF`` product resulting from the DIMAP converter.
 
 This GeoTiff product can then be used with all the regular processing blocks included in our platform.

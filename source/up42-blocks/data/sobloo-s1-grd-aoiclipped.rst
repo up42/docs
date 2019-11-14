@@ -10,7 +10,7 @@ Sentinel-1 GRD (AOI-Clipped)
 Block type: ``DATA``
 
 This block provides AOI clipped scenes of Sentinel-1 (A/B)’s C-band synthetic aperture radar sensor in processing level L-1C
-Ground Range Detected (GRD) in ``GTiff`` format. The image contains 3 bands with polarizations VV, VH and an alpha band acting as a nodata mask.
+Ground Range Detected (GRD) in ``GeoTIFF`` format. The image contains 3 bands with polarizations VV, VH and an alpha band acting as a nodata mask.
 
 The main applications for Sentinel-1 imagery are marine monitoring (e.g. sea-ice levels and conditions, ocean oil
 spills, ship activity, marine winds), land monitoring (e.g. agriculture, forestry) or emergency response (flooding,
@@ -84,7 +84,7 @@ Output format
 -------------
 
 The output GeoJSON contains the metadata as returned by the Sobloo API, with the ``up42.data.aoiclipped``
-capability mapping to the corresponding ``GTiff`` file for the scene.
+capability mapping to the corresponding ``GeoTIFF`` file for the scene.
 
 Example output GeoJSON:
 
@@ -336,7 +336,7 @@ Capabilities
 ------------
 
 This block has a single output capability, ``up42.data.aoiclipped``, which maps to the
-directory containing the ``GTiff`` for the scene.
+directory containing the ``GeoTIFF`` for the scene.
 
 Download example output
 -----------------------
