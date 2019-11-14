@@ -24,4 +24,5 @@ blocks built by UP42.
    vectorization
    kmeans-clustering
    crs-conversion
+   zonal-statistics
    sharpening
