@@ -25,12 +25,8 @@ Blocks are the base units of the platform. There are two categories: **Data** an
     :scale: 35 %     
     :alt: Data and processing block diagram
 
-**Data blocks** deliver satellite images, vector data or any other type of geospatial data that can be used on UP42.
-An example of a data block is the ``Sentinel-2 Level-1C Full-Scene`` block or the
-``Plejades Streaming`` block.
-
-**Processing blocks** transform and/or analyze data, e.g. the ``Raster sharpening`` block
-or the ``NDVI vegetation index`` block.
+- **Data blocks** deliver satellite images, vector data or any other type of geospatial data that can be used on UP42. An example of a data block is the ``Sentinel-2 Level-1C Full-Scene`` block or the ``Plejades Streaming`` block.
+- **Processing blocks** transform and/or analyze data, e.g. the ``Raster sharpening`` block or the ``NDVI vegetation index`` block.
 
 .. _workflows-definition:
 
