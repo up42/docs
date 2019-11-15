@@ -63,16 +63,12 @@ Only blocks with congruent capabilities can be attached to each other.
 Jobs
 ====
 
-A **job** is an instance of a workflow. Jobs are created when running a workflow.
+A **job** is an instance of a workflow, run for a specified area of interest and parameter configuration.
+Jobs are created when running a workflow. In the context of a job, each block or step within the workflow can also called a **task**.
 
-In order to start a job, :ref:`the following data must be provided <block-params>`:
-
-* A **query** to determine how data should be :ref:`filtered <filters>` -- in
-  the case of data blocks.
-* Optional runtime **configuration** parameters -- in the case of processing blocks.
-
-In the context of a job, a block is also called a **task**: each
-step in the workflow is a task.
+In order to start a job, the user needs to specify the **job parameters**, consisting of:
+* Data block :ref:`filters <filters>` (e.g. area of interest, time period etc.)
+* Optional processing block **configuration** parameters (e.g. sharpening strength, filter size etc.)
 
 .. _before-start-job-statuses:
 
