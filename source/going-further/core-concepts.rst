@@ -64,18 +64,17 @@ Jobs
 ====
 
 A job is an instance of a workflow, run for a specified area of interest and parameter configuration.
-The job page in the UP42 console shows the current **status** of the job, the **used parameters**, the **runtime**, **job id** and other metadata.
-After the job is finished, the **job results can be downloaded** from this menu.
+The job page in the UP42 console shows the current **status** of the job, the **runtime**, **costs**
+(broken down in data, processing and infrastructure costs), the **used parameters** and **job id**.
+After the job is finished, the **job results can be downloaded** in this menu.
 
 .. figure:: _assets/job_page.png
     :align: center
     :scale: 35 %
     :alt: Job overview page in the UP42 console
 
-    UP42 job overview
-
 Each workflow block or step that was run in the job can be called **task**. For each job task, the **intermediate result can be downloaded** in
-the task details page. Here we can also find the **log messages** of each task (Used for e.g. error investigation and support).
+the task details page. Here we can also find the **log messages** of each task (used for e.g. error investigation and support).
 
 Job parameters
 --------------
@@ -89,8 +88,6 @@ In order to start a job, the user needs to specify the **job parameters**, consi
 
 Job statuses
 ------------
-
-Before, during, and after running a job it can be in multiple states.
 
   + Before running the job:
       + ``not started``: the job/task hasn't started yet.
@@ -106,20 +103,10 @@ Before, during, and after running a job it can be in multiple states.
       + ``cancelled``: the job/task as been cancelled.
 
 
-Costs & time
-------------
-
-Additionally you also get information on:
-
- + Execution time.
- + Total cost of the job: data, processing and infrastructure costs,
-   with the breakdown per task.  
-
-
 .. rubric:: Footnotes
 
 .. [#] Currently the workflow is a `linked list
        <https://en.wikipedia.org/wiki/Linked_list>`__
-       of blocks. With a data
-       block always at the root. Full DAG based workflows will be
+       of blocks, with a data
+       block always at the root. Full DAG-based workflows will be
        implemented in the future.
