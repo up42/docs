@@ -8,10 +8,15 @@
  Push your first custom block
 ==============================
 
-This section guides towards pushing your first :term:`custom block` to
-your account. Then you will be able to make use of it in any
-:term:`workflow`. It relies on the :term:`demo project` we used
-:ref:`before <first-job-run>`.
+If you want to use your own processing methods or data sources on the UP42 platform,
+you can create :term:`custom blocks<custom block>` that can be seamlessly integrated into UP42 :term:`workflows<workflow>`.
+
+This section will guide you through pushing a provided example custom block to the UP42 platform. It will appear in
+the `Custom blocks section <https://console.up42.com/custom-blocks/>`_ of your UP42 console and can then be used like any other processing block when building a workflow.
+We provide multiple example custom blocks (both data & processing) on our public `UP42 github profile <https://github.com/up42>`_ ,
+here we will use the `sharpening processing block <https://github.com/up42/sharpening>`_.
+You can use these later as templates to easily write your own custom block code.
+
 
 Requirements
 ------------
