@@ -28,14 +28,9 @@ Blocks are the base units of the platform. There are two categories: **Data** an
 **Data blocks** deliver satellite images, vector data or any other type of geospatial data that can be used on UP42.
 An example of a data block is the ``Sentinel-2 Level-1C Full-Scene`` block or the
 ``Plejades Streaming`` block.
-Each data block on UP42 provides an :ref:`ouput capability <block-capabilities>`, specifying the output data type and
-which follow-up processing blocks could be attached to the data block.
-
 
 **Processing blocks** transform and/or analyze data, e.g. the ``Raster sharpening`` block
 or the ``NDVI vegetation index`` block.
-Each processing block provides an :ref:`input and an ouput capability <block-capabilities>`, specifying the input & output data types, and which
-data or processing blocks can precede or follow on the selected processing block.
 
 .. _workflows-definition:
 
@@ -55,8 +50,9 @@ One block can be used in multiple workflows.
     Example workflow with one data block and two cascaded processing blocks.
 
 When constructing the workflow in the UP42 console, the connections between
-blocks are evaluated using their :ref:`input and ouput capabilites <block-capabilities>`.
-Only blocks with congruent capabilities can be attached to each other.
+blocks are evaluated using their :ref:`input and ouput capabilites <block-capabilities>`, specifying the resulting or demanded data type.
+Only blocks with congruent capabilities can be attached to each other. **Data blocks** provide **only an ouput capability**, while
+**processing block** provide **both an input and an ouput capability**.
 
 .. _jobs-definition:
 
