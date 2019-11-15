@@ -20,6 +20,7 @@ built by UP42.
    spot
    spot-download
    sobloo-s1-grd
+   sobloo-s1-grd-aoiclipped
    sobloo-s1-slc
    sobloo-s2-l1c
    sobloo-s2-l1c-aoiclipped
