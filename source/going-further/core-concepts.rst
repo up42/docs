@@ -67,40 +67,29 @@ A **job** is an instance of a workflow, run for a specified area of interest and
 Jobs are created when running a workflow. In the context of a job, each block or step within the workflow can also called a **task**.
 
 In order to start a job, the user needs to specify the **job parameters**, consisting of:
+
 * Data block :ref:`filters <filters>` (e.g. area of interest, time period etc.)
 * Optional processing block **configuration** parameters (e.g. sharpening strength, filter size etc.)
 
-.. _before-start-job-statuses:
+.. _job-statuses:
 
-Before starting job statuses
-----------------------------
+Job statuses
+------------
 
-Before starting a job/task can be in one of the following states:
+Before, during, and after running a job it can be in multiple states.
 
-  + ``not started``: the job/task hasn't started yet.
-  + ``pending``: the job/task hasn't started yet but is pending to start.
-
-.. _while-running-job-statuses:
+  + Before running the job:
+      + ``not started``: the job/task hasn't started yet.
+      + ``pending``: the job/task hasn't started yet but is pending to start.
     
-While running job statuses
---------------------------
+  + While running:
+      + ``running``: the job/task is running.
+      + ``cancelling``: a request for cancelling the job has been issued, but the job is not **yet** cancelled.
 
-While a job/task is running it can be in one of the follwing states:
-
-  + ``running``: the job (taks) is running.
-  + ``cancelling``: a request for cancelling a job has been issued and
-    that action is being taken, but the job is not **yet** cancelled.  
-
-.. _after-running-job-statuses:
-    
-After running job statuses
---------------------------
-
-After a job/task completes it can in one of the following states:
-
-  + ``succeeded``: the job/task has finished successfully.
-  + ``failed``: the job/task has failed.
-  + ``cancelled``: the job/task as been cancelled.
+  + After a job/task completed:
+      + ``succeeded``: the job/task has finished successfully.
+      + ``failed``: the job/task has failed.
+      + ``cancelled``: the job/task as been cancelled.
 
 Logs
 ----
