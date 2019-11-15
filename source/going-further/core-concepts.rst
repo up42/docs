@@ -8,8 +8,8 @@
  Core concepts: Block, Workflow, Job
 ====================================
 
-Throughout the documentation, we use three core concepts: **blocks**,
-**workflows** and **jobs**.  This section gives a comprehensive
+Throughout the documentation, we use three core concepts: **Blocks**,
+**Workflows** and **Jobs**. This section gives a comprehensive
 explanation of these concepts and the role they play in the platform.
 You can also find these and other terms in the :ref:`Glossary <glossary>`.
 
@@ -18,14 +18,14 @@ You can also find these and other terms in the :ref:`Glossary <glossary>`.
 Blocks
 ======
 
-Blocks are the base units of the platform. There are two categories of blocks, **Data** and **Processing** blocks.
+Blocks are the base units of the platform. There are two categories: **Data** and **Processing** blocks.
 
 .. figure:: _assets/data_and_processing_block.png
     :align: center
     :scale: 35 %     
     :alt: Data and processing block diagram
 
-**Data blocks** deliver satellite imagery, vector, IOT or any other type of geospatial data that can be used on UP42.
+**Data blocks** deliver satellite images, vector data or any other type of geospatial data that can be used on UP42.
 An example of a data block is the ``Sentinel-2 Level-1C Full-Scene`` block or the
 ``Plejades Streaming`` block.
 Each data block on UP42 provides an :ref:`ouput capability <block-capabilities>`, specifying the output data type and
