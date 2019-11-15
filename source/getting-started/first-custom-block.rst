@@ -37,28 +37,26 @@ In order to bring this example block or your own custom block to the UP42 platfo
  - `GNU make <https://www.gnu.org/software/make/>`_
 
 
-Getting the Land Cover Classification demo block
-------------------------------------------------
+Instructions
+------------
 
-There two options to get the block code.
+The following step-by-step instructions will guide you through setting up, dockerizing and pushing the example custom
+block to UP42.
 
-  1. :ref:`Download <download-block-code>`.
-  2. :ref:`git clone <clone-block-code>`.
+.. _clone_the_repository:
 
-.. _download-block-code:
-     
-Download block code
-+++++++++++++++++++
+Clone the repository
+++++++++++++++++++++
 
-Get `here
-<https://github.com/up42/land-cover-classification-demo/archive/master.zip>`__
-the code, unzip the archive and change into th directory:
+```bash
+git clone https://github.com/up42/sharpening.git
+```
 
-.. code:: bash
+Then navigate to the folder via `cd sharpening`.
 
-   cd land-cover-classification-demo-master
+Usually you would then proceed to customize the block code to fit your own needs, or install the neccessary libraries to test the block code locally.
+We will skip these steps here and push the block to the UP42 platform as is, see chapter xx for more advanced instructions on custom blocks.
 
-.. _clone-block-code:
 
 Clone the repository with git
 +++++++++++++++++++++++++++++
