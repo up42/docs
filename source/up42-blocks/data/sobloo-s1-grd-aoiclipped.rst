@@ -337,11 +337,3 @@ Capabilities
 
 This block has a single output capability, ``up42.data.aoiclipped``, which maps to the
 directory containing the ``GeoTIFF`` for the scene.
-
-Download example output
------------------------
-
-You can create example output to use when :ref:`testing processing
-blocks built to work with this data <custom-processing-block-dev>` by
-running the block in a workflow via the :term:`console`, and
-downloading the results in the :ref:`job overview <job-overview>`.
