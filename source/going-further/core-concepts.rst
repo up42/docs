@@ -64,8 +64,8 @@ Jobs
 ====
 
 A job is an instance of a workflow, run for a specified area of interest and parameter configuration.
-The job page in the UP42 console shows the current status of the job, the used parameters, the runtime, job id and other metadata.
-After the job is finished, the job results can be downloaded from this menu.
+The job page in the UP42 console shows the current **status** of the job, the **used parameters**, the **runtime**, **job id** and other metadata.
+After the job is finished, the **job results can be downloaded** from this menu.
 
 .. figure:: _assets/job_page.png
     :align: center
@@ -74,7 +74,12 @@ After the job is finished, the job results can be downloaded from this menu.
 
     UP42 job overview
 
-Jobs are created when running a workflow. In the context of a job, each block or step within the workflow can also called a **task**.
+Each workflow block or step that was run in the job can be called **task**. For each job task, the **intermediate result can be downloaded** in
+the task details page. Here we can also find the **log messages** of each task (Used for e.g. error investigation and support).
+
+Job parameters
+--------------
+
 In order to start a job, the user needs to specify the **job parameters**, consisting of:
 
 * Data block :ref:`filters <filters>` (e.g. area of interest, time period etc.)
@@ -100,17 +105,6 @@ Before, during, and after running a job it can be in multiple states.
       + ``failed``: the job/task has failed.
       + ``cancelled``: the job/task as been cancelled.
 
-Job Logs
---------
-
-The details page of each job contains all the log messages that were
-
-Results
--------
-
-After each job/task completes the results are made available for the
-complete job -- the complete workflow final result -- or each task --
-step in the workflow.
 
 Costs & time
 ------------
