@@ -20,22 +20,18 @@ Blocks
 
 Blocks are the base units of the platform. There are two types of blocks:
 
-* **data blocks**: which query for data.
-* **processing blocks**: which transform and/or analyze data.
+* **Data blocks**: which query for data.
+* **Processing blocks**: which transform and/or analyze data.
 
 .. figure:: _assets/data-block.png
     :align: center
     :scale: 35 %     
     :alt: Data block diagram
 
-    Data block.
-
 .. figure:: _assets/processing-block.png
     :align: center
     :scale: 35 %
     :alt: Processing block diagram
-
-    Processing block.
     
 An example of a data block is the :ref:`Sentinel-1 GRD block
 <sentinel1-grd-fullscene-block>`, which provides Sentinel-1 GRD radar
