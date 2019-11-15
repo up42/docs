@@ -4,9 +4,9 @@
 
 .. _core-concepts:
               
-===============
- Core concepts
-===============
+====================================
+ Core concepts: Block, Workflow, Job
+====================================
 
 Throughout the documentation, we use three core concepts: **blocks**,
 **workflows** and **jobs**.  This section gives a comprehensive
