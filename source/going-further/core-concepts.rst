@@ -36,9 +36,6 @@ which follow-up processing blocks could be attached to the data block.
 Each processing block provides an `input and an ouput capability <block-capabilities>`, specifying the input & output data types, and which
 data or processing blocks can precede or follow on the selected processing block.
 
-You can think of blocks as a function that receives some input and
-returns some output -- packaged as a Docker image.
-
 .. _workflows-definition:
 
 Workflows
