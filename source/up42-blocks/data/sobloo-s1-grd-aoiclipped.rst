@@ -33,8 +33,8 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``limit``: An integer number of maximum results to return. Omit this to set no limit.
-* ``ids``: An array of image identifiers. The S1 identifiers are described in the `ESA Sentinel-1 User Guide - Naming conventions <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/naming-conventions>`_. The file extension is omitted. This parameter is mainly meant for use via the API.
-* ``acquisition_mode``: A string allowing querying for specific acquisition modes, see `ESA Sentinel-1 User Guide - Acquisition Modes <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes>`_. for details.
+* ``ids``: An array of image identifiers. The S1 identifiers are described in `ESA Sentinel-1 User Guide - Naming conventions <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/naming-conventions>`_. The file extension is omitted. This parameter is mainly meant for use via the API.
+* ``acquisition_mode``: A string allowing querying for specific acquisition modes, see `ESA Sentinel-1 User Guide - Acquisition Modes <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes>`_ for details.
 
 
 Example queries
