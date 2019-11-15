@@ -2,25 +2,29 @@
    :description: UP42 Getting started: pushing your first custom block
    :keywords: custom block, tutorial, howto, demo project 
 
+
 .. _first-custom-block:
               
 ==============================
- Push your first custom block
+ Upload your first custom block
 ==============================
 
 If you want to use your own processing methods or data sources on the UP42 platform,
 you can create :term:`custom blocks<custom block>` that can be seamlessly integrated into UP42 :term:`workflows<workflow>`.
+This section will guide you through bringing an example custom block to the UP42 platform.
 
-This section will guide you through pushing a provided example custom block to the UP42 platform. It will appear in
-the `Custom blocks section <https://console.up42.com/custom-blocks/>`_ of your UP42 :term:`console` and can then be used
-like any other processing block when building a workflow.
-We provide multiple example custom blocks (both data & processing) on our public `UP42 github profile <https://github.com/up42>`_ ,
-in this chapter we will use the `**sharpening** processing block <https://github.com/up42/sharpening>`_.
+We provide multiple example custom blocks (both data & processing) on our public `UP42 github profile <https://github.com/up42>`_.
+In this chapter we will work with the `Sharpening filter example block <https://github.com/up42/sharpening>`_.
 You can later use these public block examples as templates to easily write your own custom block code.
+
+The block will appear in the `Custom blocks section <https://console.up42.com/custom-blocks/>`_ of your UP42 :term:`console` and can then be used
+like any other processing block when building a workflow.
 
 .. figure:: _assets/custom_block_menu_sharpening.png
    :align: center
    :alt: The UP42 custom block console menu
+
+   The UP42 custom block console menu
 
 
 .. _requirements:
@@ -44,29 +48,35 @@ Instructions
 The following step-by-step instructions will guide you through setting up, dockerizing and pushing the example custom
 block to UP42.
 
-.. _clone_the_repository:
 
+.. _clone_the_repository:
 
 Clone the repository
 ++++++++++++++++++++
+
+To access the example block code clone the repository using git in a bash terminal:
 
 .. code:: bash
 
    git clone https://github.com/up42/sharpening.git
 
-Then navigate to the folder via `cd sharpening`.
+Then navigate to the folder via
 
-Usually you would then proceed to customize the block code to fit your own needs, or install the neccessary libraries to test the block code locally.
-We will skip these steps here and push the block to the UP42 platform as is, see chapter :ref:`developing a custom processing block section <custom-processing-block-dev>`
+.. code:: bash
+
+    cd sharpening
+
+Usually you would then proceed to customize the block code to fit your own needs, or install the necessary libraries to test the block code locally.
+We will skip these steps here and directly push the block to the UP42 platform, see section :ref:`Developing a custom processing block <custom-processing-block-dev>`
 for more advanced instructions on custom block development & publishing.
 
 
-.. _build_and_push:
+.. _build_the_block:
 
-Build and push the custom block to the UP42 platform
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+Build the custom block
+++++++++++++++++++++++
 
-First login to the UP42 docker registry. `me@example.com` needs to be replaced by your **UP42 username**,
+First login to the UP42 docker registry. `me@example.com` needs to be replaced by your **UP42 USERNAME**,
 which is the email address you use on the UP42 website.
 
 .. code:: bash
@@ -74,17 +84,24 @@ which is the email address you use on the UP42 website.
    make login USER=me@example.com
 
 In order to push the block to the UP42 platform, you need to build the block Docker container with your
-**UP42 USER-ID**. To get your USER-ID, go to the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_
+**UP42 USER-ID**. To get your USER-ID, go to the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_.
 Click on "`PUSH a BLOCK to THE PLATFORM`" and copy your USERID from the command shown on the last line at
 "`Push the image to the UP42 Docker registry`". The USERID will look similar to this:
 `63uayd50-z2h1-3461-38zq-1739481rjwia`
 
 Pass the USER-ID to the build command:
+
 .. code:: bash
 
    make build UID=<UID>
 
    # As an example: make build UID=63uayd50-z2h1-3461-38zq-1739481rjwia
+
+
+.. _push_the_block:
+
+Push the custom block to the UP42 platform
+++++++++++++++++++++++++++++++++++++++++++
 
 Now you can finally push the image to the UP42 docker registry, again passing in your USER-ID:
 
@@ -94,9 +111,9 @@ Now you can finally push the image to the UP42 docker registry, again passing in
 
     # As an example: make push UID=63uayd50-z2h1-3461-38zq-1739481rjwia
 
-**Success!** The `sharpening` example custom block will now appear in the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_ menu
+**Success!** The `Sharpening Filter` example block will now appear in the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_ menu
 and can be selected under the *Custom blocks* tab when building a workflow.
 
 
-You can find more advanced instructions on custom block development & publishing in chapter
-:ref:`developing a custom processing block section <custom-processing-block-dev>`.
+You can find more advanced instructions on custom block development & publishing in the later section
+:ref:`developing a custom processing block <custom-processing-block-dev>`.
