@@ -45,7 +45,7 @@ Option 2 implies you providing the necessary data, either an image
 with a :term:`AOI` from an :ref:`AOI clipped <aoi-clipped>` data
 block. If you want to use a larger AOI then please provide a tiled
 image. You can get that by having a workflow with just a data block
-and `tiling <tiling-block>`__ as the processing block.
+and :ref:`tiling <tiling-block>` as the processing block.
 
 Building and running the block
 ++++++++++++++++++++++++++++++
@@ -61,10 +61,10 @@ Some things to keep in mind:
  2. The docker tag is ``latest`` by default, you can change that and
     use a custom tag through the ``DOCKER_TAG`` make variable. 
  3. The output must be always composed of three things:
-    + A `GeoJSON <geojson-metadata>`__ file that enumerates all the output images.
-    + A `directory <imagery-and-binary-data>`__ with all the images in vector or raster format.
+    + A :ref:`GeoJSON <geojson-metadata>` file that enumerates all the output images.
+    + A :ref:`directory <imagery-and-binary-data>` with all the images in vector or raster format.
 
-See the `data transfer format <data-transfer-format>`__ for additional explanations.
+See the :ref:`data transfer format <data-transfer-format>` for additional explanations.
       
 .. code-block:: bash
                 
@@ -81,7 +81,7 @@ where:
  + ``data.json``: GeoJSON metadata file.
  + ``ab3760b7-340c-4bac-8b62-701b581a2e22``: directory with ouptut images.  
 
- 4. Is optional to specify `job parameters <job-params>`__. See the
+ 4. Is optional to specify :ref:`job parameters <block-params>`. See the
     provided defaults in the ``README``. 
  5. When running the block locally any logging output or errors should appear in
     the terminal as the block runs.

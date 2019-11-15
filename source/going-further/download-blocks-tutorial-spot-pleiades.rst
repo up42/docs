@@ -230,7 +230,7 @@ Ship or car detection block, for example.
 
    The currently available ship detection, car detection and similar
    processing blocks algorithms where trained using `pan-sharpened
-   <https://landsat.usgs.gov/what-pan-sharpening-and-how-can-i-create-pan-sharpened-image>`__
+   <https://en.wikipedia.org/wiki/Pansharpened_image>`__
    8 bit RGB images and not on the *raw* images --- no pan-sharpening
    --- presently returned by the :ref:`Data Format and type conversion
    <data-format-type-conversion-block>` block.
@@ -241,7 +241,7 @@ image you can re-use it indefinitely. To do this you **must** enter
 the order ID as a parameter for your job. For this particular
 workflow:
 
-.. gist:: https://gist.github.com/perusio/4e2d1d19f7d4caa422609c2b5f92e331
+.. gist:: https://gist.github.com/up42-epicycles/be903d94b904d2011b044ce472065b17
 
 You can see the field ``order_ids``:
 

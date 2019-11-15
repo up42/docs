@@ -72,7 +72,7 @@ a certain filter or not [1]_.
 ~~~~~~~~
    Searches items according to a single date and time or range --
    dates separated by ``/`` -- formatted according to `RFC 3339
-   section 5.6 <https://tools.ietf.org/html/rfc3339#sec on-5.6>`__.
+   section 5.6 <https://tools.ietf.org/html/rfc3339#section-5.6>`__.
    In general the date format is ``%Y-%m-%dT%H:%M:%S+00:00``.
 
    For example, to select an image from February 2019 you can use

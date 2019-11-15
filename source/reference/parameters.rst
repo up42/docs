@@ -20,7 +20,7 @@ Filter and parameter types
 --------------------------
 
 Query filters and processing parameters can be one of the following
-JSON Schema `types/formats <https://json-schema.org/latest/json-schema-validation.htm>`__:
+JSON Schema `types/formats <https://json-schema.org/latest/json-schema-validation.html>`__:
 
 * ``geometry``: means that this parameter or filter must be a valid
   GeoJSON geometry
