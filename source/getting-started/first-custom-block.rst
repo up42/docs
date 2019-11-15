@@ -57,7 +57,8 @@ Clone the repository
 Then navigate to the folder via `cd sharpening`.
 
 Usually you would then proceed to customize the block code to fit your own needs, or install the neccessary libraries to test the block code locally.
-We will skip these steps here and push the block to the UP42 platform as is, see chapter xx for more advanced instructions on custom blocks.
+We will skip these steps here and push the block to the UP42 platform as is, see chapter :ref:`developing a custom processing block section <custom-processing-block-dev>`
+for more advanced instructions on custom block development & publishing.
 
 
 .. _build_and_push:
@@ -93,50 +94,9 @@ Now you can finally push the image to the UP42 docker registry, again passing in
 
     # As an example: make push UID=63uayd50-z2h1-3461-38zq-1739481rjwia
 
-**Success!** The block will now appear in the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_ menu
+**Success!** The `sharpening` example custom block will now appear in the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_ menu
 and can be selected under the *Custom blocks* tab when building a workflow.
 
 
-
-
-
-
-
-
-
-Build and push the custom block
-+++++++++++++++++++++++++++++++
-
-If go to the `custom-blocks <https://console.up42.com/custom-blocks>`__
-page and click on **PUSH a BLOCK to THE PLATFORM** and then on the copy
-button for the last shown line. The URL displayed there is copied to the
-clipboard.
-
-In OS X do:
-
-.. code:: bash
-
-   make UID=$(pbpaste | cut -f 2 -d '/') USER=me@example.com DOCKER_TAG=land-cover-demo:mine-1.0
-
-In Linux do:
-
-.. code:: bash
-
-   make UID=$(xsel -b -o | cut -f 2 -d '/') USER=me@example.com DOCKER_TAG=land-cover-demo:mine-1.0
-
-where ``me@example.com`` should be replaced by your username, which is
-the email address associated with your UP42 account.
-
-Now all the steps for building and pushing a custom block should work.
-You will be asked to login in to the UP42 docker registry with your
-account password.
-
-After all is done, in
-`custom-blocks <https://console.up42.com/custom-blocks>`__, you should
-see your new custom Land Cover Classification block, version
-``mine-1.0`` marked as **PRIVATE**. You can now use it in any workflow
-by selecting from the **CUSTOM BLOCKS** tab when choosing a processing
-block.
-
-To further custom block development and publishing please go to the
+You can find more advanced instructions on custom block development & publishing in chapter
 :ref:`developing a custom processing block section <custom-processing-block-dev>`.
