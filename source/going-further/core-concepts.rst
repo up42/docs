@@ -47,17 +47,17 @@ A **workflow** is a `Directed Acyclic Graph
 It describes which data sources will be used, how the data will be processed and how these steps are connected.
 One block can be used in multiple workflows.
 
-When constructing the workflow in the UP42 console, the connections between
-blocks are evaluated using the `input and an ouput capability <block-capabilities>`.
-Only blocks with congruent capabilities can be attached to each other.
-
 .. figure:: _assets/workflow.png
     :align: center
     :scale: 35 %
     :alt: Workflow block diagram
 
     Example workflow with one data block and two cascaded processing blocks.
-          
+
+When constructing the workflow in the UP42 console, the connections between
+blocks are evaluated using their :ref:`input and ouput capabilites <block-capabilities>`.
+Only blocks with congruent capabilities can be attached to each other.
+
 .. _jobs-definition:
 
 Jobs
