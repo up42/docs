@@ -11,8 +11,7 @@
 Throughout the documentation, we use three core concepts: **blocks**,
 **workflows** and **jobs**.  This section gives a comprehensive
 explanation of these concepts and the role they play in the platform.
-
-For a quick explanation please refer to the :ref:`Glossary <glossary>`.
+You can also find these and other terms in the :ref:`Glossary <glossary>`.
 
 .. _blocks-definition:
 
