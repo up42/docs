@@ -28,12 +28,13 @@ Blocks are the base units of the platform. There are two categories of blocks, *
 **Data blocks** deliver satellite imagery, vector, IOT or any other type of geospatial data that can be used on UP42.
 An example of a data block is the :ref:`Sentinel-1 GRD block <sentinel1-grd-fullscene-block>`, which provides Sentinel-1 GRD radar
 data as a full scene.
+Each data block on UP42 provides an `ouput capability <block-capabilities>`, specifying the output data type and
+which follow-up processing blocks could be attached to the data block.
 
 **Processing blocks** transform and/or analyze data. An example of a processing block is the :ref:`Tiling Operation block
-<tiling-block>`, which creates smaller image tiles that can then be consumed by makmachine learning models.
-
-Blocks specify what kind of data they need to run and what kind of
-data they output via :ref:`their capabilities <block-capabilities>`.
+<tiling-block>`, which creates smaller image tiles that can then be consumed by machine learning models.
+Each processing block provides an `input and an ouput capability <block-capabilities>`, specifying the input & output data types, and which
+data or processing blocks can precede or follow on the selected processing block.
 
 You can think of blocks as a function that receives some input and
 returns some output -- packaged as a Docker image.
