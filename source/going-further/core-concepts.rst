@@ -63,9 +63,18 @@ Only blocks with congruent capabilities can be attached to each other.
 Jobs
 ====
 
-A **job** is an instance of a workflow, run for a specified area of interest and parameter configuration.
-Jobs are created when running a workflow. In the context of a job, each block or step within the workflow can also called a **task**.
+A job is an instance of a workflow, run for a specified area of interest and parameter configuration.
+The job page in the UP42 console shows the current status of the job, the used parameters, the runtime, job id and other metadata.
+After the job is finished, the job results can be downloaded from this menu.
 
+.. figure:: _assets/job_page.png
+    :align: center
+    :scale: 35 %
+    :alt: Job overview page in the UP42 console
+
+    UP42 job overview
+
+Jobs are created when running a workflow. In the context of a job, each block or step within the workflow can also called a **task**.
 In order to start a job, the user needs to specify the **job parameters**, consisting of:
 
 * Data block :ref:`filters <filters>` (e.g. area of interest, time period etc.)
@@ -91,11 +100,10 @@ Before, during, and after running a job it can be in multiple states.
       + ``failed``: the job/task has failed.
       + ``cancelled``: the job/task as been cancelled.
 
-Logs
-----
+Job Logs
+--------
 
-While each job/task is running a **log** is written and made available to
-you.
+The details page of each job contains all the log messages that were
 
 Results
 -------
