@@ -43,15 +43,13 @@ Workflows
 =========
 
 A **workflow** is a `Directed Acyclic Graph
-<https://en.wikipedia.org/wiki/Directed_acyclic_graph>`__ (DAG )of blocks [#]_. It describes:
+<https://en.wikipedia.org/wiki/Directed_acyclic_graph>`__ (DAG ) of data and processing blocks [#]_.
+It describes which data sources will be used, how the data will be processed and how these steps are connected.
+One block can be used in multiple workflows.
 
-* What data sources will be used: data blocks.
-* How the fetched data will be processed: processing blocks.
-* How the blocks are connected.
-
-A workflow is responsible for validating the connections between
-blocks when creating a :ref:`job <jobs-definition>`.
-Blocks can be shared among workflows.
+When constructing the workflow in the UP42 console, the connections between
+blocks are evaluated using the `input and an ouput capability <block-capabilities>`.
+Only blocks with congruent capabilities can be attached to each other.
 
 .. figure:: _assets/workflow.png
     :align: center
