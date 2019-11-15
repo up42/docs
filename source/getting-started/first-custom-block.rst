@@ -25,8 +25,17 @@ You can later use these public block examples as templates to easily write your 
 Requirements
 ------------
 
- 1. `GNU make <https://www.gnu.org/software/make/>`__.
- 2. `docker <https://docs.docker.com/install>`__.
+## Requirements
+
+This example requires the **Mac or Ubuntu bash**, an example using **Windows** will be provided shortly.
+In order to bring this example block or your own custom block to the UP42 platform the following tools are required:
+
+ - `UP42 <https://up42.com>`_ account -  Sign up for free!
+ - `Python 3.7 <https://python.org/downloads>`_
+ - `git <https://git-scm.com/>`_
+ - `docker engine <https://docs.docker.com/engine/>`_
+ - `GNU make <https://www.gnu.org/software/make/>`_
+
 
 Getting the Land Cover Classification demo block
 ------------------------------------------------
