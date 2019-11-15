@@ -60,16 +60,49 @@ Usually you would then proceed to customize the block code to fit your own needs
 We will skip these steps here and push the block to the UP42 platform as is, see chapter xx for more advanced instructions on custom blocks.
 
 
-Clone the repository with git
-+++++++++++++++++++++++++++++
+.. _build_and_push:
 
-Note that this requires `git <https://git-scm.com//>`__ to be
-installed in your environment. Then do:
+Build and push the custom block to the UP42 platform
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+First login to the UP42 docker registry. `me@example.com` needs to be replaced by your **UP42 username**,
+which is the email address you use on the UP42 website.
 
 .. code:: bash
 
-    git clone https://github.com/up42/land-cover-classification-demo.git
-    cd land-cover-classification-demo
+   make login USER=me@example.com
+
+In order to push the block to the UP42 platform, you need to build the block Docker container with your
+**UP42 USER-ID**. To get your USER-ID, go to the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_
+Click on "`PUSH a BLOCK to THE PLATFORM`" and copy your USERID from the command shown on the last line at
+"`Push the image to the UP42 Docker registry`". The USERID will look similar to this:
+`63uayd50-z2h1-3461-38zq-1739481rjwia`
+
+Pass the USER-ID to the build command:
+.. code:: bash
+
+   make build UID=<UID>
+
+   # As an example: make build UID=63uayd50-z2h1-3461-38zq-1739481rjwia
+
+Now you can finally push the image to the UP42 docker registry, again passing in your USER-ID:
+
+.. code:: bash
+
+    make push UID=<UID>
+
+    # As an example: make push UID=63uayd50-z2h1-3461-38zq-1739481rjwia
+
+**Success!** The block will now appear in the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_ menu
+and can be selected under the *Custom blocks* tab when building a workflow.
+
+
+
+
+
+
+
+
 
 Build and push the custom block
 +++++++++++++++++++++++++++++++
