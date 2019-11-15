@@ -26,14 +26,14 @@ Blocks are the base units of the platform. There are two categories of blocks, *
     :alt: Data and processing block diagram
 
 **Data blocks** deliver satellite imagery, vector, IOT or any other type of geospatial data that can be used on UP42.
-An example of a data block is the :ref:`Sentinel-1 GRD block <sentinel1-grd-fullscene-block>`, which provides Sentinel-1 GRD radar
-data as a full scene.
-Each data block on UP42 provides an `ouput capability <block-capabilities>`, specifying the output data type and
+An example of a data block is the :ref:`Sentinel-2 Level-1C Full-Scene block <sentinel2-l1c-fullscene-block>` or the
+:ref:`Plejades Streaming block <pleiades-aoiclipped-block>`.
+Each data block on UP42 provides an :ref:`ouput capability <block-capabilities>`, specifying the output data type and
 which follow-up processing blocks could be attached to the data block.
 
-**Processing blocks** transform and/or analyze data. An example of a processing block is the :ref:`Tiling Operation block
-<tiling-block>`, which creates smaller image tiles that can then be consumed by machine learning models.
-Each processing block provides an `input and an ouput capability <block-capabilities>`, specifying the input & output data types, and which
+**Processing blocks** transform and/or analyze data, e.g. the :ref:`Raster sharpening filter block <sharpening-block>`
+or the :ref:`NDVI vegetation block <ndvi-block>`.
+Each processing block provides an :ref:`input and an ouput capability <block-capabilities>`, specifying the input & output data types, and which
 data or processing blocks can precede or follow on the selected processing block.
 
 .. _workflows-definition:
