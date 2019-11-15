@@ -22,10 +22,11 @@ You can later use these public block examples as templates to easily write your 
    :align: center
    :alt: The UP42 custom block console menu
 
+
+.. _requirements:
+
 Requirements
 ------------
-
-## Requirements
 
 This example requires the **Mac or Ubuntu bash**, an example using **Windows** will be provided shortly.
 In order to bring this example block or your own custom block to the UP42 platform the following tools are required:
@@ -45,12 +46,13 @@ block to UP42.
 
 .. _clone_the_repository:
 
+
 Clone the repository
 ++++++++++++++++++++
 
-```bash
-git clone https://github.com/up42/sharpening.git
-```
+.. code:: bash
+
+   git clone https://github.com/up42/sharpening.git
 
 Then navigate to the folder via `cd sharpening`.
 
