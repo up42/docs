@@ -7,6 +7,12 @@
 Changelog
 =========
 
+15.11.2019
+----------
+
+* Add :ref:`Sentinel-1 GRD AOI-clipped <sentinel1-grd-aoiclipped-block>` block.
+* Add ``nodata`` parameter to :ref:`Raster tiling <tiling-block>` block.
+
 08.11.2019
 ----------
 
@@ -17,10 +23,17 @@ Changelog
 
 * Add :ref:`CRS conversion <crs-conversion>` block.
 
+20.10.2019
+----------
+* Add :ref:`Sharpening filter <sharpening-block>` block.
+
 18.10.2019
 ----------
 
 * Add :ref:`K-Means Clustering <kmeans-clustering-block>` block.
+* Add :ref:`Sentinel 3 full-scene <sentinel-3-block>` block.
+* Add :ref:`Sentinel 5 Precursor full-scene <sentinel-5p-block>` block.
+
 
 17.10.2019
 ----------
