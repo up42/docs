@@ -76,7 +76,7 @@ for more advanced instructions on custom block development & publishing.
 Build the custom block
 ++++++++++++++++++++++
 
-First login to the UP42 docker registry. `me@example.com` needs to be replaced by your **UP42 USERNAME**,
+First login to the UP42 docker registry. `me@example.com` needs to be replaced by your **UP42 username**,
 which is the email address you use on the UP42 website.
 
 .. code:: bash
@@ -84,12 +84,12 @@ which is the email address you use on the UP42 website.
    make login USER=me@example.com
 
 In order to push the block to the UP42 platform, you need to build the block Docker container with your
-**UP42 USER-ID**. To get your USER-ID, go to the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_.
-Click on "`PUSH a BLOCK to THE PLATFORM`" and copy your USERID from the command shown on the last line at
-"`Push the image to the UP42 Docker registry`". The USERID will look similar to this:
+**UP42 user ID**. To get your user ID, go to the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_.
+Click on "`PUSH a BLOCK to THE PLATFORM`" and copy your user ID from the command shown on the last line at
+"`Push the image to the UP42 Docker registry`". The user ID will look similar to this:
 `63uayd50-z2h1-3461-38zq-1739481rjwia`
 
-Pass the USER-ID to the build command:
+Pass the user ID to the build command:
 
 .. code:: bash
 
@@ -103,7 +103,7 @@ Pass the USER-ID to the build command:
 Push the custom block to the UP42 platform
 ++++++++++++++++++++++++++++++++++++++++++
 
-Now you can finally push the image to the UP42 docker registry, again passing in your USER-ID:
+Now you can finally push the image to the UP42 docker registry, again passing in your user ID:
 
 .. code:: bash
 
