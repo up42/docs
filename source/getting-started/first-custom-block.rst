@@ -5,9 +5,9 @@
 
 .. _first-custom-block:
               
-==============================
+===============================
  Upload your first custom block
-==============================
+===============================
 
 If you want to use your own processing methods or data sources on the UP42 platform,
 you can create :term:`custom blocks<custom block>` that can be seamlessly integrated into UP42 :term:`workflows<workflow>`.
