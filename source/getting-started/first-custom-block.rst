@@ -95,7 +95,11 @@ Pass the user ID to the build command:
 
    make build UID=<UID>
 
-   # As an example: make build UID=63uayd50-z2h1-3461-38zq-1739481rjwia
+As an example:
+
+.. code:: bash
+
+   make build UID=63uayd50-z2h1-3461-38zq-1739481rjwia
 
 
 .. _push_the_block:
@@ -109,7 +113,11 @@ Now you can finally push the image to the UP42 docker registry, again passing in
 
    make push UID=<UID>
 
-   # As an example: make push UID=63uayd50-z2h1-3461-38zq-1739481rjwia
+As an example:
+
+.. code:: bash
+
+   make push UID=63uayd50-z2h1-3461-38zq-1739481rjwia
 
 **Success!** The `Sharpening Filter` example block will now appear in the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_ menu
 and can be selected under the *Custom blocks* tab when building a workflow.
