@@ -32,7 +32,7 @@ like any other processing block when building a workflow.
 Requirements
 ------------
 
-This example requires the **Mac or Ubuntu bash**, an example using **Windows** will be provided shortly.
+This example requires the **Mac OS X or Linux bash**, an example using **Windows** will be provided shortly.
 In order to bring this example block or your own custom block to the UP42 platform the following tools are required:
 
  - `UP42 <https://up42.com>`_ account -  Sign up for free!
