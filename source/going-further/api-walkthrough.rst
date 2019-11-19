@@ -199,6 +199,12 @@ We assign this value to a variable.
 
    21415975-390f-4215-becb-8d46aaf5156c
 
+.. tip::
+
+   We rely here on a previously built workflow. If you want also to build
+   the workflow via the API then proceed to :ref:`Create a workflow <create-workflow>`.  
+
+   
 You also need to get the job parameters. In this case you are just
 copying from a previous job. Using the previously saved job list.
 
@@ -1083,18 +1089,7 @@ to the workflow task endpoint. As an example we are going to replace
 the Landsat 8 AOI Clipped data block by the :ref:`SPOT 6/7 AOI Clipped
 <spot-aoiclipped-block>` data block. For that we have the following
 payload, enumerating all the tasks:
-
-We are going to use the ``blockID``, in this case the ID is:
-``0f15e07f-efcc-4598-939b-18aade349c5``.
-
-
-.. warning::
    
-   The block ID is obtained via the blocks API. This API is not yet
-   public. If you aim to build workflows programatically then the
-   blcoks API is of essence. If that is the case then `contact us
-   <mailto:support@up42.com>`__.
-  
 .. code:: js
 
    [
@@ -1105,11 +1100,25 @@ We are going to use the ``blockID``, in this case the ID is:
      },
     {
       "name": "land-cover-classification",
-      "parentID": "0f15e07f-efcc-4598-939b-18aade349c5",
-      "blockName": "land-cover-classification"
+      "parentName": "First task SPOT 6/7 AOI clipped data block",
+      "blockID": "3f5f4490-9e58-490f-80e0-9a464355d5ce"
     }
   ]
 
+We obtained the ``blockID`` by invoking the following call:
+
+.. code:: bash
+
+   curl -sL https://api.up42.com/marketplace/blocks | jq -r --arg bn 'SPOT.*clipped' '.data[] as $b | $b.name | if test($bn; "ing") then $b.id else empty end'       
+
+   > 0f15e07f-efcc-4598-939b-18aade349c57
+
+.. tip::
+
+   This calls the marketplace API to get the all the marketplace
+   available blocks. Using this you can build fully machine-to-machine
+   (m2m) workflows.   
+  
 .. code:: bash
 
    curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$NEW_WORKFLOW/tasks" -d @update_workflow-$NEW_WORKFLOW.json | jq '.' > workflow_updated-$NEW_WORKFLOW.json

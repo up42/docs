@@ -107,7 +107,7 @@ How can I delete my UP42 account?
 ---------------------------------
 It makes us sad that you made such a decision, but is your choice.
 Send an email to: `privacy@up42.com <privacy@up42.com>`__.
-We will pick it up from there and notify once your account is deleted.
+We will pick it up from there and notify once your account is about to be deleted.
 
 In the future we will make it possible for you delete your account
 directly from the console.
