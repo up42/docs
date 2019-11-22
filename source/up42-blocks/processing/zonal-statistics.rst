@@ -15,13 +15,13 @@ For each band in the input image, statistics are computed, and the name of the k
 In addition another file is placed in the output called ``results_merged.geojson`` that will contain the results of all images and zones in a single JSON file. Note that this file is not exposed as an output capability.
 
 This block is particularly useful to extract information from the raster files.
-For instance, one could compute average :term:`NDVI` values in select fields, where the input imagery would be a set of :term:`NDVI` rasters and the ``zones`` the geometry defining each individual field.
+For instance, one could compute average :term:`NDVI` values in selected fields, where the input imagery would be a set of :term:`NDVI` rasters and ``zones`` the geometry defining each individual field.
 
 Supported parameters
 --------------------
 
 * ``stats``: One or more of **min, max, mean, sum, std, median, majority, minority, unique, range, nodata, percentile_[0-100], count**. Default is ``["min", "max", "mean", "median", "std", "count"]``.
-* ``zones``: List of ``Polygon`` geometry ``Features``, used as zones to calculate statistics for. Default is ``[]``, will use overall image geometry as only zone. :term:`CRS` of geometry is required to be ``EPSG:4326``.
+* ``zones``: Array of ``Polygon`` geometry ``Features``, used as zones to calculate statistics for. Default is ``[]``, will use overall image geometry as only zone. :term:`CRS` of geometry is required to be ``EPSG:4326``.
 * ``zones_attribute_id``: Key of ``Feature`` to get unique identifier of the geometry to add to output ``GeoJSON`` file. Default is ``"zone_id"``, not required. Will use a sequential value (0 to length of ``zones``) if key not present in ``Feature``.
 
 .. tip::
