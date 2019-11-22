@@ -9,10 +9,10 @@ Raster Zonal Statistics block
 
 Block type: ``PROCESSING``
 
-This block computes zonal statistics (such as mean, max, standard deviation, etc) within the input imagery or provided zones. The output is a ``GeoJSON`` file for each input image in in the input image :term:`CRS`.
+This block computes zonal statistics (e.g. mean, max, standard deviation, etc) within the input imagery or provided zones. The output is a ``GeoJSON`` file for each input image in in the input image :term:`CRS`.
 The ``data.json`` file of the output of the task will also be populated with the computed statistics.
 For each band in the input image, statistics are computed, and the name of the key follows the convention ``[band_number]_[stats_name]``, for example ``1_min``.
-In addition another file is placed in the output called ``results_merged.geojson`` that will contain the results of all images and zones in a single JSON file. Note that this file is not exposed as an output capability.
+In addition another file is placed in the output called ``results_merged.geojson`` that will contain the results of all images and zones as a single GeoJSON file. Note that this file is not exposed as an output capability.
 
 This block is particularly useful to extract information from the raster files.
 For instance, one could compute average :term:`NDVI` values in selected fields, where the input imagery would be a set of :term:`NDVI` rasters and ``zones`` the geometry defining each individual field.
@@ -22,7 +22,7 @@ Supported parameters
 
 * ``stats``: One or more of **min, max, mean, sum, std, median, majority, minority, unique, range, nodata, percentile_[0-100], count**. Default is ``["min", "max", "mean", "median", "std", "count"]``.
 * ``zones``: Array of ``Polygon`` geometry ``Features``, used as zones to calculate statistics for. Default is ``[]``, will use overall image geometry as only zone. :term:`CRS` of geometry is required to be ``EPSG:4326``.
-* ``zones_attribute_id``: Key of ``Feature`` to get unique identifier of the geometry to add to output ``GeoJSON`` file. Default is ``"zone_id"``, not required. Will use a sequential value (0 to length of ``zones``) if key not present in ``Feature``.
+* ``zones_attribute_id``: Key of ``Feature`` to get unique identifier of the geometry to add to output ``GeoJSON`` file. Default is ``"zone_id"``, not required. Will use a sequential value (0 to length of ``zones``) if the key not present in ``Feature``.
 
 .. tip::
 
