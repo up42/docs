@@ -22,7 +22,7 @@ Supported parameters
 
 * ``stats``: One or more of **min, max, mean, sum, std, median, majority, minority, unique, range, nodata, percentile_[0-100], count**. Default is ``["min", "max", "mean", "median", "std", "count"]``.
 * ``zones``: Array of ``Polygon`` geometry ``Features``, used as zones to calculate statistics for. Default is ``[]``, will use overall image geometry as only zone. :term:`CRS` of geometry is required to be ``EPSG:4326``.
-* ``zones_attribute_id``: Key of ``Feature`` to get unique identifier of the geometry to add to output ``GeoJSON`` file. Default is ``"zone_id"``, not required. Will use a sequential value (0 to length of ``zones`` - 1) if the key not present in ``Feature``.
+* ``zones_attribute_id``: Key of ``Feature`` to get unique identifier of the geometry to add to output ``GeoJSON`` file. Default is ``"zone_id"``, not required. Will use a sequential value (0 to length of ``zones`` - 1) if the key is not set in ``Feature``.
 
 .. tip::
 
