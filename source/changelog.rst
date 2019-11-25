@@ -7,6 +7,11 @@
 Changelog
 =========
 
+21.11.2019
+----------
+
+* Add :ref:`Raster Zonal Statistics <zonal-statistics-block>` block.
+
 15.11.2019
 ----------
 
@@ -21,7 +26,7 @@ Changelog
 22.10.2019
 ----------
 
-* Add :ref:`CRS conversion <crs-conversion>` block.
+* Add :ref:`CRS conversion <crs-conversion-block>` block.
 
 20.10.2019
 ----------
