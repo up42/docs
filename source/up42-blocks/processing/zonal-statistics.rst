@@ -9,12 +9,12 @@ Raster Zonal Statistics block
 
 Block type: ``PROCESSING``
 
-This block computes zonal statistics (e.g. mean, max, standard deviation, etc) within the input imagery or provided zones. The output is a ``GeoJSON`` file for each input image in in the input image :term:`CRS`.
+This block computes zonal statistics (e.g. mean, max, standard deviation, etc) within the input imagery or provided zones, both for visual and analytic products. The output is a ``GeoJSON`` file for each input image in in the input image :term:`CRS`.
 The ``data.json`` file of the output of the task will also be populated with the computed statistics.
 For each band in the input image, statistics are computed, and the name of the key follows the convention ``[band_number]_[stats_name]``, for example ``1_min``.
 In addition another file is placed in the output called ``results_merged.geojson`` that will contain the results of all images and zones as a single GeoJSON file. Note that this file is not exposed as an output capability.
 
-This block is particularly useful to extract information from the raster files.
+This block is particularly useful to extract information from raster files.
 For instance, one could compute average :term:`NDVI` values in selected fields, where the input imagery would be a set of :term:`NDVI` rasters and ``zones`` the geometry defining each individual field.
 
 Supported parameters
