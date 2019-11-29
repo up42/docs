@@ -7,6 +7,10 @@
 Changelog
 =========
 
+29.11.2019
+----------
+* Use ``parentIdentifier`` in ``id`` filter in OneAtlas blocks (:ref:`Pleiades DIMAP Download <pleiades-download-block>`, :ref:`Pleiades AOI clipped <pleiades-aoiclipped-block>`, :ref:`SPOT DIMAP Download <spot-download-block>`, :ref:`SPOT AOI clipped <spot-aoiclipped-block>`).
+
 21.11.2019
 ----------
 
