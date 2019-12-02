@@ -6,6 +6,7 @@
 
 Sentinel-2 L1C MSI AOI clipped
 ============================
+`Link <https://marketplace.up42.com/block/3a381e6b-acb7-4cec-ae65-50798ce80e64>`_ to block details page
 
 Block type: ``DATA``
 

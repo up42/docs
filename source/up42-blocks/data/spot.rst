@@ -6,6 +6,7 @@
 
 SPOT 6/7 AOI clipped
 ==================
+`Link <https://marketplace.up42.com/block/045019bb-06fc-4fa1-b703-318725b4d8af>`_ to block details page
 
 Block type: ``DATA``
 

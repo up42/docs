@@ -6,6 +6,7 @@
 
 K-means Clustering
 ========================
+`Link <https://marketplace.up42.com/block/2ac55313-240d-4a7e-ac47-b7e7786f1f25>`_ to block details page
 
 Block type: ``PROCESSING``
 

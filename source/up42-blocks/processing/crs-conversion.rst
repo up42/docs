@@ -6,6 +6,7 @@
 
 Raster CRS Conversion
 ====================
+`Link <https://marketplace.up42.com/block/30f20bac-7499-4159-a4f3-38188a6e33e0>`_ to block details page
 
 Block type: ``PROCESSING``
 
