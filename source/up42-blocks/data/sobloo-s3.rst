@@ -289,24 +289,6 @@ The ``up42.data.scene.netcdf`` capability maps to the directory containing the `
                     "target": {},
                     "timeStamp": 1572210231463,
                     "uid": "2509bc35-ad81-413f-9ddc-30065049d99d",
-                    "enrichment": {
-                        "geonames": [
-                            {
-                                "name": "The Netherlands",
-                                "states": [
-                                    {
-                                        "name": "Limburg"
-                                    }
-                                ]
-                            },
-                        ],
-                        "naturallanguage": {
-                            "search_date_string": "2019 October 27 21: 21:03 21:03:51",
-                            "search_quality_string": "quality:?",
-                            "search_cloud_string": "cloud:?",
-                            "search_incidence_angle_string": "incidence:?"
-                        }
-                    },
                     "identification": {
                         "profile": "Image",
                         "externalId": "S3B_SL_1_RBT____20191027T210351_20191027T210651_20191029T010847_0179_031_257_0720_LN2_O_NT_003",

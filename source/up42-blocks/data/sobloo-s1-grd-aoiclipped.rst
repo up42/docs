@@ -232,50 +232,6 @@ Example output GeoJSON:
                 },
                 "timeStamp":1561785922883,
                 "uid":"0fbb45ab-7d24-4070-b8c2-06221aa6fc14",
-                "enrichment":{
-                   "geonames":[
-                      {
-                         "name":"Poland",
-                         "states":[
-                            {
-                               "name":"West Pomeranian Voivodeship",
-                               "counties":[
-                                  {
-                                     "name":"powiat gryfi\u0144ski"
-                                  }
-                               ]
-                            }
-                         ]
-                      },
-                      {
-                         "name":"Germany",
-                         "states":[
-                            {
-                               "name":"Brandenburg",
-                               "counties":[
-                                  {
-                                     "cities":[
-                                        {
-                                           "name":"Ziesar"
-                                        },
-                                        {
-                                           "name":"Br\u00fcck"
-                                        }
-                                     ],
-                                     "name":"Landkreis Potsdam-Mittelmark"
-                                  }
-                               ]
-                            }
-                         ]
-                      }
-                   ],
-                   "naturallanguage":{
-                      "search_date_string":"2019 June 29 05: 05:25 05:25:22",
-                      "search_quality_string":"quality:?",
-                      "search_cloud_string":"cloud:?",
-                      "search_incidence_angle_string":"incidence:?"
-                   }
-                },
                 "identification":{
                    "profile":"Image",
                    "externalId":"S1A_IW_GRDH_1SDV_20190629T052522_20190629T052547_027890_032617_FDFF",
