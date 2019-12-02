@@ -4,7 +4,7 @@
 
 .. _sentinel1-grd-fullscene-block:
 
-Sentinel-1 GRD (full-scene)
+Sentinel-1 L1C GRD Full Scenes
 ===========================
 
 Block type: ``DATA``

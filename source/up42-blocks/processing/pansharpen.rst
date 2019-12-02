@@ -4,7 +4,7 @@
 
 .. _pansharpen-block:
 
-Pan-sharpening SPOT/Pléiades block
+Pan-sharpening SPOT/Pléiades
 ==================================
 
 Block type: ``PROCESSING``

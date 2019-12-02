@@ -4,7 +4,7 @@
 
 .. _sentinel1-grd-aoiclipped-block:
 
-Sentinel-1 GRD (AOI-Clipped)
+Sentinel-1 L1C GRD AOI clipped
 ============================
 
 Block type: ``DATA``

@@ -5,7 +5,7 @@
 
 .. _sentinel1-slc-fullscene-block:
 
-Sentinel-1 SLC (full-scene)
+Sentinel-1 L1C SLC Full Scenes
 ===========================
 
 Block type: ``DATA``

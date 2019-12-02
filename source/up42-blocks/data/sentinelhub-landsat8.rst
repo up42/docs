@@ -4,7 +4,7 @@
 
 .. _sentinelhub-landsat8-aoiclipped-block:
 
-Landsat-8 (AOI-Clipped)
+Landsat-8 Level 1 (TOA) AOI clipped
 =======================
 
 Block type: ``DATA``

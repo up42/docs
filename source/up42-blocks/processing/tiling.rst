@@ -4,7 +4,7 @@
 
 .. _tiling-block:
 
-Tiling block
+Raster Tiling
 ============
 
 Block type: ``PROCESSING``

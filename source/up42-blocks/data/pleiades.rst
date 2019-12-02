@@ -4,7 +4,7 @@
 
 .. _pleiades-aoiclipped-block:
 
-Pleiades (AOI-Clipped)
+Pléiades Streaming
 ======================
 
 Block type: ``DATA``

@@ -4,7 +4,7 @@
 
 .. _zonal-statistics-block:
 
-Raster Zonal Statistics block
+Raster Zonal Statistics
 =============================
 
 Block type: ``PROCESSING``

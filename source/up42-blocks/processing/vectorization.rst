@@ -4,7 +4,7 @@
 
 .. _ vectorization-block:
 
-Vectorization block
+Vectorization
 ===================
 
 Block type: ``PROCESSING``

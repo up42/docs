@@ -5,7 +5,7 @@
 
 .. _s2-superresolution-block:
 
-S2-superresolution block
+Sentinel-2 Super-resolution
 ========================
 
 Block type: ``PROCESSING``
