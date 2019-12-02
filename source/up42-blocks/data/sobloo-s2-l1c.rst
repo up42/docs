@@ -211,43 +211,6 @@ Example output GeoJSON:
                     },
                     "timeStamp": 1550829029024,
                     "uid": "ef60b465-e3b0-4aa6-98af-8ff5bb1e5f5a",
-                    "enrichment": {
-                        "geonames": [
-                            {
-                                "name": "Italy",
-                                "states": [
-                                    {
-                                        "name": "Sicily",
-                                        "counties": [
-                                            {
-                                                "villages": [
-                                                    {
-                                                        "name": "Mezzojuso"
-                                                    },
-                                                    {
-                                                        "name": "Torretta"
-                                                    },
-                                                    {
-                                                        "name": "Ficarazzi"
-                                                    },
-                                                    {
-                                                        "name": "Carini"
-                                                    },
-                                                ],
-                                                "name": "Trapani"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "naturallanguage": {
-                            "search_date_string": "2019 February 22 09: 09:50 09:50:29",
-                            "search_quality_string": "quality:?",
-                            "search_cloud_string": "cloud:mostly_cloudy",
-                            "search_incidence_angle_string": "incidence:?"
-                        }
-                    },
                     "identification": {
                         "profile": "Image",
                         "externalId": "S2B_MSIL1C_20190222T095029_N0207_R079_T33SUC_20190222T115501",

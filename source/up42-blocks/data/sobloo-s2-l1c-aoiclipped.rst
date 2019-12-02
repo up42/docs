@@ -182,45 +182,6 @@ Example output GeoJSON:
           "target": {},
           "timeStamp": 1568196621024,
           "uid": "ace0d357-8551-44d6-b1cb-ae2cc98813a1",
-          "enrichment": {
-            "geonames": [
-              {
-                "name": "Germany",
-                "states": [
-                  {
-                    "name": "Brandenburg",
-                    "counties": [
-                      {
-                        "cities": [
-                          {
-                            "name": "Joachimsthal (Schorfheide)"
-                          },
-                          {
-                            "name": "Biesenthal-Barnim"
-                          }
-                        ],
-                        "villages": [
-                          {
-                            "name": "Joachimsthal"
-                          },
-                          {
-                            "name": "Eberswalde"
-                          },
-                        ],
-                        "name": "Landkreis Mecklenburgische Seenplatte"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "naturallanguage": {
-              "search_date_string": "2019 September 11 10: 10:10 10:10:21",
-              "search_quality_string": "quality:?",
-              "search_cloud_string": "cloud:partly_cloudy",
-              "search_incidence_angle_string": "incidence:?"
-            }
-          },
           "identification": {
             "profile": "Image",
             "externalId": "S2A_MSIL1C_20190911T101021_N0208_R022_T33UUU_20190911T135617",
