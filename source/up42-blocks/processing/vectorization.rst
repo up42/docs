@@ -5,7 +5,7 @@
 .. _ vectorization-block:
 
 Vectorization
-===================
+=============
 `Link <https://marketplace.up42.com/block/a9c26542-c431-4e89-b654-8cf5c3d2f0b6>`_ to block details page
 
 Block type: ``PROCESSING``

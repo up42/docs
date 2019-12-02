@@ -6,7 +6,7 @@
 .. _sentinel1-slc-fullscene-block:
 
 Sentinel-1 L1C SLC Full Scenes
-===========================
+==============================
 `Link <https://marketplace.up42.com/block/222c9742-ed19-4a2e-aa87-d6b58193cd31>`_ to block details page
 
 Block type: ``DATA``

@@ -5,7 +5,7 @@
 .. _sentinel2-l1c-fullscene-block:
 
 Sentinel-2 L1C MSI Full Scenes
-===========================
+==============================
 `Link <https://marketplace.up42.com/block/98c1acfa-c141-4095-b2e6-acf52d110178>`_ to block details page
 
 Block type: ``DATA``
