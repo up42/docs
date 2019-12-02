@@ -26,3 +26,4 @@ blocks built by UP42.
    crs-conversion
    zonal-statistics
    sharpening
+   lvl3_s5p
