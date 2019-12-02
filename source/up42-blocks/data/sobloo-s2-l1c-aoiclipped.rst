@@ -4,7 +4,7 @@
 
 .. _sentinel2-l1c-aoiclipped-block:
 
-Sentinel-2 L1C (AOI-Clipped)
+Sentinel-2 L1C MSI AOI clipped
 ============================
 
 Block type: ``DATA``

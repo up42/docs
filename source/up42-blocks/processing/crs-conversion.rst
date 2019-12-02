@@ -4,7 +4,7 @@
 
 .. _crs-conversion-block:
 
-CRS Conversion block
+Raster CRS Conversion
 ====================
 
 Block type: ``PROCESSING``

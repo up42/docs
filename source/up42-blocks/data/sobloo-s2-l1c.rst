@@ -4,7 +4,7 @@
 
 .. _sentinel2-l1c-fullscene-block:
 
-Sentinel-2 L1C (full-scene)
+Sentinel-2 L1C MSI Full Scenes
 ===========================
 
 Block type: ``DATA``

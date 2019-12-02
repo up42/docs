@@ -4,7 +4,7 @@
 
 .. _data-format-type-conversion-block:
 
-Data Format and Type Conversion block
+Data Format and Type Conversion
 =====================================
 
 Block type: ``PROCESSING``

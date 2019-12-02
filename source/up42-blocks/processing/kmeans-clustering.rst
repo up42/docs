@@ -4,7 +4,7 @@
 
 .. _kmeans-clustering-block:
 
-K-Means Clustering block
+K-means Clustering
 ========================
 
 Block type: ``PROCESSING``

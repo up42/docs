@@ -4,7 +4,7 @@
 
 .. _sharpening-block:
 
-Sharpening block
+Sharpening Filter
 =================
 
 Block type: ``PROCESSING``

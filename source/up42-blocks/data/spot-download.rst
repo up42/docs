@@ -4,7 +4,7 @@
 
 .. _spot-download-block:
 
-SPOT DIMAP Download
+SPOT 6/7 Download
 ===================
 
 Block type: ``DATA``

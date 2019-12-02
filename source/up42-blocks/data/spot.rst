@@ -4,7 +4,7 @@
 
 .. _spot-aoiclipped-block:
 
-SPOT (AOI-Clipped)
+SPOT 6/7 AOI clipped
 ==================
 
 Block type: ``DATA``

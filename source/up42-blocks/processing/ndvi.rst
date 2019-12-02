@@ -4,7 +4,7 @@
 
 .. _ndvi-block:
 
-NDVI SPOT/Pléiades block
+NDVI SPOT/Pléiades
 ========================
 
 Block type: ``PROCESSING``
