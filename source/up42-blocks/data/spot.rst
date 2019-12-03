@@ -4,8 +4,9 @@
 
 .. _spot-aoiclipped-block:
 
-SPOT (AOI-Clipped)
-==================
+SPOT 6/7 AOI clipped
+====================
+`Link <https://marketplace.up42.com/block/045019bb-06fc-4fa1-b703-318725b4d8af>`_ to block details page
 
 Block type: ``DATA``
 
@@ -23,7 +24,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``limit``: An integer number of maximum results to return. The maximum value for ``limit`` is 500.
-* ``ids``: An array of image identifiers. If defined, either ``bbox`` **or** ``intersects`` **or** ``contains`` should be selected as well. This will assure that, by defining ``ids`` filter, you will get tiles only based on your AOI.
+* ``ids``: An array of image identifiers as defined by the ``parentIdentifier`` property. If defined, either ``bbox`` **or** ``intersects`` **or** ``contains`` should be selected as well. This will assure that, by defining ``ids`` filter, you will get tiles only based on your AOI.
 * ``zoom_level``: An integer defining the webmercator zoom level of this request, defaults to 17.
 * ``panchromatic_band``: If set to ``true``, the panchromatic band is added to the output.
 * ``max_cloud_cover``: A percentage (0 to 100) defining the maximum :term:`cloud cover` of any returned imagery. Note that the cloud cover percentage is computed with the full scene, not the requested geographical area. Default is **100**.
@@ -64,7 +65,7 @@ Example query using identifiers:
               114.217469,
               22.315789
               ],
-           "ids": ["36ca5438-0d54-4982-8e1e-6e7e5a50a6ca"]
+           "ids": ["DS_SPOT7_201805040943397_FR1_FR1_FR1_FR1_E013N53_01790"]
         }
     }
 

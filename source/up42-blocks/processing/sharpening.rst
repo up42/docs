@@ -4,8 +4,9 @@
 
 .. _sharpening-block:
 
-Sharpening block
+Sharpening Filter
 =================
+`Link <https://marketplace.up42.com/block/e374ea64-dc3b-4500-bb4b-974260fb203e>`_ to block details page
 
 Block type: ``PROCESSING``
 

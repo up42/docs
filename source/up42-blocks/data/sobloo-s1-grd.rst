@@ -4,8 +4,9 @@
 
 .. _sentinel1-grd-fullscene-block:
 
-Sentinel-1 GRD (full-scene)
-===========================
+Sentinel-1 L1C GRD Full Scenes
+==============================
+`Link <https://marketplace.up42.com/block/b623400c-c5ac-40af-bda2-0d2734aa9dd1>`_ to block details page
 
 Block type: ``DATA``
 
@@ -203,49 +204,6 @@ Example output GeoJSON:
                     },
                     "timeStamp": 1550639039852,
                     "uid": "0a99c5a1-75c0-4a0d-a7dc-c2a551936be4",
-                    "enrichment": {
-                        "geonames": [
-                            {
-                                "name": "Italy",
-                                "states": [
-                                    {
-                                        "name": "Sicily",
-                                        "counties": [
-                                            {
-                                                "villages": [
-                                                    {
-                                                        "name": "Blufi"
-                                                    },
-                                                    {
-                                                        "name": "Aliminusa"
-                                                    },
-                                                    {
-                                                        "name": "Altofonte"
-                                                    },
-                                                    {
-                                                        "name": "Casteldaccia"
-                                                    },
-                                                    {
-                                                        "name": "Termini Imerese"
-                                                    },
-                                                    {
-                                                        "name": "Sciara"
-                                                    },
-                                                ],
-                                                "name": "Reggio Calabria"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "naturallanguage": {
-                            "search_date_string": "2019 February 20 05: 05:03 05:03:59",
-                            "search_quality_string": "quality:?",
-                            "search_cloud_string": "cloud:?",
-                            "search_incidence_angle_string": "incidence:?"
-                        }
-                    },
                     "identification": {
                         "profile": "Image",
                         "externalId": "S1B_IW_GRDH_1SDV_20190220T050359_20190220T050424_015025_01C12F_4EA4",

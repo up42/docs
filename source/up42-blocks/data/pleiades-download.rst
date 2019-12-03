@@ -4,8 +4,9 @@
 
 .. _pleiades-download-block:
 
-Pléiades DIMAP Download
-=======================
+Pléiades Download
+=================
+`Link <https://marketplace.up42.com/block/defb134b-ca00-4e16-afa0-639c6dc0c5fe>`_ to block details page
 
 Block type: ``DATA``
 
@@ -31,7 +32,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``limit``: An integer number of maximum results to return. The maximum value for ``limit`` is 500.
-* ``ids``: An array of image identifiers. If defined, either ``bbox`` **or** ``intersects`` **or** ``contains`` should be selected as well. This will assure that, by defining ``ids`` filter, you will get tiles only based on your AOI.
+* ``ids``: An array of image identifiers as defined by the ``parentIdentifier`` property. If defined, either ``bbox`` **or** ``intersects`` **or** ``contains`` should be selected as well. This will assure that, by defining ``ids`` filter, you will get data only based on your AOI.
 * ``max_cloud_cover``: A percentage (0 to 100) defining the maximum :term:`cloud cover` of any returned imagery. Note that the cloud cover percentage is computed with the full scene, not the requested geographical area. Default is **100**.
 
 
@@ -68,7 +69,7 @@ Example query using identifiers:
               114.217469,
               22.315789
               ],
-           "ids": ["36ca5438-0d54-4982-8e1e-6e7e5a50a6ca"]
+           "ids": ["DS_PHR1B_201810161039434_FR1_PX_E013N52_0513_01711"]
         }
     }
 

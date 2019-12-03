@@ -5,8 +5,9 @@
 
 .. _snap-polarimetric-block:
 
-SNAP polarimetric block
-=======================
+SNAP Polarimetric Processing
+============================
+`Link <https://marketplace.up42.com/block/8c6baae9-d50e-406c-b4ac-e211caa6229d>`_ to block details page
 
 Block type: ``PROCESSING``
 

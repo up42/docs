@@ -4,8 +4,9 @@
 
 .. _zonal-statistics-block:
 
-Raster Zonal Statistics block
-=============================
+Raster Zonal Statistics
+=======================
+`Link <https://marketplace.up42.com/block/10cc89b3-5bf1-48a0-8dcd-04fa079ba1e9>`_ to block details page
 
 Block type: ``PROCESSING``
 

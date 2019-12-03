@@ -5,8 +5,9 @@
 
 .. _sentinel1-slc-fullscene-block:
 
-Sentinel-1 SLC (full-scene)
-===========================
+Sentinel-1 L1C SLC Full Scenes
+==============================
+`Link <https://marketplace.up42.com/block/222c9742-ed19-4a2e-aa87-d6b58193cd31>`_ to block details page
 
 Block type: ``DATA``
 
@@ -203,14 +204,6 @@ Example output GeoJSON:
             },
             "timeStamp": 1552151362469,
             "uid": "938a2f60-158c-43ad-a0a8-ad0eda8bcccd",
-            "enrichment": {
-              "naturallanguage": {
-                "search_date_string": "2019 March 09 17: 17:09 17:09:22",
-                "search_quality_string": "quality:?",
-                "search_cloud_string": "cloud:?",
-                "search_incidence_angle_string": "incidence:?"
-              }
-            },
             "identification": {
               "profile": "Image",
               "externalId": "S1A_IW_SLC__1SDV_20190309T170922_20190309T170949_026264_02EF4C_230E",
