@@ -5,7 +5,7 @@
 .. _lvl3-s5p-block:
 
 Level-3 Sentinel-5P Conversion block
-=================
+====================================
 
 Block type: ``PROCESSING``
 
@@ -15,15 +15,14 @@ ESA delivers the default Sentinel-5 Level-2 data without a fixed grid. The pixel
 The block supports the selection of the treshold of the applied quality band, and wether additional ancillary layers (sensor parameter and further quality layers) are included in the final output.
 The Level-3 processing block can be applied to all Sentinel-5P Level 2 atmospheric products (see the :ref:`Sentinel-5P Level-2 data block <sentinel-5p-block>` description. The respective band configuration for the dedicated quality and ancillary bands is selected automatically.
 
-The block internally uses the `HARP data harmonization toolset <https://github.com/stcorp/harp>`_ using the configuration ``latitude > -55 [degree_north]; latitude < 80 [degree_north]; bin_spatial(271,-55,0.5,721,-180,0.5)``.
+The block internally uses the `HARP data harmonization toolset <https://github.com/stcorp/harp>`_ using the configuration ``latitude > -55 [degree_north]; latitude < 80 [degree_north]`` and ``bin_spatial(271,-55,0.5,721,-180,0.5)``.
 It grids the products between latitude -55 and 80 to a 135x360 lat/lon grid using an area weighted average algorithm.
 
 Supported parameters
 --------------------
 
 * ``include_ancillary_bands``: Include ancillary bands, ``true`` or ``false`` (default: false).
-* ``min_quality_treshold``: Minimum quality band treshold, between ``0`` and ``100``(default: 50).
-
+* ``min_quality_treshold``: Minimum quality band treshold, between ``0`` and ``100`` (default: 50).
 
 Example usage
 ---------------
