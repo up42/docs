@@ -64,7 +64,7 @@ Example query using identifiers:
               114.217469,
               22.315789
               ],
-           "ids": ["36ca5438-0d54-4982-8e1e-6e7e5a50a6ca"]
+           "ids": ["DS_SPOT7_201805040943397_FR1_FR1_FR1_FR1_E013N53_01790"]
         }
     }
 
