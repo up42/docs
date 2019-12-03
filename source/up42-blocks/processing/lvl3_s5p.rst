@@ -9,16 +9,13 @@ Level-3 Sentinel-5P Conversion block
 
 Block type: ``PROCESSING``
 
-This block converts Sentinel-5P products to processing Level-3.
+This block converts :ref:`Sentinel-5P Level-2 data <sentinel-5p-block>` to processing Level-3 This resamples the data to a regular spatial pixel grid.
+ESA delivers the default Sentinel-5 Level-2 data without a fixed grid. The pixels in the Sentinel-5P Level-2 products are defined by latitude and longitude, forming an irregular grid. The Level-3 processing resolves that.
 
- enhances the sharpness of a raster image by applying an `unsharpen masking filter algorithm <https://en.wikipedia.org/wiki/Unsharp_masking>`_.
-It supports three possible sharpening strength options. Both the input and output are **netcdf** files.
+The block supports the selection of the treshold of the applied quality band, and wether additional ancillary layers (sensor parameter and further quality layers) are included in the final output.
+The Level-3 processing block can be applied to all Sentinel-5P Level 2 atmospheric products (see the :ref:`Sentinel-5P Level-2 data block <sentinel-5p-block>` description. The respective band configuration for the dedicated quality and ancillary bands is selected automatically.
 
-In the unsharp masking algorithm, the sharp details are identified as the difference between the original image and its blurred version.
-These details are then scaled, and added back to the original image.
-
-Automatically selects the product specific band configuration for the dedicated quality and ancillary bands.
-Works with the Sentinel-5P quality band.
+The block internally uses the `HARP data harmonization toolset <https://github.com/stcorp/harp>`_.
 
 Supported parameters
 --------------------
