@@ -5,7 +5,8 @@
 .. _pansharpen-block:
 
 Pan-sharpening SPOT/Pléiades
-==================================
+============================
+`Link <https://marketplace.up42.com/block/903f0435-d638-475e-bbe9-53b5664a22a8>`_ to block details page
 
 Block type: ``PROCESSING``
 

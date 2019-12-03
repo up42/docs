@@ -4,8 +4,9 @@
 
 .. _modis-aoiclipped-block:
 
-MODIS (AOI-Clipped)
-===================
+MODIS AOI clipped
+=================
+`Link <https://marketplace.up42.com/block/ef6faaf5-8182-4986-bce4-4f811d2745e5>`_ to block details page
 
 Block type: ``DATA``
 

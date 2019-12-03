@@ -5,7 +5,8 @@
 .. _sentinel-3-block:
 
 Sentinel-3 Full Scenes
-=======================
+======================
+`Link <https://marketplace.up42.com/block/ee08281c-d950-4258-81d5-e37187a9580e>`_ to block details page
 
 Block type: ``DATA``
 

@@ -5,7 +5,8 @@
 .. _data-format-type-conversion-block:
 
 Data Format and Type Conversion
-=====================================
+===============================
+`Link <https://marketplace.up42.com/block/87dfdea7-a89a-46b5-8ac3-634ebe26f570>`_ to block details page
 
 Block type: ``PROCESSING``
 

@@ -5,7 +5,8 @@
 .. _sentinel1-grd-fullscene-block:
 
 Sentinel-1 L1C GRD Full Scenes
-===========================
+==============================
+`Link <https://marketplace.up42.com/block/b623400c-c5ac-40af-bda2-0d2734aa9dd1>`_ to block details page
 
 Block type: ``DATA``
 
