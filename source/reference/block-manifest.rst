@@ -45,7 +45,6 @@ The most important keys to note here are the following:
 * ``type``: either ``"data"`` or ``"processing"``. This provides a hint to the platform when validating workflows.
   The major difference between data and processing blocks is whether they require input data (data blocks do not
   take any input data, only output it).
-* ``tags``: a list of tags used for searching and filtering blocks in the UP42 UI.
 * ``display_name``: the name of the block as displayed in the UP42 UI. This name is not checked for
   uniqueness.
 * ``description``: free-text explanation of what your block does.
