@@ -18,6 +18,11 @@ An example manifest file looks like the following:
         "_up42_specification_version": 1,
         "name": "ndvi",
         "type": "processing",
+        "tags": [
+            "imagery",
+            "index",
+            "vegetation"
+        ],
         "display_name": "Normalized Difference Vegetation Index",
         "description": "This is the Normalized Difference Vegetation Index block to calculate biomass health on a per-pixel basis.",
         "parameters": {
@@ -40,6 +45,7 @@ The most important keys to note here are the following:
 * ``type``: either ``"data"`` or ``"processing"``. This provides a hint to the platform when validating workflows.
   The major difference between data and processing blocks is whether they require input data (data blocks do not
   take any input data, only output it).
+* ``tags``: a list of tags used for searching and filtering blocks in the UP42 UI.
 * ``display_name``: the name of the block as displayed in the UP42 UI. This name is not checked for
   uniqueness.
 * ``description``: free-text explanation of what your block does.
@@ -75,6 +81,11 @@ example.
       "_up42_specification_version": 1,
       "name": "landsat8-aoiclipped",
       "type": "data",
+      "tags": [
+        "Landsat",
+        "MSI",
+        "Imagery"
+      ],
       "display_name": "Landsat-8 Level 1 (TOA) AOI clipped",
       "description": "This block provides Landsat-8 imagery clipped to all webmercator tiles intersecting a given bounding box or AOI on a given zoom level. The part of the image that does not intersect with these tiles will be black. The block outputs a single GeoTIFF file and will store the AOI within the output feature geometry.",
       "parameters": {
