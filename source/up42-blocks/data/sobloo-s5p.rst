@@ -14,13 +14,8 @@ This block provides full scenes of Sentinel-5 Precursor data products in `netcdf
 Important application areas for Sentinel-5P are **monitoring of air quality, ozone and surface UV and climate research**.
 The output format is identical to the unzipped netcdf files that can be acquired from ESA’s Scihub.
 
-.. tip:: Processing blocks for Sentinel-5P will be available shortly
-    on UP42. In the meantime, you can use the downloaded data
-    e.g. via the `ESA SNAP toolbox
-    <https://step.esa.int/main/toolboxes/snap/>`_ .  `EUMETSAT
-    <https://en.wikipedia.org/wiki/European_Organisation_for_the_Exploitation_of_Meteorological_Satellites>`_
-    provides a `video tutorial <https://youtu.be/3PjTwEMlCMs?t=130>`_
-    on how to load and visualize Sentinel data with SNAP.
+.. tip:: Further processing blocks to work with Sentinel-5P Level-2 and Level-3 data will be available shortly on UP42.
+   In the meantime, you can open and visualize the output NetCDF files with the `NASA Panoply viewer <https://www.giss.nasa.gov/tools/panoply/>`_.
 
 
 Supported query parameters
