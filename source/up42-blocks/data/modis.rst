@@ -38,6 +38,10 @@ For more information on supported filters, see :ref:`query filter section  <filt
  * ``zoom_level``: An integer defining the webmercator zoom level of this request, defaults to 9.
  * ``imagery_layers``: An array of layer identifiers available from `GIBS <https://wiki.earthdata.nasa.gov/display/GIBS/GIBS+Available+Imagery+Products>`_. See the `Additional imagery layers`_ section to find out more. Default is ``MODIS_Terra_CorrectedReflectance_TrueColor`` (RGB).
 
+
+Example queries
+---------------
+
 .. code-block:: javascript
 
     {

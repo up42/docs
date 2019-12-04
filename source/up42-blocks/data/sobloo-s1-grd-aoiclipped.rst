@@ -36,7 +36,8 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``limit``: An integer number of maximum results to return. Omit this to set no limit.
 * ``ids``: An array of image identifiers. The S1 identifiers are described in `ESA Sentinel-1 User Guide - Naming conventions <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/naming-conventions>`_. The file extension is omitted. This parameter is mainly meant for use via the API.
 * ``acquisition_mode``: A string allowing querying for specific acquisition modes, see `ESA Sentinel-1 User Guide - Acquisition Modes <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes>`_ for details.
-
+* ``orbit_direction``: The satellite orbit direction. One of ``null``, ``ASCENDING`` or ``DESCENDING``. Default is ``null``, which queries both ascending and descending.
+  For details see `eoportal <https://directory.eoportal.org/web/eoportal/satellite-missions/c-missions/copernicus-sentinel-1>`_.
 
 Example queries
 ---------------
