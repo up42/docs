@@ -30,6 +30,9 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``max_cloud_cover``: A percentage (0 to 100) defining the maximum :term:`cloud cover` of any returned imagery. Note that the cloud cover percentage is computed with the full scene, not the requested geographical area. Default is **100**.
 
 
+Example queries
+---------------
+
 Example query using the ``time_series`` in combination with ``bbox``,  ``limit`` and ``zoom_level``:
 
 .. code-block:: javascript
