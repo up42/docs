@@ -9,14 +9,15 @@ Level-3 Sentinel-5P Conversion block
 
 Block type: ``PROCESSING``
 
-This block converts :ref:`Sentinel-5P Level-2 data <sentinel-5p-block>` to processing Level-3 This resamples the data to a regular spatial pixel grid.
-ESA delivers the default Sentinel-5 Level-2 data without a fixed grid. The pixels in the Sentinel-5P Level-2 products are defined by latitude and longitude, forming an irregular grid. The Level-3 processing resolves that.
+This block converts Sentinel-5P data to Level-3 processing status. This resamples the data to a regular spatial pixel grid, enabling the combination of multiple Sentinel-5P scenes.
+This is not possible with the default Sentinel-5 Level-2 data delivered by ESA, as the pixels are instead defined by an irregular latitude/longitude grid.
+The block takes the output of the :ref:`Sentinel-5P Level-2 data <sentinel-5p-block>` data block and converts it to Level-3 using the `HARP data harmonization toolset <https://github.com/stcorp/harp>`_.
 
 The block supports the selection of the treshold of the applied quality band, and wether additional ancillary layers (sensor parameter and further quality layers) are included in the final output.
 The Level-3 processing block can be applied to all Sentinel-5P Level 2 atmospheric products (see the :ref:`Sentinel-5P Level-2 data block <sentinel-5p-block>` description. The respective band configuration for the dedicated quality and ancillary bands is selected automatically.
 
-The block internally uses the `HARP data harmonization toolset <https://github.com/stcorp/harp>`_ using the configuration ``latitude > -55 [degree_north]; latitude < 80 [degree_north]`` and ``bin_spatial(271,-55,0.5,721,-180,0.5)``.
-It grids the products between latitude -55 and 80 to a 135x360 lat/lon grid using an area weighted average algorithm.
+The output is a netcdf file. The block uses an area weighted-average-algorithm to regrid the data with a resolution of 0.5 arcgrid, spatially limited limited to latitudes between -55 and 80 (thus forming a 135x360 latitude/longitude grid).
+
 
 Supported parameters
 --------------------
