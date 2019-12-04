@@ -18,11 +18,6 @@ An example manifest file looks like the following:
         "_up42_specification_version": 1,
         "name": "ndvi",
         "type": "processing",
-        "tags": [
-            "imagery",
-            "index",
-            "vegetation"
-        ],
         "display_name": "Normalized Difference Vegetation Index",
         "description": "This is the Normalized Difference Vegetation Index block to calculate biomass health on a per-pixel basis.",
         "parameters": {
