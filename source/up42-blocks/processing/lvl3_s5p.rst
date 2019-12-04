@@ -52,7 +52,7 @@ Example usage
 
 Output format
 -------------
-Output format is a ``NetCDF`` file.
+Output format is a ``NetCDF`` file, see `netcdf <https://en.wikipedia.org/wiki/NetCDF>`_ for a more detailed description.
 
 Capabilities
 ------------
