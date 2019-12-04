@@ -4,8 +4,9 @@
 
 .. _modis-aoiclipped-block:
 
-MODIS (AOI-Clipped)
-===================
+MODIS AOI clipped
+=================
+`Link <https://marketplace.up42.com/block/ef6faaf5-8182-4986-bce4-4f811d2745e5>`_ to block details page
 
 Block type: ``DATA``
 
@@ -36,6 +37,10 @@ For more information on supported filters, see :ref:`query filter section  <filt
  * ``limit``: An integer number of maximum results to return. Omit this to set limit to 1.
  * ``zoom_level``: An integer defining the webmercator zoom level of this request, defaults to 9.
  * ``imagery_layers``: An array of layer identifiers available from `GIBS <https://wiki.earthdata.nasa.gov/display/GIBS/GIBS+Available+Imagery+Products>`_. See the `Additional imagery layers`_ section to find out more. Default is ``MODIS_Terra_CorrectedReflectance_TrueColor`` (RGB).
+
+
+Example queries
+---------------
 
 .. code-block:: javascript
 

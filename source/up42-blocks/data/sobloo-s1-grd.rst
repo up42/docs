@@ -4,8 +4,9 @@
 
 .. _sentinel1-grd-fullscene-block:
 
-Sentinel-1 GRD (full-scene)
-===========================
+Sentinel-1 L1C GRD Full Scenes
+==============================
+`Link <https://marketplace.up42.com/block/b623400c-c5ac-40af-bda2-0d2734aa9dd1>`_ to block details page
 
 Block type: ``DATA``
 
@@ -38,6 +39,12 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``limit``: An integer number of maximum results to return. Omit this to set no limit.
 * ``ids``: An array of image identifiers. The S1 identifiers are described here: https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/naming-conventions; the file extension is omitted. This parameter is mainly meant for use via the API.
 * ``acquisition_mode``: A string allowing querying for specific acquisition modes, see https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes. for details.
+* ``orbit_direction``: The satellite orbit direction. One of ``null``, ``ASCENDING`` or ``DESCENDING``. Default is ``null``, which queries both ascending and descending.
+  For details see `eoportal <https://directory.eoportal.org/web/eoportal/satellite-missions/c-missions/copernicus-sentinel-1>`_.
+
+
+Example queries
+---------------
 
 Example query searching for images using Strip Mode, using ``intersects`` and ``limit``:
 
@@ -203,49 +210,6 @@ Example output GeoJSON:
                     },
                     "timeStamp": 1550639039852,
                     "uid": "0a99c5a1-75c0-4a0d-a7dc-c2a551936be4",
-                    "enrichment": {
-                        "geonames": [
-                            {
-                                "name": "Italy",
-                                "states": [
-                                    {
-                                        "name": "Sicily",
-                                        "counties": [
-                                            {
-                                                "villages": [
-                                                    {
-                                                        "name": "Blufi"
-                                                    },
-                                                    {
-                                                        "name": "Aliminusa"
-                                                    },
-                                                    {
-                                                        "name": "Altofonte"
-                                                    },
-                                                    {
-                                                        "name": "Casteldaccia"
-                                                    },
-                                                    {
-                                                        "name": "Termini Imerese"
-                                                    },
-                                                    {
-                                                        "name": "Sciara"
-                                                    },
-                                                ],
-                                                "name": "Reggio Calabria"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "naturallanguage": {
-                            "search_date_string": "2019 February 20 05: 05:03 05:03:59",
-                            "search_quality_string": "quality:?",
-                            "search_cloud_string": "cloud:?",
-                            "search_incidence_angle_string": "incidence:?"
-                        }
-                    },
                     "identification": {
                         "profile": "Image",
                         "externalId": "S1B_IW_GRDH_1SDV_20190220T050359_20190220T050424_015025_01C12F_4EA4",

@@ -4,8 +4,9 @@
 
 .. _sentinel2-l1c-aoiclipped-block:
 
-Sentinel-2 L1C (AOI-Clipped)
-============================
+Sentinel-2 L1C MSI AOI clipped
+==============================
+`Link <https://marketplace.up42.com/block/3a381e6b-acb7-4cec-ae65-50798ce80e64>`_ to block details page
 
 Block type: ``DATA``
 
@@ -30,6 +31,10 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``limit``: An integer number of maximum results to return. Omit this to set no limit.
 * ``ids``: An array of image identifiers. The S2 identifiers are described `here <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/naming-convention>`_; the file extension is omitted. This parameter is mainly meant for use via the API.
 * ``max_cloud_cover``: A percentage (0 to 100) defining the maximum :term:`cloud cover` of any returned imagery. Note that the cloud cover percentage is computed with the full scene, not the requested geographical area. Default is **100**.
+
+
+Example queries
+---------------
 
 Example query searching for images using ``bbox``, ``time``. ``limit`` and ``max_cloud_cover``:
 
@@ -182,45 +187,6 @@ Example output GeoJSON:
           "target": {},
           "timeStamp": 1568196621024,
           "uid": "ace0d357-8551-44d6-b1cb-ae2cc98813a1",
-          "enrichment": {
-            "geonames": [
-              {
-                "name": "Germany",
-                "states": [
-                  {
-                    "name": "Brandenburg",
-                    "counties": [
-                      {
-                        "cities": [
-                          {
-                            "name": "Joachimsthal (Schorfheide)"
-                          },
-                          {
-                            "name": "Biesenthal-Barnim"
-                          }
-                        ],
-                        "villages": [
-                          {
-                            "name": "Joachimsthal"
-                          },
-                          {
-                            "name": "Eberswalde"
-                          },
-                        ],
-                        "name": "Landkreis Mecklenburgische Seenplatte"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "naturallanguage": {
-              "search_date_string": "2019 September 11 10: 10:10 10:10:21",
-              "search_quality_string": "quality:?",
-              "search_cloud_string": "cloud:partly_cloudy",
-              "search_incidence_angle_string": "incidence:?"
-            }
-          },
           "identification": {
             "profile": "Image",
             "externalId": "S2A_MSIL1C_20190911T101021_N0208_R022_T33UUU_20190911T135617",

@@ -4,8 +4,9 @@
 
 .. _sentinel-5p-block:
 
-Sentinel-5P (full-scene)
-========================
+Sentinel-5P Full Scenes
+=======================
+`Link <https://marketplace.up42.com/block/0c0c217f-d926-4534-9072-2e4ead2d3e6c>`_ to block details page
 
 Block type: ``DATA``
 
@@ -295,14 +296,6 @@ The ``up42.data.scene.netcdf`` capability maps to the directory containing the `
                         "target": {},
                         "timeStamp": 1572092613000,
                         "uid": "62d9c59d-fc90-4fff-b4b6-b4b243ed7597",
-                        "enrichment": {
-                            "naturallanguage": {
-                                "search_date_string": "2019 October 26 12: 12:23 12:23:33",
-                                "search_quality_string": "quality:?",
-                                "search_cloud_string": "cloud:?",
-                                "search_incidence_angle_string": "incidence:?"
-                            }
-                        },
                         "identification": {
                             "profile": "Image",
                             "externalId": "S5P_OFFL_L1B_RA_BD6_20191026T120159_20191026T134328_10543_01_010000_20191026T153033",

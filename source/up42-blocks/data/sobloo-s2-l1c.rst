@@ -4,8 +4,9 @@
 
 .. _sentinel2-l1c-fullscene-block:
 
-Sentinel-2 L1C (full-scene)
-===========================
+Sentinel-2 L1C MSI Full Scenes
+==============================
+`Link <https://marketplace.up42.com/block/98c1acfa-c141-4095-b2e6-acf52d110178>`_ to block details page
 
 Block type: ``DATA``
 
@@ -32,6 +33,10 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``limit``: An integer number of maximum results to return. Omit this to set no limit.
 * ``ids``: An array of image identifiers. The S2 identifiers are described `here <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/naming-convention>`_; the file extension is omitted. This parameter is mainly meant for use via the API.
 * ``max_cloud_cover``: A percentage (0 to 100) defining the maximum :term:`cloud cover` of any returned imagery. Default is **100**.
+
+
+Example queries
+---------------
 
 Example query searching for images using ``intersects``, ``time`` and ``limit``:
 
@@ -211,43 +216,6 @@ Example output GeoJSON:
                     },
                     "timeStamp": 1550829029024,
                     "uid": "ef60b465-e3b0-4aa6-98af-8ff5bb1e5f5a",
-                    "enrichment": {
-                        "geonames": [
-                            {
-                                "name": "Italy",
-                                "states": [
-                                    {
-                                        "name": "Sicily",
-                                        "counties": [
-                                            {
-                                                "villages": [
-                                                    {
-                                                        "name": "Mezzojuso"
-                                                    },
-                                                    {
-                                                        "name": "Torretta"
-                                                    },
-                                                    {
-                                                        "name": "Ficarazzi"
-                                                    },
-                                                    {
-                                                        "name": "Carini"
-                                                    },
-                                                ],
-                                                "name": "Trapani"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "naturallanguage": {
-                            "search_date_string": "2019 February 22 09: 09:50 09:50:29",
-                            "search_quality_string": "quality:?",
-                            "search_cloud_string": "cloud:mostly_cloudy",
-                            "search_incidence_angle_string": "incidence:?"
-                        }
-                    },
                     "identification": {
                         "profile": "Image",
                         "externalId": "S2B_MSIL1C_20190222T095029_N0207_R079_T33SUC_20190222T115501",

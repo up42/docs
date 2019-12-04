@@ -4,8 +4,9 @@
 
 .. _sentinel1-grd-aoiclipped-block:
 
-Sentinel-1 GRD (AOI-Clipped)
-============================
+Sentinel-1 L1C GRD AOI clipped
+==============================
+`Link <https://marketplace.up42.com/block/b1c88381-6df0-4919-a194-5d5b3b1ee2f7>`_ to block details page
 
 Block type: ``DATA``
 
@@ -35,7 +36,8 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``limit``: An integer number of maximum results to return. Omit this to set no limit.
 * ``ids``: An array of image identifiers. The S1 identifiers are described in `ESA Sentinel-1 User Guide - Naming conventions <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/naming-conventions>`_. The file extension is omitted. This parameter is mainly meant for use via the API.
 * ``acquisition_mode``: A string allowing querying for specific acquisition modes, see `ESA Sentinel-1 User Guide - Acquisition Modes <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes>`_ for details.
-
+* ``orbit_direction``: The satellite orbit direction. One of ``null``, ``ASCENDING`` or ``DESCENDING``. Default is ``null``, which queries both ascending and descending.
+  For details see `eoportal <https://directory.eoportal.org/web/eoportal/satellite-missions/c-missions/copernicus-sentinel-1>`_.
 
 Example queries
 ---------------
@@ -232,50 +234,6 @@ Example output GeoJSON:
                 },
                 "timeStamp":1561785922883,
                 "uid":"0fbb45ab-7d24-4070-b8c2-06221aa6fc14",
-                "enrichment":{
-                   "geonames":[
-                      {
-                         "name":"Poland",
-                         "states":[
-                            {
-                               "name":"West Pomeranian Voivodeship",
-                               "counties":[
-                                  {
-                                     "name":"powiat gryfi\u0144ski"
-                                  }
-                               ]
-                            }
-                         ]
-                      },
-                      {
-                         "name":"Germany",
-                         "states":[
-                            {
-                               "name":"Brandenburg",
-                               "counties":[
-                                  {
-                                     "cities":[
-                                        {
-                                           "name":"Ziesar"
-                                        },
-                                        {
-                                           "name":"Br\u00fcck"
-                                        }
-                                     ],
-                                     "name":"Landkreis Potsdam-Mittelmark"
-                                  }
-                               ]
-                            }
-                         ]
-                      }
-                   ],
-                   "naturallanguage":{
-                      "search_date_string":"2019 June 29 05: 05:25 05:25:22",
-                      "search_quality_string":"quality:?",
-                      "search_cloud_string":"cloud:?",
-                      "search_incidence_angle_string":"incidence:?"
-                   }
-                },
                 "identification":{
                    "profile":"Image",
                    "externalId":"S1A_IW_GRDH_1SDV_20190629T052522_20190629T052547_027890_032617_FDFF",

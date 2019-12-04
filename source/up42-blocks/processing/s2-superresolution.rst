@@ -5,8 +5,9 @@
 
 .. _s2-superresolution-block:
 
-S2-superresolution block
-========================
+Sentinel-2 Super-resolution
+===========================
+`Link <https://marketplace.up42.com/block/f6c29b0a-75bd-44a1-a040-f18c9e881d1d>`_ to block details page
 
 Block type: ``PROCESSING``
 
