@@ -75,11 +75,6 @@ example.
       "_up42_specification_version": 1,
       "name": "landsat8-aoiclipped",
       "type": "data",
-      "tags": [
-        "Landsat",
-        "MSI",
-        "Imagery"
-      ],
       "display_name": "Landsat-8 Level 1 (TOA) AOI clipped",
       "description": "This block provides Landsat-8 imagery clipped to all webmercator tiles intersecting a given bounding box or AOI on a given zoom level. The part of the image that does not intersect with these tiles will be black. The block outputs a single GeoTIFF file and will store the AOI within the output feature geometry.",
       "parameters": {
