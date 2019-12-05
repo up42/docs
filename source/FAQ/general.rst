@@ -101,6 +101,32 @@ How can I get very-high resolution images in the Near Infra-Red (NIR) band?
 See :ref:`above <acquire-hi-res-data>`.
 
 
+
+.. _handle-download-block-output:
+
+I used the Pléaides and/or SPOT download block and loaded the image in my GIS software and it has the wrong orientation and/or is on the wrong location. What is happening?
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.. |br| raw:: html
+
+   <br/>           
+
+There are multiple points to answer in this question:
+
+ 1. The :ref:`Pléiades <pleiades-download-block>` and :ref:`SPOT 6/7 <spot-download-block>` download blocks output format is `DIMAP <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`_.
+ 2. To make use of it you have three options:
+    
+    + Use the DIMAP file and, **never, ever**, use the JPEG2000 files (``JP2`` extension) that are delivered. These files are not correctly geo-referenced. If you want
+      to use the output of these download blocks you need to open the **DIMAP** file, is a file with a name starting with ``DIM_``, e.g.,
+      ``DIM_PHR1A_P_201908291643176_ORT_6bf6aab9-d28f-401e-c0cf-a132ca1b7ec6-002.XML``. |br|
+      If you open this file in as a **raster** `QGIS <https://qgis.org>`_, for example, you will get a properly geo-referenced image.
+      
+    + Use the :ref:`data type format conversion <data-format-type-conversion-block>` block:  it will give you all the imagery (panchromatic and multispectral) in GeoTIFF format.
+     
+    + Use :ref:`Pansharpening for Pléaides/SPOT <pansharpen-block>` block: it will give you a pansharpened RGB image in GeoTIFF format.
+      
+ 3. Now you can further process the image(s) obtained before and derive some analytics on it, if that is your wish. 
+
 .. _delete-account:
 
 How can I delete my UP42 account?
