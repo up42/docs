@@ -1,4 +1,4 @@
-.. meta:: 
+.. meta::
    :description: UP42 documentation: index page
    :keywords: UP42, user manual, reference manual, tutorial, howto
 
@@ -13,14 +13,14 @@ First steps
 -----------
 
 Use the :term:`console` for running you first job, then learn how to
-create a workflow. Finally, run a job via the API. 
+create a workflow. Finally, run a job via the API.
 
 + |first-job| :ref:`Run your first UP42 job <first-job-run>`
 + |first-workflow| :ref:`Your first workflow <build-first-workflow>`
 + |first-api| :ref:`Your first API request <first-api-request>`
 
 |hr|
-  
+
 Going further
 -------------
 
@@ -45,19 +45,19 @@ on `Github
 to develop **your own** processing block and, if need be, make use of
 GPUs to speed it up.
 
-+ |first-block| :ref:`Push your first block <first-custom-block>`    
++ |first-block| :ref:`Push your first block <first-custom-block>`
 + |develop-block| :ref:`Develop your block <custom-processing-block-dev>`
 + |gpu-block| :ref:`Use GPUs in your block <adding-gpu-support-block>`
 
 |hr|
-  
+
 Explore other topics
 --------------------
 
 Look into the blocks developed by UP42 and at the reference
 documentation. Still have questions? Then look into our FAQ.
 
-+ |up42-block| :ref:`Delve into UP42 blocks <builtin-blocks-documentation>`
++ |up42-block| :ref:`Delve into UP42 blocks <up42-blocks-documentation>`
 + |reference| :ref:`Browse the reference <reference-documentation>`
 + |faq| :ref:`Consult the FAQ <FAQ>`
 
@@ -74,21 +74,21 @@ documentation. Still have questions? Then look into our FAQ.
    changelog.rst
 
 .. Specific first page directives.
-   
+
 .. |first-job| image:: _themes/up42/static/icons/task-list-multiple.svg
                :class: first
 .. |first-workflow| image:: _themes/up42/static/icons/workflow.svg
-                    :class: first                
-.. |first-api| image:: _themes/up42/static/icons/programming-code.svg                            
+                    :class: first
+.. |first-api| image:: _themes/up42/static/icons/programming-code.svg
                :class: first
-.. |filters| image:: _themes/up42/static/icons/data.svg              
+.. |filters| image:: _themes/up42/static/icons/data.svg
              :class: first
 .. |first-block| image:: _themes/up42/static/icons/custom-block.svg
                :class: first
 .. |develop-block| image:: _themes/up42/static/icons/programming-browser.svg
-                   :class: first                
+                   :class: first
 .. |gpu-block| image:: _themes/up42/static/icons/computer-chip.svg
-               :class: first 
+               :class: first
 .. |up42-block| image:: _themes/up42/static/icons/block.svg
                 :class: first
 .. |reference| image:: _themes/up42/static/icons/book-open.svg
@@ -102,4 +102,4 @@ documentation. Still have questions? Then look into our FAQ.
 
 .. |hr| raw:: html
 
-   <hr/>           
+   <hr/>

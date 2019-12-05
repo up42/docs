@@ -2,10 +2,10 @@
    :description: UP42 builtin processing blocks documentation: index page
    :keywords: blocks, builtin, marketplace, processing blocks
 
-.. _builtin-processing-blocks-documentation:
+.. _up42-processing-blocks-documentation:
 
-Built-in processing blocks provided by UP42
-===========================================
+Processing blocks
+=================
 
 This section provides an comprehensive description of the processing
 blocks built by UP42.

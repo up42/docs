@@ -2,10 +2,10 @@
    :description: UP42 builtin processing blocks documentation: index page
    :keywords: blocks, builtin, marketplace, data blocks
 
-.. _builtin-data-blocks-documentation:
+.. _up42-data-blocks-documentation:
 
-Built-in data blocks provided by UP42
-=====================================
+Data blocks
+===========
 
 This section provides an comprehensive description of the data blocks
 built by UP42.
