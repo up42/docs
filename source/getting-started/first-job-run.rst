@@ -44,7 +44,7 @@ section.
 This demo workflow takes a **satellite image** recorded by the :ref:`Pléiades
 <pleiades-download-block>` sensor and clips it to an :term:`area of interest
 (AOI)<AOI>` near Christchurch, New Zealand. Pléiades data has five bands, the
-first four are Blue, Green, Red and Near-Infrared (NIR), at at 2m resolution.
+first four are Blue, Green, Red and Near-Infrared (NIR), at 2m resolution.
 It also has a panchromatic band with 0.5m resolution that can be used to
 :ref:`pansharpen <pansharpen-block>` the other four bands to 0.5m resolution as
 well. and **classifies. The third and final block of the workflow calculates
@@ -78,6 +78,6 @@ Congratulations! Your are ready to learn more about UP42 in the
 
 A final note: the used :ref:`Pléiades DIMAP Download <pleiades-download-block>`
 block is run using the ``order_ids`` parameter. This means you can re-use this
-particular satellite image without any cost again and again! See the
+particular satellite image free of charge indefinitely! See the
 :ref:`Download blocks tutorial<download-blocks-tutorial-spot-pleiades>` to
 learn how that works.
