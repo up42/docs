@@ -63,7 +63,7 @@ Above pansharpened Pléiades image and below the resulting NDVI.
 
 In the map below you can see where this image is located.
 
-.. gist:: https://gist.github.com/perusio/26c0c134a9d9e9dd88e10e55bf04e903
+.. gist:: ghttps://gist.github.com/up42-epicycles/b40d03163ad2dbe1bb43f09f084ef812
 
 Run your first job
 -------------------
