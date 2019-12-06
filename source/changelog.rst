@@ -6,6 +6,9 @@
 
 Changelog
 =========
+6.12.2019
+
+* Update :ref:`First job run <first-job-run>`.
 
 03.12.2019
 ----------
