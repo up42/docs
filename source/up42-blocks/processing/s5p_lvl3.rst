@@ -6,7 +6,7 @@
 
 Sentinel-5P Level-3 Processor
 =============================
-`Link <https://marketplace.up42.com/block/0c0c217f-d926-4534-9072-2e4ead2d3e6c>`_ to block details page
+`Link <https://marketplace.up42.com/block/a9397cf1-8ea6-4c03-9634-3678438c0508>`_ to block details page
 
 Block type: ``PROCESSING``
 
