@@ -2,7 +2,7 @@
    :description: UP42 processing blocks: Raster Vectorization block description
    :keywords: UP42, processing, raster vectorization, conversion, geojson
 
-.. _ vectorization-block:
+.. _vectorization-block:
 
 Vectorization
 =============
@@ -25,7 +25,7 @@ Supported parameters
 * ``n_sieve_pixels``: Minimum number of pixels in each geometry patch. Default is **1**.
 
 Example parameters using the :ref:`SPOT AOIClipped block
-<spot-aoiclipped-block>` as data source and then applying :ref:`K-Means Clustering <kmeans-clustering>`
+<spot-aoiclipped-block>` as data source and then applying :ref:`K-Means Clustering <kmeans-clustering-block>`
 and :ref:`Vectorization block <vectorization-block>`.
 
 .. code-block:: javascript
