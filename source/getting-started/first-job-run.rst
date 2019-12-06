@@ -9,8 +9,7 @@ Run your first job
 ====================
 
 This section will guide you through running your first job on the UP42
-platform using a simple land cover classification Demo
-project.
+platform using a simple NDVI Demo project.
 
 The UP42 console
 -----------------
@@ -32,30 +31,39 @@ Explore the Demo project
 
 We created a simple **Demo Project** for you to explore. The project
 page contains the **Demo Workflow** made up of one :term:`data block`
-for the satellite imagery, and one :term:`processing block` for the
-land cover classification.  We already ran the workflow for you,
-explore the results in the **Jobs** section.
+for the satellite imagery and two :term:`processing block` s for the
+pansharpening and Normalized Difference Vegetation Index (NDVI).  We
+already ran the workflow for you, explore the results in the **Jobs**
+section.
 
 .. figure:: _assets/demo_blocks.png
    :scale: 40%
    :align: center
    :alt: Blocks used in the Demo workflow.
 
-This demo workflow takes a **satellite image**, clips it to an
-:term:`area of interest (AOI)<AOI>` near Orford, UK, and **classifies
-the land cover**. The example is using the :ref:`Landsat 8
-<sentinelhub-landsat8-aoiclipped-block>` sensor. The effective
-resolution is 15 meters, i.e. one pixel in the image represents 15
-meters on the ground.
+This demo workflow takes a **satellite image** recorded by the :ref:`Pléiades
+<pleiades-download-block>` sensor and clips it to an :term:`area of interest
+(AOI)<AOI>` near Christchurch, New Zealand. Pléiades data has five bands, the
+first four are Blue, Green, Red and Near-Infrared (NIR), at at 2m resolution.
+It also has a panchromatic band with 0.5m resolution that can be used to
+:ref:`pansharpen <pansharpen-block>` the other four bands to 0.5m resolution as
+well. and **classifies. The third and final block of the workflow calculates
+NDVI, a very commonly used vegetation index which is an indicator of biomass
+and vegetation health.
 
-.. figure:: _assets/demo_sat_result.png
+.. figure:: _assets/demo_pansharpen_result.png
    :align: center
-   :alt: AOI for demo project in the UK near the sea and the river Ore
+   :alt: AOI for demo project in NZ to the south of Christchurch
 
-Landsat 8 image and the resulting land cover classification
+Above pansharpened Pléiades image and below the resulting NDVI.
+
+.. figure:: _assets/demo_ndvi_result.png
+   :align: center
+   :alt: AOI for demo project in NZ to the south of Christchurch
+
+In the map below you can see where this image is located.
 
 .. gist:: https://gist.github.com/perusio/26c0c134a9d9e9dd88e10e55bf04e903
-
 
 Run your first job
 -------------------
@@ -67,3 +75,9 @@ will change from **pending** to **successful**.
 
 Congratulations! Your are ready to learn more about UP42 in the
 :ref:`Building your first workflow<build-first-workflow>` section!
+
+A final note: the used :ref:`Pléiades DIMAP Download <pleiades-download-block>`
+block is run using the ``order_ids`` parameter. This means you can re-use this
+particular satellite image without any cost again and again! See the
+:ref:`Download blocks tutorial<download-blocks-tutorial-spot-pleiades>` to
+learn how that works.
