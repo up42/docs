@@ -22,29 +22,29 @@ as well as minimal proficiency with using a UNIX like shell.
 
 1. :ref:`Work with jobs <working-jobs>`:
 
-   -  `get jobs <#get-jobs>`__
-   -  :ref:`get a specific job <get-single-job>`
-   - `create & run job <#create-run-job>`__
-   - `get job output <#results-geojson>`__ (``data.json``)
-   - `get job output directory <#downloads-results>`__
-   -  :ref:`create and run a named job <create-run-named-job>` 
+   - :ref:`get jobs <#get-jobs>`
+   - :ref:`get a specific job <get-single-job>`
+   - :ref:`create & run job <create-run-job>`
+   - :ref:`get job output <results-geojson>` (``data.json``)
+   - :ref:`get job output directory <downloads-results>`
+   - :ref:`create and run a named job <create-run-named-job>` 
    - :ref:`cancel a running job <cancel-job>`
       
 2. :ref:`Work with jobs and tasks <working-job-tasks>`:
 
-   - `get job logs <#get-job-logs>`__
+   - :ref:`get job logs <get-job-logs>`
    - :ref:`get job task logs <task-results-logs>`
-   - `get job tasks output <#task-results-geojson>`__ (``data.json``)
-   - `get job tasks output directory <#task-downloads-results>`__
-   -  :ref:`get job tasks quicklooks <task-results-quicklooks>`
+   - :ref:`get job tasks output <task-results-geojson>` (``data.json``)
+   - :ref:`get job tasks output directory <task-downloads-results>`
+   - :ref:`get job tasks quicklooks <task-results-quicklooks>`
      
 3. :ref:`Work with workflows <working-workflows>`:
 
-   - `get workflows <#get-workflows>`__
-   - `get workflow <#get-workflow>`__
-   - `create workflow <#create-workflow>`__
-   - `update workflow <#update-workflow>`__
-   - `delete workflow <#delete-workflow>`__   
+   - :ref:`get workflows <get-workflows>`
+   - :ref:`get workflow <get-workflow>`
+   - :ref:`create workflow <create-workflow>`
+   - :ref:`update workflow <update-workflow>`
+   - :ref:`delete workflow <delete-workflow>`
 
 It means that a **project key** is **always** needed. Therefore you
 always need to create a project **through the UI**.
@@ -53,11 +53,11 @@ The example below uses an example project. So the specific values of
 things like project key and project ID are given for illustration
 purposes only. In your case the values will be different.
 
-**Note**: Please be aware that the project ID and the project key allow
-anyone to manipulate your project (account) so be careful and do not
-share it around. Someone might find it and besides messing with your
-project it will make you incur costs and thus reduce the currently
-available credits in our platform.
+**Note**: Please be aware that the project ID and the project key
+allows anyone to manipulate your project (account) so be careful and
+do not share it around. Someone might find it and besides messing with
+your project it will make you incur costs and thus reduce the
+currently available credits in our platform.
 
 Requirements
 ------------
@@ -67,6 +67,15 @@ Requirements
 
 `Bash <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`__ is the shell
 used in this guide.
+
+Additionally you can use
+`jwt-cli <https://github.com/mike-engel/jwt-cli>`__ to decode the
+token that is based on `JSON Web Token
+(JWT) <https://en.wikipedia.org/wiki/JSON_Web_Token>`__ and uses a
+`HMAC <https://en.wikipedia.org/wiki/HMAC>`__ based on
+`SHA-512 <https://en.wikipedia.org/wiki/SHA-2>`__ for signature
+encryption. This is more of a useful utility than a must have for
+following through this walktrough.
 
 All outputs (response bodies) deemed too large to be shown here are given
 as Github
