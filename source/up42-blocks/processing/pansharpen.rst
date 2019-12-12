@@ -20,7 +20,7 @@ Supported parameters
 * ``include_pan``: Include the panchromatic band in the output pansharpened image.
 
 Example parameters using the :ref:`SPOT DIMAP download block
-<spot-dimap-block>` as data source, returning the pansharpened multispectral
+<spot-download-block>` as data source, returning the pansharpened multispectral
 product appended with the panchromatic band:
 
 .. code-block:: javascript

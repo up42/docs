@@ -223,7 +223,7 @@ Most satellite imagery blocks will be in one of two formats:
 * A full-scene block, like the one described in the :ref:`section above <scene-data>`, or
 * A mosaic of WMTS tiles, clipped as closely as possible to the specified AOI.
 
-For more details on the latter, and examples of output, see the :ref:`documentation of the blocks <builtin-blocks-documentation>`.
+For more details on the latter, and examples of output, see the :ref:`documentation of the blocks <up42-blocks-documentation>`.
 
 
 Tools and references

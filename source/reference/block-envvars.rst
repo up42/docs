@@ -36,7 +36,7 @@ The content of the JSON payload is variable, though for **data blocks** it needs
 ``intersects``, ``contains``, ``bbox``, ``limit``, and ``time`` are special parameters that MUST adhere
 to their definitions in the `STAC query <https://github.com/radiantearth/stac-spec>`_ specifications. 
 
-See also the allowed parameters for the :ref:`builtin blocks <builtin-blocks-documentation>`.
+See also the allowed parameters for the :ref:`builtin blocks <up42-blocks-documentation>`.
 
 How a block interprets the parameters is up to the block
 itself, but it should specify what parameters it expects via the :ref:`manifest parameters <block-params>`.

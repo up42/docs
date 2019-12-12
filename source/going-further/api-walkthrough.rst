@@ -1,4 +1,4 @@
-.. meta::
+0.. meta::
    :description: UP42 going further: API usage howto
    :keywords: API, howto, curl
 
@@ -22,11 +22,11 @@ as well as minimal proficiency with using a UNIX like shell.
 
 1. :ref:`Work with jobs <working-jobs>`:
 
-   - :ref:`get jobs <#get-jobs>`
+   - :ref:`get jobs <get-jobs>`
    - :ref:`get a specific job <get-single-job>`
    - :ref:`create & run job <create-run-job>`
    - :ref:`get job output <results-geojson>` (``data.json``)
-   - :ref:`get job output directory <downloads-results>`
+   - :ref:`get job output directory <download-results>`
    - :ref:`create and run a named job <create-run-named-job>` 
    - :ref:`cancel a running job <cancel-job>`
       
@@ -393,7 +393,7 @@ Get the results: GeoJSON
 Produces this
 `output <https://gist.github.com/up42-epicycles/72f1676a72a8e8fafd30db093f187dd9>`__.
 
-.. _results-results:
+.. _download-results:
 
 Get the results: tarball
 ^^^^^^^^^^^^^^^^^^^^^^^^
