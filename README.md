@@ -92,3 +92,8 @@ Sphinx documentation is written in ReStructured Text. There is a quick primer
    incentivize the usage of your block, having good documentation is a
    must. Create a pull request with the documentation for your
    block(s) we'll get to it and merge it when needed. 
+
+## License
+
+This work is licensed under a
+[Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](http://creativecommons.org/licenses/by-nc-nd/4.0/).
