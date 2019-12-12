@@ -62,26 +62,33 @@ Sphinx documentation is written in ReStructured Text. There is a quick primer
 
 ## Style guide
 
-When writing documentation, please keep in mind the following:
+ 1. Good documentation is an **essential part** of a good product.
+ 2. There are 4 main categories of documentation:
+    + tutorials: is learning-oriented, allows the newcomer to get started; is a lesson.
+    + how-tos: is goal-oriented; shows how to solve a specific problem; is a series of steps.
+    + explanations: is understanding-oriented; explains, provides background and context.
+    + references: is information-oriented; describes the machinery; is accurate and complete.
+    Taken from
+    [here](https://www.divio.com/blog/documentation/). What category
+    does the documentation that your are working on fits into?
+ 3. In terms of technical writing guidelines we follow the 
+    [Google technical documentation guidelines](https://developers.google.com/style/).
+ 4. In terms of English prose 
+    [The Complete Plain Words](https://www.ourcivilisation.com/smartboard/shop/gowerse/complete/index.htm)
+    by Sir Ernest Gowers is a good reference on clear writing.
+ 5. If you introduce a new term: add it to the glossary and then
+    reference it in the text.
+ 6. Prefer to use 
+    [Sphinx cross references](https://www.sphinx-doc.org/en/1.5/markup/inline.html#cross-referencing-arbitrary-locations) 
+    instead of anchors when cross referencing document locations.
+    
+## Community and partners contributions
 
-- Assume that your audience are other engineers/developers.
-- *Don't* assume that they know UP42 platform concepts in detail.
-- *Don't* assume that they are GIS experts. The goal here is to reduce the number of PhDs you
-  need to work with this kind of data!
-- Provide clear and useful examples where it enhances the explanation.
-- Provide links to other parts of the documentation, especially when using platform-specific
-  terminology or referencing topics covered in detail somewhere else.
-- Although you shouldn't try to dumb anything down, please keep in mind that many people
-  reading this documentation will not have English as a first language, so avoid unnecessarily
-  obscure or complex language, especially when it is non-technical.
-- Spelling, punctuation, and grammar are important to enhance readability, especially given the
-  above point. Please pay attention to this in code reviews as well!
-
-## TODO
-
- 1. The API specification is basically empty. Starting from scratch.
- 2. Add example on how to run a job in `DRY_RUN` mode.
- 3. Fix the broken link to the STAC spec. This requires rewriting
-    since the filters no longer have a dedicated file in the spec.
- 4. Move all code examples to github with a MIT license. Becoming part
-    of our FLOSS offerings.
+ + If you find any omission on the documentation you can and should
+   submit a pull request that hopefully fixes the problem.
+ + Alternatively you can join our [gitter support chatroom](https://gitter.im/up42-com/support) or 
+   email <mailto:support@up42.com> for the issue to be addressed.
+ + If you are a [partner](https://up42.com/partners/) and want to
+   incentivize the usage of your block, having good documentation is a
+   must. Create a pull request with the documentation for your
+   block(s) we'll get to it and merge it when needed. 
