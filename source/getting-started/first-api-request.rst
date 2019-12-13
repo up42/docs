@@ -11,8 +11,12 @@
 This section helps you to get started with the UP42 API. We will run the :term:`demo project`
 once more, but this time via the command line.
 
-The UP42 API requires `Bash <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`__,
-`cURL <https://curl.haxx.se>`__ and `jq <https://stedolan.github.io/jq/>`__, which are usually installed by default.
+.. _api_requirements:
+
+Requirements
+------------
+The UP42 API requires the Mac or Ubuntu `Bash <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`__,
+`cURL <https://curl.haxx.se>`__ and `jq <https://stedolan.github.io/jq/>`__.
 
 
 .. _get-script:
@@ -32,7 +36,7 @@ Change into the correct directory via
 .. code:: bash
 
     cd up42-first-api-script
-
+example
 Make the script executable via
 
 .. code:: bash
@@ -45,16 +49,20 @@ Make the script executable via
 Run your first job via the API
 ------------------------------
 
-To control which job you will run, you need to provide the API with the ``project API key`` and
+In order to run a job via the API, you need to provide the the ``project API key`` and
 ``project ID``. You can find both in the UP42 console, in the settings menu of the :term:`demo project`.
 
 .. _project-settings-api-data:
 
 *project API key*
-    The API key to run the workflows included in a project. Go to the UP42 console, Demo Project, Settings and copy the API key. Project API key example: `pRy1h8Nv.Mmgyja9BsLJXPWlvWt3h8vwAIftlcSHQSj1`
+    The project-specific API key. Go to the `UP42 console > Demo Project > Settings` and copy the project API key which looks similar to this example: `pRj1h8Nv.Mmguja9BsLJXPWlvWt3h9vwAIftlcSHQSj1`
 
 *project ID*
-    The unique identifier of the project. Go to the UP42 console, Demo Project, and extract the project ID from the URL, in the form `https://console.up42.com/projects/<project ID>/settings`. Project ID example: `1ae50a40-07e9-47a7-9b25-bea19af1c851`
+    The unique identifier of the project. Go to the `UP42 console > Demo Project`, and extract the project ID from the URL, e.g. `https://console.up42.com/projects/<project ID>/settings`. The project ID looks similar to this example: `1ae70a40-07e9-47a7-9c25-bea19af1c451`
+
+.. figure:: _assets/api_settings.png
+   :align: center
+   :alt: The UP42 console project settings with the API key and project ID
 
 Then run the script by providing the project API key & project ID as arguments:
 
@@ -62,14 +70,28 @@ Then run the script by providing the project API key & project ID as arguments:
 
    > ./first_job_run.sh -k <project API key> -p <project ID>
 
+For example:
+
+.. code:: bash
+
+   > ./first_job_run.sh -k pRj1h8Nv.Mmguja9BsLJXPWlvWt3h9vwAIftlcSHQSj1 -p 1ae70a40-07e9-47a7-9c25-bea19af1c451
+
+.. figure:: _assets/api_bash.png
+   :align: center
+   :alt: UP42 API usage in the bash command line
+
 As a response, you will get information about the status of the job, e.g. ``"Job <job ID> s RUNNING."``.
-Here, ``<job ID>`` is a new random identifier (following the `UUID <https://en.wikipedia.org/wiki/Universally_unique_identifier>`__ convention)
-for the new job you just created. If you invoke the script multiple times, each new job will be created with a new random identifier.
+Here, ``<job ID>`` is a the random identifier (following the `UUID <https://en.wikipedia.org/wiki/Universally_unique_identifier>`__ convention)
+for the job you just created. If you invoke the script multiple times, each new job will get a unique ``job ID`` and a unique ``job name``.
 
 The created jobs are displayed in the UP42 console in the :ref:`job overview <job-overview>` section.
 
-If you have a job already running if you try to launch another job you
-get:
+.. figure:: _assets/api_jobs.png
+   :align: center
+   :alt: The UP42 console with jobs run via the API
+
+
+If you try to launch a second job while a job is already running, you will receive an error message:
 
 .. code:: javascript
    
