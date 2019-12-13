@@ -25,7 +25,7 @@ Get the script
 --------------
 
 To make this example as simple as possible, we will use a provided script that handles the API commands.
-You can get the script using git or download it manually `here <https://gist.github.com/up42-epicycles/254ea9fb6fca467c54e284e48a2a7b68>`__.
+You can get the script using git or explore & download it `here <https://gist.github.com/up42-epicycles/254ea9fb6fca467c54e284e48a2a7b68>`__.
 
 .. code:: bash
 
