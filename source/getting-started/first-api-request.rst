@@ -1,121 +1,76 @@
 .. meta::
-   :description: UP42 Getting started: running your first job via the API
+   :description: UP42 Getting started: Running your first job via the API
    :keywords: api, job run, howto, tutorial, demo project 
 
 .. _first-api-request:
               
-================================
- Run your first job via the API
-================================
+=================
+ Use the UP42 API
+=================
 
-This section guides you to using the API for the first
-time. Continuing to use the :term:`demo project` we used :ref:`before <first-job-run>`.
+This section helps you to get started with the UP42 API. We will run the :term:`demo project`
+once more, but this time via the command line.
 
-Requirements
-------------
+The UP42 API requires `Bash <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`__,
+`cURL <https://curl.haxx.se>`__ and `jq <https://stedolan.github.io/jq/>`__, which are usually installed by default.
 
- 1. `Bash <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`__.
- 2. `cURL <https://curl.haxx.se>`__.
- 3. `jq <https://stedolan.github.io/jq/>`__.   
-    
-Getting the script
-------------------
 
-To simplify things a Bash script is used provided as a Github gist.
+.. _get-script:
 
-.. gist:: https://gist.github.com/up42-epicycles/254ea9fb6fca467c54e284e48a2a7b68
+Get the script
+--------------
 
-There two options to get the script.
+To make this example as simple as possible, we will use a provided script that handles the API commands.
+You can get the script using git or download it manually `here <https://gist.github.com/up42-epicycles/254ea9fb6fca467c54e284e48a2a7b68>`__.
 
-  1. :ref:`Download <download-script>`.
-  2. :ref:`git clone <clone-script>`.
+.. code:: bash
 
-.. _download-script:
-     
-Download script
-+++++++++++++++
+    git clone https://gist.github.com/cb241bbd104aab30274d80ced9e4b313.git up42-first-api-script
 
-Get `here <https://gist.github.com/up42-epicycles/cb241bbd104aab30274d80ced9e4b313/archive/a69e315e54323d71b413a4600221e3e42b495d16.zip>`__ the script, unzip the archive and make it executable with:
+Change into the correct directory via
+
+.. code:: bash
+
+    cd up42-first-api-script
+
+Make the script executable via
 
 .. code:: bash
 
    chmod 755 first_job_run.sh
 
-.. _clone-script:
 
-Clone the script with git
-+++++++++++++++++++++++++
+.. _run-script-api:
 
-Do:
+Run your first job via the API
+------------------------------
 
-.. code:: bash
-
-    git clone https://gist.github.com/cb241bbd104aab30274d80ced9e4b313.git up42-first-api-script
-    cd up42-first-api-script
-
-You should now have the script and you can run it with no arguments:
-
-.. code:: bash
-
-   > ./first_job_run.sh
-   Usage: first_job_run.sh -k <project API key> -p <project ID>
-
-As you can see two arguments are required:
+To control which job you will run, you need to provide the API with the ``project API key`` and
+``project ID``. You can find both in the UP42 console, in the settings menu of the :term:`demo project`.
 
 .. _project-settings-api-data:
 
-``project API key``
-    The :term:`demo project` API key that you will find under the **Settings**
-    tab/page of the demo project.
+*project API key*
+    The API key to run the workflows included in a project. Go to the UP42 console, Demo Project, Settings and copy the API key. Project API key example: `pRy1h8Nv.Mmgyja9BsLJXPWlvWt3h8vwAIftlcSHQSj1`
 
-``project ID``
-    The project ID is the `UUID <https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)>`__ of assigned to the demo project
-    and that is shown in the URL of any project related page, for
-    example in the **Settings** tab the URL is of the form:
-    ``https://console.up42.com/projects/<project ID>/settings``.
+*project ID*
+    The unique identifier of the project. Go to the UP42 console, Demo Project, and extract the project ID from the URL, in the form `https://console.up42.com/projects/<project ID>/settings`. Project ID example: `1ae50a40-07e9-47a7-9b25-bea19af1c851`
 
-
-Invoking the script
--------------------
-    
-Here is an example invocation:
+Then run the script by providing the project API key & project ID as arguments:
 
 .. code:: bash
 
-   > ./first_job_run.sh -k pRy1h8Nv.Mmgyja9BsLJXPWlvWt3h8vwAIftlcSHQSj1 -p 1ae50a40-07e9-47a7-9b25-bea19af1c851 
+   > ./first_job_run.sh -k <project API key> -p <project ID>
 
-If you have no other job for the :term:`demo project` running then it
-should display something like:
+As a response, you will get information about the status of the job, e.g. ``"Job <job ID> s RUNNING."``.
+Here, ``<job ID>`` is a new random identifier (following the `UUID <https://en.wikipedia.org/wiki/Universally_unique_identifier>`__ convention)
+for the new job you just created. If you invoke the script multiple times, each new job will be created with a new random identifier.
 
-.. code:: bash
+The created jobs are displayed in the UP42 console in the :ref:`job overview <job-overview>` section.
 
-   Job <job ID> s RUNNING.
-
-where ``<job ID>`` is the job ID of the job you just created. Here is
-an example:
-
-If you go into the :ref:`job overview <job-overview>` page you will
-see a job with the a name of the form:
-``<random nbr>-my-first-job-run-via-API`` where ``<random nbr>`` is an integer
-random number generated by Bash to differentiate between jobs if you
-happen to invoke the script to launch the :term:`demo project` job multiple times.
-Here is an example job name:
-
-.. code:: bash
-          
-   14722-My-first-job-run-via-API
-
-.. code:: bash
-
-   Job d3699d8b-8cff-43b3-8c94-3b13672dad0c is RUNNING.
-          
 If you have a job already running if you try to launch another job you
 get:
 
-.. code:: bash
-       
-   >./first_job_run.sh -k <project API key> -p <project ID>
-   
 .. code:: javascript
    
    {
@@ -127,22 +82,5 @@ get:
      "data": null
    }    
 
-where ``<project API key>`` and ``<project ID>`` are defined
-:ref:`above <project-settings-api-data>`. For example:
-
-.. code:: bash
-
-   ./first_job_run.sh -k pRy1h8Nv.Mmgyja9BsLJXPWlvWt3h8vwAIftlcSHQSj1 -p 1ae50a40-07e9-47a7-9b25-bea19af1c851
-   
-.. code:: javascript
-
-   {
-     "error": {
-       "code": "TOO_MANY_REQUESTS",
-       "message": "Your project has too many non-finished jobs",
-       "details": null
-    },
-    "data": null
-  }       
      
 To further explore the API please go to the :ref:`API walktrough <api-walkthrough>`.
