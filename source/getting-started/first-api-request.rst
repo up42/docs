@@ -36,12 +36,6 @@ Change into the correct directory via
 .. code:: bash
 
     cd up42-first-api-script
-example
-Make the script executable via
-
-.. code:: bash
-
-   chmod 755 first_job_run.sh
 
 
 .. _run-script-api:
