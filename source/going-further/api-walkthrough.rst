@@ -1,4 +1,4 @@
-0.. meta::
+.. meta::
    :description: UP42 going further: API usage howto
    :keywords: API, howto, curl
 
