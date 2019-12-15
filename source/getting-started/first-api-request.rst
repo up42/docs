@@ -31,6 +31,7 @@ Download the script using git, change into the directory and make the script exe
 
     git clone https://gist.github.com/cb241bbd104aab30274d80ced9e4b313.git up42-first-api-script
     cd up42-first-api-script
+    chmod 755 first_job_run.sh
 
 
 .. _run-script-api:
