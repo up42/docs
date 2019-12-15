@@ -25,7 +25,7 @@ Download the script
 -------------------
 
 To make this example as simple as possible, we will use a `provided script <https://gist.github.com/up42-epicycles/254ea9fb6fca467c54e284e48a2a7b68>`__ that handles the API commands.
-Download the script using git, change into the directory and make the script executable.
+Clone the script using git, go into the script directory and make it executable:
 
 .. code:: console
 
