@@ -71,7 +71,7 @@ For example:
    :alt: UP42 API usage in the bash command line
 
 As a response, you will get information about the status of the job, e.g. ``"Job <job ID> s RUNNING."``.
-Here, ``<job ID>`` is a the random identifier (following the `UUID <https://en.wikipedia.org/wiki/Universally_unique_identifier>`__ convention)
+Here, ``<job ID>`` is a the random identifier (following the `UUID <https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)>`__ convention)
 for the job you just created. If you invoke the script multiple times, each new job will get a unique ``job ID`` and a unique ``job name``.
 
 The created jobs are displayed in the UP42 console in the :ref:`job overview <job-overview>` section.
