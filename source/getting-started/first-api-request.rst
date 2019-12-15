@@ -15,7 +15,7 @@ once more, but this time via the command line.
 
 Requirements
 ------------
-The UP42 API requires the Mac or Ubuntu `Bash <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`__,
+The UP42 API requires the Mac OS X or Linux `bash <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`__,
 `cURL <https://curl.haxx.se>`__ and `jq <https://stedolan.github.io/jq/>`__.
 
 
