@@ -19,22 +19,17 @@ The UP42 API requires the Mac or Ubuntu `Bash <https://en.wikipedia.org/wiki/Bas
 `cURL <https://curl.haxx.se>`__ and `jq <https://stedolan.github.io/jq/>`__.
 
 
-.. _get-script:
+.. _download-script:
 
-Get the script
---------------
+Download the script
+-------------------
 
-To make this example as simple as possible, we will use a provided script that handles the API commands.
-You can get the script using git or explore & download it `here <https://gist.github.com/up42-epicycles/254ea9fb6fca467c54e284e48a2a7b68>`__.
+To make this example as simple as possible, we will use a `provided script <https://gist.github.com/up42-epicycles/254ea9fb6fca467c54e284e48a2a7b68>`__ that handles the API commands.
+Download the script using git, change into the directory and make the script executable.
 
-.. code:: bash
+.. code:: console
 
     git clone https://gist.github.com/cb241bbd104aab30274d80ced9e4b313.git up42-first-api-script
-
-Change into the correct directory via
-
-.. code:: bash
-
     cd up42-first-api-script
 
 
