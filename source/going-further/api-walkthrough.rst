@@ -322,7 +322,7 @@ Now we extract the task ID from the previously saved file.
 
 .. code:: bash
           
-   TASK=$(cat jobs_job-$JOB.json | jq -j '.data[] as $task | if $task.status == "RUNNING" then $task.id else "" end')
+   TASK=$(cat jobs_job_tasks-$JOB.json | jq -j '.data[] as $task | if $task.status == "RUNNING" then $task.id else "" end')
 
 It returns:
 
