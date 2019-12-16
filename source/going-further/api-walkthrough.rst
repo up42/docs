@@ -148,14 +148,9 @@ the job IDs.
 
    > cat jobs_$PROJ.json  | jq '.data[].id'
    
-   "96b4c117-ab4d-44cf-afb1-0922d91031d4"
-   "eb9ed37e-eb87-439c-a5f7-6a1eccf5c68b"
-   "e5a4b9ba-4ad7-4ba3-a95c-cd7c1bb39661"
-   "af0cfabc-fe81-405f-ae32-7478eba97ee6"
-   "e58a7278-2b7e-4b15-ac89-cf02db7bee26"
-   "b92dad3f-1a0f-4272-aadc-68ef260874d5"
-   "22bbc2e9-09c4-4311-a4ed-96b2d505f5f0"
-   "eecb3ac2-ad8a-4f66-8e50-b81cdb40ff0b"       
+   "b3b1cc0b-3a1e-431c-a64e-a4d99b117a4b"
+   "08576b73-355a-407b-823d-604608791664"
+   "d62c27c0-24e9-433d-b509-ae080504d5c6"
 
 Picking any of the above job IDs, for example, the third, i.e., index
 ``2``.
@@ -168,7 +163,7 @@ Picking any of the above job IDs, for example, the third, i.e., index
   
    > echo $ONE_JOB
 
-   e5a4b9ba-4ad7-4ba3-a95c-cd7c1bb39661
+   d62c27c0-24e9-433d-b509-ae080504d5c6
 
 Querying the API for this job information.
 
@@ -194,7 +189,7 @@ we get a single element, since there is a single workflow in this project.
 
 .. code:: bash
           
-   21415975-390f-4215-becb-8d46aaf5156c
+   5ffc4cb4-5b44-4227-8089-f7861efebdcc
 
 We assign this value to a variable.
 
@@ -206,7 +201,7 @@ We assign this value to a variable.
 
    > echo $WORKFLOW
 
-   21415975-390f-4215-becb-8d46aaf5156c
+   WORKFLOW=$(cat jobs_$PROJ.json | jq -r '.data[] | .workflowId' | uniq)
 
 .. tip::
 
@@ -225,46 +220,25 @@ The first returned job parameters are:
 
 .. code:: js
 
-   {
-       "land_cover_classification:1": {
-           "n_clusters": 6,
-           "n_iterations": 10,
-           "n_sieve_pixels": 64
-       },
-       "sentinelhub-landsat8-aoiclipped:1": {
-           "bbox": null,
-           "time": null,
-           "limit": 1,
-           "intersects": {
-               "type": "Polygon",
-               "coordinates": [
-                   [
-                       [
-                           -8.877645,
-                           40.152078
-                       ],
-                       [
-                           -8.871337,
-                           40.139659
-                       ],
-                       [
-                           -8.849105,
-                           40.141048
-                       ],
-                       [
-                           -8.860468,
-                           40.152447
-                       ],
-                       [
-                           -8.877645,
-                           40.152078
-                       ]
-                   ]
-               ]
-           },
-           "zoom_level": 17
-       }
-   }
+{
+  "ndvi:1": {
+    "output_original_raster": false
+  },
+  "pansharpen:1": {
+    "method": "SFIM",
+    "include_pan": false
+  },
+  "oneatlas-pleiades-fullscene:1": {
+    "ids": null,
+    "time": null,
+    "limit": 1,
+    "order_ids": [
+      "44c5c936-4738-448e-94b3-65cb9d175afc"
+    ],
+    "intersects": null,
+    "time_series": null
+  }
+}
 
 ..
    Validate the job parameters
