@@ -24,6 +24,10 @@ For more information on supported filters, see :ref:`query filter section  <filt
   **or** ``intersects`` **or** ``contains``.
 * ``zoom_level``: An integer defining the webmercator zoom level of this request, defaults to 19.
 
+.. warning::
+
+  The maximum AOI size supported by this block is **100 sqkm**.
+
 Example queries
 ---------------
 
