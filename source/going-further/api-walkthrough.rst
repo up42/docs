@@ -525,11 +525,11 @@ Similarly to jobs results you can access each task results and logs.
 Get individual tasks results and logs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The job is composed of two tasks, each corresponding to a block in the
-workflow: the first is obtaining the `Landsat
-8 <https://up42.com/marketplace/block/95519b2d-09d7-4cd0-a321-4d6a46bef6c1>`__
-data, the second is runnning the `Land cover
-classification <https://up42.com/marketplace/block/a03345a7-8fff-4ba9-8958-951dc23943e1>`__.
+The job is composed of three tasks, each corresponding to a block in the
+workflow: the first is obtaining the `Pléiades Download
+ <https://marketplace.up42.com/block/defb134b-ca00-4e16-afa0-639c6dc0c5fe>`__
+data, the second is runnning the `Pansharpening <https://marketplace.up42.com/block/903f0435-d638-475e-bbe9-53b5664a22a8>`__,
+then the `NDVI SPOT/Pléiades block <https://marketplace.up42.com/block/d0da4ac9-94c6-4905-80f5-c95e702ca878`__.
 We can obtain the partial results, i.e., we can get the results from
 each task in the job.
 
@@ -546,25 +546,31 @@ which outputs:
 
 .. code:: bash
 
-   6505eaf8-dc63-44a9-878f-831eecae3f62_sentinelhub-landsat8-aoiclipped:1
-   79512809-fcd7-41d4-9701-cf38c3355ab3_land_cover_classification:1       
+    ee7c108d-47dc-4555-97ef-c77d62d6ac08_oneatlas-pleiades-fullscene:1
+    d058a536-e771-4a22-8df6-441ac5a425c4_pansharpen:1
+    1184ee5a-32a3-4659-a35a-d79efda79d1b_ndvi:1
 
 The first is the task ID and the second is the task name, clearly
 identifying the task ID and what it corresponds to in terms of the
 workflow.
 
-Create two shell variables, one for each task:
+Create three shell variables, one for each task:
 
 .. code:: bash
 
    TASK1=$(cat jobs_job_tasks-$JOB.json | jq -j '.data[0] | .id')
    TASK2=$(cat jobs_job_tasks-$JOB.json | jq -j '.data[1] | .id')
+   TASK3=$(cat jobs_job_tasks-$JOB.json | jq -j '.data[1] | .id')
+
+   TASK1_URL="https://api.up42.dev/projects/$PROJ/jobs/$JOB/tasks/$TASK1"
+   TASK2_URL="https://api.up42.dev/projects/$PROJ/jobs/$JOB/tasks/$TASK2"
+   TASK3_URL="https://api.up42.dev/projects/$PROJ/jobs/$JOB/tasks/$TASK3"
 
 .. code:: bash
 
-   > echo $TASK1 $TASK2
+   > echo $TASK1 $TASK2 $TASK3
 
-   6505eaf8-dc63-44a9-878f-831eecae3f62 79512809-fcd7-41d4-9701-cf38c3355ab3
+   ee7c108d-47dc-4555-97ef-c77d62d6ac08 d058a536-e771-4a22-8df6-441ac5a425c4 d058a536-e771-4a22-8df6-441ac5a425c4
 
 Now with the individual tasks IDs let us proceed to get the respective
 results.
@@ -575,11 +581,11 @@ results.
 First task logs
 ^^^^^^^^^^^^^^^
 
-To get the first task log we issue the API request:
+The first task is the Pléiades acquisition. To get the first task log we issue the API request:
 
 .. code:: bash
 
-   curl -s -L -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: text/plain' "$TASK1_URL/logs" > task_log-$TASK1.txt       
+   curl -s -L -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: text/plain' "$TASK1_URL/logs" > task_log-$TASK1.txt
 
 The resulting `file <https://gist.github.com/up42-epicycles/48b0082868629dd7f10030cbac01f159>`__.   
 
@@ -588,7 +594,7 @@ The resulting `file <https://gist.github.com/up42-epicycles/48b0082868629dd7f100
 First task results: GeoJSON
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The first task is the Landsat 8 data acquisition. The output GeoJSON is:
+The output GeoJSON is:
 
 .. code:: bash
 
@@ -596,7 +602,7 @@ The first task is the Landsat 8 data acquisition. The output GeoJSON is:
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK1_URL/outputs/data-json" | jq '.' > output_task-$TASK1.json
 
 returning the following
-`file <https://gist.github.com/perusio/f9407da92c65a1bcb76621b658185ad6>`__.
+`file <https://gist.github.com/up42-epicycles/f44f85a67628a4a72e90d5977e526754>`__.
 
 .. _task-downloads-results:
 
@@ -617,10 +623,10 @@ Inspecting the tarball:
    > tar ztvf output_$TASK1.tar.gz
    
    drwxrwxrwx  0 root   root        0 Sep 16 19:21 output
-   -rw-r--r--  0 root   root 132209093 Sep 16 19:21 output/56f3c47a-92a8-4e89-a005-ff1bbd567ac9.tif
+   -rw-r--r--  0 root   root 132209093 Sep 16 19:21 output/ee7c108d-47dc-4555-97ef-c77d62d6ac08.tif
    -rw-r--r--  0 root   root     35363 Sep 16 19:21 output/data.json
 
-you can see the resulting Landsat 8 GeoTIFF image there.
+you can see the resulting Pléiades image there.
 
 .. _task-results-quicklooks:
 
@@ -682,7 +688,7 @@ you can confirm in this
 Second task results: tarball
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Similar to wath you did for the :ref:`first task <task-downloads-results>` tarball:
+Similar to what you did for the :ref:`first task <task-downloads-results>` tarball:
 
 .. code:: bash
 
@@ -1107,7 +1113,7 @@ We obtained the ``blockID`` by invoking the following call:
    curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$NEW_WORKFLOW/tasks" -d @update_workflow-$NEW_WORKFLOW.json | jq '.' > workflow_updated-$NEW_WORKFLOW.json
 
 Which gives the following `response <https://gist.github.com/up42-epicycles/59882a5ed08396c13321f0217db0e914>`__.
-   
+
 .. _delete-workflow:
    
 Delete a workflow
