@@ -666,21 +666,7 @@ images, this case is only one.
    
    The final task of a workflow produces the same results as the job
    itself.
-
-Second task results: quicklooks
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Again like we did :ref:`before <task-results-quicklooks>` we now get
-the list of quicklooks for the second task.
-
-.. code:: javascript
-
-   {
-     "error": null,
-     "data": []
-   }
-
-As we can see this task hasn't created any quicklooks.          
+ 
 
 .. _working-workflows:
    
