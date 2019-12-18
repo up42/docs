@@ -660,51 +660,7 @@ images, this case is only one.
     # Loop over all available quicklooks images and get them.      
    for i in $(cat quicklooks_6505eaf8-dc63-44a9-878f-831eecae3f62.json | jq -j '.data[]')
        do curl -s -L -O -H "Authorization: Bearer $PTOKEN" "$TASK1_URL/outputs/quicklooks/$i"
-   done   
-
-Second task logs
-^^^^^^^^^^^^^^^^
-
-To get the second task logs we issue the API request:
-
-.. code:: bash
-
-   curl -s -L -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: text/plain' "$TASK2_URL/logs" > task_log-$TASK2.txt       
-
-The resulting `task_log-79512809-fcd7-41d4-9701-cf38c3355ab3.txt <https://gist.github.com/up42-epicycles/1d837f8ae946fdba337ce74483759c2d>`__.
-
-Second task results: GeoJSON
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. code:: bash
-
-   TASK2_URL="https://api.up42.com/projects/$PROJ/jobs/$JOB/tasks/$TASK2"       
-   curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK2_URL/outputs/data-json" | jq '.' > output_task-$TASK2.json
-
-This will be the same GeoJSON as we got above for the job results. They
-may look sintatically different, but semantically they are the same, as
-you can confirm in this
-`gist <https://gist.github.com/up42-epicycles/907e5b3cf7348b2c1990ba18a72e7169>`__.
-
-Second task results: tarball
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Similar to what you did for the :ref:`first task <task-downloads-results>` tarball:
-
-.. code:: bash
-
-   TASK2_TARBALL_URL=$(curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK2_URL/downloads/results" | jq -j '.data.url')   
-   curl -s -L -H "Authorization: Bearer $PTOKEN" -o output_$TASK2.tar.gz "$TASK2_TARBALL_URL"
-          
-.. code:: bash
-
-   > tar ztvf output_task-$TASK2.tar.gz
-
-   drwxrwxrwx  0 root   root        0 Sep 16 19:40 output
-   -rw-r--r--  0 root   root  5515635 Sep 16 19:40 output/56f3c47a-92a8-4e89-a005-ff1bbd567ac9_land_cover.tif
-   -rw-r--r--  0 root   root   399659 Sep 16 19:40 output/data.json
-
-As you can see the results are the same as for the job. Which means
-that:
+   done
 
 .. tip::
    
