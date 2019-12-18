@@ -388,7 +388,7 @@ Inspect the retrieved tarball:
    > tar ztvf output-$JOB.tar.gz
 
    drwxrwxrwx  0 root   root        0 Sep 16 19:40 output
-   -rw-r--r--  0 root   root  5515635 Sep 16 19:40 output/56f3c47a-92a8-4e89-a005-ff1bbd567ac9_land_cover.tif
+   -rw-r--r--  0 root   root  5515635 Sep 16 19:40 output/56f3c47a-92a8-4e89-a005-ff1bbd567ac9_ndvi.tif
    -rw-r--r--  0 root   root   399659 Sep 16 19:40 output/data.json
 
 There is both the GeoJSON file and the output as a
@@ -666,7 +666,7 @@ images, this case is only one.
    
    The final task of a workflow produces the same results as the job
    itself.
- 
+
 
 .. _working-workflows:
    
@@ -690,14 +690,14 @@ Get all workflows
 `This <https://gist.github.com/up42-epicycles/ac7c2e352bdac60b79f2a9619c880628>`__
 is the output file.
 
-In this case there are 5 workflows. You can verify this by issuing
+In this case there is 1 workflow. You can verify this by issuing
 the following command:
 
 .. code:: bash
 
    cat workflows-5a21eaff-cdaa-48ab-bedf-5454116d16ff.json | jq '.data | length'
 
-giving ``5``. We are in the first workflow for this project.
+giving ``1``. We are in the first workflow for this project.
 
 .. code:: bash
 
@@ -705,14 +705,14 @@ giving ``5``. We are in the first workflow for this project.
 
 .. code:: js
 
-   {
-     "id": "21415975-390f-4215-becb-8d46aaf5156c",
-     "name": "Land cover + landsat8",
-     "description": "",
-     "createdAt": "2019-05-16T13:38:57.996Z",
-     "updatedAt": "2019-05-16T13:39:16.735Z",
-     "totalProcessingTime": 10193
-   }       
+    {
+      "id": "cfadb63c-aeaa-43d2-b931-e138ed25bdc4",
+      "name": "Demo Workflow",
+      "description": "An example workflow that demonstrates how to produce NDVI with 0.5 m resolution using pan-sharpened Pl辿iades data.",
+      "createdAt": "2019-12-18T14:08:19.022Z",
+      "updatedAt": "2019-12-18T14:08:19.221Z",
+      "totalProcessingTime": 766
+    }
 
 Extracting the workflow ID:
 
@@ -766,7 +766,7 @@ To create a new workflow we need to give a JSON as the request body.
 
    {
      "id": null,
-     "name": "Create a brand new landsat 8 + Land cover workflow",
+     "name": "Create a new Pléiades + Pansharpening + NDVI workflow",
      "description": "Just trying out workflow creation",
      "projectId": "5a21eaff-cdaa-48ab-bedf-5454116d16ff",
      "tasks": []
@@ -797,7 +797,7 @@ And this is the response body.
      "error": null,
      "data": {
         "id": "39275f92-f4e1-4696-a668-f01cdd84bfb6",
-        "name": "Create a new landsat 8 + Land cover workflow",
+        "name": "Create a new Pléiades + Pansharpening + NDVI workflow",
         "description": "Just trying out workflow creation",
         "createdAt": "2019-10-08T09:50:00.054Z",
         "updatedAt": "2019-10-08T09:50:00.054Z",
@@ -844,8 +844,9 @@ obtained file.
 
    > cat workflow-21415975-390f-4215-becb-8d46aaf5156c.json | jq -r '.data[] | .blockName + ": " + .block.id'
 
-   sentinelhub-landsat8-aoiclipped: e0b133ae-7b9c-435c-99ac-c4527cc8d9cf
-   land-cover-classification: 3f5f4490-9e58-490f-80e0-9a464355d5ce
+   oneatlas-pleiades-fullscene: ee7c108d-47dc-4555-97ef-c77d62d6ac08
+   pansharpen: d058a536-e771-4a22-8df6-441ac5a425c4
+   ndvi: 1184ee5a-32a3-4659-a35a-d79efda79d1b
           
 We see then that we have the following:
 
@@ -855,8 +856,9 @@ We see then that we have the following:
    =============================== ====================================  
     block name                      block ID
    =============================== ====================================  
-   sentinelhub-landsat8-aoiclipped e0b133ae-7b9c-435c-99ac-c4527cc8d9cf
-   land-cover-classification       3f5f4490-9e58-490f-80e0-9a464355d5ce
+   oneatlas-pleiades-fullscene     ee7c108d-47dc-4555-97ef-c77d62d6ac08
+   pansharpen                      d058a536-e771-4a22-8df6-441ac5a425c4
+   ndvi                            1184ee5a-32a3-4659-a35a-d79efda79d1b
    =============================== ====================================  
 
 Create two variables with block IDs.
@@ -865,19 +867,20 @@ Create two variables with block IDs.
 
     TASK1_BLOCK_ID=$(cat workflow-21415975-390f-4215-becb-8d46aaf5156c.json | jq -r '.data[0].block.id')
     TASK2_BLOCK_ID=$(cat workflow-21415975-390f-4215-becb-8d46aaf5156c.json | jq -r '.data[1].block.id')
+    TASK2_BLOCK_ID=$(cat workflow-21415975-390f-4215-becb-8d46aaf5156c.json | jq -r '.data[1].block.id')
 
 .. code:: bash
 
-    > echo $TASK1_BLOCK_ID $TASK2_BLOCK_ID
+    > echo $TASK1_BLOCK_ID $TASK2_BLOCK_ID $TASK3_BLOCK_ID
     
-    e0b133ae-7b9c-435c-99ac-c4527cc8d9cf 3f5f4490-9e58-490f-80e0-9a464355d5ce
+    e0b133ae-7b9c-435c-99ac-c4527cc8d9cf 3f5f4490-9e58-490f-80e0-9a464355d5ce 1184ee5a-32a3-4659-a35a-d79efda79d1b
 
 Now we can proceed to create the first task for this workflow. 
     
-Creating the the first task: data block addition
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Creating the first task: data block addition
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Adding the data block: Landsat 8 AOI clipped. Let us start with an
+Adding the data block: Pléiades Download. Let us start with an
 empty ``blockId`` field and make use of ``jq`` to set the blockId
 programmatically. This is the file named
 ``empty_task1_workflow-39275f92-f4e1-4696-a668-f01cdd84bfb6.json``
@@ -887,7 +890,7 @@ with the contents.
 
    [
      {
-       "name": "First task Landsat 8 AOI clipped data block",
+       "name": "First task Pléiades Download data block",
        "parentName": null,
        "blockId": null
      }
@@ -905,7 +908,7 @@ with the contents.
 
    [
      {
-       "name": "First task Landsat 8 AOI clipped data block",
+       "name": "First task Pléiades Download data block",
        "parentName": null,
        "blockId": "e0b133ae-7b9c-435c-99ac-c4527cc8d9cf"
      }
@@ -937,7 +940,7 @@ The workflow has now the first task in place.
 Creating the the second task: processing block addition
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Adding the processing block: Land cover classification. We are going
+Adding the processing block: Pansharpening. We are going
 to rely again on ``jq`` to make sure the values set for the request
 body are correct.  
 
@@ -948,12 +951,12 @@ start with the following JSON.
 
    [
       {
-        "name": "First task Landsat 8 AOI clipped data block",
+        "name": "First task Pléiades Download data block",
         "parentName": null,
         "blockId": "e0b133ae-7b9c-435c-99ac-c4527cc8d9cf"
       },
       {
-        "name": "land-cover-classification",
+        "name": "oneatlas-pleiades-fullscene",
         "parentName": null,
         "blockId": null
       }
@@ -971,22 +974,22 @@ This generates the JSON:
 
    [
       {
-         "name": "First task Landsat 8 AOI clipped data block",
+         "name": "First task Pléiades Download data block",
          "parentName": null,
          "blockId": "e0b133ae-7b9c-435c-99ac-c4527cc8d9cf"
       },
       {
-         "name": "land-cover-classification",
-         "parentName": "First task Landsat 8 AOI clipped data block",
+         "name": "oneatlas-pleiades-fullscene",
+         "parentName": "First task Pléiades Download data block",
          "blockId": "3f5f4490-9e58-490f-80e0-9a464355d5ce"
       }
    ]
        
 
-The task list has now two entries, the second being the
-``land-cover-classification`` block. Notice that ``parentName`` is set
+The task list has now three entries, the second being the
+``pansharpen`` block. Notice that ``parentName`` is set
 to be the first task in the workflow:
-``First task Landsat 8 AOI-Clipped data block`` and ``blockId`` is set
+``First task Pléiades Download data block`` and ``blockId`` is set
 to the block ID of the data block.
 
 To add the second block the API call is:
@@ -1017,21 +1020,21 @@ Update a workflow
 
 To update a workflow you just overwrite it by sending a POST request
 to the workflow task endpoint. As an example we are going to replace
-the Landsat 8 AOI Clipped data block by the :ref:`SPOT 6/7 AOI Clipped
-<spot-aoiclipped-block>` data block. For that we have the following
+the Pléiades Download data block by the :ref:`SPOT 6/7 Donwload
+<spot-download-block>` data block. For that we have the following
 payload, enumerating all the tasks:
    
 .. code:: js
 
    [
      {
-       "name": "First task SPOT 6/7 AOI clipped data block",
+       "name": "First task SPOT 6/7 Download data block",
        "parentName": null,
        "blockID": "0f15e07f-efcc-4598-939b-18aade349c5"
      },
     {
-      "name": "land-cover-classification",
-      "parentName": "First task SPOT 6/7 AOI clipped data block",
+      "name": "pansharpen",
+      "parentName": "First task SPOT 6/7 Download data block",
       "blockID": "3f5f4490-9e58-490f-80e0-9a464355d5ce"
     }
   ]
@@ -1063,12 +1066,12 @@ Delete a workflow
 
 To delete a workflow we need get the workflow ID of the workflow to
 be deleted. From the file we obtained :ref:`before <get-workflows>` we
-see that there is a workflow that is called ``Create brand a new landsat 8 + Land cover workflow``.
+see that there is a workflow that is called ``Create a new Pléiades + Pansharpening + NDVI workflow``.
 
 .. code:: bash
 
    # Get the workflow ID of the workflow to be deleted.       
-   DEL_WORKFLOW=$(cat workflows-$PROJ.json | jq -j '.data[] as $wf | if $wf.name == "Create brand a new landsat 8 + Land cover workflow" then $wf.id else "" end')       
+   DEL_WORKFLOW=$(cat workflows-$PROJ.json | jq -j '.data[] as $wf | if $wf.name == "Create a new Pléiades + Pansharpening + NDVI workflow" then $wf.id else "" end')
 
    > echo $DEL_WORKFLOW
 
