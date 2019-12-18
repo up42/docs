@@ -127,7 +127,7 @@ List all the jobs for a given project
 
 .. code:: bash
 
-   JOBS_URL="https://api.up42.com/projects/$PROJ/jobs" 
+   JOBS_URL="https://api.up42.com/projects/$PROJ/jobs"
           
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$JOBS_URL" | jq '.' > jobs_$PROJ.json
 
@@ -157,7 +157,7 @@ Picking any of the above job IDs, for example, the third, i.e., index
 
 .. code:: bash
 
-   ONE_JOB=$(cat jobs_$PROJ.json  | jq -j '.data[2].id')       
+   ONE_JOB=$(cat jobs_$PROJ.json  | jq -j '.data[2].id')
 
 .. code:: bash
   
@@ -169,7 +169,7 @@ Querying the API for this job information.
 
 .. code:: bash
 
-   curl -s -L -H "Authorization: Bearer $PTOKEN" "$JOBS_URL/$ONE_JOB" | jq '.' > jobs_job-$ONE_JOB.json       
+   curl -s -L -H "Authorization: Bearer $PTOKEN" "$JOBS_URL/$ONE_JOB" | jq '.' > jobs_job-$ONE_JOB.json
    
 Thus generating the file `<https://gist.github.com/up42-epicycles/790c798b1ff2c08d0954beb85762e1f9>`__.
    
@@ -249,9 +249,9 @@ The first returned job parameters are:
    .. code:: bash
 
       # URL for job parameter validation.       
-      URL_VALIDATE_JOB="https://api.up42.com/validate-schema/job-input"      
+      URL_VALIDATE_JOB="https://api.up42.com/validate-schema/job-input"
 
-      curl -s -L -X POST -H 'Content-Type: application/json' $URL_VALIDATE_JOB_JOB -d@job_params_$PROJ.json 
+      curl -s -L -X POST -H 'Content-Type: application/json' $URL_VALIDATE_JOB -d@job_params_$PROJ.json
 
      Now that the job is validated,
 
@@ -261,7 +261,7 @@ Finally, you can create and run the job:
 
    # Create the URL as variable.
    URL_POST_JOB="https://api.up42.com/projects/$PROJ/workflows/$WORKFLOW/jobs"
-   curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' $URL_POST_JOB -d@job_params_$PROJ.json | jq '.' > job_create_response.json 
+   curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' $URL_POST_JOB -d@job_params_$PROJ.json | jq '.' > job_create_response.json
  
 You can see the job parameters
 `here <https://gist.github.com/up42-epicycles/306d3c92fdacd88e884cbf16d551e02c>`__.
@@ -275,7 +275,7 @@ the following way:
 .. code:: bash
 
    # Variable with the job ID.    
-   JOB=$(cat job_create_response.json | jq -j '.data.id')       
+   JOB=$(cat job_create_response.json | jq -j '.data.id')
    # Job URL.
    URL_JOB_INFO="https://api.up42.com/projects/$PROJ/jobs/$JOB"
    curl -s -L -H "Authorization: Bearer $PTOKEN" $URL_JOB_INFO | jq '.' > jobs_job-$JOB.json
@@ -385,7 +385,7 @@ Inspect the retrieved tarball:
 
 .. code:: bash
 
-   > tar ztvf output_$JOB.tar.gz
+   > tar ztvf output-$JOB.tar.gz
 
    drwxrwxrwx  0 root   root        0 Sep 16 19:40 output
    -rw-r--r--  0 root   root  5515635 Sep 16 19:40 output/56f3c47a-92a8-4e89-a005-ff1bbd567ac9_land_cover.tif
@@ -401,7 +401,7 @@ below for an explanation of what tasks are.
 Create and run a named job
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-By default a when a job is created it cane only be identified by
+By default a when a job is created it can only be identified by
 its ID. The ID is unique. This is essential to avoid unambiguity in
 when having machine to machine interactions, but you may want to name
 a job to make it easier to identify and recognize, without the need to
@@ -456,7 +456,7 @@ We can now get the job status as exemplified :ref:`above <get-job-status>`.
 
 .. code:: bash
 
-   JOB2CANCEL=$(cat job2cancel_create_response.json | jq -j '.data.id')       
+   JOB2CANCEL=$(cat job2cancel_create_response.json | jq -j '.data.id')
 
 Echoing the created shell variable:
    
@@ -471,7 +471,7 @@ New we get the current job status:
 .. code:: bash
 
    # Job to cancel URL.       
-   URL_JOB2CANCEL_INFO="https://api.up42.com/projects/$PROJ/jobs/$JOB2CANCEL"       
+   URL_JOB2CANCEL_INFO="https://api.up42.com/projects/$PROJ/jobs/$JOB2CANCEL"
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$URL_JOB2CANCEL_INFO" | jq -r '.data.status'
           
 It returns:
