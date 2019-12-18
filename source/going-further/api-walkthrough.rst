@@ -220,25 +220,25 @@ The first returned job parameters are:
 
 .. code:: js
 
-{
-  "ndvi:1": {
-    "output_original_raster": false
-  },
-  "pansharpen:1": {
-    "method": "SFIM",
-    "include_pan": false
-  },
-  "oneatlas-pleiades-fullscene:1": {
-    "ids": null,
-    "time": null,
-    "limit": 1,
-    "order_ids": [
-      "44c5c936-4738-448e-94b3-65cb9d175afc"
-    ],
-    "intersects": null,
-    "time_series": null
-  }
-}
+    {
+      "ndvi:1": {
+        "output_original_raster": false
+      },
+      "pansharpen:1": {
+        "method": "SFIM",
+        "include_pan": false
+      },
+      "oneatlas-pleiades-fullscene:1": {
+        "ids": null,
+        "time": null,
+        "limit": 1,
+        "order_ids": [
+          "44c5c936-4738-448e-94b3-65cb9d175afc"
+        ],
+        "intersects": null,
+        "time_series": null
+      }
+    }
 
 ..
    Validate the job parameters
@@ -526,10 +526,9 @@ Get individual tasks results and logs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The job is composed of three tasks, each corresponding to a block in the
-workflow: the first is obtaining the `Pléiades Download
- <https://marketplace.up42.com/block/defb134b-ca00-4e16-afa0-639c6dc0c5fe>`__
+workflow: the first is obtaining the `Pléiades Download <https://marketplace.up42.com/block/defb134b-ca00-4e16-afa0-639c6dc0c5fe>`__
 data, the second is runnning the `Pansharpening <https://marketplace.up42.com/block/903f0435-d638-475e-bbe9-53b5664a22a8>`__,
-then the `NDVI SPOT/Pléiades block <https://marketplace.up42.com/block/d0da4ac9-94c6-4905-80f5-c95e702ca878`__.
+then the `NDVI Pléiades block <https://marketplace.up42.com/block/d0da4ac9-94c6-4905-80f5-c95e702ca878>`__.
 We can obtain the partial results, i.e., we can get the results from
 each task in the job.
 
