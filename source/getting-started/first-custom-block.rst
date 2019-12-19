@@ -60,15 +60,23 @@ See section :ref:`Developing a custom processing block <custom-processing-block-
 for more advanced instructions on custom block development & publishing.
 
 
-.. _build_the_block:
+.. _login_UP42_docker_repository:
 
-Build the custom block
-++++++++++++++++++++++
+Login UP42 Docker repository
+----------------------------
 
-First login to the UP42 docker registry. `me@example.com` needs to be replaced by your **UP42 username**,
+First login to the UP42 docker registry. Here, **<me@example.com>** needs to be replaced by your **UP42 username**,
 which is the email address you use on the UP42 website.
 
-.. code:: bash
+.. code:: text
+
+   docker -u login USER=<me@example.com> http://registry.up42.com
+
+As an example:
+
+.. code:: text
+
+   docker -u login USER=hans.schmidt@up42.com http://registry.up42.com
 
    make login USER=me@example.com
 
