@@ -78,25 +78,29 @@ As an example:
 
    docker -u login USER=hans.schmidt@up42.com http://registry.up42.com
 
-   make login USER=me@example.com
+
+.. _build_the_block:
+
+Build the custom block
+----------------------
 
 In order to push the block to the UP42 platform, you need to build the block Docker container with your
 **UP42 user ID**. To get your user ID, go to the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_.
-Click on "`PUSH a BLOCK to THE PLATFORM`" and copy your user ID from the command shown on the last line at
+Click on "`PUSH A BLOCK TO THE PLATFORM`" and copy your user ID from the command shown on the last line at
 "`Push the image to the UP42 Docker registry`". The user ID will look similar to this:
 `63uayd50-z2h1-3461-38zq-1739481rjwia`
 
-Pass the user ID to the build command:
+Now build the block container. Replace **<UID>** with your **UP42 user ID**. Make sure the Docker Daemon is running.
 
 .. code:: bash
 
-   make build UID=<UID>
+   docker build -t <UID>/sharpening:latest -f blocks/sharpening/Dockerfile .
 
-*As an example:*
+As an example:
 
 .. code:: bash
 
-   make build UID=63uayd50-z2h1-3461-38zq-1739481rjwia
+   docker build -t registry.up42.com/6760d08e-54e3-4f1c-b22e-6ba605ec7592/sharpening:latest -f blocks/sharpening/Dockerfile .
 
 
 .. _push_the_block:
