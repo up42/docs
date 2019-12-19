@@ -40,32 +40,23 @@ This example requires the **Mac OS X or Linux bash** and the following tools:
  - `GNU make <https://www.gnu.org/software/make/>`_
 
 
-Instructions
-------------
-
-The following step-by-step instructions will guide you through setting up, dockerizing and pushing the example custom
-block to UP42.
-
-
 .. _clone_the_repository:
 
 Clone the repository
-++++++++++++++++++++
+--------------------
 
 To access the example block code clone the repository using git in a bash terminal:
 
 .. code:: bash
 
    git clone https://github.com/up42/sharpening.git
+   cd sharpening
 
-Then navigate to the folder via
 
-.. code:: bash
-
-    cd sharpening
-
-Usually you would then proceed to customize the block code to fit your own needs, or install the necessary libraries to test the block code locally.
-We will skip these steps here and directly push the block to the UP42 platform, see section :ref:`Developing a custom processing block <custom-processing-block-dev>`
+Usually you would then proceed to customize the block code to fit your own needs, or install
+the necessary libraries to test the block code locally.
+We will skip these steps here and directly push the block to the UP42 platform.
+See section :ref:`Developing a custom processing block <custom-processing-block-dev>`
 for more advanced instructions on custom block development & publishing.
 
 
