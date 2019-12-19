@@ -13,10 +13,6 @@ If you want to use your own processing methods or data sources on the UP42 platf
 you can create :term:`custom blocks<custom block>` that can be seamlessly integrated into UP42 :term:`workflows<workflow>`.
 This section will guide you through bringing an example custom block to the UP42 platform.
 
-We provide multiple example custom blocks (both data & processing) on our public `UP42 github profile <https://github.com/up42>`_.
-In this chapter we will work with the `Sharpening filter example block <https://github.com/up42/sharpening>`_.
-You can later use these public block examples as templates to easily write your own custom block code.
-
 The block will appear in the `Custom blocks section <https://console.up42.com/custom-blocks/>`_ of your UP42 :term:`console` and can then be used
 like any other processing block when building a workflow.
 
@@ -26,6 +22,9 @@ like any other processing block when building a workflow.
 
    The UP42 custom block console menu
 
+We provide multiple example custom blocks (both data & processing) on our public `UP42 github profile <https://github.com/up42>`_.
+In this chapter we will work with the `Sharpening filter example block <https://github.com/up42/sharpening>`_.
+You can later use these public block examples as templates to easily write your own custom block code.
 
 .. _requirements:
 
