@@ -1,4 +1,4 @@
-0.. meta::
+.. meta::
    :description: UP42 going further: API usage howto
    :keywords: API, howto, curl
 
@@ -127,7 +127,7 @@ List all the jobs for a given project
 
 .. code:: bash
 
-   JOBS_URL="https://api.up42.com/projects/$PROJ/jobs" 
+   JOBS_URL="https://api.up42.com/projects/$PROJ/jobs"
           
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$JOBS_URL" | jq '.' > jobs_$PROJ.json
 
@@ -148,33 +148,28 @@ the job IDs.
 
    > cat jobs_$PROJ.json  | jq '.data[].id'
    
-   "96b4c117-ab4d-44cf-afb1-0922d91031d4"
-   "eb9ed37e-eb87-439c-a5f7-6a1eccf5c68b"
-   "e5a4b9ba-4ad7-4ba3-a95c-cd7c1bb39661"
-   "af0cfabc-fe81-405f-ae32-7478eba97ee6"
-   "e58a7278-2b7e-4b15-ac89-cf02db7bee26"
-   "b92dad3f-1a0f-4272-aadc-68ef260874d5"
-   "22bbc2e9-09c4-4311-a4ed-96b2d505f5f0"
-   "eecb3ac2-ad8a-4f66-8e50-b81cdb40ff0b"       
+   "b3b1cc0b-3a1e-431c-a64e-a4d99b117a4b"
+   "08576b73-355a-407b-823d-604608791664"
+   "d62c27c0-24e9-433d-b509-ae080504d5c6"
 
 Picking any of the above job IDs, for example, the third, i.e., index
 ``2``.
 
 .. code:: bash
 
-   ONE_JOB=$(cat jobs_$PROJ.json  | jq -j '.data[2].id')       
+   ONE_JOB=$(cat jobs_$PROJ.json  | jq -j '.data[2].id')
 
 .. code:: bash
   
    > echo $ONE_JOB
 
-   e5a4b9ba-4ad7-4ba3-a95c-cd7c1bb39661
+   d62c27c0-24e9-433d-b509-ae080504d5c6
 
 Querying the API for this job information.
 
 .. code:: bash
 
-   curl -s -L -H "Authorization: Bearer $PTOKEN" "$JOBS_URL/$ONE_JOB" | jq '.' > jobs_job-$ONE_JOB.json       
+   curl -s -L -H "Authorization: Bearer $PTOKEN" "$JOBS_URL/$ONE_JOB" | jq '.' > jobs_job-$ONE_JOB.json
    
 Thus generating the file `<https://gist.github.com/up42-epicycles/790c798b1ff2c08d0954beb85762e1f9>`__.
    
@@ -194,7 +189,7 @@ we get a single element, since there is a single workflow in this project.
 
 .. code:: bash
           
-   21415975-390f-4215-becb-8d46aaf5156c
+   5ffc4cb4-5b44-4227-8089-f7861efebdcc
 
 We assign this value to a variable.
 
@@ -206,7 +201,7 @@ We assign this value to a variable.
 
    > echo $WORKFLOW
 
-   21415975-390f-4215-becb-8d46aaf5156c
+   WORKFLOW=$(cat jobs_$PROJ.json | jq -r '.data[] | .workflowId' | uniq)
 
 .. tip::
 
@@ -225,46 +220,25 @@ The first returned job parameters are:
 
 .. code:: js
 
-   {
-       "land_cover_classification:1": {
-           "n_clusters": 6,
-           "n_iterations": 10,
-           "n_sieve_pixels": 64
-       },
-       "sentinelhub-landsat8-aoiclipped:1": {
-           "bbox": null,
-           "time": null,
-           "limit": 1,
-           "intersects": {
-               "type": "Polygon",
-               "coordinates": [
-                   [
-                       [
-                           -8.877645,
-                           40.152078
-                       ],
-                       [
-                           -8.871337,
-                           40.139659
-                       ],
-                       [
-                           -8.849105,
-                           40.141048
-                       ],
-                       [
-                           -8.860468,
-                           40.152447
-                       ],
-                       [
-                           -8.877645,
-                           40.152078
-                       ]
-                   ]
-               ]
-           },
-           "zoom_level": 17
-       }
-   }
+    {
+      "ndvi:1": {
+        "output_original_raster": false
+      },
+      "pansharpen:1": {
+        "method": "SFIM",
+        "include_pan": false
+      },
+      "oneatlas-pleiades-fullscene:1": {
+        "ids": null,
+        "time": null,
+        "limit": 1,
+        "order_ids": [
+          "44c5c936-4738-448e-94b3-65cb9d175afc"
+        ],
+        "intersects": null,
+        "time_series": null
+      }
+    }
 
 ..
    Validate the job parameters
@@ -275,9 +249,9 @@ The first returned job parameters are:
    .. code:: bash
 
       # URL for job parameter validation.       
-      URL_VALIDATE_JOB="https://api.up42.com/validate-schema/job-input"      
+      URL_VALIDATE_JOB="https://api.up42.com/validate-schema/job-input"
 
-      curl -s -L -X POST -H 'Content-Type: application/json' $URL_VALIDATE_JOB_JOB -d@job_params_$PROJ.json 
+      curl -s -L -X POST -H 'Content-Type: application/json' $URL_VALIDATE_JOB -d@job_params_$PROJ.json
 
      Now that the job is validated,
 
@@ -287,7 +261,7 @@ Finally, you can create and run the job:
 
    # Create the URL as variable.
    URL_POST_JOB="https://api.up42.com/projects/$PROJ/workflows/$WORKFLOW/jobs"
-   curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' $URL_POST_JOB -d@job_params_$PROJ.json | jq '.' > job_create_response.json 
+   curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' $URL_POST_JOB -d@job_params_$PROJ.json | jq '.' > job_create_response.json
  
 You can see the job parameters
 `here <https://gist.github.com/up42-epicycles/306d3c92fdacd88e884cbf16d551e02c>`__.
@@ -301,7 +275,7 @@ the following way:
 .. code:: bash
 
    # Variable with the job ID.    
-   JOB=$(cat job_create_response.json | jq -j '.data.id')       
+   JOB=$(cat job_create_response.json | jq -j '.data.id')
    # Job URL.
    URL_JOB_INFO="https://api.up42.com/projects/$PROJ/jobs/$JOB"
    curl -s -L -H "Authorization: Bearer $PTOKEN" $URL_JOB_INFO | jq '.' > jobs_job-$JOB.json
@@ -348,7 +322,7 @@ Now we extract the task ID from the previously saved file.
 
 .. code:: bash
           
-   TASK=$(cat jobs_job-$JOB.json | jq -j '.data[] as $task | if $task.status == "RUNNING" then $task.id else "" end')
+   TASK=$(cat jobs_job_tasks-$JOB.json | jq -j '.data[] as $task | if $task.status == "RUNNING" then $task.id else "" end')
 
 It returns:
 
@@ -411,10 +385,10 @@ Inspect the retrieved tarball:
 
 .. code:: bash
 
-   > tar ztvf output_$JOB.tar.gz
+   > tar ztvf output-$JOB.tar.gz
 
    drwxrwxrwx  0 root   root        0 Sep 16 19:40 output
-   -rw-r--r--  0 root   root  5515635 Sep 16 19:40 output/56f3c47a-92a8-4e89-a005-ff1bbd567ac9_land_cover.tif
+   -rw-r--r--  0 root   root  5515635 Sep 16 19:40 output/56f3c47a-92a8-4e89-a005-ff1bbd567ac9_ndvi.tif
    -rw-r--r--  0 root   root   399659 Sep 16 19:40 output/data.json
 
 There is both the GeoJSON file and the output as a
@@ -427,7 +401,7 @@ below for an explanation of what tasks are.
 Create and run a named job
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-By default a when a job is created it cane only be identified by
+By default a when a job is created it can only be identified by
 its ID. The ID is unique. This is essential to avoid unambiguity in
 when having machine to machine interactions, but you may want to name
 a job to make it easier to identify and recognize, without the need to
@@ -482,7 +456,7 @@ We can now get the job status as exemplified :ref:`above <get-job-status>`.
 
 .. code:: bash
 
-   JOB2CANCEL=$(cat job2cancel_create_response.json | jq -j '.data.id')       
+   JOB2CANCEL=$(cat job2cancel_create_response.json | jq -j '.data.id')
 
 Echoing the created shell variable:
    
@@ -497,7 +471,7 @@ New we get the current job status:
 .. code:: bash
 
    # Job to cancel URL.       
-   URL_JOB2CANCEL_INFO="https://api.up42.com/projects/$PROJ/jobs/$JOB2CANCEL"       
+   URL_JOB2CANCEL_INFO="https://api.up42.com/projects/$PROJ/jobs/$JOB2CANCEL"
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$URL_JOB2CANCEL_INFO" | jq -r '.data.status'
           
 It returns:
@@ -551,11 +525,10 @@ Similarly to jobs results you can access each task results and logs.
 Get individual tasks results and logs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The job is composed of two tasks, each corresponding to a block in the
-workflow: the first is obtaining the `Landsat
-8 <https://up42.com/marketplace/block/95519b2d-09d7-4cd0-a321-4d6a46bef6c1>`__
-data, the second is runnning the `Land cover
-classification <https://up42.com/marketplace/block/a03345a7-8fff-4ba9-8958-951dc23943e1>`__.
+The job is composed of three tasks, each corresponding to a block in the
+workflow: the first is obtaining the `Pléiades Download <https://marketplace.up42.com/block/defb134b-ca00-4e16-afa0-639c6dc0c5fe>`__
+data, the second is runnning the `Pansharpening <https://marketplace.up42.com/block/903f0435-d638-475e-bbe9-53b5664a22a8>`__,
+then the `NDVI Pléiades block <https://marketplace.up42.com/block/d0da4ac9-94c6-4905-80f5-c95e702ca878>`__.
 We can obtain the partial results, i.e., we can get the results from
 each task in the job.
 
@@ -572,25 +545,31 @@ which outputs:
 
 .. code:: bash
 
-   6505eaf8-dc63-44a9-878f-831eecae3f62_sentinelhub-landsat8-aoiclipped:1
-   79512809-fcd7-41d4-9701-cf38c3355ab3_land_cover_classification:1       
+    ee7c108d-47dc-4555-97ef-c77d62d6ac08_oneatlas-pleiades-fullscene:1
+    d058a536-e771-4a22-8df6-441ac5a425c4_pansharpen:1
+    1184ee5a-32a3-4659-a35a-d79efda79d1b_ndvi:1
 
 The first is the task ID and the second is the task name, clearly
 identifying the task ID and what it corresponds to in terms of the
 workflow.
 
-Create two shell variables, one for each task:
+Create three shell variables, one for each task:
 
 .. code:: bash
 
    TASK1=$(cat jobs_job_tasks-$JOB.json | jq -j '.data[0] | .id')
    TASK2=$(cat jobs_job_tasks-$JOB.json | jq -j '.data[1] | .id')
+   TASK3=$(cat jobs_job_tasks-$JOB.json | jq -j '.data[1] | .id')
+
+   TASK1_URL="https://api.up42.dev/projects/$PROJ/jobs/$JOB/tasks/$TASK1"
+   TASK2_URL="https://api.up42.dev/projects/$PROJ/jobs/$JOB/tasks/$TASK2"
+   TASK3_URL="https://api.up42.dev/projects/$PROJ/jobs/$JOB/tasks/$TASK3"
 
 .. code:: bash
 
-   > echo $TASK1 $TASK2
+   > echo $TASK1 $TASK2 $TASK3
 
-   6505eaf8-dc63-44a9-878f-831eecae3f62 79512809-fcd7-41d4-9701-cf38c3355ab3
+   ee7c108d-47dc-4555-97ef-c77d62d6ac08 d058a536-e771-4a22-8df6-441ac5a425c4 d058a536-e771-4a22-8df6-441ac5a425c4
 
 Now with the individual tasks IDs let us proceed to get the respective
 results.
@@ -601,11 +580,11 @@ results.
 First task logs
 ^^^^^^^^^^^^^^^
 
-To get the first task log we issue the API request:
+The first task is the Pléiades acquisition. To get the first task log we issue the API request:
 
 .. code:: bash
 
-   curl -s -L -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: text/plain' "$TASK1_URL/logs" > task_log-$TASK1.txt       
+   curl -s -L -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: text/plain' "$TASK1_URL/logs" > task_log-$TASK1.txt
 
 The resulting `file <https://gist.github.com/up42-epicycles/48b0082868629dd7f10030cbac01f159>`__.   
 
@@ -614,7 +593,7 @@ The resulting `file <https://gist.github.com/up42-epicycles/48b0082868629dd7f100
 First task results: GeoJSON
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The first task is the Landsat 8 data acquisition. The output GeoJSON is:
+The output GeoJSON is:
 
 .. code:: bash
 
@@ -622,7 +601,7 @@ The first task is the Landsat 8 data acquisition. The output GeoJSON is:
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK1_URL/outputs/data-json" | jq '.' > output_task-$TASK1.json
 
 returning the following
-`file <https://gist.github.com/perusio/f9407da92c65a1bcb76621b658185ad6>`__.
+`file <https://gist.github.com/up42-epicycles/f44f85a67628a4a72e90d5977e526754>`__.
 
 .. _task-downloads-results:
 
@@ -643,10 +622,10 @@ Inspecting the tarball:
    > tar ztvf output_$TASK1.tar.gz
    
    drwxrwxrwx  0 root   root        0 Sep 16 19:21 output
-   -rw-r--r--  0 root   root 132209093 Sep 16 19:21 output/56f3c47a-92a8-4e89-a005-ff1bbd567ac9.tif
+   -rw-r--r--  0 root   root 132209093 Sep 16 19:21 output/ee7c108d-47dc-4555-97ef-c77d62d6ac08.tif
    -rw-r--r--  0 root   root     35363 Sep 16 19:21 output/data.json
 
-you can see the resulting Landsat 8 GeoTIFF image there.
+you can see the resulting Pléiades image there.
 
 .. _task-results-quicklooks:
 
@@ -680,71 +659,13 @@ images, this case is only one.
     # Loop over all available quicklooks images and get them.      
    for i in $(cat quicklooks_6505eaf8-dc63-44a9-878f-831eecae3f62.json | jq -j '.data[]')
        do curl -s -L -O -H "Authorization: Bearer $PTOKEN" "$TASK1_URL/outputs/quicklooks/$i"
-   done   
-
-Second task logs
-^^^^^^^^^^^^^^^^
-
-To get the second task logs we issue the API request:
-
-.. code:: bash
-
-   curl -s -L -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: text/plain' "$TASK2_URL/logs" > task_log-$TASK2.txt       
-
-The resulting `task_log-79512809-fcd7-41d4-9701-cf38c3355ab3.txt <https://gist.github.com/up42-epicycles/1d837f8ae946fdba337ce74483759c2d>`__.
-
-Second task results: GeoJSON
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. code:: bash
-
-   TASK2_URL="https://api.up42.com/projects/$PROJ/jobs/$JOB/tasks/$TASK2"       
-   curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK2_URL/outputs/data-json" | jq '.' > output_task-$TASK2.json
-
-This will be the same GeoJSON as we got above for the job results. They
-may look sintatically different, but semantically they are the same, as
-you can confirm in this
-`gist <https://gist.github.com/up42-epicycles/907e5b3cf7348b2c1990ba18a72e7169>`__.
-
-Second task results: tarball
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Similar to wath you did for the :ref:`first task <task-downloads-results>` tarball:
-
-.. code:: bash
-
-   TASK2_TARBALL_URL=$(curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK2_URL/downloads/results" | jq -j '.data.url')   
-   curl -s -L -H "Authorization: Bearer $PTOKEN" -o output_$TASK2.tar.gz "$TASK2_TARBALL_URL"
-          
-.. code:: bash
-
-   > tar ztvf output_task-$TASK2.tar.gz
-
-   drwxrwxrwx  0 root   root        0 Sep 16 19:40 output
-   -rw-r--r--  0 root   root  5515635 Sep 16 19:40 output/56f3c47a-92a8-4e89-a005-ff1bbd567ac9_land_cover.tif
-   -rw-r--r--  0 root   root   399659 Sep 16 19:40 output/data.json
-
-As you can see the results are the same as for the job. Which means
-that:
+   done
 
 .. tip::
    
    The final task of a workflow produces the same results as the job
    itself.
 
-Second task results: quicklooks
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Again like we did :ref:`before <task-results-quicklooks>` we now get
-the list of quicklooks for the second task.
-
-.. code:: javascript
-
-   {
-     "error": null,
-     "data": []
-   }
-
-As we can see this task hasn't created any quicklooks.          
 
 .. _working-workflows:
    
@@ -768,14 +689,14 @@ Get all workflows
 `This <https://gist.github.com/up42-epicycles/ac7c2e352bdac60b79f2a9619c880628>`__
 is the output file.
 
-In this case there are 5 workflows. You can verify this by issuing
+In this case there is 1 workflow. You can verify this by issuing
 the following command:
 
 .. code:: bash
 
    cat workflows-5a21eaff-cdaa-48ab-bedf-5454116d16ff.json | jq '.data | length'
 
-giving ``5``. We are in the first workflow for this project.
+giving ``1``. We are in the first workflow for this project.
 
 .. code:: bash
 
@@ -783,14 +704,14 @@ giving ``5``. We are in the first workflow for this project.
 
 .. code:: js
 
-   {
-     "id": "21415975-390f-4215-becb-8d46aaf5156c",
-     "name": "Land cover + landsat8",
-     "description": "",
-     "createdAt": "2019-05-16T13:38:57.996Z",
-     "updatedAt": "2019-05-16T13:39:16.735Z",
-     "totalProcessingTime": 10193
-   }       
+    {
+      "id": "cfadb63c-aeaa-43d2-b931-e138ed25bdc4",
+      "name": "Demo Workflow",
+      "description": "An example workflow that demonstrates how to produce NDVI with 0.5 m resolution using pan-sharpened Pl辿iades data.",
+      "createdAt": "2019-12-18T14:08:19.022Z",
+      "updatedAt": "2019-12-18T14:08:19.221Z",
+      "totalProcessingTime": 766
+    }
 
 Extracting the workflow ID:
 
@@ -844,7 +765,7 @@ To create a new workflow we need to give a JSON as the request body.
 
    {
      "id": null,
-     "name": "Create a brand new landsat 8 + Land cover workflow",
+     "name": "Create a new Pléiades + Pansharpening + NDVI workflow",
      "description": "Just trying out workflow creation",
      "projectId": "5a21eaff-cdaa-48ab-bedf-5454116d16ff",
      "tasks": []
@@ -875,7 +796,7 @@ And this is the response body.
      "error": null,
      "data": {
         "id": "39275f92-f4e1-4696-a668-f01cdd84bfb6",
-        "name": "Create a new landsat 8 + Land cover workflow",
+        "name": "Create a new Pléiades + Pansharpening + NDVI workflow",
         "description": "Just trying out workflow creation",
         "createdAt": "2019-10-08T09:50:00.054Z",
         "updatedAt": "2019-10-08T09:50:00.054Z",
@@ -922,8 +843,9 @@ obtained file.
 
    > cat workflow-21415975-390f-4215-becb-8d46aaf5156c.json | jq -r '.data[] | .blockName + ": " + .block.id'
 
-   sentinelhub-landsat8-aoiclipped: e0b133ae-7b9c-435c-99ac-c4527cc8d9cf
-   land-cover-classification: 3f5f4490-9e58-490f-80e0-9a464355d5ce
+   oneatlas-pleiades-fullscene: ee7c108d-47dc-4555-97ef-c77d62d6ac08
+   pansharpen: d058a536-e771-4a22-8df6-441ac5a425c4
+   ndvi: 1184ee5a-32a3-4659-a35a-d79efda79d1b
           
 We see then that we have the following:
 
@@ -933,8 +855,9 @@ We see then that we have the following:
    =============================== ====================================  
     block name                      block ID
    =============================== ====================================  
-   sentinelhub-landsat8-aoiclipped e0b133ae-7b9c-435c-99ac-c4527cc8d9cf
-   land-cover-classification       3f5f4490-9e58-490f-80e0-9a464355d5ce
+   oneatlas-pleiades-fullscene     ee7c108d-47dc-4555-97ef-c77d62d6ac08
+   pansharpen                      d058a536-e771-4a22-8df6-441ac5a425c4
+   ndvi                            1184ee5a-32a3-4659-a35a-d79efda79d1b
    =============================== ====================================  
 
 Create two variables with block IDs.
@@ -943,19 +866,20 @@ Create two variables with block IDs.
 
     TASK1_BLOCK_ID=$(cat workflow-21415975-390f-4215-becb-8d46aaf5156c.json | jq -r '.data[0].block.id')
     TASK2_BLOCK_ID=$(cat workflow-21415975-390f-4215-becb-8d46aaf5156c.json | jq -r '.data[1].block.id')
+    TASK2_BLOCK_ID=$(cat workflow-21415975-390f-4215-becb-8d46aaf5156c.json | jq -r '.data[1].block.id')
 
 .. code:: bash
 
-    > echo $TASK1_BLOCK_ID $TASK2_BLOCK_ID
+    > echo $TASK1_BLOCK_ID $TASK2_BLOCK_ID $TASK3_BLOCK_ID
     
-    e0b133ae-7b9c-435c-99ac-c4527cc8d9cf 3f5f4490-9e58-490f-80e0-9a464355d5ce
+    e0b133ae-7b9c-435c-99ac-c4527cc8d9cf 3f5f4490-9e58-490f-80e0-9a464355d5ce 1184ee5a-32a3-4659-a35a-d79efda79d1b
 
 Now we can proceed to create the first task for this workflow. 
     
-Creating the the first task: data block addition
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Creating the first task: data block addition
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Adding the data block: Landsat 8 AOI clipped. Let us start with an
+Adding the data block: Pléiades Download. Let us start with an
 empty ``blockId`` field and make use of ``jq`` to set the blockId
 programmatically. This is the file named
 ``empty_task1_workflow-39275f92-f4e1-4696-a668-f01cdd84bfb6.json``
@@ -965,7 +889,7 @@ with the contents.
 
    [
      {
-       "name": "First task Landsat 8 AOI clipped data block",
+       "name": "First task Pléiades Download data block",
        "parentName": null,
        "blockId": null
      }
@@ -983,7 +907,7 @@ with the contents.
 
    [
      {
-       "name": "First task Landsat 8 AOI clipped data block",
+       "name": "First task Pléiades Download data block",
        "parentName": null,
        "blockId": "e0b133ae-7b9c-435c-99ac-c4527cc8d9cf"
      }
@@ -1015,7 +939,7 @@ The workflow has now the first task in place.
 Creating the the second task: processing block addition
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Adding the processing block: Land cover classification. We are going
+Adding the processing block: Pansharpening. We are going
 to rely again on ``jq`` to make sure the values set for the request
 body are correct.  
 
@@ -1026,12 +950,12 @@ start with the following JSON.
 
    [
       {
-        "name": "First task Landsat 8 AOI clipped data block",
+        "name": "First task Pléiades Download data block",
         "parentName": null,
         "blockId": "e0b133ae-7b9c-435c-99ac-c4527cc8d9cf"
       },
       {
-        "name": "land-cover-classification",
+        "name": "oneatlas-pleiades-fullscene",
         "parentName": null,
         "blockId": null
       }
@@ -1049,22 +973,22 @@ This generates the JSON:
 
    [
       {
-         "name": "First task Landsat 8 AOI clipped data block",
+         "name": "First task Pléiades Download data block",
          "parentName": null,
          "blockId": "e0b133ae-7b9c-435c-99ac-c4527cc8d9cf"
       },
       {
-         "name": "land-cover-classification",
-         "parentName": "First task Landsat 8 AOI clipped data block",
+         "name": "oneatlas-pleiades-fullscene",
+         "parentName": "First task Pléiades Download data block",
          "blockId": "3f5f4490-9e58-490f-80e0-9a464355d5ce"
       }
    ]
        
 
-The task list has now two entries, the second being the
-``land-cover-classification`` block. Notice that ``parentName`` is set
+The task list has now three entries, the second being the
+``pansharpen`` block. Notice that ``parentName`` is set
 to be the first task in the workflow:
-``First task Landsat 8 AOI-Clipped data block`` and ``blockId`` is set
+``First task Pléiades Download data block`` and ``blockId`` is set
 to the block ID of the data block.
 
 To add the second block the API call is:
@@ -1095,21 +1019,21 @@ Update a workflow
 
 To update a workflow you just overwrite it by sending a POST request
 to the workflow task endpoint. As an example we are going to replace
-the Landsat 8 AOI Clipped data block by the :ref:`SPOT 6/7 AOI Clipped
-<spot-aoiclipped-block>` data block. For that we have the following
+the Pléiades Download data block by the :ref:`SPOT 6/7 Donwload
+<spot-download-block>` data block. For that we have the following
 payload, enumerating all the tasks:
    
 .. code:: js
 
    [
      {
-       "name": "First task SPOT 6/7 AOI clipped data block",
+       "name": "First task SPOT 6/7 Download data block",
        "parentName": null,
        "blockID": "0f15e07f-efcc-4598-939b-18aade349c5"
      },
     {
-      "name": "land-cover-classification",
-      "parentName": "First task SPOT 6/7 AOI clipped data block",
+      "name": "pansharpen",
+      "parentName": "First task SPOT 6/7 Download data block",
       "blockID": "3f5f4490-9e58-490f-80e0-9a464355d5ce"
     }
   ]
@@ -1133,7 +1057,7 @@ We obtained the ``blockID`` by invoking the following call:
    curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$NEW_WORKFLOW/tasks" -d @update_workflow-$NEW_WORKFLOW.json | jq '.' > workflow_updated-$NEW_WORKFLOW.json
 
 Which gives the following `response <https://gist.github.com/up42-epicycles/59882a5ed08396c13321f0217db0e914>`__.
-   
+
 .. _delete-workflow:
    
 Delete a workflow
@@ -1141,12 +1065,12 @@ Delete a workflow
 
 To delete a workflow we need get the workflow ID of the workflow to
 be deleted. From the file we obtained :ref:`before <get-workflows>` we
-see that there is a workflow that is called ``Create brand a new landsat 8 + Land cover workflow``.
+see that there is a workflow that is called ``Create a new Pléiades + Pansharpening + NDVI workflow``.
 
 .. code:: bash
 
    # Get the workflow ID of the workflow to be deleted.       
-   DEL_WORKFLOW=$(cat workflows-$PROJ.json | jq -j '.data[] as $wf | if $wf.name == "Create brand a new landsat 8 + Land cover workflow" then $wf.id else "" end')       
+   DEL_WORKFLOW=$(cat workflows-$PROJ.json | jq -j '.data[] as $wf | if $wf.name == "Create a new Pléiades + Pansharpening + NDVI workflow" then $wf.id else "" end')
 
    > echo $DEL_WORKFLOW
 
