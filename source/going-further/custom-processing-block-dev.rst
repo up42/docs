@@ -16,21 +16,20 @@ in. It assumes you have previous knowledge of Docker, if that is not
 the case then please go to `docker documentation
 <https://docs.docker.com>`__ to familiarize yourself with it.
 
-.. _land_cover_demo_block:
+.. _sharpening_demo_block:
 
 Using an UP42 free software block
 ---------------------------------
 
 The first part of the guide uses a very simple processing block
 developed by UP42 and published on `github
-<https://github.com/up42/land-cover-classification-demo>`__ as free
-software. It implements a simple `k-means clustering
-<https://en.wikipedia.org/wiki/K-means_clustering>`__ land cover
-classification algorithm.
+<https://github.com/up42/sharpening>`__ as free
+software. It implements an `unsharpen masking filter algorithm
+<https://en.wikipedia.org/wiki/Unsharp_masking>`__.
 
 Please see the `README
-<https://github.com/up42/land-cover-classification-demo/blob/master/README.md>`__
-file to make sure you have met all the requirements and also how to use the block. 
+<https://github.com/up42/sharpening>`__
+file to make sure you have met all the requirements and also how to use the block.
 
 Also be aware that you have two options to run the block:
 
@@ -39,7 +38,7 @@ Also be aware that you have two options to run the block:
  2. Run the block locally.
 
 Option 1 implies you logging into the docker registry and providing
-your user ID to ``make``.    
+your user ID to ``make``.
 
 Option 2 implies you providing the necessary data, either an image
 with a :term:`AOI` from an :ref:`AOI clipped <aoi-clipped>` data
@@ -51,7 +50,7 @@ Building and running the block
 ++++++++++++++++++++++++++++++
 
 For specifics on how to build and run the block please see the `README
-<https://github.com/up42/land-cover-classification-demo/blob/master/README.md>`__.
+<https://github.com/up42/sharpening>`__.
 
 Some things to keep in mind:
 
