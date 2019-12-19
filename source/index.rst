@@ -12,7 +12,7 @@ documentation.
 First steps
 -----------
 
-Use the :term:`console` for running you first job, then learn how to
+Use the :term:`console` to run your first job, then learn how to
 create a workflow. Finally, run a job via the API.
 
 + |first-job| :ref:`Run your first UP42 job <first-job-run>`

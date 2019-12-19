@@ -9,7 +9,7 @@ Run your first job
 ====================
 
 This section will guide you through running your first job on the UP42
-platform using a simple NDVI Demo project.
+platform using a simple demo project that calculates an :term:`NDVI` Vegetation Index.
 
 The UP42 console
 -----------------
@@ -24,20 +24,19 @@ central workspace of UP42. It allows you to create
    :align: center
    :alt: The UP42 console
 
-The UP42 console
+   The UP42 console
 
 Explore the Demo project
 ------------------------
 
 We created a simple **Demo Project** for you to explore. The project
 page contains the **Demo Workflow** made up of one :term:`data block`
-for the satellite imagery and two :term:`processing block` s for the
-pansharpening and Normalized Difference Vegetation Index (NDVI).  We
-already ran the workflow for you, explore the results in the **Jobs**
-section.
+for the Pléiades satellite imagery and two :term:`processing blocks <processing block>`
+for the pansharpening and Normalized Difference Vegetation Index (NDVI). We
+already ran the workflow for you, explore the results in the **Jobs** section.
 
 .. figure:: _assets/demo_blocks.png
-   :scale: 40%
+   :scale: 65%
    :align: center
    :alt: Blocks used in the Demo workflow.
 
@@ -46,8 +45,8 @@ This demo workflow takes a **satellite image** recorded by the :ref:`Pléiades
 (AOI)<AOI>` near Christchurch, New Zealand. Pléiades data has five bands, the
 first four are Blue, Green, Red and Near-Infrared (NIR), at 2m resolution.
 It also has a panchromatic band with 0.5m resolution that can be used to
-:ref:`pansharpen <pansharpen-block>` the other four bands to 0.5m resolution as
-well. and **classifies. The third and final block of the workflow calculates
+:ref:`pansharpen <pansharpen-block>` the other four bands, bringing their resolution to
+0.5m, as well. The third and final block of the workflow calculates the
 NDVI, a very commonly used vegetation index which is an indicator of biomass
 and vegetation health.
 
@@ -55,7 +54,7 @@ and vegetation health.
    :align: center
    :alt: AOI for demo project in NZ to the south of Christchurch
 
-Above pansharpened Pléiades image and below the resulting NDVI.
+Above the pansharpened Pléiades image and below the resulting NDVI.
 
 .. figure:: _assets/demo_ndvi_result.png
    :align: center
