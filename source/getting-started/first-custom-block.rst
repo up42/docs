@@ -105,18 +105,25 @@ As an example:
 
 .. _push_the_block:
 
-Push the custom block to the UP42 platform
-++++++++++++++++++++++++++++++++++++++++++
+Push the custom block to UP42
+-----------------------------
 
-Now you can finally push the image to the UP42 docker registry, again passing in your user ID:
+Now you can finally push the image to the UP42 docker registry. Replace **<UID>** with your **UP42 user ID**.
 
 .. code:: bash
 
-   make push UID=<UID>
+   docker push <UID>
+
+As an example:
+
+.. code:: bash
+
+   docker push registry.up42.com/6760d08e-54e3-4f1c-b22e-6ba605ec7592/sharpening:latest
+
 
 **Success!** The `Sharpening Filter` example block will now appear in the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_ menu
 and can be selected under the *Custom blocks* tab when building a workflow.
 
 
-You can find more advanced instructions on custom block development & publishing in the later section
-:ref:`developing a custom processing block <custom-processing-block-dev>`.
+You can find more advanced instructions on custom block development & publishing in chapter
+:ref:`Developing a custom processing block <custom-processing-block-dev>`.
