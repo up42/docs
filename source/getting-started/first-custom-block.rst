@@ -11,10 +11,10 @@
 
 If you want to use your own processing methods or data sources on the UP42 platform,
 you can create :term:`custom blocks<custom block>` that can be seamlessly integrated into UP42 :term:`workflows<workflow>`.
-This section will guide you through bringing an example custom block to the UP42 platform.
+This section will give you step-by-step instructions on how to upload a custom block to UP42.
 
-The block will appear in the `Custom blocks section <https://console.up42.com/custom-blocks/>`_ of your UP42 :term:`console` and can then be used
-like any other processing block when building a workflow.
+The block will appear in the `Custom blocks section <https://console.up42.com/custom-blocks/>`_ of
+your UP42 :term:`console`. It can then be used like any other data or processing block when building a workflow.
 
 .. figure:: _assets/custom_block_menu_sharpening.png
    :align: center
@@ -22,7 +22,7 @@ like any other processing block when building a workflow.
 
    The UP42 custom block console menu
 
-We provide multiple example custom blocks (both data & processing) on our public `UP42 github profile <https://github.com/up42>`_.
+We provide multiple **custom blocks examples** (both data & processing blocks) on our public `UP42 github profile <https://github.com/up42>`_.
 In this chapter we will work with the `Sharpening filter example block <https://github.com/up42/sharpening>`_.
 You can later use these public block examples as templates to easily write your own custom block code.
 
@@ -31,8 +31,7 @@ You can later use these public block examples as templates to easily write your 
 Requirements
 ------------
 
-This example requires the **Mac OS X or Linux bash**, an example using **Windows** will be provided shortly.
-In order to bring this example block or your own custom block to the UP42 platform the following tools are required:
+This example requires the **Mac OS X or Linux bash** and the following tools:
 
  - `UP42 <https://up42.com>`_ account -  Sign up for free!
  - `Python 3.7 <https://python.org/downloads>`_
