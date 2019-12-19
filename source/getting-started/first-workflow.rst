@@ -7,9 +7,9 @@
 Building your first workflow
 ============================
 
-This guide will walk you through creating an workflow on the
+This guide will walk you through creating a workflow on the
 platform, using blocks that already exist. The goal is to generate **ship detections**
-in the harbour of Leixões, Portugal using SPOT data.
+in the harbour of Leixões, Portugal using SPOT satellite data.
 
 .. figure:: _assets/spot_image_overlayed_ships.png
    :align: center
@@ -42,21 +42,21 @@ A workflow consists of *Data blocks* and *Processing blocks*. A workflow always 
 block. Its output can then be used by a processing block, or a chain of processing blocks.
 
 You should now see the workflow editor. Under the "Data" section,
-click on **Add Block** and select the "SPOT 6/7 AOI - Clipped" block
-to view it. Then click **Add Block** at the bottom of the modal
-dialog. Your workflow will automatically be saved whenever you add or
+click on **Add Block** and select the "SPOT 6/7 Streaming" block
+to view its details. Then click **Add Block** at the bottom of the block
+description. Your workflow will automatically be saved whenever you add or
 remove a block.
 
 .. tip::
    Click on top of the each *Data block* to find out more information about the
-   data source like the provider name and the data format. All *Data block* is listed
+   data source like the provider name and the data format. All *Data block* are listed
    in our `Marketplace <https://up42.com/marketplace/>`_.
 
 Next, under the "Processing" section, follow the same procedure, this
 time selecting "Raster Tiling".
 
 Add another processing block by clicking on the **+** sign under the
-previously added Raster Tiling block. This time the  "Ship Detection" block.
+previously added Raster Tiling block. This time select the "Ship Detection" block.
 
 .. figure:: _assets/screenshot-first-workflow.png
    :align: center
@@ -65,27 +65,13 @@ previously added Raster Tiling block. This time the  "Ship Detection" block.
    This is the workflow you have just created.
 
 When you are done, scroll to the bottom of the workflow editor and
-click **Next**.  You should now see a button labeled **Configure
-Job** a the bottom of the workflow editor.
-
-Click on it and you will be taken to the :term:`AOI` selector.
+click **Next**. You should now see a button labeled **Configure
+Job** a the bottom of the workflow editor. Click on it and you will be taken to the :term:`AOI` selector.
 
 Configuring and running your :term:`job`
 ----------------------------------------
 
-Select an AOI using the map widget, or by pasting a GeoJSON
-``FeatureCollection`` into the text box to the left of the map. You
-can also set the :ref:`date or date range <time-filter>` and
-:ref:`limit <limit-filter>`, for instance, the maximum number
-of images to return.
-
-.. attention::
-  By default the most recent image is returned. For a value of limit
-  greater than 1, the images are returned by descending chronological order, that is,
-  from most recent to least recent.
-
-You can use the search box to look for a particular location of
-interest to you. Then either choose to use a :ref:`Bounding box
+Select an AOI using the map widget. Either choose to use a :ref:`Bounding box
 <bbox-filter>`, :ref:`Intersects <intersects-filter>`
 or :ref:`Contains <contains-filter>` filter. Click on the map and draw your AOI.
 
@@ -93,20 +79,21 @@ or :ref:`Contains <contains-filter>` filter. Click on the map and draw your AOI.
    :align: center
    :alt: Screenshot of your first workflow. Link: https://console.up42.com/projects/b45630bf-c6e1-4713-8f33-eeadaa536c44/workflows/a8f353a1-1bf4-43a3-a533-682355c3a3c2/configure-job
 
-   This is the AOI selector.
+In the text box to the left of the map, you can set additional **parameters**, e.g.
+the :ref:`date or date range <time-filter>` and :ref:`limit <limit-filter>` (the maximum
+number of images to return). Here, you can also directly paste a GeoJSON
+``FeatureCollection`` (for example generated via `geojson.io <http://geojson.io/>`__).
 
-.. gist:: https://gist.github.com/perusio/7dc5803b4fa8fb87d8ffa62909dc5fc4
-
-.. tip::
-   You can also generate a ``FeatureCollection`` with `geojson.io <http://geojson.io/>`_.
+.. attention::
+  By default the most recent image is returned. For a value of limit
+  greater than 1, the images are returned by descending chronological order, that is,
+  from most recent to least recent.
 
 Here are the :term:`job parameters` used in this example:
 
 .. gist:: https://gist.github.com/perusio/f8d8f3fe8ebb590cb3d8a5810c7a6060
 
-Once you selected the AOI click on **Run Job** to
-launch the ship detection workflow.
-
+Once you selected the AOI click on **Run Job** to launch the ship detection workflow.
 You will then be taken to the jobs overview for the current project.
 
 .. _job-overview:
@@ -117,20 +104,15 @@ Job overview
 Here you can see the job status and metadata about the job,
 as well perform multiple actions on the job.
 
- + **Rerun Job**: to re-run a job that is running or has finished.
- + **Cancel Job**: to cancel a job that is running.
- + **Job Progress**: clicking on it displays a log of the running job.
- + **Parameters**: displays the job parameters, including, selected
-   AOI and other block specific parameter values being used on the job.
+ + **Rerun Job**: Repeats a job that is running or has finished.
+ + **Cancel Job**: Cancels a job that is running.
+ + **Job Progress**: Displays a log of the running job.
+ + **Parameters**: Displays the job parameters: AOI, time period and block specific parameters.
 
-Each step of the workflow is a single block, running with the
-parameters and data of the workflow.
+Each row in the table on the bottom corresponds to a block in the workflow - this is a :term:`task`.
+Clicking on the **name** of a block takes you to a specific task overview page, showing the logs for that task.
 
-There is a table in which each row correspond to a block in the
-created workflow - this is a :term:`task`. Clicking on the **name** of a block takes you to a
-specific task overview page, showing the logs for that task.
-
-Once a job has finished a new column (**Actions**) becomes visible and
+Once a job has finished, a new column (**Actions**) becomes visible and
 by hovering the **...** the **Run again** button appears. Clicking on
 it relaunches that step of your job, that is, it reruns that particular
 block.
