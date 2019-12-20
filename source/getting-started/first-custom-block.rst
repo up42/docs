@@ -81,20 +81,19 @@ When asked for the password, enter your UP42 account password.
 Build the custom block
 ----------------------
 
-In order to push the block to the UP42 platform, you need to build the block Docker container with your
-**UP42 user ID**. To get your user ID, go to the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_.
-Click on "`PUSH A BLOCK TO THE PLATFORM`" and copy your user ID from the command shown on the last line at
-"`Push the image to the UP42 Docker registry`". The user ID will look similar to this:
-`63uayd50-z2h1-3461-38zq-1739481rjwia`
-
-Now build the block container. Replace **<UID>** with your **UP42 user ID**. Make sure the Docker Daemon is running.
+Navigate to the folder that contains the Dockerfile:
 
 .. code:: bash
 
   cd sharpening/blocks/sharpening
 
 
-As an example:
+Then build the block container, replace **<UID>** with your **UP42 user ID**:
+
+.. tip::
+  To get your **UP42 user ID** go to the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_ and click on
+  "`PUSH A BLOCK TO THE PLATFORM`". Copy your user ID (e.g. ``6760d08e-54e3-4f1c-b22e-6ba605ec7592``) from the command
+  at the bottom "`Push the image to the UP42 Docker registry`".
 
 .. code:: bash
 
