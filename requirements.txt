@@ -27,3 +27,4 @@ robotframework-selenium2library==3.0.0
 robotframework-selenium2screenshots==0.8.1
 chromedriver-binary==76.*
 sphinx-copybutton==0.2.6
+sphinx-reload==0.2.0
