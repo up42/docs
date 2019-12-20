@@ -64,10 +64,9 @@ for more advanced instructions on custom block development & publishing.
 Login UP42 Docker repository
 ----------------------------
 
-First login to the UP42 docker registry. Here, **<me@example.com>** needs to be replaced by your **UP42 username**,
-which is the email address you use on the UP42 website.
-
-.. code:: text
+First login to the UP42 docker registry. Replace **<me@example.com>** with your **UP42 account username**,
+which is the email address you use on the UP42 website. Make sure Docker is running on your computer.
+When asked for the password, enter your UP42 account password.
 
 .. code:: bash
 
