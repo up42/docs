@@ -70,13 +70,12 @@ which is the email address you use on the UP42 website.
 
 .. code:: text
 
-   docker -u login USER=<me@example.com> http://registry.up42.com
+.. code:: bash
 
-As an example:
+  docker login -u=<me@example.com> http://registry.up42.com
 
-.. code:: text
-
-   docker -u login USER=hans.schmidt@up42.com http://registry.up42.com
+  # Example:
+  docker login -u=hans.schmidt@up42.com http://registry.up42.com
 
 
 .. _build_the_block:
@@ -94,13 +93,17 @@ Now build the block container. Replace **<UID>** with your **UP42 user ID**. Mak
 
 .. code:: bash
 
-   docker build -t <UID>/sharpening:latest -f blocks/sharpening/Dockerfile .
+  cd sharpening/blocks/sharpening
+
 
 As an example:
 
 .. code:: bash
 
-   docker build -t registry.up42.com/6760d08e-54e3-4f1c-b22e-6ba605ec7592/sharpening:latest -f blocks/sharpening/Dockerfile .
+  docker build . -t registry.up42.com/<UID>/sharpening:1.0 --build-arg manifest={"display_name":"Sharpening Filter"}
+
+  # Example:
+  docker build . -t registry.up42.com/6760d08e-54e3-4f1c-b22e-6ba605ec7592/sharpening:1.0 --build-arg manifest={"display_name":"Sharpening Filter"}
 
 
 .. _push_the_block:
@@ -112,11 +115,10 @@ Now you can finally push the image to the UP42 docker registry. Replace **<UID>*
 
 .. code:: bash
 
-   docker push <UID>
+   docker push registry.up42.com/<UID>/sharpening:1.0
 
-As an example:
-
-.. code:: bash
+   # Example:
+   docker push registry.up42.com/6760d08e-54e3-4f1c-b22e-6ba605ec7592/sharpening:1.0
 
    docker push registry.up42.com/6760d08e-54e3-4f1c-b22e-6ba605ec7592/sharpening:latest
 
