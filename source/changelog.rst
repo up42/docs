@@ -10,6 +10,10 @@ Changelog
 
 * Update :ref:`First job run <first-job-run>`.
 
+05.12.2019
+----------
+* Add `Sentinel-5P Level 3 processing <s5p-lvl3-block>` block.
+
 03.12.2019
 ----------
 * Use ``parentIdentifier`` in ``id`` filter in OneAtlas blocks (:ref:`Pleiades DIMAP Download <pleiades-download-block>`, :ref:`Pleiades AOI clipped <pleiades-aoiclipped-block>`, :ref:`SPOT DIMAP Download <spot-download-block>`, :ref:`SPOT AOI clipped <spot-aoiclipped-block>`).
