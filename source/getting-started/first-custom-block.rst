@@ -37,8 +37,7 @@ This example requires the **Mac OS X or Linux bash** and the following tools ins
  - `UP42 <https://up42.com>`_ account -  Sign up for free!
  - `Python 3.7 <https://python.org/downloads>`_
  - `git <https://git-scm.com/>`_
- - `docker engine <https://docs.docker.com/engine/>`_
- - `GNU make <https://www.gnu.org/software/make/>`_
+ - `Docker Engine <https://docs.docker.com/engine/>`_
 
 
 .. _clone_the_repository:
