@@ -55,6 +55,7 @@ extensions = [
     'sphinxcontrib.redoc',
     'sphinx_sitemap',
     'sphinxcontrib.gist',
+    'sphinx_copybutton',
 ]
 
 # Base URL for the site.
