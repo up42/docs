@@ -42,15 +42,14 @@ This example requires the **Mac OS X or Linux bash** and the following tools ins
 
 .. _clone_the_repository:
 
-Clone the repository
---------------------
+Clone the example block code
+----------------------------
 
-To access the example block code clone the repository using git in a bash terminal:
+To download the example block code clone the repository using git in a bash terminal:
 
 .. code:: bash
 
    git clone https://github.com/up42/sharpening.git
-   cd sharpening
 
 
 Usually you would then proceed to customize the block code to fit your own needs, or install
