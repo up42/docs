@@ -117,12 +117,13 @@ Now you can finally push the image to the UP42 docker registry. Replace **<UID>*
    # Example:
    docker push registry.up42.com/6760d08e-54e3-4f1c-b22e-6ba605ec7592/sharpening:1.0
 
-   docker push registry.up42.com/6760d08e-54e3-4f1c-b22e-6ba605ec7592/sharpening:latest
 
-
-**Success!** The `Sharpening Filter` example block will now appear in the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_ menu
+**Success!** The **Sharpening Filter example block** will now appear in the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_
 and can be selected under the *Custom blocks* tab when building a workflow.
 
+.. figure:: _assets/custom_block_menu_sharpening.png
+   :align: center
+   :alt: The UP42 custom block console menu
 
-You can find more advanced instructions on custom block development & publishing in chapter
+You can find more advanced instructions on custom block development & publishing in the chapter
 :ref:`Developing a custom processing block <custom-processing-block-dev>`.
