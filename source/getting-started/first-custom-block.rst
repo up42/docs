@@ -4,7 +4,7 @@
 
 
 .. _first-custom-block:
-              
+
 ===============================
  Upload your first custom block
 ===============================
@@ -20,18 +20,19 @@ your UP42 :term:`console`. It can then be used like any other data or processing
    :align: center
    :alt: The UP42 custom block console menu
 
-   The UP42 custom block console menu
+   The UP42 custom block menu
 
 We provide multiple **custom blocks examples** (both data & processing blocks) on our public `UP42 github profile <https://github.com/up42>`_.
 In this chapter we will work with the `Sharpening filter example block <https://github.com/up42/sharpening>`_.
 You can later use these public block examples as templates to easily write your own custom block code.
+
 
 .. _requirements:
 
 Requirements
 ------------
 
-This example requires the **Mac OS X or Linux bash** and the following tools:
+This example requires the **Mac OS X or Linux bash** and the following tools installed:
 
  - `UP42 <https://up42.com>`_ account -  Sign up for free!
  - `Python 3.7 <https://python.org/downloads>`_
