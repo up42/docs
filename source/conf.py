@@ -55,6 +55,7 @@ extensions = [
     'sphinxcontrib.redoc',
     'sphinx_sitemap',
     'sphinxcontrib.gist',
+    'sphinx_copybutton',
 ]
 
 # Base URL for the site.
@@ -128,6 +129,9 @@ html_show_sourcelink = False
 
 # Do not show the copyright.
 html_show_copyright = False
+
+# Disables clickable zoom for scaled images.
+html_scaled_image_link = False
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

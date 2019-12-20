@@ -40,6 +40,16 @@ $ make html
 ```
 and the output will be written to the `build/` directory.
 
+## Preview changes automatically
+
+You don't need to manually remake the html files and delete the cache every time
+you want to check how code changes are rendered. Sphinx-reload reflects changes 
+every time you save your code.
+
+```bash
+$ sphinx-reload docs
+```
+
 ## Screenshots
 
 To generate the auto screenshots you need to add the path of the Chrome driver to
