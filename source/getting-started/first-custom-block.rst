@@ -69,22 +69,18 @@ Make sure Docker is running on your computer. When asked for your password, ente
 Build the block container
 -------------------------
 
-First get your **UP42 User-ID** from the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_. Click on
+Then build the block container, replace **<User-ID>** with your **UP42 User-ID**.
+
+To get your **UP42 User-ID**, go to the the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_ and click on
 "`PUSH A BLOCK TO THE PLATFORM`". At the bottom of the popup, copy your user ID from the
 command "`Push the image to the UP42 Docker registry`" (e.g. ``6760d08e-54e3-4f1c-b22e-6ba605ec7592``).
 
-Navigate to the folder that contains the Dockerfile, then build the block container. Replace **<User-ID>** with your **UP42 User-ID**.
-
 .. code:: bash
 
-  cd sharpening/blocks/sharpening
-
-.. code:: bash
-
-  docker build . -t registry.up42.com/<USER-ID>/sharpening:1.0 --build-arg manifest={"display_name":"Sharpening Filter"}
+  docker build . -t registry.up42.com/<USER-ID>/sharpening:1.0 --build-arg manifest="$(cat UP42Manifest.json)"
 
   # Example:
-  docker build . -t registry.up42.com/6760d08e-54e3-4f1c-b22e-6ba605ec7592/sharpening:1.0 --build-arg manifest={"display_name":"Sharpening Filter"}
+  docker build . -t registry.up42.com/6760d08e-54e3-4f1c-b22e-6ba605ec7592/sharpening:1.0 --build-arg manifest="$(cat UP42Manifest.json)"
 
 .. tip::
 
