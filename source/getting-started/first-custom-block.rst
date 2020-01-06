@@ -83,8 +83,6 @@ command "`Push the image to the UP42 Docker registry`" (e.g. ``6760d08e-54e3-4f1
   # Example:
   docker build . -t registry.up42.com/6760d08e-54e3-4f1c-b22e-6ba605ec7592/sharpening:1.0 --build-arg manifest="$(cat UP42Manifest.json)"
 
-.. tip::
-
 
 .. _push_the_block:
 
@@ -104,9 +102,10 @@ Now you can push the image to the UP42 docker registry. Replace **<User-ID>** wi
 **Success!** The Sharpening Filter example block will now appear in the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_.
 When building a workflow it can be selected under the *Custom blocks* tab.
 
-.. figure:: _assets/custom_block_menu_sharpening.png
+.. figure:: _assets/custom_block_workflow.png
    :align: center
-   :alt: The UP42 custom block console menu
+   :scale: 40 %
+   :alt: Custom block in the workflow builder
 
 You can find more advanced instructions on custom block development & publishing in the chapter
 :ref:`Developing a custom processing block <custom-processing-block-dev>`.
