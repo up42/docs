@@ -37,11 +37,12 @@ The example repository code uses `Python 3.7 <https://python.org/downloads>`_.
 Download the example block
 --------------------------
 
-To download the example block clone the repository:
+Clone the example block using git and navigate to the folder that contains the Dockerfile and UP42Manifest:
 
 .. code:: bash
 
-   git clone https://github.com/up42/sharpening.git
+  git clone https://github.com/up42/sharpening.git
+  cd sharpening/blocks/sharpening
 
 
 We will skip changing the example code here and directly push the block to the UP42 platform.
@@ -100,7 +101,7 @@ Now you can push the image to the UP42 docker registry. Replace **<User-ID>** wi
    docker push registry.up42.com/6760d08e-54e3-4f1c-b22e-6ba605ec7592/sharpening:1.0
 
 
-**Success!** The **Sharpening Filter example block** will now appear in the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_.
+**Success!** The Sharpening Filter example block will now appear in the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_.
 When building a workflow it can be selected under the *Custom blocks* tab.
 
 .. figure:: _assets/custom_block_menu_sharpening.png
