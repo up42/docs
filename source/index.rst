@@ -41,7 +41,7 @@ If you are looking into **developing** a processing algorithm and/or
 use your own data sources, then start your journey into it by
 experimenting with our demo processing block, offered as free software
 on `Github
-<https://github.com/up42/land-cover-classification-demo>`_. Learn how
+<https://github.com/up42/sharpening>`_. Learn how
 to develop **your own** processing block and, if need be, make use of
 GPUs to speed it up.
 
