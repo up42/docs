@@ -11,19 +11,18 @@ Ship-Identification
 Block type: ``PROCESSING``
 
 This block annotates ship detection geometries output by the
-Ship Detection block <https://marketplace.up42.com/block/79e3e48c-d65f-4528-a6d4-e8d20fecc93c>_`
+`Ship Detection block <https://marketplace.up42.com/block/79e3e48c-d65f-4528-a6d4-e8d20fecc93c>`_
 with ship metadata of the Automatic Identification System (AIS), e.g. ship name, cargo,
 destination port etc.).
-The Ship Identification processing block can be run on top of the `Ship Detection
+The Ship Identification block can be run on top of the `Ship Detection
 workflow <build-first-workflow>`_ (Spot 6/7 Streaming, Tiling, Airbus Ship Detection).
 The Ship Identification block queries the
-`Exact Earth historical vessel points API <https://www.exactearth.com/technology/satellite-ais>`
+`Exact Earth historical vessel points API <https://www.exactearth.com/technology/satellite-ais>`_
 and fuses the data to the ship geometries in an iterative search approach.
 
 The AIS signals are queried in a selectable period around the satellite
 scene acquisition time (default period is the acquisition time plus/minus 15 minutes).
 Also, the maximum number of features to query can be select (default 1000).
-
 The output is the UP42 data.json GeoJSON file containing the ship geometries with
 the fused ship metadata.
 
@@ -36,11 +35,10 @@ Supported parameters
 Example usage
 -------------
 
-Example
-.. code-block:: javascript
-
 Example running the full Ship Identification workflow (including Spot 6/7 Streaming,
 Tiling, Airbus Ship Detection and Ship Identification).
+
+.. code-block:: javascript
 
     {
       "oneatlas-spot-aoiclipped:1": {
