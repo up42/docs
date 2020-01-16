@@ -10,20 +10,22 @@ Ship-Identification
 
 Block type: ``PROCESSING``
 
-This block fuses ship detection and AIS ship signals, to create ship geometries that are
-annotated with the AIS metadata (e.g. ship name, cargo, destination etc.). It relies on
-the `Exact Earth historical data API <https://www.exactearth.com/technology/satellite-ais>`_ (Also
-available as an independent data block on the UP42 marketplace `Link <https://marketplace.up42.com/block/...>`_).
-
-The ship identification processing block can be run on top of the `ship detection
+This block annotates ship detection geometries output by the
+Ship Detection block <https://marketplace.up42.com/block/79e3e48c-d65f-4528-a6d4-e8d20fecc93c>_`
+with ship metadata of the Automatic Identification System (AIS), e.g. ship name, cargo,
+destination port etc.).
+The Ship Identification processing block can be run on top of the `Ship Detection
 workflow <build-first-workflow>`_ (Spot 6/7 Streaming, Tiling, Airbus Ship Detection).
+The Ship Identification block queries the
+`Exact Earth historical vessel points API <https://www.exactearth.com/technology/satellite-ais>`
+and fuses the data to the ship geometries in an iterative search approach.
 
-The block queries the AIS signals in a period around the satellite
-scene acquistion time. It allows the user to select the length of the period (default
-is the acquistion time plus/minus 15 minutes). Also, the maximum number of features
-to query can be select (default 1000).
+The AIS signals are queried in a selectable period around the satellite
+scene acquisition time (default period is the acquisition time plus/minus 15 minutes).
+Also, the maximum number of features to query can be select (default 1000).
 
-The output is a GeoJSON file containing the ship geometries with the fused ship metadata.
+The output is the UP42 data.json GeoJSON file containing the ship geometries with
+the fused ship metadata.
 
 Supported parameters
 --------------------
