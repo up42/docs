@@ -34,19 +34,27 @@ Supported parameters
 Example usage
 -------------
 
+Example
 .. code-block:: javascript
+
+Example running the full Ship Identification workflow (including Spot 6/7 Streaming,
+Tiling, Airbus Ship Detection and Ship Identification).
 
     {
       "oneatlas-spot-aoiclipped:1": {
-        "ids": [
-          "DS_SPOT6_201908171525320_FR1_FR1_SV1_SV1_W079N09_03414"
-        ],
         "bbox": [
-          -79.538148,
-          8.835224,
-          -79.51332,
-          8.855703
-        ]
+          -79.53802155090332,
+          8.836891687944988,
+          -79.51857162879944,
+          8.857933824636724
+        ],
+        "ids": null,
+        "time": "2019-08-17T00:00:00+00:00/2019-08-18T23:59:59+00:00",
+        "limit": 1,
+        "zoom_level": 17,
+        "time_series": null,
+        "max_cloud_cover": 100,
+        "panchromatic_band": false
       },
       "tiling:1": {
         "nodata": null,
@@ -57,15 +65,19 @@ Example usage
         "augmentation_factor": 1,
         "discard_empty_tiles": true
       },
-
+      "ship-detection:1": {},
+      "ship-identification:1": {
+        "minutes": 15,
+        "max_features": 1000
+      }
     }
 
 
 Output format
 -------------
-Output format is a ``NetCDF`` file, see `NetCDF <https://en.wikipedia.org/wiki/NetCDF>`_ for a more detailed description.
+Output format is a ``GeoJSON`` file, see `GeoJSON <https://en.wikipedia.org/wiki/GeoJSON>`_ for a more detailed description.
 
 Capabilities
 ------------
 
-The block takes a ``up42.data.scene.netcdf`` product and delivers a ``up42.data.scene.netcdf``.
+The block has no specified input or output capabilties.
