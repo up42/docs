@@ -6,8 +6,13 @@
 
 Changelog
 =========
-6.12.2019
 
+21.01.2020
+----------
+* :ref:`Sentinel-2 Super-resolution <s2-superresolution-block>` block now supports multiple images.
+
+06.12.2019
+---------
 * Update :ref:`First job run <first-job-run>`.
 
 05.12.2019
