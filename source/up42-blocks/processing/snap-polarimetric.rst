@@ -50,8 +50,12 @@ and masking for ``land``:
       13.395252227783203,
       52.507654123207665
     ],
+    "ids": null,
     "time": "2018-01-01T00:00:00+00:00/2019-12-31T23:59:59+00:00",
-    "limit": 1
+    "limit": 1,
+    "time_series": null,
+    "orbit_direction": null,
+    "acquisition_mode": null
   },
   "snap-polarimetric:1": {
     "bbox": [
@@ -60,6 +64,9 @@ and masking for ``land``:
       13.395252227783203,
       52.507654123207665
     ],
+    "mask": null,
+    "contains": null,
+    "intersects": null,
     "clip_to_aoi": true,
     "tcorrection": true,
     "polarisations": [
