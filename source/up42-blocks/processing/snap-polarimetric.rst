@@ -27,9 +27,7 @@ Supported parameters
   part of the input file.
 * ``mask``: It masks either ``land`` or ``sea``. Please note that you can not choose both at the same time.
 * ``tcorrection``: It applies Range Doppler Terrain Correction based on a suitable Digital ELevation Model (DEM).
-* ``clip_to_aoi``: When is set to be **true**, the area that defined in ``bbox``, ``contains``, or ``intersect`` for previous
-data block will be clipped for processing. **Note** that by default this parameter is **false** which means that the
-whole scene will be processed.
+* ``clip_to_aoi``: When is set to be **true**, the area that defined in ``bbox``, ``contains``, or ``intersect`` for previous data block will be clipped for processing. **Note** that by default this parameter is **false** which means that the whole scene will be processed.
 
 Example parameters using the
 :ref:`Sentinel-1 L1C GRD Full Scene block <sentinel1-grd-fullscene-block>` as
