@@ -16,6 +16,12 @@ This block provides a common polarimetric processing workflow with SNAP that ope
 Supported parameters
 --------------------
 
+* ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``bbox``
+  **or** ``intersects`` **or** ``contains``.
+* ``intersects``: A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use only ``bbox``
+  **or** ``intersects`` **or** ``contains``.
+* ``contains``: A GeoJSON geometry to use as an AOI. Will return all scenes that completely cover this geometry. Use only ``bbox``
+  **or** ``intersects`` **or** ``contains``.
 * ``polarisations``: Requested polarisations, either one of
   - [VV, VH]
   - [HH, HV]
@@ -37,50 +43,30 @@ and masking for ``land``:
 .. code-block:: javascript
 
     {
-        "sobloo-s1-grd-fullscene:1": {
-            "ids": null,
-            "time": null,
-            "limit": 1,
-            "intersects": {
-            "type": "Polygon",
-            "coordinates": [
-            [
-              [
-                10.953026,
-                54.394352
-              ],
-              [
-                10.992508,
-                54.395551
-              ],
-              [
-                10.995941,
-                54.371959
-              ],
-              [
-                10.960236,
-                54.373159
-              ],
-              [
-                10.953026,
-                54.394352
-              ]
-            ]
-          ]
-        },
-            "acquisition_mode": null
-      },
-        "snap-polarimetric:1": {
-            "mask": [
-                "land"
-            ],
-            "tcorrection": true,
-            "polarisations": [
-                "VV"
-            ],
-			"clip_to_aoi": false
-      }
-    }
+  "sobloo-s1-grd-fullscene:1": {
+    "bbox": [
+      13.358345031738283,
+      52.480689337378706,
+      13.395252227783203,
+      52.507654123207665
+    ],
+    "time": "2018-01-01T00:00:00+00:00/2019-12-31T23:59:59+00:00",
+    "limit": 1
+  },
+  "snap-polarimetric:1": {
+    "bbox": [
+      13.358345031738283,
+      52.480689337378706,
+      13.395252227783203,
+      52.507654123207665
+    ],
+    "clip_to_aoi": true,
+    "tcorrection": true,
+    "polarisations": [
+      "VV"
+    ]
+  }
+}
 
 
 Output format
