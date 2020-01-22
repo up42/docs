@@ -7,6 +7,10 @@
 Changelog
 =========
 
+22.01.2020
+----------
+* :ref:`Sentinel-2 Super-resolution <s2-superresolution-block>` block now supports clipping option.
+
 21.01.2020
 ----------
 * :ref:`Sentinel-2 Super-resolution <s2-superresolution-block>` block now supports multiple images.
