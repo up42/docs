@@ -6,8 +6,14 @@
 
 Changelog
 =========
-6.12.2019
 
+21.01.2020
+----------
+* :ref:`SNAP Polarimetric Processing <snap-polarimetric-block>` block now supports clipping option.
+
+
+6.12.2019
+----------
 * Update :ref:`First job run <first-job-run>`.
 
 05.12.2019
