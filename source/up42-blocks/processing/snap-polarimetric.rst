@@ -35,12 +35,12 @@ Supported parameters
   avialble in the input image to SNAP.
 * ``mask``: It applies a masks for either ``land`` or ``sea``. Use one
   and only one, you cannot chose both.
-* ``tcorrection``: It applies Range Doppler Terrain Correction based on a suitable Digital ELevation Model (DEM).
+* ``tcorrection``: It applies Range Doppler Terrain Correction based
+  on a suitable **D**\igital **E**\levation **M**\odel (DEM).
 * ``clip_to_aoi``: When set to ``true``, the :term:`AOI` specified
   via ``bbox``, or ``contains``, or ``intersect`` for the
   previous data block in the workflow will **first** be clipped and then processed.
-  for processing. Please note that by default this parameter is set to
-  ``false`` which means that the **full scene** will be processed.
+  Please note that by **default** this parameter is set to ``false`` which means that the **full scene** will be processed.
 
 Example block parameters using the
 :ref:`Sentinel-1 L1C GRD Full Scene block <sentinel1-grd-fullscene-block>` as
