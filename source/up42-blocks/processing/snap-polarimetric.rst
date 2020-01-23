@@ -37,7 +37,7 @@ Supported parameters
   and only one, you cannot chose both.
 * ``tcorrection``: It applies Range Doppler Terrain Correction based on a suitable Digital ELevation Model (DEM).
 * ``clip_to_aoi``: When set to ``true``, the :term:`AOI` specified
-  via ``bbox``, or ``contains ``, or ``intersect`` for the
+  via ``bbox``, or ``contains``, or ``intersect`` for the
   previous data block in the workflow will **first** be clipped and then processed.
   for processing. Please note that by default this parameter is set to
   ``false`` which means that the **full scene** will be processed.
