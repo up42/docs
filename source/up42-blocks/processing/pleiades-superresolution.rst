@@ -12,8 +12,8 @@ TODO UPDATE:
 
 Block type: ``PROCESSING``
 
-This block takes a Pleiades image and runs a
-superresolution algorithm on it. This algorithm creates a 0.125m
+This block takes a Pléiades image and runs a
+superresolution algorithm on it. This algorithm creates a 0.125m (12.5cm)
 resolution for all the existing spectral bands by using a trained convolutional neural network.
 
 Supported parameters
