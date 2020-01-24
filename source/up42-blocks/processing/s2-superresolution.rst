@@ -22,8 +22,8 @@ Supported parameters
 * ``bbox``: The bounding box to use as an AOI. Will clip to scenes that intersect with this box. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
 * ``intersects``: A GeoJSON geometry to use as an AOI. Will clip to scenes that intersect with this geometry. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
 * ``contains``: A GeoJSON geometry to use as an AOI. Will clip to scenes that intersect with this geometry. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
-* ``clip_to_aoi``: When is set to be **true**, the area that defined in ``bbox``, ``contains``, or ``intersect`` for previous data block will be clipped for processing. **Note** that by default this parameter is **false** which means that the whole scene will be processed.
-* ``copy_original_bands``: If it set to be ``true``,  the original 10m resolution band will also be included in the output image.
+* ``clip_to_aoi``: When set to ``true``, the area that defined in ``bbox``, ``contains``, or ``intersect`` for previous data block will be clipped for processing. **Note** that by default this parameter is ``false`` which means that the whole scene will be processed.
+* ``copy_original_bands``: If set to ``true``,  the original 10m resolution band will also be included in the output image.
 
 Example parameters using the Sentinel:2 L1C MSI Full Scenes block as
 data source and then applying s2-superresolution clipped to the specific AOI:
