@@ -15,6 +15,10 @@ Changelog
 ----------
 * :ref:`Sentinel-2 Super-resolution <s2-superresolution-block>` block now supports multiple images.
 
+21.01.2020
+----------
+* :ref:`SNAP Polarimetric Processing <snap-polarimetric-block>` block now supports clipping option.
+
 06.12.2019
 ----------
 * Update :ref:`First job run <first-job-run>`.
@@ -29,7 +33,6 @@ Changelog
 
 21.11.2019
 ----------
-
 * Add :ref:`Raster Zonal Statistics <zonal-statistics-block>` block.
 
 15.11.2019
