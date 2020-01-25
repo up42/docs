@@ -51,8 +51,8 @@ See section :ref:`Developing a custom processing block <custom-processing-block-
 
 .. _login_UP42_docker_repository:
 
-Login UP42 Docker repository
-----------------------------
+Authenticate with the UP42 Docker registry
+------------------------------------------
 
 First login to the UP42 docker registry. Replace **<USERNAME>** with the **email address** you login with on the UP42 website.
 Make sure Docker is running on your computer. When asked for your password, enter your UP42 account password.
@@ -86,8 +86,8 @@ command "`Push the image to the UP42 Docker registry`" (e.g. ``6760d08e-54e3-4f1
 
 .. _push_the_block:
 
-Upload the custom block to UP42
--------------------------------
+Push the custom block to UP42
+-----------------------------
 
 Now you can push the image to the UP42 docker registry. Replace **<User-ID>** with your **UP42 User-ID**.
 
