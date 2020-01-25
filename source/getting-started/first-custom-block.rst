@@ -4,117 +4,108 @@
 
 
 .. _first-custom-block:
-              
+
 ===============================
  Upload your first custom block
 ===============================
 
 If you want to use your own processing methods or data sources on the UP42 platform,
-you can create :term:`custom blocks<custom block>` that can be seamlessly integrated into UP42 :term:`workflows<workflow>`.
-This section will guide you through bringing an example custom block to the UP42 platform.
+you can create :term:`custom blocks<custom block>` that can be seamlessly integrated into UP42 workflows.
+The block will appear in the `Custom blocks section <https://console.up42.com/custom-blocks/>`_ of
+your UP42 :term:`console`. It can then be used like any other data or processing block.
 
-The block will appear in the `Custom blocks section <https://console.up42.com/custom-blocks/>`_ of your UP42 :term:`console` and can then be used
-like any other processing block when building a workflow.
+This section will give you step-by-step instructions on how to upload a custom block to UP42, using
+the `sharpening filter example block <https://github.com/up42/sharpening>`_ from our public `UP42 github profile <https://github.com/up42>`_.
+
 
 .. figure:: _assets/custom_block_menu_sharpening.png
    :align: center
    :alt: The UP42 custom block console menu
 
-   The UP42 custom block console menu
-
-We provide multiple example custom blocks (both data & processing) on our public `UP42 github profile <https://github.com/up42>`_.
-In this chapter we will work with the `Sharpening filter example block <https://github.com/up42/sharpening>`_.
-You can later use these public block examples as templates to easily write your own custom block code.
 
 .. _requirements:
 
 Requirements
 ------------
 
-This example requires the **Mac OS X or Linux bash**, an example using **Windows** will be provided shortly.
-In order to bring this example block or your own custom block to the UP42 platform the following tools are required:
-
- - `UP42 <https://up42.com>`_ account -  Sign up for free!
- - `Python 3.7 <https://python.org/downloads>`_
- - `git <https://git-scm.com/>`_
- - `docker engine <https://docs.docker.com/engine/>`_
- - `GNU make <https://www.gnu.org/software/make/>`_
-
-
-Instructions
-------------
-
-The following step-by-step instructions will guide you through setting up, dockerizing and pushing the example custom
-block to UP42.
+This example requires the **Mac OS X or Linux bash**, `git <https://git-scm.com/>`_ and `Docker Engine <https://docs.docker.com/engine/>`_.
+The example repository code uses `Python 3.7 <https://python.org/downloads>`_.
 
 
 .. _clone_the_repository:
 
-Clone the repository
-++++++++++++++++++++
+Download the example block
+--------------------------
 
-To access the example block code clone the repository using git in a bash terminal:
-
-.. code:: bash
-
-   git clone https://github.com/up42/sharpening.git
-
-Then navigate to the folder via
+Clone the example block using git and navigate to the folder that contains the Dockerfile and UP42Manifest:
 
 .. code:: bash
 
-    cd sharpening
+  git clone https://github.com/up42/sharpening.git
+  cd sharpening/blocks/sharpening
 
-Usually you would then proceed to customize the block code to fit your own needs, or install the necessary libraries to test the block code locally.
-We will skip these steps here and directly push the block to the UP42 platform, see section :ref:`Developing a custom processing block <custom-processing-block-dev>`
-for more advanced instructions on custom block development & publishing.
+
+We will skip changing the example code here and directly push the block to the UP42 platform.
+See section :ref:`Developing a custom processing block <custom-processing-block-dev>` for more advanced instructions on custom block development.
+
+
+.. _login_UP42_docker_repository:
+
+Authenticate with the UP42 Docker registry
+------------------------------------------
+
+First login to the UP42 docker registry. Replace **<USERNAME>** with the **email address** you login with on the UP42 website.
+Make sure Docker is running on your computer. When asked for your password, enter your UP42 account password.
+
+.. code:: bash
+
+  docker login -u=<USERNAME> http://registry.up42.com
+
+  # Example:
+  docker login -u=hans.schmidt@up42.com http://registry.up42.com
 
 
 .. _build_the_block:
 
-Build the custom block
-++++++++++++++++++++++
+Build the block container
+-------------------------
 
-First login to the UP42 docker registry. `me@example.com` needs to be replaced by your **UP42 username**,
-which is the email address you use on the UP42 website.
+Then build the block container, replace **<User-ID>** with your **UP42 User-ID**.
 
-.. code:: bash
-
-   make login USER=me@example.com
-
-In order to push the block to the UP42 platform, you need to build the block Docker container with your
-**UP42 user ID**. To get your user ID, go to the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_.
-Click on "`PUSH a BLOCK to THE PLATFORM`" and copy your user ID from the command shown on the last line at
-"`Push the image to the UP42 Docker registry`". The user ID will look similar to this:
-`63uayd50-z2h1-3461-38zq-1739481rjwia`
-
-Pass the user ID to the build command:
+To get your **UP42 User-ID**, go to the the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_ and click on
+"`PUSH A BLOCK TO THE PLATFORM`". At the bottom of the popup, copy your user ID from the
+command "`Push the image to the UP42 Docker registry`" (e.g. ``6760d08e-54e3-4f1c-b22e-6ba605ec7592``).
 
 .. code:: bash
 
-   make build UID=<UID>
+  docker build . -t registry.up42.com/<USER-ID>/sharpening:1.0 --build-arg manifest="$(cat UP42Manifest.json)"
 
-*As an example:*
-
-.. code:: bash
-
-   make build UID=63uayd50-z2h1-3461-38zq-1739481rjwia
+  # Example:
+  docker build . -t registry.up42.com/6760d08e-54e3-4f1c-b22e-6ba605ec7592/sharpening:1.0 --build-arg manifest="$(cat UP42Manifest.json)"
 
 
 .. _push_the_block:
 
-Push the custom block to the UP42 platform
-++++++++++++++++++++++++++++++++++++++++++
+Push the custom block to UP42
+-----------------------------
 
-Now you can finally push the image to the UP42 docker registry, again passing in your user ID:
+Now you can push the image to the UP42 docker registry. Replace **<User-ID>** with your **UP42 User-ID**.
 
 .. code:: bash
 
-   make push UID=<UID>
+   docker push registry.up42.com/<USER-ID>/sharpening:1.0
 
-**Success!** The `Sharpening Filter` example block will now appear in the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_ menu
-and can be selected under the *Custom blocks* tab when building a workflow.
+   # Example:
+   docker push registry.up42.com/6760d08e-54e3-4f1c-b22e-6ba605ec7592/sharpening:1.0
 
 
-You can find more advanced instructions on custom block development & publishing in the later section
-:ref:`developing a custom processing block <custom-processing-block-dev>`.
+**Success!** The Sharpening Filter example block will now appear in the `UP42 custom-blocks menu <https://console.up42.com/custom-blocks>`_.
+When building a workflow it can be selected under the *Custom blocks* tab.
+
+.. figure:: _assets/custom_block_workflow.png
+   :align: center
+   :scale: 40 %
+   :alt: Custom block in the workflow builder
+
+You can find more advanced instructions on custom block development & publishing in the chapter
+:ref:`Developing a custom processing block <custom-processing-block-dev>`.
