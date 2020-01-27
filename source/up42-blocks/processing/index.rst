@@ -20,6 +20,7 @@ blocks built by UP42.
    pansharpen
    snap-polarimetric
    s2-superresolution
+   pleiades-superresolution
    ndvi
    vectorization
    kmeans-clustering

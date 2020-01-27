@@ -7,18 +7,30 @@
 Changelog
 =========
 
+15.01.2019
+----------
+* Add :ref:`Pléiades Super-resolution <pleiades-superresolution-block>` block.
+
+22.01.2020
+----------
+* :ref:`Sentinel-2 Super-resolution <s2-superresolution-block>` block now supports clipping option.
+
+
+21.01.2020
+----------
+* :ref:`Sentinel-2 Super-resolution <s2-superresolution-block>` block now supports multiple images.
+
 21.01.2020
 ----------
 * :ref:`SNAP Polarimetric Processing <snap-polarimetric-block>` block now supports clipping option.
 
-
-6.12.2019
+06.12.2019
 ----------
 * Update :ref:`First job run <first-job-run>`.
 
 05.12.2019
 ----------
-* Add `Sentinel-5P Level 3 processing <s5p-lvl3-block>` block.
+* Add :ref:`Sentinel-5P Level 3 processing <s5p-lvl3-block>` block.
 
 03.12.2019
 ----------
@@ -26,7 +38,6 @@ Changelog
 
 21.11.2019
 ----------
-
 * Add :ref:`Raster Zonal Statistics <zonal-statistics-block>` block.
 
 15.11.2019
