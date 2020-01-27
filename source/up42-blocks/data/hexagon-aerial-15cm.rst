@@ -14,7 +14,7 @@ Block type: ``DATA``
 Supported parameters
 --------------------
 
-This block provides access to Hexagon's Content Program Aerial Imagery. Check coverage of available data in `Hexagon's Coverage Map <https://hxgncontent.com/coverage-map>`_. Note that 15cm imagery is available mostly in Urban Areas in North America. The latest image available is always return.
+This block provides access to Hexagon's Content Program Aerial Imagery. Check coverage of available data in `Hexagon's Coverage Map <https://hxgncontent.com/coverage-map>`_. Note that the 15cm imagery is available mostly in Urban Areas in North America. The latest image available is returned.
 
 For more information on supported filters, see :ref:`query filter section  <filters>`.
 
@@ -22,7 +22,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
   **or** ``intersects`` **or** ``contains``.
 * ``intersects``: A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use only ``bbox``
   **or** ``intersects`` **or** ``contains``.
-* ``zoom_level``: An integer defining the webmercator zoom level of this request, defaults to 20.
+* ``zoom_level``: An integer defining the :term:`Web Mercator` zoom level of this request, defaults to 20.
 
 .. warning::
 
@@ -32,7 +32,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
 Example queries
 ---------------
 
-Example query using the ``bbox``:
+Example query using ``bbox``:
 
 .. code-block:: javascript
 
