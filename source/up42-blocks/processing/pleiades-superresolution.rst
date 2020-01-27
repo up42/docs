@@ -7,8 +7,10 @@
 
 Pleiades Super-resolution
 ===========================
-TODO UPDATE:
-`Link <https://marketplace.up42.com/block/f6c29b0a-75bd-44a1-a040-f18c9e881d1d>`_ to block details page
+
+.. TODO:
+   
+   `Link <https://marketplace.up42.com/block/f6c29b0a-75bd-44a1-a040-f18c9e881d1d>`_ to block details page.
 
 Block type: ``PROCESSING``
 
