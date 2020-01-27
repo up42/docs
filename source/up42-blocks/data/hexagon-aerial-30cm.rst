@@ -14,7 +14,7 @@ Block type: ``DATA``
 Supported parameters
 --------------------
 
-This block provides access to Hexagon's Content Program Aerial Imagery. Check coverage of available data in `Hexagon's Coverage Map <https://hxgncontent.com/coverage-map>`_. Note that the 30cm imagery is available mostly in Europe and North America. The latest image available is returned.
+This block provides access to Hexagon's Content Program Aerial Imagery. Check coverage of available data in `Hexagon's Coverage Map <https://hxgncontent.com/coverage-map>`_. Note that the 30cm imagery is available mostly in Europe and North America. By default the latest available image is returned.
 
 For more information on supported filters, see :ref:`query filter section  <filters>`.
 
