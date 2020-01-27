@@ -4,8 +4,8 @@
 
 .. _api-walkthrough:
 
-UP42 API walktrough
-===================
+UP42 API walkthrough
+====================
 
 Introduction
 ------------
