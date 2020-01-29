@@ -10,9 +10,9 @@ Ship-Identification
 
 Block type: ``PROCESSING``
 
-This block annotates ship detection geometries output by the
+This block annotates ship detection geometry features output by the
 `Ship Detection block <https://marketplace.up42.com/block/79e3e48c-d65f-4528-a6d4-e8d20fecc93c>`_
-with ship metadata of the Automatic Identification System (AIS), e.g. ship name, cargo,
+with ship metadata of the `Automatic Identification System (AIS) <https://en.wikipedia.org/wiki/Automatic_identification_system>`_, e.g. ship name, cargo,
 destination port etc.).
 The Ship Identification block can be run on top of the `Ship Detection
 workflow <build-first-workflow>`_ (Spot 6/7 Streaming, Tiling, Airbus Ship Detection).
