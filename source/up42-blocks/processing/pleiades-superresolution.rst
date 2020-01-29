@@ -16,11 +16,13 @@ Block type: ``PROCESSING``
 
 Super-resolution Pléiades/SPOT quadruples the image resolution of Pléiades and SPOT satellite imagery to increase the performance of object detection algorithms.
 
-Super-resolution is the process of deriving high-resolution from low-resolution images using an algorithm. The algorithm made available by this block is based on a state-of-the-art Convolutional Neural Network.
+Super-resolution is the process of increasing the resolution of images using an algorithm. The algorithm made available by this block is based on a state-of-the-art Convolutional Neural Network.
 
-Quality improvement of the images was measured using the `SSIM <https://en.wikipedia.org/wiki/Structural_similarity>`_ metric to guarantee that information content was added by the algorithm. Image resolution of the processed images will be quadrupled, but it needs to be understood that an algorithmically derived image can never have the same information content as an image that was originally recorded at that resolution. The use case for this block is as a preprocessing step for object detection algorithms (ships, cars, planes etc) as the images become much crisper and contour outlines more well defined.
+Quality improvements of the images were measured using the `SSIM <https://en.wikipedia.org/wiki/Structural_similarity>`_ metric to guarantee that information content was added by the algorithm.
 
-This block takes a Pléiades or SPOT image and increases the number of pixels by 16 for all existing spectral bands by using a trained convolutional neural network. The information content of algorithmically derived images do not contain more information originally recorded at that resolution.
+Image resolution of the processed images will be quadrupled, but it needs to be understood that an algorithmically derived image can never have the same information content as an image that was originally recorded at that resolution. The use case for this block is as a preprocessing step for object detection algorithms (ships, cars, planes etc) as the images become much crisper and contour outlines more well defined.
+
+Quadrupling the resolution means that this block takes a Pléiades or SPOT image and increases the number of pixels by a factor of 16 for all existing spectral bands by using a trained convolutional neural network. The information content of algorithmically derived images do not contain more information originally recorded at that resolution.
 
 Supported parameters
 --------------------
