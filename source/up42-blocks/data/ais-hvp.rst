@@ -16,7 +16,7 @@ This block provides access to historical data points of the
 The block queries the
 `Exact Earth historical vessel points API <https://www.exactearth.com/technology/satellite-ais>`_ and provides
 ship position point geometries and associated metadata e.g. ship name, cargo, destination port, etc.
-The output is the UP42 `data.json` GeoJSON file containing the ship AIS vessel points features.
+The output is a UP42 `data.json` GeoJSON file containing the ship AIS vessel points features.
 
 
 Supported parameters
