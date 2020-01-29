@@ -7,7 +7,7 @@
 
 Sentinel-1 L1C SLC Full Scenes
 ==============================
-`Link <https://marketplace.up42.com/block/222c9742-ed19-4a2e-aa87-d6b58193cd31>`_ to block details page
+Please see the `block details page <https://marketplace.up42.com/block/222c9742-ed19-4a2e-aa87-d6b58193cd31>`_ for context.
 
 Block type: ``DATA``
 

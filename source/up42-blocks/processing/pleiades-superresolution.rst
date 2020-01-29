@@ -8,9 +8,7 @@
 Super-resolution Pléiades/SPOT
 ==============================
 
-.. TODO::
-
-   `Link <https://marketplace.up42.com/block/f6c29b0a-75bd-44a1-a040-f18c9e881d1d>`_ to block details page.
+Please see the `block details page <https://marketplace.up42.com/block/f6c29b0a-75bd-44a1-a040-f18c9e881d1d>`_ for context.
 
 Block type: ``PROCESSING``
 

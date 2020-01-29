@@ -8,9 +8,9 @@
 SNAP Polarimetric Processing
 ============================
 
-See the `block details page
+Please see the `block details page
 <https://marketplace.up42.com/block/8c6baae9-d50e-406c-b4ac-e211caa6229d>`_
-for context on usage of this block.
+for context.
 
 Block type: ``PROCESSING``
 

@@ -6,7 +6,7 @@
 
 Data Format and Type Conversion
 ===============================
-`Link <https://marketplace.up42.com/block/87dfdea7-a89a-46b5-8ac3-634ebe26f570>`_ to block details page
+Please see the `block details page <https://marketplace.up42.com/block/87dfdea7-a89a-46b5-8ac3-634ebe26f570>`_ for context.
 
 Block type: ``PROCESSING``
 

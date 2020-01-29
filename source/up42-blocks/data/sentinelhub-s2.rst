@@ -2,7 +2,7 @@
 
 Sentinel-2 Level 2 (BOA) AOI clipped
 ====================================
-`Link <https://marketplace.up42.com/block/018dfb34-fc19-4334-8125-14fd7535f979>`_ to block details page
+Please see the `block details page <https://marketplace.up42.com/block/018dfb34-fc19-4334-8125-14fd7535f979>`_ for context.
 
 Block type: ``DATA``
 
