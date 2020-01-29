@@ -31,8 +31,9 @@ the fused ship metadata.
 Supported parameters
 --------------------
 
-* ``minutes``: Timperiod around the satellite scene acquistion time (default: 15).
-* ``max_features``: Maximum amount of AIS signals queried by the Exact Earth API.
+* ``minutes``: Delta of time in minutes around the satellite scene acquisition date for
+               querying the AIS data feed (default: 15)
+* ``max_features``: Maximum amount of AIS point features queried by the Exact Earth API.
 
 Example usage
 -------------
