@@ -18,7 +18,7 @@ The block queries the
 ship track linestring geometries and associated metadata e.g. ship name, cargo, destination port, etc.
 A segment of the track is defined by two consecutive vessel positions where the segment inherits the latest vessel
 position, static, and voyage information from the most recent of the two consecutive vessel positions.
-The output is the UP42 `data.json` GeoJSON file containing the ship AIS vessel track features.
+The output is a UP42 `data.json` GeoJSON file containing the ship AIS vessel track features.
 
 
 Supported parameters
