@@ -4,19 +4,19 @@
 
 .. _ais-hvp-block:
 
-AIS Historical Vehicle Points
-=============================
+AIS Vessel Points
+=================
 
 For context, see `block details page <https://marketplace.up42.com/block/...>`_.
 
 Block type: ``DATA``
 
-This block provides access to historical data points of the the
-`Automatic Identification System (AIS) <https://en.wikipedia.org/wiki/Automatic_identification_system>`_,
-including ship position point geometries and metadata e.g. ship name, cargo, destination port, etc.
+This block provides access to historical data points of the
+`Automatic Identification System (AIS) <https://en.wikipedia.org/wiki/Automatic_identification_system>`_.
 The block queries the
-`Exact Earth historical vessel points API <https://www.exactearth.com/technology/satellite-ais>`_.
-The output is the UP42 `data.json` GeoJSON file containing the ship position features.
+`Exact Earth historical vessel points API <https://www.exactearth.com/technology/satellite-ais>`_ and provides
+ship position point geometries and associated metadata e.g. ship name, cargo, destination port, etc.
+The output is the UP42 `data.json` GeoJSON file containing the ship AIS vessel points features.
 
 
 Supported parameters
@@ -28,7 +28,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
   **or** ``contains``.
 * ``contains``: A GeoJSON geometry to use as an AOI. Will return all data points that are within this geometry. Use only ``bbox``
   **or** ``contains``.
-* ``time``: A date range to filter the data points on on. This range applies to the acquisition date/time of the AIS signals.
+* ``time``: A date range to filter the data points on. This range applies to the acquisition date/time of the AIS signals.
 
 
 Example queries
@@ -65,8 +65,8 @@ Output format is a ``GeoJSON`` file, see `GeoJSON <https://en.wikipedia.org/wiki
         "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}},
         "features": [
             {"type": "Feature",
-             "properties": {"mmsi": 247291100, "imo": 8959245, "vessel_name": "SAN MARCO",
-                            "callsign": "ISXC", "vessel_type": "Unknown",
+             "properties": {"mmsi": 2738129, "imo": 8959245, "vessel_name": "SAN MARCO",
+                            "callsign": "UWHW", "vessel_type": "Unknown",
                             "vessel_type_code": 100, "vessel_type_cargo": "",
                             "vessel_class": "A", "length": 56, "width": 11,
                             "flag_country": "Italy", "flag_code": 247,
@@ -82,7 +82,7 @@ Output format is a ``GeoJSON`` file, see `GeoJSON <https://en.wikipedia.org/wiki
                             "vessel_type_sub": "Passenger Ro Ro Cargo Ship",
                             "message_type": 1, "eeid": 5678668990079917276,
                             "dtg": "2019-01-01T10:01:47Z"},
-             "geometry": {"type": "Point", "coordinates": [12.35449, 45.428425]}}
+             "geometry": {"type": "Point", "coordinates": [15.32323, 23.42132]}}
         ]
     }
 
