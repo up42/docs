@@ -8,7 +8,7 @@
 Super-resolution Pléiades/SPOT
 ==============================
 
-Please see the `block details page <https://marketplace.up42.com/block/f6c29b0a-75bd-44a1-a040-f18c9e881d1d>`_ for context.
+Please see the `block details page <https://marketplace.up42.com/block/0f1ba0c4-75fb-4a11-bb0b-d65fd4214240>`_ for context.
 
 Block type: ``PROCESSING``
 
