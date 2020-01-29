@@ -5,8 +5,8 @@
 
 .. _pleiades-superresolution-block:
 
-Pleiades Super-resolution
-===========================
+Super-resolution Pléiades/SPOT
+==============================
 
 .. TODO::
 
