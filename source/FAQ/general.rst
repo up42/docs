@@ -100,8 +100,6 @@ How can I get very-high resolution images in the Near Infra-Red (NIR) band?
 
 See :ref:`above <acquire-hi-res-data>`.
 
-
-
 .. _handle-download-block-output:
 
 I used the Pléaides and/or SPOT download block and loaded the image in my GIS software and it has the wrong orientation and/or is on the wrong location. What is happening?
@@ -119,7 +117,7 @@ There are multiple points to answer in this question:
     + Use the DIMAP file and, **never, ever**, use the JPEG2000 files (``JP2`` extension) that are delivered. These files are not correctly geo-referenced. If you want
       to use the output of these download blocks you need to open the **DIMAP** file, is a file with a name starting with ``DIM_``, e.g.,
       ``DIM_PHR1A_P_201908291643176_ORT_6bf6aab9-d28f-401e-c0cf-a132ca1b7ec6-002.XML``. |br|
-      If you open this file in as a **raster** `QGIS <https://qgis.org>`_, for example, you will get a properly geo-referenced image.
+      If you open this file as a **raster** in `QGIS <https://qgis.org>`_, for example, you will get a properly geo-referenced image.
       
     + Use the :ref:`data type format conversion <data-format-type-conversion-block>` block:  it will give you all the imagery (panchromatic and multispectral) in GeoTIFF format.
      
