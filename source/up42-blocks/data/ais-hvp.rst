@@ -34,7 +34,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
 Example queries
 ---------------
 
-Example query using the ``time`` in combination with ``bbox``:
+Example query using ``time`` in combination with ``bbox``:
 
 .. code-block:: javascript
 
