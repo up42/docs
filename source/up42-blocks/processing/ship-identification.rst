@@ -13,17 +13,19 @@ Block type: ``PROCESSING``
 This block annotates ship detection geometry features output by the
 `Ship Detection block <https://marketplace.up42.com/block/79e3e48c-d65f-4528-a6d4-e8d20fecc93c>`_
 with ship metadata of the `Automatic Identification System (AIS) <https://en.wikipedia.org/wiki/Automatic_identification_system>`_, e.g. ship name, cargo,
-destination port etc.).
+destination port, etc.
 The Ship Identification block can be run on top of the `Ship Detection
 workflow <build-first-workflow>`_ (Spot 6/7 Streaming, Tiling, Airbus Ship Detection).
 The Ship Identification block queries the
 `Exact Earth historical vessel points API <https://www.exactearth.com/technology/satellite-ais>`_
-and fuses the data to the ship geometries in an iterative search approach.
+and fuses the data to the ship geometries using iterative search.
 
-The AIS signals are queried in a selectable period around the satellite
-scene acquisition time (default period is the acquisition time plus/minus 15 minutes).
-Also, the maximum number of features to query can be select (default 1000).
-The output is the UP42 data.json GeoJSON file containing the ship geometries with
+The AIS signal is queried for a time range around the satellite scene acquisition date,
+with the default being the a range of 15 minutes centered at the scene acquisition date.
+E.g., for an acquisition date of 2020-01-20T16:45:56Z the AIS query is performed for
+2020-01-20T16:30:56Z to 2020-01-20T17:00:56Z. Additionally the maximum number of features
+to be queried can be set, with the default being 1000.
+The output is the UP42 `data.json` GeoJSON file containing the ship geometries with
 the fused ship metadata.
 
 Supported parameters
@@ -35,8 +37,8 @@ Supported parameters
 Example usage
 -------------
 
-Example running the full Ship Identification workflow (including Spot 6/7 Streaming,
-Tiling, Airbus Ship Detection and Ship Identification).
+Example running the full Ship Identification workflow (SPOT 6/7 streaming data block →
+Tiling → Airbus Ship Detection → AIS Ship Identification).
 
 .. code-block:: javascript
 
