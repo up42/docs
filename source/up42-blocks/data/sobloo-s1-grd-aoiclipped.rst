@@ -6,7 +6,7 @@
 
 Sentinel-1 L1C GRD AOI clipped
 ==============================
-`Link <https://marketplace.up42.com/block/b1c88381-6df0-4919-a194-5d5b3b1ee2f7>`_ to block details page
+Please see the `block details page <https://marketplace.up42.com/block/b1c88381-6df0-4919-a194-5d5b3b1ee2f7>`_ for context.
 
 Block type: ``DATA``
 

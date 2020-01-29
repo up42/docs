@@ -6,7 +6,7 @@
 
 MODIS AOI clipped
 =================
-`Link <https://marketplace.up42.com/block/ef6faaf5-8182-4986-bce4-4f811d2745e5>`_ to block details page
+Please see the `block details page <https://marketplace.up42.com/block/ef6faaf5-8182-4986-bce4-4f811d2745e5>`_ for context.
 
 Block type: ``DATA``
 

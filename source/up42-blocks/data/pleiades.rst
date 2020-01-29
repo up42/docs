@@ -6,7 +6,7 @@
 
 Pléiades Streaming
 ==================
-`Link <https://marketplace.up42.com/block/18d09f1a-3197-4c27-a15a-54d099c31435>`_ to block details page
+Please see the `block details page <https://marketplace.up42.com/block/18d09f1a-3197-4c27-a15a-54d099c31435>`_ for context.
 
 Block type: ``DATA``
 

@@ -6,7 +6,7 @@
 
 Raster Tiling
 =============
-`Link <https://marketplace.up42.com/block/3e146dd6-2b67-4d6e-a422-bb3d973e32ff>`_ to block details page
+Please see the `block details page <https://marketplace.up42.com/block/3e146dd6-2b67-4d6e-a422-bb3d973e32ff>`_ for context.
 
 Block type: ``PROCESSING``
 

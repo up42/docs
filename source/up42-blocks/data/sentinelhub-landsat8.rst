@@ -6,7 +6,7 @@
 
 Landsat-8 Level 1 (TOA) AOI clipped
 ===================================
-`Link <https://marketplace.up42.com/block/95519b2d-09d7-4cd0-a321-4d6a46bef6c1>`_ to block details page
+Please see the `block details page <https://marketplace.up42.com/block/95519b2d-09d7-4cd0-a321-4d6a46bef6c1>`_ for context.
 
 Block type: ``DATA``
 
