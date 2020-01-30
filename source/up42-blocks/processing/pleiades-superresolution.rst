@@ -16,14 +16,14 @@ The Super-resolution Pléiades/SPOT block quadruples the *perceived* image
 resolution of Pléiades and SPOT satellite imagery to increase the
 performance of object detection algorithms.
 
-Super-resolution is the process of increasing the *perceived*
+Super-resolution is the process of increasing the 
 resolution of images using an algorithm. The block uses a
 state-of-the-art `Convolutional Neural Network
 <https://en.wikipedia.org/wiki/Convolutional_neural_network>`_ (CNN).
 
 Quality improvements of the images are measured using the `SSIM
 <https://en.wikipedia.org/wiki/Structural_similarity>`_ metric,
-thus guaranteing that the algorithm increases the **perceived** information
+thus guaranteing that the algorithm increases the information
 content of the original image.
 
 Image resolution of the processed images will be quadrupled, but it
