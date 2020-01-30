@@ -40,7 +40,8 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``limit``: An integer number specifying the maximum numbetr of results to return. Omit it to set no limit.
 * ``ids``: An array of image identifiers. The S3 identifiers naming scheme is described `here <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-3-olci/naming-convention>`_.
-  The file extension is omitted. This parameter is mainly meant for
+  The file extension is omitted. If supplied, all other parameters (such as ``intersects``, ``time`` or ``limit``) will
+  be ignored. This parameter is mainly meant for
   use via the API and cannot be used in combination with a :term:`TestQuery`.
 
 .. _sentinel-3-imagery-layers:
