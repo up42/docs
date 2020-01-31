@@ -64,6 +64,17 @@ In the map below you can see where this image is located.
 
 .. gist:: https://gist.github.com/up42-epicycles/b40d03163ad2dbe1bb43f09f084ef812
 
+.. warning::
+
+   Please be aware that the demo :term:`project` and :term:`workflow`,
+   as well as all workflows created under the demo project have a
+   limit of 10 km :superscript:`2` for AOI size. You need to create
+   **another project** to be able to define AOIs up to 100 km
+   :superscript:`2`. If you have a payment method defined in your
+   account then these limitations **do not** apply. You will be able
+   to set the AOI up to 1000 km :superscript:`2`.
+
+          
 Run your first job
 -------------------
 

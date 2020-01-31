@@ -44,11 +44,18 @@ In order to run a job via the API, you need to provide the the ``project API key
 
 .. _project-settings-api-data:
 
-*project API key*
-    The project-specific API key. Go to `UP42 console > Demo Project > Settings` and copy the project API key which looks similar to this: `pRj1h8Nv.Mmguja9BsLJXPWlvWt3h9vwAIftlcSHQSj1`
+**project API key**
 
-*project ID*
-    The unique identifier of the project. Go to `UP42 console > Demo Project`, and extract the project ID from the URL, e.g. `https://console.up42.com/projects/<project ID>/settings`. The project ID looks similar to this: `1ae70a40-07e9-47a7-9c25-bea19af1c451`
+    The project-specific API key. Go to **UP42 Console > Demo Project
+    > Settings** and copy the project API key which looks similar to
+    this: ``pRj1h8Nv.Mmguja9BsLJXPWlvWt3h9vwAIftlcSHQSj1``.
+
+**project ID**
+    The unique identifier of the project. Go to **UP42
+    Console > Demo Project**, and extract the project ID from the URL,
+    e.g. ``https://console.up42.com/projects/<project
+    ID>/settings``. The project ID looks similar to this:
+    ``1ae70a40-07e9-47a7-9c25-bea19af1c451``.
 
 .. figure:: _assets/api_settings.png
    :align: center

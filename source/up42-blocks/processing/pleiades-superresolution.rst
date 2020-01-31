@@ -31,7 +31,7 @@ needs to be understood that an algorithmically derived image can never
 have the same information content as an image that was originally
 recorded at that resolution. The use case for this block is as a
 preprocessing step for object detection algorithms (ships, cars,
-planes, etc.) as the images become crispier and contour outlines
+planes, etc.) as the images become crisper and contour outlines
 more well defined.
 
 Quadrupling the resolution means here that this block takes a Pléiades
