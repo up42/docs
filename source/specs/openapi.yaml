@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: UP42 API
-  description: >
+  description: |
     # Introduction
 
     This specification describes the UP42 public API. It is a work in
@@ -15,7 +15,7 @@ info:
     The authoritative source for the specification is available at
     [github](https://github.com/up42/openapi-specification).
 
-    ## Authentication & Authorization
+    # Understanding authentication and authorization
 
     Currently the only way to access our API is on a project by
     project basis. Meaning that the authorization token that is issued
@@ -35,10 +35,10 @@ info:
     your project it will make you incur costs and thus reduce the
     currently available credits in our platform.
 
-    ### Requirements
+    ## Requirements
 
-     1. [cURL](https://curl.haxx.se).
-     2. [jq](https://stedolan.github.io/jq/).
+    + [cURL](https://curl.haxx.se).
+    + [jq](https://stedolan.github.io/jq/).
 
     [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) is the shell
     used in this guide.
@@ -50,7 +50,7 @@ info:
     a [HMAC](https://en.wikipedia.org/wiki/HMAC) based on
     [SHA-512](https://en.wikipedia.org/wiki/SHA-2) for signature encryption.
     
-    #### Authenticating and getting the token
+    ## Authenticating and getting the token
 
     The authentication uses the project key and the project ID. Both
     can be found at

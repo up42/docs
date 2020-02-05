@@ -27,13 +27,13 @@ converter block that allows you to continue your workflow with this datasets wit
 The DIMAP download block
 ------------------------
 
-Currently two DIMAP download blocks are available: the :ref:`Pleaides DIMAP download <pleiades-dimap-block>` and the
-:ref:`SPOT DIMAP download <spot-dimap-block>`.
+Currently two DIMAP download blocks are available: the :ref:`Pleaides DIMAP download <pleiades-download-block>` and the
+:ref:`SPOT DIMAP download <spot-download-block>`.
 
 .. tip::
 
     Find out more about the DIMAP image format `here
-    <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`_. DIMAP
+    <https://www.intelligence-airbusds.com/en/8722-the-download-format>`_. DIMAP
     is a GDAL supported `raster format
     <https://gdal.org/drivers/raster/dimap.html>`_.
 
@@ -70,7 +70,7 @@ The :ref:`Data Format and Type Conversion <data-format-type-conversion-block>` a
 If you make use of the default parameters only the multispectral bands of the product will be used and included in the ``GeoTIFF`` output of the block.
 If you want to obtain the pansharpened product **only** you can set the ``ms`` parameter to ``false`` and the ``pan`` parameter to ``true``.
 
-For example, to convert a :ref:`SPOT DIMAP download <spot-dimap-block>` to a panchromatic ``GeoTIFF`` use:
+For example, to convert a :ref:`SPOT DIMAP download <spot-download-block>` to a panchromatic ``GeoTIFF`` use:
 
 .. code-block:: javascript
 
@@ -99,7 +99,7 @@ Try it out
 
 Let's spin up this block! First create a project described in :ref:`Building your first workflow <build-first-workflow>`.
 
-In the Project page you just created create a Workflow and add a :ref:`SPOT DIMAP Download <spot-dimap-block>` as the data block.
+In the Project page you just created create a Workflow and add a :ref:`SPOT DIMAP Download <spot-download-block>` as the data block.
 
 Also add the :ref:`Data Format and Type Conversion <data-format-type-conversion-block>` as a processing block. **Click next.**
 
@@ -150,7 +150,7 @@ it will give you an estimation of the number of credits that will be charged, be
 
 .. warning::
 
-	In addition to the Data credits used by the :ref:`SPOT DIMAP Download <spot-dimap-block>`, credits will also be deducted for Infrastructure and Processing so the total amount of credits for the Workflow will always be higher than the estimation provided in the Logs displayed before.
+	In addition to the Data credits used by the :ref:`SPOT DIMAP Download <spot-download-block>`, credits will also be deducted for Infrastructure and Processing so the total amount of credits for the Workflow will always be higher than the estimation provided in the Logs displayed before.
 
 If you're happy about the selected image, click **Run as real job**.
 

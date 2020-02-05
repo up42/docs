@@ -86,7 +86,7 @@ language = None
 exclude_patterns = [
     'api',
     'examples',
-    '*.zip'
+    '*.zip',
 ]
 
 # Extra paths to consider.
@@ -243,7 +243,6 @@ redoc = [
         'page': 'api/index',
         'spec': 'specs/openapi.yaml',
         'embed': True,
-        'suppress-warnings': True, 
     },
 ]
 

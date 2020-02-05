@@ -5,5 +5,5 @@ UP42 API documentation
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents
-   
+   :caption: .. Contents::
+
