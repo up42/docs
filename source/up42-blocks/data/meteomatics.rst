@@ -26,10 +26,15 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``time_interval``: A time interval in hours to access the time series of a variable at these certain times. By default, ``time_interval`` is set to 3 hours.
 
 .. note::
+
   In this block we select the ``mix`` option provided by Meteomatics which combines different models and sources into an intelligent blend, such that the best data source is chosen for each time and location. The length of the forecasting period as well as the spatial resolution depends on the model from which the requested parameters originate.
+
 .. warning::
 
   The arcseconds resolution for retrieving time series of a variable will be set based on the size of chosen ``AOI``. In this way, hitting the limit of query point provided by meteomatics api will be avoided.
+
+.. tip::
+  In order to be able to read NetCDF file, you can either use free application like `Panoply website <https://www.giss.nasa.gov/tools/panoply/>`_ or using `Ncview <http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html>`_.
 
 Example queries
 ---------------
