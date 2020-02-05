@@ -237,11 +237,14 @@ todo_include_todos = False
 # Swagger/OpenAPI
 # TODO: Configure this to fetch it automatically from the production swagger endpoint
 # See: https://sphinxcontrib-redoc.readthedocs.io/en/stable/
-# redoc = [
-#     {
-#         'name': 'UP42 API',
-#         'page': 'api/index',
-#         'spec': 'specs/api.yml',
-#         'embed': True,
-#     },
-# ]
+redoc = [
+    {
+        'name': 'UP42 API',
+        'page': 'api/index',
+        'spec': 'specs/openapi.yaml',
+        'embed': True,
+        'suppress-warnings': True, 
+    },
+]
+
+redoc_uri = 'https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js'

@@ -1,0 +1,2036 @@
+openapi: 3.0.0
+info:
+  title: UP42 API
+  description: >
+    # Introduction
+
+    This specification describes the UP42 public API. It is a work in
+    progress and both updates and new endpoints are added as
+    needed. If there is something that you would like to do with our
+    API but is not listed here, then please write to
+    [support@up42.com](mailto:support@up42.com) stating what you want
+    to do via our API and we will support in setting things up so that
+    we solve the issue at hand.
+
+    The authoritative source for the specification is available at
+    [github](https://github.com/up42/openapi-specification).
+
+    ## Authentication & Authorization
+
+    Currently the only way to access our API is on a project by
+    project basis. Meaning that the authorization token that is issued
+    upon authentication can only be used in a **specific** project
+    context. 
+
+    It means that a **project key** is **always** needed. Therefore you
+    always need to create a project **through the UI**.
+
+    The example below uses an example project. So the specific values of
+    things like project key and project ID are given for illustration
+    purposes only. In your case the values will be different.
+
+    **Note**: Please be aware that the project ID and the project key
+    allows anyone to manipulate your project (account) so be careful and
+    do not share it around. Someone might find it and besides messing with
+    your project it will make you incur costs and thus reduce the
+    currently available credits in our platform.
+
+    ### Requirements
+
+     1. [cURL](https://curl.haxx.se).
+     2. [jq](https://stedolan.github.io/jq/).
+
+    [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) is the shell
+    used in this guide.
+
+    Additionally you can use
+    [jwt-cli](https://github.com/mike-engel/jwt-cli) to decode
+    the token that is based on [JSON Web Token
+    (JWT)](https://en.wikipedia.org/wiki/JSON_Web_Token) and uses
+    a [HMAC](https://en.wikipedia.org/wiki/HMAC) based on
+    [SHA-512](https://en.wikipedia.org/wiki/SHA-2) for signature encryption.
+    
+    #### Authenticating and getting the token
+
+    The authentication uses the project key and the project ID. Both
+    can be found at
+    `https://console.up42.com/projects/<projectID>/settings`, where
+    `<projectID>` is the project ID of a specific project.
+
+    The project API key will be displayed there, e.g.,
+    `1dJeCIVx.ex0eU6GRlXSYEo72Icw9pqud7NFbxuHqaJz`.
+
+    In the authentication process the project ID functions as a
+    username and the project key as a password in a
+    [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)
+    setup.
+
+    Given a project ID `1b0015e3-cc4f-4da6-9761-fba74ba57f67` and a
+    project key `1dJeCIVx.ex0eU6GRlXSYEo72Icw9pqud7NFbxuHqaJz` let us
+    create two shell variables to hold each.
+
+    > PROJ=1b0015e3-cc4f-4da6-9761-fba74ba57f67
+    >  PKEY=1dJeCIVx.ex0eU6GRlXSYEo72Icw9pqud7NFbxuHqaJz   
+
+    Now we issue the cURL request:
+      
+        PTOKEN=$(curl -sX POST https://$PROJ:$PKEY@api.up42.com/oauth/token \
+                   -H 'Content-Type: application/x-www-form-urlencoded' \
+                   -d 'grant_type=client_credentials' | jq -r '.data.accessToken')
+
+    Which returns:
+
+        > echo $PTOKEN
+        eyJ0eXAiOiJKV1QiLCJraWQiOiIxIiwidG9rZW5fdHlwZSI6IkFDQ0VTUyIsImFsZyI6IlJTNTEyIn0.eyJpc3MiOiJiYWNrZW5kLWNvcmUiLCJqdGkiOiI5ZGJiMDg4OS1mMGE0LTQ5MzUtOGU2MC1jOWUyNDYyZjhlMDYiLCJpYXQiOjE1NzU5NzQ3NzYsInN1YiI6IjFiMDAxNWUzLWNjNGYtNGRhNi05NzYxLWZiYTc0YmE1N2Y2NyIsImF1ZCI6IjFiMDAxNWUzLWNjNGYtNGRhNi05NzYxLWZiYTc0YmE1N2Y2NyIsImV4cCI6MTU3NTk3NTA3NiwiYXV0aG9yaXRpZXMiOlsiVklFV19QUk9KRUNUIiwiUlVOX0pPQiJdfQ.Nyv8oeAEbC5YVE-ZrIP4BxQhp6LsiO2nP_v5da9LIp_H1AeIFAXVOEatKQCJO7s2nUDl5bednIgCW4AGyTsWbMaEtZ0d5kcNCgfg-YTzqReUVB-8PRJ0ef6Gh-D-Is6_sGg3b4WiEMZFTdfN4eLxHFcbXUiUDRi-4EhM__aihrXonrHVSFNhJ2bHqpX-3oFQwCIVmU1eCusdkaR2aRcpWj4iQQxWrx9hJ7-5W0Es3ilzfFB3pDQ0l5IoTXIjNyWipcdtwVuoV8eDoe0kIwdgGDrSgpgzPTb7JjqNMreKtlcSIqkBNitHqALFoCoj_OP9YKuBxY8_cossn85p7d3pa2KSoV3Clc9O5jgWve59PCMXVrn2kX2_CjmhJQkrW0sGZEKexm3Em-UpPrdVwb8T4yXw8DIK8H6rWK5XsVac1hQ5nXeBiaAG2GN4wpkGKk8AVBBe3QP10X4uJ0q1W3IrzeVE6arFxky6xLdqvJ8OFZY0l6dnR8i1plQlrlugGsTM3dYKpO_1LAHQfwWOh80eNblsz6qRPq18Kx5U5z1FfJo5g7muPwSqut1NqM6zC86WNTcmmzpHuoZCpR4wVhrWJ5k_NvO6abUjT-dUumJoQ7Rh0Y5szOGaldKmdWR5wuNjo7OVfNV3gwrkxxySjqvc_3LiD45fXlupjgfFYdtD6hA
+
+    We can now decode the token with the `jwt` CLI:
+
+        > jwt decode -j -A HS512 $PTOKEN | jq '.'
+    ```js
+        {
+           "header": {
+              "typ": "JWT",
+              "alg": "RS512",
+              "kid": "1"
+           },
+           "payload": {
+              "aud": "1b0015e3-cc4f-4da6-9761-fba74ba57f67",
+              "authorities": [
+                 "VIEW_PROJECT",
+                 "RUN_JOB"
+             ],
+             "exp": 1575975076,
+             "iat": 1575974776,
+             "iss": "backend-core",
+             "jti": "9dbb0889-f0a4-4935-8e60-c9e2462f8e06",
+             "sub": "1b0015e3-cc4f-4da6-9761-fba74ba57f67"
+           }
+         }
+     ```
+     Looking at the `"exp"`and `"iat"`fields, respectively EXPiration
+     and Issued At Time in [UNIX time](https://en.wikipedia.org/wiki/Unix_time)
+     we see that the difference is 300 seconds,
+     meaning that a token is valid for 5 minutes.
+
+     The authentication and authorization mechanism are specified below
+     in detail.
+
+     Be aware also that all API requests are made over HTTPS.
+  contact:
+    name: API support
+    email: support@up42.com
+  version: '0.9'
+  license:
+    name: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+    url: http://creativecommons.org/licenses/by-nc-nd/4.0/
+servers:
+- url: https://api.up42.com
+  variables: {}
+paths:
+  /oauth/token:
+    post:
+      tags:
+      - token
+      summary: Get the bearer token 
+      description: >
+        Get the bearer token necessary for all API requests.
+      security:
+        - basicAuth: []
+      parameters:
+      - name: Authorization
+        in: header
+        description: >-
+          The `username:password` string Base64 encoded. `username` is
+          the project ID and password is the project key.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: >
+            MWIwMDE1ZTMtY2M0Zi00ZGE2LTk3NjEtZmJhNzRiYTU3ZjY3OjFkSmVDSVZ4LmV4MGVVNkdSbFhTWUVvNzJJY3c5cHF1ZDdORmJ4dUhxYUp6Cg==
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/x-www-form-urlencoded
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: string
+              example: grant_type=client_credentials
+      responses:
+        200:
+          description: OK.
+          headers: {}
+          content:
+            application/json:
+              example: 
+                data:
+                  accessToken: eyJ0eXAiOiJKV1QiLCJraWQiOiIxIiwidG9rZW5fdHlwZSI6IkFDQ0VTUyIsImFsZyI6IlJTNTEyIn0.eyJpc3MiOiJiYWNrZW5kLWNvcmUiLCJqdGkiOiI1ODdkMTQ3My05ODU5LTRhMDAtYTUwNS1iZTgwMDUzYmJiMzUiLCJpYXQiOjE1NzU5NzE1ODEsInN1YiI6IjFiMDAxNWUzLWNjNGYtNGRhNi05NzYxLWZiYTc0YmE1N2Y2NyIsImF1ZCI6IjFiMDAxNWUzLWNjNGYtNGRhNi05NzYxLWZiYTc0YmE1N2Y2NyIsImV4cCI6MTU3NTk3MTg4MSwiYXV0aG9yaXRpZXMiOlsiVklFV19QUk9KRUNUIiwiUlVOX0pPQiJdfQ.hgJkzcokxZQpEc5walhzDqMubBgT_ukmRLd1-mqBHZBv8hMI-7rJaLaA1-ZB5P5CgLvzUyjkeq4gwuXZgmx7Q0nufnI6qC8gxSOEGjfb-sS4wHew7zhPXwNfhuv0CmhMeHpQXyjxdlKxf4cWbhK3PVQkHMCnxvJkw1T7RJ_XolEzRN2g2ocM-hzhLM3UVhzqyeD_qVr1yCjZzs32gsekmPQkW_XmflrSgzl7AhHxQK9psC3h3H6HveT2WmnYqvnb-a3v8FJTCC21S5KCAV1qj-Hlv1vTUDRoQK5TsH4oklvnmqfU0ylmCDPRKihcyUgFvf5wdcebDgbUHHvlz8gEsTaMGEEDmfzXCQwr9e4bgzildOiqzsS2tRf2m1bJAYF-vQ5Yfsv5mt0xauTEaWARAfe5WzoLKQ7Ex3WKuLnzZlzKZ-BKQuP31rk-O4F-784RM60nto6aQh1Yl3uUVSTRMQ4SwsOO3RWvIP52CqeM4EMXjfLZDsOOuXIlmiVRXSRFi7yY0uC-5DKMkkeBw-RXh2wGMF7axB2Wo7fbcpr2vszkdbGKg-kw2bF_oHd_20riBAUBV0kWC3XGYkDOunUPLDqFhtDQRS-GlL8aDoYX8pe19qiUzLXX3QWLb95FkNyz6w8MjMEMkatSfLhrYX7PHNI3VAa59IB0NdRCi4arDig
+                error: null
+                access_token: eyJ0eXAiOiJKV1QiLCJraWQiOiIxIiwidG9rZW5fdHlwZSI6IkFDQ0VTUyIsImFsZyI6IlJTNTEyIn0.eyJpc3MiOiJiYWNrZW5kLWNvcmUiLCJqdGkiOiI1ODdkMTQ3My05ODU5LTRhMDAtYTUwNS1iZTgwMDUzYmJiMzUiLCJpYXQiOjE1NzU5NzE1ODEsInN1YiI6IjFiMDAxNWUzLWNjNGYtNGRhNi05NzYxLWZiYTc0YmE1N2Y2NyIsImF1ZCI6IjFiMDAxNWUzLWNjNGYtNGRhNi05NzYxLWZiYTc0YmE1N2Y2NyIsImV4cCI6MTU3NTk3MTg4MSwiYXV0aG9yaXRpZXMiOlsiVklFV19QUk9KRUNUIiwiUlVOX0pPQiJdfQ.hgJkzcokxZQpEc5walhzDqMubBgT_ukmRLd1-mqBHZBv8hMI-7rJaLaA1-ZB5P5CgLvzUyjkeq4gwuXZgmx7Q0nufnI6qC8gxSOEGjfb-sS4wHew7zhPXwNfhuv0CmhMeHpQXyjxdlKxf4cWbhK3PVQkHMCnxvJkw1T7RJ_XolEzRN2g2ocM-hzhLM3UVhzqyeD_qVr1yCjZzs32gsekmPQkW_XmflrSgzl7AhHxQK9psC3h3H6HveT2WmnYqvnb-a3v8FJTCC21S5KCAV1qj-Hlv1vTUDRoQK5TsH4oklvnmqfU0ylmCDPRKihcyUgFvf5wdcebDgbUHHvlz8gEsTaMGEEDmfzXCQwr9e4bgzildOiqzsS2tRf2m1bJAYF-vQ5Yfsv5mt0xauTEaWARAfe5WzoLKQ7Ex3WKuLnzZlzKZ-BKQuP31rk-O4F-784RM60nto6aQh1Yl3uUVSTRMQ4SwsOO3RWvIP52CqeM4EMXjfLZDsOOuXIlmiVRXSRFi7yY0uC-5DKMkkeBw-RXh2wGMF7axB2Wo7fbcpr2vszkdbGKg-kw2bF_oHd_20riBAUBV0kWC3XGYkDOunUPLDqFhtDQRS-GlL8aDoYX8pe19qiUzLXX3QWLb95FkNyz6w8MjMEMkatSfLhrYX7PHNI3VAa59IB0NdRCi4arDig
+                refresh_token: null
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                null
+      deprecated: false
+  /projects/{project_id}/settings:
+    get:
+      tags:
+      - project-settings
+      summary: Get project settings
+      description: >
+        Get the project settings, i.e., the limits for AOI size in square km,
+        the number of simultanesouly running jobs for this project and
+        the maximum number of results to be returned.
+      operationId: GetProjectSettings
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/ProjectID'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              example:
+                error: null
+                data:
+                  - id: cca028e6-4f24-4ea0-9564-d82ce80aac7d
+                    createdAt: '2019-10-29T11:04:03.561Z'
+                    updatedAt: '2019-10-29T11:04:03.561Z'
+                    name: MAX_CONCURRENT_JOBS
+                    value: '1'
+                    range:
+                      min: 1
+                      max: 10
+                    displayId: cca028e6
+                  - id: c00d5803-76d7-4259-be17-ac5ae583f5cb
+                    createdAt: '2019-10-29T11:04:03.562Z'
+                    updatedAt: '2019-10-29T11:04:03.562Z'
+                    name: JOB_QUERY_LIMIT_PARAMETER_MAX_VALUE
+                    value: '10'
+                    range:
+                      min: 1
+                      max: 20
+                    displayId: c00d5803
+                  - id: bf7d63d3-7ae0-40d3-9415-d1503a351dba
+                    createdAt: '2019-10-29T11:04:03.562Z'
+                    updatedAt: '2019-10-29T11:04:03.562Z'
+                    name: JOB_QUERY_MAX_AOI_SIZE
+                    value: '100'
+                    range:
+                      min: 1
+                      max: 1000
+                    displayId: bf7d63d3
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                error:
+                  code: UNAUTHORIZED
+                  message: >
+                    ACCESS_TOKEN_EXPIRED: JWT expired at 2019-11-29T11:54:38Z. 
+                    Current time: 2019-11-29T15:07:30Z, a difference of 11572156
+                    milliseconds.  Allowed clock skew: 0 milliseconds.
+                  details: null
+                data: null
+      deprecated: false
+    put:
+      tags:
+      - project-settings
+      summary: Update project settings
+      description: >-
+        Update the settings for a specific project. This includes the
+        comprises the following parameters:
+          + `MAX_CONCURRENT_JOBS`: maximum number of concurrent jobs.
+          + `JOB_QUERY_MAX_AOI_SIZE`: maximum number of results in a data request.
+          + `JOB_QUERY_MAX_AOI_SIZE`: maximum size in square km of theArea of Interest (AOI).
+      operationId: UpdateProjectSettings
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/ProjectID'
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UpdateprojectsettingsRequest'
+              description: ''
+            example:
+            - name: JOB_QUERY_MAX_AOI_SIZE
+              value: 1000
+            - name: MAX_CONCURRENT_JOBS
+              value: 10
+            - name: JOB_QUERY_LIMIT_PARAMETER_MAX_VALUE
+              value: 20
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              example:
+                error: null
+                data:
+                  - id: bf7d63d3-7ae0-40d3-9415-d1503a351dba
+                    createdAt: '2019-10-29T11:04:03.562Z'
+                    updatedAt: '2019-12-10T17:40:29.839Z'
+                    name: JOB_QUERY_MAX_AOI_SIZE
+                    value: '1000'
+                    range:
+                      min: 1
+                      max: 1000
+                    displayId: bf7d63d3
+                  - id: cca028e6-4f24-4ea0-9564-d82ce80aac7d
+                    createdAt: '2019-10-29T11:04:03.561Z'
+                    updatedAt: '2019-12-10T17:40:29.848Z'
+                    name: MAX_CONCURRENT_JOBS
+                    value: '10'
+                    range:
+                      min: 1
+                      max: 10
+                    displayId: cca028e6
+                  - id: c00d5803-76d7-4259-be17-ac5ae583f5cb
+                    createdAt: '2019-10-29T11:04:03.562Z'
+                    updatedAt: '2019-12-10T17:40:29.852Z'
+                    name: JOB_QUERY_LIMIT_PARAMETER_MAX_VALUE
+                    value: '20'
+                    range:
+                      min: 1
+                      max: 20
+                    displayId: c00d5803
+        400:
+          description: VALIDATION ERROR
+          content:
+            application/json:
+              example:
+                error:
+                  code: VALIDATION_ERROR
+                  message: 'Field "list[1].value" must be in range Range[1,10], got 100'
+                  details: null
+                data: null                
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                error:
+                  code: UNAUTHORIZED
+                  message: >
+                    ACCESS_TOKEN_EXPIRED: JWT expired at 2019-11-29T11:54:38Z. 
+                    Current time: 2019-11-29T15:07:30Z, a difference of 11572156
+                    milliseconds.  Allowed clock skew: 0 milliseconds.
+                  details: null
+                data: null              
+        404:
+          description: Not Found
+          content:
+            application/json:
+              example:
+                error:
+                  code: RESOURCE_NOT_FOUND
+                  message: Project not found with id '1b0015e3-cc4f-4da6-9761-fba74ba57f69'
+                  details: null
+                data: null
+      deprecated: false
+  /projects/{project_id}/workflows:
+    get:
+      tags:
+      - workflows
+      summary: Get all project specific workflows
+      description: >
+        Get all the workflows for a given project.
+      operationId: GetWorkflows
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      - name: project_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/ProjectID'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              example:
+                error: null
+                data:
+                  - id: 1ef6c73a-a155-489e-9ec2-b073c6e74da9
+                    name: S1 SLC
+                    description: ''
+                    createdAt: '2019-10-29T11:04:27.915Z'
+                    updatedAt: '2019-10-29T11:04:38.973Z'
+                    totalProcessingTime: 31
+                  - id: a51a96a6-60bf-44c2-8936-b69b84711ba4
+                    name: Pléaides download
+                    description: ''
+                    createdAt: '2019-10-29T13:32:31.460Z'
+                    updatedAt: '2019-10-29T13:32:43.216Z'
+                    totalProcessingTime: 152
+                  - id: 266be679-37b9-4b28-948c-ffef3e4a91fd
+                    name: 'Support ticket #175'
+                    description: ''
+                    createdAt: '2019-10-31T10:02:06.014Z'
+                    updatedAt: '2019-10-31T10:02:13.517Z'
+                    totalProcessingTime: 103
+                  - id: b16f2676-1420-4146-b000-529b9ee2b724
+                    name: Pléaides download + pan
+                    description: ''
+                    createdAt: '2019-10-31T10:16:39.325Z'
+                    updatedAt: '2019-11-01T14:39:01.681Z'
+                    totalProcessingTime: 173
+                  - id: 72860ccb-836c-46cb-bf56-d6cf234ec2a8
+                    name: Test multiple ndvi
+                    description: ''
+                    createdAt: '2019-10-31T12:11:07.788Z'
+                    updatedAt: '2019-10-31T12:11:40.958Z'
+                    totalProcessingTime: 0
+                  - id: 17e8dc3e-2914-4011-a248-2d279d77f369
+                    name: SPOT download
+                    description: ''
+                    createdAt: '2019-11-01T14:39:16.943Z'
+                    updatedAt: '2019-11-25T15:43:36.325Z'
+                    totalProcessingTime: 22
+                  - id: 192b025e-75fe-4930-a611-ed08b66f8a5a
+                    name: S2 AOI clipped sobloo
+                    description: ''
+                    createdAt: '2019-11-01T15:54:45.181Z'
+                    updatedAt: '2019-11-01T15:55:17.171Z'
+                  - id: ac5d9bca-7d85-46e8-ba25-90ac540b3964
+                    name: Pléaides pansharpened NDVI
+                    description: ''
+                    createdAt: '2019-11-18T14:16:05.283Z'
+                    updatedAt: '2019-11-18T15:12:07.944Z'
+                    totalProcessingTime: 28
+                  - id: 894ef5be-c576-4f18-8ef9-f26e9eb10d5b
+                    name: S2 Sentinel Hub
+                    description: ''
+                    createdAt: '2019-11-19T13:43:26.022Z'
+                    updatedAt: '2019-11-19T13:43:32.805Z'
+                    totalProcessingTime: 642
+                  - id: 18b2fc26-f56b-434f-9fcf-e53716442202
+                    name: Sentinel 1 AOI clipped test
+                    description: ''
+                    createdAt: '2019-11-21T10:24:55.958Z'
+                    updatedAt: '2019-11-21T10:25:26.027Z'
+                    totalProcessingTime: 9
+                  - id: 949cd962-4a5f-46a6-9d8a-64d15ccdd97b
+                    name: S1 GRD
+                    description: ''
+                    createdAt: '2019-11-21T10:58:24.630Z'
+                    updatedAt: '2019-11-21T10:58:40.514Z'
+                    totalProcessingTime: 4709
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                error:
+                  code: UNAUTHORIZED
+                  message: >
+                    ACCESS_TOKEN_EXPIRED: JWT expired at 2019-11-29T11:54:38Z. 
+                    Current time: 2019-11-29T15:07:30Z, a difference of 11572156
+                    milliseconds.  Allowed clock skew: 0 milliseconds.
+                  details: null
+                data: null
+      deprecated: false
+    post:
+      tags:
+      - workflows
+      summary: Create Workflow
+      description: >-
+        Create a workflow. This call creates the workflow
+        resource. Then via PUT requests we populate the workflow with
+        tasks.
+      operationId: CreateWorkflow
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/ProjectID'
+      requestBody:
+        description: Payload for workflow creation.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateWorkflowRequest'
+            example:
+              name: My brand new workflow with Pléaides and Pansharpening.
+              description: >-
+                This workflow is for getting Pansharpened images with
+                all the bands from Pléiades.
+              id: null
+              tasks: [] 
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              example:
+                error: null
+                data:
+                  id: 23897cdd-f452-4a98-8384-24d1dea5ca4d
+                  name: My brand new workflow with Pléaides and Pansharpening
+                  description: This workflow is for getting Pansharpened images with all the bands from Pléiades.
+                  createdAt: '2020-02-04T14:19:30.866Z'
+                  updatedAt: '2020-02-04T14:19:30.866Z'
+                  totalProcessingTime: 0
+        400:
+          description: name field is empty.
+          content:
+            application/json:
+              example:
+                data: null
+                error:
+                  code: 400
+                  message: Field "name" must not be empty
+                  details: null
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                error:
+                  code: UNAUTHORIZED
+                  message: > 
+                    ACCESS_TOKEN_EXPIRED: JWT expired at 2019-11-29T15:42:05Z. Current time: 2019-11-29T16:45:55Z, 
+                    a difference of 3830764 milliseconds.  Allowed clock skew: 0 milliseconds.
+                  details: null
+                data: null
+        415:
+          description: Incorrect media type.
+          content:
+            application/json:
+              example:
+                data: null
+                error:
+                  code: 415
+                  message: Content type 'application/xml;charset=UTF-8' not supported
+                  details: null          
+      deprecated: false
+  /projects/{project_id}/workflows/{workflow_id}:
+    get:
+      tags:
+      - workflows
+      summary: Get a specific workflow
+      description: Outputs a specific workflow given as workflow ID.
+      operationId: GetWorkflow
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      - name: project_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/ProjectID'
+      - name: workflow_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/WorkflowID'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              example:
+                error: null
+                data:
+                  id: b16f2676-1420-4146-b000-529b9ee2b724
+                  name: Pléaides download + pan
+                  description: ''
+                  createdAt: '2019-10-31T10:16:39.325Z'
+                  updatedAt: '2019-11-01T14:39:01.681Z'
+                  totalProcessingTime: 173
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                error:
+                  code: UNAUTHORIZED
+                  message: > 
+                    ACCESS_TOKEN_EXPIRED: JWT expired at 2019-11-29T15:42:05Z. Current time: 2019-11-29T16:45:55Z, 
+                    a difference of 3830764 milliseconds.  Allowed clock skew: 0 milliseconds.
+                  details: null
+                data: null
+        404:
+          description: Not Found
+          content:
+            application/json:
+              example: 
+                error:
+                  code: RESOURCE_NOT_FOUND
+                  message: >
+                    Workflow not found for id b16f2676-1420-4146-b000-529b9ee2b720
+                    and projectId 1b0015e3-cc4f-4da6-9761-fba74ba57f67
+                    and userId 8cd5de7b-82e2-4625-b094-d5392f1cf780
+                  details: null
+                data: null
+      deprecated: false
+    put:
+      tags:
+      - workflows
+      summary: Update Workflow
+      description: >-
+        Updates a workflow with an updated task.
+      operationId: UpdateWorkflow
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/ProjectID'
+      - name: workflow_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/WorkflowID'  
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateWorkflowRequest'
+            example:
+              name: workflow-test-name
+              description: workflow test description
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              example:
+      deprecated: false
+    delete:
+      tags:
+      - workflows
+      summary: Delete Workflow
+      description: >-
+        Delete a workflow from a given project.
+      operationId: DeleteWorkflow
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/ProjectID'
+      - name: workflow_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/WorkflowID'  
+      responses:
+        204:
+          description: No Content
+      deprecated: false      
+  /projects/{project_id}/workflows/{workflow_id}/tasks:
+    get:
+      tags:
+      - workflows
+      summary: Get Workflow tasks
+      description: >-
+        Get all the tasks in a given workflow. It retrieves all the
+        information relative to workflow, including, used blocks,
+        block metadata, registry URL, etc.
+      operationId: GetWorkflowTasks
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      - name: project_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/ProjectID'
+        example:
+          403c5d50-240a-45c3-b1f1-10d684d285ee
+      - name: workflow_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/WorkflowID'
+        example:
+          20b6cdd2-6d53-40db-ba3a-5ec71ded1c02
+      responses:
+        200:
+          description: Detailed information on a workflow.
+          headers: {}
+          content:
+            application/json:
+              example:
+                error: null
+                data:
+                  - id: e6a6a408-806d-4be4-863d-37de4acd1459
+                    displayId: e6a6a408
+                    createdAt: '2020-01-31T19:44:14.257Z'
+                    updatedAt: '2020-01-31T19:44:14.257Z'
+                    name: 'sobloo-s1-grd-aoiclipped:1'
+                    parentsIds: []
+                    blockName: sobloo-s1-grd-aoiclipped
+                    blockVersionTag: 1.1.6
+                    block:
+                      id: b1c88381-6df0-4919-a194-5d5b3b1ee2f7
+                      createdAt: '2019-09-25T13:48:59.417Z'
+                      updatedAt: '2020-01-30T09:33:21.850Z'
+                      name: sobloo-s1-grd-aoiclipped
+                      displayName: Sentinel-1 L1C GRD AOI clipped
+                      description: |+
+                        Provides Sentinel-1 L1C GRD imagery in GeoTIFF format.
+                
+                      containerUrl: 'registry.up42.com/marketplace/sobloo-s1-grd-aoiclipped:GsEmdQmRPW07k20wBCUcciK2x65oJnJSQDa59DFI'
+                      inputCapabilities: []
+                      outputCapabilities:
+                        - name: up42.data.aoiclipped
+                      provider: Sobloo
+                      providerWebsite: 'https://sobloo.eu/'
+                      providerLogoUrl: 'https://metadata.up42.com/b1c88381-6df0-4919-a194-5d5b3b1ee2f7/Sobloo_company_logo1578321785517.png'
+                      tags:
+                        - SAR
+                        - global
+                        - satellite
+                      isPublic: true
+                      isPublicVersion: true
+                      isValid: true
+                      parameters:
+                        ids:
+                          type: array
+                          default: null
+                        bbox:
+                          type: array
+                          default: null
+                        time:
+                          type: dateRange
+                          default: '2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00'
+                        limit:
+                          type: integer
+                          default: 1
+                          minimum: 1
+                        contains:
+                          type: geometry
+                        intersects:
+                          type: geometry
+                        time_series:
+                          type: array
+                          default: null
+                        orbit_direction:
+                          type: string
+                          default: null
+                        acquisition_mode:
+                          type: string
+                          default: null
+                      type: DATA
+                      isDryRunSupported: true
+                      version: 1.1.6
+                      metadata:
+                        overview: |
+                          Sentinel-1 L1C GRD AOI clipped provides AOIs of Sentinel-1 (A/B)'s C-band synthetic aperture radar sensor in processing level L-1C Ground Range Detected (GRD).
+                
+                          This AOI-Clipped block leverages WMTS to produce its output as AOI.
+                
+                          The Copernicus Sentinel-1 is a Synthetic Aperture Radar (SAR) mission, offering 4 imaging modes with different resolution (down to 5m) and coverage (up to 400m). The mission is composed of a constellation of 2 satellites (1A and 1B) sharing the same orbital plane.
+                
+                          **Technical information**
+                
+                          |Feature|Info|
+                          |:-|:-|
+                          |Archive date / refresh frequency | All products from the previous 12 months / Archives available from mission start (2014) on request |
+                          |Frequency bands | Synthetic Aperture Radar in C-band |
+                          |Resolution| **Strip map:** 80 km swath, 5 x 5 m resolution  / **Interferometric Wide Swath:** 250 km swath, 5 x 20 m spatial resolution  / **Extra-Wide Swath:** 400 km swath, 20 x 40 m spatial resolution  / **Wave:** 20 x 20 km, 5 x 5 m spatial resolution|
+                          |Processing level|L1C GRD|
+                          |Data format| GeoTIFF (AOI-Clipped)|
+                
+                          **Use cases**
+                
+                          The Copernicus Sentinel-1 Synthetic Aperture Radar (SAR) instrument is particularly suited for the assessment of land use/ land cover, soil moisture, water content and frost/thaw state. A variety of applications for this sensor data can be envisioned, e.g. ship routing in arctic conditions, agriculture, vegetation and oil spills monitoring.
+                
+                          **More information**
+                
+                          For more information about this data, please see the block's documentation page [here](https://docs.up42.com/up42-blocks/data/sobloo-s1-grd.html) or check the [provider website](https://sobloo.eu).
+                        termsAndConditionsUrl: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-AOI-Clipped/Sentinel_Data_Legal_Notice.pdf'
+                        blockThumbnailUrl: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/0_Sentinel1_Avatar_2.jpg'
+                        pricingStrategy:
+                          id: 5a1363ec-3a2a-4587-af32-f60f8a4b6a67
+                          displayId: 5a1363ec
+                          createdAt: '2020-01-30T09:33:21.836Z'
+                          updatedAt: '2020-01-30T09:33:21.836Z'
+                          type: MEGABYTE_OUTPUT
+                          credits: 0
+                        blockMarketplaceSampleData:
+                          - id: c54e70cc-54be-42d8-a03c-d36c7ad9c378
+                            displayId: c54e70cc
+                            createdAt: '2020-01-30T09:33:21.848Z'
+                            updatedAt: '2020-01-30T09:33:21.848Z'
+                            value: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/Sentinel1_1.jpg'
+                            type: IMAGE
+                          - id: 295e9022-6ccb-42ce-980e-46e5adf7397a
+                            displayId: '295e9022'
+                            createdAt: '2020-01-30T09:33:21.849Z'
+                            updatedAt: '2020-01-30T09:33:21.849Z'
+                            value: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/Sentinel1_2.jpg'
+                            type: IMAGE
+                          - id: e101ad81-ad70-4188-be24-614de4c86b8e
+                            displayId: e101ad81
+                            createdAt: '2020-01-30T09:33:21.849Z'
+                            updatedAt: '2020-01-30T09:33:21.849Z'
+                            value: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/Sentinel1_3.jpg'
+                            type: IMAGE
+                          - id: fef8c0e5-b95d-4e44-933d-96fbc072e851
+                            displayId: fef8c0e5
+                            createdAt: '2020-01-30T09:33:21.850Z'
+                            updatedAt: '2020-01-30T09:33:21.850Z'
+                            value: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/Sentinel1_4.jpg'
+                            type: IMAGE
+                          - id: 85f2b18b-c203-42ea-bcd7-ecf7d4a9fe96
+                            displayId: 85f2b18b
+                            createdAt: '2020-01-30T09:33:21.850Z'
+                            updatedAt: '2020-01-30T09:33:21.850Z'
+                            value: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/Sentinel1_5.jpg'
+                            type: IMAGE
+                      machineName: LARGE
+                  - id: ecaaab5a-eab7-49a5-b499-90f70ec91ef8
+                    displayId: ecaaab5a
+                    createdAt: '2020-01-31T19:44:14.272Z'
+                    updatedAt: '2020-01-31T19:44:14.272Z'
+                    name: 'tiling:1'
+                    parentsIds:
+                      - e6a6a408-806d-4be4-863d-37de4acd1459
+                    blockName: tiling
+                    blockVersionTag: 1.3.6
+                    block:
+                      id: 3e146dd6-2b67-4d6e-a422-bb3d973e32ff
+                      createdAt: '2019-02-21T11:02:11.535Z'
+                      updatedAt: '2020-01-27T09:42:20.964Z'
+                      name: tiling
+                      displayName: Raster Tiling
+                      description: Clips rasters into tiles for machine learning algorithms.
+                      containerUrl: 'registry.up42.com/marketplace/tiling:AhpSS0FR9Bq6sak1MPoD7H3ZHvqtD1ghy0sMA2KU'
+                      inputCapabilities:
+                        - name: up42.data.aoiclipped
+                      outputCapabilities:
+                        - name: up42.data.aoiclipped
+                      provider: UP42
+                      providerWebsite: 'https://up42.com/'
+                      providerLogoUrl: 'https://metadata.up42.com/3e146dd6-2b67-4d6e-a422-bb3d973e32ff/UP42_Logo_DarkMatter_RGB1576671494929.png'
+                      tags:
+                        - raster
+                        - processing
+                      isPublic: true
+                      isPublicVersion: true
+                      isValid: true
+                      parameters:
+                        nodata:
+                          type: number
+                          default: null
+                          required: false
+                          description: 'Value representing nodata within each raster band. If not set, defaults to the nodata value of the input raster.'
+                        tile_width:
+                          type: number
+                          default: 768
+                          required: true
+                          description: Width of a tile in pixels
+                        tile_height:
+                          type: number
+                          default: 768
+                          required: true
+                          description: Height of a tile in pixels
+                        match_extents:
+                          type: boolean
+                          default: false
+                          required: false
+                          description: 'If set to true, tile extents of all input layers will match (default false)'
+                        output_prefix:
+                          type: string
+                          default: ''
+                          required: false
+                          description: 'Prefix of tile names, default is to use input filename'
+                        augmentation_factor:
+                          type: number
+                          default: 1
+                          required: false
+                          description: Factor used to create additional tiles by applying a pixel offset (default 1)
+                        discard_empty_tiles:
+                          type: boolean
+                          default: true
+                          required: false
+                          description: 'If set to True, tiles that only consist of nodata (as defined by an alpha band or a set nodata value) will not be returned.'
+                      type: PROCESSING
+                      isDryRunSupported: false
+                      version: 1.3.6
+                      metadata:
+                        overview: "Raster Tiling is a generic preprocessing block that clips rasters into rectangle-shaped tiles and makes them ready for consumption by analytics algorithms. Tiling is especially important for large raster datasets that should be broken up into more manageable pieces to improve performance. Output tiles are GeoTIFFs with the same bands and resolution as the input data. Simple data augmentation is also supported.\n\n| General Information \_ | Description \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ |\n| --------------------- |-----------------------------------------------------------------------------|\n| Block Type \_ \_ \_ \_ \_ \_| Processing (data preparation) \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ |\n| Supported Input Types | AOI Clipped, any georeferenced GeoTIFF \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_|\n| Resolution \_ \_ \_ \_ \_ \_| identical to the input \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_|\n| Performance \_ \_ \_ \_ \_ | Some ML algorithms can incur errors with tiles if they only support RGB. \_ \_|\n\nLearn more about the documentation [here](https://docs.up42.com/up42-blocks/processing/tiling.html)."
+                        termsAndConditionsUrl: 'https://metadata.up42.com/UP42_Blocks/Tiling/Licence_Raster_Tiling.pdf'
+                        blockThumbnailUrl: 'https://metadata.up42.com/3e146dd6-2b67-4d6e-a422-bb3d973e32ff/Raster_Tiling_Thumbnail1576666074656.png'
+                        pricingStrategy:
+                          id: 1d71d1eb-6f89-4a10-9834-f9851a8396e3
+                          displayId: 1d71d1eb
+                          createdAt: '2020-01-27T09:42:20.963Z'
+                          updatedAt: '2020-01-27T09:42:20.963Z'
+                          type: MEGABYTE_INPUT
+                          credits: 1
+                        blockMarketplaceSampleData:
+                          - id: ce500621-0050-44dd-bad7-19ca09e2753e
+                            displayId: ce500621
+                            createdAt: '2020-01-27T09:42:20.963Z'
+                            updatedAt: '2020-01-27T09:42:20.963Z'
+                            value: 'https://metadata.up42.com/3e146dd6-2b67-4d6e-a422-bb3d973e32ff/Raster_Tiling_Carousel1576666087925.png'
+                            type: IMAGE
+                      machineName: MEDIUM
+                  - id: c9e1fa55-3bdc-4a2f-8152-8311a2957ca7
+                    displayId: c9e1fa55
+                    createdAt: '2020-01-31T19:44:14.285Z'
+                    updatedAt: '2020-01-31T19:44:14.285Z'
+                    name: 'buildingdetection:1'
+                    parentsIds:
+                      - ecaaab5a-eab7-49a5-b499-90f70ec91ef8
+                    blockName: buildingdetection
+                    blockVersionTag: 1.0.0-public
+                    block:
+                      id: 06a81a0f-f5cd-4374-98fb-cf456feea295
+                      createdAt: '2019-12-21T08:45:34.409Z'
+                      updatedAt: '2020-01-31T16:40:06.251Z'
+                      name: buildingdetection
+                      displayName: Building Detection Filter
+                      description: This block detects building from 2 SAR imageries.
+                      containerUrl: 'registry.up42.com/marketplace/buildingdetection:Le0T2o1Ie2Q2m2ypk0DYz9WRJwezQgMQwVXLB7g8'
+                      inputCapabilities:
+                        - name: up42.data.aoiclipped
+                      outputCapabilities:
+                        - name: up42.data.aoiclipped
+                      provider: Space Shift
+                      providerWebsite: 'https://www.spcsft.com/'
+                      providerLogoUrl: 'https://metadata.up42.com/06a81a0f-f5cd-4374-98fb-cf456feea295/SPACESHIFT_LOGO1578416390862.jpg'
+                      tags:
+                        - analytics
+                        - detection
+                        - SAR
+                        - machine learning
+                        - object
+                      isPublic: true
+                      isPublicVersion: true
+                      isValid: true
+                      parameters: {}
+                      type: PROCESSING
+                      isDryRunSupported: false
+                      version: 1.0.0-public
+                      metadata:
+                        overview: |-
+                          Building Detection Filter detects newly built buildings with two time-different SAR images from Sentinel-1. 
+                
+                          Automatic change detection on SAR images has been a very difficult task because of its noisy structures. This block uses a deep learning algorithm to achieve overwhelming performances on SAR images. 
+                
+                          **Note:** This block works with Sentinel-1 L1C GRD AOI clipped scenes and does currently not support Sentinel-1 L1C GRD Full Scenes. Once registered scenes can be clipped from the Full Scenes blocks on UP42, this block will also support Sentinel-1 L1C GRD Full Scenes.  
+                
+                          | General Information   | Description                                  |
+                          | --------------------- |----------------------------------------------|
+                          | Block Type            | Processing                |
+                          | Supported Input Data | Sentinel 1 L1C GRD AOI-Clipped            |
+                          | Input parameters | Set `limit` = 1 and `orbit_direction`=`"DESCENDING"`. In `time_series`, 2 different times with `time` are required (see example for `time` [here](https://docs.up42.com/up42-blocks/data/sobloo-s1-grd-aoiclipped.html#example-queries)). See the instruction [here](https://docs.up42.com/up42-blocks/data/sobloo-s1-grd.html).|
+                          | Output Data | GeoTIFF       |
+                          | Resolution            | identical to the input                       |
+                          | Performance           | Prediction Accuracy: 0.99 / IoU: 0.35. This algorithm is optimized for detecting large buildings and aggregated residential housings. In some cases, changes on crop fields are detected, which will be improved shortly in the next version.|
+                        termsAndConditionsUrl: 'https://metadata.up42.com/06a81a0f-f5cd-4374-98fb-cf456feea295/EULA_Space_Shift_newly_built_buildings1578416415695.pdf'
+                        blockThumbnailUrl: 'https://metadata.up42.com/06a81a0f-f5cd-4374-98fb-cf456feea295/icon1578416404263.png'
+                        pricingStrategy:
+                          id: fe620c0b-6c73-4faf-b8a8-8beaea86cb04
+                          displayId: fe620c0b
+                          createdAt: '2020-01-07T17:16:34.426Z'
+                          updatedAt: '2020-01-07T17:16:34.426Z'
+                          type: SQUARE_KM_INPUT
+                          credits: 500
+                        blockMarketplaceSampleData:
+                          - id: e1a6f59b-388a-40ba-9de8-d6ec5f20b964
+                            displayId: e1a6f59b
+                            createdAt: '2020-01-31T16:40:06.250Z'
+                            updatedAt: '2020-01-31T16:40:06.250Z'
+                            value: 'https://metadata.up42.com/06a81a0f-f5cd-4374-98fb-cf456feea295/01SARimage1578416411463.png'
+                            type: IMAGE
+                          - id: 7e5da642-f3f5-4bd0-84d4-1d36dcd1eefb
+                            displayId: 7e5da642
+                            createdAt: '2020-01-31T16:40:06.250Z'
+                            updatedAt: '2020-01-31T16:40:06.250Z'
+                            value: 'https://metadata.up42.com/06a81a0f-f5cd-4374-98fb-cf456feea295/02building1578416411463.png'
+                            type: IMAGE
+                      machineName: LARGE
+      deprecated: false
+    post:
+      tags:
+      - workflows
+      summary: Create workflow tasks
+      description: >-
+        Creates the workflow tasks. A task is comprised of
+        a block in a workflow.   
+      operationId: CreateWorkflowTasks
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/ProjectID'
+      - name: workflow_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/WorkflowID'
+        example:
+          23897cdd-f452-4a98-8384-24d1dea5ca4d
+      requestBody:
+        description: Create workflow task(s) payload.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreateworkflowtasksRequest'
+              description: >-
+                The tasks in the workflow. Conmprises  one or more
+                tasks depending on the desired workflow.
+            example:
+            - name: task1
+              parentName: 
+              blockName: one-atlas/basemap
+            - name: task2
+              parentName: task1
+              blockName: dabeeo/roof-detection
+        required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                error:
+                  code: UNAUTHORIZED
+                  message: > 
+                    ACCESS_TOKEN_EXPIRED: JWT expired at 2019-11-29T15:42:05Z. Current time: 2019-11-29T16:45:55Z, 
+                    a difference of 3830764 milliseconds.  Allowed clock skew: 0 milliseconds.
+                  details: null
+                data: null  
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /projects/{project_id}/jobs:
+    get:
+      tags:
+      - jobs
+      summary: Get Jobs
+      description: 'TODO: Add Description'
+      operationId: GetJobs
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      - name: project_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/ProjectID'
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /projects/{project_id}/workflows/{workflow_id}/jobs:
+    post:
+      tags:
+      - jobs
+      summary: Create and Run Job
+      description: 'TODO: Add Description'
+      operationId: CreateAndRunJob
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/ProjectID'
+      - name: workflow_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/WorkflowID'
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateandRunJobRequest'
+        required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /projects/{project_id}/jobs/{job_id}:
+    get:
+      tags:
+      - jobs
+      summary: Get Job
+      description: 'TODO: Add Description'
+      operationId: GetJob
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      - name: project_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/ProjectID'
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/JobID' 
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /projects/{project_id}/jobs/{job_id}/tasks:
+    get:
+      tags:
+      - jobs
+      summary: Get Job tasks
+      description: 'TODO: Add Description'
+      operationId: GetJobTasks
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      - name: project_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/ProjectID'
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/JobID'
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /jobs/{job_id}/cancel:
+    post:
+      tags:
+      - jobs
+      summary: Cancel Job
+      description: 'TODO: Add Description'
+      operationId: CancelJob
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/JobID'
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /projects/{project_id}/jobs/{job_id}/outputs/data-json:
+    get:
+      tags:
+      - job-outputs
+      summary: Get Job Outputs - data.json
+      description: 'TODO: Add Description'
+      operationId: Get job outputs  data.json
+      parameters:
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain,application/json
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain,application/json
+      - name: project_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/ProjectID'
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/JobID'
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /projects/{project_id}/jobs/{job_id}/downloads/results:
+    get:
+      tags:
+      - job-outputs
+      summary: Get Job Outputs - signed url
+      description: Downloads the job results tarball URL delivered as a field in the JSON through this call.
+      operationId: Get job outputs  signed url
+      parameters:
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain,application/json
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain,application/json
+      - name: project_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/ProjectID'    
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/JobID'
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /projects/{project_id}/jobs/{job_id}/tasks/{task_id}/logs:
+    get:
+      tags:
+      - job-outputs
+      summary: Get Job Task Logs
+      description: 'TODO: Add Description'
+      operationId: GetJobTaskLogs
+      parameters:
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain,application/json
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain,application/json
+      - name: project_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/ProjectID'   
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/JobID'
+      - name: task_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/TaskID'
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /projects/{project_id}/jobs/{job_id}/tasks/{task_id}/outputs/data-json:
+    get:
+      tags:
+      - job-outputs
+      summary: Get Job Task Outputs - data.json
+      description: 'TODO: Add Description'
+      operationId: Get job task outputs  data.json
+      parameters:
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain,application/json
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain,application/json
+      - name: project_id
+        in: path
+        required: true
+        schema: 
+          $ref: '#/components/schemas/ProjectID'
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/JobID'
+      - name: task_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/TaskID'
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /blocks:
+    get:
+      tags:
+      - blocks
+      summary: Get Public Blocks
+      description: 'TODO: Add Description'
+      operationId: GetPublicBlocks
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /blocks/{block_id}:
+    get:
+      tags:
+      - blocks
+      summary: Get Public Block detail
+      description: 'TODO: Add Description'
+      operationId: GetPublicBlockDetail
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      - name: block_id
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /marketplace/blocks:
+    get:
+      tags:
+      - blocks
+      summary: Get Marketplace Blocks
+      description: Public endpoint to get blocks for the marketplace
+      operationId: GetMarketplaceBlocks
+      parameters: []
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /validate-schema/block:
+    post:
+      tags:
+      - block-validation
+      summary: Validate Blocks Manifest
+      description: 'TODO: Add Description'
+      operationId: ValidateBlocksManifest
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidateBlocksManifestRequest'
+            example:
+              _up42_specification_version: 1
+              name: sentinel2-aoiclipped
+              type: data
+              tags:
+              - Sentinel
+              - Sentinel-2
+              - MSI
+              - Imagery
+              - L2A
+              - BOA
+              display_name: Sentinel-2 Level 2 (BOA) AOI clipped
+              description: This block provides Sentinel-2 imagery clipped to all webmercator tiles intersecting a given bounding box or AOI on a given zoom level. The part of the image that does not intersect with these tiles will be black. The block outputs a single GeoTIFF file and will store the AOI within the output feature geometry.
+              parameters:
+                bbox:
+                  type: string
+                  default: 
+                intersects:
+                  type: geometry
+                time:
+                  type: dateRange
+                  default: 
+                limit:
+                  type: number
+                  default: 1
+                zoom_level:
+                  type: number
+                  default: 17
+              machine:
+                type: large
+              internal:
+                dry_run_supported: true
+              input_capabilities:
+                custom.this.is.my.capability: {}
+              output_capabilities:
+                up42.data.aoiclipped: {}
+        required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+components:
+  schemas:
+    UpdateprojectsettingsRequest:
+      properties:
+        MAX_CONCURRENT_JOBS:
+          description: The maximum number of concurrent jobs for a
+            given project. This parameter is important if you are
+            running parallel jobs as part of your overall workflow,
+            e.g., splitting a large AOI over multiple jobs, each with
+            a part of the AOI.
+          type: object
+          properties:
+            name:
+              type: string
+              example: MAX_CONCURRENT_JOBS
+            value:
+              type: integer
+              example: 10
+        JOB_QUERY_MAX_AOI_SIZE:
+          description: The maximum AOI size in square km. To be able
+             to set it to a value up to 1000 you need to add a payment
+             method to your account.
+          type: object
+          properties:
+            name:
+              type: string
+              example: JOB_QUERY_MAX_AOI_SIZE
+            value:
+              type: integer
+              example: 250
+        JOB_QUERY_LIMIT_PARAMETER_MAX_VALUE:
+          description: The maximum number of results (images) to be
+            returned. This applies mostly to data blocks where you
+            query for data.
+          properties:
+            name:
+              type: string
+              example: JOB_QUERY_LIMIT_PARAMETER_MAX_VALUE
+            value:
+              type: integer
+              example: 25
+      required:
+      - MAX_CONCURRENT_JOBS
+      - JOB_QUERY_MAX_AOI_SIZE
+      - JOB_QUERY_LIMIT_PARAMETER_MAX_VALUE
+      title: UpdateprojectsettingsRequest
+    CreateWorkflowRequest:
+      title: CreateWorkflowRequest
+      required:
+      - name
+      - description
+      type: object
+      properties:
+        name:
+          type: string
+          description: >-
+            The name of the workflow.
+          maxLength: 100
+        tasks:
+          description: >
+            A list of objects representing tasks. Since we are just
+            creating the workflow, if given, this parameter must be an empty
+            array `[]`.
+          type: array
+          items:
+            type: object 
+          example: []
+        id:
+          description: >
+            The ID of the workflow since the workflow is just being
+            created it should be set to `null` if given in the request
+            body.
+          type: string
+          example: null
+        description:
+          type: string
+          description: >-
+            A description of the workflow. Should be informative.
+          example: A workflow for getting pansharpened images from
+            Pléaides with all the available bands.  
+      example:
+        name: My new workflow with Pléaides and Pansharpening
+        description: >
+          This workflow uses the Pléaides download block
+          and Pansharpening to get high quality
+    CreateworkflowtasksRequest:
+      title: CreateWorkflowTasksRequest
+      description: >-
+        Create one or more tasks in a workflow.
+      type: array
+      items: 
+        required:
+        - name
+        - parentName
+        - blockId
+        type: object
+        properties:
+          name:
+            description: The name of the task.
+            type: string
+            maxLength: 100
+            example: Pléiades download block
+          parentName:
+            description: >-
+              The name of the parent task. If this is the first or only
+              task then it is null.
+            type: string
+            nullable: true
+            example: null
+          blockId:
+            description: >-
+              The UUID representing the block ID. In this case the block
+              is the Pléiades download block.
+            type: string
+            example: defb134b-ca00-4e16-afa0-639c6dc0c5fe
+    UpdateWorkflowRequest:
+      title: UpdateWorkflowRequest
+      description: >-
+        Updating one or more tasks in a workflow.
+      type: array
+      items: 
+        required:
+        - name
+        - parentName
+        - blockId
+        type: object
+        properties:
+          name:
+            description: The name of the task.
+            type: string
+            maxLength: 100
+            example: Replaced Pléiades download for SPOT 6/7
+          parentName:
+            description: >-
+              The name of the parent task. If this is the first or only
+              task then it is null.
+            type: string
+            nullable: true
+            example: null
+          blockId:
+            description: >-
+              The UUID representing the block ID. In this case the block
+              is the SPOT 6/7 download block.
+            type: string
+            example: 63a69b97-1765-474e-b465-0b319b8d3b2d
+    CreateandRunJobRequest:
+      title: CreateandRunJobRequest
+      required:
+      - oneatlas-spot-aoiclipped:1
+      - tiling:1
+      type: object
+      properties:
+        oneatlas-spot-aoiclipped:1:
+          $ref: '#/components/schemas/OneatlasSpotAoiclipped1'
+        tiling:1:
+          $ref: '#/components/schemas/Tiling1'
+    OneatlasSpotAoiclipped1:
+      title: OneatlasSpotAoiclipped1
+      required:
+      - bbox
+      - time
+      - limit
+      - intersects
+      - zoom_level
+      type: object
+      properties:
+        bbox:
+          type: string
+          nullable: true
+        time:
+          type: string
+          nullable: true
+        limit:
+          type: integer
+          format: int32
+        intersects:
+          $ref: '#/components/schemas/Intersects'
+        zoom_level:
+          type: integer
+          format: int32
+    Intersects:
+      title: Intersects
+      required:
+      - type
+      - coordinates
+      type: object
+      properties:
+        type:
+          type: string
+        coordinates:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+    Tiling1:
+      title: Tiling1
+      required:
+      - tile_width
+      - tile_height
+      - output_prefix
+      - augmentation_factor
+      type: object
+      properties:
+        tile_width:
+          type: integer
+          format: int32
+        tile_height:
+          type: integer
+          format: int32
+        output_prefix:
+          type: string
+        augmentation_factor:
+          type: integer
+          format: int32
+      example:
+        tile_width: 768
+        tile_height: 768
+        output_prefix: ''
+        augmentation_factor: 1
+    ValidateBlocksManifestRequest:
+      title: ValidateBlocksManifestRequest
+      required:
+      - _up42_specification_version
+      - name
+      - type
+      - tags
+      - display_name
+      - description
+      - parameters
+      - machine
+      - internal
+      - input_capabilities
+      - output_capabilities
+      type: object
+      properties:
+        _up42_specification_version:
+          type: integer
+          format: int32
+        name:
+          type: string
+        type:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+          description: ''
+        display_name:
+          type: string
+        description:
+          type: string
+        parameters:
+          $ref: '#/components/schemas/Parameters'
+        machine:
+          $ref: '#/components/schemas/Machine'
+        internal:
+          $ref: '#/components/schemas/Internal'
+        input_capabilities:
+          $ref: '#/components/schemas/InputCapabilities'
+        output_capabilities:
+          $ref: '#/components/schemas/OutputCapabilities'
+      example:
+        _up42_specification_version: 1
+        name: sentinel2-aoiclipped
+        type: data
+        tags:
+        - Sentinel
+        - Sentinel-2
+        - MSI
+        - Imagery
+        - L2A
+        - BOA
+        display_name: Sentinel-2 Level 2 (BOA) AOI clipped
+        description: This block provides Sentinel-2 imagery clipped to all webmercator tiles intersecting a given bounding box or AOI on a given zoom level. The part of the image that does not intersect with these tiles will be black. The block outputs a single GeoTIFF file and will store the AOI within the output feature geometry.
+        parameters:
+          bbox:
+            type: string
+            default: 
+          intersects:
+            type: geometry
+          time:
+            type: dateRange
+            default: 
+          limit:
+            type: number
+            default: 1
+          zoom_level:
+            type: number
+            default: 17
+        machine:
+          type: large
+        internal:
+          dry_run_supported: true
+        input_capabilities:
+          custom.this.is.my.capability: {}
+        output_capabilities:
+          up42.data.aoiclipped: {}
+    Parameters:
+      title: Parameters
+      required:
+      - bbox
+      - intersects
+      - time
+      - limit
+      - zoom_level
+      type: object
+      properties:
+        bbox:
+          $ref: '#/components/schemas/Bbox'
+        intersects:
+          $ref: '#/components/schemas/Intersects1'
+        time:
+          $ref: '#/components/schemas/Time'
+        limit:
+          $ref: '#/components/schemas/Limit'
+        zoom_level:
+          $ref: '#/components/schemas/ZoomLevel'
+      example:
+        bbox:
+          type: string
+          default: 
+        intersects:
+          type: geometry
+        time:
+          type: dateRange
+          default: 
+        limit:
+          type: number
+          default: 1
+        zoom_level:
+          type: number
+          default: 17
+    Bbox:
+      title: Bbox
+      required:
+      - type
+      - default
+      type: object
+      properties:
+        type:
+          type: string
+        default:
+          type: string
+          nullable: true
+      example:
+        type: string
+        default: 
+    Intersects1:
+      title: Intersects1
+      required:
+      - type
+      type: object
+      properties:
+        type:
+          type: string
+      example:
+        type: geometry
+    Time:
+      title: Time
+      required:
+      - type
+      - default
+      type: object
+      properties:
+        type:
+          type: string
+        default:
+          type: string
+          nullable: true
+      example:
+        type: dateRange
+        default: 
+    Limit:
+      title: Limit
+      required:
+      - type
+      - default
+      type: object
+      properties:
+        type:
+          type: string
+        default:
+          type: integer
+          format: int32
+      example:
+        type: number
+        default: 1
+    ZoomLevel:
+      title: ZoomLevel
+      description: ''
+      required:
+      - type
+      - default
+      type: object
+      properties:
+        type:
+          type: string
+        default:
+          type: integer
+          format: int32
+      example:
+        type: number
+        default: 17
+    Machine:
+      title: Machine
+      required:
+      - type
+      type: object
+      properties:
+        type:
+          type: string
+      example:
+        type: large
+    Internal:
+      title: Internal
+      required:
+      - dry_run_supported
+      type: object
+      properties:
+        dry_run_supported:
+          type: boolean
+      example:
+        dry_run_supported: true
+    InputCapabilities:
+      title: InputCapabilities
+      required:
+      - custom.this.is.my.capability
+      type: object
+      properties:
+        custom.this.is.my.capability:
+          type: object
+      example:
+        custom.this.is.my.capability: {}
+    OutputCapabilities:
+      title: OutputCapabilities
+      required:
+      - up42.data.aoiclipped
+      type: object
+      properties:
+        up42.data.aoiclipped:
+          type: object
+      example:
+        up42.data.aoiclipped: {}
+    ProjectID:
+      title: ProjectID
+      description: >
+        The project ID is the string that appears in the URL when in
+        the console, e.g.,
+        `https://console.up42.com/projects/1b0015e3-cc4f-4da6-9761-fba74ba57f67`.
+        It is the component of the URL after `projects`.  
+      required:
+      - type
+      type: object
+      properties:
+        type:
+          type: string
+      example: 1b0015e3-cc4f-4da6-9761-fba74ba57f67
+    WorkflowID:
+      title: WorkflowID
+      description: >
+        The workflow ID is the UUID for a specific workflow, e.g., in the URL
+        `https://console.up42.com/projects/1b0015e3-cc4f-4da6-9761-fba74ba57f67/workflows/b16f2676-1420-4146-b000-529b9ee2b724`.
+        It is the component of the URL after `workflows`.
+      required:
+      - type
+      type: object
+      properties:
+        type:
+          type: string
+      example: b16f2676-1420-4146-b000-529b9ee2b724
+    JobID:
+      title: JobID
+      description: >
+        The job ID is the UUID for a specific job, e.g., in the URL
+        `https://console.up42.com/projects/1b0015e3-cc4f-4da6-9761-fba74ba57f67/jobs/4a90c5ad-7c2f-4b39-9409-55a3a7ad8640`.
+        It ihe component of the URL after `jobs`.
+      required:
+      - type
+      type: object
+      properties:
+        type:
+          type: string
+      example: 4a90c5ad-7c2f-4b39-9409-55a3a7ad8640
+    TaskID:     
+      title: TaskID
+      description: >
+        The task ID is the UUID for a specific task in a job, e.g., in the URL
+        `https://console.up42.com/projects/1b0015e3-cc4f-4da6-9761-fba74ba57f67/jobs/4a90c5ad-7c2f-4b39-9409-55a3a7ad8640/tasks/46599eb5-f9dd-4f50-9569-0cbfe27be200`
+        it is the last component of the URL after `tasks`.
+      required:
+      - type
+      type: object
+      properties:
+        type:
+          type: string
+      example: 46599eb5-f9dd-4f50-9569-0cbfe27be200
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    httpBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT  
+security:
+- httpBearer: []
+tags:
+- name: token
+- name: jobs
+- name: job-outputs  
+- name: workflows
+- name: blocks
+- name: block-validation  
+- name: project-settings  
+  description: ''
