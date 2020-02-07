@@ -430,9 +430,11 @@ paths:
       - workflows
       summary: Create Workflow
       description: >-
-        Create a workflow. This call creates the workflow
-        resource. Then via PUT requests we populate the workflow with
-        tasks.
+        Create or update a workflow. This call creates or updates a
+        workflow resource. Then via POST requests we populate the
+        workflow with tasks. This call only updates the metadata of
+        the workflow. Tasks need to be updated in the
+        CreateWorkflowTasks operation.
       operationId: CreateWorkflow
       parameters:
       - name: project_id
@@ -462,11 +464,11 @@ paths:
               example:
                 error: null
                 data:
-                  id: 23897cdd-f452-4a98-8384-24d1dea5ca4d
-                  name: My brand new workflow with Pléaides and Pansharpening
+                  id: fc88746e-98b0-4fa7-b750-2f96cde0f385
+                  name: My brand new workflow with Pléaides and Pansharpening.
                   description: This workflow is for getting Pansharpened images with all the bands from Pléiades.
-                  createdAt: '2020-02-04T14:19:30.866Z'
-                  updatedAt: '2020-02-04T14:19:30.866Z'
+                  createdAt: '2020-02-07T12:27:37.892Z'
+                  updatedAt: '2020-02-07T12:27:37.892Z'
                   totalProcessingTime: 0
         400:
           description: name field is empty.
@@ -539,41 +541,6 @@ paths:
                   details: null
                 data: null
       deprecated: false
-    put:
-      tags:
-      - workflows
-      summary: Update Workflow
-      description: >-
-        Updates a workflow.
-      operationId: UpdateWorkflow
-      parameters:
-      - name: project_id
-        in: path
-        required: true
-        schema:
-          $ref: '#/components/schemas/ProjectID'
-      - name: workflow_id
-        in: path
-        required: true
-        schema:
-          $ref: '#/components/schemas/WorkflowID'
-      requestBody:
-        description: ''
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/WorkflowRequest'
-            example:
-              name: workflow-test-name
-              description: workflow test description
-        required: true
-      responses:
-        200:
-          description: OK
-          content:
-            application/json:
-              example:
-      deprecated: false
     delete:
       tags:
       - workflows
@@ -643,312 +610,15 @@ paths:
           20b6cdd2-6d53-40db-ba3a-5ec71ded1c02
       responses:
         200:
-          description: Detailed information on a workflow.
-          headers: {}
-          content:
-            application/json:
-              example:
-                error: null
-                data:
-                  - id: e6a6a408-806d-4be4-863d-37de4acd1459
-                    displayId: e6a6a408
-                    createdAt: '2020-01-31T19:44:14.257Z'
-                    updatedAt: '2020-01-31T19:44:14.257Z'
-                    name: 'sobloo-s1-grd-aoiclipped:1'
-                    parentsIds: []
-                    blockName: sobloo-s1-grd-aoiclipped
-                    blockVersionTag: 1.1.6
-                    block:
-                      id: b1c88381-6df0-4919-a194-5d5b3b1ee2f7
-                      createdAt: '2019-09-25T13:48:59.417Z'
-                      updatedAt: '2020-01-30T09:33:21.850Z'
-                      name: sobloo-s1-grd-aoiclipped
-                      displayName: Sentinel-1 L1C GRD AOI clipped
-                      description: |+
-                        Provides Sentinel-1 L1C GRD imagery in GeoTIFF format.
-
-                      containerUrl: 'registry.up42.com/marketplace/sobloo-s1-grd-aoiclipped:GsEmdQmRPW07k20wBCUcciK2x65oJnJSQDa59DFI'
-                      inputCapabilities: []
-                      outputCapabilities:
-                        - name: up42.data.aoiclipped
-                      provider: Sobloo
-                      providerWebsite: 'https://sobloo.eu/'
-                      providerLogoUrl: 'https://metadata.up42.com/b1c88381-6df0-4919-a194-5d5b3b1ee2f7/Sobloo_company_logo1578321785517.png'
-                      tags:
-                        - SAR
-                        - global
-                        - satellite
-                      isPublic: true
-                      isPublicVersion: true
-                      isValid: true
-                      parameters:
-                        ids:
-                          type: array
-                          default: null
-                        bbox:
-                          type: array
-                          default: null
-                        time:
-                          type: dateRange
-                          default: '2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00'
-                        limit:
-                          type: integer
-                          default: 1
-                          minimum: 1
-                        contains:
-                          type: geometry
-                        intersects:
-                          type: geometry
-                        time_series:
-                          type: array
-                          default: null
-                        orbit_direction:
-                          type: string
-                          default: null
-                        acquisition_mode:
-                          type: string
-                          default: null
-                      type: DATA
-                      isDryRunSupported: true
-                      version: 1.1.6
-                      metadata:
-                        overview: |
-                          Sentinel-1 L1C GRD AOI clipped provides AOIs of Sentinel-1 (A/B)'s C-band synthetic aperture radar sensor in processing level L-1C Ground Range Detected (GRD).
-
-                          This AOI-Clipped block leverages WMTS to produce its output as AOI.
-
-                          The Copernicus Sentinel-1 is a Synthetic Aperture Radar (SAR) mission, offering 4 imaging modes with different resolution (down to 5m) and coverage (up to 400m). The mission is composed of a constellation of 2 satellites (1A and 1B) sharing the same orbital plane.
-
-                          **Technical information**
-
-                          |Feature|Info|
-                          |:-|:-|
-                          |Archive date / refresh frequency | All products from the previous 12 months / Archives available from mission start (2014) on request |
-                          |Frequency bands | Synthetic Aperture Radar in C-band |
-                          |Resolution| **Strip map:** 80 km swath, 5 x 5 m resolution  / **Interferometric Wide Swath:** 250 km swath, 5 x 20 m spatial resolution  / **Extra-Wide Swath:** 400 km swath, 20 x 40 m spatial resolution  / **Wave:** 20 x 20 km, 5 x 5 m spatial resolution|
-                          |Processing level|L1C GRD|
-                          |Data format| GeoTIFF (AOI-Clipped)|
-
-                          **Use cases**
-
-                          The Copernicus Sentinel-1 Synthetic Aperture Radar (SAR) instrument is particularly suited for the assessment of land use/ land cover, soil moisture, water content and frost/thaw state. A variety of applications for this sensor data can be envisioned, e.g. ship routing in arctic conditions, agriculture, vegetation and oil spills monitoring.
-
-                          **More information**
-
-                          For more information about this data, please see the block's documentation page [here](https://docs.up42.com/up42-blocks/data/sobloo-s1-grd.html) or check the [provider website](https://sobloo.eu).
-                        termsAndConditionsUrl: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-AOI-Clipped/Sentinel_Data_Legal_Notice.pdf'
-                        blockThumbnailUrl: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/0_Sentinel1_Avatar_2.jpg'
-                        pricingStrategy:
-                          id: 5a1363ec-3a2a-4587-af32-f60f8a4b6a67
-                          displayId: 5a1363ec
-                          createdAt: '2020-01-30T09:33:21.836Z'
-                          updatedAt: '2020-01-30T09:33:21.836Z'
-                          type: MEGABYTE_OUTPUT
-                          credits: 0
-                        blockMarketplaceSampleData:
-                          - id: c54e70cc-54be-42d8-a03c-d36c7ad9c378
-                            displayId: c54e70cc
-                            createdAt: '2020-01-30T09:33:21.848Z'
-                            updatedAt: '2020-01-30T09:33:21.848Z'
-                            value: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/Sentinel1_1.jpg'
-                            type: IMAGE
-                          - id: 295e9022-6ccb-42ce-980e-46e5adf7397a
-                            displayId: '295e9022'
-                            createdAt: '2020-01-30T09:33:21.849Z'
-                            updatedAt: '2020-01-30T09:33:21.849Z'
-                            value: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/Sentinel1_2.jpg'
-                            type: IMAGE
-                          - id: e101ad81-ad70-4188-be24-614de4c86b8e
-                            displayId: e101ad81
-                            createdAt: '2020-01-30T09:33:21.849Z'
-                            updatedAt: '2020-01-30T09:33:21.849Z'
-                            value: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/Sentinel1_3.jpg'
-                            type: IMAGE
-                          - id: fef8c0e5-b95d-4e44-933d-96fbc072e851
-                            displayId: fef8c0e5
-                            createdAt: '2020-01-30T09:33:21.850Z'
-                            updatedAt: '2020-01-30T09:33:21.850Z'
-                            value: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/Sentinel1_4.jpg'
-                            type: IMAGE
-                          - id: 85f2b18b-c203-42ea-bcd7-ecf7d4a9fe96
-                            displayId: 85f2b18b
-                            createdAt: '2020-01-30T09:33:21.850Z'
-                            updatedAt: '2020-01-30T09:33:21.850Z'
-                            value: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/Sentinel1_5.jpg'
-                            type: IMAGE
-                      machineName: LARGE
-                  - id: ecaaab5a-eab7-49a5-b499-90f70ec91ef8
-                    displayId: ecaaab5a
-                    createdAt: '2020-01-31T19:44:14.272Z'
-                    updatedAt: '2020-01-31T19:44:14.272Z'
-                    name: 'tiling:1'
-                    parentsIds:
-                      - e6a6a408-806d-4be4-863d-37de4acd1459
-                    blockName: tiling
-                    blockVersionTag: 1.3.6
-                    block:
-                      id: 3e146dd6-2b67-4d6e-a422-bb3d973e32ff
-                      createdAt: '2019-02-21T11:02:11.535Z'
-                      updatedAt: '2020-01-27T09:42:20.964Z'
-                      name: tiling
-                      displayName: Raster Tiling
-                      description: Clips rasters into tiles for machine learning algorithms.
-                      containerUrl: 'registry.up42.com/marketplace/tiling:AhpSS0FR9Bq6sak1MPoD7H3ZHvqtD1ghy0sMA2KU'
-                      inputCapabilities:
-                        - name: up42.data.aoiclipped
-                      outputCapabilities:
-                        - name: up42.data.aoiclipped
-                      provider: UP42
-                      providerWebsite: 'https://up42.com/'
-                      providerLogoUrl: 'https://metadata.up42.com/3e146dd6-2b67-4d6e-a422-bb3d973e32ff/UP42_Logo_DarkMatter_RGB1576671494929.png'
-                      tags:
-                        - raster
-                        - processing
-                      isPublic: true
-                      isPublicVersion: true
-                      isValid: true
-                      parameters:
-                        nodata:
-                          type: number
-                          default: null
-                          required: false
-                          description: 'Value representing nodata within each raster band. If not set, defaults to the nodata value of the input raster.'
-                        tile_width:
-                          type: number
-                          default: 768
-                          required: true
-                          description: Width of a tile in pixels
-                        tile_height:
-                          type: number
-                          default: 768
-                          required: true
-                          description: Height of a tile in pixels
-                        match_extents:
-                          type: boolean
-                          default: false
-                          required: false
-                          description: 'If set to true, tile extents of all input layers will match (default false)'
-                        output_prefix:
-                          type: string
-                          default: ''
-                          required: false
-                          description: 'Prefix of tile names, default is to use input filename'
-                        augmentation_factor:
-                          type: number
-                          default: 1
-                          required: false
-                          description: Factor used to create additional tiles by applying a pixel offset (default 1)
-                        discard_empty_tiles:
-                          type: boolean
-                          default: true
-                          required: false
-                          description: 'If set to True, tiles that only consist of nodata (as defined by an alpha band or a set nodata value) will not be returned.'
-                      type: PROCESSING
-                      isDryRunSupported: false
-                      version: 1.3.6
-                      metadata:
-                        overview: "Raster Tiling is a generic preprocessing block that clips rasters into rectangle-shaped tiles and makes them ready for consumption by analytics algorithms. Tiling is especially important for large raster datasets that should be broken up into more manageable pieces to improve performance. Output tiles are GeoTIFFs with the same bands and resolution as the input data. Simple data augmentation is also supported.\n\n| General Information \_ | Description \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ |\n| --------------------- |-----------------------------------------------------------------------------|\n| Block Type \_ \_ \_ \_ \_ \_| Processing (data preparation) \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ |\n| Supported Input Types | AOI Clipped, any georeferenced GeoTIFF \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_|\n| Resolution \_ \_ \_ \_ \_ \_| identical to the input \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_|\n| Performance \_ \_ \_ \_ \_ | Some ML algorithms can incur errors with tiles if they only support RGB. \_ \_|\n\nLearn more about the documentation [here](https://docs.up42.com/up42-blocks/processing/tiling.html)."
-                        termsAndConditionsUrl: 'https://metadata.up42.com/UP42_Blocks/Tiling/Licence_Raster_Tiling.pdf'
-                        blockThumbnailUrl: 'https://metadata.up42.com/3e146dd6-2b67-4d6e-a422-bb3d973e32ff/Raster_Tiling_Thumbnail1576666074656.png'
-                        pricingStrategy:
-                          id: 1d71d1eb-6f89-4a10-9834-f9851a8396e3
-                          displayId: 1d71d1eb
-                          createdAt: '2020-01-27T09:42:20.963Z'
-                          updatedAt: '2020-01-27T09:42:20.963Z'
-                          type: MEGABYTE_INPUT
-                          credits: 1
-                        blockMarketplaceSampleData:
-                          - id: ce500621-0050-44dd-bad7-19ca09e2753e
-                            displayId: ce500621
-                            createdAt: '2020-01-27T09:42:20.963Z'
-                            updatedAt: '2020-01-27T09:42:20.963Z'
-                            value: 'https://metadata.up42.com/3e146dd6-2b67-4d6e-a422-bb3d973e32ff/Raster_Tiling_Carousel1576666087925.png'
-                            type: IMAGE
-                      machineName: MEDIUM
-                  - id: c9e1fa55-3bdc-4a2f-8152-8311a2957ca7
-                    displayId: c9e1fa55
-                    createdAt: '2020-01-31T19:44:14.285Z'
-                    updatedAt: '2020-01-31T19:44:14.285Z'
-                    name: 'buildingdetection:1'
-                    parentsIds:
-                      - ecaaab5a-eab7-49a5-b499-90f70ec91ef8
-                    blockName: buildingdetection
-                    blockVersionTag: 1.0.0-public
-                    block:
-                      id: 06a81a0f-f5cd-4374-98fb-cf456feea295
-                      createdAt: '2019-12-21T08:45:34.409Z'
-                      updatedAt: '2020-01-31T16:40:06.251Z'
-                      name: buildingdetection
-                      displayName: Building Detection Filter
-                      description: This block detects building from 2 SAR imageries.
-                      containerUrl: 'registry.up42.com/marketplace/buildingdetection:Le0T2o1Ie2Q2m2ypk0DYz9WRJwezQgMQwVXLB7g8'
-                      inputCapabilities:
-                        - name: up42.data.aoiclipped
-                      outputCapabilities:
-                        - name: up42.data.aoiclipped
-                      provider: Space Shift
-                      providerWebsite: 'https://www.spcsft.com/'
-                      providerLogoUrl: 'https://metadata.up42.com/06a81a0f-f5cd-4374-98fb-cf456feea295/SPACESHIFT_LOGO1578416390862.jpg'
-                      tags:
-                        - analytics
-                        - detection
-                        - SAR
-                        - machine learning
-                        - object
-                      isPublic: true
-                      isPublicVersion: true
-                      isValid: true
-                      parameters: {}
-                      type: PROCESSING
-                      isDryRunSupported: false
-                      version: 1.0.0-public
-                      metadata:
-                        overview: |-
-                          Building Detection Filter detects newly built buildings with two time-different SAR images from Sentinel-1.
-
-                          Automatic change detection on SAR images has been a very difficult task because of its noisy structures. This block uses a deep learning algorithm to achieve overwhelming performances on SAR images.
-
-                          **Note:** This block works with Sentinel-1 L1C GRD AOI clipped scenes and does currently not support Sentinel-1 L1C GRD Full Scenes. Once registered scenes can be clipped from the Full Scenes blocks on UP42, this block will also support Sentinel-1 L1C GRD Full Scenes.
-
-                          | General Information   | Description                                  |
-                          | --------------------- |----------------------------------------------|
-                          | Block Type            | Processing                |
-                          | Supported Input Data | Sentinel 1 L1C GRD AOI-Clipped            |
-                          | Input parameters | Set `limit` = 1 and `orbit_direction`=`"DESCENDING"`. In `time_series`, 2 different times with `time` are required (see example for `time` [here](https://docs.up42.com/up42-blocks/data/sobloo-s1-grd-aoiclipped.html#example-queries)). See the instruction [here](https://docs.up42.com/up42-blocks/data/sobloo-s1-grd.html).|
-                          | Output Data | GeoTIFF       |
-                          | Resolution            | identical to the input                       |
-                          | Performance           | Prediction Accuracy: 0.99 / IoU: 0.35. This algorithm is optimized for detecting large buildings and aggregated residential housings. In some cases, changes on crop fields are detected, which will be improved shortly in the next version.|
-                        termsAndConditionsUrl: 'https://metadata.up42.com/06a81a0f-f5cd-4374-98fb-cf456feea295/EULA_Space_Shift_newly_built_buildings1578416415695.pdf'
-                        blockThumbnailUrl: 'https://metadata.up42.com/06a81a0f-f5cd-4374-98fb-cf456feea295/icon1578416404263.png'
-                        pricingStrategy:
-                          id: fe620c0b-6c73-4faf-b8a8-8beaea86cb04
-                          displayId: fe620c0b
-                          createdAt: '2020-01-07T17:16:34.426Z'
-                          updatedAt: '2020-01-07T17:16:34.426Z'
-                          type: SQUARE_KM_INPUT
-                          credits: 500
-                        blockMarketplaceSampleData:
-                          - id: e1a6f59b-388a-40ba-9de8-d6ec5f20b964
-                            displayId: e1a6f59b
-                            createdAt: '2020-01-31T16:40:06.250Z'
-                            updatedAt: '2020-01-31T16:40:06.250Z'
-                            value: 'https://metadata.up42.com/06a81a0f-f5cd-4374-98fb-cf456feea295/01SARimage1578416411463.png'
-                            type: IMAGE
-                          - id: 7e5da642-f3f5-4bd0-84d4-1d36dcd1eefb
-                            displayId: 7e5da642
-                            createdAt: '2020-01-31T16:40:06.250Z'
-                            updatedAt: '2020-01-31T16:40:06.250Z'
-                            value: 'https://metadata.up42.com/06a81a0f-f5cd-4374-98fb-cf456feea295/02building1578416411463.png'
-                            type: IMAGE
-                      machineName: LARGE
+          $ref: '#/components/responses/ListWorkflowTasks'
       deprecated: false
     post:
       tags:
       - workflows
       summary: Create workflow tasks
       description: >-
-        Creates the workflow tasks. A task is comprised of
-        a block in a workflow.
+        Creates or updates workflow tasks. A task is comprised of
+        a block in a given workflow.
       operationId: CreateWorkflowTasks
       parameters:
       - name: project_id
@@ -975,12 +645,12 @@ paths:
                 The tasks in the workflow. Conmprises one or more
                 tasks depending on the desired workflow.
             example:
-            - name: spot-streaming
+            - name: pleiades-download
               parentName:
-              blockId: 045019bb-06fc-4fa1-b703-318725b4d8af
-            - name: tiling
-              parentName: spot-streaming
-              blockId: 3e146dd6-2b67-4d6e-a422-bb3d973e32ff
+              blockId: defb134b-ca00-4e16-afa0-639c6dc0c5fe
+            - name: pansharpening
+              parentName: pleiades-downloadg
+              blockId: 903f0435-d638-475e-bbe9-53b5664a22a8
         required: true
       responses:
         200:
@@ -989,9 +659,6 @@ paths:
         401:
           $ref: '#/components/responses/Unauthorized'
       deprecated: false
-      servers:
-      - url: http://example.com
-        variables: {}
   /projects/{project_id}/jobs:
     get:
       tags:
@@ -1018,9 +685,6 @@ paths:
           description: ''
           headers: {}
       deprecated: false
-      servers:
-      - url: http://example.com
-        variables: {}
   /projects/{project_id}/workflows/{workflow_id}/jobs:
     post:
       tags:
@@ -1051,9 +715,6 @@ paths:
           description: ''
           headers: {}
       deprecated: false
-      servers:
-      - url: http://example.com
-        variables: {}
   /projects/{project_id}/jobs/{job_id}:
     get:
       tags:
@@ -1085,9 +746,6 @@ paths:
           description: ''
           headers: {}
       deprecated: false
-      servers:
-      - url: http://example.com
-        variables: {}
   /projects/{project_id}/jobs/{job_id}/tasks:
     get:
       tags:
@@ -1119,9 +777,6 @@ paths:
           description: ''
           headers: {}
       deprecated: false
-      servers:
-      - url: http://example.com
-        variables: {}
   /jobs/{job_id}/cancel:
     post:
       tags:
@@ -1190,9 +845,6 @@ paths:
           description: ''
           headers: {}
       deprecated: false
-      servers:
-      - url: http://example.com
-        variables: {}
   /projects/{project_id}/jobs/{job_id}/downloads/results:
     get:
       tags:
@@ -1232,9 +884,6 @@ paths:
           description: ''
           headers: {}
       deprecated: false
-      servers:
-      - url: http://example.com
-        variables: {}
   /projects/{project_id}/jobs/{job_id}/tasks/{task_id}/logs:
     get:
       tags:
@@ -1279,9 +928,6 @@ paths:
           description: ''
           headers: {}
       deprecated: false
-      servers:
-      - url: http://example.com
-        variables: {}
   /projects/{project_id}/jobs/{job_id}/tasks/{task_id}/outputs/data-json:
     get:
       tags:
@@ -1326,9 +972,6 @@ paths:
           description: ''
           headers: {}
       deprecated: false
-      servers:
-      - url: http://example.com
-        variables: {}
   /blocks:
     get:
       tags:
@@ -1353,9 +996,6 @@ paths:
         401:
           $ref: '#/components/responses/Unauthorized'
       deprecated: false
-      servers:
-      - url: http://example.com
-        variables: {}
   /blocks/{block_id}:
     get:
       tags:
@@ -1540,9 +1180,6 @@ paths:
                   message: Block not found with id 045019bb-06fc-4fa1-b703-318725b4d8ef
                   details: null
       deprecated: false
-      servers:
-      - url: http://example.com
-        variables: {}
   /marketplace/blocks:
     get:
       tags:
@@ -1556,9 +1193,6 @@ paths:
         200:
           $ref: '#/components/responses/PublicBlocks'
       deprecated: false
-      servers:
-      - url: http://example.com
-        variables: {}
   /validate-schema/block:
     post:
       tags:
@@ -1600,9 +1234,6 @@ paths:
         415:
           $ref: '#/components/responses/IncorrectMediaType'
       deprecated: false
-      servers:
-      - url: http://example.com
-        variables: {}
 components:
   schemas:
     UpdateProjectSettingsRequest:
@@ -3836,7 +3467,315 @@ components:
             code: 415
             message: Content type 'application/xml;charset=UTF-8' not supported
             details: null
-
+    ListWorkflowTasks:
+      description: Detailed information on a workflow.
+      headers: {}
+      content:
+        application/json:
+          example:
+            error: null
+            data:
+              - id: e6a6a408-806d-4be4-863d-37de4acd1459
+                displayId: e6a6a408
+                createdAt: '2020-01-31T19:44:14.257Z'
+                updatedAt: '2020-01-31T19:44:14.257Z'
+                name: 'sobloo-s1-grd-aoiclipped:1'
+                parentsIds: []
+                blockName: sobloo-s1-grd-aoiclipped
+                blockVersionTag: 1.1.6
+                block:
+                  id: b1c88381-6df0-4919-a194-5d5b3b1ee2f7
+                  createdAt: '2019-09-25T13:48:59.417Z'
+                  updatedAt: '2020-01-30T09:33:21.850Z'
+                  name: sobloo-s1-grd-aoiclipped
+                  displayName: Sentinel-1 L1C GRD AOI clipped
+                  description: |+
+                    Provides Sentinel-1 L1C GRD imagery in GeoTIFF format.
+            
+                  containerUrl: 'registry.up42.com/marketplace/sobloo-s1-grd-aoiclipped:GsEmdQmRPW07k20wBCUcciK2x65oJnJSQDa59DFI'
+                  inputCapabilities: []
+                  outputCapabilities:
+                    - name: up42.data.aoiclipped
+                  provider: Sobloo
+                  providerWebsite: 'https://sobloo.eu/'
+                  providerLogoUrl: 'https://metadata.up42.com/b1c88381-6df0-4919-a194-5d5b3b1ee2f7/Sobloo_company_logo1578321785517.png'
+                  tags:
+                    - SAR
+                    - global
+                    - satellite
+                  isPublic: true
+                  isPublicVersion: true
+                  isValid: true
+                  parameters:
+                    ids:
+                      type: array
+                      default: null
+                    bbox:
+                      type: array
+                      default: null
+                    time:
+                      type: dateRange
+                      default: '2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00'
+                    limit:
+                      type: integer
+                      default: 1
+                      minimum: 1
+                    contains:
+                      type: geometry
+                    intersects:
+                      type: geometry
+                    time_series:
+                      type: array
+                      default: null
+                    orbit_direction:
+                      type: string
+                      default: null
+                    acquisition_mode:
+                      type: string
+                      default: null
+                  type: DATA
+                  isDryRunSupported: true
+                  version: 1.1.6
+                  metadata:
+                    overview: |
+                      Sentinel-1 L1C GRD AOI clipped provides AOIs of Sentinel-1 (A/B)'s C-band synthetic aperture radar sensor in processing level L-1C Ground Range Detected (GRD).
+            
+                      This AOI-Clipped block leverages WMTS to produce its output as AOI.
+            
+                      The Copernicus Sentinel-1 is a Synthetic Aperture Radar (SAR) mission, offering 4 imaging modes with different resolution (down to 5m) and coverage (up to 400m). The mission is composed of a constellation of 2 satellites (1A and 1B) sharing the same orbital plane.
+            
+                      **Technical information**
+            
+                      |Feature|Info|
+                      |:-|:-|
+                      |Archive date / refresh frequency | All products from the previous 12 months / Archives available from mission start (2014) on request |
+                      |Frequency bands | Synthetic Aperture Radar in C-band |
+                      |Resolution| **Strip map:** 80 km swath, 5 x 5 m resolution  / **Interferometric Wide Swath:** 250 km swath, 5 x 20 m spatial resolution  / **Extra-Wide Swath:** 400 km swath, 20 x 40 m spatial resolution  / **Wave:** 20 x 20 km, 5 x 5 m spatial resolution|
+                      |Processing level|L1C GRD|
+                      |Data format| GeoTIFF (AOI-Clipped)|
+            
+                      **Use cases**
+            
+                      The Copernicus Sentinel-1 Synthetic Aperture Radar (SAR) instrument is particularly suited for the assessment of land use/ land cover, soil moisture, water content and frost/thaw state. A variety of applications for this sensor data can be envisioned, e.g. ship routing in arctic conditions, agriculture, vegetation and oil spills monitoring.
+            
+                      **More information**
+            
+                      For more information about this data, please see the block's documentation page [here](https://docs.up42.com/up42-blocks/data/sobloo-s1-grd.html) or check the [provider website](https://sobloo.eu).
+                    termsAndConditionsUrl: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-AOI-Clipped/Sentinel_Data_Legal_Notice.pdf'
+                    blockThumbnailUrl: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/0_Sentinel1_Avatar_2.jpg'
+                    pricingStrategy:
+                      id: 5a1363ec-3a2a-4587-af32-f60f8a4b6a67
+                      displayId: 5a1363ec
+                      createdAt: '2020-01-30T09:33:21.836Z'
+                      updatedAt: '2020-01-30T09:33:21.836Z'
+                      type: MEGABYTE_OUTPUT
+                      credits: 0
+                    blockMarketplaceSampleData:
+                      - id: c54e70cc-54be-42d8-a03c-d36c7ad9c378
+                        displayId: c54e70cc
+                        createdAt: '2020-01-30T09:33:21.848Z'
+                        updatedAt: '2020-01-30T09:33:21.848Z'
+                        value: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/Sentinel1_1.jpg'
+                        type: IMAGE
+                      - id: 295e9022-6ccb-42ce-980e-46e5adf7397a
+                        displayId: '295e9022'
+                        createdAt: '2020-01-30T09:33:21.849Z'
+                        updatedAt: '2020-01-30T09:33:21.849Z'
+                        value: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/Sentinel1_2.jpg'
+                        type: IMAGE
+                      - id: e101ad81-ad70-4188-be24-614de4c86b8e
+                        displayId: e101ad81
+                        createdAt: '2020-01-30T09:33:21.849Z'
+                        updatedAt: '2020-01-30T09:33:21.849Z'
+                        value: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/Sentinel1_3.jpg'
+                        type: IMAGE
+                      - id: fef8c0e5-b95d-4e44-933d-96fbc072e851
+                        displayId: fef8c0e5
+                        createdAt: '2020-01-30T09:33:21.850Z'
+                        updatedAt: '2020-01-30T09:33:21.850Z'
+                        value: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/Sentinel1_4.jpg'
+                        type: IMAGE
+                      - id: 85f2b18b-c203-42ea-bcd7-ecf7d4a9fe96
+                        displayId: 85f2b18b
+                        createdAt: '2020-01-30T09:33:21.850Z'
+                        updatedAt: '2020-01-30T09:33:21.850Z'
+                        value: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/Sentinel1_5.jpg'
+                        type: IMAGE
+                  machineName: LARGE
+              - id: ecaaab5a-eab7-49a5-b499-90f70ec91ef8
+                displayId: ecaaab5a
+                createdAt: '2020-01-31T19:44:14.272Z'
+                updatedAt: '2020-01-31T19:44:14.272Z'
+                name: 'tiling:1'
+                parentsIds:
+                  - e6a6a408-806d-4be4-863d-37de4acd1459
+                blockName: tiling
+                blockVersionTag: 1.3.6
+                block:
+                  id: 3e146dd6-2b67-4d6e-a422-bb3d973e32ff
+                  createdAt: '2019-02-21T11:02:11.535Z'
+                  updatedAt: '2020-01-27T09:42:20.964Z'
+                  name: tiling
+                  displayName: Raster Tiling
+                  description: Clips rasters into tiles for machine learning algorithms.
+                  containerUrl: 'registry.up42.com/marketplace/tiling:AhpSS0FR9Bq6sak1MPoD7H3ZHvqtD1ghy0sMA2KU'
+                  inputCapabilities:
+                    - name: up42.data.aoiclipped
+                  outputCapabilities:
+                    - name: up42.data.aoiclipped
+                  provider: UP42
+                  providerWebsite: 'https://up42.com/'
+                  providerLogoUrl: 'https://metadata.up42.com/3e146dd6-2b67-4d6e-a422-bb3d973e32ff/UP42_Logo_DarkMatter_RGB1576671494929.png'
+                  tags:
+                    - raster
+                    - processing
+                  isPublic: true
+                  isPublicVersion: true
+                  isValid: true
+                  parameters:
+                    nodata:
+                      type: number
+                      default: null
+                      required: false
+                      description: 'Value representing nodata within each raster band. If not set, defaults to the nodata value of the input raster.'
+                    tile_width:
+                      type: number
+                      default: 768
+                      required: true
+                      description: Width of a tile in pixels
+                    tile_height:
+                      type: number
+                      default: 768
+                      required: true
+                      description: Height of a tile in pixels
+                    match_extents:
+                      type: boolean
+                      default: false
+                      required: false
+                      description: 'If set to true, tile extents of all input layers will match (default false)'
+                    output_prefix:
+                      type: string
+                      default: ''
+                      required: false
+                      description: 'Prefix of tile names, default is to use input filename'
+                    augmentation_factor:
+                      type: number
+                      default: 1
+                      required: false
+                      description: Factor used to create additional tiles by applying a pixel offset (default 1)
+                    discard_empty_tiles:
+                      type: boolean
+                      default: true
+                      required: false
+                      description: 'If set to True, tiles that only consist of nodata (as defined by an alpha band or a set nodata value) will not be returned.'
+                  type: PROCESSING
+                  isDryRunSupported: false
+                  version: 1.3.6
+                  metadata:
+                    overview: |-
+                      Raster Tiling is a generic preprocessing block that clips rasters into rectangle-shaped tiles and makes them ready for consumption by analytics algorithms. Tiling is especially important for large raster datasets that should be broken up into more manageable pieces to improve performance. Output tiles are GeoTIFFs with the same bands and resolution as the input data. Simple data augmentation is also supported.
+            
+                      | General Information   | Description                                                                 |
+                      | --------------------- |-----------------------------------------------------------------------------|
+                      | Block Type            | Processing (data preparation)                                               |
+                      | Supported Input Types | AOI Clipped, any georeferenced GeoTIFF                                    |
+                      | Resolution            | identical to the input                                                      |
+                      | Performance           | Some ML algorithms can incur errors with tiles if they only support RGB.    |
+            
+                      Learn more about the documentation [here](https://docs.up42.com/up42-blocks/processing/tiling.html).
+                    termsAndConditionsUrl: 'https://metadata.up42.com/UP42_Blocks/Tiling/Licence_Raster_Tiling.pdf'
+                    blockThumbnailUrl: 'https://metadata.up42.com/3e146dd6-2b67-4d6e-a422-bb3d973e32ff/Raster_Tiling_Thumbnail1576666074656.png'
+                    pricingStrategy:
+                      id: 1d71d1eb-6f89-4a10-9834-f9851a8396e3
+                      displayId: 1d71d1eb
+                      createdAt: '2020-01-27T09:42:20.963Z'
+                      updatedAt: '2020-01-27T09:42:20.963Z'
+                      type: MEGABYTE_INPUT
+                      credits: 1
+                    blockMarketplaceSampleData:
+                      - id: ce500621-0050-44dd-bad7-19ca09e2753e
+                        displayId: ce500621
+                        createdAt: '2020-01-27T09:42:20.963Z'
+                        updatedAt: '2020-01-27T09:42:20.963Z'
+                        value: 'https://metadata.up42.com/3e146dd6-2b67-4d6e-a422-bb3d973e32ff/Raster_Tiling_Carousel1576666087925.png'
+                        type: IMAGE
+                  machineName: MEDIUM
+              - id: c9e1fa55-3bdc-4a2f-8152-8311a2957ca7
+                displayId: c9e1fa55
+                createdAt: '2020-01-31T19:44:14.285Z'
+                updatedAt: '2020-01-31T19:44:14.285Z'
+                name: 'buildingdetection:1'
+                parentsIds:
+                  - ecaaab5a-eab7-49a5-b499-90f70ec91ef8
+                blockName: buildingdetection
+                blockVersionTag: 1.0.0-public
+                block:
+                  id: 06a81a0f-f5cd-4374-98fb-cf456feea295
+                  createdAt: '2019-12-21T08:45:34.409Z'
+                  updatedAt: '2020-01-31T16:40:06.251Z'
+                  name: buildingdetection
+                  displayName: Building Detection Filter
+                  description: This block detects building from 2 SAR imageries.
+                  containerUrl: 'registry.up42.com/marketplace/buildingdetection:Le0T2o1Ie2Q2m2ypk0DYz9WRJwezQgMQwVXLB7g8'
+                  inputCapabilities:
+                    - name: up42.data.aoiclipped
+                  outputCapabilities:
+                    - name: up42.data.aoiclipped
+                  provider: Space Shift
+                  providerWebsite: 'https://www.spcsft.com/'
+                  providerLogoUrl: 'https://metadata.up42.com/06a81a0f-f5cd-4374-98fb-cf456feea295/SPACESHIFT_LOGO1578416390862.jpg'
+                  tags:
+                    - analytics
+                    - detection
+                    - SAR
+                    - machine learning
+                    - object
+                  isPublic: true
+                  isPublicVersion: true
+                  isValid: true
+                  parameters: {}
+                  type: PROCESSING
+                  isDryRunSupported: false
+                  version: 1.0.0-public
+                  metadata:
+                    overview: |-
+                      Building Detection Filter detects newly built buildings with two time-different SAR images from Sentinel-1.
+            
+                      Automatic change detection on SAR images has been a very difficult task because of its noisy structures. This block uses a deep learning algorithm to achieve overwhelming performances on SAR images.
+            
+                      **Note:** This block works with Sentinel-1 L1C GRD AOI clipped scenes and does currently not support Sentinel-1 L1C GRD Full Scenes. Once registered scenes can be clipped from the Full Scenes blocks on UP42, this block will also support Sentinel-1 L1C GRD Full Scenes.
+            
+                      | General Information   | Description                                  |
+                      | --------------------- |----------------------------------------------|
+                      | Block Type            | Processing                |
+                      | Supported Input Data | Sentinel 1 L1C GRD AOI-Clipped            |
+                      | Input parameters | Set `limit` = 1 and `orbit_direction`=`"DESCENDING"`. In `time_series`, 2 different times with `time` are required (see example for `time` [here](https://docs.up42.com/up42-blocks/data/sobloo-s1-grd-aoiclipped.html#example-queries)). See the instruction [here](https://docs.up42.com/up42-blocks/data/sobloo-s1-grd.html).|
+                      | Output Data | GeoTIFF       |
+                      | Resolution            | identical to the input                       |
+                      | Performance           | Prediction Accuracy: 0.99 / IoU: 0.35. This algorithm is optimized for detecting large buildings and aggregated residential housings. In some cases, changes on crop fields are detected, which will be improved shortly in the next version.|
+                    termsAndConditionsUrl: 'https://metadata.up42.com/06a81a0f-f5cd-4374-98fb-cf456feea295/EULA_Space_Shift_newly_built_buildings1578416415695.pdf'
+                    blockThumbnailUrl: 'https://metadata.up42.com/06a81a0f-f5cd-4374-98fb-cf456feea295/icon1578416404263.png'
+                    pricingStrategy:
+                      id: fe620c0b-6c73-4faf-b8a8-8beaea86cb04
+                      displayId: fe620c0b
+                      createdAt: '2020-01-07T17:16:34.426Z'
+                      updatedAt: '2020-01-07T17:16:34.426Z'
+                      type: SQUARE_KM_INPUT
+                      credits: 500
+                    blockMarketplaceSampleData:
+                      - id: e1a6f59b-388a-40ba-9de8-d6ec5f20b964
+                        displayId: e1a6f59b
+                        createdAt: '2020-01-31T16:40:06.250Z'
+                        updatedAt: '2020-01-31T16:40:06.250Z'
+                        value: 'https://metadata.up42.com/06a81a0f-f5cd-4374-98fb-cf456feea295/01SARimage1578416411463.png'
+                        type: IMAGE
+                      - id: 7e5da642-f3f5-4bd0-84d4-1d36dcd1eefb
+                        displayId: 7e5da642
+                        createdAt: '2020-01-31T16:40:06.250Z'
+                        updatedAt: '2020-01-31T16:40:06.250Z'
+                        value: 'https://metadata.up42.com/06a81a0f-f5cd-4374-98fb-cf456feea295/02building1578416411463.png'
+                        type: IMAGE
+                  machineName: LARGE
   securitySchemes:
     basicAuth:
       type: http
