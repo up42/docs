@@ -14,6 +14,8 @@ by UP42. If you are looking into understanding what a particular
 The section is organized by :ref:`data <up42-data-blocks-documentation>`
 and :ref:`processing <up42-processing-blocks-documentation>` blocks.
 
+There also is a short section describing our :ref:`FLOSS blocks <floss-blocks>`.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents
