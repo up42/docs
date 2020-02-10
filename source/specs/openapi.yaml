@@ -626,13 +626,15 @@ paths:
         required: true
         schema:
           $ref: '#/components/schemas/ProjectID'
+        example:
+          403c5d50-240a-45c3-b1f1-10d684d285ee
       - name: workflow_id
         in: path
         required: true
         schema:
           $ref: '#/components/schemas/WorkflowID'
         example:
-          23897cdd-f452-4a98-8384-24d1dea5ca4d
+          fc88746e-98b0-4fa7-b750-2f96cde0f385
       requestBody:
         description: Create workflow task(s) payload.
         content:
@@ -649,13 +651,23 @@ paths:
               parentName:
               blockId: defb134b-ca00-4e16-afa0-639c6dc0c5fe
             - name: pansharpening
-              parentName: pleiades-downloadg
+              parentName: pleiades-download
               blockId: 903f0435-d638-475e-bbe9-53b5664a22a8
         required: true
       responses:
         200:
-          description: ''
+          $ref: '#/components/responses/WorkflowTasksCreated'
+        400:
+          description: Missing request body.
           headers: {}
+          content:
+            application/json:
+              example:
+                data: null
+                error:
+                  code: 400
+                  message: 'Required request body is missing: public com.up42.core.controller.dto.Response<java.util.List<com.up42.core.controller.dto.WorkflowTaskDto>> com.up42.core.controller.WorkflowTaskController.setWorkflowTasks(java.util.UUID,java.util.UUID,java.util.List<com.up42.core.controller.dto.WorkflowTaskRequest>) throws com.up42.core.controller.exception.InvalidWorkflowException,com.up42.core.controller.exception.WorkflowNotFoundException'
+                  details: null
         401:
           $ref: '#/components/responses/Unauthorized'
       deprecated: false
@@ -664,7 +676,8 @@ paths:
       tags:
       - jobs
       summary: Get Jobs
-      description: 'TODO: Add Description'
+      description: >-
+         Lists all the jobs in a given project.
       operationId: GetJobs
       parameters:
       - name: Content-Type
@@ -680,17 +693,33 @@ paths:
         required: true
         schema:
           $ref: '#/components/schemas/ProjectID'
+        example:
+          403c5d50-240a-45c3-b1f1-10d684d285ee
       responses:
         200:
-          description: ''
+          $ref: '#/components/responses/ListAllJobs'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          description: Not Found
           headers: {}
+          content:
+            application/json:
+              example:
+                data: null
+                error:
+                  code: 404
+                  message: Project not found for id 403c5d50-240a-45c3-b1f1-10d684d285ef and userId d39fe05a-400c-44f6-b770-86990f64b004
+                  details: null
       deprecated: false
   /projects/{project_id}/workflows/{workflow_id}/jobs:
     post:
       tags:
       - jobs
       summary: Create and Run Job
-      description: 'TODO: Add Description'
+      description: >-
+        Create and run a job with a specific workflow and input
+        parameters,
       operationId: CreateAndRunJob
       parameters:
       - name: project_id
@@ -698,11 +727,23 @@ paths:
         required: true
         schema:
           $ref: '#/components/schemas/ProjectID'
+        example:
+          403c5d50-240a-45c3-b1f1-10d684d285ee
       - name: workflow_id
         in: path
         required: true
         schema:
           $ref: '#/components/schemas/WorkflowID'
+        example:
+          fc88746e-98b0-4fa7-b750-2f96cde0f385
+      - name: name
+        description: A name for the job.
+        in: query
+        schema:
+          type: string
+        example:
+          My+newly+created+job
+        required: false
       requestBody:
         description: ''
         content:
@@ -712,15 +753,27 @@ paths:
         required: true
       responses:
         200:
-          description: ''
+          $ref: '#/components/responses/CreateJobResponse'
+        400:
+          description: Incorrect spcification of tasks.
           headers: {}
+          content:
+            application/json:
+              example:
+                data: null
+                error:
+                  code: 400
+                  message: 'There were additional tasks/queries specified: pansharpen:1, oneatla-pleiades-fullscene:1, There were missing tasks/queries: pansharpening, pleiades-download'
+                  details: null
+        401:
+          $ref: '#/components/responses/Unauthorized'
       deprecated: false
   /projects/{project_id}/jobs/{job_id}:
     get:
       tags:
       - jobs
       summary: Get Job
-      description: 'TODO: Add Description'
+      description: Lists a specific job related information.
       operationId: GetJob
       parameters:
       - name: Content-Type
@@ -736,22 +789,30 @@ paths:
         required: true
         schema:
           $ref: '#/components/schemas/ProjectID'
+        example:
+          403c5d50-240a-45c3-b1f1-10d684d285ee
       - name: job_id
         in: path
         required: true
         schema:
           $ref: '#/components/schemas/JobID'
+        example:
+          00f35ab9-59d7-4a30-ae73-e1eab7b08d0f
       responses:
         200:
-          description: ''
-          headers: {}
+          $ref: '#/components/responses/ListSingleJob'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          $ref: '#/components/responses/JobNotFound'
       deprecated: false
   /projects/{project_id}/jobs/{job_id}/tasks:
     get:
       tags:
       - jobs
       summary: Get Job tasks
-      description: 'TODO: Add Description'
+      description: >-
+        Lists all the taks in a specific job.
       operationId: GetJobTasks
       parameters:
       - name: Content-Type
@@ -767,22 +828,30 @@ paths:
         required: true
         schema:
           $ref: '#/components/schemas/ProjectID'
+        example:
+          403c5d50-240a-45c3-b1f1-10d684d285ee
       - name: job_id
         in: path
         required: true
         schema:
           $ref: '#/components/schemas/JobID'
+        example:
+          00f35ab9-59d7-4a30-ae73-e1eab7b08d0f
       responses:
         200:
-          description: ''
-          headers: {}
+          $ref: '#/components/responses/ListSingleJobTasks'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          $ref: '#/components/responses/JobNotFound'
       deprecated: false
-  /jobs/{job_id}/cancel:
+  /projects/{project_id}/jobs/{job_id}/cancel:
     post:
       tags:
       - jobs
       summary: Cancel Job
-      description: 'TODO: Add Description'
+      description: >-
+        Cancel a job that is running or scheduled to run (in pending state).
       operationId: CancelJob
       parameters:
       - name: Content-Type
@@ -793,15 +862,28 @@ paths:
         schema:
           type: string
           example: application/json
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/ProjectID'
+        example:
+          403c5d50-240a-45c3-b1f1-10d684d285ee
       - name: job_id
         in: path
         required: true
         schema:
           $ref: '#/components/schemas/JobID'
+        example:
+          a53b4d6a-635a-422d-837a-920387cede0e
       responses:
-        200:
-          description: ''
+        204:
+          description: No Content.
           headers: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          $ref: '#/components/responses/JobNotFound'
       deprecated: false
       servers:
       - url: http://example.com
@@ -967,6 +1049,148 @@ paths:
         required: true
         schema:
           $ref: '#/components/schemas/TaskID'
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /projects/{project_id}/jobs/{job_id}/tasks/{task_id}/downloads/results:
+    get:
+      tags:
+      - job-outputs
+      summary: Get Job Task Outputs - signed url
+      description: >-
+        Download the results for a specific task.
+      operationId: Get job task outputs
+      parameters:
+      - name: Accept
+        in: header
+        description: Media types accepted in the response.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain,application/json
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/ProjectID'
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/JobID'
+      - name: task_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/TaskID'
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /projects/{project_id}/jobs/{job_id}/tasks/{task_id}/outputs/quicklooks:
+    get:
+      tags:
+      - job-outputs
+      summary: Get Job Task Outputs - list quicklooks
+      description: List all quicklooks available for this task.
+      operationId: Get job task outputs quicklooks
+      parameters:
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain,application/json
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain,application/json
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/ProjectID'
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/JobID'
+      - name: task_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/TaskID'
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /projects/{project_id}/jobs/{job_id}/tasks/{task_id}/outputs/quicklooks/{image_name}:
+    get:
+      tags:
+      - job-outputs
+      summary: Get Job Task Outputs - quicklook
+      description: >-
+        Get a specific quicklook image for this task.
+      operationId: Get job task outputs quicklook image
+      parameters:
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain,application/json
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain,application/json
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/ProjectID'
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/JobID'
+      - name: task_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/TaskID'
+      - name: image_name
+        in: path
+        required: true
+        schema:
+          type: string
+          description: The quicklook image name.
+        example:
+          b8c9698b-0c42-47ac-b503-a956bf45b5f2.jpg
       responses:
         200:
           description: ''
@@ -1352,16 +1576,16 @@ components:
     CreateandRunJobRequest:
       title: CreateandRunJobRequest
       required:
-      - oneatlas-spot-aoiclipped:1
-      - tiling:1
+      - pleiades-download
+      - pansharpening
       type: object
       properties:
-        oneatlas-spot-aoiclipped:1:
-          $ref: '#/components/schemas/OneatlasSpotAoiclipped1'
-        tiling:1:
-          $ref: '#/components/schemas/Tiling1'
-    OneatlasSpotAoiclipped1:
-      title: OneatlasSpotAoiclipped1
+        pleiades-download:
+          $ref: '#/components/schemas/PleiadesDownload'
+        pansharpening:
+          $ref: '#/components/schemas/Pansharpening'
+    PleiadesDownload:
+      title: PleiadesDownload
       required:
       - bbox
       - time
@@ -1384,10 +1608,20 @@ components:
         zoom_level:
           type: integer
           format: int32
+        ids:
+          type: array
+          items:
+            type: string
+          nullable: true
+        time_series:
+          type: array
+          items:
+            type: string
+          nullable: true
     Intersects:
       title: Intersects
       required:
-      - type
+      - method
       - coordinates
       type: object
       properties:
@@ -1399,31 +1633,29 @@ components:
             type: array
             items:
               type: number
-    Tiling1:
-      title: Tiling1
+    Pansharpening:
+      title: Pansharpening
       required:
-      - tile_width
-      - tile_height
-      - output_prefix
-      - augmentation_factor
+      - method
+      - include_pan
       type: object
       properties:
-        tile_width:
-          type: integer
-          format: int32
-        tile_height:
-          type: integer
-          format: int32
-        output_prefix:
+        method:
+          description: The method used for pan-sharpening the image.
           type: string
-        augmentation_factor:
-          type: integer
-          format: int32
+          enum:
+            - SFIM
+            - Esri
+            - Brovey
+          default: SFIM
+        include_pan:
+          description: >-
+            Specifies to include or not the panchromatic
+            band in the output or not.
+          type: boolean
       example:
-        tile_width: 768
-        tile_height: 768
-        output_prefix: ''
-        augmentation_factor: 1
+        method: SFIM
+        include_pan: false
     ValidateBlocksManifestRequest:
       title: ValidateBlocksManifestRequest
       required:
@@ -3491,7 +3723,7 @@ components:
                   displayName: Sentinel-1 L1C GRD AOI clipped
                   description: |+
                     Provides Sentinel-1 L1C GRD imagery in GeoTIFF format.
-            
+
                   containerUrl: 'registry.up42.com/marketplace/sobloo-s1-grd-aoiclipped:GsEmdQmRPW07k20wBCUcciK2x65oJnJSQDa59DFI'
                   inputCapabilities: []
                   outputCapabilities:
@@ -3539,13 +3771,13 @@ components:
                   metadata:
                     overview: |
                       Sentinel-1 L1C GRD AOI clipped provides AOIs of Sentinel-1 (A/B)'s C-band synthetic aperture radar sensor in processing level L-1C Ground Range Detected (GRD).
-            
+
                       This AOI-Clipped block leverages WMTS to produce its output as AOI.
-            
+
                       The Copernicus Sentinel-1 is a Synthetic Aperture Radar (SAR) mission, offering 4 imaging modes with different resolution (down to 5m) and coverage (up to 400m). The mission is composed of a constellation of 2 satellites (1A and 1B) sharing the same orbital plane.
-            
+
                       **Technical information**
-            
+
                       |Feature|Info|
                       |:-|:-|
                       |Archive date / refresh frequency | All products from the previous 12 months / Archives available from mission start (2014) on request |
@@ -3553,13 +3785,13 @@ components:
                       |Resolution| **Strip map:** 80 km swath, 5 x 5 m resolution  / **Interferometric Wide Swath:** 250 km swath, 5 x 20 m spatial resolution  / **Extra-Wide Swath:** 400 km swath, 20 x 40 m spatial resolution  / **Wave:** 20 x 20 km, 5 x 5 m spatial resolution|
                       |Processing level|L1C GRD|
                       |Data format| GeoTIFF (AOI-Clipped)|
-            
+
                       **Use cases**
-            
+
                       The Copernicus Sentinel-1 Synthetic Aperture Radar (SAR) instrument is particularly suited for the assessment of land use/ land cover, soil moisture, water content and frost/thaw state. A variety of applications for this sensor data can be envisioned, e.g. ship routing in arctic conditions, agriculture, vegetation and oil spills monitoring.
-            
+
                       **More information**
-            
+
                       For more information about this data, please see the block's documentation page [here](https://docs.up42.com/up42-blocks/data/sobloo-s1-grd.html) or check the [provider website](https://sobloo.eu).
                     termsAndConditionsUrl: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-AOI-Clipped/Sentinel_Data_Legal_Notice.pdf'
                     blockThumbnailUrl: 'https://metadata.up42.com/Sobloo/S1-L1C-GRD-Full-Scene/0_Sentinel1_Avatar_2.jpg'
@@ -3674,14 +3906,14 @@ components:
                   metadata:
                     overview: |-
                       Raster Tiling is a generic preprocessing block that clips rasters into rectangle-shaped tiles and makes them ready for consumption by analytics algorithms. Tiling is especially important for large raster datasets that should be broken up into more manageable pieces to improve performance. Output tiles are GeoTIFFs with the same bands and resolution as the input data. Simple data augmentation is also supported.
-            
+
                       | General Information   | Description                                                                 |
                       | --------------------- |-----------------------------------------------------------------------------|
                       | Block Type            | Processing (data preparation)                                               |
                       | Supported Input Types | AOI Clipped, any georeferenced GeoTIFF                                    |
                       | Resolution            | identical to the input                                                      |
                       | Performance           | Some ML algorithms can incur errors with tiles if they only support RGB.    |
-            
+
                       Learn more about the documentation [here](https://docs.up42.com/up42-blocks/processing/tiling.html).
                     termsAndConditionsUrl: 'https://metadata.up42.com/UP42_Blocks/Tiling/Licence_Raster_Tiling.pdf'
                     blockThumbnailUrl: 'https://metadata.up42.com/3e146dd6-2b67-4d6e-a422-bb3d973e32ff/Raster_Tiling_Thumbnail1576666074656.png'
@@ -3740,11 +3972,11 @@ components:
                   metadata:
                     overview: |-
                       Building Detection Filter detects newly built buildings with two time-different SAR images from Sentinel-1.
-            
+
                       Automatic change detection on SAR images has been a very difficult task because of its noisy structures. This block uses a deep learning algorithm to achieve overwhelming performances on SAR images.
-            
+
                       **Note:** This block works with Sentinel-1 L1C GRD AOI clipped scenes and does currently not support Sentinel-1 L1C GRD Full Scenes. Once registered scenes can be clipped from the Full Scenes blocks on UP42, this block will also support Sentinel-1 L1C GRD Full Scenes.
-            
+
                       | General Information   | Description                                  |
                       | --------------------- |----------------------------------------------|
                       | Block Type            | Processing                |
@@ -3776,6 +4008,581 @@ components:
                         value: 'https://metadata.up42.com/06a81a0f-f5cd-4374-98fb-cf456feea295/02building1578416411463.png'
                         type: IMAGE
                   machineName: LARGE
+    WorkflowTasksCreated:
+      description: OK
+      content:
+        application/json:
+          example:
+            error: null
+            data:
+              - id: 97d31cdf-5633-48b0-a576-393c6c1aba5d
+                displayId: 97d31cdf
+                createdAt: '2020-02-09T20:32:00.383Z'
+                updatedAt: '2020-02-09T20:32:00.383Z'
+                name: pleiades-download
+                parentsIds: []
+                blockName: oneatlas-pleiades-fullscene
+                blockVersionTag: 1.3.11
+                block:
+                  id: defb134b-ca00-4e16-afa0-639c6dc0c5fe
+                  createdAt: '2019-09-09T15:00:45.418Z'
+                  updatedAt: '2020-02-04T09:55:00.129Z'
+                  name: oneatlas-pleiades-fullscene
+                  displayName: Pléiades Download
+                  description: 'Pléiades imagery in its original DIMAP format. RGB, NIR (2 m) and panchromatic (0.5 m) bands with 12 bits.'
+                  containerUrl: 'registry.up42.com/marketplace/oneatlas-pleiades-fullscene:ftyVZPiT0tDPkvfRkuSJtfn0WOidJ81xdeXgydvw'
+                  inputCapabilities: []
+                  outputCapabilities:
+                    - name: up42.data.scene.dimap
+                  provider: OneAtlas
+                  providerWebsite: 'https://oneatlas.airbus.com/'
+                  providerLogoUrl: 'https://metadata.up42.com/defb134b-ca00-4e16-afa0-639c6dc0c5fe/Airbus_company_logo1576514591017.jpeg'
+                  tags:
+                    - global
+                    - satellite
+                    - high revisit
+                    - optical
+                  isPublic: true
+                  isPublicVersion: true
+                  isValid: true
+                  parameters:
+                    ids:
+                      type: array
+                      default: null
+                    bbox:
+                      type: array
+                      default: null
+                    time:
+                      type: dateRange
+                      default: '2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00'
+                    limit:
+                      type: integer
+                      default: 1
+                      maximum: 500
+                      minimum: 1
+                    contains:
+                      type: geometry
+                    order_ids:
+                      type: array
+                      default: null
+                    intersects:
+                      type: geometry
+                    time_series:
+                      type: array
+                      default: null
+                    max_cloud_cover:
+                      type: integer
+                      default: 100
+                      maximum: 100
+                      minimum: 0
+                  type: DATA
+                  isDryRunSupported: true
+                  version: 1.3.11
+                  metadata:
+                    overview: |
+                      Pléiades 1A/1B are very-high resolution twin satellites offering 0.5m resolution products. The constellation is highly reactive and has been designed for daily revisit anywhere on Earth,  with stereo and tri-stereo capacity.
+
+                      The block provides Pléiades data in its original DIMAP format clipped to the provided AOI. The datasets are using geographic coordinates (EPSG:4326) and can be processed with the Data Format and Type conversion block or by specialised GIS/Remote Sensing Software. The available output bands of the Pléiades block are: red, green, blue, NIR (2m resolution) and panchromatic (0.5 m resolution). This block has a special feature: it is possible to order (and pay for) the data once and then run workflows using this data as often as needed. It is also possible to make a reliable data cost estimation using the Test Query feature.
+
+                      **Note:** This is an *Analytic* imagery product that returns 4 bands (RGB, NIR) with 12 bits. Many analytics blocks cannot process the output of this block directly but need it to be pre-processed using the Pan-sharpening (UP42) block. Please check the corresponding block descriptions if they explicitly state that they can handle this type of data.
+
+                      **Technical information**
+
+                      |Feature|Info|
+                      |:-|:-|
+                      |Archive date / refresh frequency | Archives available starting from 2016, and from 2013 over the main urban areas. Yearly acquisitions over the +300.000 inhabitants urban areas. All 0.5m resolution images acquired every day by Airbus worldwide (with 30° incidence angle, max. 15% cloud cover in Regular Area, and max. 25% cloud cover in Difficult Area).|
+                      |Frequency bands | Panchromatic: 0.470-0.830 µm / Blue: 0.430-0.550 µm / Green: 0.500-0.620 µm / Red: 0.590-0.710 µm / Near Infrared: 0.740-0.940 µm|
+                      |Resolution|Panchromatic: 0.5m / Multispectral: 2m / Swath: 20km at nadir|
+                      |Processing level|Ortho Bundle 12bits Reflectance JPEG2000 (Level3)|
+                      |Data format| JPEG2000 & DIMAP format|
+
+                      **Use cases**
+
+                      For more information about potential use cases, see the [use cases gallery](https://www.intelligence-airbusds.com/en/6987-case-study-gallery-results?products_services=2404).
+
+                      **Viewing imagery**
+
+                      Pléiades Download block returns JPEG2000 & DIMAP format. To view it, open the DIMAP file or use the [Data Format and Type Conversion](https://marketplace.up42.com/block/87dfdea7-a89a-46b5-8ac3-634ebe26f570) or [Pan-sharpening SPOT/Pléiades](https://marketplace.up42.com/block/903f0435-d638-475e-bbe9-53b5664a22a8) blocks to produce GeoTIFF files. Do not open the JPEG2000 files directly as these may be geometrically transformed.
+
+                      **More information**
+
+                      For more information about this data, please check the block's [documentation](https://docs.up42.com/up42-blocks/data/pleiades-download.html) or see the [provider website](https://oneatlas.airbus.com/).
+                    termsAndConditionsUrl: 'https://metadata.up42.com/OneAtlas/r13117_9_eula-pleiades-vuk-october2017.pdf'
+                    blockThumbnailUrl: 'https://metadata.up42.com/OneAtlas/Pleiades_HR_AOI/0_Pleiades_1A-1B_Avatar.jpg'
+                    pricingStrategy:
+                      id: 6970c408-4d39-4e88-ae10-468a8a10ce40
+                      displayId: 6970c408
+                      createdAt: '2020-02-04T09:55:00.118Z'
+                      updatedAt: '2020-02-04T09:55:00.118Z'
+                      type: SQUARE_KM_OUTPUT
+                      credits: 1000
+                    blockMarketplaceSampleData:
+                      - id: 67cd1daf-0c7e-472d-9cd1-4a3bf46d2087
+                        displayId: 67cd1daf
+                        createdAt: '2020-02-04T09:55:00.120Z'
+                        updatedAt: '2020-02-04T09:55:00.120Z'
+                        value: 'https://metadata.up42.com/OneAtlas/Pleiades_HR_AOI/Pleiades_1A-1B_China_State_of_Jin.jpg'
+                        type: IMAGE
+                      - id: dc445b7f-d378-47c0-846b-a59b383a2e33
+                        displayId: dc445b7f
+                        createdAt: '2020-02-04T09:55:00.123Z'
+                        updatedAt: '2020-02-04T09:55:00.123Z'
+                        value: 'https://metadata.up42.com/OneAtlas/Pleiades_HR_AOI/Pleiades_1A-1B_Egypt_Cairo.jpg'
+                        type: IMAGE
+                      - id: 45abacc4-227f-4503-979f-53186aed6a78
+                        displayId: 45abacc4
+                        createdAt: '2020-02-04T09:55:00.125Z'
+                        updatedAt: '2020-02-04T09:55:00.125Z'
+                        value: 'https://metadata.up42.com/OneAtlas/Pleiades_HR_AOI/Pleiades_1A-1B_French_Polynesia_Tupai_Atoll.jpg'
+                        type: IMAGE
+                      - id: 8c7e47fb-41c5-473d-8016-e9b7a2e70647
+                        displayId: 8c7e47fb
+                        createdAt: '2020-02-04T09:55:00.126Z'
+                        updatedAt: '2020-02-04T09:55:00.126Z'
+                        value: 'https://metadata.up42.com/OneAtlas/Pleiades_HR_AOI/Pleiades_1A-1B_Japan_Cycle_Tree.jpg'
+                        type: IMAGE
+                      - id: ffeade55-b6d3-445f-a078-09f567c9a01d
+                        displayId: ffeade55
+                        createdAt: '2020-02-04T09:55:00.127Z'
+                        updatedAt: '2020-02-04T09:55:00.127Z'
+                        value: 'https://metadata.up42.com/OneAtlas/Pleiades_HR_AOI/Pleiades_1A-1B_US_Los_Angeles.jpg'
+                        type: IMAGE
+                  machineName: SMALL
+              - id: d1270dba-65bc-4e32-8cf6-64bfb6f176dd
+                displayId: d1270dba
+                createdAt: '2020-02-09T20:32:00.396Z'
+                updatedAt: '2020-02-09T20:32:00.396Z'
+                name: pansharpening
+                parentsIds:
+                  - 97d31cdf-5633-48b0-a576-393c6c1aba5d
+                blockName: pansharpen
+                blockVersionTag: 1.1.6
+                block:
+                  id: 903f0435-d638-475e-bbe9-53b5664a22a8
+                  createdAt: '2019-09-25T10:07:43.789Z'
+                  updatedAt: '2020-01-06T09:27:26.909Z'
+                  name: pansharpen
+                  displayName: Pan-sharpening SPOT/Pléiades
+                  description: Pansharpens images from Pléiades or SPOT.
+                  containerUrl: 'registry.up42.com/marketplace/pansharpen:wd9ycV3lWBCFRUklwugOmcsGjOMQONnXRAcaFt9u'
+                  inputCapabilities:
+                    - name: up42.data.scene.dimap
+                  outputCapabilities:
+                    - name: up42.data.aoiclipped
+                  provider: UP42
+                  providerWebsite: 'https://up42.com/'
+                  providerLogoUrl: 'https://metadata.up42.com/903f0435-d638-475e-bbe9-53b5664a22a8/UP42_Logo_DarkMatter_RGB1576514782715.png'
+                  tags:
+                    - processing
+                  isPublic: true
+                  isPublicVersion: true
+                  isValid: true
+                  parameters:
+                    method:
+                      type: string
+                      default: SFIM
+                    include_pan:
+                      type: boolean
+                      default: false
+                  type: PROCESSING
+                  isDryRunSupported: false
+                  version: 1.1.6
+                  metadata:
+                    overview: "Pan-sharpening SPOT/Pléiades is a processing block that converts a DIMAP file into the GeoTIFF format and upsamples it to the resolution of the panchromatic band. Output images are geo-referenced GeoTIFFs with RGB and NIR bands in the same resolution. The default method used in the pan-sharpening procedure is SFIM (Smoothing Filter-based Intensity Modulation). The panchromatic band is not part of the output image, but it can be optionally included by setting 'include_pan' to true. \n\n\n| General Information \_ | Description \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ |\n| --------------------- |-----------------------------------------------------------------------------|\n| Block Type \_ \_ \_ \_ \_ \_| processing (data preparation) \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ |\n| Supported Input Types | DIMAP ('up42.data.scene.dimap')\_ \_ \_ \_ \_ \_ \_ \_ \_|\n| Output format \_ \_ \_ \_ \_ \_| AOI-Clipped GeoTIFF ('up42.data.aoiclipped')\_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_|\n\n**More information**\n\nClick [here](https://docs.up42.com/up42-blocks/processing/pansharpen.html) to learn more about the block's documentation."
+                    termsAndConditionsUrl: 'https://metadata.up42.com/UP42_Blocks/Pan-sharpening/License_Pansharpening.pdf'
+                    blockThumbnailUrl: 'https://metadata.up42.com/903f0435-d638-475e-bbe9-53b5664a22a8/Pan_Sharpening_Thumbnail1576666305095.png'
+                    pricingStrategy:
+                      id: d16768a5-eca6-4dff-ad6b-833646fdc594
+                      displayId: d16768a5
+                      createdAt: '2020-01-06T09:27:26.909Z'
+                      updatedAt: '2020-01-06T09:27:26.909Z'
+                      type: SQUARE_KM_INPUT
+                      credits: 50
+                    blockMarketplaceSampleData:
+                      - id: 0fabbc06-3100-4f50-b2ba-6f4d6a2782a9
+                        displayId: 0fabbc06
+                        createdAt: '2020-01-06T09:27:26.909Z'
+                        updatedAt: '2020-01-06T09:27:26.909Z'
+                        value: 'https://metadata.up42.com/903f0435-d638-475e-bbe9-53b5664a22a8/Pan_Sharpening_Carousel1576666332905.png'
+                        type: IMAGE
+                  machineName: LARGE
+    ListAllJobs:
+      description: OK
+      headers: {}
+      content:
+        application/json:
+          example:
+            error: null
+            data:
+              - id: 814d6d0b-8bef-4c5f-a61b-9d62b472b865
+                displayId: 814d6d0b
+                createdAt: '2020-01-31T19:50:46.061Z'
+                updatedAt: '2020-01-31T19:52:17.603Z'
+                status: FAILED
+                name: bldg detection
+                startedAt: '2020-01-31T19:50:46Z'
+                finishedAt: '2020-01-31T19:52:17Z'
+                inputs:
+                  'tiling:1':
+                    nodata: null
+                    tile_width: 768
+                    tile_height: 768
+                    match_extents: false
+                    output_prefix: ''
+                    augmentation_factor: 1
+                    discard_empty_tiles: true
+                  'buildingdetection:1': {}
+                  'sobloo-s1-grd-aoiclipped:1':
+                    ids: null
+                    time: '2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00'
+                    limit: 1
+                    intersects:
+                      type: Polygon
+                      coordinates:
+                        - - - -8.882253
+                            - 40.170594
+                          - - -8.872147
+                            - 40.170872
+                          - - -8.870859
+                            - 40.164822
+                          - - -8.887231
+                            - 40.16838
+                          - - -8.890922
+                            - 40.17543
+                          - - -8.882382
+                            - 40.176824
+                          - - -8.882253
+                            - 40.170594
+                    time_series:
+                      - '2019-10-01T00:00:00/2019-11-28T23:59:59'
+                      - '2019-11-29T00:00:00/2019-12-28T23:59:59'
+                    orbit_direction: DESCENDING
+                    acquisition_mode: null
+                mode: DEFAULT
+                workflowId: 20b6cdd2-6d53-40db-ba3a-5ec71ded1c02
+                workflowName: bldg detection
+              - id: 00f35ab9-59d7-4a30-ae73-e1eab7b08d0f
+                displayId: 00f35ab9
+                createdAt: '2020-01-31T19:42:29.679Z'
+                updatedAt: '2020-01-31T19:43:06.635Z'
+                status: SUCCEEDED
+                name: bldg detection test
+                startedAt: '2020-01-31T19:42:29Z'
+                finishedAt: '2020-01-31T19:43:06Z'
+                inputs:
+                  'buildingdetection:1': {}
+                  'sobloo-s1-grd-aoiclipped:1':
+                    ids: null
+                    time: '2018-01-01T00:00:00+00:00/2020-01-31T23:59:59+00:00'
+                    limit: 1
+                    intersects:
+                      type: Polygon
+                      coordinates:
+                        - - - -8.882253
+                            - 40.170594
+                          - - -8.872147
+                            - 40.170872
+                          - - -8.870859
+                            - 40.164822
+                          - - -8.887231
+                            - 40.16838
+                          - - -8.890922
+                            - 40.17543
+                          - - -8.882382
+                            - 40.176824
+                          - - -8.882253
+                            - 40.170594
+                    time_series:
+                      - '2019-10-01T00:00:00/2019-11-02T23:59:59'
+                      - '2019-11-03T00:00:00/2019-12-28T23:59:59'
+                    orbit_direction: DESCENDING
+                    acquisition_mode: null
+                mode: DEFAULT
+                workflowId: 57be5131-ac73-4d20-9f95-c00a934eaf6c
+                workflowName: bldg detection test no tiling
+              - id: 25deb7e9-fe2f-47bb-a069-46c6f099aa68
+                displayId: 25deb7e9
+                createdAt: '2020-01-31T19:42:10.487Z'
+                updatedAt: '2020-01-31T19:42:25.888Z'
+                status: SUCCEEDED
+                name: bldg detection test
+                startedAt: '2020-01-31T19:42:11Z'
+                finishedAt: '2020-01-31T19:42:25Z'
+                inputs:
+                  config:
+                    mode: DRY_RUN
+                  'buildingdetection:1': {}
+                  'sobloo-s1-grd-aoiclipped:1':
+                    ids: null
+                    time: '2018-01-01T00:00:00+00:00/2020-01-31T23:59:59+00:00'
+                    limit: 1
+                    intersects:
+                      type: Polygon
+                      coordinates:
+                        - - - -8.882253
+                            - 40.170594
+                          - - -8.872147
+                            - 40.170872
+                          - - -8.870859
+                            - 40.164822
+                          - - -8.887231
+                            - 40.16838
+                          - - -8.890922
+                            - 40.17543
+                          - - -8.882382
+                            - 40.176824
+                          - - -8.882253
+                            - 40.170594
+                    time_series:
+                      - '2019-10-01T00:00:00/2019-11-02T23:59:59'
+                      - '2019-11-03T00:00:00/2019-12-28T23:59:59'
+                    orbit_direction: DESCENDING
+                    acquisition_mode: null
+                mode: DRY_RUN
+                workflowId: 57be5131-ac73-4d20-9f95-c00a934eaf6c
+                workflowName: bldg detection test no tiling
+              - id: f3d11bd7-b0d2-4f0b-8d63-dc5b0960e040
+                displayId: f3d11bd7
+                createdAt: '2020-01-31T16:45:29.357Z'
+                updatedAt: '2020-01-31T19:39:51.880Z'
+                status: FAILED
+                name: bldg detection test no tiling
+                startedAt: '2020-01-31T16:45:30Z'
+                finishedAt: '2020-01-31T16:45:46Z'
+                inputs:
+                  'buildingdetection:1': {}
+                  'sobloo-s1-grd-aoiclipped:1':
+                    ids: null
+                    time: '2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00'
+                    limit: 1
+                    intersects:
+                      type: Polygon
+                      coordinates:
+                        - - - -8.882253
+                            - 40.170594
+                          - - -8.872147
+                            - 40.170872
+                          - - -8.870859
+                            - 40.164822
+                          - - -8.887231
+                            - 40.16838
+                          - - -8.890922
+                            - 40.17543
+                          - - -8.882382
+                            - 40.176824
+                          - - -8.882253
+                            - 40.170594
+                    time_series:
+                      - '2018-01-01T00:00:00/2018-02-28T23:59:59'
+                      - '2019-01-01T00:00:00/2019-02-28T23:59:59'
+                    orbit_direction: DESCENDING
+                    acquisition_mode: null
+                mode: DEFAULT
+                workflowId: 57be5131-ac73-4d20-9f95-c00a934eaf6c
+                workflowName: bldg detection test no tiling
+              - id: 84b87f02-a962-4ab4-a2e0-b7f4a9a75148
+                displayId: 84b87f02
+                createdAt: '2020-01-31T16:39:10.972Z'
+                updatedAt: '2020-01-31T16:41:32.354Z'
+                status: FAILED
+                name: bldg detection test
+                startedAt: '2020-01-31T16:39:11Z'
+                finishedAt: '2020-01-31T16:41:32Z'
+                inputs:
+                  'tiling:1':
+                    nodata: null
+                    tile_width: 768
+                    tile_height: 768
+                    match_extents: false
+                    output_prefix: ''
+                    augmentation_factor: 1
+                    discard_empty_tiles: true
+                  'buildingdetection:1': {}
+                  'sobloo-s1-grd-aoiclipped:1':
+                    ids: null
+                    time: '2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00'
+                    limit: 1
+                    intersects:
+                      type: Polygon
+                      coordinates:
+                        - - - -8.882888
+                            - 40.173835
+                          - - -8.86349
+                            - 40.173311
+                          - - -8.858169
+                            - 40.150353
+                          - - -8.887351
+                            - 40.169113
+                          - - -8.882888
+                            - 40.173835
+                    time_series:
+                      - '2018-01-01T00:00:00/2018-02-28T23:59:00'
+                      - '2019-01-01T00:00:00/2019-02-28T23:59:00'
+                    orbit_direction: DESCENDING
+                    acquisition_mode: null
+                mode: DEFAULT
+                workflowId: 57be5131-ac73-4d20-9f95-c00a934eaf6c
+                workflowName: bldg detection test no tiling
+    ListSingleJob:
+      description: OK
+      content:
+        application/json:
+          example:
+            error: null
+            data:
+              id: 00f35ab9-59d7-4a30-ae73-e1eab7b08d0f
+              displayId: 00f35ab9
+              createdAt: '2020-01-31T19:42:29.679Z'
+              updatedAt: '2020-01-31T19:43:06.635Z'
+              status: SUCCEEDED
+              name: bldg detection test
+              startedAt: '2020-01-31T19:42:29Z'
+              finishedAt: '2020-01-31T19:43:06Z'
+              inputs:
+                'buildingdetection:1': {}
+                'sobloo-s1-grd-aoiclipped:1':
+                  ids: null
+                  time: '2018-01-01T00:00:00+00:00/2020-01-31T23:59:59+00:00'
+                  limit: 1
+                  intersects:
+                    type: Polygon
+                    coordinates:
+                      - - - -8.882253
+                          - 40.170594
+                        - - -8.872147
+                          - 40.170872
+                        - - -8.870859
+                          - 40.164822
+                        - - -8.887231
+                          - 40.16838
+                        - - -8.890922
+                          - 40.17543
+                        - - -8.882382
+                          - 40.176824
+                        - - -8.882253
+                          - 40.170594
+                  time_series:
+                    - '2019-10-01T00:00:00/2019-11-02T23:59:59'
+                    - '2019-11-03T00:00:00/2019-12-28T23:59:59'
+                  orbit_direction: DESCENDING
+                  acquisition_mode: null
+              mode: DEFAULT
+              workflowId: 57be5131-ac73-4d20-9f95-c00a934eaf6c
+              workflowName: bldg detection test no tiling
+    ListSingleJobTasks:
+      description: OK
+      content:
+        application/json:
+          example:
+            error: null
+            data:
+              - id: 05c2bf15-bd3f-4070-8e77-4e5c2b4a7c2f
+                displayId: 05c2bf15
+                createdAt: '2020-01-31T19:42:29.681Z'
+                updatedAt: '2020-01-31T19:42:48.017Z'
+                name: 'sobloo-s1-grd-aoiclipped:1'
+                status: SUCCEEDED
+                parentsIds: []
+                startedAt: '2020-01-31T19:42:29Z'
+                finishedAt: '2020-01-31T19:42:46Z'
+                block:
+                  id: b1c88381-6df0-4919-a194-5d5b3b1ee2f7
+                  createdAt: null
+                  updatedAt: null
+                  name: sobloo-s1-grd-aoiclipped
+                  displayName: null
+                  description: null
+                  containerUrl: null
+                  inputCapabilities: null
+                  outputCapabilities: null
+                  provider: null
+                  providerWebsite: null
+                  providerLogoUrl: null
+                  tags: null
+                  isPublic: null
+                  isPublicVersion: null
+                  isValid: null
+                  parameters: null
+                  type: DATA
+                  isDryRunSupported: null
+                  version: 1.1.6
+                  metadata: null
+                  machineName: null
+              - id: fe06efad-29c2-410f-adc5-999e195378fa
+                displayId: fe06efad
+                createdAt: '2020-01-31T19:42:29.682Z'
+                updatedAt: '2020-01-31T19:43:01.096Z'
+                name: 'buildingdetection:1'
+                status: SUCCEEDED
+                parentsIds:
+                  - 05c2bf15-bd3f-4070-8e77-4e5c2b4a7c2f
+                startedAt: '2020-01-31T19:42:47Z'
+                finishedAt: '2020-01-31T19:42:59Z'
+                block:
+                  id: 06a81a0f-f5cd-4374-98fb-cf456feea295
+                  createdAt: null
+                  updatedAt: null
+                  name: buildingdetection
+                  displayName: null
+                  description: null
+                  containerUrl: null
+                  inputCapabilities: null
+                  outputCapabilities: null
+                  provider: null
+                  providerWebsite: null
+                  providerLogoUrl: null
+                  tags: null
+                  isPublic: null
+                  isPublicVersion: null
+                  isValid: null
+                  parameters: null
+                  type: PROCESSING
+                  isDryRunSupported: null
+                  version: 1.0.0-public
+                  metadata: null
+                  machineName: null
+    JobNotFound:
+      description: Not Found
+      headers: {}
+      content:
+        application/json:
+          example:
+            data: null
+            error:
+              code: 404
+              message: Job not found for id 00f35ab9-59d7-4a30-ae73-e1eab7b08d0e and projectId 403c5d50-240a-45c3-b1f1-10d684d285ee and userId d39fe05a-400c-44f6-b770-86990f64b004
+              details: null
+    CreateJobResponse:
+      description: OK
+      headers: {}
+      content:
+        application/json:
+          example:
+            error: null
+            data:
+              id: a7956d32-d700-4c9e-82a2-075bcffa5706
+              displayId: a7956d32
+              createdAt: '2020-02-09T23:35:45.281Z'
+              updatedAt: '2020-02-09T23:35:46.071Z'
+              status: NOT_STARTED
+              name: My newly created job
+              startedAt: null
+              finishedAt: null
+              inputs:
+                pansharpening:
+                  method: SFIM
+                  include_pan: false
+                pleiades-download:
+                  ids: null
+                  time: null
+                  limit: 1
+                  order_ids:
+                    - 44c5c936-4738-448e-94b3-65cb9d175afc
+                  intersects: null
+                  time_series: null
+              mode: DEFAULT
+              workflowId: fc88746e-98b0-4fa7-b750-2f96cde0f385
+              workflowName: My brand new workflow with Pléaides and Pansharpening.
   securitySchemes:
     basicAuth:
       type: http
@@ -3788,9 +4595,9 @@ security:
 - httpBearer: []
 tags:
 - name: token
+- name: workflows
 - name: jobs
 - name: job-outputs
-- name: workflows
 - name: blocks
 - name: block-validation
 - name: project-settings
