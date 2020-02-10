@@ -71,7 +71,8 @@ documentation. Still have questions? Then look into our FAQ.
    reference/index
    up42-blocks/index
    FAQ/index
-
+   api/index
+   
 .. Specific first page directives.
 
 .. |first-job| image:: _themes/up42/static/icons/task-list-multiple.svg

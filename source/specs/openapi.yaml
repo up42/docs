@@ -15,6 +15,10 @@ info:
     The authoritative source for the specification is available at
     [github](https://github.com/up42/openapi-specification).
 
+    If you prefer a turorial approach to using the UP42 API then
+    please consult the
+    [API walkthrough](https://docs.up42.com/going-further/api-walkthrough.html).
+
     # Understanding authentication and authorization
 
     Currently the only way to access our API is on a project by
@@ -749,13 +753,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateandRunJobRequest'
+              $ref: '#/components/schemas/CreateAndRunJobRequest'
         required: true
       responses:
         200:
           $ref: '#/components/responses/CreateJobResponse'
         400:
-          description: Incorrect spcification of tasks.
+          description: Incorrect specification of tasks.
           headers: {}
           content:
             application/json:
@@ -885,20 +889,21 @@ paths:
         404:
           $ref: '#/components/responses/JobNotFound'
       deprecated: false
-      servers:
-      - url: http://example.com
-        variables: {}
   /projects/{project_id}/jobs/{job_id}/outputs/data-json:
     get:
       tags:
       - job-outputs
       summary: Get Job Outputs - data.json
-      description: 'TODO: Add Description'
-      operationId: Get job outputs  data.json
+      description: >-
+        Obtains the GeoJSON output of the job. This includes all
+        metadata about the job and the tasks that comprise it. Bear in
+        mind that the results of the last task in a workflow
+        correspond to the overall job results.
+      operationId: Get job outputs data.json
       parameters:
       - name: Accept
         in: header
-        description: ''
+        description: MIME types accepted in the response.
         required: true
         style: simple
         schema:
@@ -922,17 +927,24 @@ paths:
         required: true
         schema:
           $ref: '#/components/schemas/JobID'
+        example: 07328028-5b68-4d7d-ac3d-f4bbd49ead5b
       responses:
         200:
-          description: ''
-          headers: {}
+          $ref: '#/components/responses/DataJsonOutput'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          $ref: '#/components/responses/JobNotFound'
       deprecated: false
   /projects/{project_id}/jobs/{job_id}/downloads/results:
     get:
       tags:
       - job-outputs
       summary: Get Job Outputs - signed url
-      description: Downloads the job results tarball URL delivered as a field in the JSON through this call.
+      description: >-
+        Downloads the job results tarball URL delivered as a field in
+        the JSON through this call. The URL needs to be extracted, is
+        the field `data.url` of the returned JSON.
       operationId: Get job outputs  signed url
       parameters:
       - name: Accept
@@ -963,25 +975,29 @@ paths:
           $ref: '#/components/schemas/JobID'
       responses:
         200:
-          description: ''
-          headers: {}
+          $ref: '#/components/responses/JobOrTaskResultsDownload'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          $ref: '#/components/responses/JobNotFound'
       deprecated: false
   /projects/{project_id}/jobs/{job_id}/tasks/{task_id}/logs:
     get:
       tags:
       - job-outputs
       summary: Get Job Task Logs
-      description: 'TODO: Add Description'
+      description: >-
+        Get the task logs as a text file.
       operationId: GetJobTaskLogs
       parameters:
       - name: Accept
         in: header
-        description: ''
+        description: MIME type accepted in the response.
         required: true
         style: simple
         schema:
           type: string
-          example: text/plain,application/json
+          example: text/plain
       - name: Content-Type
         in: header
         description: ''
@@ -989,7 +1005,7 @@ paths:
         style: simple
         schema:
           type: string
-          example: text/plain,application/json
+          example: text/plain
       - name: project_id
         in: path
         required: true
@@ -1000,23 +1016,32 @@ paths:
         required: true
         schema:
           $ref: '#/components/schemas/JobID'
+        example: 07328028-5b68-4d7d-ac3d-f4bbd49ead5b
       - name: task_id
         in: path
         required: true
         schema:
           $ref: '#/components/schemas/TaskID'
+        example: 31c52821-d5b0-4474-b1bf-06eb24c72ee4
       responses:
         200:
-          description: ''
-          headers: {}
+          $ref: '#/components/responses/TaskLog'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          $ref: '#/components/responses/JobNotFound'
       deprecated: false
   /projects/{project_id}/jobs/{job_id}/tasks/{task_id}/outputs/data-json:
     get:
       tags:
       - job-outputs
       summary: Get Job Task Outputs - data.json
-      description: 'TODO: Add Description'
-      operationId: Get job task outputs  data.json
+      description: >-
+        Obtains the GeoJSON output of the task. This includes all
+        metadata about the job and the tasks that comprise it. Bear in
+        mind that the results of the last task in a workflow
+        correspond to the overall job results.
+      operationId: Get job task outputs data.json
       parameters:
       - name: Accept
         in: header
@@ -1039,11 +1064,13 @@ paths:
         required: true
         schema:
           $ref: '#/components/schemas/ProjectID'
+        example: 403c5d50-240a-45c3-b1f1-10d684d285ee
       - name: job_id
         in: path
         required: true
         schema:
           $ref: '#/components/schemas/JobID'
+        example: 07328028-5b68-4d7d-ac3d-f4bbd49ead5b
       - name: task_id
         in: path
         required: true
@@ -1051,8 +1078,11 @@ paths:
           $ref: '#/components/schemas/TaskID'
       responses:
         200:
-          description: ''
-          headers: {}
+          $ref: '#/components/responses/DataJsonOutput'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          $ref: '#/components/responses/JobNotFound'
       deprecated: false
   /projects/{project_id}/jobs/{job_id}/tasks/{task_id}/downloads/results:
     get:
@@ -1060,12 +1090,14 @@ paths:
       - job-outputs
       summary: Get Job Task Outputs - signed url
       description: >-
-        Download the results for a specific task.
+        Download the results tarball URL for a specific task delivered
+        as a field in the JSON through this call. The URL needs to be
+        extracted, is the field `data.url` of the returned JSON.
       operationId: Get job task outputs
       parameters:
       - name: Accept
         in: header
-        description: Media types accepted in the response.
+        description: MIME types accepted in the response.
         required: true
         style: simple
         schema:
@@ -1084,11 +1116,13 @@ paths:
         required: true
         schema:
           $ref: '#/components/schemas/ProjectID'
+        example: 403c5d50-240a-45c3-b1f1-10d684d285ee
       - name: job_id
         in: path
         required: true
         schema:
           $ref: '#/components/schemas/JobID'
+        example: 07328028-5b68-4d7d-ac3d-f4bbd49ead5b
       - name: task_id
         in: path
         required: true
@@ -1096,8 +1130,11 @@ paths:
           $ref: '#/components/schemas/TaskID'
       responses:
         200:
-          description: ''
-          headers: {}
+          $ref: '#/components/responses/JobOrTaskResultsDownload'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          $ref: '#/components/responses/JobNotFound'
       deprecated: false
   /projects/{project_id}/jobs/{job_id}/tasks/{task_id}/outputs/quicklooks:
     get:
@@ -1109,7 +1146,7 @@ paths:
       parameters:
       - name: Accept
         in: header
-        description: ''
+        description: MIME types accepted in the response.
         required: true
         style: simple
         schema:
@@ -1128,20 +1165,32 @@ paths:
         required: true
         schema:
           $ref: '#/components/schemas/ProjectID'
+        example: 403c5d50-240a-45c3-b1f1-10d684d285ee
       - name: job_id
         in: path
         required: true
         schema:
           $ref: '#/components/schemas/JobID'
+        example: 07328028-5b68-4d7d-ac3d-f4bbd49ead5b
       - name: task_id
         in: path
         required: true
         schema:
           $ref: '#/components/schemas/TaskID'
+        example: 31c52821-d5b0-4474-b1bf-06eb24c72ee4
       responses:
         200:
-          description: ''
+          description: >-
+            List of available quicklook images, i.e., low resolution
+            bitmapped images that allow to preview the returned
+            image. Not all tasks generate quicklooks.
           headers: {}
+          content:
+            application/json:
+              example:
+                error: null
+                data:
+                  - 51000727-a4ba-4185-ada9-81b33db52eb2.jpeg
       deprecated: false
   /projects/{project_id}/jobs/{job_id}/tasks/{task_id}/outputs/quicklooks/{image_name}:
     get:
@@ -1154,12 +1203,12 @@ paths:
       parameters:
       - name: Accept
         in: header
-        description: ''
+        description: MIME types accepted in the response.
         required: true
         style: simple
         schema:
           type: string
-          example: text/plain,application/json
+          example: image/jpg,image/png,image/webp
       - name: Content-Type
         in: header
         description: ''
@@ -1167,12 +1216,13 @@ paths:
         style: simple
         schema:
           type: string
-          example: text/plain,application/json
+          example: image/jpg,image/png,image/webp
       - name: project_id
         in: path
         required: true
         schema:
           $ref: '#/components/schemas/ProjectID'
+        example: 403c5d50-240a-45c3-b1f1-10d684d285ee
       - name: job_id
         in: path
         required: true
@@ -1183,6 +1233,7 @@ paths:
         required: true
         schema:
           $ref: '#/components/schemas/TaskID'
+        example: 31c52821-d5b0-4474-b1bf-06eb24c72ee4
       - name: image_name
         in: path
         required: true
@@ -1190,11 +1241,23 @@ paths:
           type: string
           description: The quicklook image name.
         example:
-          b8c9698b-0c42-47ac-b503-a956bf45b5f2.jpg
+          51000727-a4ba-4185-ada9-81b33db52eb2.jpeg
       responses:
         200:
-          description: ''
+          description: >-
+            Image file with the quicklooks, i.e., low resolution
+            bitmapped image that allows to preview the result. Not all
+            tasks generate quicklooks.
           headers: {}
+          content:
+            image/jpg:
+              schema:
+                type: string
+                format: binary
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          $ref: '#/components/responses/JobNotFound'
       deprecated: false
   /blocks:
     get:
@@ -1573,7 +1636,7 @@ components:
               is the Pléiades download block.
             type: string
             example: defb134b-ca00-4e16-afa0-639c6dc0c5fe
-    CreateandRunJobRequest:
+    CreateAndRunJobRequest:
       title: CreateandRunJobRequest
       required:
       - pleiades-download
@@ -1588,9 +1651,10 @@ components:
       title: PleiadesDownload
       required:
       - bbox
+      - intersects
+      - contains
       - time
       - limit
-      - intersects
       - zoom_level
       type: object
       properties:
@@ -1604,21 +1668,27 @@ components:
           type: integer
           format: int32
         intersects:
-          $ref: '#/components/schemas/Intersects'
+          $ref: '#/components/schemas/IntersectsOrContains'
+        contains:
+          $ref: '#/components/schemas/IntersectsOrContains'
         zoom_level:
           type: integer
           format: int32
         ids:
-          type: array
-          items:
-            type: string
-          nullable: true
+          $ref: '#/components/schemas/IdsOrOrderIds'
+        order_ids:
+          $ref: '#/components/schemas/IdsOrOrderIds'
         time_series:
           type: array
           items:
             type: string
           nullable: true
-    Intersects:
+      example:
+        ids:
+          - DS_PHR1A_201809212229135_FR1_PX_E172S44_0811_06543
+        order_ids:
+          - ce83f8b9-b892-4642-a891-6b682116bdb1
+    IntersectsOrContains:
       title: Intersects
       required:
       - method
@@ -1653,9 +1723,23 @@ components:
             Specifies to include or not the panchromatic
             band in the output or not.
           type: boolean
+          default: false
       example:
         method: SFIM
         include_pan: false
+    IdsOrOrderIds:
+      title: IdsOrOrderIds
+      description: >-
+        Image IDs (scene ID) or order IDs if you previously bought the
+        image.
+      type: array
+      items:
+        type: string
+        nullable: true
+        default: null
+      example:
+        ids:
+          - S1B_IW_GRDH_1SDV_20191117T084136_20191117T084201_018965_023C6E_2A28
     ValidateBlocksManifestRequest:
       title: ValidateBlocksManifestRequest
       required:
@@ -1754,6 +1838,7 @@ components:
       required:
       - bbox
       - intersects
+      - contains
       - time
       - limit
       - zoom_level
@@ -1762,13 +1847,15 @@ components:
         bbox:
           $ref: '#/components/schemas/Bbox'
         intersects:
-          $ref: '#/components/schemas/Intersects1'
+          $ref: '#/components/schemas/IntersectsOrContains'
         time:
           $ref: '#/components/schemas/Time'
         limit:
           $ref: '#/components/schemas/Limit'
         zoom_level:
           $ref: '#/components/schemas/ZoomLevel'
+        ids:
+          $ref: '#/components/schemas/IdsOrOrderIds'
       example:
         bbox:
           type: string
@@ -1947,7 +2034,7 @@ components:
       properties:
         type:
           type: string
-      example: 46599eb5-f9dd-4f50-9569-0cbfe27be200
+      example: 0ee10645-d774-401e-87a2-c292883c261c
   responses:
     PublicBlocks:
       description: OK
@@ -4577,12 +4664,102 @@ components:
                   time: null
                   limit: 1
                   order_ids:
-                    - 44c5c936-4738-448e-94b3-65cb9d175afc
+                    - ce83f8b9-b892-4642-a891-6b682116bdb1
                   intersects: null
                   time_series: null
               mode: DEFAULT
               workflowId: fc88746e-98b0-4fa7-b750-2f96cde0f385
-              workflowName: My brand new workflow with Pléaides and Pansharpening.
+              workflowName: My brand new workflow with Pléaides and
+                    Pansharpening.
+    DataJsonOutput:
+      description: OK
+      headers: {}
+      content:
+        application/json:
+          example:
+            type: FeatureCollection
+            features:
+              - type: Feature
+                bbox:
+                  - 172.61705
+                  - -43.836509
+                  - 172.728202
+                  - -43.798937
+                geometry:
+                  type: Polygon
+                  coordinates:
+                    - - - 172.728202
+                        - -43.836509
+                      - - 172.61705
+                        - -43.836509
+                      - - 172.61705
+                        - -43.798937
+                      - - 172.728202
+                        - -43.798937
+                      - - 172.728202
+                        - -43.836509
+                properties:
+                  acquisitionDate: '2018-09-21T22:29:50.555Z'
+                  acquisitionIdentifier: DS_PHR1A_201809212229505_FR1_PX_E172S44_0811_06547
+                  acquisitionStation: SV1
+                  archivingCenter: FR1
+                  azimuthAngle: 179.9669939717338
+                  cloudCover: 0
+                  commercialReference: SO18025494-021
+                  constellation: PHR
+                  correlationId: 0f7030ad-fc56-40b1-8dec-512a7deb7b72
+                  expirationDate: '2019-09-25T21:27:18.867537601Z'
+                  format: image/jp2
+                  id: 51000727-a4ba-4185-ada9-81b33db52eb2
+                  illuminationAzimuthAngle: 37.86308255337158
+                  illuminationElevationAngle: 39.40105845724834
+                  incidenceAngle: 2.424942035324725
+                  incidenceAngleAcrossTrack: -1.625074816288399
+                  incidenceAngleAlongTrack: 1.800819567367269
+                  organisationName: AIRBUS DS GEO
+                  parentIdentifier: DS_PHR1A_201809212229505_FR1_PX_E172S44_0811_06547
+                  platform: PHR1A
+                  processingCenter: FCMUGC
+                  processingDate: '2018-09-25T14:20:16.609'
+                  processingLevel: SENSOR
+                  processorName: IPU V_05_03vV_05_03
+                  productCategory: image
+                  productType: bundle
+                  productionStatus: IN_CLOUD
+                  publicationDate: '2018-09-25T21:27:18.867537601Z'
+                  qualified: false
+                  resolution: 0.5
+                  sensorType: OPTICAL
+                  snowCover: 0
+                  sourceIdentifier: DS_PHR1A_201809212229135_FR1_PX_E172S44_0811_06543
+                  spectralRange: VISIBLE
+                  title: DS_PHR1A_201809212229135_FR1_PX_E172S44_0811_06543
+                  workspaceId: 0e33eb50-3404-48ad-b835-b0b4b72a5625
+                  workspaceName: public
+                  workspaceTitle: Public
+                  up42.data.aoiclipped:
+                    DS_PHR1A_201809212229505_FR1_PX_E172S44_0811_06547/ce83f8b9-b892-4642-a891-6b682116bdb1_pan.tif
+    JobOrTaskResultsDownload:
+      description: >-
+        JSON that contains the URL to use to fetch the results
+        tarball. The field `data.url` contains the URL.
+      headers: {}
+      content:
+        application/json:
+          example:
+            error: null
+            data:
+              url: 'https://storage.googleapis.com/interstellar-prod-processing-artifacts/07328028-5b68-4d7d-ac3d-f4bbd49ead5b/07328028-5b68-4d7d-ac3d-f4bbd49ead5b-2952012668/output.tgz?GoogleAccessId=prod-application-cluster@interstellar-prod-env.iam.gserviceaccount.com&Expires=1581362145&Signature=fLJhJg2LZTPDe68qOP6ALE9TYGKmUleHW9TJ4VMdyszgdhoA%2FXU6gR%2FkB%2BZzg%2BGWFKAkWm59UtrvbrgKgROzTqcOICDu2cUbyXcSr1tLs2KecTOE7NeyZ5ATO0mKO0QQW0TB8W%2FJu3r7IEkk6SYTrd8X08y5%2BQs8%2BzitSlE2s02y0o6IUf%2B8q8Ju3Q5wMdPsOLiImGJrd8UEmiEXjH1ehIrVnmP2aMJfPCngx%2ByJbMVI%2FMtufNpIAkIw6gRj%2FEaJDpOI4pswj5ZVjZ%2Bev3Ra%2B%2FnIsdY%2BY9CiP0ZitGjLZcXjkcN764u3%2BUmgAm7o%2BKWkoUHrqBGe0Qf%2FB4Jo%2F3DTcA%3D%3D'
+    TaskLog:
+      description: >-
+        Text file containing the log for the task.
+      headers: {}
+      content:
+        text/plain:
+          example:
+            schema:
+              type: file
+              produces: text/plain
   securitySchemes:
     basicAuth:
       type: http

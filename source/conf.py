@@ -84,7 +84,6 @@ language = None
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
-    'api',
     'examples',
     '*.zip',
 ]
@@ -239,7 +238,7 @@ todo_include_todos = False
 # See: https://sphinxcontrib-redoc.readthedocs.io/en/stable/
 redoc = [
     {
-        'name': 'UP42 API',
+        'name': 'UP42 API Reference',
         'page': 'api/index',
         'spec': 'specs/openapi.yaml',
         'embed': True,
