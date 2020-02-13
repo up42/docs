@@ -18,7 +18,7 @@ resolutions by using a trained convolutional neural network.
 
 .. warning::
 
-	This block works on a minimum image size of 192x192 pixels. This is equivalent to a **minimum area of 4 sqkm**.
+	This block works on a minimum image size of 192x192 pixels. This is equivalent to a **minimum area of 4km**:superscript:`2`.
 
 Supported parameters
 --------------------
