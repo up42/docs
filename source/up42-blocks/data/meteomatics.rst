@@ -6,7 +6,8 @@
 
 Meteomatics
 =======================================
-# TODO UPDATE
+.. TODO::
+
 `Link <https://marketplace.up42.com/block/...>`_ to block details page
 
 Block type: ``DATA``
@@ -14,24 +15,24 @@ Block type: ``DATA``
 Supported parameters
 --------------------
 
-This blocks provides access to the Meteomatics REST-style API to retrieve historic, current, and forecast data globally. In this block, model data and observational data will be available as time series in NetCDF format. Meteomatics provides a huge variety of climate variables and options, by default we provide temperatures (°C, 2m spatial resolution), accumulated precipitation (millimeters, every 5 minutes) and instantaneous wind speed (100 m). For a specific variable, you can just add the name of it to the default variables list according to description provided by Meteomatics. For more information about other variables please refer to `Meteomatics website <https://www.meteomatics.com/en/api/available-parameters/basic-weather-parameter/>`_
+This blocks provides access to the Meteomatics REST-style API to retrieve historic, current, and forecast data globally. In this block, model data and observational data is available as time series in NetCDF format. Meteomatics provides a huge variety of climate variables and options, by default we provide temperatures (in Celsius [°C] unit, at 2 meters above the ground), accumulated precipitation (millimeters, every 5 minutes) and instantaneous wind speed (100 meter per second). For a specific variable, you can just add the name of it to the default variables list according to description provided by Meteomatics. For more information about other variables please refer to `Meteomatics website <https://www.meteomatics.com/en/api/available-parameters/basic-weather-parameter/>`_
 For more information on supported filters, see :ref:`query filter section  <filters>`.
 
-* ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``bbox``
+* ``bbox``: The bounding box to use as an area of interest (AOI). Will return all scenes that intersect with this box. Use only ``bbox``
   **or** ``intersects`` **or** ``contains``.
 * ``intersects``: A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use only ``bbox``
   **or** ``intersects`` **or** ``contains``.
 * ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
-* ``time_interval``: A time interval in hours to access the time series of a variable at these certain times. By default, ``time_interval`` is set to 3 hours.
+* ``time_interval``: A desired spacing in hours between the start and end point in time. By default, ``time_interval`` is set to 3 hours.
 
 .. note::
 
-  In this block we select the ``mix`` option provided by Meteomatics which combines different models and sources into an intelligent blend, such that the best data source is chosen for each time and location. The length of the forecasting period as well as the spatial resolution depends on the model from which the requested parameters originate.
+  In this block we select the ``mix`` option provided by Meteomatics which combines different models and sources into an *intelligent* blend, such that the best data source is chosen for each time and location. The length of the forecasting period as well as the spatial resolution depends on the model from which the requested parameters originate.
 
 .. warning::
 
-  The arcseconds resolution for retrieving time series of a variable will be set based on the size of chosen ``AOI``. In this way, hitting the limit of query point provided by meteomatics api will be avoided.
+  The arcseconds resolution for retrieving time series of a variable will be set based on the size of chosen AOI. In this way, hitting the limit of query point provided by meteomatics api will be avoided.
 
 .. tip::
   In order to be able to read NetCDF files, you can either use free applications like `Panoply website <https://www.giss.nasa.gov/tools/panoply/>`_ or using `Ncview <http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html>`_.
@@ -233,7 +234,7 @@ Example of other possible variables
 Example queries
 ---------------
 
-Example query using ``time_series`` and one additional ``variable`` to the default list of  variables:
+Example query using ``time_series`` and adding one more ``variable`` to the variable list:
 
 .. code-block:: javascript
 
@@ -260,7 +261,7 @@ Example query using ``time_series`` and one additional ``variable`` to the defau
 	}
 
 
-In this example, we used ``time_series`` parameter and chose for two specific time. Also, we add new additional variable ``prob_precip_1h:p``. What we actually query in this example is that for each specific time stamp, we fetch 4 variables at each 3 hours which will be then written as NetCDF file.
+In this example, we used the ``time_series`` parameter and selected two specific time. The variable  ``prob_precip_1h:p`` was also added. In this example we query for each date range in 3 hour intervals the 4 above specified variables. As described previously the output format is NetCDF.
 
 Output format
 -------------
