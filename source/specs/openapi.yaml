@@ -488,6 +488,25 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         415:
           $ref: '#/components/responses/IncorrectMediaType'
+        422:
+          description: The workflow submitted is invalid
+          content:
+            application/json:
+              example:
+                data: null
+                error:
+                  code: 422
+                  message: Workflow cannot be saved because it contains errors.
+                  invalidTaskNames: [task1, task2]
+                  capabilityMismatches:
+                    - workflowTaskName: task3
+                      missingInputCapabilities:
+                        - up42.data.scene.pleiades
+                        - up42.data.aoiclipped
+                    - workflowTaskName: task4
+                      missingInputCapabilities:
+                        - data.imagery.optical.generic.red
+                        - data.imagery.optical.generic.multispectral.blue
       deprecated: false
   /projects/{project_id}/workflows/{workflow_id}:
     get:
