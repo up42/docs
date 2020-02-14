@@ -61,7 +61,7 @@ currently available credits in our platform.
 
 .. tip::
    
-   Optionally and/or as an adition to follow this walkthrough you
+   Optionally and/or as an adition to following this walkthrough you
    might consult the :ref:`API reference <api-specification>`.
 
 
