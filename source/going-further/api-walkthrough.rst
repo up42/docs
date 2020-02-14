@@ -59,6 +59,12 @@ do not share it around. Someone might find it and besides messing with
 your project it will make you incur costs and thus reduce the
 currently available credits in our platform.
 
+.. tip::
+   
+   Optionally and/or as an adition to follow this walkthrough you
+   might consult the :ref:`API reference <api-specification>`.
+
+
 Requirements
 ------------
 
