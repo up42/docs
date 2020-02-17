@@ -19,6 +19,7 @@ built by UP42.
    pleiades-download
    spot
    spot-download
+   meteomatics
    sobloo-s1-grd
    sobloo-s1-grd-aoiclipped
    sobloo-s1-slc
