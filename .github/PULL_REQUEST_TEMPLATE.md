@@ -12,5 +12,4 @@ Describe the scope of this pull request. Is this a new feature or a bug fix?
 
 - [ ] Checked spelling and grammar
 - [ ] Provided code samples where relevant
-- [ ] Add relevant changes to [changelog](./source/changelog.rst)
 - [ ] Checked the output of `make html` to ensure new content displays correctly
