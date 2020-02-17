@@ -10,7 +10,20 @@ Please see the `block details page <https://marketplace.up42.com/block/3e146dd6-
 
 Block type: ``PROCESSING``
 
-This block clips rasters into rectangle-shaped tiles ready for consumption by machine learning algorithms (it creates "image chips". Augmentation by using offsets and effectively creating more training data is also supported. The block is agnostic to used resolution, coordinate reference system or data type. This also means that if an input dataset has more than 4 bands, the output will have the same. Some ML algorithms can therefore have problems with the tiles if they only support RGB.
+This block clips rasters into rectangle-shaped tiles ready for consumption by machine learning algorithms (it creates
+"image chips").
+
+.. warning::
+
+   If not enough data pixels are left to create a complete tile (at the right and bottom borders of an image)
+   the missing pixels are filled in with a nodata value.
+
+The block is agnostic to used resolution, coordinate reference system or data type. This also means that if an input dataset has more than 4
+bands, the output will have the same. Some Machine Learning algorithms can therefore have problems with the tiles if
+they only support RGB images.
+
+Augmentation by using offsets is also supported, a mechanism that can be used when training supervised algorithms and
+effectively creating more training data .
 
 Supported parameters
 --------------------
