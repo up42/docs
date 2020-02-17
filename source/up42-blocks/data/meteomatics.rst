@@ -32,7 +32,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
 
 .. warning::
 
-  The arcseconds resolution for retrieving time series of a variable will be set based on the size of chosen AOI. In this way, hitting the limit of query point provided by meteomatics api will be avoided.
+  The arcseconds resolution for retrieving the time series of a variable will be set based on the size of chosen AOI. In this way, hitting the limit of query point provided by meteomatics API will be avoided.
 
 .. tip::
   In order to be able to read NetCDF files, you can either use free applications like `Panoply website <https://www.giss.nasa.gov/tools/panoply/>`_ or using `Ncview <http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html>`_.
@@ -261,7 +261,7 @@ Example query using ``time_series`` and adding one more ``variable`` to the vari
 	}
 
 
-In this example, we used the ``time_series`` parameter and selected two specific time. The variable  ``prob_precip_1h:p`` was also added. In this example we query for each date range in 3 hour intervals the 4 above specified variables. As described previously the output format is NetCDF.
+In this example, we used the ``time_series`` parameter and selected two specific time. The variable  ``prob_precip_1h:p`` was also added. In this example we query for each date range in 3 hour intervals for the 4 variables specified above. As described previously the output format is NetCDF.
 
 Output format
 -------------
