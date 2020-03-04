@@ -1,6 +1,6 @@
 .. meta::
    :description: UP42 reference: block manifest writing
-   :keywords: manifest, development, custom block, docker 
+   :keywords: manifest, development, custom block, docker
 
 .. _block-manifest:
 
@@ -58,10 +58,10 @@ The most important keys to note here are the following:
     * ``medium`` (1 CPU + 5GB RAM),
     * ``large`` (2 CPU + 10GB RAM),
     * ``xlarge`` (4 CPU + 20GB RAM).
-    * ``gpu_nvidia_tesla_k80`` (4 CPU + 1 GPU + 20GB RAM). 
+    * ``gpu_nvidia_tesla_k80`` (4 CPU + 1 GPU + 20GB RAM).
 
-See :ref:`a table <machine-typical-loads>` of typical loads for each machine type.     
-      
+See :ref:`a table <machine-typical-loads>` of typical loads for each machine type.
+
 * ``input_capabilities`` and ``output_capabilities``: the :ref:`capabilities <block-capabilities>` that your block
   requires to run, and/or that it outputs when it is finished. When validating a workflow, every block's output
   capabilties must match exactly the input capabilities of the next block in the workflow. These fields may be
@@ -184,8 +184,7 @@ Example invalid response:
     }
 
 
-Reference
----------
+Complete JSON Schema
+--------------------
 
-Here you have the full `job parameters JSON schema <https://specs.up42.com/v1/blocks/schema.json>`_.
-
+Here you have the full `job parameters JSON schema <https://specs.up42.com/v2/blocks/schema.json>`_.

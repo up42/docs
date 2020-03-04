@@ -1,62 +1,280 @@
 .. meta::
    :description: UP42 reference documentation: block capabilities
-   :keywords: blocks, workflows, matching processing and data blocks 
+   :keywords: blocks, workflows, matching processing and data blocks
 
 .. _block-capabilities:
 
 Block capabilities
 ==================
 
-Input and output capabilities define what kind of data a block provides, and what kind of data a block outputs. These
-capabilities are validated when creating a job from a workflow.
+Introduction
+------------
 
-For a given sequence of blocks, every block's output capabilities must match the input capabilities of the next block
-in the workflow. If left empty for both blocks, a sequence is also considered valid.
+As explained when defining :ref:`workflows <workflows-definition>` a
+workflow is a graph of data and processing blocks. This graph edges
+have constraints on the vertices (blocks) that can be connected among
+themselves. This means that not every block can be connected to any
+other block. These constraints are called :term:`capabilities`.
+
+Capabilities are the mechanism through which a block author can
+specify exactly how a block should be used. Let us consider, for
+example, when using deep learning model based algorithms it is
+convenient for efficiency purposes to split a large image into smaller
+image tiles so that the the algorithm can **parallelize** the execution
+as much as possible and save memory. To **force** a user to use tiling
+always before a :term:`processing block` implementing a deep learning
+algorithm.
+
+Other typical example is constraining the data format that can be
+accepted in a block, be it a processing or :term:`data block`. The
+:ref:`SNAP <snap-polarimetric-block>` only accepts input data in the
+ESA `SAFE
+<https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/data-formats>`_
+file format.
+
+We will revisit these examples below, but for now we dig deeper into
+how to specify capabilities.
+
+Specification
+-------------
+
+Capabilities are specified in the :ref:`block manifest
+<block-manifest>`. The manifest is a `JSON
+<https://www.json.org/json-en.html>`_ document with the block
+metadata.
+
+Input and output capabilities define what kind of data a block
+provides, and what kind of data a block outputs. These capabilities
+are validated when creating a job from a workflow.
+
+For a given sequence of blocks, every block's output capabilities must
+match the input capabilities of the next block in the workflow. If
+left empty this means that:
+
+ * For input capabilities: if they are empty this means that the block
+   has to be the **first** in a workflow. No other blocks can precede
+   it.
+
+ * For output capabilities: if they are empty this means that the
+   block needs to be the **last** in a workflow. No other blocks can
+   come after it.
 
 For example, in the following workflow:
 
 ::
+    Block A1 -> Block A2
 
-    Block A -> Block B
+where block A1 has an empty input capabilities and A2 has empty output
+capabilities, it is not possible to modify it in of the following ways:
 
-every output capability in Block A must appear as an input capability on Block B, and vice-versa.
+::
+   Block A0 -> Block A1 -> Block A2
 
-So, for example, if the :ref:`manifest <block-manifest>` for Block A contained the following:
+i.e., having a block preceding A1, or
 
-.. code-block:: javascript
+::
+   Block A1 -> Block A2 -> Block A3
 
-    {
-        "_up42_specification_version": 1,
-        "name": "block-a",
-        // ...
-        "input_capabilities": {
-        },
-        "output_capabilities": {
-            "up42.processing.texture": {}
-        }
-    }
+having a block after A2.
 
-Then the manifest for Block B **must** have the corresponding input capabilities for the workflow to be valid:
+Here are the relevant excerpts of the :ref:`manifest <block-manifest>`
+for block A1.
 
 .. code-block:: javascript
 
-    {
-        "_up42_specification_version": 1,
-        "name": "block-b",
-        // ...
-        "input_capabilities": {
-            "up42.processing.texture": {}
-        },
-        "output_capabilities": {
-            // ...
-        }
-    }
+   {
+     "_up42_specification_version": 2,
+     "name": "A1",
+     "type": "data",
+     "display_name": "My custom A1 block",
+     "description": "Provides data from the foo satellite.",
+     "parameters": {
+       "ids": {
+         "type": "array",
+         "default": null
+       },
+       "bbox": {
+         "type": "array",
+         "default": null
+       },
+       "intersects": {
+         "type": "geometry"
+       },
+       "contains": {
+         "type": "geometry"
+       },
+       "time": {
+         "type": "dateRange",
+         "default": "2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00"
+       },
+       "time_series": {
+         "type": "array",
+         "default": null
+       },
+       "limit": {
+         "type": "integer",
+         "minimum": 1,
+         "default": 1
+       },
+       "acquisition_mode": {
+         "type": "string",
+         "default": null
+       },
+       "orbit_direction": {
+         "type": "string",
+         "default": null
+       }
+     },
+     "machine": {
+       "type": "small"
+     },
+     "optional_features": {
+       "quicklook_supported": true,
+       "dry_run_supported": true
+     },
+     "input_capabilities": {}, // empty input capabilities: block is first in a workflow
+     "output_capabilities": {
+       "raster": {
+         "up42_standard": {
+           "format": "SAFE",
+           "sensor": "Sentinel1GRD",
+           "dtype": "uint16",
+           "resolution": 10,
+           "bands": {
+             "or": [
+               ["HH", "HV", "alpha"],
+               ["VV", "VH", "alpha"],
+               ["HH", "alpha"],
+               ["VV", "alpha"]
+             ]
+           },
+           "processing_level": "l1"
+         }
+       }
+     }
+   }
 
-Capabilities are specified as keys, with a value of an empty object. The contents of this object are reserved for
-future expansion.
+And for block A2:
 
-Built-in capabilities
----------------------
+.. code:: javascript
+
+   {
+     "_up42_specification_version": 2,
+     "name": "A2",
+     "type": "processing",
+     "display_name": "My custom A2 block",
+     "description": "Computes the number of quux in a foo satellite image.",
+     "parameters": {
+       "minutes": {
+         "type": "number",
+         "default": 25
+       },
+       "max_features": {
+         "type": "number",
+         "default": 1000
+       }
+     },
+     "machine": {
+       "type": "medium"
+     },
+     "input_capabilities": {
+       "vector": {
+         "up42_standard": {
+           "format": "GeoJSON",
+           "geometry_type": "Polygon"
+         },
+         "custom": {
+           "object_type": "ship"
+         }
+       }
+     },
+     "output_capabilities": {} // empty output capabilities: block is last in a workflow
+   }
+
+
+A capability is specified as a nested JSON object. There are reserved
+words that represent either specific **keys** or **operators**.
+
+Operators
++++++++++
+
+There are the following operators:
+
+   >
+       Is the inheritance operator. It is used when the value of a
+       input capability key is **inherited** from the output
+       capabilities of the previous block in the workflow.
+
+   or
+       Represents the boolean OR (disjunction) operator. Given an
+       array of values for a key, the key has to match at least one of
+       the values.
+
+   ${parameter}
+       Represents a reference to a previously defined key in the
+       capabilities. Allows a concise way of refering to previous key
+       values without the need for error prone key-value pairs repetition.
+
+Meta capabilities
++++++++++++++++++
+
+Meta capabilities are **always** at the root of a capability
+definition, i.e., they precede all other keys in the tree representing
+the JSON object for a capability.
+
+Meta capabilities correspond to the possible types of data that can be
+created and/or consumed inside a given workflow.
+
+Currently these are the following:
+
+    raster
+        A bitmap image file format.
+
+    vector
+        A vectorial file format.
+
+A meta capability needs to contain at least one of the following
+fields to be valid:
+
+    up42_standard
+        A capability definition that conforms to the UP42 capability definition.
+
+    custom
+        A custom capability. A capability that is not contemplated by
+        the ``up42_standard`` definition.
+
+
+up42_standard raster capabilities
++++++++++++++++++++++++++++++++++
+
+    format
+        File input/output format. Possible values:
+        * GTiff: GeoTIFF
+        * SAFE
+        * DIMAP
+        * NetCDF
+
+    dtype
+        Data type according to the `C99
+        <https://en.wikipedia.org/wiki/C99>`_ language
+        specification. Fixed width integers and floats.
+        Possible values are:
+        * uint8
+        * unint16
+        * float
+
+    sensor
+        Name of the satellite or satellite and product, in the case of
+        satellite imagery. Bear in mind that the possible value list
+        will be appended as new data sources are added to the UP42
+        platform.  Possible values:
+        * Pleiades
+        * SPOT
+        * Sentinel1GRD
+        * Sentinel1SLC
+        * Sentinel2
+        * Sentinel3
+        * Sentinel 5P
 
 The full list of build-in capabilities is available as part of the
 `block manifest JSON schema <http://specs.up42.com/v1/blocks/schema.json>`_.
