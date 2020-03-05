@@ -1,6 +1,6 @@
 .. meta::
-   :description: UP42 reference: data transfer between blocks 
-   :keywords: reference, input, output, data transfer, custom block, development 
+   :description: UP42 reference: data transfer between blocks
+   :keywords: reference, input, output, data transfer, custom block, development
 
 .. _data-transfer-format:
 
@@ -117,7 +117,7 @@ the output GeoJSON looks like the following:
                 "id": "e18542c4-d3b6-4e74-9eb6-8899ad4276be",
                 "geometry": { ... },
                 "properties": {
-                    "up42.data.aoiclipped": "e18542c4-d3b6-4e74-9eb6-8899ad4276be.tif"
+                    "up42.data_path": "e18542c4-d3b6-4e74-9eb6-8899ad4276be.tif"
                 }
             }
         ]
@@ -167,8 +167,8 @@ output JSON as follows:
                     // ...
                 },
                 "properties": {
-                    "up42.data.aoiclipped": "aedf023/rgb.tif",
-                    "up42.data.aoiclipped": "aedf023/nir.tif",
+                    "up42.data_path": "aedf023/rgb.tif",
+                    "up42.data_path": "aedf023/nir.tif",
                     // ...
                 }
             },
@@ -178,8 +178,8 @@ output JSON as follows:
                     // ...
                 },
                 "properties": {
-                    "up42.data.aoiclipped": "be051fa1/rgb.tif",
-                    "up42.data.aoiclipped": "be051fa1/nir.tif",
+                    "up42.data_path": "be051fa1/rgb.tif",
+                    "up42.data_path": "be051fa1/nir.tif",
                     // ...
                 }
             }
@@ -229,12 +229,12 @@ For more details on the latter, and examples of output, see the :ref:`documentat
 Tools and references
 --------------------
 
- + `GeoJSON deep dive <https://macwright.org/2015/03/23/geojson-second-bite>`_.   
+ + `GeoJSON deep dive <https://macwright.org/2015/03/23/geojson-second-bite>`_.
  + `GeoJSON schemas <http://geojson.org/>`__:
     - `Geometry <http://geojson.org/schema/Geometry.json>`_.
     - `FeatureCollection <http://geojson.org/schema/FeatureCollection.json>`_.
     - `Feature <http://geojson.org/schema/Feature.json>`_.
  + geojson.io_ for testing and visualizing GeoJSON objects.
 
-.. _geojson.org: http://geojson.org/   
+.. _geojson.org: http://geojson.org/
 .. _geojson.io: http://geojson.io/
