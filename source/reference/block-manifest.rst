@@ -55,7 +55,7 @@ An example manifest file looks like the following:
                ["red", "green", "blue", "nir", "pan"]
              ]
            },
-           "sensor": ">", // propagate from input capabilities
+           "sensor": ">",
            "resolution": ">",
            "processing_level": ">",
            "dtype": ">"
