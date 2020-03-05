@@ -12,35 +12,62 @@ of the block is pushed.
 
 An example manifest file looks like the following:
 
-.. code-block:: json
+.. code:: javascript
 
-    {
-        "_up42_specification_version": 1,
-        "name": "ndvi",
-        "type": "processing",
-        "tags": [
-            "imagery",
-            "index",
-            "vegetation"
-        ],
-        "display_name": "Normalized Difference Vegetation Index",
-        "description": "This is the Normalized Difference Vegetation Index block to calculate biomass health on a per-pixel basis.",
-        "parameters": {
-        },
-        "machine": {
-            "type": "medium"
-        },
-        "input_capabilities": {
-            "up42.data.aoiclipped": {}
-        },
-        "output_capabilities": {
-            "up42.data.aoiclipped": {}
-        }
-    }
+   {
+     "_up42_specification_version": 2,
+     "name": "pansharpen",
+     "type": "processing",
+     "tags": ["imagery", "processing", "preprocessing"],
+     "display_name": "Pan-sharpening SPOT/Pléiades",
+     "description": "Pansharpens images from Pléiades or SPOT.",
+     "parameters": {
+       "method": {
+         "type": "string",
+         "default": "SFIM"
+       },
+       "include_pan": {
+         "type": "boolean",
+         "default": false
+       }
+     },
+     "machine": {
+       "type": "large"
+     },
+     "input_capabilities": {
+       "raster": {
+         "up42_standard": {
+           "format": "DIMAP",
+           "sensor": {
+             "or": ["Pleiades", "SPOT"]
+           },
+           "bands": ["red", "green", "blue", "nir", "pan"]
+         }
+       }
+     },
+     "output_capabilities": {
+       "raster": {
+         "up42_standard": {
+           "format": "GTiff",
+           "bands": {
+             "or": [
+               ["red", "green", "blue", "nir"],
+               ["red", "green", "blue", "nir", "pan"]
+             ]
+           },
+           "sensor": ">", // propagate from input capabilities
+           "resolution": ">",
+           "processing_level": ">",
+           "dtype": ">"
+         }
+       }
+     }
+   }
+
 
 The most important keys to note here are the following:
 
-* ``_up42_specification_version``: currently should always be set to ``1``.
+* ``_up42_specification_version``: currently should always be set to ``2``.
 * ``name``: the name of your block. This name **must** be unique for your account.
 * ``type``: either ``"data"`` or ``"processing"``. This provides a hint to the platform when validating workflows.
   The major difference between data and processing blocks is whether they require input data (data blocks do not
@@ -71,49 +98,93 @@ See :ref:`a table <machine-typical-loads>` of typical loads for each machine typ
 
 Optional Features
 -----------------
-The manifest file also supports optional features i.e. functionality that a block can, but not must, support. So far
-these are only available for data blocks. See in the following the manifest used for our built-in Landsat8 block as an
-example.
+
+The manifest file also supports optional features i.e. functionality
+that a block can, but not must, support. So far these are only
+available for data blocks. See in the following the manifest used for
+our built-in Landsat8 block as an example.
 
 .. code-block:: json
 
-    {
-      "_up42_specification_version": 1,
-      "name": "landsat8-aoiclipped",
-      "type": "data",
-      "tags": [
-        "Landsat",
-        "MSI",
-        "Imagery"
-      ],
-      "display_name": "Landsat-8 Level 1 (TOA) AOI clipped",
-      "description": "This block provides Landsat-8 imagery clipped to all webmercator tiles intersecting a given bounding box or AOI on a given zoom level. The part of the image that does not intersect with these tiles will be black. The block outputs a single GeoTIFF file and will store the AOI within the output feature geometry.",
-      "parameters": {
-        "bbox": { "type": "string", "default": null},
-        "intersects": {"type": "geometry"},
-        "time": {"type": "dateRange", "default": null},
-        "limit": {"type": "number", "default": 1},
-        "zoom_level": {"type": "number", "default": 17}
-      },
-      "machine": {
-        "type": "large"
-      },
-      "optional_features": {
-          "quicklook_supported": true,
-          "dry_run_supported": true
-      },
-      "input_capabilities": {
-      },
-      "output_capabilities": {
-          "up42.data.aoiclipped": {}
-      }
-    }
+   {
+     "_up42_specification_version": 2,
+     "name": "pleiades-scene",
+     "type": "data",
+     "tags": ["Airbus", "OneAtlas", "Pléiades", "optical", "global", "high revisit", "very-high resolution"],
+     "display_name": "Pléiades Download",
+     "description": "Pléiades imagery in its original DIMAP format. RGB, NIR (2 m) and panchromatic (0.5 m) bands with 12 bits.",
+     "parameters": {
+       "order_ids": {
+         "type": "array",
+         "default": null
+       },
+       "ids": {
+         "type": "array",
+         "default": null
+       },
+       "bbox": {
+         "type": "array",
+         "default": null
+       },
+       "intersects": {
+         "type": "geometry"
+       },
+       "contains": {
+         "type": "geometry"
+       },
+       "time": {
+         "type": "dateRange",
+         "default": "2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00"
+       },
+       "limit": {
+         "type": "integer",
+         "minimum": 1,
+         "maximum": 500,
+         "default": 1
+       },
+       "time_series": {
+         "type": "array",
+         "default": null
+       },
+       "max_cloud_cover": {
+         "type": "integer",
+         "minimum": 0,
+         "maximum": 100,
+         "default": 100
+       }
+     },
+     "machine": {
+       "type": "small"
+     },
+     "optional_features": {
+       "quicklook_supported": true,
+       "dry_run_supported": true
+     },
+     "input_capabilities": {},
+     "output_capabilities": {
+       "raster": {
+         "up42_standard": {
+           "format": "DIMAP",
+           "bands": ["red", "green", "blue", "nir", "pan"],
+           "resolution": 0.5,
+           "sensor": "Pleiades",
+           "dtype": "uint16",
+           "processing_level": "l2"
+         }
+       }
+     }
+   }
 
-You will notice the ``optional_features`` element. ``quicklook_supported`` indicates that the data block supports creation
-of quicklooks as described in :ref:`Data transfer format <data-transfer-format>`. If ``dry_run_supported`` is set to ``true``,
-the data block is able to do test runs, i.e. it fetches information about availability of datasets according to the
-specified query parameters without actually fetching any data. See the UP42_JOB_MODE paragraph in the
-:ref:`Environmental variables in running blocks <block-envvars>` section. how this behaviour is invoked.
+You will notice the ``optional_features``
+element. ``quicklook_supported`` indicates that the data block
+supports creation of quicklooks as described in :ref:`Data transfer
+format <data-transfer-format>`. If ``dry_run_supported`` is set to
+``true``, the data block is able to do test runs, i.e. it fetches
+information about availability of datasets according to the specified
+query parameters without actually fetching any data. See the
+UP42_JOB_MODE paragraph in the :ref:`Environmental variables in
+running blocks <block-envvars>` section. how this behaviour is
+invoked.
 
 
 Attaching a manifest to a block
@@ -124,9 +195,11 @@ the manifest quickly, without having to repeatedly fetch entire images.
 
 The easiest way to do this is as follows:
 
-* Keep your manifest as a seperate file, so that it's easier to maintain. By convention, we use ``UP42Manifest.json``
-  in most of the documentation.
-* In your Dockerfile, add the following lines below the ``FROM`` directive that sets the base image:
+* Keep your manifest as a seperate file, so that it's easier to
+  maintain. By convention, we use ``UP42Manifest.json`` in most of the
+  documentation.
+* In your Dockerfile, add the following lines below the ``FROM``
+  directive that sets the base image:
 
   .. code-block:: docker
 
@@ -139,7 +212,8 @@ The easiest way to do this is as follows:
 
     $ docker build . -t <image-tags> --build-arg manifest="$(cat UP42Manifest.json)"
 
-You can then push the block with ``docker push`` as covered in the :ref:`guide to building custom blocks <build-and-push-first-block>`.
+You can then push the block with ``docker push`` as covered in the
+:ref:`guide to building custom blocks <build-and-push-first-block>`.
 
 
 .. _validating-your-manifest:
@@ -183,6 +257,10 @@ Example invalid response:
         }
     }
 
+.. tip::
+
+   It is strongly recommended that you **always** a block manifest
+   **before** pushing it to the UP42 registry.
 
 Complete JSON Schema
 --------------------
