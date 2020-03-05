@@ -10,11 +10,11 @@ Block capabilities
 Introduction
 ------------
 
-As explained when defining :ref:`workflows <workflows-definition>` a
-workflow is a graph of data and processing blocks. The edges of the graph
-have constraints on the vertices (blocks) that can be connected among
-themselves. This means that not every block can be connected to any
-other block. These constraints are called :term:`capabilities`.
+A workflow is a directed acyclic graph of data and processing
+blocks. The edges of the graph have constraints on the vertices
+(blocks) that can be connected among themselves. This means that not
+every block can be connected to any other block. These constraints are
+called :term:`capabilities`.
 
 Capabilities are the mechanism through which a block author can
 specify exactly how a block should be used. Let us consider, for
