@@ -32,6 +32,16 @@
       specified in Longitude/Latitude based on `WGS 84
       <http://www.opengis net/def/crs/OGC/1.3/CR 84>`__.
 
+   capabilities
+      A set of constraints on the graph that constitutes :term:`workflow` that
+      defines what :term:`block` can be connected to other
+      block. E.g., only data blocks that output `SAFE files <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/data-formats>`_
+      can be used as input to the :ref:`SNAP polarimetric
+      <snap-polarimetric-block>` block. There are input and output
+      capabilties. The first constraint which blocks can **precede** a
+      given block in a workflow, while the later constraint which
+      blocks can **follow** that given block.
+
    console
       The **U**\ ser **I**\ nterface of the UP42 platform. It allows
       you to do all actions related with :term:`project`,
@@ -51,7 +61,8 @@
       Percentage or ratio of the given individual scene or region that is fully covered by clouds as defined by a cloud mask. Different cloud masks will returned different results depending on considerations on haze and cloud type.
 
    data block
-      A :term:`block` that provides satellite image data or other geospatial data.
+      A :term:`block` that provides satellite image data or other
+      types of geospatial data.
 
    demo project
       Project that is created when a customer confirms the
