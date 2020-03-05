@@ -259,7 +259,7 @@ Example invalid response:
 
 .. tip::
 
-   It is strongly recommended that you **always** a block manifest
+   It is strongly recommended that you validate **always** a block manifest
    **before** pushing it to the UP42 registry.
 
 Complete JSON Schema
