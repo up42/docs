@@ -20,7 +20,7 @@ Capabilities are the mechanism through which a block author can
 specify exactly how a block should be used. Let us consider, for
 example, when using deep learning model based algorithms it is
 convenient for efficiency purposes to split a large image into smaller
-image tiles so that the the algorithm can **parallelize** the execution
+image tiles. This way the algorithm can **parallelize** the execution
 as much as possible thus saving memory. To **force** to always use tiling
 before a :term:`processing block` implementing a deep learning
 algorithm you specifiy it in the manifest. See :ref:`here
@@ -33,7 +33,7 @@ only accepts input data in the ESA `SAFE
 <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/data-formats>`_
 file format: :ref:`manifest <snap-polarimetric-block-manifest>`.
 
-We elaborate on more examples below, but for now we dig deeper into
+We elaborate with more examples below, but for now we dig deeper into
 how to specify capabilities.
 
 Specification
@@ -209,7 +209,7 @@ There are the following operators:
        input capability key is **propagated**
        to the output capabilities. See the usage of this
        operator :ref:`below <pansharpen-block-manifest>` for the
-       pansharpening block for Pléaides/SPOT.
+       pansharpening block for Pléiades/SPOT.
 
    or
        Represents the boolean OR (disjunction) operator. Given an
@@ -315,14 +315,14 @@ up42_standard raster capabilities
         - green
         - blue
         - nir (near infrared)
-        - nir2 (additions near infrared band)
+        - nir2 (additional near infrared band)
         - pan (panchromatic)
         - ndvi (NDVI output band)
         - dem (digital elevation model)
         - alpha (image transparency band)
         - coastal
-        - rededege (red edge band)
-        - rededege2 (additional red edge band)
+        - rededge (red edge band)
+        - rededge2 (additional red edge band)
         - watervapour (water vapour band)
         - swir (short wave infrared band)
         - swir2 (additional short wave infrared band)
