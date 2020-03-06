@@ -10,7 +10,7 @@ Block capabilities
 Introduction
 ------------
 
-A workflow is a directed acyclic graph of data and processing
+A :term:`workflow` is a directed acyclic graph of data and processing
 blocks. The edges of the graph have constraints on the vertices
 (blocks) that can be connected among themselves. This means that not
 every block can be connected to any other block. These constraints are
@@ -18,12 +18,12 @@ called :term:`capabilities`.
 
 Capabilities are the mechanism through which a block author can
 specify exactly how a block should be used. Let us consider, for
-example, when using deep learning model based algorithms it is
-convenient for efficiency purposes to split a large image into smaller
-image tiles. This way the algorithm can **parallelize** the execution
-as much as possible thus saving memory. To **force** to always use tiling
-before a :term:`processing block` implementing a deep learning
-algorithm you specifiy it in the manifest. See :ref:`here
+example, a deep learning model based :term:`processsing block` it is
+convenient to slice the input image in regular sized tiles. This way
+the algorithm can **parallelize** the execution as much as possible
+and save memory. To **force** to always use tiling before a
+:term:`processing block` implementing a deep learning algorithm you
+must specifiy it in the manifest. See :ref:`here
 <ship-detection-block-manifest>` for an example of such.
 
 Other typical application of capabilities is constraining the data
@@ -206,10 +206,14 @@ There are the following operators:
 
    >
        Is the propagation operator. It is used when the value of a
-       input capability key is **propagated**
-       to the output capabilities. See the usage of this
+       output capability key is **propagated** to the output
+       capabilities of the following block. See the usage of this
        operator :ref:`below <pansharpen-block-manifest>` for the
-       pansharpening block for Pléiades/SPOT.
+       pansharpening block for Pléiades/SPOT. ``>`` in
+       the output capabilities for the ``sensor`` field
+       means that the all the blocks that will come after it in
+       a workflow, will have the sensor field be **always** SPOT or
+       Pléiades.
 
    or
        Represents the boolean OR (disjunction) operator. Given an
@@ -230,6 +234,13 @@ There are the following operators:
        ``match_extents`` parameters from the job configuration into the
        capabilities. See :ref:`below <tiling-block-manifest>` for an
        example of a manifest using this operator.
+
+.. warning::
+
+   The propagation operator ``>`` can only be used in output
+   capabilities. Trying to use it in input capabilities will result in
+   it being treated as a string and consequently the resulting
+   behaviour of the block will be unpredictable.
 
 
 Meta capabilities
