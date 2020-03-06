@@ -73,7 +73,8 @@ Requirements
 
 `Bash <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`__ is the shell
 used in this guide. You are free to use any other shell as long as use
-``cURL`` and ``jq``.
+``cURL`` and ``jq``. Feel free to use any other HTTP command line
+client and JSON processor respectively.
 
 Additionally you can use
 `jwt-cli <https://github.com/mike-engel/jwt-cli>`__ to decode the

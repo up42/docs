@@ -11,6 +11,12 @@
 This section helps you to get started with the UP42 API. We will run
 the :term:`demo project` once more, but now using the API.
 
+We will make use of a shell script written in Bash. This is just a
+convenience. Our API is a `REST
+<https://en.wikipedia.org/wiki/Representational_state_transfer>`_
+API. It is therefore independent of any platform or specific software
+constraints.
+
 .. _api_requirements:
 
 Requirements
