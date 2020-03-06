@@ -12,7 +12,7 @@ Introduction
 
 The API is the UP42 pivotal point: everything runs on top
 it. Therefore if you want to automate/scale your usage of UP42 the API
-is the way to go. 
+is the way to go.
 
 The current publicly available API functions in the context of a
 project. Here are the actions that you can perform using the API:
@@ -27,9 +27,9 @@ as well as minimal proficiency with using a UNIX like shell.
    - :ref:`create & run job <create-run-job>`
    - :ref:`get job output <results-geojson>` (``data.json``)
    - :ref:`get job output directory <download-results>`
-   - :ref:`create and run a named job <create-run-named-job>` 
+   - :ref:`create and run a named job <create-run-named-job>`
    - :ref:`cancel a running job <cancel-job>`
-      
+
 2. :ref:`Work with jobs and tasks <working-job-tasks>`:
 
    - :ref:`get job logs <get-job-logs>`
@@ -37,7 +37,7 @@ as well as minimal proficiency with using a UNIX like shell.
    - :ref:`get job tasks output <task-results-geojson>` (``data.json``)
    - :ref:`get job tasks output directory <task-downloads-results>`
    - :ref:`get job tasks quicklooks <task-results-quicklooks>`
-     
+
 3. :ref:`Work with workflows <working-workflows>`:
 
    - :ref:`get workflows <get-workflows>`
@@ -60,7 +60,7 @@ your project it will make you incur costs and thus reduce the
 currently available credits in our platform.
 
 .. tip::
-   
+
    Optionally and/or as an adition to following this walkthrough you
    might consult the :ref:`API reference <api-specification>`.
 
@@ -72,7 +72,8 @@ Requirements
 2. `jq <https://stedolan.github.io/jq/>`__.
 
 `Bash <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`__ is the shell
-used in this guide.
+used in this guide. You are free to use any other shell as long as use
+``cURL`` and ``jq``.
 
 Additionally you can use
 `jwt-cli <https://github.com/mike-engel/jwt-cli>`__ to decode the
@@ -111,7 +112,7 @@ Now you can echo the token in the shell:
 .. code:: bash
 
    > echo $PTOKEN
-   
+
    eyJ0eXAiOiJKV1QiLCJraWQiOiIxIiwidG9rZW5fdHlwZSI6IkFDQ0VTUyIsImFsZyI6IlJTNTEyIn0.eyJpc3MiOiJiYWNrZW5kLWNvcmUiLCJqdGkiOiI5ZGYyMzY3MC02NDRkLTRkMGEtYTFlNi1hODIwN2QxZGQwNDgiLCJpYXQiOjE1NjE3MTc0ODcsInN1YiI6IjVhMjFlYWZmLWNkYWEtNDhhYi1iZWRmLTU0NTQxMTZkMTZmZiIsImF1ZCI6IjVhMjFlYWZmLWNkYWEtNDhhYi1iZWRmLTU0NTQxMTZkMTZmZiIsImV4cCI6MTU2MTcxNzc4NywiYXV0aG9yaXRpZXMiOlsiUlVOX0pPQiIsIlZJRVdfUFJPSkVDVCJdfQ.DLEUuifHzksf_Q_ReMF0aQXY-MOoy_nDu-noCGu7F8_Z2dBEJXbKILcvTB1t7ABVZmnd2eGlLiBuAF5zuz-L7nGuxqqzPawYy4GMB_ICc7HTuicYnx3fOGakby6qUGRuWlOmPGbcsgS_tRbt4pcjOPMvK0LbBXKobZb1HZYMdns4wiKVHE6IEyWn57k0eVm_y5fKImLIvGbqz060AakIamQ6O9uAHADOZwej9rnbkQO9e5LqP3hbb59sluyOhke0hYuJqA5VhssX743xxa3MZpxBRRhwR5YG_oxWEdOShhFq7T9S5i8fCZvhuoR3eQSkakTEfIMxLYQfDcycdptHJqXN5twtlYJ0hKTKuW0ezgELeTHtuSobg3xbZW7M8opX7lqtnnsVPVApo19ndqdaJtfTFiU1WgcveS0o47sXkPVtB7ohug420g5ux3XRCxgAY6vFHlvNWZZP6F6bSh-Ah7Gqm5jsW76DrloZyedOVz2qVoFU6XCicyXEsBSuo0giRlVHnVtRmqmHbTvyxFjndTbsoahxSH2rKX4H1AWjIyw_jEcZGBx4XZG2dWPYSNOR1SCx59i4XL9BzTVywjxNt50MpV92eIRI7doNSK-UXo6DClrXPl8-VskJrS_fTjyK-qD8P1tCHYs8eytnfKG0BZwrlhYAVYMHumvOtxxG0NE
 
 This token is valid for **5** minutes. To get a new token repeat the
@@ -134,7 +135,7 @@ List all the jobs for a given project
 .. code:: bash
 
    JOBS_URL="https://api.up42.com/projects/$PROJ/jobs"
-          
+
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$JOBS_URL" | jq '.' > jobs_$PROJ.json
 
 This creates the following
@@ -153,7 +154,7 @@ the job IDs.
 .. code:: bash
 
    > cat jobs_$PROJ.json  | jq '.data[].id'
-   
+
    "b3b1cc0b-3a1e-431c-a64e-a4d99b117a4b"
    "08576b73-355a-407b-823d-604608791664"
    "d62c27c0-24e9-433d-b509-ae080504d5c6"
@@ -166,7 +167,7 @@ Picking any of the above job IDs, for example, the third, i.e., index
    ONE_JOB=$(cat jobs_$PROJ.json  | jq -j '.data[2].id')
 
 .. code:: bash
-  
+
    > echo $ONE_JOB
 
    d62c27c0-24e9-433d-b509-ae080504d5c6
@@ -176,9 +177,9 @@ Querying the API for this job information.
 .. code:: bash
 
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$JOBS_URL/$ONE_JOB" | jq '.' > jobs_job-$ONE_JOB.json
-   
+
 Thus generating the file `<https://gist.github.com/up42-epicycles/790c798b1ff2c08d0954beb85762e1f9>`__.
-   
+
 .. _create-run-job:
 
 Create and run a job
@@ -194,13 +195,13 @@ To create and run a job you need to get first the workflow IDs.
 we get a single element, since there is a single workflow in this project.
 
 .. code:: bash
-          
+
    5ffc4cb4-5b44-4227-8089-f7861efebdcc
 
 We assign this value to a variable.
 
 .. code:: bash
-          
+
    WORKFLOW=$(cat jobs_$PROJ.json | jq -r '.data[] | .workflowId' | uniq)
 
 .. code:: bash
@@ -212,9 +213,9 @@ We assign this value to a variable.
 .. tip::
 
    We rely here on a previously built workflow. If you want also to build
-   the workflow via the API then proceed to :ref:`Create a workflow <create-workflow>`.  
+   the workflow via the API then proceed to :ref:`Create a workflow <create-workflow>`.
 
-   
+
 You also need to get the job parameters. In this case you are just
 copying from a previous job. Using the previously saved job list.
 
@@ -250,11 +251,11 @@ The first returned job parameters are:
    Validate the job parameters
    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   Before creating the job we need to validate the job parameters. 
+   Before creating the job we need to validate the job parameters.
 
    .. code:: bash
 
-      # URL for job parameter validation.       
+      # URL for job parameter validation.
       URL_VALIDATE_JOB="https://api.up42.com/validate-schema/job-input"
 
       curl -s -L -X POST -H 'Content-Type: application/json' $URL_VALIDATE_JOB -d@job_params_$PROJ.json
@@ -268,7 +269,7 @@ Finally, you can create and run the job:
    # Create the URL as variable.
    URL_POST_JOB="https://api.up42.com/projects/$PROJ/workflows/$WORKFLOW/jobs"
    curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' $URL_POST_JOB -d@job_params_$PROJ.json | jq '.' > job_create_response.json
- 
+
 You can see the job parameters
 `here <https://gist.github.com/up42-epicycles/306d3c92fdacd88e884cbf16d551e02c>`__.
 
@@ -280,7 +281,7 @@ the following way:
 
 .. code:: bash
 
-   # Variable with the job ID.    
+   # Variable with the job ID.
    JOB=$(cat job_create_response.json | jq -j '.data.id')
    # Job URL.
    URL_JOB_INFO="https://api.up42.com/projects/$PROJ/jobs/$JOB"
@@ -298,7 +299,7 @@ Get the job status
 Now filter the previous request to get the job status.
 
 .. code:: bash
-          
+
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$URL_JOB_INFO" | jq -r '.data.status'
 
 In this case it returns:
@@ -308,7 +309,7 @@ In this case it returns:
    RUNNING
 
 This means that the job is still running.
-   
+
 .. _get-job-logs:
 
 Get the jobs logs
@@ -320,14 +321,14 @@ above created job:
 
 .. code:: bash
 
-   # JOb tasks endpoint.       
-   URL_JOB_TASKS_INFO="https://api.up42.com/projects/$PROJ/jobs/$JOB/tasks"      
+   # JOb tasks endpoint.
+   URL_JOB_TASKS_INFO="https://api.up42.com/projects/$PROJ/jobs/$JOB/tasks"
    curl -s -L -H "Authorization: Bearer $PTOKEN" $URL_JOB_TASKS_INFO | jq '.' > jobs_job_tasks-$JOB.json
 
 Now we extract the task ID from the previously saved file.
 
 .. code:: bash
-          
+
    TASK=$(cat jobs_job_tasks-$JOB.json | jq -j '.data[] as $task | if $task.status == "RUNNING" then $task.id else "" end')
 
 It returns:
@@ -359,7 +360,7 @@ There are 3 types of results:
     `tarball <https://en.wikipedia.org/wiki/Tar_(computing)>`__.
  3. A set of low resolution RGB images, :term:`quicklooks`. These are
     only available as task specific results and not available as job results.
-    
+
 .. _results-geojson:
 
 Get the results: GeoJSON
@@ -411,7 +412,7 @@ By default a when a job is created it can only be identified by
 its ID. The ID is unique. This is essential to avoid unambiguity in
 when having machine to machine interactions, but you may want to name
 a job to make it easier to identify and recognize, without the need to
-have a map of the job ID to a human easily recognizable name. 
+have a map of the job ID to a human easily recognizable name.
 
 To name a job you need to pass the name as an argument in the URL
 query string. Be aware that being in a URL implies that certain
@@ -422,27 +423,27 @@ space you can use a ``+`` sign for encoding a `space
 
 .. code:: bash
 
-   # Job name with spaces: + represents space.       
+   # Job name with spaces: + represents space.
    JOB_NAME='Just+a+named+job+example'
    # The URL to post a named job. Note the query string argument: name.
    URL_POST_NAMED_JOB="https://api.up42.com/projects/$PROJ/workflows/$WORKFLOW/jobs?name=$JOB_NAME"
-   
+
    curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' $URL_POST_NAMED_JOB -d@job_params_$PROJ.json | jq '.' > named_job_create_response.json
 
 If we now extract the name from the created  `file <https://gist.github.com/up42-epicycles/e8eb22c5a467dd21c7402d9c206bfd84>`__.
 
 .. code:: bash
-          
+
    cat named_job_create_response.json | jq -r '.data.name'
 
 Printing:
 
 .. code:: bash
 
-   Just a named job example      
+   Just a named job example
 
 .. _cancel-job:
-   
+
 Cancel a job
 ~~~~~~~~~~~~
 
@@ -451,7 +452,7 @@ we are going to use a named job.
 
 .. code:: bash
 
-   # Job name with spaces: + represents space.       
+   # Job name with spaces: + represents space.
    JOB_NAME='Job+to+be+canceled'
    # The URL to post a named job. Note the query string argument: name.
    URL_POST_NAMED_JOB="https://api.up42.com/projects/$PROJ/workflows/$WORKFLOW/jobs?name=$JOB_NAME"
@@ -465,21 +466,21 @@ We can now get the job status as exemplified :ref:`above <get-job-status>`.
    JOB2CANCEL=$(cat job2cancel_create_response.json | jq -j '.data.id')
 
 Echoing the created shell variable:
-   
+
 .. code:: bash
 
    > echo $JOB2CANCEL
 
-   f47729b1-c727-4048-9db1-5697d49dc77e        
+   f47729b1-c727-4048-9db1-5697d49dc77e
 
 New we get the current job status:
 
 .. code:: bash
 
-   # Job to cancel URL.       
+   # Job to cancel URL.
    URL_JOB2CANCEL_INFO="https://api.up42.com/projects/$PROJ/jobs/$JOB2CANCEL"
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$URL_JOB2CANCEL_INFO" | jq -r '.data.status'
-          
+
 It returns:
 
 .. code:: bash
@@ -493,7 +494,7 @@ To cancel the job issue the request:
    curl -si -L -X POST -H "Authorization: Bearer $PTOKEN" "$URL_JOB2CANCEL_INFO/cancel"
 
 .. code::
-          
+
    HTTP/2 204
    date: Fri, 27 Sep 2019 18:26:54 GMT
    x-content-type-options: nosniff
@@ -508,18 +509,18 @@ To cancel the job issue the request:
    access-control-allow-methods: GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS
    access-control-allow-headers: DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization
    access-control-expose-headers: Content-Disposition
-   strict-transport-security: max-age=31536000; includeSubDomains; preload       
+   strict-transport-security: max-age=31536000; includeSubDomains; preload
 
 The HTTP status `204 No Content <https://httpstatuses.com/204>`__
 means that the request was sucessful but no data is returned.
-   
+
 Querying again for the job status.
-          
+
 .. code:: bash
 
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$URL_JOB2CANCEL_INFO" | jq -r '.data.status'
-   
-   CANCELLED       
+
+   CANCELLED
 
 .. _working-job-tasks:
 
@@ -592,7 +593,7 @@ The first task is the Pléiades acquisition. To get the first task log we issue 
 
    curl -s -L -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: text/plain' "$TASK1_URL/logs" > task_log-$TASK1.txt
 
-The resulting `file <https://gist.github.com/up42-epicycles/48b0082868629dd7f10030cbac01f159>`__.   
+The resulting `file <https://gist.github.com/up42-epicycles/48b0082868629dd7f10030cbac01f159>`__.
 
 .. _task-results-geojson:
 
@@ -603,7 +604,7 @@ The output GeoJSON is:
 
 .. code:: bash
 
-   TASK1_URL="https://api.up42.com/projects/$PROJ/jobs/$JOB/tasks/$TASK1"       
+   TASK1_URL="https://api.up42.com/projects/$PROJ/jobs/$JOB/tasks/$TASK1"
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK1_URL/outputs/data-json" | jq '.' > output_task-$TASK1.json
 
 returning the following
@@ -618,7 +619,7 @@ Again we need to get the signed URL pointing to the first task tarball.
 
 .. code:: bash
 
-   TASK1_TARBALL_URL=$(curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK1_URL/downloads/results" | jq -j '.data.url')   
+   TASK1_TARBALL_URL=$(curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK1_URL/downloads/results" | jq -j '.data.url')
    curl -s -L -H "Authorization: Bearer $PTOKEN" -o output_$TASK1.tar.gz "$TASK1_TARBALL_URL"
 
 Inspecting the tarball:
@@ -626,7 +627,7 @@ Inspecting the tarball:
 .. code:: bash
 
    > tar ztvf output_$TASK1.tar.gz
-   
+
    drwxrwxrwx  0 root   root        0 Sep 16 19:21 output
    -rw-r--r--  0 root   root 132209093 Sep 16 19:21 output/ee7c108d-47dc-4555-97ef-c77d62d6ac08.tif
    -rw-r--r--  0 root   root     35363 Sep 16 19:21 output/data.json
@@ -643,7 +644,7 @@ First we need to get the list of available images.
 
 .. code:: bash
 
-   curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK1_URL/outputs/quicklooks" | jq '.'  > quicklooks_list_$TASK1.json     
+   curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK1_URL/outputs/quicklooks" | jq '.'  > quicklooks_list_$TASK1.json
 
 This gives us the JSON:
 
@@ -656,25 +657,25 @@ This gives us the JSON:
       ]
    }
 
-          
+
 Now we can, iterating over the given JSON array ``data`` get all the quicklooks
 images, this case is only one.
 
 .. code:: bash
-          
-    # Loop over all available quicklooks images and get them.      
+
+    # Loop over all available quicklooks images and get them.
    for i in $(cat quicklooks_6505eaf8-dc63-44a9-878f-831eecae3f62.json | jq -j '.data[]')
        do curl -s -L -O -H "Authorization: Bearer $PTOKEN" "$TASK1_URL/outputs/quicklooks/$i"
    done
 
 .. tip::
-   
+
    The final task of a workflow produces the same results as the job
    itself.
 
 
 .. _working-workflows:
-   
+
 Working with workflows
 ----------------------
 
@@ -730,7 +731,7 @@ returns:
 .. code:: bash
 
    > echo $WORKFLOW
-   
+
    21415975-390f-4215-becb-8d46aaf5156c
 
 As you can see it is the same workflow ID as we extracted before in
@@ -748,7 +749,7 @@ for a particular workflow.
 
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$URL_WORKFLOWS/$WORKFLOW/tasks" | jq '.' > workflow-$WORKFLOW.json
 
-Returns the file 
+Returns the file
 `workflow-21415975-390f-4215-becb-8d46aaf5156c.json <https://gist.github.com/up42-epicycles/4224fa6bc3975063d018b6020f439028>`__.
 
 .. _create-workflow:
@@ -852,19 +853,19 @@ obtained file.
    oneatlas-pleiades-fullscene: ee7c108d-47dc-4555-97ef-c77d62d6ac08
    pansharpen: d058a536-e771-4a22-8df6-441ac5a425c4
    ndvi: 1184ee5a-32a3-4659-a35a-d79efda79d1b
-          
+
 We see then that we have the following:
 
 .. table:: Block names and IDs in this workflow
    :align: center
-      
-   =============================== ====================================  
+
+   =============================== ====================================
     block name                      block ID
-   =============================== ====================================  
+   =============================== ====================================
    oneatlas-pleiades-fullscene     ee7c108d-47dc-4555-97ef-c77d62d6ac08
    pansharpen                      d058a536-e771-4a22-8df6-441ac5a425c4
    ndvi                            1184ee5a-32a3-4659-a35a-d79efda79d1b
-   =============================== ====================================  
+   =============================== ====================================
 
 Create two variables with block IDs.
 
@@ -877,11 +878,11 @@ Create two variables with block IDs.
 .. code:: bash
 
     > echo $TASK1_BLOCK_ID $TASK2_BLOCK_ID $TASK3_BLOCK_ID
-    
+
     e0b133ae-7b9c-435c-99ac-c4527cc8d9cf 3f5f4490-9e58-490f-80e0-9a464355d5ce 1184ee5a-32a3-4659-a35a-d79efda79d1b
 
-Now we can proceed to create the first task for this workflow. 
-    
+Now we can proceed to create the first task for this workflow.
+
 Creating the first task: data block addition
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -908,7 +909,7 @@ with the contents.
 It gives us the file
 ``create_task1_workflow-39275f92-f4e1-4696-a668-f01cdd84bfb6.json``
 with the contents.
-   
+
 .. code:: js
 
    [
@@ -918,7 +919,7 @@ with the contents.
        "blockId": "e0b133ae-7b9c-435c-99ac-c4527cc8d9cf"
      }
    ]
-   
+
 where we have the fields given when creating the workflow resource (POST
 request) plus the workflow ID and the first task specific fields:
 
@@ -947,7 +948,7 @@ Creating the the second task: processing block addition
 
 Adding the processing block: Pansharpening. We are going
 to rely again on ``jq`` to make sure the values set for the request
-body are correct.  
+body are correct.
 
 The new block needs to be added to the task list (a JS array). We
 start with the following JSON.
@@ -989,7 +990,7 @@ This generates the JSON:
          "blockId": "3f5f4490-9e58-490f-80e0-9a464355d5ce"
       }
    ]
-       
+
 
 The task list has now three entries, the second being the
 ``pansharpen`` block. Notice that ``parentName`` is set
@@ -1028,7 +1029,7 @@ to the workflow task endpoint. As an example we are going to replace
 the Pléiades Download data block by the :ref:`SPOT 6/7 Donwload
 <spot-download-block>` data block. For that we have the following
 payload, enumerating all the tasks:
-   
+
 .. code:: js
 
    [
@@ -1048,7 +1049,7 @@ We obtained the ``blockID`` by invoking the following call:
 
 .. code:: bash
 
-   curl -sL https://api.up42.com/marketplace/blocks | jq -r --arg bn 'SPOT.*clipped' '.data[] as $b | $b.name | if test($bn; "ing") then $b.id else empty end'       
+   curl -sL https://api.up42.com/marketplace/blocks | jq -r --arg bn 'SPOT.*clipped' '.data[] as $b | $b.name | if test($bn; "ing") then $b.id else empty end'
 
    > 0f15e07f-efcc-4598-939b-18aade349c57
 
@@ -1056,8 +1057,8 @@ We obtained the ``blockID`` by invoking the following call:
 
    This calls the marketplace API to get the all the marketplace
    available blocks. Using this you can build fully machine-to-machine
-   (m2m) workflows.   
-  
+   (m2m) workflows.
+
 .. code:: bash
 
    curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$NEW_WORKFLOW/tasks" -d @update_workflow-$NEW_WORKFLOW.json | jq '.' > workflow_updated-$NEW_WORKFLOW.json
@@ -1065,7 +1066,7 @@ We obtained the ``blockID`` by invoking the following call:
 Which gives the following `response <https://gist.github.com/up42-epicycles/59882a5ed08396c13321f0217db0e914>`__.
 
 .. _delete-workflow:
-   
+
 Delete a workflow
 ~~~~~~~~~~~~~~~~~
 
@@ -1075,7 +1076,7 @@ see that there is a workflow that is called ``Create a new Pléiades + Pansharpe
 
 .. code:: bash
 
-   # Get the workflow ID of the workflow to be deleted.       
+   # Get the workflow ID of the workflow to be deleted.
    DEL_WORKFLOW=$(cat workflows-$PROJ.json | jq -j '.data[] as $wf | if $wf.name == "Create a new Pléiades + Pansharpening + NDVI workflow" then $wf.id else "" end')
 
    > echo $DEL_WORKFLOW
@@ -1090,8 +1091,8 @@ To delete this workflow the request is:
 
 And the response:
 
-.. code:: 
-   
+.. code::
+
    HTTP/2 204
    date: Wed, 09 Sep 2019 17:55:34 GMT
    x-content-type-options: nosniff
@@ -1115,8 +1116,8 @@ If we now try to access the deleted workflow we get:
 
 .. code:: bash
 
-   curl -s -L -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$DEL_WORKFLOW" | jq '.'     
-    
+   curl -s -L -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_WORKFLOWS/$DEL_WORKFLOW" | jq '.'
+
 .. code:: js
 
    {
@@ -1127,6 +1128,6 @@ If we now try to access the deleted workflow we get:
       },
      "data": null
    }
-          
+
 The workflow was deleted therefore it no longer exists, hence the
 `404 Not Found <https://httpstatuses.com/404>`__.

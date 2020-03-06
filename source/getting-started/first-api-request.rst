@@ -1,23 +1,24 @@
 .. meta::
    :description: UP42 Getting started: Running your first job via the API
-   :keywords: api, job run, howto, tutorial, demo project 
+   :keywords: api, job run, howto, tutorial, demo project
 
 .. _first-api-request:
-              
+
 =================
  Use the UP42 API
 =================
 
-This section helps you to get started with the UP42 API. We will run the :term:`demo project`
-once more, but this time via the command line.
+This section helps you to get started with the UP42 API. We will run
+the :term:`demo project` once more, but now using the API.
 
 .. _api_requirements:
 
 Requirements
 ------------
-The UP42 API requires the Mac OS X or Linux `bash <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`__,
-`cURL <https://curl.haxx.se>`__ and `jq <https://stedolan.github.io/jq/>`__.
 
+ + `Bash <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`__.
+ + `cURL <https://curl.haxx.se>`__.
+ + `jq <https://stedolan.github.io/jq/>`__.
 
 .. _download-script:
 
@@ -91,7 +92,7 @@ The created jobs are displayed in the UP42 console in the :ref:`job overview <jo
 If you try to launch a second job while a job is already running, you will receive an error message:
 
 .. code:: javascript
-   
+
    {
      "error": {
        "code": "TOO_MANY_REQUESTS",
@@ -99,7 +100,7 @@ If you try to launch a second job while a job is already running, you will recei
        "details": null
      },
      "data": null
-   }    
+   }
 
-     
+
 To further explore the API please go to the :ref:`API walktrough <api-walkthrough>`.
