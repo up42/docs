@@ -71,19 +71,10 @@ Requirements
 1. `cURL <https://curl.haxx.se>`__.
 2. `jq <https://stedolan.github.io/jq/>`__.
 
-`Bash <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`__ is the shell
-used in this guide. You are free to use any other shell as long as use
-``cURL`` and ``jq``. Feel free to use any other HTTP command line
-client and JSON processor respectively.
-
-Additionally you can use
-`jwt-cli <https://github.com/mike-engel/jwt-cli>`__ to decode the
-token that is based on `JSON Web Token
-(JWT) <https://en.wikipedia.org/wiki/JSON_Web_Token>`__ and uses a
-`HMAC <https://en.wikipedia.org/wiki/HMAC>`__ based on
-`SHA-512 <https://en.wikipedia.org/wiki/SHA-2>`__ for signature
-encryption. This is more of a useful utility than a must have for
-following through this walktrough.
+`Bash <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`__ is the
+shell used in this guide. You are free to use any other shell as long
+as you use a command line HTTP client like ``cURL`` and JSON processor
+like ``jq``.
 
 All outputs (response bodies) deemed too large to be shown here are given
 as Github
@@ -92,6 +83,15 @@ linked below as they are returned by the API.
 
 The required inputs (request body) are in the ``inputs`` directory and
 the returned outputs (response body) are in the ``outputs`` directory.
+
+Additionally you can use `jwt-cli
+<https://github.com/mike-engel/jwt-cli>`__ to decode the token that is
+based on `JSON Web Token (JWT)
+<https://en.wikipedia.org/wiki/JSON_Web_Token>`__ and uses an `HMAC
+<https://en.wikipedia.org/wiki/HMAC>`__ based on `SHA-512
+<https://en.wikipedia.org/wiki/SHA-2>`__ for signature
+encryption. This is more of a useful utility than a must have for
+following through this walktrough.
 
 Authentication: getting the token
 ---------------------------------
