@@ -4,7 +4,7 @@
 
 .. _pleiades-primary-block:
 
-Pléiades Download
+Pléiades Primary
 =================
 Please see the `block details page <https://marketplace.up42.dev/block/d1e5e0de-71fa-4488-9c0e-3f22ac74a2b6>`_ for context.
 
