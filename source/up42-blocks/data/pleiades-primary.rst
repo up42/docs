@@ -34,12 +34,16 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``limit``: An integer number of maximum results to return. The maximum value for ``limit`` is 500.
 * ``ids``: An array of image identifiers as defined by the ``parentIdentifier`` property. If defined, either ``bbox`` **or** ``intersects`` **or** ``contains`` should be selected as well. By defining the ``ids`` filter you specify unambiguously which images to retrieve based solely on your AOI and given ID(s). The ``ids`` filter overrides all other filters, e.g., ``limit`` and/or ``time``.
 * ``max_cloud_cover``: A percentage (0 to 100) defining the maximum :term:`cloud cover` of any returned imagery. Note that the cloud cover percentage is computed with the full scene, not the requested geographical area. Default is **100**.
-* ``clip_to_aoi``: When set to ``true``, the :term:`AOI` specified via ``bbox``, or ``contains``, or ``intersect`` for the previous data block in the workflow will **first** be clipped and then processed. Please note that by **default** this parameter is set to ``true``.
+* ``clip_to_aoi``: When set to ``true``, the :term:`AOI` specified via ``bbox``, or ``contains``, or ``intersect`` in the workflow will be clipped from the scene. Please note that by **default** this parameter is set to ``true``.
 * ``stereo_images_only``: When set to ``true``, based on the :term:`AOI` specified via ``bbox``, or ``contains``, or ``intersect`` and chosen time, all **possible** (tri-)stereo images will be returned. If these these images exist, they are usually captured in less than a minute with almost equal coverage (for more information on almost equals definition look `here <https://shapely.readthedocs.io/en/latest/manual.html>`_).
 
 .. note::
 
-  Please when using ``stereo_images_only`` filter, set the ``limit`` to the maximum number, therefore all available images for the certain AOI will be checked. Also, due to the scarcity of (tri-) steroe images, it is highly **recommended** to do ``dry_run`` to make sure if any stereo images exist to avoid any additional cost.
+  Please when using ``stereo_images_only`` filter, set the ``limit`` to the higher number, therefore all available images for the certain AOI will be checked. Also, due to the scarcity of (tri-) steroe images, it is highly **recommended** to do ``dry_run`` to make sure if any stereo images exist to avoid any additional cost.
+
+.. warning::
+
+  Due to nature of un-rectified imagery, applying ``clip_to_aoi`` can cause a drastic shift in the position of the clipped image (After applying orthorectification). We provided a mechanism to overcome this issue. However, the drawback of this approach is that the output AOI will be an approximation of the input AOI that includes a buffer.
 
 Example queries
 ---------------
