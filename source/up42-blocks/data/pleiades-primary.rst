@@ -6,7 +6,7 @@
 
 Pléiades Download
 =================
-Please see the `block details page <https://marketplace.up42.com/block/defb134b-ca00-4e16-afa0-639c6dc0c5fe>`_ for context.
+Please see the `block details page <https://marketplace.up42.dev/block/d1e5e0de-71fa-4488-9c0e-3f22ac74a2b6>`_ for context.
 
 Block type: ``DATA``
 
