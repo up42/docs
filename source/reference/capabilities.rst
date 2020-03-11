@@ -367,6 +367,8 @@ up42_standard vector capabilities
 
         - GeoJSON
         - Shapefile
+        - KML
+        - KMZ
 
     geometry_type
         One of the possible geometries for GeoJSON.
