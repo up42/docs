@@ -359,6 +359,10 @@ up42_standard raster capabilities
         The tile height in pixels for a block that provides (output
         capability) or requires tiling (input capability). Example: 768.
 
+.. tip::
+
+	Follow this links for the full raster `specification <https://specs.up42.com/v2/blocks/raster-schema.json>`_ and `types <https://specs.up42.com/v2/blocks/raster-types-schema.json>`_.
+
 up42_standard vector capabilities
 +++++++++++++++++++++++++++++++++
 
@@ -380,6 +384,11 @@ up42_standard vector capabilities
         - MultiLine
         - MultiPolygon
 
+.. tip::
+
+	Follow this links for the full vector `specification <https://specs.up42.com/v2/blocks/vector-schema.json>`_ and `types <https://specs.up42.com/v2/blocks/vector-types-schema.json>`_.
+
+
 up42_standard misc capabilities
 +++++++++++++++++++++++++++++++
 
@@ -389,6 +398,11 @@ up42_standard misc capabilities
         - csv (Comma Separated Values)
         - xml (XML)
         - json (JSON)
+
+.. tip::
+
+	Follow this links for the full misc `specification <https://specs.up42.com/v2/blocks/misc-schema.json>`_ and `types <https://specs.up42.com/v2/blocks/misc-types-schema.json>`_.
+
 
 The full list of built-in capabilities is available as part of the
 `block manifest JSON schema <http://specs.up42.com/v2/blocks/schema.json>`_.
