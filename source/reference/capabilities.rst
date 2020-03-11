@@ -814,8 +814,10 @@ Custom block manifest: block that outputs KML
      },
      "output_capabilities": {
        "vector": {
+         "up42_standard":{
+           "format": "KML"
+         },
          "custom": {
-           "format": "KML",
            "object_type": "tree"
          }
        }
