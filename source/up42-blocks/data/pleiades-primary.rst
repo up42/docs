@@ -10,13 +10,22 @@ Please see the `block details page <https://marketplace.up42.dev/block/d1e5e0de-
 
 Block type: ``DATA``
 
-This block provides **un-rectified** Pléiades HR imagery with `Rational Polynomial Coefficients (RPCs) <https://en.wikipedia.org/wiki/Rational_polynomial_coefficient>`_. The block outputs a GeoTIFF file and can be the entire Pleiades scene or clipped to the AOI. This block can be used mainly by experts who either want to apply their own `orthorectification <https://trac.osgeo.org/ossim/wiki/orthorectification>`_ or create a 3D model based on the (tri-)stereo images (for more information look at the `Stereophotogrammetry <https://en.wikipedia.org/wiki/Photogrammetry>`_).
+This block provides **un-rectified** Pléiades HR imagery with `Rational Polynomial Coefficients (RPCs) <https://en.wikipedia.org/wiki/Rational_polynomial_coefficient>`_. The block outputs a GeoTIFF file and can be the entire Pleiades scene or clipped to the AOI. This is block to be used mainly by experts by who either want to apply their own `orthorectification <https://trac.osgeo.org/ossim/wiki/orthorectification>`_ procedure or create a tridimensional model based on stereo/tri-stereo images. Further information on `Stereophotogrammetry <https://en.wikipedia.org/wiki/Photogrammetry>`_.
 
 The available output bands of the Pleiades block are: panchromatic, red, green, blue and near infrared. Pansharpened Pleiades HR imagery has a spatial resolution of 0.5x0.5m. The multispectral bands have a resolution of 2x2m.
 
 .. tip::
 
-   Find out more about the RPCs `here <https://gis.stackexchange.com/questions/180414/how-rational-polynomial-coefficientsrpcs-are-calculated-need-references>`_. Unprojected Pleiades Primary image can be easily orthorectified using RPC and GDAL command as follows: `gdalwarp -rpc input_image output_image`. For more information look at `here <https://gdal.org/programs/gdalwarp.html>`_.
+   Find out more about the RPCs `here <https://gis.stackexchange.com/questions/180414/how-rational-polynomial-coefficientsrpcs-are-calculated-need-references>`_.
+
+Unprojected Pleiades Primary image Can be easily orthorectified using the gdalwarp command line tool from GDAL. Example:
+
+.. code-block:: bash
+
+   gdal_warp -rpc <input image> <output image>
+
+Please consult the ``gdalwarp`` `documentation <https://gdal.org/programs/gdalwarp.html>`_ for better understanding on how to use it.
+
 
 Supported parameters
 --------------------
@@ -39,11 +48,15 @@ For more information on supported filters, see :ref:`query filter section  <filt
 
 .. note::
 
-  Please when using ``stereo_images_only`` filter, set the ``limit`` to the higher number, therefore all available images for the certain AOI will be checked. Also, due to the scarcity of (tri-) steroe images, it is highly **recommended** to do ``dry_run`` to make sure if any stereo images exist to avoid any additional cost.
+  Please bear in mind that when setting ``stereo_images_only`` to ``true`` you should also set the ``limit`` parameter to highest possible value ``(500)`` to make sure to search for stereo imagery among the largest possible archive.
+
+.. tip::
+
+  When trying to obtain stereo/tri-stereo images you should **always** perform a :term:`TestQuery` to make sure that there are available stereo and/or tri-stereo images, thus avoiding to incur costs when retrieving the imagery.
 
 .. warning::
 
-  Due to nature of un-rectified imagery, applying ``clip_to_aoi`` can cause a drastic shift in the position of the clipped image (After applying orthorectification). We provided a mechanism to overcome this issue. However, the drawback of this approach is that the output AOI will be an approximation of the input AOI that includes a buffer.
+  Due to nature of un-rectified imagery, applying ``clip_to_aoi`` can cause a substantial shift in the position of the clipped image — after applying orthorectification. We provide a mechanism to overcome this issue. However, this mechanism has as side-effect that the output AOI will be an *approximation* of the input AOI: it includes a buffer region.
 
 Example queries
 ---------------
@@ -69,7 +82,7 @@ Example using ``bbox`` and ``clip_to_aoi``:
 	}
   }
 
-Example query using ``stereo_images_only`` in ``dry_run`` mode. Please **note** that in this query the ``limit`` set to the **maximum**:
+Searching for query stereo and tri-stereo images using ``stereo_images_only`` with a :term:`TestQuery` ( ``DRY_RUN`` mode). Pay particular attention that the value of ``limit`` is set to its maximum (500).
 
 .. code-block:: javascript
 
@@ -335,4 +348,4 @@ Output format
 	}
   ]
   }
-For this query, three stereo images at following acquisition date are returned: ``"2018-10-16T10:39:06.555Z"``, ``"2018-10-16T10:39:26.181Z"``, and ``"2018-10-16T10:39:43.431Z"``. They were captured in less than a minute and cover almost equal area.
+For this query, there are three stereo images at the following acquisition dates ``"2018-10-16T10:39:06.555Z"``, ``"2018-10-16T10:39:26.181Z"``, and ``"2018-10-16T10:39:43.431Z"``. They were captured within less than a minute and each covers an almost equal surface area.
