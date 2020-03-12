@@ -84,6 +84,10 @@ the :ref:`date or date range <time-filter>` and :ref:`limit <limit-filter>` (the
 number of images to return). Here, you can also directly paste a GeoJSON
 ``FeatureCollection`` (for example generated via `geojson.io <http://geojson.io/>`__).
 
+Here is the original AOI.
+
+.. gist:: https://gist.github.com/up42-epicycles/f6b72e3b98b2ca890e3e79e246e8e731
+
 .. attention::
   By default the most recent image is returned. For a value of limit
   greater than 1, the images are returned by descending chronological order, that is,
@@ -91,7 +95,7 @@ number of images to return). Here, you can also directly paste a GeoJSON
 
 Here are the :term:`job parameters` used in this example:
 
-.. gist:: https://gist.github.com/perusio/f8d8f3fe8ebb590cb3d8a5810c7a6060
+.. gist:: https://gist.github.com/up42-epicycles/6dd5969c67ae16e5e5153e475f63c1ae
 
 Once you selected the AOI click on **Run Job** to launch the ship detection workflow.
 You will then be taken to the jobs overview for the current project.
@@ -140,7 +144,7 @@ Tiled SPOT satellite image
 
 Detected ships
 ~~~~~~~~~~~~~~
-.. gist:: https://gist.github.com/perusio/6f666485dadab8fec62879ef9a4f3291
+.. gist:: https://gist.github.com/up42-epicycles/b4e7d05ed53748c77b557f23f2c12702
 
 .. figure:: _assets/spot_image_overlayed_ships.png
    :align: center
