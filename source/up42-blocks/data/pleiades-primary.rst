@@ -10,9 +10,9 @@ Please see the `block details page <https://marketplace.up42.dev/block/d1e5e0de-
 
 Block type: ``DATA``
 
-This block provides **un-rectified** Pléiades HR imagery with `Rational Polynomial Coefficients (RPCs) <https://en.wikipedia.org/wiki/Rational_polynomial_coefficient>`_. The block outputs a GeoTIFF file and can be the entire Pleiades scene or clipped to the AOI. This is block to be used mainly by experts by who either want to apply their own `orthorectification <https://trac.osgeo.org/ossim/wiki/orthorectification>`_ procedure or create a tridimensional model based on stereo/tri-stereo images. Further information on `Stereophotogrammetry <https://en.wikipedia.org/wiki/Photogrammetry>`_.
+This block provides **un-rectified** Pléiades HR imagery with `Rational Polynomial Coefficients (RPCs) <https://en.wikipedia.org/wiki/Rational_polynomial_coefficient>`_. The block outputs a GeoTIFF file and can be the entire Pleiades scene or clipped to the AOI. This block is to be used mainly by experts who either want to apply their own `orthorectification <https://trac.osgeo.org/ossim/wiki/orthorectification>`_ procedure or create a tridimensional model based on stereo/tri-stereo images. Further information on `Stereophotogrammetry <https://en.wikipedia.org/wiki/Photogrammetry>`_.
 
-The available output bands of the Pleiades block are: Panchromatic, Red, Green, Blue (RGB) and Near InfraRed (NIR).. Pansharpened Pleiades HR imagery has a spatial resolution of 0.5x0.5m. The multispectral bands have a resolution of 2x2m.
+The available output bands of the Pleiades block are: Panchromatic, Red, Green, Blue (RGB) and Near InfraRed (NIR). Pansharpened Pleiades HR imagery has a spatial resolution of 0.5x0.5m. The multispectral bands have a resolution of 2x2m.
 
 .. tip::
 
@@ -48,7 +48,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
 
 .. note::
 
-  Please bear in mind that when setting ``stereo_images_only`` to ``true`` you should also set the ``limit`` parameter to highest possible value ``(500)`` to make sure to search for stereo imagery among the largest possible archive.
+  Please bear in mind that when setting ``stereo_images_only`` to ``true`` you should also set the ``limit`` parameter to highest possible value ``(500)`` to make sure to search for stereo imagery among the largest possible archive set.
 
 .. tip::
 
