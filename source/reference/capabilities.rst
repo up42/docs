@@ -18,11 +18,11 @@ called :term:`capabilities`.
 
 Capabilities are the mechanism through which a block author can
 specify exactly how a block should be used. Let us consider, for
-example, a deep learning model based :term:`processsing block` it is
+example, a deep learning model based :term:`block` it is
 convenient to slice the input image in regular sized tiles. This way
 the algorithm can **parallelize** the execution as much as possible
 and save memory. To **force** to always use tiling before a
-:term:`processing block` implementing a deep learning algorithm you
+:term:`block` implementing a deep learning algorithm you
 must specifiy it in the manifest. See :ref:`here
 <ship-detection-block-manifest>` for an example of such.
 
@@ -208,7 +208,7 @@ There are the following operators:
        Is the propagation operator. It is used when the value of a
        output capability key is **propagated** to the output
        capabilities of the following block. See the usage of this
-       operator :ref:`below <pansharpen-block-manifest>` for the
+       operator :ref:`below <pansharpening-block-manifest>` for the
        pansharpening block for Pléiades/SPOT. ``>`` in
        the output capabilities for the ``sensor`` field
        means that the all the blocks that will come after it in
@@ -361,7 +361,9 @@ up42_standard raster capabilities
 
 .. tip::
 
-	Follow this links for the full raster `specification <https://specs.up42.com/v2/blocks/raster-schema.json>`_ and `types <https://specs.up42.com/v2/blocks/raster-types-schema.json>`_.
+	Follow this links for the full `raster specification
+        <https://specs.up42.com/v2/blocks/raster-schema.json>`_ and
+        `raster types <https://specs.up42.com/v2/blocks/raster-types-schema.json>`_.
 
 up42_standard vector capabilities
 +++++++++++++++++++++++++++++++++
@@ -386,7 +388,9 @@ up42_standard vector capabilities
 
 .. tip::
 
-	Follow this links for the full vector `specification <https://specs.up42.com/v2/blocks/vector-schema.json>`_ and `types <https://specs.up42.com/v2/blocks/vector-types-schema.json>`_.
+	Follow this links for the full `vector specification
+        <https://specs.up42.com/v2/blocks/vector-schema.json>`_ and
+        `vector types <https://specs.up42.com/v2/blocks/vector-types-schema.json>`_.
 
 
 up42_standard misc capabilities
@@ -412,6 +416,7 @@ Adding custom meta capabilities
 
 You may specify your own capability keys. This might be needed in the
 case of:
+
  - Adding extra keys to better constrain the workflow construction.
  - The built-in keys do not contemplate your use case.
 

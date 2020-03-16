@@ -17,6 +17,7 @@ built by UP42.
 
    pleiades
    pleiades-download
+   pleiades-primary
    spot
    spot-download
    meteomatics

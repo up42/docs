@@ -6,7 +6,8 @@
 
 Pléiades Primary
 =================
-Please see the `block details page <https://marketplace.up42.dev/block/d1e5e0de-71fa-4488-9c0e-3f22ac74a2b6>`_ for context.
+
+.. Please see the `block details page <https://marketplace.up42.dev/block/d1e5e0de-71fa-4488-9c0e-3f22ac74a2b6>`_ for context.
 
 Block type: ``DATA``
 
@@ -16,7 +17,7 @@ The available output bands of the Pleiades block are: Panchromatic, Red, Green, 
 
 .. tip::
 
-   Find out more about the RPCs `here <https://gis.stackexchange.com/questions/180414/how-rational-polynomial-coefficientsrpcs-are-calculated-need-references>`_.
+   Further information on `RPCs  <https://gis.stackexchange.com/questions/180414/how-rational-polynomial-coefficientsrpcs-are-calculated-need-references>`_.
 
 Unprojected Pleiades Primary image Can be easily orthorectified using the gdalwarp command line tool from GDAL. Example:
 
@@ -348,4 +349,9 @@ Output format
 	}
   ]
   }
-For this query, there are three stereo images at the following acquisition dates ``"2018-10-16T10:39:06.555Z"``, ``"2018-10-16T10:39:26.181Z"``, and ``"2018-10-16T10:39:43.431Z"``. They were captured within less than a minute and each covers an almost equal surface area.
+
+For this query, there are three stereo images at the following
+  acquisition dates ``"2018-10-16T10:39:06.555Z"``,
+  ``"2018-10-16T10:39:26.181Z"``, and
+  ``"2018-10-16T10:39:43.431Z"``. They were captured within less than
+  a minute and each covers an almost equal surface area.

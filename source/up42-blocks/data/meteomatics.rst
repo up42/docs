@@ -6,9 +6,11 @@
 
 Meteomatics
 =======================================
-.. TODO::
 
-`Link <https://marketplace.up42.com/block/...>`_ to block details page
+
+Please see the `block details page
+<https://marketplace.up42.com/block/235addd2-3efe-424b-8c35-d9b41dfe0eb5>`_
+for context.
 
 Block type: ``DATA``
 

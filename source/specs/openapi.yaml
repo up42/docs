@@ -488,6 +488,21 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         415:
           $ref: '#/components/responses/IncorrectMediaType'
+        422:
+          description: The workflow submitted is invalid
+          content:
+            application/json:
+              example:
+                data: null
+                error:
+                  code: 422
+                  message: Workflow cannot be saved because it contains errors.
+                  invalidTaskNames: [task1, task2]
+                  capabilityMismatches:
+                    - workflowTaskName: task3
+                      missingInputCapabilities:
+                        - up42.data.scene.pleiades
+                        - up42.data.aoiclipped
       deprecated: false
   /projects/{project_id}/workflows/{workflow_id}:
     get:
@@ -579,6 +594,70 @@ paths:
                   message: Workflow not found for id 31f750f9-f2f5-4853-9e9b-c4713fdd68f6 and projectId 5a21eaff-cdaa-48ab-bedf-05454116d16ff and userId 8cd5de7b-82e2-4625-b094-d5392f1cf780
                   details: null
       deprecated: false
+  /projects/{project_id}/workflows/{workflow_id}/compatible_blocks:
+    get:
+      tags:
+        - workflows
+      summary: Get compatible blocks in a workflow
+      description: >-
+        Validates if a given block added to a workflow is compatible
+        with the other blocks in that workflow. Be it preceeding or
+        following blocks.
+      operationId: GetCompatibleBlocks
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/ProjectID'
+        example:
+          403c5d50-240a-45c3-b1f1-10d684d285ee
+      - name: workflow_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/WorkflowID'
+        example:
+          20b6cdd2-6d53-40db-ba3a-5ec71ded1c02
+      - name: parentTaskNames
+        in: query
+        schema:
+          type: string
+        description: >-
+          The task names which will be the parents of the new task in the
+          workflow. Multiple parents can be provided by repeating the parameter.
+      - name: childTaskNames
+        in: query
+        schema:
+          type: string
+        description: >-
+          The task names which will be the children of the new task in the
+          workflow. Multiple children can be provided by repeating the parameter.
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              example:
+                error: null
+                data:
+                  blocks:
+                    - blockId: 7360d1df-0dc7-4662-8223-94a227b9eb78
+                      versionTag: "0.1.2"
+                    - blockId: d358e049-f0fc-4dad-b669-5572acdfc49c
+                      versionTag: "1.0.2"
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              example:
+                data: null
+                error:
+                  code: 404
+                  message: Workflow not found for id 31f750f9-f2f5-4853-9e9b-c4713fdd68f6 and projectId 5a21eaff-cdaa-48ab-bedf-05454116d16ff and userId 8cd5de7b-82e2-4625-b094-d5392f1cf780
+                  details: null
   /projects/{project_id}/workflows/{workflow_id}/tasks:
     get:
       tags:
