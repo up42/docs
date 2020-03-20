@@ -594,15 +594,16 @@ paths:
                   message: Workflow not found for id 31f750f9-f2f5-4853-9e9b-c4713fdd68f6 and projectId 5a21eaff-cdaa-48ab-bedf-05454116d16ff and userId 8cd5de7b-82e2-4625-b094-d5392f1cf780
                   details: null
       deprecated: false
-  /projects/{project_id}/workflows/{workflow_id}/compatible_blocks:
+  /projects/{project_id}/workflows/{workflow_id}/compatible-blocks:
     get:
       tags:
         - workflows
       summary: Get compatible blocks in a workflow
       description: >-
         Validates if a given block added to a workflow is compatible
-        with the other blocks in that workflow. Be it preceeding or
-        following blocks.
+        with the other blocks in that workflow. If no parent or child
+        blocks (tasks) are given then all blocks that have empty input
+        capabilities are returned.
       operationId: GetCompatibleBlocks
       parameters:
       - name: project_id
@@ -619,33 +620,34 @@ paths:
           $ref: '#/components/schemas/WorkflowID'
         example:
           20b6cdd2-6d53-40db-ba3a-5ec71ded1c02
-      - name: parentTaskNames
+      - name: parentTaskName
         in: query
         schema:
           type: string
+          example: sobloo-s1-grd-aoiclipped:1
         description: >-
-          The task names which will be the parents of the new task in the
-          workflow. Multiple parents can be provided by repeating the parameter.
-      - name: childTaskNames
+          The task name that will be the parents of the new task in the
+          workflow. Multiple parents can be provided by repeating the
+          parameter. Of course multiple parents only applies if the
+          workflow is such that has multiple parents. Currently those
+          type of workflows are not supported.
+      - name: childTaskName
         in: query
         schema:
           type: string
+          example: tiling:1
         description: >-
-          The task names which will be the children of the new task in the
-          workflow. Multiple children can be provided by repeating the parameter.
+          The task name that will be the children of the new task in the
+          workflow. Multiple children can be provided by repeating the
+          parameter. Multiple children apply when the workflow is tree,
+          i.e., a given node in the directed graph representing the
+          workflow has a unique path for more than one node. As
+          an example you might imagine a workflow where a data block
+          feeds into multiple processing blocks, leveraging parallel
+          processing.
       responses:
         200:
-          description: OK
-          content:
-            application/json:
-              example:
-                error: null
-                data:
-                  blocks:
-                    - blockId: 7360d1df-0dc7-4662-8223-94a227b9eb78
-                      versionTag: "0.1.2"
-                    - blockId: d358e049-f0fc-4dad-b669-5572acdfc49c
-                      versionTag: "1.0.2"
+          $ref: '#/components/responses/CompatibleBlocksResponse'
         401:
           $ref: '#/components/responses/Unauthorized'
         404:
@@ -658,6 +660,8 @@ paths:
                   code: 404
                   message: Workflow not found for id 31f750f9-f2f5-4853-9e9b-c4713fdd68f6 and projectId 5a21eaff-cdaa-48ab-bedf-05454116d16ff and userId 8cd5de7b-82e2-4625-b094-d5392f1cf780
                   details: null
+        422:
+          $ref: '#/components/responses/InexistingTaskResponse'
   /projects/{project_id}/workflows/{workflow_id}/tasks:
     get:
       tags:
@@ -741,16 +745,7 @@ paths:
         200:
           $ref: '#/components/responses/WorkflowTasksCreated'
         400:
-          description: Missing request body.
-          headers: {}
-          content:
-            application/json:
-              example:
-                data: null
-                error:
-                  code: 400
-                  message: 'Required request body is missing: public com.up42.core.controller.dto.Response<java.util.List<com.up42.core.controller.dto.WorkflowTaskDto>> com.up42.core.controller.WorkflowTaskController.setWorkflowTasks(java.util.UUID,java.util.UUID,java.util.List<com.up42.core.controller.dto.WorkflowTaskRequest>) throws com.up42.core.controller.exception.InvalidWorkflowException,com.up42.core.controller.exception.WorkflowNotFoundException'
-                  details: null
+          $ref: '#/components/responses/MissingRequestBodyResponse'
         401:
           $ref: '#/components/responses/Unauthorized'
       deprecated: false
@@ -794,6 +789,94 @@ paths:
                   code: 404
                   message: Project not found for id 403c5d50-240a-45c3-b1f1-10d684d285ef and userId d39fe05a-400c-44f6-b770-86990f64b004
                   details: null
+      deprecated: false
+  /projects/{project_id}/workflows/{workflow_id}/jobs/{job_id}:
+    post:
+      tags:
+      - jobs
+      summary: Rerun Job
+      description: >-
+        Rerun a previous run job.
+      operationId: ReRunJob
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/ProjectID'
+        example:
+          403c5d50-240a-45c3-b1f1-10d684d285ee
+      - name: workflow_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/WorkflowID'
+        example:
+          fc88746e-98b0-4fa7-b750-2f96cde0f385
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/JobID'
+        example:
+          00f35ab9-59d7-4a30-ae73-e1eab7b08d0f
+      requestBody:
+        content:
+          application/json:
+            {}
+        required: false
+      responses:
+        200:
+          $ref: '#/components/responses/ReRunJobResponse'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        403:
+          $ref: '#/components/responses/NotEnoughCreditsToRunJob'
+        429:
+          $ref: '#/components/responses/TooManyJobsResponse'
+      deprecated: false
+    put:
+      tags:
+      - jobs
+      summary: Rename a Job
+      description: >-
+        Rename a currently running or previously run job.
+      operationId: RenameJob
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/ProjectID'
+        example:
+          403c5d50-240a-45c3-b1f1-10d684d285ee
+      - name: workflow_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/WorkflowID'
+        example:
+          fc88746e-98b0-4fa7-b750-2f96cde0f385
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/JobID'
+        example:
+          00f35ab9-59d7-4a30-ae73-e1eab7b08d0f
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RenameJobRequest'
+        required: true
+      responses:
+        200:
+          $ref: '#/components/responses/RenameJobResponse'
+        400:
+          $ref: '#/components/responses/MissingRequestBodyResponse'
+        401:
+          $ref: '#/components/responses/Unauthorized'
       deprecated: false
   /projects/{project_id}/workflows/{workflow_id}/jobs:
     post:
@@ -850,6 +933,10 @@ paths:
                   details: null
         401:
           $ref: '#/components/responses/Unauthorized'
+        403:
+          $ref: '#/components/responses/NotEnoughCreditsToRunJob'
+        429:
+          $ref: '#/components/responses/TooManyJobsResponse'
       deprecated: false
   /projects/{project_id}/jobs/{job_id}:
     get:
@@ -2114,6 +2201,17 @@ components:
         type:
           type: string
       example: 0ee10645-d774-401e-87a2-c292883c261c
+    RenameJobRequest:
+      title: RenameJobRequest
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: The new name for the job.
+      example:
+        name: My newly renamed job
   responses:
     PublicBlocks:
       description: OK
@@ -4839,6 +4937,135 @@ components:
             schema:
               type: file
               produces: text/plain
+    CompatibleBlocksResponse:
+      description: >-
+        JSON that contains all the blocks that are compatible
+        in between the parent task an the child task.
+      content:
+        application/json:
+          example:
+            error: null
+            data:
+              blocks:
+                - blockId: 4ed70368-d4e1-4462-bef6-14e768049471
+                  name: sharpening
+                  versionTag: 2.0.0
+                - blockId: a5b8b938-6fd6-4bac-92cd-dffd7f3169aa
+                  name: zonal-statistics
+                  versionTag: 2.0.0
+                - blockId: d350aa0b-ac31-4021-bbe6-fd8da366740a
+                  name: tiling
+                  versionTag: 2.0.0
+                - blockId: 295bf286-0748-474f-aa38-c1ac35151204
+                  name: vectorising
+                  versionTag: 2.0.0
+                - blockId: adf21e0a-98bf-41a9-a2cc-a59898a461ba
+                  name: kmeans-clustering
+                  versionTag: 2.0.0
+                - blockId: 18e6772f-cf33-4955-b7e4-61df8a108fd9
+                  name: crs-conversion
+                  versionTag: 2.0.0
+    InexistingTaskResponse:
+      description: >-
+        The task that was passed as either a parent or child task
+        is not in the workflow.
+      content:
+        application/json:
+          example:
+            data: null
+            error:
+              code: 422
+              message: 'Workflow does not contain tasks: tiling:4'
+              details: null
+    ReRunJobResponse:
+      description: >-
+        Re-run a job, i.e., run again a job that was previously
+        created. This means using exactly the same job parameter
+        values.
+      content:
+        application/json:
+          example:
+            error: null
+            data:
+              id: e3ed4856-dd2e-477f-a957-1886cd4c9c52
+              displayId: e3ed4856
+              createdAt: '2020-03-20T13:53:05.999Z'
+              updatedAt: '2020-03-20T13:53:06.440Z'
+              status: NOT_STARTED
+              name: Rerun My newly created job
+              startedAt: null
+              finishedAt: null
+              inputs:
+                pansharpening:
+                  method: SFIM
+                  include_pan: false
+                pleiades-download:
+                  ids: null
+                  order_ids:
+                    - ce83f8b9-b892-4642-a891-6b682116bdb1
+              mode: DEFAULT
+              workflowId: fc88746e-98b0-4fa7-b750-2f96cde0f385
+              workflowName: My brand new workflow with Pléaides and Pansharpening.
+    NotEnoughCreditsToRunJob:
+      description: >-
+        Not enough credit balance on the account to run a job.
+      content:
+        application/json:
+          example:
+            data: null
+            error:
+              code: 403
+              message: Insufficient credits to run job
+              details: null
+    MissingRequestBodyResponse:
+      description: Missing request body.
+      content:
+        application/json:
+          example:
+            data: null
+            error:
+              code: 400
+              message: 'Required request body is missing: public com.up42.core.controller.dto.Response<com.up42.core.controller.dto.jobs.JobDto> com.up42.core.controller.JobsController.updateJobName(java.util.UUID,java.util.UUID,java.util.UUID,com.up42.core.controller.dto.jobs.UpdateJobRequest) throws com.up42.core.controller.exception.JobNotFoundException'
+              details: null
+    RenameJobResponse:
+      description: The renamed job response.
+      content:
+        application/json:
+          example:
+            error: null
+            data:
+              id: e3ed4856-dd2e-477f-a957-1886cd4c9c52
+              displayId: e3ed4856
+              createdAt: '2020-03-20T13:53:05.999Z'
+              updatedAt: '2020-03-20T22:35:39.846Z'
+              status: SUCCEEDED
+              name: My newly renamed job
+              startedAt: '2020-03-20T13:53:06Z'
+              finishedAt: '2020-03-20T13:56:08Z'
+              inputs:
+                pansharpening:
+                  method: SFIM
+                  include_pan: false
+                pleiades-download:
+                  ids: null
+                  order_ids:
+                    - ce83f8b9-b892-4642-a891-6b682116bdb1
+              mode: DEFAULT
+              workflowId: fc88746e-98b0-4fa7-b750-2f96cde0f385
+              workflowName: My brand new workflow with Pléaides and Pansharpening.
+    TooManyJobsResponse:
+      description: >-
+        Attempting to launch too many jobs for the same job ID.
+        The maximum number of parallel jobs is defined in the
+        project settings.
+      content:
+        application/json:
+          example:
+           data: null
+           error:
+             code: 429
+             message: Your project has too many non-finished jobs
+             details: null
   securitySchemes:
     basicAuth:
       type: http
