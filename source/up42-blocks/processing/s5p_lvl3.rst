@@ -58,8 +58,3 @@ Example usage
 Output format
 -------------
 Output format is a ``NetCDF`` file, see `NetCDF <https://en.wikipedia.org/wiki/NetCDF>`_ for a more detailed description.
-
-Capabilities
-------------
-
-The block takes a ``up42.data.scene.netcdf`` product and delivers a ``up42.data.scene.netcdf``.

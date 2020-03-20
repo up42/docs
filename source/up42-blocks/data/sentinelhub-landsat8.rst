@@ -1,6 +1,6 @@
-.. meta:: 
+.. meta::
    :description: UP42 data blocks: Landsat 8 data block description
-   :keywords: Landsat 8, NASA, AOI clipped, block description 
+   :keywords: Landsat 8, NASA, AOI clipped, block description
 
 .. _sentinelhub-landsat8-aoiclipped-block:
 
@@ -77,8 +77,3 @@ Output format
             }
           ]
             }
-
-Capabilities
-------------
-
-This block has a single output capability, ``up42.data.aoiclipped``.

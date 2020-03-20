@@ -337,9 +337,3 @@ The ``up42.data.scene.netcdf`` capability maps to the directory containing the `
                 }
             }
         }
-
-
-Capabilities
-------------
-
-This block has a single output capability, ``up42.data.scene.netcdf``.

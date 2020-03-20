@@ -222,8 +222,3 @@ Output format
 -------------
 
 ``GeoJSON`` file for each input image.
-
-Capabilities
-------------
-
-The block takes a ``up42.data.aoiclipped`` product and delivers a ``up42.data.vector.geojson``.
