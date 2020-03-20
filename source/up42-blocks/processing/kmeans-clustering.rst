@@ -69,8 +69,3 @@ Example parameters using the :ref:`SPOT AOIClipped block
 Output format
 -------------
 Output and input format are identical. All metadata elements provided by the input dataset as properties are propagated to the output.
-
-Capabilities
-------------
-
-The block delivers ``up42.data.aoiclipped``.

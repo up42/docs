@@ -77,11 +77,6 @@ Output format
 -------------
 Output format is a ``GeoJSON`` file.
 
-Capabilities
-------------
-
-The block takes a ``up42.data.aoiclipped`` product and delivers a ``up42.data.vector.geojson``.
-
 Advanced
 --------
 

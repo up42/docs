@@ -57,8 +57,3 @@ Output format
 -------------
 
 AOI.clipped GeoTIFF format.
-
-Capabilities
-------------
-
-The block takes a ``up42.data.aoiclipped`` product and delivers a ``up42.data.aoiclipped``.

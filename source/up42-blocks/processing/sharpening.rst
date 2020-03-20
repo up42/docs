@@ -53,8 +53,3 @@ Example usage
 Output format
 -------------
 Output format is a ``GeoTIFF`` file.
-
-Capabilities
-------------
-
-The block takes a ``up42.data.aoiclipped`` product and delivers a ``up42.data.aoiclipped``.

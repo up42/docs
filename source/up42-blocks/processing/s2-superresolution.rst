@@ -107,11 +107,6 @@ Output format
 AOI.clipped GeoTIFF format. Also in the output file all the spectral
 bands for 20m and 60m will be in 10m spatial resolution.
 
-Capabilities
-::::::::::::
-
-The block takes a ``up42.data.scene.sentinel2_l1c`` product and delivers ``up42.data.aoiclipped``.
-
 Download example output
 -----------------------
 

@@ -59,8 +59,3 @@ Output format
 -------------
 Output and input format are both GeoTIFF, but input bands are of data type unsigned integer, while the output is of type float.
 All metadata elements provided by the input dataset as properties are propagated to the output tiles.
-
-Capabilities
-------------
-
-The block takes a ``up42.data.aoiclipped`` product and delivers the same - but only one band is returned.

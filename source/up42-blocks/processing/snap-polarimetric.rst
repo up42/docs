@@ -1,7 +1,7 @@
-.. meta:: 
+.. meta::
    :description: UP42 processing blocks: SNAP toolbox block
    :keywords: Sentinel 1 and 2, processing, full scene, terrain
-              correction, block description 
+              correction, block description
 
 .. _snap-polarimetric-block:
 
@@ -97,7 +97,6 @@ Output format
 The block outputs a GeoTIFF file. Please **note** that for each chosen polarization a separate band will be generated in the output file.
 For instance, if both ``VV`` and ``VH`` polarizations are chosen, the output will be a single GeoTIFF with two bands, one for ``VV``
 polarization and one for ``VH`` polarization.
-
 
 
 Download example output

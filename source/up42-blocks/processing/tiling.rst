@@ -91,11 +91,9 @@ Output format
 -------------
 Output and input format are identical. All metadata elements provided by the input dataset as properties are propagated to the output tiles.
 
-Capabilities
-------------
+.. important::
 
-The block takes a ``up42.data.aoiclipped`` product and delivers the same - just clipped into smaller pieces.
-For change detection purposes the ``match_extents`` parameter is crucial. If the tiling block is provided multiple
-input images and this option is set, the resulting tiles will have the same extents across all input layers. This
-is achieved by computing a bounding box that covers all input images and then filling in the missing pixels of each
-layer with nodata (0). If the input images have an alpha band it will set to 255 in the nodata areas.
+  For change detection purposes the ``match_extents`` parameter is crucial. If the tiling block is provided multiple
+  input images and this option is set, the resulting tiles will have the same extents across all input layers. This
+  is achieved by computing a bounding box that covers all input images and then filling in the missing pixels of each
+  layer with nodata (0). If the input images have an alpha band it will set to 255 in the nodata areas.

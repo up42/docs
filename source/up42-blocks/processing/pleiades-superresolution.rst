@@ -16,7 +16,7 @@ The Super-resolution Pléiades/SPOT block quadruples the *perceived* image
 resolution of Pléiades and SPOT satellite imagery to increase the
 performance of object detection algorithms.
 
-Super-resolution is the process of increasing the 
+Super-resolution is the process of increasing the
 resolution of images using an algorithm. The block uses a
 state-of-the-art `Convolutional Neural Network
 <https://en.wikipedia.org/wiki/Convolutional_neural_network>`_ (CNN).
@@ -51,8 +51,3 @@ Output format
 :::::::::::::
 
 AOI.clipped GeoTIFF format.
-
-Capabilities
-::::::::::::
-
-The block takes ``up42.data.aoiclipped`` and delivers ``up42.data.aoiclipped``.
