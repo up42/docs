@@ -41,6 +41,9 @@ Supported parameters
   via ``bbox``, or ``contains``, or ``intersect`` for the
   previous data block in the workflow will **first** be clipped and then processed.
   Please note that by **default** this parameter is set to ``false`` which means that the **full scene** will be processed.
+* ``calibration_band``: It applies calibration to provide imagery in which the pixel values can be directly related to the radar backscatter of the scene. The default option using ``Sigma Nought`` for calibration. Other available options are ``Beta Nought`` and ``Gamma Nought``.
+* ``speckle_filter``: It applies `Lee Sigma filter <https://www.harrisgeospatial.com/docs/AdaptiveFilters.html>`_ to remove speckle noise from the image. Please note that by **default** this parameter is set to ``true``.
+* ``linear_to_db``: It converst the pixel intensity to normalised `radar cross-section <https://en.wikipedia.org/wiki/Radar_cross-section>`_ measured in decibel (dB) units. Please note that by **default** this parameter is set to ``true``.
 
 Example block parameters using the
 :ref:`Sentinel-1 L1C GRD Full Scene block <sentinel1-grd-fullscene-block>` as
@@ -50,48 +53,51 @@ and a Land mask (``land`` set to ``true``).
 
 .. code:: javascript
 
-    {
-      "sobloo-s1-grd-fullscene:1": {
-        "bbox": [
-          13.358345031738283,
-          52.480689337378706,
-          13.395252227783203,
-          52.507654123207665
-        ],
-        "ids": null,
-        "time": "2018-01-01T00:00:00+00:00/2019-12-31T23:59:59+00:00",
-        "limit": 1,
-        "time_series": null,
-        "orbit_direction": null,
-        "acquisition_mode": null
-      },
-      "snap-polarimetric:1": {
-      "bbox": [
-          13.358345031738283,
-          52.480689337378706,
-          13.395252227783203,
-          52.507654123207665
-       ],
-       "mask": null,
-       "contains": null,
-       "intersects": null,
-       "clip_to_aoi": true,
-       "tcorrection": true,
-       "polarisations": [ "VV" ]
-      }
-    }
+	{
+	  "sobloo-s1-grd-fullscene:1": {
+		"bbox": [
+		  13.358345031738283,
+		  52.480689337378706,
+		  13.395252227783203,
+		  52.507654123207665
+		],
+		"ids": null,
+		"time": "2018-01-01T00:00:00+00:00/2019-12-31T23:59:59+00:00",
+		"limit": 1,
+		"time_series": null,
+		"orbit_direction": null,
+		"acquisition_mode": null
+	  },
+	  "snap-polarimetric:1": {
+	  "bbox": [
+		  13.358345031738283,
+		  52.480689337378706,
+		  13.395252227783203,
+		  52.507654123207665
+	   ],
+	   "mask": null,
+	   "contains": null,
+	   "intersects": null,
+	   "clip_to_aoi": false,
+	   "tcorrection": true,
+	   "linear_to_db": true,
+	   "polarisations": [
+		"VV"
+	  ],
+	  "speckle_filter": true,
+	  "calibration_band": [
+		"sigma"
+	  ]
+	  }
+	}
 
 Output format
 -------------
 
-AOI.clipped GeoTIFF format. Also in the output file, for each
-polarization a separate band will be associated.
+The block outputs a GeoTIFF file. Please **note** that for each chosen polarization a separate band will be generated in the output file.
+For instance, if both ``VV`` and ``VH`` polarizations are chosen, the output will be a single GeoTIFF with two bands, one for ``VV``
+polarization and one for ``VH`` polarization.
 
-Capabilities
-------------
-
-The block takes a ``up42.data.scene.sentinel1_l1c_grd`` product and
-delivers ``up42.data.aoiclipped``.
 
 
 Download example output
