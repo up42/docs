@@ -41,9 +41,9 @@ Supported parameters
   via ``bbox``, or ``contains``, or ``intersect`` for the
   previous data block in the workflow will **first** be clipped and then processed.
   Please note that by **default** this parameter is set to ``false`` which means that the **full scene** will be processed.
-* ``calibration_band``: It applies calibration to provide an imagery in which the pixel values can be directly related to the radar backscatter of the scene. The default option using ``Sigma Nought`` for calibration. Other available options are ``Beta Nought`` and ``Gamma Nought``.
-* ``speckle_filter``: It applies to remove speckle noise from the image. Please note that by **default** this parameter is set to ``true``.
-* ``linear_to_db``: It converst the pixel intensity values to normalised radar cross-section measured in decibel (dB) units. Please note that by **default** this parameter is set to ``true``.
+* ``calibration_band``: It applies calibration to provide imagery in which the pixel values can be directly related to the radar backscatter of the scene. The default option using ``Sigma Nought`` for calibration. Other available options are ``Beta Nought`` and ``Gamma Nought``.
+* ``speckle_filter``: It applies `Lee Sigma filter <https://www.harrisgeospatial.com/docs/AdaptiveFilters.html>`_ to remove speckle noise from the image. Please note that by **default** this parameter is set to ``true``.
+* ``linear_to_db``: It converst the pixel intensity to normalised `radar cross-section <https://en.wikipedia.org/wiki/Radar_cross-section>`_ measured in decibel (dB) units. Please note that by **default** this parameter is set to ``true``.
 
 Example block parameters using the
 :ref:`Sentinel-1 L1C GRD Full Scene block <sentinel1-grd-fullscene-block>` as
@@ -94,8 +94,10 @@ and a Land mask (``land`` set to ``true``).
 Output format
 -------------
 
-AOI.clipped GeoTIFF format. Also in the output file, for each
-polarization a separate band will be associated.
+The block outputs a GeoTIFF file. Please **note** that for each chosen polarization a separate band will be generated in the output file.
+For instance, if both ``VV`` and ``VH`` polarizations are chosen, the output will be a single GeoTIFF with two bands, one for ``VV``
+polarization and one for ``VH`` polarization.
+
 
 
 Download example output
