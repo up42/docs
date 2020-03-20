@@ -151,8 +151,3 @@ Example query using identifiers:
         }
       ]
     }
-
-Capabilities
-------------
-
-This block has a single output capability, ``up42.data.scene.dimap``.

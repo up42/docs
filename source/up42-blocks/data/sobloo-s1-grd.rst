@@ -1,6 +1,6 @@
-.. meta:: 
+.. meta::
    :description: UP42 data blocks: Sentinel 1 GRD L1C block description
-   :keywords: Sentinel 1, ESA, SAR C band, radar, full scene, block description 
+   :keywords: Sentinel 1, ESA, SAR C band, radar, full scene, block description
 
 .. _sentinel1-grd-fullscene-block:
 
@@ -253,9 +253,3 @@ Example output GeoJSON:
             }
         ]
     }
-
-Capabilities
-------------
-
-This block has a single output capability, ``up42.data.scene.sentinel1_l1c_grd``, which maps to the
-directory containing the `SAFE data <http://earth.esa.int/SAFE/>`_ for the scene.

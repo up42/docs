@@ -262,9 +262,3 @@ Example output GeoJSON:
             }
         ]
     }
-
-Capabilities
-------------
-
-This block has a single output capability, ``up42.data.scene.sentinel2_l1c``, which maps to the
-directory containing the `SAFE data <http://earth.esa.int/SAFE/>`_ for the scene.

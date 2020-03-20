@@ -288,10 +288,3 @@ Example output GeoJSON:
           }
        ]
     }
-
-
-Capabilities
-------------
-
-This block has a single output capability, ``up42.data.aoiclipped``, which maps to the
-directory containing the ``GeoTIFF`` for the scene.
