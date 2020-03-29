@@ -14,7 +14,7 @@ Introduction
 You have currently two options to acquire very-high resolution (SPOT
 6/7 and Pléiades) satellite imagery in UP42:
 
- \1. Streaming 
+ \1. Streaming
    Based on a specified :term:`AOI` **stream** the tiles related to that
    AOI as images and use them in your :term:`workflow` as you see
    fit. This provides the RGB bands, and optionally, also the
@@ -24,7 +24,7 @@ You have currently two options to acquire very-high resolution (SPOT
    you rerun a job or run a job where the AOI is unchanged. This means
    that there is no way to re-use the acquired images in your workflow.
 
- \2. Downloading   
+ \2. Downloading
    Based on a specified :term:`AOI` **download** the image related to
    that AOI in `DIMAP
    <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`__
@@ -33,7 +33,7 @@ You have currently two options to acquire very-high resolution (SPOT
    specified AOI if you use a :ref:`contains <contains-filter>` for
    the data query in the :term:`job parameters`.
 
-   
+
 What do download blocks offer?
 ------------------------------
 
@@ -44,7 +44,7 @@ satellite. Which are, respectively:
 
 .. table:: SPOT available bands
    :align: center
-          
+
    =============  ================  ================
     band           wavelength [μm]   resolution [m]
    =============  ================  ================
@@ -52,7 +52,7 @@ satellite. Which are, respectively:
    Blue           0.450-0.520            6
    Green          0.530-0.590            6
    Red            0.625-0.695            6
-   Near Infrared  0.760-0.890            6 
+   Near Infrared  0.760-0.890            6
    =============  ================  ================
 
 
@@ -60,15 +60,15 @@ satellite. Which are, respectively:
    :align: center
 
    =============  ================ ================
-    band           wavelength [μm]  resolution [m] 
-   =============  ================ ================       
-   Panchromatic   0.470-0.830           0.5        
-   Blue           0.430-0.550            2         
-   Green          0.500-0.620            2         
-   Red            0.590-0.710            2         
-   Near Infrared  0.740-0.940            2         
+    band           wavelength [μm]  resolution [m]
    =============  ================ ================
-   
+   Panchromatic   0.470-0.830           0.5
+   Blue           0.430-0.550            2
+   Green          0.500-0.620            2
+   Red            0.590-0.710            2
+   Near Infrared  0.740-0.940            2
+   =============  ================ ================
+
 This allows you to use algorithms like :term:`NDVI` for vegetation
 analysis and/or any other algorithm that relies on multi-spectral data
 in your :term:`workflow`.
@@ -84,14 +84,14 @@ suggests higher vegetation vitality.
 Get a price estimate
 --------------------
 
-To get a price estimate you need to run a :term:`TestQuery`. In the
+To get a price estimate you need to run a :ref:`Test query <test-query>`. In the
 returned GeoJSON. When you select an AOI in the console by default the
-job runs as a TestQuery.
+job :ref:`runs <test-query-ui>` as a Test query.
 
 Here is an example with the job parameters:
 
 .. code:: javascript
-          
+
    {
      "config": {
      "mode": "DRY_RUN"
@@ -149,12 +149,12 @@ Looking at the raw data we have the *extra* fields:
 .. code:: javascript
 
    {
-     ...       
+     ...
         fileSize: 1449,
         estimatedCredits: 111
      ...
    }
-        
+
 ``estimatedCredits`` is the price estimation, in this case 111
 :ref:`credits <credit>`.
 
@@ -162,14 +162,14 @@ Alternatively you can look into the logs for the :term:`task` and
 at the end see the estimated credits.
 
 .. code:: bash
-          
-   ...       
+
+   ...
    2019-09-16 14:00:10,725 - pleiades - INFO - ==================================================================
    2019-09-16 14:00:10,725 - pleiades - INFO - Estimated credits for this job: 111
    2019-09-16 14:00:10,725 - pleiades - INFO - ==================================================================
 
    2019-09-16 14:00:10,725 - pleiades - DEBUG - Saving 1 result features to data.json
-   
+
 Download the image
 ------------------
 
@@ -184,14 +184,14 @@ identifier for the downloaded image.
 Looking at the raw output there is the field ``orderID``:
 
 .. code:: javascript
- 
+
    {
       ...
          "orderID": "002e11d3-3b46-43a5-a07d-855a94c72817",
          "fileSize": 1449
-      ... 
+      ...
    }
-          
+
 This ID is **required** whenever you want to re-use the image. This
 way you won have to pay for it again.
 
@@ -206,10 +206,10 @@ the order ID. At the end of the log:
    2019-09-19 05:02:51,686 - pleiades - INFO - 002e11d3-3b46-43a5-a07d-855a94c72817
    2019-09-19 05:02:51,686 - pleiades - INFO - ==================================================================
 
-   2019-09-19 05:02:51,686 - pleiades - DEBUG - Saving 1 result features to data.json       
+   2019-09-19 05:02:51,686 - pleiades - DEBUG - Saving 1 result features to data.json
 
 the order ID is ``002e11d3-3b46-43a5-a07d-855a94c72817``.
- 
+
 Re-use it in a workflow
 -----------------------
 
@@ -247,7 +247,7 @@ You can see the field ``order_ids``:
 
 .. code:: javascript
 
-   ...       
+   ...
    "order_ids": [
       "002e11d3-3b46-43a5-a07d-855a94c72817"
      ],
@@ -278,4 +278,3 @@ The downloaded image as a PNG with a black background.
     <https://www.intelligence-airbusds.com/en/8722-the-download-format>`_. DIMAP
     is a GDAL supported `raster format
     <https://gdal.org/drivers/raster/dimap.html>`_.
-
