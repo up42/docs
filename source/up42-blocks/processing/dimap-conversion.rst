@@ -1,16 +1,18 @@
 .. meta::
-  :description: UP42 processing blocks: Data format and type conversion block description
+  :description: UP42 processing blocks: DIMAP conversion block description
   :keywords: UP42, processing, data format, data type, block description
 
-.. _data-format-type-conversion-block:
+.. _dimap-conversion-block:
 
-Data Format and Type Conversion
+DIMAP Conversion
 ===============================
+# TODO UPDATE
+
 Please see the `block details page <https://marketplace.up42.com/block/87dfdea7-a89a-46b5-8ac3-634ebe26f570>`_ for context.
 
 Block type: ``PROCESSING``
 
-This block converts from the DIMAP format to the ``GeoTIFF`` format.
+This block converts from the `DIMAP format <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`_ to the ``GeoTIFF`` format. Currently this block can be used with :ref:`SPOT download block <spot-download-block>` or :ref:`Pleiades download block <pleiades-download-block>`.
 
 Supported parameters
 --------------------
