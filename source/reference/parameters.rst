@@ -28,7 +28,8 @@ JSON Schema `types/formats <https://json-schema.org/latest/json-schema-validatio
   ISO dates, for example:
   ``"2018-02-12T00:00:00Z/2018-03-18T12:31:12Z"``
 * ``string``: generic string content. May be the empty string or ``null``
-* ``number``: generic number content, either integer or float, or ``null``
+* ``number``: generic decimal (float) content, or ``null``
+* ``integer``: generic integer content, or ``null``
 * ``array``: a simple array of strings or numbers, an empty array, or ``null``
 
 How the block handles these parameters is up to the block itself, but
