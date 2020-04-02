@@ -12,7 +12,7 @@ Please see the `block details page <https://marketplace.up42.com/block/87dfdea7-
 
 Block type: ``PROCESSING``
 
-This block converts from the `DIMAP format <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`_ to the ``GeoTIFF`` format. Currently this block can be used with :ref:`SPOT download block <spot-download-block>` or :ref:`Pleiades download block <pleiades-download-block>`.
+This block converts from the `DIMAP format <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`_ to the ``GeoTIFF`` format. Currently this block can be used with the :ref:`SPOT download block <spot-download-block>` or :ref:`Pleiades download block <pleiades-download-block>`.
 
 Supported parameters
 --------------------
