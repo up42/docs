@@ -623,10 +623,6 @@ no data is available the ``FeatureCollection`` is empty.
      "features": []
    }
 
-
-
-
-
 .. _working-job-tasks:
 
 Working with jobs and tasks

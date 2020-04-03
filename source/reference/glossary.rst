@@ -32,9 +32,9 @@
 
    bounding box
       GeoJSON geometry represented by a rectangle
-      containing the coordinates of the southwesterly most extent --
-      bottom left corner of the box -- followed by the coordinates of
-      the northeasterly most extent -- top right corner of the box --
+      containing the coordinates of the southwesterly most extent ---
+      bottom left corner of the box --- followed by the coordinates of
+      the northeasterly most extent --- top right corner of the box ---
       specified in Longitude/Latitude based on `WGS 84
       <http://www.opengis net/def/crs/OGC/1.3/CR 84>`__.
 

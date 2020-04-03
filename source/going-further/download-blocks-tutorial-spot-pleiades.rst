@@ -33,6 +33,8 @@ You have currently two options to acquire very-high resolution (SPOT
    specified AOI if you use a :ref:`contains <contains-filter>` for
    the data query in the :term:`job parameters`.
 
+.. _download-block-pros:
+
 What do download blocks offer?
 ------------------------------
 
@@ -76,15 +78,15 @@ Additionally: download blocks are an :term:`analytical product`, i.e., the
 images that they provide can be interpreted in terms of reflectance
 or radiance. Thus enabling the extraction of quantitative information
 about surface features. Consequently, they are not the most adequate for visual
-display purposes (:term:`visual product`). For that you should use
+display purposes (:term:`visual product`). For that you should use the
 :ref:`Pléaides streaming <pleiades-aoiclipped-block>`
-and/or :ref:`SPOT streaming <spot-aoiclipped-block>`.
+and/or :ref:`SPOT streaming <spot-aoiclipped-block>` blocks.
 
 .. tip::
 
    You can create a :term:`visual product` from a download block image
-   by multiplying each pixel value by 256/4096 -- 12 to 8 bit
-   conversion - or by invoking
+   by multiplying each pixel value by 256/4096 --- 12 to 8 bit
+   conversion --- or by invoking
    `gdal_translate <https://gdal.org/programs/gdal_translate.html>`_
    with the ``-scale`` option.
 

@@ -1,6 +1,6 @@
 .. meta::
    :description: UP42 Frequently asked questions about pricing
-   :keywords: faq, pricing, support 
+   :keywords: faq, pricing, support
 
 =============
  Pricing FAQ
@@ -42,6 +42,16 @@ In the job page you can see the breakdown of the credit usage in a
 table where each row is a step on the workflow. Above the table
 shows the applicable credit usage per type of task: **Data**,
 **Processing**, and **Infrastructure**.
+
+Do UP42 credits have an expiration date?
+========================================
+
+Yes. Credits expire **12 months** after they have been allocated. As
+an example, let us consider the case where you created an account and
+added a payment method today, and you received your free 100 EUR
+equivalent in UP42 credits (10000). If your account was created today,
+this means that you have 12 months, starting from today, to use those
+credits. Otherwise, they will expire after these 12 months.
 
 Why are there different prices/credit values for blocks?
 ========================================================
@@ -119,7 +129,7 @@ What type of machine instances are available and what are the costs?
 
 .. table:: UP42 Machine types
    :align: center
-           
+
    +----------------------+------+----------+-------------------+
    | Machine type         | CPUs | Memory   | Credits [per hour]|
    +======================+======+==========+===================+
@@ -131,7 +141,7 @@ What type of machine instances are available and what are the costs?
    |                      |      |          |                   |
    |                      |      |          |                   |
    +----------------------+------+----------+-------------------+
-   | large                | 2    | 10GB     | 148               | 
+   | large                | 2    | 10GB     | 148               |
    |                      |      |          |                   |
    |                      |      |          |                   |
    +----------------------+------+----------+-------------------+
@@ -157,40 +167,40 @@ What type of machine instances are available and what are the costs?
   credit.
 
 .. _machine-typical-loads:
-  
+
 What are examples of typical loads for each machine type?
 =========================================================
 
 .. |br| raw:: html
 
-   <br/>           
-              
+   <br/>
+
 .. table:: Example loads for each machine type
    :align: left
-           
+
    +----------------------+-------------------------------------------------------------------------------------------------------------------+
-   | Machine type         | Example load                                                                                                      |        
+   | Machine type         | Example load                                                                                                      |
    +======================+===================================================================================================================+
    | small                | Data block that simply downloads some images, or a very basic processing block.                                   |
-   +----------------------+-------------------------------------------------------------------------------------------------------------------+ 
+   +----------------------+-------------------------------------------------------------------------------------------------------------------+
    | medium               |  Some basic processing tasks, e.g., `Land cover <https://github.com/up42/land-cover-classification-demo>`__       |
    |                      |  UP42 demo block.                                                                                                 |
-   +----------------------+-------------------------------------------------------------------------------------------------------------------+ 
+   +----------------------+-------------------------------------------------------------------------------------------------------------------+
    | large                |  Multi-band imagery analysis not parallelizable by raster tiling.                                                 |
-   +----------------------+-------------------------------------------------------------------------------------------------------------------+ 
-   | xlarge               | `SNAP toolbox <http://step.esa.int/main/toolboxes/snap/>`__ with more advanced tasks, e.g., using Range           | 
+   +----------------------+-------------------------------------------------------------------------------------------------------------------+
+   | xlarge               | `SNAP toolbox <http://step.esa.int/main/toolboxes/snap/>`__ with more advanced tasks, e.g., using Range           |
    |                      | Doppler Terrain Correction |br| based on the `Aster GDEM <https://asterweb.jpl.nasa.gov/gdem.asp>`__.             |
-   +----------------------+-------------------------------------------------------------------------------------------------------------------+ 
+   +----------------------+-------------------------------------------------------------------------------------------------------------------+
    | gpu_nvidia_tesla_k80 |  GPU intensive ML algorithm, e.g., `Sentinel 2 Super-resolution <https://github.com/up42/s2-superresolution>`__   |
    |                      |  by UP42. |br|                                                                                                    |
    |                      |  Includes xlarge machine with `NVIDIA Tesla K80 GPU <https://www.nvidia.com/en-gb/data-center/tesla-k80>`__       |
    |                      |  and extra 12 GB of `GDDR5 SDRAM <https://en.wikipedia.org/wiki/GDDR5_SDRAM>`__.                                  |
    +----------------------+-------------------------------------------------------------------------------------------------------------------+
-   
+
 What is VAT?
 ------------
 
-VAT is the `Value Added Tax <https://en.wikipedia.org/wiki/Value-added_tax>`__. 
+VAT is the `Value Added Tax <https://en.wikipedia.org/wiki/Value-added_tax>`__.
 UP42 GmbH is a company operating in the `European Union <https://en.wikipedia.org/wiki/European_Union>`__
 (EU) therefore is obliged to charge VAT for every monetary transaction taking place in
 our platform: selling credits to customers. The application of VAT is dependent on the
@@ -219,9 +229,9 @@ Yes. You will pay the `current <https://ec.europa.eu/taxation_customs/sites/taxa
 
 .. raw:: html
 
-   <!-- 
+   <!--
    Local Variables:
-   eval: (auto-fill-mode 0) 
+   eval: (auto-fill-mode 0)
    eval: (visual-line-mode 1)
    End:
    -->
