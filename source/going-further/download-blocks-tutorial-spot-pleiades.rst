@@ -33,7 +33,6 @@ You have currently two options to acquire very-high resolution (SPOT
    specified AOI if you use a :ref:`contains <contains-filter>` for
    the data query in the :term:`job parameters`.
 
-
 What do download blocks offer?
 ------------------------------
 
@@ -73,13 +72,28 @@ This allows you to use algorithms like :term:`NDVI` for vegetation
 analysis and/or any other algorithm that relies on multi-spectral data
 in your :term:`workflow`.
 
+Additionally: download blocks are an :term:`analytical product`, i.e., the
+images that they provide can be interpreted in terms of reflectance
+or radiance. Thus enabling the extraction of quantitative information
+about surface features. Consequently, they are not the most adequate for visual
+display purposes (:term:`visual product`). For that you should use
+:ref:`Pléaides streaming <pleiades-aoiclipped-block>`
+and/or :ref:`SPOT streaming <spot-aoiclipped-block>`.
+
+.. tip::
+
+   You can create a :term:`visual product` from a download block image
+   by multiplying each pixel value by 256/4096 -- 12 to 8 bit
+   conversion - or by invoking
+   `gdal_translate <https://gdal.org/programs/gdal_translate.html>`_
+   with the ``-scale`` option.
+
 .. figure:: _assets/ndvi-spot-example.png
    :align: center
    :alt: NDVI map generated from SPOT imagery in Berlin
 
 NDVI map generated from SPOT imagery in Berlin. Darker shade of green
 suggests higher vegetation vitality.
-
 
 Get a price estimate
 --------------------
@@ -213,7 +227,7 @@ the order ID is ``002e11d3-3b46-43a5-a07d-855a94c72817``.
 Re-use it in a workflow
 -----------------------
 
-As explained above the download blocks return the acquired images in
+As explained above the download blocks returns the acquired images in
 DIMAP format. In order to use those images in any :term:`workflow` you
 need to use the The :ref:`Data Format and type conversion
 <data-format-type-conversion-block>` block so that a GeoTIFF is
@@ -258,13 +272,13 @@ because we are using only one image we downloaded previously, but if
 you want to use multiple previously downloaded images just add
 all the order IDs in this array.
 
-And the output shown here converted from GeoTIFF to a JPEG.
+And the output shown here as a GeoTIFF.
 
 .. figure:: _assets/download_block_ms_output.png
    :align: center
    :alt: Example download block image
 
-The downloaded image as a PNG with a black background.
+The downloaded image show heer as a a PNG with a black background.
 
 .. warning::
 

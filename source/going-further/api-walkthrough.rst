@@ -10,7 +10,7 @@ UP42 API walkthrough
 Introduction
 ------------
 
-The API is the UP42 pivotal point: everything runs on top
+The API is the UP42 pivotal point: everything runs on top of
 it. Therefore if you want to automate/scale your usage of UP42 the API
 is the way to go.
 
@@ -28,7 +28,10 @@ as well as minimal proficiency with using a UNIX like shell.
    - :ref:`get job output <results-geojson>` (``data.json``)
    - :ref:`get job output directory <download-results>`
    - :ref:`create and run a named job <create-run-named-job>`
+   - :ref:`rename a job <rename-job>`
+   - :ref:`re-run a job <rerun-job>`
    - :ref:`cancel a running job <cancel-job>`
+   - :ref:`create and run a test query <create-run-test-query>`
 
 2. :ref:`Work with jobs and tasks <working-job-tasks>`:
 
@@ -78,11 +81,8 @@ like ``jq``.
 
 All outputs (response bodies) deemed too large to be shown here are given
 as Github
-`gists <https://help.github.com/en/articles/creating-gists#about-gists>`__
+`gist<s <https://help.github.com/en/articles/creating-gists#about-gists>`__
 linked below as they are returned by the API.
-
-The required inputs (request body) are in the ``inputs`` directory and
-the returned outputs (response body) are in the ``outputs`` directory.
 
 Additionally you can use `jwt-cli
 <https://github.com/mike-engel/jwt-cli>`__ to decode the token that is
@@ -354,8 +354,10 @@ Get the job results
 Once the job completes you can query the API to get the results.
 There are 3 types of results:
 
- 1. A `GeoJSON <https://en.wikipedia.org/wiki/GeoJSON>`__ file with
-    the geometry of the used :term:`AOI` and metadata.
+ 1. A `GeoJSON <https://en.wikipedia.org/wiki/GeoJSON>`__ file
+    containing metadata and vectorial data relative to the job
+    output. The specific content of this file depends on the workflow,
+    i.e, on the blocks being used.
  2. The output directory delivered as a
     `gzipped <https://en.wikipedia.org/wiki/Gzip>`__
     `tarball <https://en.wikipedia.org/wiki/Tar_(computing)>`__.
@@ -399,10 +401,10 @@ Inspect the retrieved tarball:
    -rw-r--r--  0 root   root  5515635 Sep 16 19:40 output/56f3c47a-92a8-4e89-a005-ff1bbd567ac9_ndvi.tif
    -rw-r--r--  0 root   root   399659 Sep 16 19:40 output/data.json
 
-There is both the GeoJSON file and the output as a
-`GeoTIFF <https://en.wikipedia.org/wiki/GeoTIFF>`__ file. The file name
-is constructed from the first task ID and part of the block name. See
-below for an explanation of what tasks are.
+There is both the GeoJSON file and the output as a `GeoTIFF
+<https://en.wikipedia.org/wiki/GeoTIFF>`__ file. In this case the file
+name is constructed from the first task ID and part of the block
+name. See below for an explanation of what tasks are.
 
 .. _create-run-named-job:
 
@@ -442,6 +444,62 @@ Printing:
 .. code:: bash
 
    Just a named job example
+
+.. warning::
+
+   By default when using the UI the job is named using the workflow
+   name. On the API if you create and run a job without explicitly
+   setting a name, the name is the empty string (``null``).
+
+
+.. _rename-job:
+
+Rename a job
+~~~~~~~~~~~~
+
+It might happen that you either want to name a job that initially had
+no explcitly set name or that you want to remame a job you named yourself.
+
+To do that you issue a PUT request to the specific job URL.
+
+.. code:: bash
+
+   # Job ID corresponding to the job to be renamed.
+   RENAME_JOB_ID=e3ed4856-dd2e-477f-a957-1886cd4c9c52
+
+   curl -s -L -X PUT -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' "$URL_POST_JOB/$RENAME_JOB_ID" \
+                                                        -d '{"name": "My newly renamed job"}' | jq '.' > renamed_job_response.json
+
+This returns the JSON:
+
+.. gist:: https://gist.github.com/up42-epicycles/48853303b254f201ca020a21d4923bd3
+
+As you can see this job had already run. You can rename any job that
+is either running or has been run.
+
+.. _rerun-job:
+
+Re-run a job
+~~~~~~~~~~~~
+
+There are occasions where you just want to re-run a job. For example,
+it might happen that the job failed due to an upstream API that the
+job relied upon failing. In this case you want to re-run the job so
+that it succeeds and you get the expected output. This means keeping
+the **same** job parameters and creating and running the job. The API
+provides a way to do that without having to :ref:`create and run a job
+<create-run-named-job>` explicitly.
+
+Let us re-run the job we renamed above.
+
+.. code:: bash
+
+    curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" -H 'Content-Type: application/json' \
+         "$URL_POST_JOB/$RENAME_JOB_ID?name=Rerun+My+newly+created+job+again"| jq '.' > response_rerun_job.json
+
+Returning the response body:
+
+.. gist:: https://gist.github.com/up42-epicycles/258b39ad06edb94d2fd1d05d8840457c
 
 .. _cancel-job:
 
@@ -522,6 +580,52 @@ Querying again for the job status.
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$URL_JOB2CANCEL_INFO" | jq -r '.data.status'
 
    CANCELLED
+
+.. _create-run-test-query:
+
+Create and run a test query
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`Test queries <test-query>` are jobs that are used to check for
+the availability of data and/or for estimating the price of a given
+data set of interest to you. They are explained elsewhere particularly
+the :ref:`job parameters <test-query-api>` required for specifying a
+test query. A test query job is specified by setting the ``config``
+field to be an object with a single field ``mode`` set to
+``DRY_RUN``.
+
+A common usage pattern for a test query is to check for newly
+available data. You can set up a scheduled API request that re-runs a
+test query. You do not need to concern yourself with setting up date
+filters so that only images after your last ran job are available. The
+test query will return all the last available images within the limit
+set by you. For example, if ``limit`` is set to 10 then the 10 more
+recent images will be included in the GeoJSON returned by the test
+query.
+
+You can then use the ID, for example, to check against a table of
+already retrieved images, to determine which ones are new. Then you
+can use the IDs of the new images and retrieve them.
+
+The output of a test query job is a GeoJSON. No credits are consumed
+by a test query. It is a dry-run implementation of data
+retrieval. When supported by a block you just query for a given data
+set availability. Whatever is available satisfying the given search
+criteria (see :ref:`filters <filters>`) is returned as a GeoJSON
+`FeatureCollection
+<http://wiki.geojson.org/GeoJSON_draft_version_6#FeatureCollection>`_. If
+no data is available the ``FeatureCollection`` is empty.
+
+.. code:: json
+
+   {
+     "type": "FeatureCollection",
+     "features": []
+   }
+
+
+
+
 
 .. _working-job-tasks:
 

@@ -20,6 +20,12 @@
       intersect the AOI or fully contain that AOI depending on the
       chosen :ref:`filter <filters>`.
 
+   analytical product
+      A type of image or data that can be used to infer physical
+      properties on the features of that data. For example, using
+      reflectance to estimate plant species richness as a biodiversity
+      indicator.
+
    block
       Unit corresponding to either a data acquisition or a
       processing stage in a :term:`workflow`.
@@ -126,6 +132,15 @@
       data providers might implement this functionality. The output
       is a GeoJSON enumerating the available data items. If no data
       exists for a particular query an empty GeoJSON is returned.
+
+   visual product
+      A image or data that is used for display purposes. It
+      can also be used for feature extraction and/or classification based
+      **solely** on the pixel value as a digital image --- usual bit
+      depth is 8 bit per pixel, per color (RGB). For example, detecting
+      ships in a port can be done using pattern recognition techniques
+      that rely on
+      `artificial neural networks <https://en.wikipedia.org/wiki/Artificial_neural_network>`_.
 
    workflow
       A directed acyclic graph of blocks [#]_. See :ref:`definition <workflows-definition>`.
