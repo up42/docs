@@ -4,9 +4,9 @@
 
 .. _test-query:
 
-==========
-Test query
-==========
+==================
+Using Test queries
+==================
 
 A test is a job that does **not** perform any type of data
 retrieval or processing: in consists solely in **looking** for
@@ -21,7 +21,6 @@ Airbus OneAtlas API (e.g., :ref:`Pléiades download
 <pleiades-download-block>`)
 and the ESA sponsored Data and Information Access
 Service (DIAS) Sobloo (e.g., :ref:`Sentinel 1 GRD L1C <sentinel1-grd-fullscene-block>`).
-
 
 .. list-table:: Blocks supporting test queries
    :align: center
@@ -40,9 +39,9 @@ Service (DIAS) Sobloo (e.g., :ref:`Sentinel 1 GRD L1C <sentinel1-grd-fullscene-b
    * - :ref:`Landsat-8 (AOI-Clipped) <sentinelhub-landsat8-aoiclipped-block>`
    * - :ref:`MODIS <modis-aoiclipped-block>`
 
-.. warning::
+.. note::
 
-   Ther result of a test qu<ery is a GeoJSON consisting of a non-empty
+   Ther result of a test query is a GeoJSON consisting of a non-empty
    `FeatureCollection <http://wiki.geojson.org/GeoJSON_draft_version_6#FeatureCollection>`_
    if there is available data meeting the :ref:`search criteria <filters>` specified
    in the job parameters. If there is no available data the ``Feature
