@@ -16,7 +16,8 @@ blocks built by UP42.
    :includehidden:
 
    tiling
-   data-format-type-conversion
+   dimap-conversion
+   netcdf-conversion
    pansharpen
    snap-polarimetric
    s2-superresolution
