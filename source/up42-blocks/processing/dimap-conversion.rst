@@ -4,15 +4,14 @@
 
 .. _dimap-conversion-block:
 
-DIMAP Conversion
-===============================
-# TODO UPDATE
+DIMAP -> GeoTIFF Conversion
+===========================
 
 Please see the `block details page <https://marketplace.up42.com/block/87dfdea7-a89a-46b5-8ac3-634ebe26f570>`_ for context.
 
 Block type: ``PROCESSING``
 
-This block converts from the `DIMAP format <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`_ to the ``GeoTIFF`` format. Currently this block can be used with the :ref:`SPOT download block <spot-download-block>` or :ref:`Pleiades download block <pleiades-download-block>`.
+DIMAP -> GeoTIFF Conversion converts from the `DIMAP format <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`_ to the ``GeoTIFF`` format. Currently, this block can be used with the :ref:`SPOT download block <spot-download-block>` or :ref:`Pleiades download block <pleiades-download-block>`.
 
 Supported parameters
 --------------------
