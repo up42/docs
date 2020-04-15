@@ -232,10 +232,10 @@ Re-use it in a workflow
 As explained above the download blocks returns the acquired images in
 DIMAP format. In order to use those images in any :term:`workflow` you
 need to either use the The :ref:`DIMAP conversion
-<dimap-conversion-block>` or the
-:ref:`Pansharpening for Pléaides/SPOT <pansharpen-block>` block
-so that a GeoTIFF is generated from the downloaded DIMAP. Thus allowing you to use any
-:term:`processing block` in this image.
+<dimap-conversion-block>` or the :ref:`Pansharpening for Pléaides/SPOT
+<pansharpen-block>` block, so that a GeoTIFF is generated from the
+downloaded DIMAP. Thus allowing you to use any :term:`processing
+block` in this image.
 
 We are going to build a workflow consisting of a :ref:`Pléiades
 <pleiades-download-block>`, data block, the :ref:`DIMAP
@@ -252,10 +252,10 @@ Ship or car detection block, for example.
    --- presently returned by the :ref:`DIMAP
    <dimap-conversion-block>` block, or even the pansharpened images
    returned by the :ref:`Pansharpening for Pléiades/SPOT
-   <pansharpen-block>` block. In a nutshell, those algorithms were
+   <pansharpen-block>` block. In a nutshell: those algorithms were
    developed and work for a :term:`visual product`, not an
    :term:`analytical product` like the ones returned by the Pléaides
-   nd SPOT download blocks.
+   and SPOT download blocks.
 
 Now you have the ``order ID`` generated when the image was downloaded
 from the upstream data provider. Since you already payed for this
