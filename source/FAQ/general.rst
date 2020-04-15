@@ -120,7 +120,7 @@ There are multiple points to answer in this question:
       ``DIM_PHR1A_P_201908291643176_ORT_6bf6aab9-d28f-401e-c0cf-a132ca1b7ec6-002.XML``. |br|
       If you open this file as a **raster** in `QGIS <https://qgis.org>`_, for example, you will get a properly geo-referenced image.
 
-    + Use the :ref:`data type format conversion <data-format-type-conversion-block>` block:  it will give you all the imagery (panchromatic and multispectral) in GeoTIFF format.
+    + Use the :ref:`DIMAP conversion <dimap-conversion-block>` block:  it will give you all the imagery (panchromatic and multispectral) in GeoTIFF format.
 
     + Use :ref:`Pansharpening for Pléaides/SPOT <pansharpen-block>` block: it will give you a pansharpened RGB image in GeoTIFF format.
 

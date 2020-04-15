@@ -231,14 +231,15 @@ Re-use it in a workflow
 
 As explained above the download blocks returns the acquired images in
 DIMAP format. In order to use those images in any :term:`workflow` you
-need to use the The :ref:`Data Format and type conversion
-<data-format-type-conversion-block>` block so that a GeoTIFF is
-generated from the downloaded DIMAP. Thus allowing you to use any
+need to either use the The :ref:`DIMAP conversion
+<dimap-conversion-block>` or the
+:ref:`Pansharpening for Pléaides/SPOT <pansharpen-block>` block
+so that a GeoTIFF is generated from the downloaded DIMAP. Thus allowing you to use any
 :term:`processing block` in this image.
 
 We are going to build a workflow consisting of a :ref:`Pléiades
-<pleiades-download-block>`, data block, the :ref:`Data Format and type
-conversion <data-format-type-conversion-block>` and finally the
+<pleiades-download-block>`, data block, the :ref:`DIMAP
+conversion <dimap-conversion-block>` block, and finally the
 :ref:`tiling <tiling-block>` block. This could then be followed by a
 Ship or car detection block, for example.
 
@@ -248,8 +249,13 @@ Ship or car detection block, for example.
    processing blocks algorithms where trained using `pan-sharpened
    <https://en.wikipedia.org/wiki/Pansharpened_image>`__
    8 bit RGB images and not on the *raw* images --- no pan-sharpening
-   --- presently returned by the :ref:`Data Format and type conversion
-   <data-format-type-conversion-block>` block.
+   --- presently returned by the :ref:`DIMAP
+   <dimap-conversion-block>` block, or even the pansharpened images
+   returned by the :ref:`Pansharpening for Pléiades/SPOT
+   <pansharpen-block>` block. In a nutshell, those algorithms were
+   developed and work for a :term:`visual product`, not an
+   :term:`analytical product` like the ones returned by the Pléaides
+   nd SPOT download blocks.
 
 Now you have the ``order ID`` generated when the image was downloaded
 from the upstream data provider. Since you already payed for this

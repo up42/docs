@@ -13,7 +13,7 @@ Block type: ``PROCESSING``
 This block computes the Normalized Difference Vegatation Index (NDVI) from images of the Pleiades or SPOT sensor that include a NIR band.
 At the time of writing it can therefore only process output from the :ref:`Pléiades DIMAP download block <pleiades-download-block>` or
 :ref:`SPOT DIMAP download block <spot-download-block>` converted to GeoTIFF by the
-:ref:`Data Format and Type Conversion block <data-format-type-conversion-block>` or the :ref:`Pansharpen block <pansharpen-block>` .
+:ref:`DIMAP Conversion block <dimap-conversion-block>` or the :ref:`Pansharpen block <pansharpen-block>` .
 
 NDVI can be used as an indicator for vegetation health or biomass. It is computed via the following formula:
 

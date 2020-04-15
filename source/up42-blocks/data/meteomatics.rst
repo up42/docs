@@ -37,7 +37,12 @@ For more information on supported filters, see :ref:`query filter section  <filt
   The arcseconds resolution for retrieving the time series of a variable will be set based on the size of chosen AOI. In this way, hitting the limit of query point provided by meteomatics API will be avoided.
 
 .. tip::
-  In order to be able to read NetCDF files, you can either use free applications like `Panoply website <https://www.giss.nasa.gov/tools/panoply/>`_ or using `Ncview <http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html>`_.
+  In order to be able to read NetCDF files, you can either use free
+  applications like `Panoply
+  <https://www.giss.nasa.gov/tools/panoply/>`_ or using `Ncview
+  <http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html>`_. Alternatively
+  you can use the :ref:`NetCDF conversion <netcdf-conversion-block>`
+  block to obtain a a GeoTIFF.
 
 Example queries
 ---------------

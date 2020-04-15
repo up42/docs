@@ -1,9 +1,9 @@
 .. meta::
    :description: UP42 going further: develop custom processing block
-   :keywords: custom block, development, processing 
+   :keywords: custom block, development, processing
 
 .. _custom-processing-block-dev:
-              
+
 Developing a custom processing block
 ====================================
 
@@ -41,7 +41,7 @@ Option 1 implies you logging into the docker registry and providing
 your user ID to ``make``.
 
 Option 2 implies you providing the necessary data, either an image
-with a :term:`AOI` from an :ref:`AOI clipped <aoi-clipped>` data
+with a :term:`AOI` from an :term:`AOI clipped` data
 block. If you want to use a larger AOI then please provide a tiled
 image. You can get that by having a workflow with just a data block
 and :ref:`tiling <tiling-block>` as the processing block.
@@ -58,18 +58,18 @@ Some things to keep in mind:
     you can just build the block without it and also ommit the user ID (``UID``)
     and start running immediately it to get the output.
  2. The docker tag is ``latest`` by default, you can change that and
-    use a custom tag through the ``DOCKER_TAG`` make variable. 
+    use a custom tag through the ``DOCKER_TAG`` make variable.
  3. The output must be always composed of three things:
     + A :ref:`GeoJSON <geojson-metadata>` file that enumerates all the output images.
     + A :ref:`directory <imagery-and-binary-data>` with all the images in vector or raster format.
 
 See the :ref:`data transfer format <data-transfer-format>` for additional explanations.
-      
+
 .. code-block:: bash
-                
+
    # Layout of output directory.
    ls -la output/
-   
+
    total 13520
    drwxr-xr-x     7 user  staff      224 Aug 20 11:14 .
    drwxr-xr-x     3 user  staff       96 Aug 19 12:39 ..
@@ -78,10 +78,10 @@ See the :ref:`data transfer format <data-transfer-format>` for additional explan
 
 where:
  + ``data.json``: GeoJSON metadata file.
- + ``ab3760b7-340c-4bac-8b62-701b581a2e22``: directory with ouptut images.  
+ + ``ab3760b7-340c-4bac-8b62-701b581a2e22``: directory with ouptut images.
 
  4. Is optional to specify :ref:`job parameters <block-params>`. See the
-    provided defaults in the ``README``. 
+    provided defaults in the ``README``.
  5. When running the block locally any logging output or errors should appear in
     the terminal as the block runs.
 

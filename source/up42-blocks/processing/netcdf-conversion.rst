@@ -2,7 +2,7 @@
   :description: UP42 processing blocks: NetCDF conversion block description
   :keywords: UP42, processing, data format, data type, block description
 
-.. _dimap-conversion-block:
+.. _netcdf-conversion-block:
 
 NetCDF -> GeoTIFF Conversion
 ============================
