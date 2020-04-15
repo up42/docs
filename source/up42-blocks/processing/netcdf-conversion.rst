@@ -11,7 +11,7 @@ Please see the `block details page <https://marketplace.up42.com/block/87dfdea7-
 
 Block type: ``PROCESSING``
 
-NetCDF -> GeoTIFF Conversion converts from the `NetCDF format <https://pro.arcgis.com/en/pro-app/help/data/multidimensional/what-is-netcdf-data.htm>`_ to the ``GeoTIFF`` format. Currently, this block can be used with :ref:`Weather / Ocean Data and Forecasts <meteomatics-block>` by Meteomatics or with the output of :ref:`Sentinel-5P Level-3 Processor <s5p-lvl3-block>` by UP42. This block does not require any **query parameters**.
+NetCDF -> GeoTIFF Conversion converts from the `NetCDF format <https://pro.arcgis.com/en/pro-app/help/data/multidimensional/what-is-netcdf-data.htm>`_ to the ``GeoTIFF`` format. Currently, this block can be used with :ref:`Weather / Ocean Data and Forecasts <meteomatics-block>` by Meteomatics or with the output of :ref:`Sentinel-5P Level-3 Processor <s5p-lvl3-block>` by UP42.
 
 .. warning::
 
