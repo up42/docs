@@ -7,7 +7,7 @@
 DIMAP -> GeoTIFF Conversion
 ===========================
 
-Please see the `block details page <https://marketplace.up42.com/block/87dfdea7-a89a-46b5-8ac3-634ebe26f570>`_ for context.
+Please see the `block details page <https://marketplace.up42.com/block/4c0abb43-c31b-4a51-938e-2c5a1b4b59d0>`_ for context.
 
 Block type: ``PROCESSING``
 
