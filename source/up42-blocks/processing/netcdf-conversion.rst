@@ -4,27 +4,26 @@
 
 .. _dimap-conversion-block:
 
-NetCDF Conversion
-===============================
-# TODO UPDATE
+NetCDF -> GeoTIFF Conversion
+============================
 
-Please see the `block details page <https://marketplace.up42.com/block/87dfdea7-a89a-46b5-8ac3-634ebe26f570>`_ for context.
+Please see the `block details page <https://marketplace.up42.com/block/2d88ab11-7562-40de-84da-f84f800ab312>`_ for context.
 
 Block type: ``PROCESSING``
 
-This block converts from the `NetCDF format <https://pro.arcgis.com/en/pro-app/help/data/multidimensional/what-is-netcdf-data.htm>`_ to the ``GeoTIFF`` format. Currently this block can be used with :ref:`Meteomatics <meteomatics-block>` or with output of :ref:`Sentinel-5P Level-3 Processor <s5p-lvl3-block>`. This block does not require any **query parameters**.
+NetCDF -> GeoTIFF Conversion converts from the `NetCDF format <https://pro.arcgis.com/en/pro-app/help/data/multidimensional/what-is-netcdf-data.htm>`_ to the ``GeoTIFF`` format. Currently, this block can be used with :ref:`Weather / Ocean Data and Forecasts <meteomatics-block>` by Meteomatics or with the output of :ref:`Sentinel-5P Level-3 Processor <s5p-lvl3-block>` by UP42.
 
 .. warning::
 
-	This block is not compatible with :ref:`Sentinel-5P Full Scenes <sentinel-5p-block>` alone. In other to use this block with :ref:`Sentinel-5P Full Scenes <sentinel-5p-block>`, you need to first convert **Sentinel-5P Level-2** data product into **Sentinel-5P Level-3** data product by using :ref:`Sentinel-5P Level-3 Processor <s5p-lvl3-block>`. The output then will be used as an input for NetCDF Conversion block.
+	This block is not compatible with :ref:`Sentinel-5P Full Scenes <sentinel-5p-block>` alone. In order to use this block with :ref:`Sentinel-5P Full Scenes <sentinel-5p-block>`, you need to first convert **Sentinel-5P Level-2** data product into **Sentinel-5P Level-3** data product by using :ref:`Sentinel-5P Level-3 Processor <s5p-lvl3-block>`. The output then will be used as an input for the NetCDF -> GeoTIFF Conversion block.
 
 .. note::
 
-	Bands' structure of the output file depends on the input data structure. In the case of :ref:`Meteomatics <meteomatics-block>`, the bands are related to the different time steps. For the :ref:`Sentinel-5P Level-3 Processor <s5p-lvl3-block>`, the band is associated with a certain variable.
+	The bands' structure of the output file depends on the input data structure. In the case of :ref:`Weather / Ocean Data and Forecasts <meteomatics-block>`, the bands are related to the different time steps. For the :ref:`Sentinel-5P Level-3 Processor <s5p-lvl3-block>`, the band is associated with a certain variable.
 
 .. note::
 
-	This block can be used mainly to provide a simple visualization for NetCDF data format in other Geospatial tools such as `QGIS <https://qgis.org/en/site/>`_. For any further analysis, we recommend using the NetCDF format itself.
+	This block can be used mainly to provide a simple visualization of datasets which were previously in NetCDF format in other geospatial tools such as `QGIS <https://qgis.org/en/site/>`_. For any further analysis, we recommend using the NetCDF format itself.
 
 Example job parameters using the :ref:`Meteomatics <meteomatics-block>` as data source:
 
