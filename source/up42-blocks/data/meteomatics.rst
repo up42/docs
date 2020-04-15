@@ -42,7 +42,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
   <https://www.giss.nasa.gov/tools/panoply/>`_ or using `Ncview
   <http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html>`_. Alternatively
   you can use the :ref:`NetCDF conversion <netcdf-conversion-block>`
-  block to obtain a a GeoTIFF.
+  block to obtain a GeoTIFF.
 
 Example queries
 ---------------
