@@ -48,7 +48,7 @@ as well as minimal proficiency with using a UNIX like shell.
    - :ref:`update workflow <update-workflow>`
    - :ref:`delete workflow <delete-workflow>`
 
-4. :ref:`Work with test queries <test-query-api-walkthrough>`
+4. :ref:`Work with test queries <test-query-api-walkthrough>`:
 
    - :ref:`create and run a test query <create-run-test-query>`
    - :ref:`get test query output <download-test-query-results>`
