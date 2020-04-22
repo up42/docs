@@ -116,6 +116,10 @@ Authentication: getting the token
 Before attempting to do anything with the API you need to get a token in
 order to perform any type of operation on your project.
 
+.. tip::
+
+   See :ref:`here <project-settings-api-data>` how to obtain your project ID and API key.
+
 .. code:: bash
 
    # Set the project ID.
