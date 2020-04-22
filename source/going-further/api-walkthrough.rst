@@ -1458,7 +1458,7 @@ file for a normal job.
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$OUTPUT_URL/data-json"  | jq '.' > output-$TEST_QUERY_JOB.json
 
 The returned GeoJSON is `here
-<https://gist.github.com/perusio/dc34f5f4efe3eb5dcc54f3e1fb7960c3>`_.
+<https://gist.github.com/up42-epicycles/4c973f64a1ecb9f10a701624fa231248>`_.
 
 To make sure there is data available we check if the ``features``
 property is non-empty.
