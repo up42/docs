@@ -148,8 +148,7 @@ parameters. Below we have example of that.
 The field ``config`` has the object with the field ``mode`` set to
 ``DRY_RUN``. This is how a test query is specified via the API.
 
-..
-   .. tip::
+.. tip::
 
-      For more information  on performing test queries via the API see thee
-      :ref:`API walkthrough <create-run-test-query>`.
+    For more information  on performing test queries via the API see thee
+    :ref:`API walkthrough <test-query-api-walkthrough>`.

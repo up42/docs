@@ -31,7 +31,6 @@ as well as minimal proficiency with using a UNIX like shell.
    - :ref:`rename a job <rename-job>`
    - :ref:`re-run a job <rerun-job>`
    - :ref:`cancel a running job <cancel-job>`
-   - :ref:`create and run a test query <create-run-test-query>`
 
 2. :ref:`Work with jobs and tasks <working-job-tasks>`:
 
@@ -49,6 +48,12 @@ as well as minimal proficiency with using a UNIX like shell.
    - :ref:`update workflow <update-workflow>`
    - :ref:`delete workflow <delete-workflow>`
 
+4. :ref:`Work with test queries <test-query-api-walkthrough>`
+
+   - :ref:`create and run a test query <create-run-test-query>`
+   - :ref:`get test query output <download-test-query-results>`
+   - :ref:`get test query quicklooks <test-query-results-quicklooks>`
+
 It means that a **project key** is **always** needed. Therefore you
 always need to create a project **through the UI**.
 
@@ -56,17 +61,18 @@ The example below uses an example project. So the specific values of
 things like project key and project ID are given for illustration
 purposes only. In your case the values will be different.
 
-**Note**: Please be aware that the project ID and the project key
-allows anyone to manipulate your project (account) so be careful and
-do not share it around. Someone might find it and besides messing with
-your project it will make you incur costs and thus reduce the
-currently available credits in our platform.
+.. note::
+
+   Please be aware that the project ID and the project key
+   allows anyone to manipulate your project (account) so be careful and
+   do not share it around. Someone might find it, and besides messing with
+   your project, will also make you incur costs and thus reduce the
+   currently available credits in our platform.
 
 .. tip::
 
    Optionally and/or as an adition to following this walkthrough you
    might consult the :ref:`API reference <api-specification>`.
-
 
 Requirements
 ------------
@@ -81,7 +87,7 @@ like ``jq``.
 
 All outputs (response bodies) deemed too large to be shown here are given
 as Github
-`gist<s <https://help.github.com/en/articles/creating-gists#about-gists>`__
+`gists <https://help.github.com/en/articles/creating-gists#about-gists>`__
 linked below as they are returned by the API.
 
 Additionally you can use `jwt-cli
@@ -92,6 +98,17 @@ based on `JSON Web Token (JWT)
 <https://en.wikipedia.org/wiki/SHA-2>`__ for signature
 encryption. This is more of a useful utility than a must have for
 following through this walktrough.
+
+.. note::
+
+   The shell is a rich interactive environment. Although there is a
+   trend in data science to use interactive graphical tools, e.g.,
+   `Jupyter <https::/jupyter.org>`_, the shell remains a baseline that
+   everyone can use in a portable way and does not require a graphical
+   interface. An API is meant to be invoked in a machine to machine
+   way, hence gettting familiar with it through a shell is a closer
+   approximation to a deployment reality than through a graphical
+   interface.
 
 Authentication: getting the token
 ---------------------------------
@@ -119,9 +136,18 @@ Now you can echo the token in the shell:
 This token is valid for **5** minutes. To get a new token repeat the
 cURL request above.
 
-**Note**: Since Bash does not record in the shell history all commands
-started with a space we recommend you set the ``PKEY`` variable above
-such that the line start with a space like done here.
+.. tip::
+
+   Since Bash does not record in the shell history all commands
+   started with a space we recommend you set the ``PKEY`` variable above
+   such that the line start with a space like done here.
+
+.. tip::
+
+   Since the tokens is valid for 5 minutes you will need to keep
+   re-issuing the above command regularly to execute any of the
+   requests below if more than 5 minutes have elapsed. You can recall
+   the command with just ``!PTOKEN``.
 
 .. _working-jobs:
 
@@ -215,7 +241,6 @@ We assign this value to a variable.
 
    We rely here on a previously built workflow. If you want also to build
    the workflow via the API then proceed to :ref:`Create a workflow <create-workflow>`.
-
 
 You also need to get the job parameters. In this case you are just
 copying from a previous job. Using the previously saved job list.
@@ -322,7 +347,7 @@ above created job:
 
 .. code:: bash
 
-   # JOb tasks endpoint.
+   # Job tasks endpoint.
    URL_JOB_TASKS_INFO="https://api.up42.com/projects/$PROJ/jobs/$JOB/tasks"
    curl -s -L -H "Authorization: Bearer $PTOKEN" $URL_JOB_TASKS_INFO | jq '.' > jobs_job_tasks-$JOB.json
 
@@ -363,6 +388,11 @@ There are 3 types of results:
     `tarball <https://en.wikipedia.org/wiki/Tar_(computing)>`__.
  3. A set of low resolution RGB images, :term:`quicklooks`. These are
     only available as task specific results and not available as job results.
+
+
+.. note:: The support for quicklooks is a block specific feature, and
+          it will vary from block to blocks. In most cases it will
+          depend on upstream APIs supporting it.
 
 .. _results-geojson:
 
@@ -581,48 +611,6 @@ Querying again for the job status.
 
    CANCELLED
 
-.. _create-run-test-query:
-
-Create and run a test query
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-:ref:`Test queries <test-query>` are jobs that are used to check for
-the availability of data and/or for estimating the price of a given
-data set of interest to you. They are explained elsewhere particularly
-the :ref:`job parameters <test-query-api>` required for specifying a
-test query. A test query job is specified by setting the ``config``
-field to be an object with a single field ``mode`` set to
-``DRY_RUN``.
-
-A common usage pattern for a test query is to check for newly
-available data. You can set up a scheduled API request that re-runs a
-test query. You do not need to concern yourself with setting up date
-filters so that only images after your last ran job are available. The
-test query will return all the last available images within the limit
-set by you. For example, if ``limit`` is set to 10 then the 10 more
-recent images will be included in the GeoJSON returned by the test
-query.
-
-You can then use the ID, for example, to check against a table of
-already retrieved images, to determine which ones are new. Then you
-can use the IDs of the new images and retrieve them.
-
-The output of a test query job is a GeoJSON. No credits are consumed
-by a test query. It is a dry-run implementation of data
-retrieval. When supported by a block you just query for a given data
-set availability. Whatever is available satisfying the given search
-criteria (see :ref:`filters <filters>`) is returned as a GeoJSON
-`FeatureCollection
-<http://wiki.geojson.org/GeoJSON_draft_version_6#FeatureCollection>`_. If
-no data is available the ``FeatureCollection`` is empty.
-
-.. code:: json
-
-   {
-     "type": "FeatureCollection",
-     "features": []
-   }
-
 .. _working-job-tasks:
 
 Working with jobs and tasks
@@ -742,7 +730,6 @@ First task results: quicklooks
 
 First we need to get the list of available images.
 
-
 .. code:: bash
 
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK1_URL/outputs/quicklooks" | jq '.'  > quicklooks_list_$TASK1.json
@@ -760,12 +747,13 @@ This gives us the JSON:
 
 
 Now we can, iterating over the given JSON array ``data`` get all the quicklooks
-images, this case is only one.
+images, this case is only one. The filename is composed of the feature
+ID and the extension.
 
 .. code:: bash
 
-    # Loop over all available quicklooks images and get them.
-   for i in $(cat quicklooks_6505eaf8-dc63-44a9-878f-831eecae3f62.json | jq -j '.data[]')
+   # Loop over all available quicklooks images and get them.
+   for i in $(cat quicklooks_list_$TASK1.json | jq -r '.data[]')
        do curl -s -L -O -H "Authorization: Bearer $PTOKEN" "$TASK1_URL/outputs/quicklooks/$i"
    done
 
@@ -1232,3 +1220,375 @@ If we now try to access the deleted workflow we get:
 
 The workflow was deleted therefore it no longer exists, hence the
 `404 Not Found <https://httpstatuses.com/404>`__.
+
+
+.. _test-query-api-walkthrough:
+
+Working with test queries
+-------------------------
+
+:ref:`Test queries <test-query>` are jobs that are used to check for
+the availability of data and/or for estimating the price of a given
+data set of interest to you. They are explained elsewhere particularly
+the :ref:`job parameters <test-query-api>` required for specifying a
+test query. A test query job is specified by setting the ``config``
+field to be an object with a single field ``mode`` set to
+``DRY_RUN``.
+
+A common usage pattern for a test query is to check for newly
+available data. You can set up a scheduled API request that re-runs a
+test query. You do not need to concern yourself with setting up date
+filters so that only images after your last ran job are available. The
+test query will return all the last available images within the limit
+set by you. For example, if ``limit`` is set to 10 then the 10 more
+recent images will be included in the GeoJSON returned by the test
+query.
+
+You can then use the ID, for example, to check against a table of
+already retrieved images, to determine which ones are new. Then you
+can use the IDs of the new images and retrieve them.
+
+The output of a test query job is a GeoJSON. No credits are consumed
+by a test query. It is a dry-run implementation of data
+retrieval. When supported by a block you just query for a given data
+set availability. Whatever is available satisfying the given search
+criteria (see :ref:`filters <filters>`) is returned as a GeoJSON
+`FeatureCollection
+<http://wiki.geojson.org/GeoJSON_draft_version_6#FeatureCollection>`_. If
+no data is available the ``FeatureCollection`` is empty.
+
+.. code:: json
+
+   {
+     "type": "FeatureCollection",
+     "features": []
+   }
+
+
+To make this section of the walkthrough more self contained we are
+going to re-define the ``PROJ`` and ``PTOKEN`` variables such that
+they refer to another project and workflow.
+
+.. code:: bash
+
+   # Set the project ID.
+   PROJ=06d9a147-6c80-4332-ac86-a07720196b1b
+   # Set the project key.
+    PKEY=Moebbw6v.tQyPOC4vRJcFhn3bjg0OcZhZO73YSG3g1BI
+   # Workflow ID.
+   WORKFLOW_ID=cd4b38c8-d31d-4555-b9be-0ddc9347519d
+
+.. _create-run-test-query:
+
+Create and run a test query
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We are going to create a job, but now we need to explicitly pass the
+``config`` object in the job parameters:
+
+.. code:: json
+
+   {
+     "config": {
+       "mode": "DRY_RUN"
+     },
+     "pansharpen:1": {
+       "method": "SFIM",
+       "include_pan": false
+     },
+     "oneatlas-spot-fullscene:1": {
+       "ids": null,
+       "time": "2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
+       "limit": 10,
+       "order_ids": null,
+       "intersects": {
+         "type": "Polygon",
+         "coordinates": [
+           [
+             [
+               15.557327,
+               78.227175
+             ],
+             [
+               15.546684,
+               78.198666
+             ],
+             [
+               15.716286,
+               78.192626
+             ],
+             [
+               15.733967,
+               78.218661
+             ],
+             [
+               15.580158,
+               78.229802
+             ],
+             [
+               15.557327,
+               78.227175
+             ]
+           ]
+         ]
+       },
+       "time_series": null,
+       "max_cloud_cover": 100
+     }
+   }
+
+
+``DRY_RUN`` mode in the job configuration field ``config`` is the
+essential parameter to specify that this is a test query job and not a
+normal job (``DEFAULT`` mode).
+
+This is a workflow that contains the
+:ref:`SPOT download <spot-download-block>` block,
+followed by the :ref:`pansharpening <sharpening-block>` block.
+
+.. code:: bash
+
+   # Create the URL as variable.
+   URL_POST_JOB="https://api.up42.com/projects/$PROJ/workflows/$WORKFLOW_ID/jobs"
+
+After authenticating to obtain the project API token, we do:
+
+.. code:: bash
+
+   curl -s -L -X POST -H "Authorization: Bearer $PTOKEN" \
+                      -H'Content-Type: application/json' \
+                      "$URL_POST_JOB?name=New+project+test+query" \
+                      -d@job_params_test_query-$PROJ.json | jq '.' > job_test_query_create_response.json
+
+This creates the ``job_test_query_create_response.json`` file with
+the contents:
+
+.. code:: json
+
+   {
+     "error": null,
+     "data": {
+       "id": "bc176241-bba3-4761-9d81-0cb9931e7bbc",
+       "displayId": "bc176241",
+       "createdAt": "2020-04-21T17:23:53.048Z",
+       "updatedAt": "2020-04-21T17:23:54.977Z",
+       "status": "NOT_STARTED",
+       "name": "New project test query",
+       "startedAt": null,
+       "finishedAt": null,
+       "inputs": {
+         "config": {
+           "mode": "DRY_RUN"
+         },
+         "pansharpen:1": {
+           "method": "SFIM",
+           "include_pan": false
+         },
+         "oneatlas-spot-fullscene:1": {
+           "ids": null,
+           "time": "2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
+           "limit": 10,
+           "order_ids": null,
+           "intersects": {
+             "type": "Polygon",
+             "coordinates": [
+               [
+                 [
+                   15.557327,
+                   78.227175
+                 ],
+                 [
+                   15.546684,
+                   78.198666
+                 ],
+                 [
+                   15.716286,
+                   78.192626
+                 ],
+                 [
+                   15.733967,
+                   78.218661
+                 ],
+                 [
+                   15.580158,
+                   78.229802
+                 ],
+                 [
+                   15.557327,
+                   78.227175
+                 ]
+               ]
+             ]
+           },
+           "time_series": null,
+           "max_cloud_cover": 100
+         }
+       },
+       "mode": "DRY_RUN",
+       "workflowId": "cd4b38c8-d31d-4555-b9be-0ddc9347519d",
+       "workflowName": "SPOT download"
+     }
+   }
+
+As you can see the created job mode was ``DRY RUN``, meaning we are
+only checking for the availability of data.
+
+.. _download-test-query-results:
+
+Get test query output
+~~~~~~~~~~~~~~~~~~~~~
+
+The output of a test query is a GeoJSON file as explained above. To
+obtain this GeoJSON we follow a the procedure
+:ref:`described<results-geojson>` when obtaining the ``data.json``
+file for a normal job.
+
+
+.. code:: bash
+
+   # Extract the job ID from the job creation returned JSON.
+   TEST_QUERY_JOB=$(cat job_test_query_create_response.json | jq -r '.data.id')
+
+   echo $TEST_QUERY_JOB
+   > bc176241-bba3-4761-9d81-0cb9931e7bbc
+
+   # URL for obtaining the GeoJSON.
+   OUTPUT_URL="https://api.up42.com/projects/$PROJ/jobs/$TEST_QUERY_JOB/outputs"
+
+   curl -s -L -H "Authorization: Bearer $PTOKEN" "$OUTPUT_URL/data-json"  | jq '.' > output-$TEST_QUERY_JOB.json
+
+The returned GeoJSON is `here
+<https://gist.github.com/perusio/dc34f5f4efe3eb5dcc54f3e1fb7960c3>`_.
+
+To make sure there is data available we check if the ``features``
+property is non-empty.
+
+.. code:: bash
+
+   cat output-$TEST_QUERY_JOB.json \
+       | jq '.features | length as $l \
+       | if $l > 0 then "\($l) features found." else "No data found." end'
+   > "2 features found."
+
+We have found two images for the given search criteria.
+
+.. _test-query-results-quicklooks:
+
+Get test query quicklooks
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We follow the same :ref:`process <task-results-quicklooks>` that we
+followed to obtain the quicklooks for a normal job
+
+.. code:: bash
+
+   # URL for getting tasks information.
+   URL_JOB_TASKS_INFO="https://api.up42.com/projects/$PROJ/jobs/$TEST_QURY_JOB/tasks"
+
+   # Get the task information.
+   curl -s -L -H "Authorization: Bearer $PTOKEN" $URL_JOB_TASKS_INFO | jq '.' > jobs_job_tasks-$TEST_QUERY_JOB.json
+
+The response is:
+
+.. code:: json
+
+   {
+     "error": null,
+     "data": [
+       {
+         "id": "091416d6-1f23-45c7-9174-bfe211e96f37",
+         "displayId": "091416d6",
+         "createdAt": "2020-04-21T17:23:53.051Z",
+         "updatedAt": "2020-04-21T17:24:12.643Z",
+         "name": "oneatlas-spot-fullscene:1",
+         "status": "SUCCEEDED",
+         "parentsIds": [],
+         "startedAt": "2020-04-21T17:23:54Z",
+         "finishedAt": "2020-04-21T17:24:10Z",
+         "block": {
+           "id": "aa62113f-0dd1-40a3-a004-954c9d087071",
+           "createdAt": null,
+           "updatedAt": null,
+           "name": "oneatlas-spot-fullscene",
+           "displayName": null,
+           "description": null,
+           "containerUrl": null,
+           "inputCapabilities": null,
+           "outputCapabilities": null,
+           "provider": null,
+           "providerWebsite": null,
+           "providerLogoUrl": null,
+           "tags": null,
+           "isPublic": null,
+           "isPublicVersion": null,
+           "isValid": null,
+           "parameters": null,
+           "type": "DATA",
+           "isDryRunSupported": null,
+           "version": "2.0.3",
+           "metadata": null,
+           "machineName": null,
+           "manifestVersion": 0,
+           "capabilities": null
+         }
+       }
+     ]
+   }
+
+We extract the task ID:
+
+.. code:: bash
+
+   TASK_ID=$(cat jobs_job_tasks-$TEST_QUERY_JOB.json | jq -r '.data[].id')
+
+   echo $TASK_ID
+   > 091416d6-1f23-45c7-9174-bfe211e96f37
+
+First we check for the presence of quicklooks:
+
+.. code:: bash
+
+   # Task information URL.
+   TASK_URL="https://api.up42.com/projects/$PROJ/jobs/$TEST_QUERY_JOB/tasks/$TASK_ID"
+
+   curl -s -L -H "Authorization: Bearer $PTOKEN" "$TASK_URL/outputs/quicklooks" | jq '.'  > quicklooks_list_$TASK_ID.json
+
+Which returns the file:
+
+.. code:: json
+
+   {
+     "error": null,
+     "data": [
+       "0add1a49-027c-4e14-95a5-a6ecd771a24e.jpeg",
+       "ea52a885-9e8a-4a9e-a1b1-6c015c1ab748.jpeg"
+     ]
+   }
+
+There two quicklook images. The name of the file is composed of the
+feature ID and the extension, ``jpeg`` in this case. Lets retrieve them:
+
+.. code:: bash
+
+   # Loop over all available quicklooks images and get them.
+   for i in $(cat quicklooks_list_$TASK_ID.json | jq -r '.data[]');
+       do curl -s -L -O -H "Authorization: Bearer $PTOKEN" "$TASK_URL/outputs/quicklooks/$i"
+   done
+
+We can now list the quicklook files:
+
+.. code:: bash
+
+   ls -1sh *.jpeg
+   > 4.0K 0add1a49-027c-4e14-95a5-a6ecd771a24e.jpeg
+   > 4.0K ea52a885-9e8a-4a9e-a1b1-6c015c1ab748.jpeg
+
+To associate the quicklooks to the features we can query the results
+file from the test query and print out the ID and the scene name:
+
+.. code:: bash
+
+   cat output-$TEST_QUERY_JOB.json | \
+       jq -r '.features[] as $f | $f.id + ": " + $f.properties.parentIdentifier'
+   > ea52a885-9e8a-4a9e-a1b1-6c015c1ab748: DS_SPOT6_201907281102269_FR1_FR1_SV1_SV1_E016N78_01790
+   > 0add1a49-027c-4e14-95a5-a6ecd771a24e: DS_SPOT6_201907261117465_FR1_FR1_SV1_SV1_E016N79_03251
