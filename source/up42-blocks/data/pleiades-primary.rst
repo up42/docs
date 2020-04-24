@@ -59,6 +59,10 @@ For more information on supported filters, see :ref:`query filter section  <filt
 
   Due to nature of un-rectified imagery, applying ``clip_to_aoi`` can cause a substantial shift in the position of the clipped image — after applying orthorectification. We provide a mechanism to overcome this issue. However, this mechanism has as side-effect that the output AOI will be an *approximation* of the input AOI: it includes a buffer region.
 
+.. warning::
+
+  Please bear in mind that the area of input AOI **must** be bigger than `0.1` square kilometers.
+
 Example queries
 ---------------
 
