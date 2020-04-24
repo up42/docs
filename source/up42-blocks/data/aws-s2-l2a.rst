@@ -11,12 +11,11 @@ Please see the `block details page <https://marketplace.up42.com/block/98c1acfa-
 Block type: ``DATA``
 
 This block provides full scenes of Sentinel-2 (A/B)’s multispectral imaging sensor in processing level L-2A in SAFE
-folder structure. The data is collected form `AWS Sentinel 2 bucket <https://registry.opendata.aws/sentinel-2/>`_.
-The output format is identical to the unzipped SAFE folder that can be acquired from ESA’s Scihub or
-other DIAS systems. The products are radiometrically and geometrically corrected (including orthorectification).
+folder structure. The data is collected from `AWS Sentinel 2 bucket <https://registry.opendata.aws/sentinel-2/>`_ in SAFE format.
+The output format is identical to the uncompressed SAFE folder that can be acquired from ESA’s Scihub or
+other DIAS platforms. The products are radiometrically and geometrically corrected (including orthorectification).
 
-Important application areas for Sentinel-2 imagery are land cover monitoring (agriculture, forestry), coastal area
-monitoring, inland water monitoring, glacier monitoring and flood mapping.
+Important application areas for Sentinel-2 imagery are: land cover monitoring (agriculture, forestry), coastal area monitoring, inland water monitoring, glacier monitoring and flood mapping.
 
 .. note::
 
