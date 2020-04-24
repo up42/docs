@@ -78,7 +78,7 @@ and a Land mask (``land`` set to ``true``).
 	   "mask": null,
 	   "contains": null,
 	   "intersects": null,
-	   "clip_to_aoi": false,
+	   "clip_to_aoi": true,
 	   "tcorrection": true,
 	   "linear_to_db": true,
 	   "polarisations": [
