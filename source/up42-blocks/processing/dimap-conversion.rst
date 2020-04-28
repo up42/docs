@@ -18,12 +18,9 @@ Supported parameters
 
 * ``ms``: Convert only multispectral data.
 * ``pan``: Convert only panchromatic data.
-* ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``bbox``
-  **or** ``intersects`` **or** ``contains``.
-* ``intersects``: A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use only ``bbox``
-  **or** ``intersects`` **or** ``contains``.
-* ``contains``: A GeoJSON geometry to use as an AOI. Will return all scenes that completely cover this geometry. Use only ``bbox``
-  **or** ``intersects`` **or** ``contains``.
+* ``bbox``: The bounding box to use as an AOI. Will clip to scenes that intersect with this box. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
+* ``intersects``: A GeoJSON geometry to use as an AOI. Will clip to scenes that intersect with this geometry. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
+* ``contains``: A GeoJSON geometry to use as an AOI. Will clip to scenes that intersect with this geometry. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
 * ``clip_to_aoi``: When set to ``true``, the :term:`AOI` specified
   via ``bbox``, or ``contains``, or ``intersect`` for the
   previous data block in the workflow will **first** be clipped and then processed.
