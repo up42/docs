@@ -14,9 +14,11 @@ This block pansharpens images of the Pleiades or SPOT sensor. It creates a singl
 
 Supported parameters
 --------------------
-
+* ``bbox``: The bounding box to use as an AOI. Will clip to scenes that intersect with this box. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
+* ``intersects``: A GeoJSON geometry to use as an AOI. Will clip to scenes that intersect with this geometry. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
+* ``contains``: A GeoJSON geometry to use as an AOI. Will clip to scenes that intersect with this geometry. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
+* ``clip_to_aoi``: When set to ``true``, the area that defined in ``bbox``, ``contains``, or ``intersect`` for previous data block will be clipped for processing. **Note** that by default this parameter is ``false`` which means that the whole scene will be processed.
 * ``method``: Method used in the pansharpening procedure. Default is ``SFIM`` (Smoothing Filter-based Intensity Modulation) as described in [Liu2000]_.
-
 * ``include_pan``: Include the panchromatic band in the output pansharpened image.
 
 Example parameters using the :ref:`SPOT DIMAP download block
@@ -41,14 +43,49 @@ product appended with the panchromatic band:
       },
       "pansharpen:1": {
         "include_pan":true
+        "bbox":null
+        "contains": null,
+        "intersects": null,
+        "clip_to_aoi": false,
       }
     }
 
 
-Output format
--------------
 
-AOI.clipped GeoTIFF format.
+Another Example parameters using the :ref:`SPOT DIMAP download block
+<spot-download-block>` as data source, returning the pansharpened multispectral
+product appended with the panchromatic band which is clipped to the specific AOI:
+
+.. code-block:: javascript
+
+    {
+      "oneatlas-spot-fullscene:1": {
+        "ids": null,
+        "bbox": [
+          13.415594100952148,
+          52.491560852691116,
+          13.430356979370117,
+          52.49992172845934
+        ],
+        "time": null,
+        "limit": 1,
+        "order_ids": null,
+        "time_series": null
+      },
+      "pansharpen:1": {
+        "include_pan":true
+        "bbox": [
+          13.415594100952148,
+          52.491560852691116,
+          13.430356979370117,
+          52.49992172845934
+        ],
+        "contains": null,
+        "intersects": null,
+        "clip_to_aoi": true,
+      }
+    }
+
 
 Advanced
 --------
