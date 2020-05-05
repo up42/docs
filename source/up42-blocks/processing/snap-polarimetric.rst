@@ -23,12 +23,9 @@ and converting the format to a GeoTIFF.
 Supported parameters
 --------------------
 
-* ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``bbox``
-  **or** ``intersects`` **or** ``contains``.
-* ``intersects``: A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use only ``bbox``
-  **or** ``intersects`` **or** ``contains``.
-* ``contains``: A GeoJSON geometry to use as an AOI. Will return all scenes that completely cover this geometry. Use only ``bbox``
-  **or** ``intersects`` **or** ``contains``.
+* ``bbox``: The bounding box to use as an AOI. Will clip to scenes that intersect with this box. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
+* ``intersects``: A GeoJSON geometry to use as an AOI. Will clip to scenes that intersect with this geometry. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
+* ``contains``: A GeoJSON geometry to use as an AOI. Will clip to scenes that intersect with this geometry. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
 * ``polarisations``: Requested polarisations, either **one and only
   one** of: ``[VV,VH]``, ``[HH, HV]``, ``[VV]``,  ``[VH]``, ``[HV]``
   or ``[HH]``. The operation will fail and give a corresponding error message if the requested polarization is not
@@ -78,7 +75,7 @@ and a Land mask (``land`` set to ``true``).
 	   "mask": null,
 	   "contains": null,
 	   "intersects": null,
-	   "clip_to_aoi": false,
+	   "clip_to_aoi": true,
 	   "tcorrection": true,
 	   "linear_to_db": true,
 	   "polarisations": [
