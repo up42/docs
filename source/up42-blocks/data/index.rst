@@ -26,6 +26,7 @@ built by UP42.
    sobloo-s1-slc
    sobloo-s2-l1c
    sobloo-s2-l1c-aoiclipped
+   aws-s2-l2a
    sentinelhub-s2
    sobloo-s3
    sobloo-s5p
