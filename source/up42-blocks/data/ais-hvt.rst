@@ -18,7 +18,7 @@ The block queries the
 ship track linestring geometries and associated metadata e.g. ship name, cargo, destination port, etc.
 A segment of the track is defined by two consecutive vessel positions where the segment inherits the latest vessel
 position, static, and voyage information from the most recent of the two consecutive vessel positions.
-The output is a UP42 `data.json` GeoJSON file containing the ship AIS vessel track features.
+The output is a UP42 `ais-hvp` GeoJSON file containing the AIS ship tracks and properties, and a `data.json` file with the UP42 query parameters.
 
 
 Supported parameters
@@ -27,10 +27,10 @@ Supported parameters
 For more information on supported filters, see :ref:`query filter section  <filters>`.
 
 * ``bbox``: The bounding box to use as an AOI. Will return all data points within this box. Use only ``bbox``
-  **or** ``contains``.
-* ``contains``: A GeoJSON geometry to use as an AOI. Will return all data points that are within this geometry. Use only ``bbox``
-  **or** ``contains``.
-* ``time``: A date range to filter the tracks on. This range applies to the acquisition date/time of the AIS signals.
+  **or** ``intersects``.
+* ``intersects``: A GeoJSON geometry to use as an AOI. Will return all data points that are within this geometry. Use only ``bbox``
+  **or** ``intersects``.
+* ``time``: A date range to filter the tracks on. This range applies to the acquisition date/time of the AIS signals. Maximum 24 hours.
 
 
 Example queries
@@ -90,7 +90,3 @@ Output format is a ``GeoJSON`` file, see `GeoJSON <https://en.wikipedia.org/wiki
     }
 
 
-Capabilities
-------------
-
-The block delivers a ``up42.data.vector.geojson`` capability.
