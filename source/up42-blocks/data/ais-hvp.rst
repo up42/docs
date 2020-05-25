@@ -16,7 +16,7 @@ This block provides access to historical data points of the
 The block queries the
 `Exact Earth historical vessel points API <https://www.exactearth.com/technology/satellite-ais>`_ and provides
 ship position point geometries and associated metadata e.g. ship name, cargo, destination port, etc.
-The output is a UP42 `data.json` GeoJSON file containing the ship AIS vessel points features.
+The output is a `ais-points` GeoJSON file containing the AIS point geometries and properties, and a `data.json` with the UP42 query parameters.
 
 
 Supported parameters
@@ -25,10 +25,10 @@ Supported parameters
 For more information on supported filters, see :ref:`query filter section  <filters>`.
 
 * ``bbox``: The bounding box to use as an AOI. Will return all data points within this box. Use only ``bbox``
-  **or** ``contains``.
-* ``contains``: A GeoJSON geometry to use as an AOI. Will return all data points that are within this geometry. Use only ``bbox``
-  **or** ``contains``.
-* ``time``: A date range to filter the data points on. This range applies to the acquisition date/time of the AIS signals.
+  **or** ``intersects``.
+* ``intersects``: A GeoJSON geometry to use as an AOI. Will return all data points that are within this geometry. Use only ``bbox``
+  **or** ``intersects``.
+* ``time``: A date range to filter the data points on. This range applies to the acquisition date/time of the AIS signals. Maximum of 24 hours.
 
 
 Example queries
@@ -86,8 +86,3 @@ Output format is a ``GeoJSON`` file, see `GeoJSON <https://en.wikipedia.org/wiki
         ]
     }
 
-
-Capabilities
-------------
-
-The block delivers a ``up42.data.vector.geojson`` capability.
