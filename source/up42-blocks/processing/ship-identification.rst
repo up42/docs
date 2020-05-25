@@ -20,20 +20,18 @@ The Ship Identification block queries the
 `Exact Earth historical vessel points API <https://www.exactearth.com/technology/satellite-ais>`_
 and fuses the data to the ship geometries using iterative search.
 
-The AIS signal is queried for a time range around the satellite scene acquisition date,
-with the default being the a range of 15 minutes centered at the scene acquisition date.
+The AIS signal is queried for a time range (max +-720 minutes or 12 hours) around the satellite scene acquisition date,
+with the default being the a range of +-15 minutes centered at the scene acquisition date.
 E.g., for an acquisition date of 2020-01-20T16:45:56Z the AIS query is performed for
-2020-01-20T16:30:56Z to 2020-01-20T17:00:56Z. Additionally the maximum number of features
-to be queried can be set, with the default being 1000.
-The output is the UP42 `data.json` GeoJSON file containing the ship geometries with
-the fused ship metadata.
+2020-01-20T16:30:56Z to 2020-01-20T17:00:56Z.
+The output is the the `ship-identifications` GeoJSON file containing the ship geometries with
+the fused ship metadata, as well as the `data.json` containing the UP42 query properties.
 
 Supported parameters
 --------------------
 
 * ``minutes``: Delta of time in minutes around the satellite scene acquisition date for
-               querying the AIS data feed (default: 15)
-* ``max_features``: Maximum amount of AIS point features queried by the Exact Earth API.
+               querying the AIS data feed (default: 15, maximum: 720)
 
 Example usage
 -------------
@@ -70,8 +68,7 @@ Tiling → Airbus Ship Detection → AIS Ship Identification).
       },
       "ship-detection:1": {},
       "ship-identification:1": {
-        "minutes": 15,
-        "max_features": 1000
+        "minutes": 15
       }
     }
 
@@ -79,8 +76,3 @@ Tiling → Airbus Ship Detection → AIS Ship Identification).
 Output format
 -------------
 Output format is a ``GeoJSON`` file, see `GeoJSON <https://en.wikipedia.org/wiki/GeoJSON>`_ for a more detailed description.
-
-Capabilities
-------------
-
-The block has no specified input or output capabilties.
