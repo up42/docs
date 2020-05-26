@@ -7,7 +7,9 @@
 AIS Vessel Tracks
 =================
 
-For context, see `block details page <https://marketplace.up42.com/block/...>`_.
+.. TODO::
+
+   For context, see `block details page <https://marketplace.up42.com/block/...>`_.
 
 Block type: ``DATA``
 
@@ -88,5 +90,3 @@ Output format is a ``GeoJSON`` file, see `GeoJSON <https://en.wikipedia.org/wiki
                  [[-79.529185, 8.84423833], [-79.518965, 8.862755]]]}}
         ]
     }
-
-

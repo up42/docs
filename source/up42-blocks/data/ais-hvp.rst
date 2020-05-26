@@ -7,7 +7,11 @@
 AIS Vessel Points
 =================
 
-For context, see `block details page <https://marketplace.up42.com/block/...>`_.
+
+
+.. TODO::
+
+   For context, see `block details page <https://marketplace.up42.com/block/...>`_.
 
 Block type: ``DATA``
 
@@ -85,4 +89,3 @@ Output format is a ``GeoJSON`` file, see `GeoJSON <https://en.wikipedia.org/wiki
              "geometry": {"type": "Point", "coordinates": [15.32323, 23.42132]}}
         ]
     }
-

@@ -16,6 +16,13 @@ in. It assumes you have previous knowledge of Docker, if that is not
 the case then please go to `docker documentation
 <https://docs.docker.com>`__ to familiarize yourself with it.
 
+
+.. note::
+
+   See the UP42 :ref:`list <floss-blocks>` of `FLOSS
+   <https://www.gnu.org/philosophy/floss-and-foss.en.html>`_ blocks
+   for examples of processing and data block implementations.
+
 .. _sharpening_demo_block:
 
 Using an UP42 free software block

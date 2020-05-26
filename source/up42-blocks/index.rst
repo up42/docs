@@ -23,3 +23,4 @@ There also is a short section describing our :ref:`FLOSS blocks <floss-blocks>`.
 
    data/index
    processing/index
+   floss

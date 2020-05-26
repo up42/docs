@@ -33,3 +33,4 @@ built by UP42.
    sentinelhub-landsat8
    modis
    ais-hvp
+   ais-hvt
