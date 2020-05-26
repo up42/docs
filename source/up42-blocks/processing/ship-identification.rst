@@ -20,7 +20,7 @@ The Ship Identification block queries the
 `Exact Earth historical vessel points API <https://www.exactearth.com/technology/satellite-ais>`_
 and fuses the data to the ship geometries using iterative search.
 
-The AIS signal is queried for a time range (max +-720 minutes or 12 hours) around the satellite scene acquisition date,
+The AIS signal is queried for a time range (max +/- 720 minutes or 12 hours) around the satellite scene acquisition date,
 with the default being the a range of +-15 minutes centered at the scene acquisition date.
 E.g., for an acquisition date of 2020-01-20T16:45:56Z the AIS query is performed for
 2020-01-20T16:30:56Z to 2020-01-20T17:00:56Z.
