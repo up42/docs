@@ -4,14 +4,10 @@
 
 .. _ais-hvp-block:
 
-AIS Vessel Points
-=================
+AIS Historical Vessel Points
+============================
 
-
-
-.. TODO::
-
-   For context, see `block details page <https://marketplace.up42.com/block/...>`_.
+For context, see `block details page <https://marketplace.up42.com/block/00cc275a-fa04-44a5-9100-bffd6521b52e>`_.
 
 Block type: ``DATA``
 

@@ -27,7 +27,9 @@ How do I signup for an account?
 My job gives strange results or it keeps failing. Can you help me debug it?
 ===========================================================================
 
-Create a :ref:`support request <support-request>` and please provide the job **parameters**, available on the UI on the PARAMETERS tab in the job page. Additionaly you can provide the job **log output** available in the JOB PROGRESS tab in the job page.
+Create a :ref:`support request <support-request>` and please provide the job **parameters**, available on the UI on the PARAMETERS tab in the job page.
+Alternativaly you can pürobide the **job ID**, available on the as the last component of the URL in the console, e.g., ``https://console.up42.com/projects/7876b6f8-feee-4cf2-821d-5f71963950b8/jobs/cf1f2186-da41-4cfb-8793-9dd6135511a0``.
+Additionaly you can provide the job **log output** available in the JOB PROGRESS tab in the job page.
 
 Where can I learn more about Docker?
 ====================================
@@ -45,18 +47,6 @@ Can I write my custom block in programming language X?
 
 Yes. Containers are programming language agnostic. You can write in
 whatever programming language suits your needs and preferences.
-
-Two blocks (e.g. Landsat 8 and Airbus ship detection) can be run together as their capabilities match, but the ship detection then fails. Why is that so?
-=========================================================================================================================================================
-
-Matching capabilities in a workflow is a necessary requirement to run it
-and automatically checked by the workflow editor. This avoids mismatches
-such as an algorithm expecting a Sentinel-1 GRD image file is started
-with a RGB image from a multispectral sensor. Currently the capabilities
-matching process though is not able to identify all mismatches between
-blocks. Please read the about :ref:`block capabilities <block-capabilities>`
-carefully to understand if the input requirements are met before trying
-to use a block in your workflow.
 
 My block needs auxiliary files. Where should I store them and how should I fetch them?
 ======================================================================================
@@ -126,6 +116,7 @@ There are multiple points to answer in this question:
 
  3. Now you can further process the image(s) obtained before and derive some analytics on it, if that is your wish.
 
+.. _download-blocks-visualization:
 
 I used the Pléaides and/or SPOT download block and I loaded the image in my GIS software and it looks visually strange. Why?
 ============================================================================================================================
@@ -133,6 +124,23 @@ I used the Pléaides and/or SPOT download block and I loaded the image in my GIS
 This is because those images provide an :term:`analytical product` and
 not a :term:`visual product`. Please see the :ref:`documentation
 <download-block-pros>` for more information on that.
+
+.. _restricted-blocks-definition:
+
+What are restricted blocks?
+===========================
+Restricted blocks are blocks that due to their licensing terms,
+require a compliance check from UP42 in order to be granted
+access. An example of a restricted block is the `AIS historical vessel positions <https://marketplace.up42.com/block/00cc275a-fa04-44a5-9100-bffd6521b52e>`_ block that relies on
+`AIS <https://en.wikipedia.org/wiki/Automatic_identification_system>`_ to give a time series of
+a position of a vessel as reported via AIS.
+
+.. _restricted-blocks-howto:
+
+How can I access restricted blocks?
+===================================
+When you try to add the block to your workflow, youn
+
 
 .. _delete-account:
 

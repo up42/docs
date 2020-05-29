@@ -6,7 +6,8 @@
 
 Ship-Identification
 ===================
-`Link <https://marketplace.up42.com/block/...>`_ to block details page
+
+For context, see `block details page <https://marketplace.up42.com/block/54217695-73f4-4528-a575-a429e9af6568>`_.
 
 Block type: ``PROCESSING``
 
@@ -30,7 +31,7 @@ the fused ship metadata, as well as the `data.json` containing the UP42 query pr
 Supported parameters
 --------------------
 
-* ``minutes``: Delta of time in minutes around the satellite scene acquisition date for
++ ``minutes``: Delta of time in minutes around the satellite scene acquisition date for
                querying the AIS data feed (default: 15, maximum: 720)
 
 Example usage
