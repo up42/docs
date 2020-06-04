@@ -9,10 +9,17 @@ Here you can find comprehensive information on how to use UP42 in all
 its aspects and find quick & easy entry points into our
 documentation.
 
-If you are a Python programmer, the `Python SDK <https://up42.github.io/up42-py/>`__
-offers an alternative entrypoint for running workflows. If you want
-to develop your own blocks you will need to come back here but can
-probably skip the chapters covering the API.
+
+.. tip::
+    **NEW - PYTHON SDK!** |br|
+    If you are a Python programmer, the `Python SDK <https://up42.github.io/up42-py/>`__ offers
+    an alternative entrypoint for running workflows - and integrating UP42 into your own product or analysis!
+
+    .. figure:: _assets/python_sdk.jpg
+       :target: https://up42.github.io/up42-py/
+       :align: center
+       :alt: The UP42 Python SDK
+
 
 First steps
 -----------
