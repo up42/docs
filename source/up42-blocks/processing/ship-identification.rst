@@ -4,7 +4,7 @@
 
 .. _ship-identification:
 
-Ship-Identification
+Ship Identification
 ===================
 
 For context, see `block details page <https://marketplace.up42.com/block/54217695-73f4-4528-a575-a429e9af6568>`_.

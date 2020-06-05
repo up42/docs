@@ -4,8 +4,8 @@
 
 .. _ais-hvp-block:
 
-AIS Historical Vessel Points
-============================
+AIS Historical Vessel Positions
+===============================
 
 For context, see `block details page <https://marketplace.up42.com/block/00cc275a-fa04-44a5-9100-bffd6521b52e>`_.
 
