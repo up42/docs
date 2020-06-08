@@ -176,6 +176,9 @@ Implemented filters
  ":ref:`Landsat-8 (AOI-Clipped) <sentinelhub-landsat8-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**,
  ":ref:`MODIS <modis-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, ,
  ":ref:`Meteomatics <meteomatics-block>`", , **✓**, **✓**, , **✓**, **✓**, , ,
+ ":ref:`NEXTMapone 1m Elevation Data <nextmapone-1m-block>`", , **✓**, **✓**, , , , , ,
+ ":ref:`NEXTMapone 5m Elevation Data <nextmapone-5m-block>`", , **✓**, **✓**, , , , , ,
+ ":ref:`NEXTMapone 10m Elevation Data <nextmapone-10m-block>`", , **✓**, **✓**, , , , , ,
 
 .. Examples
 .. --------

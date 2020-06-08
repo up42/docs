@@ -34,3 +34,6 @@ built by UP42.
    modis
    ais-hvp
    ais-hvt
+   nextmapone-1m
+   nextmapone-5m
+   nextmapone-10m
