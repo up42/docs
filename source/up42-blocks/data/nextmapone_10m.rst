@@ -4,7 +4,7 @@
 
 .. _nextmapone-10m-block:
 
-AIS Historical Vessel Positions
+NEXTMapone 10m Elevation Data Suite
 ===============================
 
 For context, see `block details page <https://marketplace.up42.dev/block/bfd43fbc-b662-4874-9147-658a55bf9edc>`_.
