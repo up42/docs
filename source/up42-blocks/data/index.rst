@@ -34,3 +34,4 @@ built by UP42.
    modis
    ais-hvp
    ais-hvt
+   aws-landsat8
