@@ -37,3 +37,4 @@ built by UP42.
    nextmap-1m
    nextmap-5m
    nextmap-10m
+   aws-landsat8
