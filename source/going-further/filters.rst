@@ -177,6 +177,7 @@ Implemented filters
  ":ref:`Landsat-8 (AOI-Clipped) <sentinelhub-landsat8-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**,
  ":ref:`MODIS <modis-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, ,
  ":ref:`Meteomatics <meteomatics-block>`", , **✓**, **✓**, , **✓**, **✓**, , ,
+ ":ref:`Landsat-8 Level-1 Full Scene <aws-landsat8-full-scene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
 
 .. Examples
 .. --------
