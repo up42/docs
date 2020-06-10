@@ -1,19 +1,19 @@
 .. meta::
-   :description: UP42 data blocks: NEXTMapone 5m Elevation Data Suite
-   :keywords: UP42, data, Elevation, NEXTMapone, DSM, DTM, High resolution, WMTS
+   :description: UP42 data blocks: NEXTMap 5 Elevation Data Suite
+   :keywords: UP42, data, Elevation, NEXTMap, DSM, DTM, High resolution, WMTS
 
 .. _nextmapone-5m-block:
 
-NEXTMapone 5m Elevation Data Suite
+NEXTMap 5 Elevation Data Suite
 ===============================
 
 For context, see `block details page <https://marketplace.up42.dev/block/bfd43fbc-b662-4874-9147-658a55bf9edc>`_.
 
 Block type: ``DATA``
 
-This block provides access to digital surface model (DSM) and digital terrain model (DTM) products in the NEXTMap Elevation Data Suite
+This block provides access to digital surface model (DSM) and digital terrain model (DTM) products in the `NEXTMap Elevation Data Suite <https://www.intermap.com/nextmap>`_
 with a global coverage at 5m resolution (for more information please visit `this page <https://en.wikipedia.org/wiki/Digital_elevation_model>`_.
-This data can then be used for further analysis such as creating different maps, flood models, extracting hydrology data, 3D roads,
+This data can then be used for further analysis such as creating different maps, flood models, extracting hydrology data, 3D representation of roads,
 infrastructure models and vegetation information. The blocks output two separate GeoTIFF file, one for DSM data and one for DTM data.
 
 
