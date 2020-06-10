@@ -34,4 +34,7 @@ built by UP42.
    modis
    ais-hvp
    ais-hvt
+   nextmap-1m
+   nextmap-5m
+   nextmap-10m
    aws-landsat8
