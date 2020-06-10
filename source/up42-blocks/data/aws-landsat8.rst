@@ -28,15 +28,17 @@ For more information on supported filters, see :ref:`query filter section  <filt
 
 Output format
 -------------
-The output data is stored in a folder with same name as the Product ID. This folder contains total of 15 GTiff files.
+The output data is stored in a folder with same name as the Product ID. This folder contains total of 12 GeoTIFF files and 3 metadata files.
 
 * Individual band files are suffixed with ``<productId>_B{1..11}.TIF``
 * Quality assessment band ``<productId>_BQA.TIF``
 * Metadata files ``<productId>_MTL.txt`` and ``<productId>_MTL.json``
 * Angles file ``<productId>_ANG.txt``
 
+Additionally, an RGB composite quicklook ``.JPG`` is provided in quicklooks folder following same naming convention with respect to Product ID.
+
 .. note::
-  Although the output files are GTiff, we refer to the whole bundle as ``MTL`` format!
+  Although the output files are GeoTIFF, we refer to the whole bundle as ``MTL`` format!
 
 .. code-block:: javascript
 
