@@ -1,10 +1,10 @@
 .. meta::
-   :description: UP42 data blocks: NEXTMap 5 Elevation Data Suite
+   :description: UP42 data blocks: NEXTMap 10 Elevation Data Suite
    :keywords: UP42, data, Elevation, NEXTMap, DSM, DTM, High resolution, WMTS
 
-.. _nextmapone-5m-block:
+.. _nextmap-10m-block:
 
-NEXTMap 5 Elevation Data Suite
+NEXTMap 10 Elevation Data Suite
 ===============================
 
 For context, see `block details page <https://marketplace.up42.dev/block/bfd43fbc-b662-4874-9147-658a55bf9edc>`_.
@@ -12,7 +12,7 @@ For context, see `block details page <https://marketplace.up42.dev/block/bfd43fb
 Block type: ``DATA``
 
 This block provides access to **D**\igital **S**\urface **M**\odel (DSM) and **D**\igital **T**\errain **M**\odel (DTM) products in the `NEXTMap Elevation Data Suite <https://www.intermap.com/nextmap>`_
-with a global coverage at 5m resolution (for more information please visit `this page <https://en.wikipedia.org/wiki/Digital_elevation_model>`_.
+with a global coverage at 10m resolution (for more information please visit `this page <https://en.wikipedia.org/wiki/Digital_elevation_model>`_.
 This data can then be used for further analysis such as creating different maps, flood models, extracting hydrology data, 3D representation of roads,
 infrastructure models and vegetation information. The blocks output two separate GeoTIFF file, one for DSM data and one for DTM data.
 
@@ -35,15 +35,16 @@ Example query using ``bbox``:
 .. code-block:: javascript
 
     {
-      "nextmapone-5m:1": {
+      "nextmapone-10m:1": {
         "bbox": [
-          55.30105590820313,
-          25.221093107315813,
-          55.32852172851563,
-          25.24516175079434
+          -74.07814979553224,
+          40.68838329735113,
+          -74.05514717102052,
+          40.71193901146775
         ]
       }
     }
+
 Output format
 -------------
 
@@ -55,49 +56,41 @@ Output format
         {
           "type": "Feature",
           "bbox": [
-            55.30000000000001,
-            25.22500000000001,
-            55.35000000000002,
-            25.25
+            -74.1,
+            40.70000000000002,
+            -74.05,
+            40.75
           ],
-          "id": "c36a041c-c674-4a1e-bbe5-b41c4293007a",
+          "id": "de7bbbcb-9405-4cd4-a2c1-fa43aa7c2a50",
           "geometry": {
             "type": "Polygon",
             "coordinates": [
               [
                 [
-                  55.325,
-                  25.225
+                  -74.05,
+                  40.7
                 ],
                 [
-                  55.3,
-                  25.225
+                  -74.05,
+                  40.75
                 ],
                 [
-                  55.3,
-                  25.25
+                  -74.1,
+                  40.75
                 ],
                 [
-                  55.325,
-                  25.25
+                  -74.1,
+                  40.7
                 ],
                 [
-                  55.35,
-                  25.25
-                ],
-                [
-                  55.35,
-                  25.225
-                ],
-                [
-                  55.325,
-                  25.225
+                  -74.05,
+                  40.7
                 ]
               ]
             ]
           },
           "properties": {
-            "up42.data_path": "c36a041c-c674-4a1e-bbe5-b41c4293007a.tif"
+            "up42.data_path": "de7bbbcb-9405-4cd4-a2c1-fa43aa7c2a50.tif"
           }
         }
       ]

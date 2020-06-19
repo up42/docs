@@ -5,7 +5,7 @@
 .. _nextmap-1m-block:
 
 NEXTMap One Elevation Data Suite
-===============================
+================================
 
 For context, see `block details page <https://marketplace.up42.com/block/1f09fcb0-7f5c-4e91-b059-36df7f64d2c9>`_.
 
@@ -44,6 +44,7 @@ Example query using ``bbox``:
         ]
       }
     }
+
 Output format
 -------------
 
@@ -158,4 +159,3 @@ Output format
         }
       ]
     }
-
