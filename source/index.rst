@@ -4,16 +4,15 @@
 
 Welcome to the UP42 documentation
 =================================
-
 Here you can find comprehensive information on how to use UP42 in all
 its aspects and find quick & easy entry points into our
 documentation.
 
 
-.. tip::
-    **NEW - PYTHON SDK!** |br|
-    If you are a Python programmer, the `Python SDK <https://up42.github.io/up42-py/>`__ offers
-    an alternative entrypoint for running workflows - and integrating UP42 into your own product or analysis!
+.. tip:: The `Python SDK
+    <https://up42.github.io/up42-py/>`__ provides an easy way to
+    integrate :ref:`UP42 API <api-specification>`
+    own your own product and/or analysis.
 
     .. figure:: _assets/python_sdk.jpg
        :target: https://up42.github.io/up42-py/
@@ -84,7 +83,7 @@ documentation. Still have questions? Then look into our FAQ.
    up42-blocks/index
    FAQ/index
    api/index
-   
+
 .. Specific first page directives.
 
 .. |first-job| image:: _themes/up42/static/icons/task-list-multiple.svg

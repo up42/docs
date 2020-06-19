@@ -135,11 +135,12 @@ access. An example of a restricted block is the `AIS historical vessel positions
 `AIS <https://en.wikipedia.org/wiki/Automatic_identification_system>`_ to give a time series of
 a position of a vessel as reported via AIS.
 
-.. _restricted-blocks-howto:
+..
+   .. _restricted-blocks-howto:
 
-How can I access restricted blocks?
-===================================
-When you try to add the block to your workflow, youn
+   How can I access restricted blocks?
+   ===================================
+   When you try to add the block to your workflow, youn
 
 
 .. _delete-account:
