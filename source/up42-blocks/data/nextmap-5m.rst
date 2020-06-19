@@ -2,10 +2,10 @@
    :description: UP42 data blocks: NEXTMap 5 Elevation Data Suite
    :keywords: UP42, data, Elevation, NEXTMap, DSM, DTM, High resolution, WMTS
 
-.. _nextmapone-5m-block:
+.. _nextmap-5m-block:
 
 NEXTMap 5 Elevation Data Suite
-===============================
+==============================
 
 For context, see `block details page <https://marketplace.up42.dev/block/bfd43fbc-b662-4874-9147-658a55bf9edc>`_.
 
@@ -44,6 +44,7 @@ Example query using ``bbox``:
         ]
       }
     }
+
 Output format
 -------------
 
@@ -102,3 +103,4 @@ Output format
         }
       ]
     }
+
