@@ -18,16 +18,16 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``bbox``: The bounding box to use as an AOI. Will return all geometries that intersect with this box. Only ``box`` is supported.
 * ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
-* ``osm_tags``: An array of tags for filtering from osm. Currently, only ``['street_network', 'water_bodies', 'building_footprints', 'land_use']`` are supported
+* ``osm_tags``: An array of tags for filtering from osm. Currently, only ``['street_network', 'water_bodies', 'building_footprints', 'land_use']`` are supported.
 
 Output format
 -------------
-The output data is a geojson file(s) based on number of ``osm_tags`` supplied as well as timestamps. These files are named with following convention ``<osm_tag>_<timestamp>.geojson``
+The output data is a GeoJSON file(s) based on number of ``osm_tags`` supplied as well as timestamps. These files are named with following convention ``<osm_tag>_<timestamp>.geojson``.
 
 .. important::
   The ``time`` and/or ``time_series`` parameter will only consider the end date for fetching the data. This behaviour is imposed because the changesets are not extensive within shorter periods of few months.
   
-  If the future date is supplied, the result will default to the latest timestamp.
+  If the future date is supplied, the result will default to the latest available timestamp.
 
 .. note::
   The block does not support ``dry_run`` or quicklooks.
