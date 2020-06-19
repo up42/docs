@@ -44,6 +44,7 @@ Example query using ``bbox``:
         ]
       }
     }
+
 Output format
 -------------
 
@@ -94,5 +95,3 @@ Output format
         }
       ]
     }
-
-
