@@ -12,7 +12,7 @@ documentation.
 .. tip:: The `Python SDK
     <https://up42.github.io/up42-py/>`__ provides an easy way to
     integrate the :ref:`UP42 API <api-specification>`
-    own your own product and/or analysis.
+    own your own product or analysis.
 
     .. figure:: _assets/python_sdk.jpg
        :target: https://up42.github.io/up42-py/
