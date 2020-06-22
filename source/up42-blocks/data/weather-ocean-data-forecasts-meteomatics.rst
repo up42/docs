@@ -5,8 +5,8 @@
 
 .. _meteomatics-block:
 
-Weather/Ocean data and forecasts by Meteomatics
-===============================================
+Weather/Ocean data and forecasts
+================================
 
 Please see the `block details page
 <https://marketplace.up42.com/block/235addd2-3efe-424b-8c35-d9b41dfe0eb5>`_
