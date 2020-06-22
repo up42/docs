@@ -20,16 +20,16 @@ use UP42 uninterrupted.
 Do I need to provide any documentation in support of the compliance process?
 ============================================================================
 
-Additional relevant documentation supporting the complementing the one
-provided in the account settings may be required. The compliance
-officer of UP42 will reach out to you in case of such a requirement.
+Additional relevant documentation complementing the one provided in
+the account settings may be required. The compliance officer of UP42
+will reach out to you in case of such a requirement.
 
 Who will access my additionally required data during the compliance process?
 ============================================================================
 
-Only the relevant data based on a **Need to know** basis is used in our
+Only the relevant data on a **Need to know** basis is used in our
 Compliance Tool: to validate the information you have provided.
-Use of this data outside of this context this is strictly forbidden.
+Use of this data outside of this context this is strictly **forbidden**.
 
 How much time would it take to get an approval from the compliance process?
 ===========================================================================
