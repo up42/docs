@@ -1,5 +1,5 @@
 .. meta::
-   :description: UP42 General frequently asked questions
+   :description: UP42 Compliance frequently asked questions
    :keywords: faq, compliance, data access
 
 .. _compliance-faq:
