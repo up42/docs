@@ -4,9 +4,8 @@
 
 .. _meteomatics-block:
 
-Meteomatics
-=======================================
-
+Weather/Ocean data and forecasts by Meteomatics
+===============================================
 
 Please see the `block details page
 <https://marketplace.up42.com/block/235addd2-3efe-424b-8c35-d9b41dfe0eb5>`_
@@ -17,8 +16,20 @@ Block type: ``DATA``
 Supported parameters
 --------------------
 
-This blocks provides access to the Meteomatics REST-style API to retrieve historic, current, and forecast data globally. In this block, model data and observational data is available as time series in NetCDF format. Meteomatics provides a huge variety of climate variables and options, by default we provide temperatures (in Celsius [°C] unit, at 2 meters above the ground), accumulated precipitation (millimeters, every 5 minutes) and instantaneous wind speed (100 meter per second). For a specific variable, you can just add the name of it to the default variables list according to description provided by Meteomatics. For more information about other variables please refer to `Meteomatics website <https://www.meteomatics.com/en/api/available-parameters/basic-weather-parameter/>`_
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+This blocks provides access to the Meteomatics REST-style API to
+retrieve historic, current, and forecast data globally. In this block,
+model data and observational data is available as time series in
+NetCDF format. Meteomatics provides a huge variety of climate
+variables and options, by default we provide temperatures (in Celsius
+[°C] unit, at 2 meters above the ground), accumulated precipitation
+(millimeters, every 5 minutes) and instantaneous wind speed (100 meter
+per second). For a specific variable, you can just add the name of it
+to the default variables list according to description provided by
+Meteomatics. For more information about other variables please refer
+to `Meteomatics website
+<https://www.meteomatics.com/en/api/available-parameters/basic-weather-parameter/>`_
+For more information on supported filters, see :ref:`query filter
+section <filters>`.
 
 * ``bbox``: The bounding box to use as an area of interest (AOI). Will return all scenes that intersect with this box. Use only ``bbox``
   **or** ``intersects`` **or** ``contains``.

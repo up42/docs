@@ -20,7 +20,7 @@ built by UP42.
    pleiades-primary
    spot
    spot-download
-   meteomatics
+   weather-ocean-data-forecasts-meteomatics
    sobloo-s1-grd
    sobloo-s1-grd-aoiclipped
    sobloo-s1-slc
