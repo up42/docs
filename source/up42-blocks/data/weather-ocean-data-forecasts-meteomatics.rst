@@ -1,6 +1,7 @@
 .. meta::
-   :description: UP42 data blocks: Meteomatics block description
-   :keywords: Meteomatics, Model data, observational data, time series, Weather forecasting
+   :description: UP42 data blocks: Weathet/Ocean data forecasts block
+   :keywords: weather, ocean, forecast, meteomatics, model data,
+              observational data, time series
 
 .. _meteomatics-block:
 
