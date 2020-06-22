@@ -19,7 +19,7 @@ Land cover classification or segmentation is the process of assigning each of
 the input imagery pixels a discrete land cover class (e.g. water, forest, urban, desert etc.).
 
 This block is beta version of a land cover classifier trained with Pléiades/SPOT imagery
-in **Sub-Saharan Africa**. Currently, the output consists of a 4 class classification:
+in **Sub-Saharan Africa**. Currently, classification output consists of following classes:
 
   1. Water
   2. High vegetation (including trees)
