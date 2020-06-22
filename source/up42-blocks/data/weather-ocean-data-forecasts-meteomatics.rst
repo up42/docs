@@ -42,19 +42,49 @@ section <filters>`.
 
 .. note::
 
-  In this block we select the ``mix`` option provided by Meteomatics which combines different models and sources into an *intelligent* blend, such that the best data source is chosen for each time and location. The length of the forecasting period as well as the spatial resolution depends on the model from which the requested parameters originate.
+  In this block we select the ``mix`` option provided by Meteomatics
+  which combines different models and sources into an *intelligent*
+  blend, such that the best data source is chosen for each time and
+  location. The length of the forecasting period as well as the
+  spatial resolution depends on the model from which the requested
+  parameters originate.
 
 .. warning::
 
-  The arcseconds resolution for retrieving the time series of a variable will be set based on the size of chosen AOI. In this way, hitting the limit of query point provided by meteomatics API will be avoided.
+  The arcseconds resolution for retrieving the time series of a
+  variable will be set based on the size of chosen AOI. In this way,
+  hitting the limit of query point provided by meteomatics API will be
+  avoided.
 
 .. tip::
-  In order to be able to read NetCDF files, you can either use free
-  applications like `Panoply
-  <https://www.giss.nasa.gov/tools/panoply/>`_ or using `Ncview
-  <http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html>`_. Alternatively
-  you can use the :ref:`NetCDF conversion <netcdf-conversion-block>`
-  block to obtain a GeoTIFF.
+
+   In order to be able to read NetCDF files, you can either use free
+   applications like `Panoply
+   <https://www.giss.nasa.gov/tools/panoply/>`_ or using `Ncview
+   <http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html>`_. Alternatively
+   you can use the :ref:`NetCDF conversion <netcdf-conversion-block>`
+   block to obtain a GeoTIFF.
+
+Spatial resolution
+------------------
+
+The spatial data resolution provided by this block is dependant on the
+:term:`AOI` size:
+
+.. table:: Spatial resolution of data points
+   :align: center
+
+   +-----------------------------+---------------------------------+
+   | AOI [**km**:superscript:`2`]| spatial resoliution [decimal °] |
+   +=============================+=================================+
+   |     up to 100               | 0.001                           |
+   +-----------------------------+---------------------------------+
+   |     between 100 and 10 000  | 0.01                            |
+   +-----------------------------+---------------------------------+
+   | between 10 0000 and 100 000 | 0.1                             |
+   +-----------------------------+---------------------------------+
+   | larger than 100 000         | 1                               |
+   +-----------------------------+---------------------------------+
 
 Example queries
 ---------------
