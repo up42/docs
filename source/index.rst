@@ -58,7 +58,7 @@ GPUs to speed it up.
 
 + |first-block| :ref:`Push your first block <first-custom-block>`
 + |develop-block| :ref:`Develop your block <custom-processing-block-dev>`
-+ |gpu-block| :ref:`Use GPUs in your block <adding-gpu-support-block>`
++ |blockutils-block| `up42-blockutils  <https://up42.github.io/blocks/>`_
 
 |hr|
 
@@ -98,7 +98,7 @@ documentation. Still have questions? Then look into our FAQ.
                :class: first
 .. |develop-block| image:: _themes/up42/static/icons/programming-browser.svg
                    :class: first
-.. |gpu-block| image:: _themes/up42/static/icons/computer-chip.svg
+.. |blockutils-block| image:: _themes/up42/static/icons/shipment-box.svg
                :class: first
 .. |up42-block| image:: _themes/up42/static/icons/block.svg
                 :class: first
