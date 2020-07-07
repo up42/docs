@@ -227,6 +227,12 @@ I am a private customer located in Germany: do I pay VAT?
 Yes. You will pay the `current <https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/taxation/vat/how_vat_works/rates/vat_rates_en.pdf>`__ tax rate of 19%.
 
 
+.. note::
+
+   Due to the extraordinary situation created by `CoVID 19 <https://en.wikipedia.org/wiki/Coronavirus_disease_2019>`_ the
+   German government has decided to temporarily lower the maximum VAT
+   rate to `16% <https://www.bundesfinanzministerium.de/Content/EN/Standardartikel/Topics/Public-Finances/Articles/2020-06-04-fiscal-package.html>`_ from **July 1st** until the **end 2020**.
+
 .. raw:: html
 
    <!--
