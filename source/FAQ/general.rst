@@ -40,7 +40,9 @@ start.
 Does UP42 provides public images in its docker registry?
 ========================================================
 
-Yes we provide multiple pulic docker images. You find them all in our
+No **all** the images in the UP42 registry are **private**.
+
+However, if you are looking for UP42 public docker images you find them all in our
 `Docker hub page <https://hub.docker.com/u/up42>`_.
 You can find out more about each image by following the links in Docker Hub for each image.
 
