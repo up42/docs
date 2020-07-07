@@ -12,6 +12,11 @@ Block type: ``PROCESSING``
 
 This block provides a simple `unsupervised classification <https://en.wikipedia.org/wiki/Cluster_analysis>`_ algorithm - K-Means clustering. It will create a set number of classes in each dataset and classify each pixel in one of this classes.
 
+.. warning::
+   This block can only process imagery **up to 1.2GB** size, since it requires the entire
+   image to be loaded at once into memory. Any imagery with a larger size
+   will result in an error.
+
 Supported parameters
 --------------------
 
