@@ -16,9 +16,9 @@ your UP42 :term:`console`. It can then be used like any other data or processing
 
 .. tip::
   While developing custom blocks in Python,
-  the `UP42 block utilities package <https://up42.github.io/blocks/>`_ can help!
+  the `UP42 block utilities package <https://up42.github.io/blocks/>`_ can help.
   This package contains base classes for data and processing blocks, and several
-  facilities to handle testing. 
+  facilities to handle testing.
 
 This section will give you step-by-step instructions on how to upload a custom block to UP42, using
 the `sharpening filter example block <https://github.com/up42/sharpening>`_ from our public `UP42 github profile <https://github.com/up42>`_.

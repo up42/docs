@@ -12,9 +12,9 @@ blocks locally to make development easier.
 
 .. tip::
   While developing custom blocks in Python,
-  the `UP42 block utilities package <https://up42.github.io/blocks/>`_ can help!
+  the `UP42 block utilities package <https://up42.github.io/blocks/>`_ can help.
   This package contains base classes for data and processing blocks, and several
-  facilities to handle testing. 
+  facilities to handle testing.
 
 The examples in this guide use a ``bash``-compatible shell (``sh``, ``ash``, ``dash`` or similar) in a Unix-like environment,
 but you can build blocks in any environment that you can run Docker
