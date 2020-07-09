@@ -85,7 +85,7 @@ See the :ref:`data transfer format <data-transfer-format>` for additional explan
 
 where:
  + ``data.json``: GeoJSON metadata file.
- + ``ab3760b7-340c-4bac-8b62-701b581a2e22``: directory with ouptut images.
+ + ``ab3760b7-340c-4bac-8b62-701b581a2e22``: directory with output images.
 
  4. Is optional to specify :ref:`job parameters <block-params>`. See the
     provided defaults in the ``README``.
