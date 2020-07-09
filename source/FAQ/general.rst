@@ -28,7 +28,7 @@ My job gives strange results or it keeps failing. Can you help me debug it?
 ===========================================================================
 
 Create a :ref:`support request <support-request>` and please provide the job **parameters**, available on the UI on the PARAMETERS tab in the job page.
-Alternativaly you can pürobide the **job ID**, available on the as the last component of the URL in the console, e.g., ``https://console.up42.com/projects/7876b6f8-feee-4cf2-821d-5f71963950b8/jobs/cf1f2186-da41-4cfb-8793-9dd6135511a0``.
+Alternatively you can provide the **job ID**, available on the as the last component of the URL in the console, e.g., ``https://console.up42.com/projects/7876b6f8-feee-4cf2-821d-5f71963950b8/jobs/cf1f2186-da41-4cfb-8793-9dd6135511a0``.
 Additionaly you can provide the job **log output** available in the JOB PROGRESS tab in the job page.
 
 Where can I learn more about Docker?
@@ -62,7 +62,7 @@ e.g. by using AWS, Google Cloud or Azure. In the future we might need
 to implement tighter security measures, so please inform us if your
 block uses such a mechanism.
 
-I tried to obtain some imagery for Pleaides and/or SPOT and when using the Airbus GeoStore I get more images. Why is that?
+I tried to obtain some imagery for Pléiades and/or SPOT and when using the Airbus GeoStore I get more images. Why is that?
 ==========================================================================================================================
 
 GeoStore enables a full access to the 30-year archive of Airbus data
@@ -116,13 +116,13 @@ There are multiple points to answer in this question:
 
     + Use the :ref:`DIMAP conversion <dimap-conversion-block>` block:  it will give you all the imagery (panchromatic and multispectral) in GeoTIFF format.
 
-    + Use :ref:`Pansharpening for Pléaides/SPOT <pansharpen-block>` block: it will give you a pansharpened RGB image in GeoTIFF format.
+    + Use :ref:`Pansharpening for Pléiades/SPOT <pansharpen-block>` block: it will give you a pansharpened RGB image in GeoTIFF format.
 
  3. Now you can further process the image(s) obtained before and derive some analytics on it, if that is your wish.
 
 .. _download-blocks-visualization:
 
-I used the Pléaides and/or SPOT download block and I loaded the image in my GIS software and it looks visually strange. Why?
+I used the Pléiades and/or SPOT download block and I loaded the image in my GIS software and it looks visually strange. Why?
 ============================================================================================================================
 
 This is because those images provide an :term:`analytical product` and
