@@ -10,12 +10,17 @@ Developing a custom processing block
 This guide provides a quick introduction for setting up and running
 blocks locally to make development easier.
 
+.. tip::
+  While developing custom blocks in Python,
+  the `UP42 block utilities package <https://up42.github.io/blocks/>`_ can help.
+  This package contains base classes for data and processing blocks, and several
+  facilities to handle testing.
+
 The examples in this guide use a ``bash``-compatible shell (``sh``, ``ash``, ``dash`` or similar) in a Unix-like environment,
 but you can build blocks in any environment that you can run Docker
 in. It assumes you have previous knowledge of Docker, if that is not
 the case then please go to `docker documentation
 <https://docs.docker.com>`__ to familiarize yourself with it.
-
 
 .. note::
 
