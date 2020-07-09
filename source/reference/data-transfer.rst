@@ -91,7 +91,7 @@ corresponding output should look something like this:
         ]
     }
 
-This also applies to :ref:`imagery and binary data <imagery-and-binary-data>`,
+This also applies to :ref:`imagery and vector data <imagery-and-vector-data>`,
 where the value should be the path of the corresponding file, relative
 to the base input or output directory.
 
@@ -133,9 +133,9 @@ or `JPEG <https://en.wikipedia.org/wiki/JPEG>`__ and of size 512 &times; 512
 pixels and will be displayed both in ``DRY_RUN`` mode as well as during
 actual fetching of image data.
 
-.. _imagery-and-binary-data:
+.. _imagery-and-vector-data:
 
-Imagery and binary data
+Imagery and vector data
 -----------------------
 
 As mentioned in the :ref:`section on specifications
@@ -143,9 +143,10 @@ As mentioned in the :ref:`section on specifications
 with property keys that contain the values that correspond to those
 capabilities.
 
-In the case of imagery or large amounts of binary data, where this
-would become impractical to add to the JSON itself, the value should
-simply be a file path, **relative** to the main metadata file.
+In the case of imagery or large amounts of vector data (in formats
+such as GeoJSON, Shapefiles or KML), where this would become impractical
+to add to the JSON itself, the value should simply be a file path,
+**relative** to the main metadata file.
 
 The corresponding file(s) should then be written to the output
 directory when saving data.
