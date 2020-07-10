@@ -118,6 +118,10 @@
       A named single collection of workflows and their corresponding
       jobs.
 
+   restricted block
+      A :term:`block` that has access restrictions from a commercial and/or
+      legal perspective.
+
    quicklooks
       A low resolution RGB bitmap image for previewing a given output.
 

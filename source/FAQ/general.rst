@@ -126,8 +126,8 @@ I used the Pléiades and/or SPOT download block and I loaded the image in my GIS
 ============================================================================================================================
 
 This is because those images provide an :term:`analytical product` and
-not a :term:`visual product`. Please see the :ref:`documentation
-<download-block-pros>` for more information on that.
+not a :term:`visual product`. Please see the
+:ref:`documentation <download-block-pros>` for more information on that.
 
 .. _restricted-blocks-definition:
 
@@ -139,13 +139,13 @@ access. An example of a restricted block is the `AIS historical vessel positions
 `AIS <https://en.wikipedia.org/wiki/Automatic_identification_system>`_ to give a time series of
 a position of a vessel as reported via AIS.
 
-..
-   .. _restricted-blocks-howto:
 
-   How can I access restricted blocks?
-   ===================================
-   When you try to add the block to your workflow, youn
+.. _restricted-blocks-howto:
 
+How can I access restricted blocks?
+===================================
+
+Please consult the :ref:`tutorial <restricted-blocks-tutorial>` on how to easily get access to restricted blocks.
 
 .. _delete-account:
 
