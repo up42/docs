@@ -13,27 +13,27 @@ Introduction
 ------------
 
 Most data available on UP42 is free to access for every customer that
-is :ref:`compliant <compliance-faq>` with ourr `terms & conditions
+is :ref:`compliant <compliance-faq>` with our `terms & conditions
 <https://up42.com/legal/terms-and-conditions/>`_. However, there is
 data and/or processing blocks that **might** have additional
 restrictions.
 
- \1. Data access restrictions.
-     Due to the **sensitivity** of the data.  Some data provides very
-     detailed information about a certain aspect of the world, e.g., a
-     very detailed elevation model that can potentially be used for
-     nefarious purposes.
+ \1. Data access restrictions. Due to the **sensitivity** of the data
+     or results provided by an algorithm. For instance, some types of
+     data provide very detailed information about a certain aspect of
+     the world, e.g., a very detailed elevation model that can
+     potentially be used for unauthorized or unclear purposes.
 
- \2. Commercial use restrictions.
-     The data provider might impose restrictions on the use of the
-     data being provided. For example, they might have a previous
-     commercial agreement with some type of entity and they want to
-     make sure that said entity doesn't get access to the data
-     circumventing the previous commercial agreement.
+ \2. Commercial use restrictions.  The data or algorithm provider
+     might impose restrictions on the use of the data being
+     provided. For example, they might have a previous commercial
+     agreement with some entity and they want to make sure
+     that this entity doesn't get access to the data circumventing the
+     previously existing commercial agreement.
 
 For those reasons some blocks are restricted. Nevertheless we
 encourage you to use those blocks because they provide either unique
-data sets or unique processing algorithms that are otherwise difficult
+data sets and/or unique processing algorithms that are otherwise difficult
 to come by.
 
 .. _easy-access-restricted-blocks:
@@ -51,7 +51,7 @@ to identify ships detected by the `Ship detection block
 you want to know more about these blocks you can consult the
 documentation for the ship identification block  :ref:`here <ship-identification>`.
 
-The process has **three** steps:
+The process has **four** steps:
 
  1. Add the restricted block to your workflow.
  2. Request access by sending email to the block access request
@@ -82,8 +82,8 @@ access to the block.
 Step 2: Requesting access
 +++++++++++++++++++++++++
 
-Once you select the save the workflow and go to configuring the job a
-popup appears.
+Once you save the workflow and go to configuring the job a popup
+appears.
 
 .. figure:: _assets/restricted_block_access_modal_window-opt.png
    :align: center
@@ -91,8 +91,8 @@ popup appears.
 
 If you select the **Request Access** button then it **delegates** to
 the mail application that you have configured in your operating system
-environment and populates the message with the following questions
-that you neeed to reply to:
+environment and populates the composed message with the following
+questions that you neeed to reply to:
 
  + In what industry are you doing business?
  + Describe your potential use case for this block.
@@ -100,17 +100,17 @@ that you neeed to reply to:
    (I.e., will the results be used internally or externally?)
 
 You **should** provide answers to these questions in the original
-request email. Failing to do so adds additional messaging between our
-support team and you.
+request email. Failing to do so adds unnecessary messaging between our
+support team and you, thus delaying the access granting decision.
 
 .. tip::
 
    If you have no configured mail application in your system the above
-   described automatic email message generation will fail. However, You can
+   described automatic email message generation will fail. However you can
    send an email **directly** to
    `support.block-access@up42.com
    <mailto:support.block-access@up42.com>`_ where you quote the
-   questions and provide the answers.
+   questions and provide the answers:
 
    + In what industry are you doing business?
    + Describe your potential use case for this block.
@@ -122,10 +122,11 @@ Step 3: Getting communicated the access decision
 
 The decision process for each restricted block will **always** involve
 the partner providing the data or algorithm. It is not something UP42
-does on its own. Since we have **contractual obligations** towards the
-partner that must be observed on a **case by case basis** when granting
-access. We work together with you and the partner to reach a decision
-on granting access to the block as quickly as possible.
+decides on its own. Since, as a company, we have **contractual
+obligations** towards the partner that must be observed on a **case by
+case basis** when granting access. We'll work together with you and the
+partner to reach a decision on granting access to the block as quickly
+as possible.
 
 Step 4: Done
 ++++++++++++
