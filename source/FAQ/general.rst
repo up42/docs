@@ -152,7 +152,7 @@ We are commited to openess. Is part of our founding values. We aim to democratiz
  + The same applies to algorithms.
 
 Even if there are *restrictions* we are still making it available for,
-potentially anyone, to access that data and algorithms. This is a step
+potentially, anyone to access that data and algorithms. This is a step
 in the direction of democratizing access to them: that so far has been
 quite hard to get for most companies and individuals.
 
