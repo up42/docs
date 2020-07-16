@@ -18,13 +18,14 @@ is :ref:`compliant <compliance-faq>` with our `terms & conditions
 data and/or processing blocks that **might** have additional
 restrictions.
 
- \1. Data access restrictions. Due to the **sensitivity** of the data
-     or results provided by an algorithm. For instance, some types of
-     data provide very detailed information about a certain aspect of
-     the world, e.g., a very detailed elevation model that can
-     potentially be used for unauthorized or unclear purposes.
+ \1. Data access restrictions.
+     The data or results provided by an algorithm. For instance, some
+     types of data provide very detailed information about a certain
+     aspect of the world, e.g., a very detailed elevation model that
+     can potentially be used for unauthorized or unclear purposes.
 
- \2. Commercial use restrictions.  The data or algorithm provider
+ \2. Commercial use restrictions.
+     The data or algorithm provider
      might impose restrictions on the use of the data being
      provided. For example, they might have a previous commercial
      agreement with some entity and they want to make sure

@@ -140,6 +140,23 @@ access. An example of a restricted block is the `AIS historical vessel positions
 a position of a vessel as reported via AIS.
 
 
+.. _why-restricted-blocks:
+
+If UP42 positions itself as an open geospatial platform, why are there restricted blocks?
+=========================================================================================
+We are commited to openess. Is part of our founding values. We aim to democratize the access to geospatial data. But please bear in mind that:
+
+ + The data we provide is *sensitive*. It can be used for unknown, potential nefarious purposes. Specially the high and very-high resolution data. We are imposed restrictions on granting access
+   to that data by local authorities. This is to prevent any possibilty of wrongdoing using this data.
+ + Some of the data has strict licensing requirements imposed on us by the data provider. We have to abide by those restrictions in order to able to enable access to that data.
+ + The same applies to algorithms.
+
+Even if there are *restrictions* we are still making it available for,
+potentially anyone, to access that data and algorithms. This is a step
+in the direction of democratizing access to them: that so far has been
+quite hard to get for most companies and individuals.
+
+
 .. _restricted-blocks-howto:
 
 How can I access restricted blocks?
