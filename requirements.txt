@@ -28,3 +28,4 @@ robotframework-selenium2screenshots==0.8.1
 chromedriver-binary==76.*
 sphinx-copybutton
 sphinx-reload==0.2.0
+sphinxext.adaptive-youtube
