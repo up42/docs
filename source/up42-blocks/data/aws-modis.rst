@@ -10,18 +10,20 @@ Please see the `block details page <https://marketplace.up42.com/block/98c1acfa-
 
 Block type: ``DATA``
 
-This block provides full scenes of Sentinel-2 (A/B)’s multispectral imaging sensor in processing level L-2A in SAFE
-folder structure. The data is collected from `AWS Sentinel 2 bucket <https://registry.opendata.aws/sentinel-2/>`_ in SAFE format.
-The output format is identical to the uncompressed SAFE folder that can be acquired from ESA’s Scihub or
-other DIAS platforms. The products are radiometrically and geometrically corrected (including orthorectification).
+This block provides full scenes of Moderate Resolution Imaging Spectroradiometer (MODIS) MCD43A4 Version 6 Nadir Bidirectional
+Reflectance Distribution Function (BRDF)-Adjusted Reflectance (NBAR). The data is collected from
+`AWS MODIS bucket <https://registry.opendata.aws/modis-astraea/>`_ in TIF format. The dataset is produced daily using 16 days
+of Terra and Aqua MODIS data at 500 meter (m) resolution. The view angle effects are removed from the directional reflectances,
+resulting in a stable and consistent NBAR product.
 
-Important application areas for Sentinel-2 imagery are: land cover monitoring (agriculture, forestry), coastal area monitoring, inland water monitoring, glacier monitoring and flood mapping.
+Important application areas for MODIS MCD43A4 imagery are: land cover monitoring (agriculture, forestry), inland water monitoring and flood mapping.
 
 Supported query parameters
 --------------------------
 
 For more information on supported filters, see :ref:`query filter section  <filters>`.
 
+* ``ids``: MODIS product IDs. e.g. ``["MCD43A4.A2018212.h23v05.006.2018226175455",...,"MCD43A4.A2018213.h23v05.006.2018226181629"]``
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.
 * ``intersects`` – A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use
@@ -29,9 +31,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``contains``: A GeoJSON geometry to use as an AOI. Will return all scenes that completely cover this geometry. Use only ``contains``
   **or** ``intersects`` **or** ``bbox``.
 * ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
-* ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``limit``: An integer number of maximum results to return. Omit this to set no limit.
-* ``ids``: An array of image identifiers. The S2 identifiers are described `here <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/naming-convention>`_; the file extension is omitted. By defining the ``ids`` filter you specify unambiguously which images to retrieve based solely on the given ID(s). The ``ids`` filter overrides all other filters, e.g., ``intersects``, ``limit`` and/or ``time``.
 
 
 Example queries
@@ -42,21 +42,22 @@ Example query searching for images using ``intersects``, ``time`` and ``limit``:
 .. code-block:: javascript
 
     {
-      "aws-s2-l2a:1": {
-        "time": "2018-12-10T16:47:48+00:00/2019-03-10T16:47:49+00:00",
-        "limit": 1,
+      "aws-modis:1": {
+        "ids": null,
+        "time": "2015-01-01T00:00:00+00:00/2019-06-30T23:59:59+00:00",
+        "limit": 3,
         "intersects": {
           "type": "Polygon",
           "coordinates": [
             [
-              [15.106689453125, 51.59754765771458],
-              [15.809814453125, 51.59754765771458],
-              [15.809814453125, 51.998410382390325],
-              [15.106689453125, 51.998410382390325],
-              [15.106689453125, 51.59754765771458],
+              [-9.421045, 38.697795],
+              [-9.417182, 38.697903],
+              [-9.417193, 38.695031],
+              [-9.421034, 38.694931],
+              [-9.421045, 38.697795],
             ]
           ]
-        },
+        }
       }
     }
 
@@ -65,11 +66,72 @@ Example query using identifiers:
 .. code-block:: javascript
 
     {
-        "aws-s2-l2a:1":
+        "aws-modis:1":
             {
-                "ids": ["S2B_MSIL2A_20200412T141729_N0214_R010_T20LRK_20200412T183037"]
+                "ids": [
+                    "MCD43A4.A2020182.h10v06.006.2020191030645"
+                ]
             }
     }
 
+Output format
+-------------
+The output data is stored in a folder with same name as the Product ID. This folder contains total of 12 GeoTIFF files and 3 metadata files.
+
+* Individual band files are suffixed with ``<productId>_B{1..11}.TIF``
+* Quality assessment band ``<productId>_BQA.TIF``
+* Overview file for each .TIF ``<productId>_.TIF.ovr``
+* Metadata files ``<productId>.hdf.xml`` and ``<productId>_meta.json``
+* RGB composite file ``<productId>.1.jpg``
+* Links to the GeoTIFFs ``index.html``
 
 
+.. note::
+  Although the output files are GeoTIFF, we refer to the whole bundle as ``MTL`` format!
+
+.. code-block:: javascript
+
+  {
+   "type": "FeatureCollection",
+   "features": [
+      {
+         "type": "Feature",
+         "bbox": [
+            -92.376,
+            -74.4836,
+            20,
+            30
+         ],
+         "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+               [
+                  [
+                     20,
+                     -74.4836
+                  ],
+                  [
+                     20,
+                     30
+                  ],
+                  [
+                     -92.376,
+                     30
+                  ],
+                  [
+                     -92.376,
+                     -74.4836
+                  ],
+                  [
+                     20,
+                     -74.4836
+                  ]
+               ]
+            ]
+         },
+         "properties": {
+            "up42.data_path": "/tmp/output/MCD43A4.A2020182.h10v06.006.2020191030645"
+         }
+      }
+   ]
+}

@@ -31,6 +31,7 @@ built by UP42.
    sobloo-s3
    sobloo-s5p
    sentinelhub-landsat8
+   aws-modis
    modis
    ais-hvp
    ais-hvt
