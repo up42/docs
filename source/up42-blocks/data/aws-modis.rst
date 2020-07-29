@@ -1,6 +1,6 @@
 .. meta::
    :description: UP42 data blocks: AWS Modis MCD43A4 block description
-   :keywords: MODIS, USGS, multispectral, full scene, block description, Terra, Aqua, MCD43A4
+   :keywords: MODIS, USGS, multispectral, full scene, block description, Terra, Aqua, MCD43A4, NBAR
 
 .. _aws-modis-fullscene-block:
 
