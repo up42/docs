@@ -33,3 +33,4 @@ first workflow. Then take a sneek peek into more advanced topics like
    first-workflow
    first-api-request
    first-custom-block
+   video-tutorials
