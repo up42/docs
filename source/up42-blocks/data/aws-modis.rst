@@ -2,7 +2,7 @@
    :description: UP42 data blocks: AWS Modis MCD43A4 block description
    :keywords: MODIS, USGS, multispectral, full scene, block description, Terra, Aqua, MCD43A4
 
-.. _sentinel2-l2a-fullscene-block:
+.. _aws-modis-fullscene-block:
 
 AWS Modis MCD43A4
 =================
@@ -11,9 +11,8 @@ Please see the `block details page <https://marketplace.up42.com/block/98c1acfa-
 Block type: ``DATA``
 
 This block provides full scenes of Moderate Resolution Imaging Spectroradiometer (MODIS) MCD43A4 Version 6 Nadir Bidirectional
-Reflectance Distribution Function (BRDF)-Adjusted Reflectance (NBAR). The data is collected from
-`AWS MODIS bucket <https://registry.opendata.aws/modis-astraea/>`_ in TIF format. The dataset is produced daily using 16 days
-of Terra and Aqua MODIS data at 500 meter (m) resolution. The view angle effects are removed from the directional reflectances,
+Reflectance Distribution Function (BRDF)-Adjusted Reflectance (NBAR). The data is collected from `AWS MODIS bucket <https://registry.opendata.aws/modis-astraea/>`_
+is in TIF format. The dataset is produced daily using 16 days of Terra and Aqua MODIS data at 500 meter (m) resolution. The view angle effects are removed from the directional reflectances,
 resulting in a stable and consistent NBAR product.
 
 Important application areas for MODIS MCD43A4 imagery are: land cover monitoring (agriculture, forestry), inland water monitoring and flood mapping.
@@ -91,47 +90,48 @@ The output data is stored in a folder with same name as the Product ID. This fol
 
 .. code-block:: javascript
 
-  {
-   "type": "FeatureCollection",
-   "features": [
       {
-         "type": "Feature",
-         "bbox": [
-            -92.376,
-            -74.4836,
-            20,
-            30
-         ],
-         "geometry": {
-            "type": "Polygon",
-            "coordinates": [
-               [
-                  [
-                     20,
-                     -74.4836
-                  ],
-                  [
-                     20,
-                     30
-                  ],
-                  [
-                     -92.376,
-                     30
-                  ],
-                  [
-                     -92.376,
-                     -74.4836
-                  ],
-                  [
-                     20,
-                     -74.4836
-                  ]
-               ]
-            ]
-         },
-         "properties": {
-            "up42.data_path": "/tmp/output/MCD43A4.A2020182.h10v06.006.2020191030645"
-         }
-      }
-   ]
-}
+       "type": "FeatureCollection",
+       "features": [
+          {
+             "type": "Feature",
+             "bbox": [
+                -92.376,
+                -74.4836,
+                20,
+                30
+             ],
+             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                   [
+                      [
+                         20,
+                         -74.4836
+                      ],
+                      [
+                         20,
+                         30
+                      ],
+                      [
+                         -92.376,
+                         30
+                      ],
+                      [
+                         -92.376,
+                         -74.4836
+                      ],
+                      [
+                         20,
+                         -74.4836
+                      ]
+                   ]
+                ]
+             },
+             "properties": {
+                "up42.data_path": "/tmp/output/MCD43A4.A2020182.h10v06.006.2020191030645"
+                }
+            }
+          ]
+       }
+
