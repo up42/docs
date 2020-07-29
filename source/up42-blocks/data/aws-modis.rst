@@ -12,7 +12,7 @@ Block type: ``DATA``
 
 This block provides full scenes of Moderate Resolution Imaging Spectroradiometer (MODIS) MCD43A4 Version 6 Nadir Bidirectional
 Reflectance Distribution Function (BRDF)-Adjusted Reflectance (NBAR). The data is collected from `AWS MODIS bucket <https://registry.opendata.aws/modis-astraea/>`_
-is in TIF format. The dataset is produced daily using 16 days of Terra and Aqua MODIS data at 500 meter (m) resolution. The view angle effects are removed from the directional reflectances,
+in TIF format is produced daily using 16 days of Terra and Aqua MODIS data at 500 meter (m) resolution. The view angle effects are removed from the directional reflectances,
 resulting in a stable and consistent NBAR product.
 
 Important application areas for MODIS MCD43A4 imagery are: land cover monitoring (agriculture, forestry), inland water monitoring and flood mapping.
