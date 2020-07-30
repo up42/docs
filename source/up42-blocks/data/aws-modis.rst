@@ -10,9 +10,9 @@ Please see the `block details page <https://marketplace.up42.com/block/98c1acfa-
 
 Block type: ``DATA``
 
-This block provides full scenes of Moderate Resolution Imaging Spectroradiometer (MODIS) MCD43A4 Version 6 Nadir Bidirectional
-Reflectance Distribution Function (BRDF)-Adjusted Reflectance (NBAR). The data is collected from `AWS MODIS bucket <https://registry.opendata.aws/modis-astraea/>`_
-in TIF format is produced daily using 16 days of Terra and Aqua MODIS data at 500 meter (m) resolution. The view angle effects are removed from the directional reflectances,
+The block provides full scenes of the MODIS MCD43A4 product. This is the Moderate Resolution Imaging Spectroradiometer (MODIS) MCD43A4 Version 6 Nadir Bidirectional
+Reflectance Distribution Function (BRDF)-Adjusted Reflectance (NBAR) product. The data is collected from `AWS MODIS bucket <https://registry.opendata.aws/modis-astraea/>`_
+in TIF format. The image products are produced daily using 16 days of Terra and Aqua MODIS data at 500 meter (m) resolution. The view angle effects are removed from the directional reflectances,
 resulting in a stable and consistent NBAR product.
 
 Important application areas for MODIS MCD43A4 imagery are: land cover monitoring (agriculture, forestry), inland water monitoring and flood mapping.
@@ -75,12 +75,12 @@ Example query using identifiers:
 
 Output format
 -------------
-The output data is stored in a folder with same name as the Product ID. This folder contains total of 12 GeoTIFF files and 3 metadata files.
+The output data is stored in a folder with the same name as the Product ID. This folder contains total of 14 GeoTIFF files and 3 metadata files.
 
 * Individual band files are suffixed with ``<productId>_B{1..11}.TIF``
 * Quality assessment band ``<productId>_BQA.TIF``
 * Overview file for each .TIF ``<productId>_.TIF.ovr``
-* Metadata files ``<productId>.hdf.xml`` and ``<productId>_meta.json``
+* Metadata files ``data.json``, ``<productId>.hdf.xml`` and ``<productId>_meta.json``
 * RGB composite file ``<productId>.1.jpg``
 * Links to the GeoTIFFs ``index.html``
 
