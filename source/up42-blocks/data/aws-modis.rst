@@ -4,7 +4,7 @@
 
 .. _aws-modis-fullscene-block:
 
-AWS Modis MCD43A4
+AWS MODIS Full Scenes
 =================
 Please see the `block details page <https://marketplace.up42.com/block/98c1acfa-c141-4095-b2e6-acf52d110178>`_ for context.
 
@@ -12,8 +12,10 @@ Block type: ``DATA``
 
 The block provides full scenes of the MODIS MCD43A4 product. This is the Moderate Resolution Imaging Spectroradiometer (MODIS) MCD43A4 Version 6 Nadir Bidirectional
 Reflectance Distribution Function (BRDF)-Adjusted Reflectance (NBAR) product. The data is collected from `AWS MODIS bucket <https://registry.opendata.aws/modis-astraea/>`_
-in TIF format. The image products are produced daily using 16 days of Terra and Aqua MODIS data at 500 meter (m) resolution. The view angle effects are removed from the directional reflectances,
+in GeoTIFF format. The image products are produced daily using 16 days of Terra and Aqua MODIS data at 500 meter (m) resolution. The view angle effects are removed from the directional reflectances,
 resulting in a stable and consistent NBAR product.
+
+Learn more about MODIS data on `NASA's MODIS site <https://modis.gsfc.nasa.gov/>`_ and on the `Land Processes Distributed Active Archive Center (LP DAAC) <https://lpdaac.usgs.gov/products/mcd43a4v006/>`_.
 
 Important application areas for MODIS MCD43A4 imagery are: land cover monitoring (agriculture, forestry), inland water monitoring and flood mapping.
 
@@ -86,7 +88,7 @@ The output data is stored in a folder with the same name as the Product ID. This
 
 
 .. note::
-  Although the output files are GeoTIFF, we refer to the whole bundle as ``MTL`` format!
+  Although the output files are GeoTIFF, we refer to the whole bundle as ``MTL`` format.
 
 .. code-block:: javascript
 
