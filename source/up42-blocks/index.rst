@@ -7,7 +7,7 @@
 Blocks provided by UP42
 =======================
 
-This section provides an comprehensive description of the blocks built
+This section provides a comprehensive description of the blocks built
 by UP42. If you are looking into understanding what a particular
 :term:`block` does then is here you find it.
 
