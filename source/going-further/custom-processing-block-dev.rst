@@ -73,7 +73,7 @@ Some things to keep in mind:
     use a custom tag through the ``DOCKER_TAG`` make variable.
  3. The output must be always composed of three things:
     + A :ref:`GeoJSON <geojson-metadata>` file that enumerates all the output images.
-    + A :ref:`directory <imagery-and-binary-data>` with all the images in vector or raster format.
+    + A :ref:`directory <imagery-and-vector-data>` with all the images in vector or raster format.
 
 See the :ref:`data transfer format <data-transfer-format>` for additional explanations.
 
