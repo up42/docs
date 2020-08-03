@@ -22,7 +22,7 @@ creating your own project, adding a workflow to it and looking for data
 to use with the created workflow. At end we run the job for a given
 :term:`AOI` and display the results.
 
-.. youtube:: https://www.youtube.com/watch?v=7F4JwSRSW0A
+.. youtube:: 7F4JwSRSW0A
 
 |br|
 |br|
@@ -37,7 +37,7 @@ This video builds on the previous one above and shows you around your
 account settings. Next it explains project settings and explores
 catalog search.
 
-.. youtube:: https://www.youtube.com/watch?v=9ZYxJp-VzeM
+.. youtube:: 9ZYxJp-VzeM
 
 |br|
 

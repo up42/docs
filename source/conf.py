@@ -56,7 +56,7 @@ extensions = [
     'sphinx_sitemap',
     'sphinxcontrib.gist',
     'sphinx_copybutton',
-    'sphinxext.adaptive_youtube',
+    'sphinxcontrib.youtube',
 ]
 
 # Base URL for the site.

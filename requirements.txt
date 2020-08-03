@@ -32,7 +32,7 @@ sphinx-rtd-theme==0.4.2
 sphinx-sitemap==1.0.2
 sphinxcontrib-redoc==1.5.1
 sphinxcontrib-websupport==1.1.0
+sphinxcontrib-youtube @ git+https://github.com/sphinx-contrib/youtube.git@635c8a908e3cac552ce43293c1516e7270cc4ce8
 sphinxcontrib.gist==0.1.0
-sphinxext.adaptive-youtube==0.0.2
 tornado==6.0.3
 urllib3==1.24.2
