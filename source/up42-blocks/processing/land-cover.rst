@@ -11,7 +11,7 @@ Beta Land Cover Segmentation Pléiades/SPOT
 .. warning::
    This block is currently in a *beta* release stage.
 
-Please see the `block details page <UPDATE>`_ for context.
+Please see the `block details page <https://marketplace.up42.com/block/dd0ffe31-6d70-45a0-90d2-ddebe73ce807>`_ for context.
 
 Block type: ``PROCESSING``
 
