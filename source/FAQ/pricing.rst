@@ -179,11 +179,11 @@ What are examples of typical loads for each machine type?
    :align: left
 
    +----------------------+-------------------------------------------------------------------------------------------------------------------+
-   | Machine type         | Example load                                                                                                      |
+   | Machine type         | Example load                                                                            nnn                       |
    +======================+===================================================================================================================+
    | small                | Data block that simply downloads some images, or a very basic processing block.                                   |
    +----------------------+-------------------------------------------------------------------------------------------------------------------+
-   | medium               |  Some basic processing tasks, e.g., `Land cover <https://github.com/up42/land-cover-classification-demo>`__       |
+   | medium               |  Some basic processing tasks, e.g.,  :ref:`K-means clustering <kmeans-clustering-block>`                          |
    |                      |  UP42 demo block.                                                                                                 |
    +----------------------+-------------------------------------------------------------------------------------------------------------------+
    | large                |  Multi-band imagery analysis not parallelizable by raster tiling.                                                 |

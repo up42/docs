@@ -12,9 +12,9 @@ For context, see `block details page <https://marketplace.up42.com/block/00cc275
 Block type: ``DATA``
 
 This block provides access to historical data points of the
-`Automatic Identification System (AIS) <https://en.wikipedia.org/wiki/Automatic_identification_system>`_.
+`Automatic Identification System (AIS) <https://up42.com/blog/tech/a-complete-guide-to-marine-traffic-tracking-tech-and-ais-data>`_.
 The block queries the
-`Exact Earth historical vessel points API <https://www.exactearth.com/technology/satellite-ais>`_ and provides
+`Exact Earth historical vessel points API <https://www.exactearth.com/product-exactais>`_ and provides
 ship position point geometries and associated metadata e.g. ship name, cargo, destination port, etc.
 The output is a `ais-points` GeoJSON file containing the AIS point geometries and properties, and a `data.json` with the UP42 query parameters.
 

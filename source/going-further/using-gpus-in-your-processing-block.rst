@@ -1,7 +1,7 @@
 .. meta::
-   :description: UP42 going further: GPU enabled custom block development 
+   :description: UP42 going further: GPU enabled custom block development
    :keywords: gpu, custom block, development, processing, deep
-              learning, howto 
+              learning, howto
 
 .. _adding-gpu-support-block:
 
@@ -29,7 +29,7 @@ ones provided by our platform: `NVIDIA Tesla K80 GPU <https://www.nvidia.com/en-
 To take advantage of GPUs you need to do two things:
 
  1. Make sure the :ref:`UP42Manifest.json <block-manifest>` file
-    specifies the machine type ``gpu_nvidia_tesla_k80``. 
+    specifies the machine type ``gpu_nvidia_tesla_k80``.
  2. Make sure that the `CUDA libraries
     <https://developer.nvidia.com/gpu-accelerated-libraries>`__ are
     included in your custom block such that inside the Docker
@@ -66,14 +66,14 @@ the relevant line is:
 .. code-block:: docker
 
    # Use one of the official Tensorflow Docker images as base.
-   FROM tensorflow/tensorflow:latest-gpu-py3             
+   FROM tensorflow/tensorflow:latest-gpu-py3
 
 In this case it relies on TensorFlow official public Docker image for
 Python 3.
 
 Note also the
 `UP42Manifest.json
-<https://github.com/up42/s2-superresolution/blob/master/blocks/s2_superresolution/UP42Manifest.json>`__
+<https://github.com/up42/s2-superresolution/blob/master/blocks/s2-superresolution/UP42Manifest.json>`__
 file with the ``machine`` object ``type``  field specifying a **GPU
 enabled** machine type.
 
@@ -81,5 +81,4 @@ enabled** machine type.
 
    "machine": {
 	"type": "gpu_nvidia_tesla_k80"
-    }             
-
+    }
