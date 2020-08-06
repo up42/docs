@@ -40,3 +40,4 @@ built by UP42.
    nextmap-10m
    aws-landsat8
    openstreetmap
+   geotiff-custom
