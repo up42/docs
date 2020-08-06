@@ -10,8 +10,8 @@ Please see the `block details page <https://marketplace.up42.com/block/b623400c-
 
 Block type: ``DATA``
 
-This block enables using DIMAP Pleiades and Spot data, stored in a bucket on *Google
-Cloud Storage (GCS)* or *Amazon Web Services (AWS)*, in a workflow on UP42.
+This block enables using DIMAP Pleiades and Spot data, stored in a bucket on *Google Cloud Storage (GCS)*
+or *Amazon Web Services (AWS)*, in a workflow on UP42.
 
 Within the bucket, the user can select specific images (via the scene ids) or search by
 location and time. The search can also be limited to a subfolder in the bucket via the
