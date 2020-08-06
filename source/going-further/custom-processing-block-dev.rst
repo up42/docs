@@ -10,12 +10,17 @@ Developing a custom processing block
 This guide provides a quick introduction for setting up and running
 blocks locally to make development easier.
 
+.. tip::
+  While developing custom blocks in Python,
+  the `UP42 block utilities package <https://up42.github.io/blocks/>`_ can help.
+  This package contains base classes for data and processing blocks, and several
+  facilities to handle testing.
+
 The examples in this guide use a ``bash``-compatible shell (``sh``, ``ash``, ``dash`` or similar) in a Unix-like environment,
 but you can build blocks in any environment that you can run Docker
 in. It assumes you have previous knowledge of Docker, if that is not
 the case then please go to `docker documentation
 <https://docs.docker.com>`__ to familiarize yourself with it.
-
 
 .. note::
 
@@ -68,7 +73,7 @@ Some things to keep in mind:
     use a custom tag through the ``DOCKER_TAG`` make variable.
  3. The output must be always composed of three things:
     + A :ref:`GeoJSON <geojson-metadata>` file that enumerates all the output images.
-    + A :ref:`directory <imagery-and-binary-data>` with all the images in vector or raster format.
+    + A :ref:`directory <imagery-and-vector-data>` with all the images in vector or raster format.
 
 See the :ref:`data transfer format <data-transfer-format>` for additional explanations.
 
@@ -85,7 +90,7 @@ See the :ref:`data transfer format <data-transfer-format>` for additional explan
 
 where:
  + ``data.json``: GeoJSON metadata file.
- + ``ab3760b7-340c-4bac-8b62-701b581a2e22``: directory with ouptut images.
+ + ``ab3760b7-340c-4bac-8b62-701b581a2e22``: directory with output images.
 
  4. Is optional to specify :ref:`job parameters <block-params>`. See the
     provided defaults in the ``README``.

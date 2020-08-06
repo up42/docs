@@ -30,3 +30,4 @@ blocks built by UP42.
    sharpening
    s5p_lvl3
    ship-identification
+   land-cover

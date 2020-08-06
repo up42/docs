@@ -12,9 +12,9 @@ For context, see `block details page <https://marketplace.up42.com/block/c1678e7
 Block type: ``DATA``
 
 This block provides access to historical data tracks of the
-`Automatic Identification System (AIS) <https://en.wikipedia.org/wiki/Automatic_identification_system>`_.
+`Automatic Identification System (AIS) <https://www.exactearth.com/product-exactais>`_.
 The block queries the
-`Exact Earth historical vessel tracks API <https://www.exactearth.com/technology/satellite-ais>`_ and provides
+`Exact Earth historical vessel tracks API <https://www.exactearth.com/product-exactais>`_ and provides
 ship track linestring geometries and associated metadata e.g. ship name, cargo, destination port, etc.
 A segment of the track is defined by two consecutive vessel positions where the segment inherits the latest vessel
 position, static, and voyage information from the most recent of the two consecutive vessel positions.

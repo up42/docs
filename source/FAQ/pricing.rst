@@ -179,11 +179,11 @@ What are examples of typical loads for each machine type?
    :align: left
 
    +----------------------+-------------------------------------------------------------------------------------------------------------------+
-   | Machine type         | Example load                                                                                                      |
+   | Machine type         | Example load                                                                            nnn                       |
    +======================+===================================================================================================================+
    | small                | Data block that simply downloads some images, or a very basic processing block.                                   |
    +----------------------+-------------------------------------------------------------------------------------------------------------------+
-   | medium               |  Some basic processing tasks, e.g., `Land cover <https://github.com/up42/land-cover-classification-demo>`__       |
+   | medium               |  Some basic processing tasks, e.g.,  :ref:`K-means clustering <kmeans-clustering-block>`                          |
    |                      |  UP42 demo block.                                                                                                 |
    +----------------------+-------------------------------------------------------------------------------------------------------------------+
    | large                |  Multi-band imagery analysis not parallelizable by raster tiling.                                                 |
@@ -226,6 +226,12 @@ I am a private customer located in Germany: do I pay VAT?
 
 Yes. You will pay the `current <https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/taxation/vat/how_vat_works/rates/vat_rates_en.pdf>`__ tax rate of 19%.
 
+
+.. note::
+
+   Due to the extraordinary situation created by `CoVID 19 <https://en.wikipedia.org/wiki/Coronavirus_disease_2019>`_ the
+   German government has decided to temporarily lower the maximum VAT
+   rate to `16% <https://www.bundesfinanzministerium.de/Content/EN/Standardartikel/Topics/Public-Finances/Articles/2020-06-04-fiscal-package.html>`_ from **July 1st** until the **end of 2020**.
 
 .. raw:: html
 

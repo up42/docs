@@ -7,6 +7,11 @@
 Building your first workflow
 ============================
 
+.. tip::
+
+   If you prefer video tutorials then please see our
+   :ref:`tutorial video section <video-tutorials>`.
+
 This guide will walk you through creating a workflow on the
 platform, using blocks that already exist. The goal is to generate **ship detections**
 in the harbour of Leixões, Portugal using SPOT satellite data.

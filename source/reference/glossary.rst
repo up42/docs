@@ -102,7 +102,7 @@
       **E**\ nhanced **V**\ egetation **I**\ ndex.
 
    EPSG
-    **E**\ uropean **P**\ etroleum **S**\ urvey **G**\ roup **G**\ eodetic Parameter Dataset (also EPSG registry) is a public registry of spatial reference systems, Earth ellipsoids, coordinate transformations and related units of measurement mantained by the International Association of Oil & Gas Producers (IOGP), formerly known as the European Petroleum Survey Group (EPSG). Each entity is assigned an EPSG code between 1024-32767 along with a standard machine-readable well-known text (WKT) representation. See more in `here <https://www.epsg-registry.org/>`_.
+    **E**\ uropean **P**\ etroleum **S**\ urvey **G**\ roup **G**\ eodetic Parameter Dataset (also EPSG registry) is a public registry of spatial reference systems, Earth ellipsoids, coordinate transformations and related units of measurement mantained by the International Association of Oil & Gas Producers (IOGP), formerly known as the European Petroleum Survey Group (EPSG). Each entity is assigned an EPSG code between 1024-32767 along with a standard machine-readable well-known text (WKT) representation. See more in `here <http://epsg.io/>`_.
 
    nodata mask
       A raster image or band indicating areas of nodata values, e.g. due to partial scenes with a satellite grid, a cloud mask etc.
@@ -117,6 +117,10 @@
    project
       A named single collection of workflows and their corresponding
       jobs.
+
+   restricted block
+      A :term:`block` that has access restrictions from a commercial and/or
+      legal perspective.
 
    quicklooks
       A low resolution RGB bitmap image for previewing a given output.

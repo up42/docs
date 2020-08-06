@@ -35,6 +35,7 @@ requires :ref:`custom storage <custom-storage>`?
    test-query
    api-walkthrough
    download-blocks-tutorial-spot-pleiades
+   restricted-blocks-tutorial
    custom-processing-block-dev
    using-gpus-in-your-processing-block
    credentials

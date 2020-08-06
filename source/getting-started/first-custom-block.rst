@@ -1,6 +1,6 @@
 .. meta::
    :description: UP42 Getting started: pushing your first custom block
-   :keywords: custom block, tutorial, howto, demo project 
+   :keywords: custom block, tutorial, howto, demo project
 
 
 .. _first-custom-block:
@@ -13,6 +13,12 @@ If you want to use your own processing methods or data sources on the UP42 platf
 you can create :term:`custom blocks<custom block>` that can be seamlessly integrated into UP42 workflows.
 The block will appear in the `Custom blocks section <https://console.up42.com/custom-blocks/>`_ of
 your UP42 :term:`console`. It can then be used like any other data or processing block.
+
+.. tip::
+  While developing custom blocks in Python,
+  the `UP42 block utilities package <https://up42.github.io/blocks/>`_ can help.
+  This package contains base classes for data and processing blocks, and several
+  facilities to handle testing.
 
 This section will give you step-by-step instructions on how to upload a custom block to UP42, using
 the `sharpening filter example block <https://github.com/up42/sharpening>`_ from our public `UP42 github profile <https://github.com/up42>`_.
