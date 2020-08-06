@@ -2,7 +2,7 @@
    :description: UP42 data blocks: Dimap Custom data block description
    :keywords: DIMAP, custom, data, tasking, Pleiades, SPOT
 
-.. _sentinel1-grd-fullscene-block:
+.. _dimap-custom-data-block:
 
 DIMAP Custom Data
 =================
@@ -16,6 +16,13 @@ or *Amazon Web Services (AWS)*, in a workflow on UP42.
 Within the bucket, the user can select specific images (via the scene ids) or search by
 location and time. The search can also be limited to a subfolder in the bucket via the
 `prefix` parameter.
+
+
+.. tip::
+
+    In order to access the bucket, the access credentials need to be provided via :ref:`UP42 environment variables <environments-credentials-pass-through-tutorial>`.
+    For AWS, provide the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` as environment variables.
+    For GCS, provide the full json string of the Google Application Credentials json as the `GOOGLE_KEY_STRING` environment variable.
 
 
 .. contents::
@@ -83,9 +90,6 @@ Output format
 -------------
 
 The output GeoJSON contains the Dimap file metadata, with the ``up42.data_path`` pointing to the
-
-
-Example output GeoJSON:
 
 .. code-block:: javascript
 
