@@ -2,7 +2,7 @@
    :description: UP42 data blocks: GeoTIFF Custom data block description
    :keywords: GeoTIFF, custom, data, tasking
 
-.. _sentinel1-grd-fullscene-block:
+.. _geotiff-custom-data-block:
 
 GeoTIFF Custom Data
 =================
@@ -16,6 +16,12 @@ or *Amazon Web Services (AWS)*, in a workflow on UP42.
 Within the bucket, the user can select specific images (via the filenames) or search by
 location and time. The search can also be limited to a subfolder in the bucket via the
 `prefix` parameter.
+
+.. tip::
+
+    In order to access the bucket, the access credentials need to be provided via :ref:`UP42 environment variables <environments-credentials-pass-through-tutorial>`.
+    For AWS, provide the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` as environment variables.
+    For GCS, provide the full json string of the Google Application Credentials json as the `GOOGLE_KEY_STRING` environment variable.
 
 
 .. contents::
@@ -46,8 +52,9 @@ Example queries
 Example query with Google Cloud Storage, using ``filenames`` and ``prefix``:
 
 .. code-block:: javascript
+
     {
-        "geotiff-custom:1": {
+        "geotiff-custom:1": {`
             "cloud_provider": "gcs",
             "bucket_name": "geotiff-scenes-data",
             "prefix": "europe/france/",
@@ -57,9 +64,10 @@ Example query with Google Cloud Storage, using ``filenames`` and ``prefix``:
             "limit": 1
         }
     }
-Example query with Amazon Web services, searching via time & aoi.
+Example query with Amazon Web services, searching via ``time`` & ``aoi`.
 
 .. code-block:: javascript
+
     {
         "dimap-custom:1": {
             "cloud_provider": "aws",
@@ -76,10 +84,8 @@ Output format
 
 The output GeoJSON contains the GeoTIFF file metadata, with the ``up42.data_path`` pointing to the GeoTIFF file.
 
-
-Example output GeoJSON:
-
 .. code-block:: javascript
+
     {
       "type": "FeatureCollection",
       "features": [
