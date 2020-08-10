@@ -36,7 +36,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
 * ``bucket_name``: The bucket name.
 * ``prefix``: A file structure prefix to limit the dataset search to a specific subdirectory. Conforms to the gcs & aws prefix structure,
   which excludes the bucket name. E.g. `folder1/folder2/`.
-* ``filenames``: An array of GeoTIFF filenames, including suffix. The ``ids`` filter overrides all other filters, e.g., ``intersects``, ``limit`` and/or ``time``.
+* ``filenames``: An array of GeoTIFF filenames, including suffix. The ``filenames`` filter overrides all other filters, e.g., ``intersects``, ``limit`` and/or ``time``.
 * ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.
