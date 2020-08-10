@@ -16,6 +16,7 @@ or *Amazon Web Services (AWS)*, in a workflow on UP42.
 Within the bucket, the user can select specific images (via the filenames) or search by
 location and time. The search can also be limited to a subfolder in the bucket via the
 `prefix` parameter.
+The block outputs the scene data and an automatically created `data.json` file with the scene metadata.
 
 .. tip::
 
@@ -64,7 +65,7 @@ Example query with Google Cloud Storage, using ``filenames`` and ``prefix``:
             "limit": 1
         }
     }
-Example query with Amazon Web services, searching via ``time`` & ``aoi`.
+Example query with Amazon Web services, searching via ``time`` & ``aoi`.`
 
 .. code-block:: javascript
 
@@ -79,6 +80,7 @@ Example query with Amazon Web services, searching via ``time`` & ``aoi`.
             "limit": 4
         }
     }
+
 Output format
 -------------
 
