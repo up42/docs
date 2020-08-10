@@ -16,6 +16,7 @@ or *Amazon Web Services (AWS)*, in a workflow on UP42.
 Within the bucket, the user can select specific images (via the scene ids) or search by
 location and time. The search can also be limited to a subfolder in the bucket via the
 `prefix` parameter.
+The block outputs the scene data and an automatically created `data.json` file with the scene metadata.
 
 
 .. tip::
