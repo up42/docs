@@ -39,5 +39,6 @@ built by UP42.
    nextmap-5m
    nextmap-10m
    aws-landsat8
+   dimap-custom
    openstreetmap
    geotiff-custom

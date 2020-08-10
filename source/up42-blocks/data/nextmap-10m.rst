@@ -26,11 +26,16 @@ For more information on supported filters, see :ref:`query filter section  <filt
   **or** ``intersects``.
 * ``intersects``: A GeoJSON geometry to use as an AOI. Will return all data points that are within this geometry. Use only ``bbox``
   **or** ``intersects``.
+* ``clip_to_aoi``: By default is ``true`` which means that the area that defined by ``bbox``, or ``intersect`` will be clipped out. **Note** that by setting this parameter to ``false`` all tiles that intersecting AOI will be delivered.
+
+.. warning::
+  This block can return a maximum of 1000 tiles per job. This means that the extent
+  of your input geometry can have a **maximum area of 100 000 sqkm**.
 
 Example queries
 ---------------
 
-Example query using ``bbox``:
+Example query using ``bbox`` **without** clipping:
 
 .. code-block:: javascript
 
