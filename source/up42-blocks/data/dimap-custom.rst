@@ -89,7 +89,7 @@ Example query with Amazon Web services, searching via time & aoi.
 Output format
 -------------
 
-The output GeoJSON contains the Dimap file metadata, with the ``up42.data_path`` pointing to the
+The output GeoJSON contains the Dimap file metadata, with the ``up42.data_path`` pointing to the scene folder.
 
 .. code-block:: javascript
 
