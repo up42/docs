@@ -26,6 +26,8 @@ For more information on supported filters, see :ref:`query filter section  <filt
   **or** ``intersects``.
 * ``intersects``: A GeoJSON geometry to use as an AOI. Will return all data points that are within this geometry. Use only ``bbox``
   **or** ``intersects``.
+* ``clip_to_aoi``: When set to ``true``, the output image will be clipped to the ``bbox`` or ``intersect``. If set to ``false``, the original tiles will be returned.
+
 
 .. warning::
   This block can return a maximum of 1000 tiles per job. This means that the extent
