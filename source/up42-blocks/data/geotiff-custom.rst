@@ -70,7 +70,7 @@ Example query with Amazon Web services, searching via ``time`` & ``aoi`.`
 .. code-block:: javascript
 
     {
-        "dimap-custom:1": {
+        "geotiff-custom:1": {
             "cloud_provider": "aws",
             "bucket_name": "geotiff-scenes-data",
             "prefix": null,
