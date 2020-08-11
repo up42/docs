@@ -42,12 +42,25 @@ all existing spectral bands by using a trained CNN. From an
 the generated images do not contain more information than the recorded
 at the original resolution.
 
+This block implements the model architectures described in [Müller2020]_. The
+paper also describes the methodology used and resulting metrics
+of each model architecture.
+
 Supported parameters
 --------------------
 
-This blocks takes no input parameters.
+* ``model``: The model to use to super-resolve the image. One of ``SRCNN``(default), ``AESR`` or ``RedNet``.
+
+.. warning::
+    Choosing the deeper model architectures (``AESR`` and ``RedNet``) will
+    significantly impact the time required to super-resolve the image.
+
 
 Output format
 :::::::::::::
 
 AOI.clipped GeoTIFF format.
+
+.. rubric:: References
+
+.. [Müller2020] Müller, M. U. et al. “SUPER-RESOLUTION OF MULTISPECTRAL SATELLITE IMAGES USING CONVOLUTIONAL NEURAL NETWORKS.” ISPRS Annals of Photogrammetry, Remote Sensing and Spatial Information Sciences V-1-2020 (2020): 33–40. `10.5194/isprs-annals-V-1-2020-33-2020 <https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/V-1-2020/33/2020/>`__.
