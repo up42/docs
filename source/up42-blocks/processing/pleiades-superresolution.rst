@@ -49,7 +49,7 @@ of each model architecture.
 Supported parameters
 --------------------
 
-* ``model``: The model to use to super-resolve the image. One of ``SRCNN``(default), ``AESR`` or ``RedNet``.
+* ``model``: The model to use to super-resolve the image. One of ``SRCNN`` (default), ``AESR`` or ``RedNet``.
 
 .. warning::
     Choosing the deeper model architectures (``AESR`` and ``RedNet``) will
