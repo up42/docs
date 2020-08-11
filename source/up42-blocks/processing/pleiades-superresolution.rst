@@ -55,6 +55,31 @@ Supported parameters
     Choosing the deeper model architectures (``AESR`` and ``RedNet``) will
     significantly impact the time required to super-resolve the image.
 
+Example parameters using the :ref:`SPOT DIMAP download block
+<spot-download-block>` as data source, returning the super-resolved result using the
+``AESR`` model:
+
+.. code-block:: javascript
+
+    {
+      "oneatlas-spot-fullscene:1": {
+        "ids": null,
+        "bbox": [
+          13.405215963721279,
+          52.48480326228838,
+          13.4388092905283,
+          52.505278605259086
+        ],
+        "time": null,
+        "limit": 1,
+        "order_ids": null,
+        "time_series": null
+      },
+      "superresolution:1": {
+        "model": "AESR"
+      }
+    }
+
 
 Output format
 :::::::::::::
