@@ -41,3 +41,4 @@ built by UP42.
    aws-landsat8
    dimap-custom
    openstreetmap
+   geotiff-custom
