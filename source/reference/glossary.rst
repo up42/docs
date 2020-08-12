@@ -36,7 +36,7 @@
       bottom left corner of the box --- followed by the coordinates of
       the northeasterly most extent --- top right corner of the box ---
       specified in Longitude/Latitude based on `WGS 84
-      <http://www.opengis net/def/crs/OGC/1.3/CR 84>`__.
+      <https://epsg.io/4326>`__.
 
    capabilities
       A set of constraints on the graph that constitutes :term:`workflow` that
@@ -79,8 +79,8 @@
 
    full scene
       Data block output that includes the complete area covered by
-      the satellite instrument when it it was over that area. In this
-      case the selected AOI is used to search for the scene(s) that
+      the satellite instrument when it was over that area. In this
+      case, the selected AOI is used to search for the scene(s) that
       include(s) the specified AOI.
 
    job
@@ -105,10 +105,10 @@
     **E**\ uropean **P**\ etroleum **S**\ urvey **G**\ roup **G**\ eodetic Parameter Dataset (also EPSG registry) is a public registry of spatial reference systems, Earth ellipsoids, coordinate transformations and related units of measurement mantained by the International Association of Oil & Gas Producers (IOGP), formerly known as the European Petroleum Survey Group (EPSG). Each entity is assigned an EPSG code between 1024-32767 along with a standard machine-readable well-known text (WKT) representation. See more in `here <http://epsg.io/>`_.
 
    nodata mask
-      A raster image or band indicating areas of nodata values, e.g. due to partial scenes with a satellite grid, a cloud mask etc.
+      A raster image or band frequently contains cells with NoData, which represents the absence of data. Examples: borders, cloud masks etc.
 
    UTM
-    **U**\ niversal **T**\ ransverse **M**\ ercator. A UTM zone is a 6‎° segment of the Earth,
+    **U**\ niversal **T**\ ransverse **M**\ ercator projection. A UTM zone is a 6‎° segment of the Earth,
     it's one of the most common map projections used today.
 
    processing block
@@ -131,17 +131,17 @@
       for a :term:`workflow` that uses this data block.
 
    testquery
-      A job that consisting only in querying for data given a set of
+      A job consisting only in querying for data given a set of
       :ref:`filters <filters>` from an upstream data provider. Not all
       data providers might implement this functionality. The output
       is a GeoJSON enumerating the available data items. If no data
       exists for a particular query an empty GeoJSON is returned.
 
    visual product
-      A image or data that is used for display purposes. It
+      An image or data that is used for display purposes. It
       can also be used for feature extraction and/or classification based
       **solely** on the pixel value as a digital image --- usual bit
-      depth is 8 bit per pixel, per color (RGB). For example, detecting
+      depth is 8 bit per pixel, per band (RGB). For example, detecting
       ships in a port can be done using pattern recognition techniques
       that rely on
       `artificial neural networks <https://en.wikipedia.org/wiki/Artificial_neural_network>`_.
