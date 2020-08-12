@@ -80,12 +80,6 @@ Example parameters using the :ref:`SPOT DIMAP download block
       }
     }
 
-
-Output format
-:::::::::::::
-
-AOI.clipped GeoTIFF format.
-
 .. rubric:: References
 
 .. [Müller2020] Müller, M. U. et al. “SUPER-RESOLUTION OF MULTISPECTRAL SATELLITE IMAGES USING CONVOLUTIONAL NEURAL NETWORKS.” ISPRS Annals of Photogrammetry, Remote Sensing and Spatial Information Sciences V-1-2020 (2020): 33–40. `10.5194/isprs-annals-V-1-2020-33-2020 <https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/V-1-2020/33/2020/>`__.
