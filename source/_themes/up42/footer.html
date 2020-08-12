@@ -14,46 +14,67 @@
 
   <div role="contentinfo">
     <p>
-    {%- if show_copyright %}
-      {%- if hasdoc('copyright') %}
-        {% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">Copyright</a> {{ copyright }}{% endtrans %}
-      {%- else %}
-        {% trans copyright=copyright|e %}&copy; Copyright {{ copyright }}{% endtrans %}
+      {%- if show_copyright %}
+        {%- if hasdoc('copyright') %}
+          {% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">Copyright</a> {{ copyright }}{% endtrans %}
+        {%- else %}
+          {% trans copyright=copyright|e %}&copy; Copyright {{ copyright }}{% endtrans %}
+        {%- endif %}
       {%- endif %}
-    {%- endif %}
 
-    {%- if build_id and build_url %}
-      {% trans build_url=build_url, build_id=build_id %}
-        <span class="build">
-          Build
-          <a href="{{ build_url }}">{{ build_id }}</a>.
+      {%- if build_id and build_url %}
+        {% trans build_url=build_url, build_id=build_id %}
+          <span class="build">
+            Build
+            <a href="{{ build_url }}">{{ build_id }}</a>.
+          </span>
+        {% endtrans %}
+      {%- elif commit %}
+        {% trans commit=commit %}
+          <span class="commit">
+            Revision <code>{{ commit }}</code>.
+          </span>
+        {% endtrans %}
+      {%- elif last_updated %}
+        <span class="lastupdated">
+          {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
         </span>
-      {% endtrans %}
-    {%- elif commit %}
-      {% trans commit=commit %}
-        <span class="commit">
-          Revision <code>{{ commit }}</code>.
-        </span>
-      {% endtrans %}
-    {%- elif last_updated %}
-      <span class="lastupdated">
-        {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
-      </span>
-    {%- endif %}
+      {%- endif %}
 
     </p>
   </div>
 
   {%- if show_sphinx %}
-  {% trans %}Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>{% endtrans %}.
+    {% trans %}Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>{% endtrans %}.
   {%- endif %}
 
   {%- block extrafooter %}
     {# Creative Commons License #}
     <small>
-    <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
-  </small>
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+    </small>
   {% endblock %}
-
+  {# This is just for IA research: begin. #}
+  <!-- BEGIN Optimal Workshop Intercept Snippet -->
+  <div id='owInviteSnippet'
+       style='position:fixed;right:20px;bottom:20px;width:280px;padding:20px;margin:0;border-radius:6px;background:#121315;color:#FFFFFF;text-align:left;z-index:2200000000;opacity:0;transition:opacity
+       500ms;-webkit-transition:opacity
+       500ms;display:none;'><div id='owInviteMessage'
+       style='padding:0;margin:0 0 20px 0;font-size:16px;'>Got 5
+       minutes to help us improve our
+       documentation?</div><a id='owInviteOk'
+       href='https://up42.optimalworkshop.com/treejack/documentation-hub?tag=intercept&utm_medium=intercept'
+       onclick='this.parentNode.style.display="none";' target='_blank'
+       style='color:#1DD7F0;font-size:16px;font-weight:bold;text-decoration:underline;'>Yes!</a><a id='owInviteCancel'
+       href='javascript:void(0)'
+       onclick='this.parentNode.style.display="none";'
+       style='color:#FFFFFF;font-size:14px;text-decoration:underline;float:right;'>No
+       thanks</a></div><script>var
+       owOnload=function(){if(-1==document.cookie.indexOf('ow-intercept-treejack-10m71il6')){var
+       o=new XMLHttpRequest;o.onloadend=function(){try{var
+       o=document.getElementById('owInviteSnippet');var date=new
+       Date();date.setMonth(date.getMonth()+1);this.response&&JSON.parse(this.response).active===!0&&(document.cookie='ow-intercept-treejack-10m71il6=Done;path=/;expires='+date.toUTCString()+';',setTimeout(function(){o.style.display='block',o.style.opacity=1},2e3))}catch(e){}},o.open('POST','https://app.optimalworkshop.com/survey_status/treejack/10m71il6/active'),o.send()}};if(window.addEventListener){window.addEventListener('load',function(){owOnload();});}else
+       if(window.attachEvent){window.attachEvent('onload',function(){owOnload();});}</script>
+       <!-- END Optimal Workshop snippet -->
+       {# This is just for IA research: end. #}
 </footer>
-
