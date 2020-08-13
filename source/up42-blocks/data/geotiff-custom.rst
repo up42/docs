@@ -55,17 +55,17 @@ Example query with Google Cloud Storage, using ``filenames`` and ``prefix``:
 .. code-block:: javascript
 
     {
-        "geotiff-custom:1": {`
+        "geotiff-custom:1": {
             "cloud_provider": "gcs",
             "bucket_name": "geotiff-scenes-data",
             "prefix": "europe/france/",
-            "ids": ["33c03020-2797-4bd4-b3b7-763d4de12754_ms.tif"],
+            "filenames": ["33c03020-2797-4bd4-b3b7-763d4de12754_ms.tif"],
             "intersects": null,
             "time": "2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
             "limit": 1
         }
     }
-Example query with Amazon Web services, searching via ``time`` & ``aoi`.`
+Example query with Amazon Web services, searching via ``time`` & ``aoi``.
 
 .. code-block:: javascript
 
@@ -74,8 +74,8 @@ Example query with Amazon Web services, searching via ``time`` & ``aoi`.`
             "cloud_provider": "aws",
             "bucket_name": "geotiff-scenes-data",
             "prefix": null,
-            "ids": null,
-            "bbox": [13.351818, 52.501907, 13.379109, 52.510788]
+            "filenames": null,
+            "bbox": [13.351818, 52.501907, 13.379109, 52.510788],
             "time": "2019-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
             "limit": 4
         }
