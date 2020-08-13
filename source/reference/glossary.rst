@@ -23,30 +23,21 @@
    analytical product
       A type of image or data that can be used to infer physical
       properties on the features of that data. For example, using
-      reflectance to estimate plant species richness as a biodiversity
-      indicator.
+      reflectance to estimate vegetation health.
 
    block
       Unit corresponding to either a data acquisition or a
       processing stage in a :term:`workflow`.
 
    bounding box
-      GeoJSON geometry represented by a rectangle
-      containing the coordinates of the southwesterly most extent ---
-      bottom left corner of the box --- followed by the coordinates of
-      the northeasterly most extent --- top right corner of the box ---
-      specified in Longitude/Latitude based on `WGS 84
-      <https://epsg.io/4326>`__.
+      GeoJSON geometry represented by a rectangle that describes the area of a map. It contains an array of coordinate pairs, with the first coordinate pair indicating the southwestern corner of the box and the second indicating the northeastern corner of the box. The coordinates are specified in longitude and latitude.
 
    capabilities
-      A set of constraints on the graph that constitutes :term:`workflow` that
-      defines what :term:`block` can be connected to other
-      block. E.g., only data blocks that output `SAFE files <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/data-formats>`_
+      A set of constraints in a :term:`workflow` that
+      defines what :term:`block` can be connected to another
+      block. For example, only data blocks that output `SAFE files <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/data-formats>`_
       can be used as input to the :ref:`SNAP polarimetric
-      <snap-polarimetric-block>` block. There are input and output
-      capabilties. The first constraint which blocks can **precede** a
-      given block in a workflow, while the later constraint which
-      blocks can **follow** that given block.
+      <snap-polarimetric-block>` block. There are two types of capabilities: input and output. The first constraint defines which blocks can **precede** a given block in a workflow, while the later constraint defines which blocks can **follow** that given block.
 
    console
       The **U**\ ser **I**\ nterface of the UP42 platform. It allows
@@ -64,7 +55,7 @@
       is a coordinate-based local, regional or global system used to locate geographical entities.
 
    cloud cover
-      Percentage or ratio of the given individual scene or region that is fully covered by clouds as defined by a cloud mask. Different cloud masks will returned different results depending on considerations on haze and cloud type.
+      Percentage or ratio of the given individual scene or region that is fully covered by clouds as defined by a cloud mask. Different cloud masks will return different results depending on considerations on haze and cloud type.
 
    data block
       A :term:`block` that provides satellite image data or other
@@ -96,7 +87,7 @@
    NDVI
       **N**\ ormalized **D**\ ifference **V**\ egetation **I**\
       ndex. One of the most widespread vegetation indexes used to
-      infer vegetation health and vitality.
+      measure vegetation health.
 
    EVI
       **E**\ nhanced **V**\ egetation **I**\ ndex.
@@ -105,11 +96,10 @@
     **E**\ uropean **P**\ etroleum **S**\ urvey **G**\ roup **G**\ eodetic Parameter Dataset (also EPSG registry) is a public registry of spatial reference systems, Earth ellipsoids, coordinate transformations and related units of measurement mantained by the International Association of Oil & Gas Producers (IOGP), formerly known as the European Petroleum Survey Group (EPSG). Each entity is assigned an EPSG code between 1024-32767 along with a standard machine-readable well-known text (WKT) representation. See more in `here <http://epsg.io/>`_.
 
    nodata mask
-      A raster image or band frequently contains cells with NoData, which represents the absence of data. Examples: borders, cloud masks etc.
+      A raster image or band frequently contains cells with NoData, which represents the absence of data. Examples: borders, cloud masks etc. NoData can either be stored as a separate raster mask or using a pixel value in the dataset that is excluded from the raster analysis. For example, -9999 and -32768 are common values for storing NoData.
 
    UTM
-    **U**\ niversal **T**\ ransverse **M**\ ercator projection. A UTM zone is a 6‎° segment of the Earth,
-    it's one of the most common map projections used today.
+    **U**\ niversal **T**\ ransverse **M**\ ercator projection, one of the most common map projections used in cartography. A UTM zone spans 6‎° of longitude.
 
    processing block
       A :term:`block` that takes input from a :term:`data block` and applies a processing operation to the data.
@@ -122,8 +112,8 @@
       A :term:`block` that has access restrictions from a commercial and/or
       legal perspective.
 
-   quicklooks
-      A low resolution RGB bitmap image for previewing a given output.
+   quicklook
+      A low resolution raster file of the actual image. Quicklooks allow quick assessment, previewing and browsing before loading the actual image.
 
    task
       A block in the context of a job, e.g., the :ref:`Pleiades data
@@ -140,11 +130,10 @@
    visual product
       An image or data that is used for display purposes. It
       can also be used for feature extraction and/or classification based
-      **solely** on the pixel value as a digital image --- usual bit
+      **solely** on the digital number (DN) --- usual bit
       depth is 8 bit per pixel, per band (RGB). For example, detecting
       ships in a port can be done using pattern recognition techniques
-      that rely on
-      `artificial neural networks <https://en.wikipedia.org/wiki/Artificial_neural_network>`_.
+      that rely on artificial neural networks.
 
    workflow
       A directed acyclic graph of blocks [#]_. See :ref:`definition <workflows-definition>`.
