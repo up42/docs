@@ -79,7 +79,7 @@ Example query with Amazon Web services, searching via time & aoi.
             "bucket_name": "spot-dimap-data",
             "prefix": null,
             "ids": null,
-            "bbox": [ 13.351818, 52.501907, 13.379109, 52.510788]
+            "bbox": [ 13.351818, 52.501907, 13.379109, 52.510788],
             "time": "2019-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
             "limit": 4,
             "max_cloud_cover": 20
