@@ -144,7 +144,7 @@ Example query using identifiers:
             "workspaceId": "0e33eb50-3404-48ad-b835-b0b4b72a5625",
             "workspaceName": "public",
             "workspaceTitle": "Public",
-            "up42.data.scene.dimap": "1bb7f9a2-5657-4f40-812b-df2373949ff1/0a20a6f3-c589-4adf-b978-8159dd82172e"
+            "up42.data_path": "1bb7f9a2-5657-4f40-812b-df2373949ff1/0a20a6f3-c589-4adf-b978-8159dd82172e"
           },
           "orderID": "0a20a6f3-c589-4adf-b978-8159dd82172e",
           "fileSize": 1070,

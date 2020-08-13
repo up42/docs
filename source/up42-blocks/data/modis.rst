@@ -105,7 +105,7 @@ Output format
             ]
           },
           "properties": {
-            "up42.data.aoiclipped": "7b4f92e9-58eb-4af2-9dd1-1d8be0adfa4b.tif"
+            "up42.data_path": "7b4f92e9-58eb-4af2-9dd1-1d8be0adfa4b.tif"
           }
         }
       ]
