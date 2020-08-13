@@ -42,12 +42,44 @@ all existing spectral bands by using a trained CNN. From an
 the generated images do not contain more information than the recorded
 at the original resolution.
 
+This block implements the model architectures described in [Müller2020]_. The
+paper also describes the methodology used and resulting metrics
+of each model architecture.
+
 Supported parameters
 --------------------
 
-This blocks takes no input parameters.
+* ``model``: The model to use to super-resolve the image. One of ``SRCNN`` (default), ``AESR`` or ``RedNet``.
 
-Output format
-:::::::::::::
+.. warning::
+    Choosing the deeper model architectures (``AESR`` and ``RedNet``) will
+    significantly impact the time required to super-resolve the image.
 
-AOI.clipped GeoTIFF format.
+Example parameters using the :ref:`SPOT DIMAP download block
+<spot-download-block>` as data source, returning the super-resolved result using the
+``AESR`` model:
+
+.. code-block:: javascript
+
+    {
+      "oneatlas-spot-fullscene:1": {
+        "ids": null,
+        "bbox": [
+          13.405215963721279,
+          52.48480326228838,
+          13.4388092905283,
+          52.505278605259086
+        ],
+        "time": null,
+        "limit": 1,
+        "order_ids": null,
+        "time_series": null
+      },
+      "superresolution:1": {
+        "model": "AESR"
+      }
+    }
+
+.. rubric:: References
+
+.. [Müller2020] Müller, M. U. et al. “SUPER-RESOLUTION OF MULTISPECTRAL SATELLITE IMAGES USING CONVOLUTIONAL NEURAL NETWORKS.” ISPRS Annals of Photogrammetry, Remote Sensing and Spatial Information Sciences V-1-2020 (2020): 33–40. `10.5194/isprs-annals-V-1-2020-33-2020 <https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/V-1-2020/33/2020/>`__.
