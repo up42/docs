@@ -74,7 +74,7 @@ Example query with Amazon Web services, searching via ``time`` & ``aoi``.
             "cloud_provider": "aws",
             "bucket_name": "geotiff-scenes-data",
             "prefix": null,
-            "ids": null,
+            "filenames": null,
             "bbox": [13.351818, 52.501907, 13.379109, 52.510788],
             "time": "2019-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
             "limit": 4
