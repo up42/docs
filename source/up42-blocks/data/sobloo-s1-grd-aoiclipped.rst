@@ -85,7 +85,7 @@ Example query using specific image IDs and a geometry:
 Output format
 -------------
 
-The output GeoJSON contains the metadata as returned by the Sobloo API, with the ``up42.data.aoiclipped``
+The output GeoJSON contains the metadata as returned by the Sobloo API, with the ``up42.data_path``
 capability mapping to the corresponding ``GeoTIFF`` file for the scene.
 
 Example output GeoJSON:
@@ -283,7 +283,7 @@ Example output GeoJSON:
                 "attitude":{
 
                 },
-                "up42.data.aoiclipped":"2f619da6-f305-489e-879d-ea78638a824c.tif"
+                "up42.data_path":"2f619da6-f305-489e-879d-ea78638a824c.tif"
              }
           }
        ]

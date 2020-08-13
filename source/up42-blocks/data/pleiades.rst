@@ -154,7 +154,7 @@ Output format
                     "workspaceId": "0e33eb50-3404-48ad-b835-b0b4b72a5625",
                     "workspaceName": "public",
                     "workspaceTitle": "Public",
-                    "up42.data.aoiclipped": "b32c43f2-2ddc-48d1-82e2-9c4ece2f43e4.tif"
+                    "up42.data_path": "b32c43f2-2ddc-48d1-82e2-9c4ece2f43e4.tif"
                 }
             }
         ]

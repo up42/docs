@@ -93,7 +93,7 @@ Example query using identifiers:
 Output format
 -------------
 
-The output GeoJSON contains the metadata as returned by the Sobloo API, with the ``up42.data.scene.sentinel2_l1c``
+The output GeoJSON contains the metadata as returned by the Sobloo API, with the ``up42.data_path``
 capability mapping to the directory containing the `SAFE data <http://earth.esa.int/SAFE/>`_ for the scene.
 
 Example output GeoJSON:
@@ -257,7 +257,7 @@ Example output GeoJSON:
                         "insertionDate": 1550853517863
                     },
                     "attitude": {},
-                    "up42.data.scene.sentinel2_l1c": "ef60b465-e3b0-4aa6-98af-8ff5bb1e5f5a"
+                    "up42.data_path": "ef60b465-e3b0-4aa6-98af-8ff5bb1e5f5a"
                 }
             }
         ]

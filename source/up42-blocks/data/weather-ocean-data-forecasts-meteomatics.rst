@@ -158,7 +158,7 @@ Output format
 		"properties": {
 		  "model_type": "mix",
 		  "parameter_name": "t_2m_C",
-		  "up42.data.scene.netcdf": "87022219-95fc-47f1-b210-e3ca8a629ee8/t_2m_C.nc"
+		  "up42.data_path": "87022219-95fc-47f1-b210-e3ca8a629ee8/t_2m_C.nc"
 		}
 	  },
 	  {

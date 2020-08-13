@@ -70,7 +70,7 @@ Output format
                 ]
               },
               "properties": {
-                "up42.data.aoiclipped": "581ff405-3564-494c-ba71-208e7cceb2b1.tif",
+                "up42.data_path": "581ff405-3564-494c-ba71-208e7cceb2b1.tif",
                 "acquisitionDate": "2019-07-26T04:42:39Z",
                 "cloudCoverPercentage": 10.0
               }

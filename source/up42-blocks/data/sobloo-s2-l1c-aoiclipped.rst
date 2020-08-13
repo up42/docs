@@ -61,7 +61,7 @@ Example query searching for images using ``bbox``, ``time``. ``limit`` and ``max
 Output format
 -------------
 
-The output GeoJSON contains the metadata as returned by the Sobloo API, with the ``up42.data.aoiclipped``
+The output GeoJSON contains the metadata as returned by the Sobloo API, with the ``up42.data_path``
 capability mapping to the corresponding ``GeoTIFF`` file for the scene.
 
 Example output GeoJSON:
@@ -229,7 +229,7 @@ Example output GeoJSON:
             "insertionDate": 1568225267391
           },
           "attitude": {},
-          "up42.data.aoiclipped": "16c34560-bff4-419e-922e-c70d092e8826.tif"
+          "up42.data_path": "16c34560-bff4-419e-922e-c70d092e8826.tif"
         }
       }
     ]

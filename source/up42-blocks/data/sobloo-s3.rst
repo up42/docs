@@ -170,7 +170,7 @@ Output format
 -------------
 
 The output GeoJSON contains the metadata as returned by the upstream provider API, `Sobloo <https://sobloo.eu>`_.
-The ``up42.data.scene.netcdf`` capability maps to the directory containing the `netcdf`_ for the scene. Example output GeoJSON:
+The ``up42.data_path`` capability maps to the directory containing the `netcdf`_ for the scene. Example output GeoJSON:
 
 .. code-block:: javascript
 

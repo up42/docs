@@ -161,7 +161,7 @@ Output format
               "workspaceId": "0e33eb50-3404-48ad-b835-b0b4b72a5625",
               "workspaceName": "public",
               "workspaceTitle": "Public",
-              "up42.data.scene.dimap": "f3092a17-cecc-4bad-9394-5263bc6663b3/e1d4aabb-bed0-4e17-87f9-4cbffadb0841"
+              "up42.data_path": "f3092a17-cecc-4bad-9394-5263bc6663b3/e1d4aabb-bed0-4e17-87f9-4cbffadb0841"
             },
             "orderID": "e1d4aabb-bed0-4e17-87f9-4cbffadb0841",
             "fileSize": 2052,
