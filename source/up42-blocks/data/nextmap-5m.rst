@@ -31,7 +31,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
 
 .. warning::
   This block can return a maximum of 1000 tiles per job. This means that the extent
-  of your input geometry can have a **maximum area of 25 000 sqkm**.
+  of your input geometry can have a **maximum area of 6 250 sqkm**.
 
 Example queries
 ---------------
