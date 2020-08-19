@@ -6,7 +6,7 @@
 
 Sentinel-1 L1C GRD AOI clipped
 ==============================
-Please see the `block details page <https://marketplace.up42.com/block/b1c88381-6df0-4919-a194-5d5b3b1ee2f7>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/b1c88381-6df0-4919-a194-5d5b3b1ee2f7>`_.
 
 Block type: ``DATA``
 
@@ -23,7 +23,7 @@ swath mode, 250km swath), 50x50m (EW extra wide swath mode, 400km swath).
 Supported query parameters
 --------------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.

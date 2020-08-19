@@ -6,7 +6,7 @@
 
 Sentinel-5P Full Scenes
 =======================
-Please see the `block details page <https://marketplace.up42.com/block/0c0c217f-d926-4534-9072-2e4ead2d3e6c>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/0c0c217f-d926-4534-9072-2e4ead2d3e6c>`_.
 
 Block type: ``DATA``
 
@@ -21,7 +21,7 @@ The output format is identical to the unzipped netcdf files that can be acquired
 Supported query parameters
 --------------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``ìmagery_layer``: A string for the selection of one of the 20 available Sentinel-5 image products (default is ``"L2__CH4___"``, corresponding to the *Methane (CH4)* product).
   See chapter :ref:`Imagery layers <sentinel-5p-imagery-layers>` for more details on the available layers.

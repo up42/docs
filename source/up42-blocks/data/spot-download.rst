@@ -6,7 +6,7 @@
 
 SPOT 6/7 Download
 =================
-Please see the `block details page <https://marketplace.up42.com/block/63a69b97-1765-474e-b465-0b319b8d3b2d>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/63a69b97-1765-474e-b465-0b319b8d3b2d>`_.
 
 Block type: ``DATA``
 
@@ -25,7 +25,7 @@ The available output bands of the SPOT block are: panchromatic, red, green, blue
 Supported parameters
 --------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``bbox``
   **or** ``intersects`` **or** ``contains``.

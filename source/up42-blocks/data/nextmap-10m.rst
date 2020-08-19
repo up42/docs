@@ -7,7 +7,7 @@
 NEXTMap 10 Elevation Data Suite
 ===============================
 
-For context, see `block details page <https://marketplace.up42.dev/block/bfd43fbc-b662-4874-9147-658a55bf9edc>`_.
+For more information, please read the `block description <https://marketplace.up42.com/block/8e527ea8-c8b3-46ab-86c1-b05dbeee7b42>`_.
 
 Block type: ``DATA``
 
@@ -20,7 +20,7 @@ infrastructure models and vegetation information. The blocks output two separate
 Supported parameters
 --------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``bbox``: The bounding box to use as an AOI. Will return all data points within this box. Use only ``bbox``
   **or** ``intersects``.

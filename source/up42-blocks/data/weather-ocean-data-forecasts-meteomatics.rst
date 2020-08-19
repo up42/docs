@@ -8,9 +8,8 @@
 Weather/Ocean data and forecasts
 ================================
 
-Please see the `block details page
-<https://marketplace.up42.com/block/235addd2-3efe-424b-8c35-d9b41dfe0eb5>`_
-for context.
+For more information, please read the `block description
+<https://marketplace.up42.com/block/235addd2-3efe-424b-8c35-d9b41dfe0eb5>`_.
 
 Block type: ``DATA``
 

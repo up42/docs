@@ -6,8 +6,7 @@
 
 Pléiades Primary
 =================
-
-.. Please see the `block details page <https://marketplace.up42.dev/block/d1e5e0de-71fa-4488-9c0e-3f22ac74a2b6>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/7bcfa144-e261-4228-b18e-4fc3d35e0b73>`_.
 
 Block type: ``DATA``
 
@@ -31,7 +30,7 @@ Please consult the ``gdalwarp`` `documentation <https://gdal.org/programs/gdalwa
 Supported parameters
 --------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``bbox``
   **or** ``intersects`` **or** ``contains``.

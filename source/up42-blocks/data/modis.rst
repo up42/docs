@@ -6,7 +6,7 @@
 
 MODIS AOI clipped
 =================
-Please see the `block details page <https://marketplace.up42.com/block/ef6faaf5-8182-4986-bce4-4f811d2745e5>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/ef6faaf5-8182-4986-bce4-4f811d2745e5>`_.
 
 Block type: ``DATA``
 
@@ -27,7 +27,7 @@ corresponding date for the supplied AOI will be provided.
 Supported parameters
 --------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
  * ``bbox``: The bounding box to use as an AOI. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
  * ``intersects``: A GeoJSON geometry to use as an AOI. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.

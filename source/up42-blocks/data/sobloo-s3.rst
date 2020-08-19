@@ -6,7 +6,7 @@
 
 Sentinel-3 Full Scenes
 ======================
-Please see the `block details page <https://marketplace.up42.com/block/ee08281c-d950-4258-81d5-e37187a9580e>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/ee08281c-d950-4258-81d5-e37187a9580e>`_.
 
 Block type: ``DATA``
 
@@ -25,7 +25,7 @@ The output format is identical to the unzipped netcdf files that can be acquired
 Supported query parameters
 --------------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``ìmagery_layer``: A string for the selection of one of the 15 available Sentinel-3 image products (default is ``"SL_1_RBT___"``, corresponding to the *brightness temperatures and radiances* product).
   See chapter :ref:`Imagery layers <sentinel-3-imagery-layers>` more details on the available layers.
