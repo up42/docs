@@ -2,14 +2,14 @@
 
 Sentinel-2 Level 2 (BOA) AOI clipped
 ====================================
-Please see the `block details page <https://marketplace.up42.com/block/018dfb34-fc19-4334-8125-14fd7535f979>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/018dfb34-fc19-4334-8125-14fd7535f979>`_.
 
 Block type: ``DATA``
 
 Supported parameters
 --------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects`` **or** ``contains``.

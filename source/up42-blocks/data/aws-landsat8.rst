@@ -6,14 +6,14 @@
 
 Landsat-8 Level 1 Full Scene
 ===================================
-Please see the `block details page <https://marketplace.up42.com/block/95519b2d-09d7-4cd0-a321-4d6a46bef6c1>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/3c89d53e-6aec-43bb-b8b8-3e7f0132e28e>`_.
 
 Block type: ``DATA``
 
 Supported parameters
 --------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``ids``: Landsat8 product IDs. e.g. ``[LC08_L1TP_150038_20170402_20180525_01_T1,...,LC08_L1TP_150038_20170501_20180628_01_T1]``
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``

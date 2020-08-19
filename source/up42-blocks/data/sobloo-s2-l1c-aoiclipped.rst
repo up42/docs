@@ -6,7 +6,7 @@
 
 Sentinel-2 L1C MSI AOI clipped
 ==============================
-Please see the `block details page <https://marketplace.up42.com/block/3a381e6b-acb7-4cec-ae65-50798ce80e64>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/3a381e6b-acb7-4cec-ae65-50798ce80e64>`_.
 
 Block type: ``DATA``
 
@@ -18,7 +18,7 @@ monitoring, inland water monitoring, glacier monitoring and flood mapping.
 Supported query parameters
 --------------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.

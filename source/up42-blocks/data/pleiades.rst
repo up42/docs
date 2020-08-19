@@ -1,23 +1,23 @@
 .. meta::
-   :description: UP42 data blocks: Pléaides block description
+   :description: UP42 data blocks: Pléiades block description
    :keywords: Pléiades 1A/1B, Airbus Defense & Space, AOI clipped, block description
 
 .. _pleiades-aoiclipped-block:
 
 Pléiades Streaming
 ==================
-Please see the `block details page <https://marketplace.up42.com/block/18d09f1a-3197-4c27-a15a-54d099c31435>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/18d09f1a-3197-4c27-a15a-54d099c31435>`_.
 
 Block type: ``DATA``
 
-This block provides pansharpened Pleiades HR imagery clipped to all tiles intersecting a given bounding box or AOI on a given zoom level. The part of the image that does not intersect with these tiles will be black. The block outputs a single GeoTIFF file and will store the AOI within the output feature geometry.
+This block provides pansharpened Pléiades HR imagery clipped to all tiles intersecting a given bounding box or AOI on a given zoom level. The part of the image that does not intersect with these tiles will be black. The block outputs a single GeoTIFF file and will store the AOI within the output feature geometry.
 
-The available output bands of the Pleiades block are: red, green, blue. Pansharpened Pleiades HR imagery has a spatial resolution of 0.5x0.5m.
+The available output bands of the Pleiades block are: red, green, blue. Pansharpened Pléiades HR imagery has a spatial resolution of 0.5x0.5m.
 
 Supported parameters
 --------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``bbox``
   **or** ``intersects`` **or** ``contains``.

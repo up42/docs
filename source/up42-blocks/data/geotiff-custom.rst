@@ -6,7 +6,7 @@
 
 GeoTIFF Custom Data
 ===================
-Please see the `block details page <https://marketplace.up42.com/block/b623400c-c5ac-40af-bda2-0d2734aa9dd1>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/eed51bcb-c7cc-4084-b518-6c59f46b48c8>`_.
 
 Block type: ``DATA``
 
@@ -30,7 +30,7 @@ The block outputs the scene data and an automatically created `data.json` file w
 Supported parameters
 --------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``cloud_provider``: The cloud storage provider of the bucket, either ``gcs`` or ``aws``.
 * ``bucket_name``: The bucket name.

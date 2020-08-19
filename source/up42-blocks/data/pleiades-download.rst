@@ -6,7 +6,7 @@
 
 Pléiades Download
 =================
-Please see the `block details page <https://marketplace.up42.com/block/defb134b-ca00-4e16-afa0-639c6dc0c5fe>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/defb134b-ca00-4e16-afa0-639c6dc0c5fe>`_.
 
 Block type: ``DATA``
 
@@ -25,7 +25,7 @@ The available output bands of the Pleiades block are: panchromatic, red, green, 
 Supported parameters
 --------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``bbox``
   **or** ``intersects`` **or** ``contains``.

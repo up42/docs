@@ -6,14 +6,15 @@
 
 OpenStreetMap Extraction
 ===================================
-Please see the `block details page <https://marketplace.up42.com/block/95519b2d-09d7-4cd0-a321-4d6a46bef6c1>`_ for context.
+
+For more information, please read the `block description <https://marketplace.up42.com/block/df2ec03a-50c4-47ac-8a83-2db613869cf9>`_.
 
 Block type: ``DATA``
 
 Supported parameters
 --------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``bbox``: The bounding box to use as an AOI. Will return all geometries that intersect with this box. Only ``box`` is supported.
 * ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
@@ -26,7 +27,7 @@ The output data is a GeoJSON file(s) based on number of ``osm_tags`` supplied as
 
 .. important::
   The ``time`` and/or ``time_series`` parameter will only consider the end date for fetching the data. This behaviour is imposed because the changesets are not extensive within shorter periods of few months.
-  
+
   If the future date is supplied, the result will default to the latest available timestamp.
 
 .. note::

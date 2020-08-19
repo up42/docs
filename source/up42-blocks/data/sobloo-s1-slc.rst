@@ -7,7 +7,7 @@
 
 Sentinel-1 L1C SLC Full Scenes
 ==============================
-Please see the `block details page <https://marketplace.up42.com/block/222c9742-ed19-4a2e-aa87-d6b58193cd31>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/222c9742-ed19-4a2e-aa87-d6b58193cd31>`_.
 
 Block type: ``DATA``
 
@@ -26,7 +26,7 @@ swath mode, 250km swath), 50x50m (EW extra wide swath mode, 400km swath).
 Supported parameters
 --------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.

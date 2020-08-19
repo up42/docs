@@ -6,7 +6,7 @@
 
 Sentinel-1 L1C GRD Full Scenes
 ==============================
-Please see the `block details page <https://marketplace.up42.com/block/b623400c-c5ac-40af-bda2-0d2734aa9dd1>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/b623400c-c5ac-40af-bda2-0d2734aa9dd1>`_.
 
 Block type: ``DATA``
 
@@ -26,7 +26,7 @@ swath mode, 250km swath), 50x50m (EW extra wide swath mode, 400km swath).
 Supported parameters
 --------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.

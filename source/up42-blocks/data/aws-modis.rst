@@ -6,7 +6,7 @@
 
 AWS MODIS Full Scenes
 =====================
-Please see the `block details page <https://marketplace.up42.com/block/98c1acfa-c141-4095-b2e6-acf52d110178>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/15edaaa5-7d82-4ca7-b0ea-17f7f2006590>`_.
 
 Block type: ``DATA``
 
@@ -22,7 +22,7 @@ Important application areas for MODIS MCD43A4 imagery are: land cover monitoring
 Supported query parameters
 --------------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``ids``: MODIS product IDs. e.g. ``["MCD43A4.A2018212.h23v05.006.2018226175455",...,"MCD43A4.A2018213.h23v05.006.2018226181629"]``
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
@@ -136,4 +136,3 @@ The output data is stored in a folder with the same name as the Product ID. This
             }
           ]
        }
-

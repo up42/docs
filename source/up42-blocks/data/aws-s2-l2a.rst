@@ -6,7 +6,7 @@
 
 Sentinel-2 L2A MSI Full Scenes
 ==============================
-Please see the `block details page <https://marketplace.up42.com/block/98c1acfa-c141-4095-b2e6-acf52d110178>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/e6d0cb52-b649-4fca-9f2f-e215b7c02a37>`_.
 
 Block type: ``DATA``
 
@@ -24,7 +24,7 @@ Important application areas for Sentinel-2 imagery are: land cover monitoring (a
 Supported query parameters
 --------------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.
@@ -75,6 +75,3 @@ Example query using identifiers:
                 "ids": ["S2B_MSIL2A_20200412T141729_N0214_R010_T20LRK_20200412T183037"]
             }
     }
-
-
-

@@ -7,7 +7,7 @@
 AIS Historical Vessel Positions
 ===============================
 
-For context, see `block details page <https://marketplace.up42.com/block/00cc275a-fa04-44a5-9100-bffd6521b52e>`_.
+For more information, please read the `block description <https://marketplace.up42.com/block/00cc275a-fa04-44a5-9100-bffd6521b52e>`_.
 
 Block type: ``DATA``
 
@@ -22,7 +22,7 @@ The output is a `ais-points` GeoJSON file containing the AIS point geometries an
 Supported parameters
 --------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``bbox``: The bounding box to use as an AOI. Will return all data points within this box. Use only ``bbox``
   **or** ``intersects``.

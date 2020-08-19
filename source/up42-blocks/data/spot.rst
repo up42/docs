@@ -6,14 +6,14 @@
 
 SPOT 6/7 AOI clipped
 ====================
-Please see the `block details page <https://marketplace.up42.com/block/045019bb-06fc-4fa1-b703-318725b4d8af>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/045019bb-06fc-4fa1-b703-318725b4d8af>`_.
 
 Block type: ``DATA``
 
 Supported parameters
 --------------------
 
-For more information on supported filters, see :ref:`query filter section  <filters>`.
+For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``bbox``
   **or** ``intersects`` **or** ``contains``.
