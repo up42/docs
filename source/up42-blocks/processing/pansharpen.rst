@@ -6,7 +6,7 @@
 
 Pan-sharpening SPOT/Pléiades
 ============================
-Please see the `block details page <https://marketplace.up42.com/block/903f0435-d638-475e-bbe9-53b5664a22a8>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/903f0435-d638-475e-bbe9-53b5664a22a8>`_.
 
 Block type: ``PROCESSING``
 

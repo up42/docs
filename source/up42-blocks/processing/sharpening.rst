@@ -6,7 +6,7 @@
 
 Sharpening Filter
 =================
-Please see the `block details page <https://marketplace.up42.com/block/e374ea64-dc3b-4500-bb4b-974260fb203e>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/e374ea64-dc3b-4500-bb4b-974260fb203e>`_.
 
 Block type: ``PROCESSING``
 

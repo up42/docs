@@ -4,7 +4,7 @@
 
 .. _dimap-custom-data-block:
 
-DIMAP Custom Data
+Import Data (DIMAP)
 =================
 For more information, please read the `block description <https://marketplace.up42.com/block/98066215-6c60-4076-bbb8-031987fec7fc>`_.
 

@@ -28,9 +28,9 @@ For more information, please read the section :ref:`Data source query filters  <
   **or** ``intersects``.
 * ``clip_to_aoi``: By default is ``true`` which means that the area that defined by ``bbox``, or ``intersect`` will be clipped out. **Note** that by setting this parameter to ``false`` all tiles that intersecting AOI will be delivered.
 
-.. warning::
+.. note::
   This block can return a maximum of 1000 tiles per job. This means that the extent
-  of your input geometry can have a **maximum area of 100 000 sqkm**.
+  of your input geometry can have a **maximum area of 100 000 km²**.
 
 Example queries
 ---------------
