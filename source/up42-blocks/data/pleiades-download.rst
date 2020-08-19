@@ -12,7 +12,11 @@ Block type: ``DATA``
 
 This block provides Pléiades HR imagery intersecting a given bounding box or AOI. The block outputs a DIMAP file and will store the AOI within the output feature geometry.
 
-The available output bands of the Pleiades block are: panchromatic, red, green, blue and near infrared. Pansharpened Pleiades HR imagery has a spatial resolution of 0.5x0.5m. The multispectral bands have a resolution of 2x2m.
+The available output bands of the Pleiades block are: panchromatic, red, green, blue and near infrared. Pansharpened Pléiades HR imagery has a spatial resolution of 0.5x0.5m. The multispectral bands have a resolution of 2x2m.
+
+.. note::
+
+   When downloading Pléiades imagery, the AOI must be between 0.1km² and 400km².
 
 .. tip::
 
