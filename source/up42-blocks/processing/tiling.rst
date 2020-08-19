@@ -33,7 +33,7 @@ Supported parameters
 * ``match_extents``: If set to true, the tile extents (bounding boxes) of all input layers will perfectly match.
 * ``augmentation_factor``: Factor used to create additional tiles by applying a pixel offset (default 1).
 * ``output_prefix``: Prefix of tile names, default is to use input filename.
-* ``discard_empty_tiles``:  If set to True, tiles that only consist of nodata (as defined by an alpha band or a set nodata value) will not be returned.
+* ``discard_empty_tiles``:  If set to True, tiles that only consist of zeros or nodata (as defined by an alpha band or a set nodata value) will not be returned.
 * ``nodata``: Value representing nodata within each raster band. If not set, defaults to the nodata value of the input raster.
 
 Example parameters using the :ref:`SPOT AOIClipped block
