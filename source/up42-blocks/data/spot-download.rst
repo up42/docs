@@ -14,9 +14,13 @@ This block provides SPOT imagery intersecting a given bounding box or AOI. The b
 
 The available output bands of the SPOT block are: panchromatic, red, green, blue and near infrared. SPOT Pansharpened imagery has a spatial resolution of 2x2m. The multispectral bands have a resolution of 8x8m.
 
+.. note::
+
+   When downloading SPOT imagery, the AOI must be between 0.1km² and 3600km².
+
 .. tip::
 
-	Find out more about the DIMAP image format `here <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`_. DIMAP is a GDAL supported `raster format <https://gdal.org/drivers/raster/dimap.html>`_.
+	 Find out more about the DIMAP image format `here <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`_. DIMAP is a GDAL supported `raster format <https://gdal.org/drivers/raster/dimap.html>`_.
 
 Supported parameters
 --------------------
