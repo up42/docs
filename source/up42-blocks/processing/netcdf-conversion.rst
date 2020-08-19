@@ -7,7 +7,7 @@
 NetCDF -> GeoTIFF Conversion
 ============================
 
-Please see the `block details page <https://marketplace.up42.com/block/e826be64-827b-4df9-b32d-56c528b8050d>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/e826be64-827b-4df9-b32d-56c528b8050d>`_.
 
 Block type: ``PROCESSING``
 

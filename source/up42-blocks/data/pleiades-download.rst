@@ -16,7 +16,7 @@ The available output bands of the Pleiades block are: panchromatic, red, green, 
 
 .. note::
 
-   When downloading Pléiades imagery, the AOI must be between 0.1km² and 400km².
+   When downloading Pléiades imagery, the AOI must be **between 0.1km² and 400km²**.
 
 .. tip::
 

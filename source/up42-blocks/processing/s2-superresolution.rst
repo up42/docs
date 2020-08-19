@@ -7,7 +7,7 @@
 
 Sentinel-2 Super-resolution
 ===========================
-Please see the `block details page <https://marketplace.up42.com/block/f6c29b0a-75bd-44a1-a040-f18c9e881d1d>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/f6c29b0a-75bd-44a1-a040-f18c9e881d1d>`_.
 
 Block type: ``PROCESSING``
 
@@ -16,7 +16,7 @@ superresolution algorithm on it. This algorithm creates a 10m
 resolution for all the existing spectral bands within 20m and 60m
 resolutions by using a trained convolutional neural network.
 
-.. warning::
+.. note::
 
    This block works on a minimum image size of 192x192 pixels. This is
    equivalent to a **minimum area of 4km**:superscript:`2`.

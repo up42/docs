@@ -6,7 +6,7 @@
 
 Vectorization
 =============
-Please see the `block details page <https://marketplace.up42.com/block/a9c26542-c431-4e89-b654-8cf5c3d2f0b6>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/a9c26542-c431-4e89-b654-8cf5c3d2f0b6>`_.
 
 Block type: ``PROCESSING``
 

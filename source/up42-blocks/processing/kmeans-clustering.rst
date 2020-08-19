@@ -6,7 +6,7 @@
 
 K-means Clustering
 ==================
-Please see the `block details page <https://marketplace.up42.com/block/2ac55313-240d-4a7e-ac47-b7e7786f1f25>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/2ac55313-240d-4a7e-ac47-b7e7786f1f25>`_.
 
 Block type: ``PROCESSING``
 

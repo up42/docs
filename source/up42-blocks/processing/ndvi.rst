@@ -6,16 +6,16 @@
 
 NDVI SPOT/Pléiades
 ==================
-Please see the `block details page <https://marketplace.up42.com/block/d0da4ac9-94c6-4905-80f5-c95e702ca878>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/d0da4ac9-94c6-4905-80f5-c95e702ca878>`_.
 
 Block type: ``PROCESSING``
 
-This block computes the Normalized Difference Vegatation Index (NDVI) from images of the Pleiades or SPOT sensor that include a NIR band.
-At the time of writing it can therefore only process output from the :ref:`Pléiades DIMAP download block <pleiades-download-block>` or
-:ref:`SPOT DIMAP download block <spot-download-block>` converted to GeoTIFF by the
-:ref:`DIMAP Conversion block <dimap-conversion-block>` or the :ref:`Pansharpen block <pansharpen-block>` .
+This block computes the Normalized Difference Vegetation Index (NDVI) from Pléiades or SPOT images that include a NIR band.
+This block can only process outputs from the blocks :ref:`Pléiades Download <pleiades-download-block>` or
+:ref:`SPOT 6/7 Download <spot-download-block>`, which have been converted to GeoTIFF with the
+blocks :ref:`DIMAP -> GeoTIFF Conversion <dimap-conversion-block>` or :ref:`Pan-sharpening SPOT/Pléiades <pansharpen-block>` .
 
-NDVI can be used as an indicator for vegetation health or biomass. It is computed via the following formula:
+NDVI is used as an indicator for vegetation health and it is computed via the following formula:
 
 .. math::
 

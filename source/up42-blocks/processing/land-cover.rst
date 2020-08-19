@@ -5,13 +5,13 @@
 
 .. _land-cover-block:
 
-Beta Land Cover Segmentation Pléiades/SPOT
+Land Cover Classifier for Pléiades/SPOT (Beta version)
 ==========================================
 
 .. warning::
    This block is currently in a *beta* release stage.
 
-Please see the `block details page <https://marketplace.up42.com/block/dd0ffe31-6d70-45a0-90d2-ddebe73ce807>`_ for context.
+For more information, please read the `block description <https://marketplace.up42.com/block/dd0ffe31-6d70-45a0-90d2-ddebe73ce807>`_.
 
 Block type: ``PROCESSING``
 
