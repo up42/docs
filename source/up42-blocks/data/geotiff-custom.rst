@@ -65,6 +65,7 @@ Example query with Google Cloud Storage, using ``filenames`` and ``prefix``:
             "limit": 1
         }
     }
+
 Example query with Amazon Web services, searching via ``time`` & ``aoi``.
 
 .. code-block:: javascript
