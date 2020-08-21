@@ -9,7 +9,7 @@ Run your first job
 ====================
 
 This section will guide you through running your first job on the UP42
-platform using a simple demo project that calculates an :term:`NDVI` Vegetation Index.
+platform using a simple demo project that calculates an :term:`NDVI`.
 
 The UP42 console
 -----------------
@@ -74,7 +74,7 @@ In the map below you can see where this image is located.
    account then these limitations **do not** apply. You will be able
    to set the AOI up to 1000 km :superscript:`2`.
 
-          
+
 Run your first job
 -------------------
 

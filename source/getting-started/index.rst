@@ -7,22 +7,17 @@
 Getting started with UP42
 =========================
 
-This is the section for beginners to UP42. It provides you with an
-introductory overview of the many things that you can do on our
-platform.
+UP42 aims to democratize the access to free or commercial satellite data and algorithms that extract valuable information for numerous use cases: flood mapping, vegetation health monitoring, object detection, land cover change and many more. UP42 also provides tools that facilitate integrating a wide variety of Earth observation data into your workflows.
 
-.. figure:: _assets/up42-console_.png
+This introductory section provides an overview of how the UP42 platform works and what functionalities can be used to create a project. This will help you become familiar with UP42 and explore the diverse geospatial solutions that we have to offer.
+
+.. figure:: _assets/up42_first_page_scheme.png
    :align: center
-   :alt: The UP42 Console
+   :alt: The UP42 Platform
 
-   The UP42 Console
+   The UP42 Platform
 
-We start with :ref:`exploring <first-job-run>` the very first
-:term:`job` that is automatically run once you confirm your UP42
-account. Proceed by :ref:`creating <build-first-workflow>` your own
-first workflow. Then take a sneek peek into more advanced topics like
-:ref:`running a job via the API <first-api-request>` and/or experiment with your first
-:ref:`custom block <first-custom-block>`.
+You start by signing up and creating an UP42 account. This step will allow you to open the demo project, which contains the demo workflow. The demo workflow is a combination of data and processing blocks. These blocks are UP42 units that point to a specific geospatial data acquisition and processing algorithm. Finally, the workflow is being run as a job to generate results.
 
 .. toctree::
    :maxdepth: 1
