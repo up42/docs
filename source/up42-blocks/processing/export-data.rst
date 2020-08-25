@@ -37,7 +37,7 @@ For more information, please read the section :ref:`Data source query filters  <
 Example parameters
 ---------------
 
-Example for exporting Sentinel-2 data to GCS, using a bucket ``prefix``:
+Example for exporting Sentinel-2 data to GCS bucket, using a ``prefix``:
 
 .. code-block:: javascript
 
