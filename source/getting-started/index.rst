@@ -9,6 +9,7 @@ Getting started with UP42
 
 This introductory section provides an overview of how the UP42 platform works and what functionalities can be used to create a project. This will help you become familiar with UP42 and explore the diverse geospatial solutions that we have to offer.
 
+
 .. figure:: _assets/up42-console_.png
    :align: center
    :alt: The UP42 Platform
