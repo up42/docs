@@ -10,7 +10,7 @@ The UP42 documentation explains how to get access to data and use the available 
 
 
 UP42 options
------------
+------------
 
 To access geospatial data and algorithms, UP42 offers three major options:
 
@@ -25,10 +25,11 @@ To access geospatial data and algorithms, UP42 offers three major options:
 + `Python SDK <https://up42.github.io/up42-py>`_ |br|
 + |first-job| :ref:`Console <first-job-run>` |br|
 
+
 |hr|
 
 Running your own code with UP42
--------------------------------------
+-------------------------------
 
 If you are looking into **developing a processing algorithm** and/or
 use your own data sources, then start your journey into it by
