@@ -4,62 +4,46 @@
 
 Welcome to the UP42 documentation
 =================================
-Here you can find comprehensive information on how to use UP42 in all
-its aspects and find quick & easy entry points into our
-documentation.
+UP42 aims to democratize the access to free and commercial geospatial data, as well as provide geospatial algorithms that extract meaningful information for numerous use cases: flood mapping, vegetation health monitoring, object detection, land cover change, cloud masking and many more.
+
+The UP42 documentation explains how to get access to data and use the available algorithms. This documentation also describes the tools that facilitate integrating Earth observation data into your workflows.
 
 
-.. tip:: The `Python SDK
-    <https://up42.github.io/up42-py/>`__ provides an easy way to
-    integrate the :ref:`UP42 API <api-specification>`
-    with your own product or analysis.
+UP42 options
+------------
 
-    .. figure:: _assets/python_sdk.jpg
-       :target: https://up42.github.io/up42-py/
-       :align: center
-       :alt: The UP42 Python SDK
+To access geospatial data and algorithms, UP42 offers three major options:
+
+**1. REST API** - If you are a developer who wants to build custom applications, we provide the pure API that you can easily integrate into your product.
+
+**2. Python SDK** - If you are a developer who wants to build custom applications, we provide the Python SDK which contains the API and many other functionalities.
+
+**3. Console** - If you prefer the interactive graphical user interface, using the console is the right way to quickly build your workflows and get the data or algorithms you need.
 
 
-First steps
------------
++ |first-api| :ref:`REST API <first-api-request>` |br|
++ `Python SDK <https://up42.github.io/up42-py>`_ |br|
++ |first-job| :ref:`Console <first-job-run>` |br|
 
-Use the :term:`console` to run your first job, then learn how to
-create a workflow. Finally, run a job via the API.
-
-+ |first-job| :ref:`Run your first UP42 job <first-job-run>`
-+ |first-workflow| :ref:`Your first workflow <build-first-workflow>`
-+ |first-api| :ref:`Your first API request <first-api-request>`
 
 |hr|
 
-Going further
--------------
+Running your own code with UP42
+-------------------------------
 
-Now that you know the basics, grasp the concepts and terminology
-specific to UP42. How to query for data: what filters are available.
-Walkthrough the API: get an overview of what can be done via the API.
-
-+ |first-job| :ref:`Core concepts <core-concepts>` |br|
-+ |filters| :ref:`Data filters <filters>` |br|
-+ |first-api| :ref:`API tutorial <api-walkthrough>` |br|
-
-|hr|
-
-Introduction to running your own code
--------------------------------------
-
-If you are looking into **developing** a processing algorithm and/or
+If you are looking into **developing a processing algorithm** and/or
 use your own data sources, then start your journey into it by
-experimenting with our demo processing block, offered as free software
-on `Github
-<https://github.com/up42/sharpening>`_. We have additionally a
-`toolkit <https://up42.github.io/blocks/>`_ to get you started
-developing your custom block. Learn how
-to develop **your own** processing block and, if need be, make use of
-GPUs to speed it up.
+experimenting with our free processing block: `UP42 Sharpening
+<https://github.com/up42/sharpening>`_.
 
-+ |first-block| :ref:`Push your first block <first-custom-block>`
+We additionally offer a toolkit to get you started
+developing your own custom block and make use of
+GPUs to speed up the computation: `UP42 Block utilities
+<https://up42.github.io/blocks/>`_.
+
+
 + |develop-block| :ref:`Develop your block <custom-processing-block-dev>`
++ |first-block| :ref:`Push your first block <first-custom-block>`
 + |gpu-block| :ref:`Use GPUs in your block <adding-gpu-support-block>`
 
 |hr|
