@@ -12,7 +12,7 @@ For more information, please read the `block description <https://marketplace.up
 Block type: ``PROCESSING``
 
 This block identifies vector features output by other processing blocks, ex. `Ship Detection block <https://marketplace.up42.com/block/79e3e48c-d65f-4528-a6d4-e8d20fecc93c>`_,
-`Car Detection block <https://marketplace.up42.com/block/7d8dda9f-db1e-4645-9c1b-e056e0bdc698>`_,and counts the number of objects
+`Car Detection block <https://marketplace.up42.com/block/7d8dda9f-db1e-4645-9c1b-e056e0bdc698>`_, and counts the number of objects
 by vector type.
 
 The output is the `count_objects` JSON file containing the number of occurrences of each vector type.
