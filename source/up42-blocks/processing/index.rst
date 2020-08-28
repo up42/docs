@@ -31,3 +31,4 @@ blocks built by UP42.
    s5p_lvl3
    ship-identification
    land-cover
+   up42-countobjects

@@ -11,16 +11,16 @@ For more information, please read the `block description <https://marketplace.up
 
 Block type: ``PROCESSING``
 
-This block identifies geometry features output by other processing blocks, ex. Ship detection, Car detection
+This block identifies vector features output by other processing blocks, ex. Ship detection, Car detection,
 and counts the number of objects by vector type.
 
-The output is the `count_objects` JSON file containing the vector types and number of occurrences.
+The output is the `count_objects` JSON file containing the number of occurrences of each vector type.
 
 Example usage
 -------------
 
 Example running a full Count Objects workflow (SPOT 6/7 streaming data block →
-Tiling → Ship Detection → Ship Identification → Count Objects).
+Tiling → Ship Detection → Count Objects).
 
 .. code-block:: javascript
 
