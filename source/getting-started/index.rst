@@ -7,11 +7,10 @@
 Getting started with UP42
 =========================
 
-UP42 aims to democratize the access to free or commercial satellite data and algorithms that extract valuable information for numerous use cases: flood mapping, vegetation health monitoring, object detection, land cover change and many more. UP42 also provides tools that facilitate integrating a wide variety of Earth observation data into your workflows.
-
 This introductory section provides an overview of how the UP42 platform works and what functionalities can be used to create a project. This will help you become familiar with UP42 and explore the diverse geospatial solutions that we have to offer.
 
-.. figure:: _assets/up42_first_page_scheme.png
+
+.. figure:: _assets/up42-console_.png
    :align: center
    :alt: The UP42 Platform
 
