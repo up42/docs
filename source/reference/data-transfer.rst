@@ -143,10 +143,9 @@ As mentioned in the :ref:`section on specifications
 with property keys that contain the values that correspond to those
 capabilities.
 
-In the case of imagery or large amounts of vector data (in formats
-such as GeoJSON, Shapefiles or KML), where this would become impractical
-to add to the JSON itself, the value should simply be a file path,
-**relative** to the main metadata file.
+In the case of imagery or vector data (in formats such as GeoJSON, Shapefiles
+or KML), where It would be impractical to add the data to the JSON itself,
+the value should simply be a file path, **relative** to the main metadata file.
 
 The corresponding file(s) should then be written to the output
 directory when saving data.
