@@ -59,3 +59,7 @@ Tiling → Ship Detection → Count Objects).
 Output format
 -------------
 Output format is a ``JSON`` file.
+
+.. code-block:: javascript
+
+    [Counter({'LineString': 2621, 'Polygon': 46}), Counter({'Polygon': 5, 'MultiPolygon': 1}), Counter({'Polygon': 4087, 'MultiPolygon': 93})]
