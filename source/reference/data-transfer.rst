@@ -138,14 +138,10 @@ actual fetching of image data.
 Imagery and vector data
 -----------------------
 
-As mentioned in the :ref:`section on specifications
-<feature-capabilities>` above, blocks should output GeoJSON features
-with property keys that contain the values that correspond to those
-capabilities.
-
-In the case of imagery or vector data (in formats such as GeoJSON, Shapefiles
-or KML), where It would be impractical to add the data to the JSON itself,
-the value should simply be a file path, **relative** to the main metadata file.
+As mentioned in the section on specifications above, blocks should output GeoJSON
+features with the property key "up42.data_path" pointing to the created output file(s).
+In the case of imagery or vector data (in formats such as GeoJSON, Shapefiles or KML),
+the value should simply be a file path, *relative** to the main metadata file.
 
 The corresponding file(s) should then be written to the output
 directory when saving data.
