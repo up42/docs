@@ -78,23 +78,25 @@ Example query using ``bbox``:
 
 .. code-block:: javascript
 
-	{
-	  "meteomatics:1": {
-		"bbox": [
-		  13.342896,
-		  52.466887,
-		  13.478851,
-		  52.547131
-		],
-		"time": "2019-12-01T00:00:00+00:00/2019-12-05T23:59:59+00:00",
-		"variables": [
-		  "t_2m:C",
-		  "precip_5min:mm",
-		  "wind_speed_100m:ms"
-		],
-		"time_interval": 3
-	  }
-	}
+    {
+      "meteomatics-weather-map:1": {
+      "bbox": [
+         13.339291,
+         52.467305,
+         13.421688,
+         52.511729
+      ],
+      "time": "2020-01-01T00:00:00+00:00/2020-01-02T23:59:59+00:00",
+      "variables": [
+        "t_2m:C",
+        "precip_5min:mm",
+        "wind_speed_100m:ms"
+      ],
+      "time_interval": 6,
+      "colormap_style": 2,
+      "pixel_resolution": 3
+      }
+    }
 
 Output format
 -------------
