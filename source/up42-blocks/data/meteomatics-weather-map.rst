@@ -275,7 +275,7 @@ Example query using ``time_series`` and adding one more ``variable`` to the vari
 .. code-block:: javascript
 
 	{
-	  "meteomatics:1": {
+	  "meteomatics-weather-map:1": {
 		"bbox": [
 		  13.233032,
 		  52.395715,
