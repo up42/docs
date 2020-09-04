@@ -31,9 +31,9 @@ For more information on supported filters, see :ref:`query filter
 section <filters>`.
 
 * ``bbox``: The bounding box to use as an area of interest (AOI). Will return all scenes that intersect with this box. Use only ``bbox``
-  **or** ``intersects`` **or** ``contains``.
+  **or** ``intersects``.
 * ``intersects``: A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use only ``bbox``
-  **or** ``intersects`` **or** ``contains``.
+  **or** ``intersects``.
 * ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``time_interval``: A desired spacing in hours between the start and end point in time. By default, ``time_interval`` is set to 3 hours.
