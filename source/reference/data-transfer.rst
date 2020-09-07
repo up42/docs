@@ -141,7 +141,7 @@ Imagery and vector data
 As mentioned in the section on specifications above, blocks should output GeoJSON
 features with the property key "up42.data_path" pointing to the created output file(s).
 In the case of imagery or vector data (in formats such as GeoJSON, Shapefiles or KML),
-the value should simply be a file path, *relative** to the main metadata file.
+the value should simply be a file path, **relative** to the main metadata file.
 
 The corresponding file(s) should then be written to the output
 directory when saving data.
