@@ -61,19 +61,15 @@ is an arbitrary key/value mapping.  A ``Feature`` can have an
 that provide :ref:`quicklook <quicklooks>` images. If the ``id`` is
 set, then it has to be used as the stem of output file names.
 
-.. _feature-capabilities:
+.. _up42_data_path:
 
-Capabilities in ``Feature`` properties
-++++++++++++++++++++++++++++++++++++++
+up42.data_path property
++++++++++++++++++++++++
 
-To reduce the amount of guesswork required to pass data between
-blocks, every :ref:`capability <block-capabilities>` that a block
-outputs should have a corresponding key in the ``"properties"`` field
-of the features that it generates.
+Any feature in the ``data.json`` should contain a property ``up42.data_path`` with a relative file path
+pointing to the respective file in the ``tmp/output`` folder. This is the case for output imagery
+as well as vector data. Example:
 
-For example, if a block outputs the
-``custom.data.metadata.example.foo`` capability, then the
-corresponding output should look something like this:
 
 .. code-block:: javascript
 
