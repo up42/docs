@@ -1,5 +1,5 @@
 .. meta::
-   :description: UP42 data blocks: Weathet/Ocean data forecasts block
+   :description: UP42 data blocks: Weather/Ocean data forecasts block
    :keywords: weather, ocean, forecast, meteomatics, model data,
               observational data, time series
 
@@ -98,142 +98,6 @@ Example query using ``bbox``:
       }
     }
 
-Output format
--------------
-
-.. code-block:: javascript
-
-	{
-	"type": "FeatureCollection",
-	"features": [
-	[
-	  {
-		"type": "Feature",
-		"bbox": [
-		  13.342896,
-		  52.466887,
-		  13.478851,
-		  52.547131
-		],
-		"geometry": {
-		  "type": "Polygon",
-		  "coordinates": [
-			[
-			  [
-				13.478851,
-				52.466887
-			  ],
-			  [
-				13.478851,
-				52.547131
-			  ],
-			  [
-				13.342896,
-				52.547131
-			  ],
-			  [
-				13.342896,
-				52.466887
-			  ],
-			  [
-				13.478851,
-				52.466887
-			  ]
-			]
-		  ]
-		},
-		"properties": {
-		  "model_type": "mix",
-		  "parameter_name": "t_2m_C",
-		  "up42.data_path": "87022219-95fc-47f1-b210-e3ca8a629ee8/t_2m_C.nc"
-		}
-	  },
-	  {
-		"type": "Feature",
-		"bbox": [
-		  13.342896,
-		  52.466887,
-		  13.478851,
-		  52.547131
-		],
-		"geometry": {
-		  "type": "Polygon",
-		  "coordinates": [
-			[
-			  [
-				13.478851,
-				52.466887
-			  ],
-			  [
-				13.478851,
-				52.547131
-			  ],
-			  [
-				13.342896,
-				52.547131
-			  ],
-			  [
-				13.342896,
-				52.466887
-			  ],
-			  [
-				13.478851,
-				52.466887
-			  ]
-			]
-		  ]
-		},
-		"properties": {
-		  "model_type": "mix",
-		  "parameter_name": "precip_5min_mm",
-		  "up42.data.scene.netcdf": "87022219-95fc-47f1-b210-e3ca8a629ee8/precip_5min_mm.nc"
-		}
-	  },
-	  {
-		"type": "Feature",
-		"bbox": [
-		  13.342896,
-		  52.466887,
-		  13.478851,
-		  52.547131
-		],
-		"geometry": {
-		  "type": "Polygon",
-		  "coordinates": [
-			[
-			  [
-				13.478851,
-				52.466887
-			  ],
-			  [
-				13.478851,
-				52.547131
-			  ],
-			  [
-				13.342896,
-				52.547131
-			  ],
-			  [
-				13.342896,
-				52.466887
-			  ],
-			  [
-				13.478851,
-				52.466887
-			  ]
-			]
-		  ]
-		},
-		"properties": {
-		  "model_type": "mix",
-		  "parameter_name": "wind_speed_100m_ms",
-		  "up42.data.scene.netcdf": "87022219-95fc-47f1-b210-e3ca8a629ee8/wind_speed_100m_ms.nc"
-		}
-	  }
-	]
-	]
-	}
-
 
 Advanced
 --------
@@ -297,5 +161,5 @@ Example query using ``time_series`` and adding one more ``variable`` to the vari
 	}
 
 
-In this example, we used the ``time_series`` parameter and selected two specific time. The variable  ``prob_precip_1h:p`` was also added. In this example we query for each date range in 3 hour intervals for the 4 variables specified above. As described previously the output format is Geotiff.
+In this example, we used the ``time_series`` parameter and selected two specific time ranges. The variable  ``prob_precip_1h:p`` was also added. In this example we query for each date range in 3 hour intervals for the 4 variables specified above. As described previously the output format is Geotiff.
 
