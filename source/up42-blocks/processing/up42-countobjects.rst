@@ -20,7 +20,7 @@ The output is the `count_objects` JSON file containing the number of occurrences
 Supported parameters
 --------------------
 
-This blocks takes no input parameters.
+This block takes no input parameters.
 
 Example usage
 -------------
