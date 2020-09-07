@@ -25,12 +25,10 @@ that workflow.
 
 .. _geojson-metadata:
 
-GeoJSON metadata
-----------------
+data.json
+---------
 
-The metadata in the ``data.json`` file should be a `GeoJSON FeatureCollection <https://geojson.org/geojson-spec.html>`__.
-
-In short, a ``FeatureCollection`` looks like the following:
+The metadata in the ``data.json`` file should be a `GeoJSON FeatureCollection <https://geojson.org/geojson-spec.html>`__:
 
 .. code-block:: javascript
 
