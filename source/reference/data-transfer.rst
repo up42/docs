@@ -140,7 +140,6 @@ In the case of imagery or vector data (in formats such as GeoJSON, Shapefiles or
 the value should simply be a file path, *relative** to the main metadata file.
 
 The corresponding file(s) should then be written to the output
-directory when saving data.
 
 Simple image example
 ++++++++++++++++++++
