@@ -36,37 +36,89 @@ The output data is a GeoJSON file(s) based on number of ``osm_tags`` supplied as
 .. code-block:: javascript
 
   {
-    "type": "FeatureCollection",
-    "features": [
-        {
-        "type": "Feature",
-        "bbox": [
-            52.5120293812,
-            13.345002827,
-            52.516311319,
-            13.3568962846
+  "features": [
+    {
+      "bbox": [
+        13.345002827,
+        52.5120293812,
+        13.3568962846,
+        52.516311319
+      ],
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              13.356896,
+              52.512029
+            ],
+            [
+              13.356896,
+              52.516311
+            ],
+            [
+              13.345003,
+              52.516311
+            ],
+            [
+              13.345003,
+              52.512029
+            ],
+            [
+              13.356896,
+              52.512029
+            ]
+          ]
         ],
-        "geometry": null,
-        "properties": {
-            "up42.data_path": "d6693d8b-1181-4c30-a663-133d2ec04f76/street_network_2020-06-18T08:32:03Z.geojson",
-            "osm_timestamp": "2020-06-18T08:32:03Z",
-            "osm_tag": "street_network"
-        }
-        },
-        {
-        "type": "Feature",
-        "bbox": [
-            52.5120293812,
-            13.345002827,
-            52.516311319,
-            13.3568962846
+        "type": "Polygon"
+      },
+      "properties": {
+        "osm_tag": "street_network",
+        "osm_timestamp": "2020-08-31T14:36:02Z",
+        "up42.data_path": "69a76e57-bd72-4aee-8c7c-887413619747/street_network_2020-08-31T14_36_02Z.geojson"
+      },
+      "type": "Feature"
+    },
+    {
+      "bbox": [
+        13.345002827,
+        52.5120293812,
+        13.3568962846,
+        52.516311319
+      ],
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              13.356896,
+              52.512029
+            ],
+            [
+              13.356896,
+              52.516311
+            ],
+            [
+              13.345003,
+              52.516311
+            ],
+            [
+              13.345003,
+              52.512029
+            ],
+            [
+              13.356896,
+              52.512029
+            ]
+          ]
         ],
-        "geometry": null,
-        "properties": {
-            "up42.data_path": "d6693d8b-1181-4c30-a663-133d2ec04f76/land_use_2020-06-18T08:33:02Z.geojson",
-            "osm_timestamp": "2020-06-18T08:33:02Z",
-            "osm_tag": "land_use"
-        }
-        }
-    ]
+        "type": "Polygon"
+      },
+      "properties": {
+        "osm_tag": "land_use",
+        "osm_timestamp": "2020-08-31T14:36:02Z",
+        "up42.data_path": "69a76e57-bd72-4aee-8c7c-887413619747/land_use_2020-08-31T14_36_02Z.geojson"
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
   }
