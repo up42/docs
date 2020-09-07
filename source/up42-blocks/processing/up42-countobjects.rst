@@ -7,7 +7,7 @@
 UP42 Count Objects
 ==================
 
-For more information, please read the `block description <https://marketplace.up42.com/block/54217695-73f4-4528-a575-a429e9af6568>`_.
+For more information, please read the `block description <https://marketplace.up42.com/block/4eb9fbbe-8fc3-48c6-a534-f3ad8ab15ebf>`_.
 
 Block type: ``PROCESSING``
 
@@ -16,6 +16,11 @@ This block identifies vector features output by other processing blocks, ex. `Sh
 by vector type.
 
 The output is the `count_objects` JSON file containing the number of occurrences of each vector type.
+
+Supported parameters
+--------------------
+
+This blocks takes no input parameters.
 
 Example usage
 -------------
