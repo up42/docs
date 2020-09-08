@@ -25,12 +25,10 @@ that workflow.
 
 .. _geojson-metadata:
 
-GeoJSON metadata
-----------------
+data.json
+---------
 
-The metadata in the ``data.json`` file should be a `GeoJSON FeatureCollection <https://geojson.org/geojson-spec.html>`__.
-
-In short, a ``FeatureCollection`` looks like the following:
+The metadata in the ``data.json`` file should be a `GeoJSON FeatureCollection <https://geojson.org/geojson-spec.html>`__:
 
 .. code-block:: javascript
 
@@ -61,19 +59,15 @@ is an arbitrary key/value mapping.  A ``Feature`` can have an
 that provide :ref:`quicklook <quicklooks>` images. If the ``id`` is
 set, then it has to be used as the stem of output file names.
 
-.. _feature-capabilities:
+.. _up42_data_path:
 
-Capabilities in ``Feature`` properties
-++++++++++++++++++++++++++++++++++++++
+up42.data_path property
++++++++++++++++++++++++
 
-To reduce the amount of guesswork required to pass data between
-blocks, every :ref:`capability <block-capabilities>` that a block
-outputs should have a corresponding key in the ``"properties"`` field
-of the features that it generates.
+Any feature in the ``data.json`` should contain a property ``up42.data_path`` with a relative file path
+pointing to the respective file in the ``tmp/output`` folder. This is the case for output imagery
+as well as vector data. Example:
 
-For example, if a block outputs the
-``custom.data.metadata.example.foo`` capability, then the
-corresponding output should look something like this:
 
 .. code-block:: javascript
 
@@ -82,18 +76,36 @@ corresponding output should look something like this:
         "features": [
             {
                 "type": "Feature",
-                "geometry": { ... },
+                "geometry": {
+                    // ...
+                },
                 "properties": {
-                    "custom.data.metadata.example.foo": "some-value-bar",
+                    "up42.data_path": "aedf023/rgb.tif",
+                    // ...
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    // ...
+                },
+                "properties": {
+                    "up42.data_path": "be051fa1/rgb.tif",
                     // ...
                 }
             }
         ]
     }
 
-This also applies to :ref:`imagery and vector data <imagery-and-vector-data>`,
-where the value should be the path of the corresponding file, relative
-to the base input or output directory.
+
+The corresponding file layout of the block's output files would be:
+
+.. code-block:: bash
+
+    /tmp/output/data.json
+    /tmp/output/aedf0123/rgb.tif
+    /tmp/output/be051fa1/rgb.tif
+
 
 .. _quicklooks:
 
@@ -132,70 +144,6 @@ images should be of format `PNG
 or `JPEG <https://en.wikipedia.org/wiki/JPEG>`__ and of size 512 &times; 512
 pixels and will be displayed both in ``DRY_RUN`` mode as well as during
 actual fetching of image data.
-
-.. _imagery-and-vector-data:
-
-Imagery and vector data
------------------------
-
-As mentioned in the section on specifications above, blocks should output GeoJSON
-features with the property key "up42.data_path" pointing to the created output file(s).
-In the case of imagery or vector data (in formats such as GeoJSON, Shapefiles or KML),
-the value should simply be a file path, **relative** to the main metadata file.
-
-The corresponding file(s) should then be written to the output
-directory when saving data.
-
-Simple image example
-++++++++++++++++++++
-
-For simple imagery associated with a feature, you might have some
-output JSON as follows:
-
-.. code-block:: javascript
-
-    {
-        "type": "FeatureCollection",
-        "features": [
-            {
-                "type": "Feature",
-                "geometry": {
-                    // ...
-                },
-                "properties": {
-                    "up42.data_path": "aedf023/rgb.tif",
-                    "up42.data_path": "aedf023/nir.tif",
-                    // ...
-                }
-            },
-            {
-                "type": "Feature",
-                "geometry": {
-                    // ...
-                },
-                "properties": {
-                    "up42.data_path": "be051fa1/rgb.tif",
-                    "up42.data_path": "be051fa1/nir.tif",
-                    // ...
-                }
-            }
-        ]
-    }
-
-The corresponding file layout that the block should write would then be:
-
-.. code-block:: bash
-
-    /tmp/output/data.json
-    /tmp/output/aedf0123/rgb.tif
-    /tmp/output/aedf0123/nir.tif
-    /tmp/output/be051fa1/rgb.tif
-    /tmp/output/be051fa1/nir.tif
-
-In general, we recommend prefixing files with consistent identifiers
-that match the corresponding features, to make the file layout more
-intuitive. These could either be the original ID of the imagery from
-the source data, or a derived or new identifier.
 
 .. _scene-data:
 
