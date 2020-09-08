@@ -6,7 +6,7 @@
 .. _meteomatics-weather-map-block:
 
 Meteomatics - Weather/Ocean Data and Forecasts Map
-================================
+==================================================
 
 For more information, please read the ...
 
@@ -161,5 +161,5 @@ Example query using ``time_series`` and adding one more ``variable`` to the vari
 	}
 
 
-In this example, we used the ``time_series`` parameter and selected two specific time ranges. The variable  ``prob_precip_1h:p`` was also added. In this example we query for each date range in 3 hour intervals for the 4 variables specified above. As described previously the output format is Geotiff.
+In this example, we used the ``time_series`` parameter and selected two specific time ranges. The variable  ``prob_precip_1h:p`` was also added. In this example we query for each date range in 3 hour intervals for the 4 variables specified above. As described previously the output format is GeoTIFF.
 
