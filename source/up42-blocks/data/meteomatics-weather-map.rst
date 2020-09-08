@@ -57,7 +57,7 @@ section <filters>`.
 
 .. tip::
 
-  for checking the other possible ``colormap_style`` you can check the `Meteomatics website
+  The possible ``colormap_style`` options can be found in the `Meteomatics website
   <https://www.meteomatics.com/en/api/wms/#getcapabilitiesrequest>`_ where *STYLE* parameter
   is described.
 
