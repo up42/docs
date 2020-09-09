@@ -63,12 +63,38 @@ section <filters>`.
 
 .. warning::
   Here is the list of variables that are **not** available via meteomatics WMS service:
-  is_slippery_road_3h:idx (also for 6h and 12h), power_line_oscillation_24h:idx, weather_code_1h:idx (also for 3, 6, 12, 24h),
-  weather_symbol_20min:idx (also for 30min, 1, 3, 6, 12, 24h), growing_degree_days_accumulated:gdd, grass_land_temperature_sum:C,
-  phytophthora_negative_prognose:idx, phytophthora_negative:idx, forest_fire_index_kaese:idx drought_index:idx
-  evapotranspiration_3h:mm (also for 6, 12, 24h), most_similar_year:y, vegetation_days:d, desert_days:d, hot_days:d,
-  tropical_nights:d, summer_days:d, heating_days:d, heating_degree_days:C, frost_days:d, ice_days:d, rain_days:d, heavy_rain_days:d,
-  dry_days:d, all_days:d, tmean_2m_10y:C.
+
+  .. table:: Unavailable variables via meteomatics WMS service
+   :align: center
+
+   +--------------------------------------------------+------------------------------------------------+
+   | is_slippery_road_3h:idx (also for 6h and 12h)    | power_line_oscillation_24h:idx                 |
+   +--------------------------------------------------+------------------------------------------------+
+   | weather_code_1h:idx (also for 3, 6, 12, 24h)     | weather_symbol_20min:idx                       |
+   |                                                  | (also for 30min, 1, 3, 6, 12, 24h)             |
+   +--------------------------------------------------+------------------------------------------------+
+   | growing_degree_days_accumulated:gdd              | grass_land_temperature_sum:C                   |
+   +--------------------------------------------------+------------------------------------------------+
+   | phytophthora_negative_prognose:idx               | phytophthora_negative:idx                      |
+   +--------------------------------------------------+------------------------------------------------+
+   | forest_fire_index_kaese:idx                      | drought_index:idx                              |
+   +--------------------------------------------------+------------------------------------------------+
+   | evapotranspiration_3h:mm (also for 6, 12, 24h)   | most_similar_year:y                            |
+   +--------------------------------------------------+------------------------------------------------+
+   | vegetation_days:d                                | desert_days:d                                  |
+   +--------------------------------------------------+------------------------------------------------+
+   | hot_days:d                                       | tropical_nights:d                              |
+   +--------------------------------------------------+------------------------------------------------+
+   | summer_days:d                                    | heating_days:d                                 |
+   +--------------------------------------------------+------------------------------------------------+
+   | heating_degree_days:C                            | frost_days:d                                   |
+   +--------------------------------------------------+------------------------------------------------+
+   | ice_days:d                                       | rain_days:d                                    |
+   +--------------------------------------------------+------------------------------------------------+
+   | heavy_rain_days:d                                | dry_days:d                                     |
+   +--------------------------------------------------+------------------------------------------------+
+   | all_days:d                                       | tmean_2m_10y:C                                 |
+   +--------------------------------------------------+------------------------------------------------+
 
 
 Example queries
