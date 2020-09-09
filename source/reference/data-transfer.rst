@@ -137,11 +137,10 @@ the output GeoJSON looks like the following:
     }
 
 
-Then the quicklook image would be stored as ``/tmp/quicklooks/e18542c4-d3b6-4e74-9eb6-8899ad4276be.jpg`` or
-``/tmp/quicklooks/e18542c4-d3b6-4e74-9eb6-8899ad4276be.png`` The images should be of format `PNG
-<https://en.wikipedia.org/wiki/Portable_Network_Graphics>`__
-or `JPEG <https://en.wikipedia.org/wiki/JPEG>`__ and of size 512 &times; 512
-pixels and will be displayed both in ``DRY_RUN`` mode as well as during
+The quicklook image is stored as ``/tmp/quicklooks/e18542c4-d3b6-4e74-9eb6-8899ad4276be.jpg`` or
+``/tmp/quicklooks/e18542c4-d3b6-4e74-9eb6-8899ad4276be.png``. The image should be of format `PNG
+<https://en.wikipedia.org/wiki/Portable_Network_Graphics>`__ or `JPEG <https://en.wikipedia.org/wiki/JPEG>`__
+and of size 512 &times; 512 pixels and will be displayed both in ``DRY_RUN`` mode as well as during
 actual fetching of image data.
 
 .. _scene-data:
