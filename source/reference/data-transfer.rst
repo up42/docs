@@ -65,9 +65,10 @@ up42.data_path property
 +++++++++++++++++++++++
 
 Any feature in the ``data.json`` should contain a property ``up42.data_path`` with a relative file path
-pointing to the respective file in the ``tmp/output`` folder. This is the case for output imagery
-as well as vector data. Example:
+pointing to the respective file or output directory in the ``/tmp/output`` folder. This is the case for output imagery
+as well as vector data.
 
+Example:
 
 .. code-block:: javascript
 
@@ -80,7 +81,7 @@ as well as vector data. Example:
                     // ...
                 },
                 "properties": {
-                    "up42.data_path": "aedf023/rgb.tif",
+                    "up42.data_path": "aedf023/block_output_vectors.geojson",
                     // ...
                 }
             },
@@ -90,7 +91,7 @@ as well as vector data. Example:
                     // ...
                 },
                 "properties": {
-                    "up42.data_path": "be051fa1/rgb.tif",
+                    "up42.data_path": "be051fa1/block_output_vectors.geojson",
                     // ...
                 }
             }
@@ -103,8 +104,8 @@ The corresponding file layout of the block's output files would be:
 .. code-block:: bash
 
     /tmp/output/data.json
-    /tmp/output/aedf0123/rgb.tif
-    /tmp/output/be051fa1/rgb.tif
+    /tmp/output/aedf0123/block_output_vectors.geojson
+    /tmp/output/be051fa1/block_output_vectors.geojson
 
 
 .. _quicklooks:
@@ -136,10 +137,8 @@ the output GeoJSON looks like the following:
     }
 
 
-Then the quicklook image would be stored as
-``/tmp/quicklooks/e18542c4-d3b6-4e74-9eb6-8899ad4276be.jpg`` or
-``/tmp/quicklooks/e18542c4-d3b6-4e74-9eb6-8899ad4276be.png`` The
-images should be of format `PNG
+Then the quicklook image would be stored as ``/tmp/quicklooks/e18542c4-d3b6-4e74-9eb6-8899ad4276be.jpg`` or
+``/tmp/quicklooks/e18542c4-d3b6-4e74-9eb6-8899ad4276be.png`` The images should be of format `PNG
 <https://en.wikipedia.org/wiki/Portable_Network_Graphics>`__
 or `JPEG <https://en.wikipedia.org/wiki/JPEG>`__ and of size 512 &times; 512
 pixels and will be displayed both in ``DRY_RUN`` mode as well as during
