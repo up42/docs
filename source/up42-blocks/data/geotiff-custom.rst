@@ -5,7 +5,7 @@
 .. _geotiff-custom-data-block:
 
 Import Data (GeoTIFF)
-===================
+=====================
 For more information, please read the `block description <https://marketplace.up42.com/block/eed51bcb-c7cc-4084-b518-6c59f46b48c8>`_.
 
 Block type: ``DATA``
