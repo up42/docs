@@ -11,7 +11,9 @@ For more information, please read the `block description <https://marketplace.up
 Block type: ``DATA``
 
 This block provides AOI clipped scenes of Sentinel-1 (A/B)’s C-band synthetic aperture radar sensor in processing level L-1C
-Ground Range Detected (GRD) in ``GeoTIFF`` format. The image contains 3 bands with polarizations VV, VH and an alpha band acting as a :term:`nodata mask<nodata mask>`.
+Ground Range Detected (GRD) in ``GeoTIFF`` format. The image contains 3 bands with polarizations VV, VH and an alpha
+band acting as a :term:`nodata mask<nodata mask>`. There is no maximum size limit regarding the image that will be
+returned, but it will never be larger than the original scene.
 
 The main applications for Sentinel-1 imagery are marine monitoring (e.g. sea-ice levels and conditions, ocean oil
 spills, ship activity, marine winds), land monitoring (e.g. agriculture, forestry) or emergency response (flooding,
