@@ -33,3 +33,4 @@ blocks built by UP42.
    land-cover
    export-data-raster
    export-data-vector
+   up42-countobjects
