@@ -1,16 +1,16 @@
 .. meta::
-   :description: UP42 processing blocks: Export data to GCS & AWS
-   :keywords: Export, Data, GCS, AWS
+   :description: UP42 processing blocks: Export data (raster) to GCS & AWS
+   :keywords: Export, Data, Raster, GCS, AWS
 
 .. _export-data-block:
 
-Export data
-===========
+Export data (Raster)
+====================
 For more information, please read the `block description <https://marketplace.up42.com/block/98066215-6c60-4076-bbb8-031987fec7fc>`_.
 
 Block type: ``PROCESSING``
 
-This block enables exporting data or processing blocks from an UP42 workflow to
+This block enables exporting the output of raster data or processing blocks from an UP42 workflow to
 a bucket on *Google Cloud Storage (GCS)* or *Amazon Web Services (AWS)*.
 The full content of the UP42 result output is copied to the bucket.
 The user can optionally provide a `prefix` for an output directory within the bucket.
@@ -37,7 +37,7 @@ For more information, please read the section :ref:`Data source query filters  <
 Example parameters
 ---------------
 
-Example for exporting Sentinel-2 data to GCS bucket, using a ``prefix``:
+Example for exporting Sentinel-2 raster data to GCS bucket, using a ``prefix``:
 
 .. code-block:: javascript
 
@@ -57,4 +57,4 @@ Example for exporting Sentinel-2 data to GCS bucket, using a ``prefix``:
 Output format
 -------------
 
-The output data.json is a copy of the result that was exported.
+The output data.json is a copy from the exported result.
