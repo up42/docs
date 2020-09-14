@@ -12,7 +12,7 @@ Block type: ``PROCESSING``
 
 This block enables exporting the output of raster data or processing blocks from an UP42 workflow to
 a bucket on *Google Cloud Storage (GCS)* or *Amazon Web Services (AWS)*.
-The full content of the UP42 result output is copied to the bucket.
+The full content of the UP42 workflow output is copied to the bucket.
 The user can optionally provide a `prefix` for an output directory within the bucket.
 
 .. tip::
