@@ -31,4 +31,5 @@ blocks built by UP42.
    s5p_lvl3
    ship-identification
    land-cover
-   export-data
+   export-data-raster
+   export-data-vector
