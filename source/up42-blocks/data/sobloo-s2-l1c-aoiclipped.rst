@@ -10,7 +10,9 @@ For more information, please read the `block description <https://marketplace.up
 
 Block type: ``DATA``
 
-This block provides AOI Clipped scenes of Sentinel-2 (A/B)’s multispectral imaging sensor in processing level L-1C in ``GeoTIFF`` format. The products are radiometrically and geometrically corrected (including orthorectification).
+This block provides AOI Clipped scenes of Sentinel-2 (A/B)’s multispectral imaging sensor in processing level L-1C in
+``GeoTIFF`` format. The products are radiometrically and geometrically corrected (including orthorectification).
+There is no maximum size limit regarding the image that will be returned, but it will never be larger than the original scene.
 
 Important application areas for Sentinel-2 imagery are land cover monitoring (agriculture, forestry), coastal area
 monitoring, inland water monitoring, glacier monitoring and flood mapping.

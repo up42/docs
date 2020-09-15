@@ -6,7 +6,7 @@
 .. _land-cover-block:
 
 Land Cover Classifier for Pléiades/SPOT (Beta version)
-==========================================
+======================================================
 
 .. warning::
    This block is currently in a *beta* release stage.
