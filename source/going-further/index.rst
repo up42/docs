@@ -40,6 +40,6 @@ requires :ref:`custom storage <custom-storage>`?
    using-gpus-in-your-processing-block
    credentials
    custom-storage
-   environments-tutorial-credentials-passthrough
 ..
+   environments-tutorial-credentials-passthrough
 
