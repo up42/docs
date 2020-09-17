@@ -2,7 +2,7 @@
    :description: UP42 processing blocks: Export data (raster) to GCS & AWS
    :keywords: Export, Data, Raster, GCS, AWS
 
-.. _export-data-block:
+.. _export-data-raster:
 
 Export data (Raster)
 ====================
@@ -35,7 +35,7 @@ For more information, please read the section :ref:`Data source query filters  <
   which excludes the bucket name. E.g. `folder1/folder2/`.
 
 Example parameters
----------------
+------------------
 
 Example for exporting Sentinel-2 raster data to GCS bucket, using a ``prefix``:
 
