@@ -19,7 +19,7 @@ For more information, please read the section :ref:`Data source query filters  <
 * ``bbox``: The bounding box to use as an AOI. Will return all geometries that intersect with this box. Only ``box`` is supported.
 * ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
-* ``osm_tags``: An array of tags for filtering from osm. Currently, only ``['street_network', 'water_bodies', 'building_footprints', 'land_use']`` are supported.
+* ``osm_tags``: An array of tags for filtering from OSM. A single tag is made up of a value and a key, e.g. ``highway=motorway``. Key only tags are also supported, e.g. ``highway=*``. A non exhaustive list of OSM tags can be found `here <https://wiki.openstreetmap.org/wiki/Map_Features>`_.
 
 Output format
 -------------
@@ -72,7 +72,7 @@ The output data is a GeoJSON file(s) based on number of ``osm_tags`` supplied as
         "type": "Polygon"
       },
       "properties": {
-        "osm_tag": "street_network",
+        "osm_tag": "highway=*",
         "osm_timestamp": "2020-08-31T14:36:02Z",
         "up42.data_path": "69a76e57-bd72-4aee-8c7c-887413619747/street_network_2020-08-31T14_36_02Z.geojson"
       },
@@ -113,7 +113,7 @@ The output data is a GeoJSON file(s) based on number of ``osm_tags`` supplied as
         "type": "Polygon"
       },
       "properties": {
-        "osm_tag": "land_use",
+        "osm_tag": "landuse=*",
         "osm_timestamp": "2020-08-31T14:36:02Z",
         "up42.data_path": "69a76e57-bd72-4aee-8c7c-887413619747/land_use_2020-08-31T14_36_02Z.geojson"
       },

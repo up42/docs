@@ -6,7 +6,7 @@
 .. _snap-polarimetric-block:
 
 SNAP Sentinel-1 Polarimetric Processing
-============================
+=======================================
 
 For more information, please read the `block description
 <https://marketplace.up42.com/block/8c6baae9-d50e-406c-b4ac-e211caa6229d>`_.
