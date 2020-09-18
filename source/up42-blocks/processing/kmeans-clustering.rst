@@ -11,10 +11,11 @@ For more information, please read the `block description <https://marketplace.up
 Block type: ``PROCESSING``
 
 This block provides a simple `unsupervised classification <https://en.wikipedia.org/wiki/Cluster_analysis>`_ algorithm
-- K-Means clustering. It will create a set number of clusters in each dataset and classify each pixel into one of them.
+- K-Means clustering. It will create a given number of clusters in each dataset and classify each pixel into one of them.
 Nodata pixels in the input dataset will not be excluded during the clustering. If the nodata value has a large distance
-from all other pixels (measured by the Frobenius or L2 norm), all nodata pixels will likely form a separate cluster.
-Notdata pixels will in the end result masked as nodata in the output, regardless of the cluster they belong to.
+from all other pixels (measured by the `Frobenius or L2 norm <https://en.wikipedia.org/wiki/Matrix_norm#Frobenius_norm>`_),
+all nodata pixels will likely form a separate cluster.
+Nodata pixels will in the end result masked as nodata in the output, regardless of the cluster they belong to.
 
 .. warning::
    This block can only process imagery **up to size of 1.2GB** size, since it requires the entire
