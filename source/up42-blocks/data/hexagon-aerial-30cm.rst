@@ -6,7 +6,6 @@
 
 Hexagon 30cm Aerial Imagery AOI clipped
 =======================================
-# TODO UPDATE
 `Link <https://marketplace.up42.com/block/045019bb-06fc-4fa1-b703-318725b4d8af>`_ to block details page
 
 Block type: ``DATA``
