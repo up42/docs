@@ -4,8 +4,8 @@
 
 .. _hexagon-aerial-30cm-block:
 
-Hexagon 30cm Aerial Imagery AOI clipped
-=======================================
+Hexagon 30cm Aerial Imagery
+===========================
 `Link <https://marketplace.up42.com/block/045019bb-06fc-4fa1-b703-318725b4d8af>`_ to block details page
 
 Block type: ``DATA``
@@ -124,7 +124,7 @@ Output format
               "COLOR_TYPE": "RGBN",
               "AIRCRAFT_TYPE": "BE9L",
               "AIRCRAFT_TAIL_NUMBER": "OY-JJT",
-              "up42.data.aoiclipped": "f731ca36-3b20-4f4f-b374-114ef94cf683.tif"
+              "up42.data_path": "f731ca36-3b20-4f4f-b374-114ef94cf683.tif"
             }
           }
         ]

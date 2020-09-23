@@ -4,8 +4,8 @@
 
 .. _hexagon-aerial-15cm-block:
 
-Hexagon 15cm Aerial Imagery AOI clipped
-=======================================
+Hexagon 15cm Aerial Imagery
+===========================
 `Link <https://marketplace.up42.com/block/045019bb-06fc-4fa1-b703-318725b4d8af>`_ to block details page
 
 Block type: ``DATA``
@@ -173,7 +173,7 @@ Output format
             "COLOR_TYPE": "RGBN",
             "AIRCRAFT_TYPE": "F406",
             "AIRCRAFT_TAIL_NUMBER": "N27NW",
-            "up42.data.aoiclipped": "5b8ea6a5-1d73-40c5-b6a0-fd33fc864188.tif"
+            "up42.data_path": "5b8ea6a5-1d73-40c5-b6a0-fd33fc864188.tif"
           }
         }
       ]
