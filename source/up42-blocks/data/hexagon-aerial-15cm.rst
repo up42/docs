@@ -25,7 +25,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
 
 .. warning::
 
-  The maximum AOI size supported by this block is **25 sqkm**.
+  The maximum AOI size supported by this block is **25 :superscript:`2`**.
 
 
 Example queries
