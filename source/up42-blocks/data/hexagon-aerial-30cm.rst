@@ -4,7 +4,7 @@
 
 .. _hexagon-aerial-30cm-block:
 
-Hexagon 30cm Aerial Imagery
+Hexagon Aerial Imagery 30cm
 ===========================
 `Link <https://marketplace.up42.com/block/045019bb-06fc-4fa1-b703-318725b4d8af>`_ to block details page
 
@@ -25,7 +25,7 @@ For more information on supported filters, see :ref:`query filter section  <filt
 
 .. warning::
 
-  The maximum AOI size supported by this block is **100 :superscript:`2`**.
+  The maximum AOI size supported by this block is **100 km**:superscript:`2`.
 
 Example queries
 ---------------
