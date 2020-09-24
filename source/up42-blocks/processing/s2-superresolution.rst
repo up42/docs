@@ -101,11 +101,10 @@ data source and then applying s2-superresolution clipped to the specific AOI:
       }
     }
 
-
 Output format
 :::::::::::::
 
-AOI.clipped GeoTIFF format. Also in the output file all the spectral
+GeoTIFF format. Also in the output file all the spectral
 bands for 20m and 60m will be in 10m spatial resolution.
 
 Download example output
