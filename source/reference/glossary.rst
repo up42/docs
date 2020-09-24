@@ -138,6 +138,9 @@
    workflow
       A directed acyclic graph of blocks [#]_. See :ref:`definition <workflows-definition>`.
 
+   Web Mercator
+      This is the standard web mapping CRS or SRS. Find out more in the `SRS definition for EPSG:3857 <https://spatialreference.org/ref/sr-org/epsg3857-wgs84-web-mercator-auxiliary-sphere/>`_.
+
 
 .. rubric:: Footnotes
 
