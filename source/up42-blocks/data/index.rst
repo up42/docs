@@ -42,5 +42,6 @@ built by UP42.
    nextmap-10m
    aws-landsat8
    openstreetmap
+   airbus-globalseeps-sample
    geotiff-custom
    dimap-custom
