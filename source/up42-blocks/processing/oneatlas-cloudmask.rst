@@ -10,14 +10,15 @@ For more information, please read the `block description <https://marketplace.up
 
 Block type: ``PROCESSING``
 
-This block finds cloud mask for SPOT and Pléiades input imagery and adds cloud mask information to input image. For streaming block data,
-which contains an alpha band channel, the cloud mask raster is clipped and added to the existing alpha band. Conversely, for
-download block data, which doesn't contain an alpha band, the alpha band is generated and combined with the clipped cloud mask
+This block finds cloud mask for SPOT and Pléiades input imagery and adds cloud mask information to the input image. The block is
+aimed at extracting clouded regions from input imagery. For streaming block data, which contain an alpha band channel,
+the cloud mask raster is clipped and added to the existing alpha band. Conversely, for download block data, which doesn't
+contain an alpha band, the alpha band is generated and combined with the clipped cloud mask
 raster.
 
 .. warning::
 
-   The cloud mask roughly outlines clouds in input imagery.
+   The block produces a rough cloud mask which includes most of the thick clouds.
 
 
 Supported parameters
@@ -29,41 +30,24 @@ This block takes no input parameters.
 .. code-block:: javascript
 
     {
-      "oneatlas-spot-aoiclipped:1": {
-        "bbox": null,
-        "time": null,
-        "limit": 3,
-        "intersects": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                18.42631,
-                -33.912732
-              ],
-              [
-                18.420799,
-                -33.922741
-              ],
-              [
-                18.44355,
-                -33.924784
-              ],
-              [
-                18.441069,
-                -33.913781
-              ],
-              [
-                18.42631,
-                -33.912732
-              ]
+        "oneatlas-spot-aoiclipped:1": {
+            "ids": null,
+            "time": "2020-03-07T00:00:00+00:00/2020-03-09T03:59:59+00:00",
+            "limit": 1,
+            "zoom_level": 17,
+            "time_series": null,
+            "max_cloud_cover": 100,
+            "panchromatic_band": false,
+            "bbox": [
+                14.353933,
+                53.401088,
+                14.391569,
+                53.422858
             ]
-          ]
         },
-        "zoom_level": 17
-      },
-      "oneatlas-cloudmask:1": {}
+        "oneatlas-cloudmask:1": {}
     }
+
 
 
 Output format

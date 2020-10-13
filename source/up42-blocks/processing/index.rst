@@ -34,3 +34,4 @@ blocks built by UP42.
    export-data-raster
    export-data-vector
    up42-countobjects
+   oneatlas-cloudmask
