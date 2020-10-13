@@ -10,11 +10,10 @@ For more information, please read the `block description <https://marketplace.up
 
 Block type: ``PROCESSING``
 
-This block finds cloud mask for SPOT and Pléiades input imagery and adds cloud mask information to the input image. The block is
-aimed at extracting clouded regions from input imagery. For streaming block data, which contain an alpha band channel,
+This block finds cloud masks for SPOT and Pléiades input imagery and adds cloud mask information to the input image. The block is
+aimed at extracting clouded regions from the input imagery. For streaming block data, which contain an alpha band channel,
 the cloud mask raster is clipped and added to the existing alpha band. Conversely, for download block data, which doesn't
-contain an alpha band, the alpha band is generated and combined with the clipped cloud mask
-raster.
+contain an alpha band, the alpha band is generated and combined with the clipped cloud mask raster.
 
 .. warning::
 
@@ -53,3 +52,6 @@ This block takes no input parameters.
 Output format
 -------------
 The output imagery is in GTiff format and contains all the original bands and an additional alpha band that contains 3 values: nodata = 0, clouds = 1, valid data = 255.
+
+.. note::
+  If the input imagery doesn't contain clouds the alpha band will only contain nodata = 0 and valid data = 255 values.
