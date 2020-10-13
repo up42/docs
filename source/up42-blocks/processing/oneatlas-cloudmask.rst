@@ -12,7 +12,7 @@ Block type: ``PROCESSING``
 
 This block finds cloud mask for SPOT and Pléiades input imagery and adds cloud mask information to input image. For streaming block data,
 which contains an alpha band channel, the cloud mask raster is clipped and added to the existing alpha band. Conversely, for
-download block data, which doemetadata_respsn't contain an alpha band, the alpha band is generated and combined with the clipped cloud mask
+download block data, which doesn't contain an alpha band, the alpha band is generated and combined with the clipped cloud mask
 raster.
 
 .. warning::
