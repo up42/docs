@@ -52,6 +52,11 @@ This block takes no input parameters.
 Output format
 -------------
 The output imagery is in GTiff format and contains all the original bands and an additional alpha band that contains 3 values: nodata = 0, clouds = 1, valid data = 255.
+Additionaly the block output the original cloud mask gml and gfs files containing information about the cloud mask geometries and metadata.
 
 .. note::
   If the input imagery doesn't contain clouds the alpha band will only contain nodata = 0 and valid data = 255 values.
+
+
+.. note::
+  When opening the output GTiff file in GIS software the transparency band may automatically set the alpha band as a transparency band.
