@@ -115,4 +115,4 @@ Additionaly the block outputs the original cloud mask gml and gfs files containi
 
 
 .. note::
-  When opening the output GTiff file in GIS software the transparency band may automatically set the alpha band as a transparency band.
+  When opening the output GTiff file in GIS software the alpha band may automatically be set as a transparency band.
