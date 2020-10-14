@@ -14,6 +14,7 @@ This block finds cloud masks for SPOT and Pléiades imagery and adds cloud mask 
 aimed at extracting clouded regions from the input imagery. For streaming block data, which contain an alpha band channel,
 the cloud mask raster is clipped and added to the existing alpha band. Conversely, for download block data, which doesn't
 contain an alpha band, the alpha band is generated and combined with the clipped cloud mask raster.
+
 For processing Pléiades Download or SPOT 6/7 Download blocks, the data output must first be converted to GeoTIFF with the blocks
 DIMAP -> GeoTIFF Conversion or Pan-sharpening SPOT/Pléiades (See :ref:`Example usage <example-usage-oa-cloudmask>`.).
 
@@ -31,7 +32,8 @@ This block takes no input parameters.
 
 Example usage
 -------------
-Example running the full cloud mask workflow for streaming data blocks: SPOT 6/7 streaming data block → OneAtlas cloud mask.
+Example running the full cloud mask workflow for streaming data blocks:
+SPOT 6/7 streaming data block → OneAtlas cloud mask.
 
 .. code-block:: javascript
 
@@ -55,7 +57,8 @@ Example running the full cloud mask workflow for streaming data blocks: SPOT 6/7
     }
 
 
-Example running the full cloud mask workflow for streaming data blocks: Pléiades Download → DIMAP -> GeoTIFF Conversion → OneAtlas cloud mask.
+Example running the full cloud mask workflow for streaming data blocks:
+Pléiades Download → DIMAP -> GeoTIFF Conversion → OneAtlas cloud mask.
 
 .. code-block:: javascript
 
@@ -111,7 +114,7 @@ The output imagery is in GTiff format and contains all the original bands and an
 Additionaly the block outputs the original cloud mask gml and gfs files containing information about the cloud mask geometries and metadata.
 
 .. note::
-  If the input imagery doesn't contain clouds the alpha band will only contain nodata = 0 and valid data = 255 values.
+  If the input imagery doesn't contain clouds, the alpha band will only contain nodata = 0 and valid data = 255 values.
 
 
 .. note::
