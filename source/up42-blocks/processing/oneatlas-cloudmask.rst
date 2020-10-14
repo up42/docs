@@ -25,6 +25,9 @@ Supported parameters
 
 This block takes no input parameters.
 
+Example usage
+--------------------
+Example running the full cloud mask workflow for streaming data blocks: SPOT 6/7 streaming data block → OneAtlas cloud mask.
 
 .. code-block:: javascript
 
@@ -48,6 +51,55 @@ This block takes no input parameters.
     }
 
 
+Example running the full cloud mask workflow for streaming data blocks: Pléiades Download → DIMAP -> GeoTIFF Conversion → OneAtlas cloud mask.
+
+.. code-block:: javascript
+
+    {
+      "oneatlas-pleiades-fullscene:1": {
+        "ids": null,
+        "time": "2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
+        "limit": 1,
+        "order_ids": null,
+        "time_series": null,
+        "max_cloud_cover": 100,
+        "intersects": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -9.424467,
+                38.960014
+              ],
+              [
+                -9.416658,
+                38.960014
+              ],
+              [
+                -9.416658,
+                38.965215
+              ],
+              [
+                -9.424467,
+                38.965215
+              ],
+              [
+                -9.424467,
+                38.960014
+              ]
+            ]
+          ]
+        }
+      },
+      "data-conversion-dimap:1": {
+        "ms": true,
+        "pan": false,
+        "bbox": null,
+        "contains": null,
+        "intersects": null,
+        "clip_to_aoi": false
+      },
+      "oneatlas-cloudmask:1": {}
 
 Output format
 -------------
