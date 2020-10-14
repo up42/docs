@@ -42,3 +42,4 @@ built by UP42.
    openstreetmap
    geotiff-custom
    dimap-custom
+   oneatlas-basemap
