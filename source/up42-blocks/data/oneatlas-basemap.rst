@@ -20,7 +20,7 @@ offers a complete coverage for the whole world with high resolution (1.5m over t
 and precise geolocation. New images will be added every day, and the whole archive will be refreshed in a yearly basis.
 Images have a marginal cloud cover.
 
-* ``bbox``: The bounding box to use as an AOI. Will return all geometries that intersect with this box. Only ``box`` is supported.
+* ``bbox``: The bounding box to use as an AOI. Will return all geometries that intersect with this box.
 * ``intersects``: A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use only ``bbox``
   **or** ``intersects``.
 * ``zoom_level``: An integer defining the webmercator zoom level of this request, defaults to 18.
@@ -29,7 +29,7 @@ Images have a marginal cloud cover.
 
   OneAtlas orders the imagery layers first by constellation (Pléiades then SPOT) and for each constellation by acquisition date.
   Based on your chosen AOI, you will get tiles from different layers to cover your area of interest. Please note that
-  the final metadata file only includes the information for the first map layer.
+  the final metadata file only includes the information for the most recent map layer.
 
 Example queries
 ---------------
