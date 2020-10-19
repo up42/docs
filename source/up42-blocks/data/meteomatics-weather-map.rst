@@ -37,7 +37,7 @@ section <filters>`.
 * ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``time_interval``: A desired spacing in hours between the start and end point in time. By default, ``time_interval`` is set to 3 hours.
-* ``pixel_resolution``: A number in pixels per degree unit which define the final width and height (in pixel) of the final output. By default, ``pixel_resolution`` is set to 100.
+* ``number_pixels``: A number in *pixels per degree* unit which define the width and height (in pixel) of the final output. By default, ``number_pixels`` is set to 100.
 * ``colormap_style``: A single color scheme which should be used to represent the data. By default, ``colormap_style`` is set to JET.
 
 .. note::
@@ -51,7 +51,7 @@ section <filters>`.
 
 .. warning::
 
-  In this block you can choose ``pixel_resolution`` to be a number from 8
+  In this block you can choose ``number_pixels`` to be a number from 8
   to 3000. Based on this number and the selected AOI, **width** and **height** of the
   final output image (in pixel) will be calculated.
 
