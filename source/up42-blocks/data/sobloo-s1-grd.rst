@@ -21,7 +21,6 @@ landslides and volcanic activity).
 Depending on the operational mode, the spatial resolution of Sentinel-1 products is 20x22m (IW interferometric wide
 swath mode, 250km swath), 50x50m (EW extra wide swath mode, 400km swath).
 
-.. contents::
 
 Supported parameters
 --------------------
