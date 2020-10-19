@@ -14,7 +14,10 @@ Block type: ``PROCESSING``
 Supported parameters
 --------------------
 
-This block applies thresholding for NDVI values.
+This block applies thresholding for NDVI values. This block is mainly suitable to be used with `Pleiades Download block <https://docs.up42.com/up42-blocks/data/pleiades-download.html>`_
+or `SPOT 6/7 Download <https://docs.up42.com/up42-blocks/data/spot-download.html>`_ following the `DIMAP -> GeoTIFF Conversion <https://docs.up42.com/up42-blocks/processing/dimap-conversion.html>`_
+or `Pan-sharpening SPOT/Pléiades <https://docs.up42.com/up42-blocks/processing/pansharpen.html>`_ and then adding `NDVI SPOT/Pléiades <https://docs.up42.com/up42-blocks/processing/ndvi.html>`_
+to get NDVI values and at the end adding UP42-ndvithreshold block.
 
 * ``n_sieve_pixels``: Number of the connected pixels (small polygon) that will be replaced in output with value of their largest neighbor.
 * ``threshold_values``: A list of a dictionary with specific land type and corresponding threshold values.
@@ -47,13 +50,29 @@ Example using ``n_sieve_pixels`` and ``threshold_values``:
 .. code-block:: javascript
 
     {
-      "oneatlas-basemap:1": {
-        "bbox": [
-          13.342552,
-          52.471279,
-          13.396111,
-          52.505773
-        ],
-        "zoom_level": 18
+    "ndvi:1": {
+    "output_original_raster": false
+    },
+    "up42-ndvithreshold:1": {
+    "n_sieve_pixels": 5,
+    "threshold_values": [
+      {
+        "no_vegetation": 0.2,
+        "dense_vegetation": 0.9,
+        "sparse_vegetation": 0.4,
+        "moderate_vegetation": 0.6
       }
+    ]
+    },
+    "data-conversion-dimap:1": {
+    "ms": true,
+    "pan": false,
+    "clip_to_aoi": false
+    },
+    "oneatlas-pleiades-fullscene:1": {
+    "time": "2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
+    "limit": 1,
+    "order_ids": null
+    "max_cloud_cover": 100
+    }
     }
