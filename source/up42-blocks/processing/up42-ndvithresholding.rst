@@ -5,26 +5,25 @@
 .. _up42-ndvithresholding-block:
 
 NDVI Threshold
-===================================
+==============
 
-For more information, please read the ...
+For more information, please read the `block description <https://marketplace.up42.dev/block/b35bdc38-b700-4ada-b429-55e67971adac>`_.
 
 Block type: ``PROCESSING``
 
 Supported parameters
 --------------------
 
-This block applies thresholding for NDVI values. This block is mainly suitable to be used with `Pleiades Download block <https://docs.up42.com/up42-blocks/data/pleiades-download.html>`_
-or `SPOT 6/7 Download <https://docs.up42.com/up42-blocks/data/spot-download.html>`_ following the `DIMAP -> GeoTIFF Conversion <https://docs.up42.com/up42-blocks/processing/dimap-conversion.html>`_
-or `Pan-sharpening SPOT/Pléiades <https://docs.up42.com/up42-blocks/processing/pansharpen.html>`_ and then adding `NDVI SPOT/Pléiades <https://docs.up42.com/up42-blocks/processing/ndvi.html>`_
-to get NDVI values and at the end adding UP42-ndvithreshold block.
+This block applies thresholding for NDVI values. This block is mainly suitable to be used with `NDVI SPOT/Pléiades <https://docs.up42.com/up42-blocks/processing/ndvi.html>`_.
+However, other blocks on the marketplace that provide ndvi values can also be used with this block.
+
 
 * ``n_sieve_pixels``: Number of the connected pixels (small polygon) that will be replaced in output with value of their largest neighbor.
-* ``threshold_values``: A list of a dictionary with specific land type and corresponding threshold values.
+* ``threshold_values``: A list of a dictionary with specific vegetation type and corresponding threshold values.
 
-Land types and values for thresholding
---------------------------------------
-Below is the default threshold values that is been set for the block. However, you can change ``threshold_values`` based on your
+Vegetation types and values for thresholding
+--------------------------------------------
+Below are the default threshold values that were been set for the block. However, you can change ``threshold_values`` based on your
 preferences and case study.
 
 .. table:: Default threshold values
@@ -45,7 +44,8 @@ preferences and case study.
 Example queries
 ---------------
 
-Example using ``n_sieve_pixels`` and ``threshold_values``:
+Example of the block using ``n_sieve_pixels`` and ``threshold_values`` in a complete workflow consisting of `Pleiades Download block <https://docs.up42.com/up42-blocks/data/pleiades-download.html>`_,
+`DIMAP -> GeoTIFF Conversion <https://docs.up42.com/up42-blocks/processing/dimap-conversion.html>`_, and `NDVI SPOT/Pléiades <https://docs.up42.com/up42-blocks/processing/ndvi.html>`_:
 
 .. code-block:: javascript
 
