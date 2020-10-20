@@ -23,7 +23,7 @@ However, other blocks on the marketplace that provide ndvi values can also be us
 
 Vegetation types and values for thresholding
 --------------------------------------------
-Below are the default threshold values that were been set for the block. However, you can change ``threshold_values`` based on your
+Below are the default threshold values that have been set for the block. However, you can change ``threshold_values`` based on your
 preferences and case study.
 
 .. table:: Default threshold values
