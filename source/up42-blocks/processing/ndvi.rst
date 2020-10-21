@@ -1,11 +1,11 @@
 .. meta::
    :description: UP42 processing blocks: NDVI block description
-   :keywords: UP42, processing, NDVI, vegetation, SPOT 6/7, Pléiades, block description
+   :keywords: UP42, processing, NDVI, vegetation, SPOT 6/7, Pléiades, Hexagon, block description
 
 .. _ndvi-block:
 
-NDVI SPOT/Pléiades
-==================
+NDVI SPOT/Pléiades/Hexagon
+==========================
 For more information, please read the `block description <https://marketplace.up42.com/block/d0da4ac9-94c6-4905-80f5-c95e702ca878>`_.
 
 Block type: ``PROCESSING``
