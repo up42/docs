@@ -2,7 +2,7 @@
    :description: UP42 processing blocks: Thresholding NDVI values
    :keywords: UP42, processing, NDVI, thresholding, vegetation, SPOT 6/7, Pléiades
 
-.. _up42-ndvithresholding-block:
+.. _up42-ndvithreshold-block:
 
 NDVI Threshold
 ==============
@@ -14,17 +14,18 @@ Block type: ``PROCESSING``
 Supported parameters
 --------------------
 
-This block applies thresholding for NDVI values. This block is mainly suitable to be used with `NDVI SPOT/Pléiades <https://docs.up42.com/up42-blocks/processing/ndvi.html>`_.
-However, other blocks on the marketplace that provide ndvi values can also be used with this block.
+This block applies thresholding for `Normalized Difference Vegetation Index (NDVI) <https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index>`_ values.
+This block is mainly suitable to be used with `NDVI SPOT/Pléiades <https://docs.up42.com/up42-blocks/processing/ndvi.html>`_.
+However, other blocks on the marketplace that provide ``NDVI`` values can also be used with this block.
 
 
-* ``n_sieve_pixels``: Number of the connected pixels (small polygon) that will be replaced in output with value of their largest neighbor.
+* ``n_sieve_pixels``: Number of the connected pixels (small polygon) that will be replaced in the output with value of their largest neighbor.
 * ``threshold_values``: A list of a dictionary with specific vegetation type and corresponding threshold values.
 
 Vegetation types and values for thresholding
 --------------------------------------------
-Below are the default threshold values that have been set for the block. However, you can change ``threshold_values`` based on your
-preferences and case study.
+Below are the default threshold values that have been set for the block. However, you can change
+``vegetation types`` and their ``threshold_values`` based on your preferences and case study.
 
 .. table:: Default threshold values
     :align: center

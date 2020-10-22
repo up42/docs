@@ -34,4 +34,4 @@ blocks built by UP42.
    export-data-raster
    export-data-vector
    up42-countobjects
-   up42-ndvithresholding
+   up42-ndvithreshold
