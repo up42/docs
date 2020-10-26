@@ -7,7 +7,8 @@
 Airbus Global Seeps Sample
 ==========================
 
-For more information, please read the `block description <https://marketplace.up42.com/block/df2ec03a-50c4-47ac-8a83-2db613869cf9>`_.
+For more information, please read the `block description
+<https://marketplace.up42.com/block/dfc5d74f-d1e3-4e35-8c67-b36fd8cfe14e>`_.
 
 The data available in this sample covers the coast of the United Kingdom and Ireland and is available from 1991 to 2016.
 
