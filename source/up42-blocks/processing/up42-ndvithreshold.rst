@@ -50,30 +50,28 @@ Example of the block using ``n_sieve_pixels`` and ``threshold_values`` in a comp
 
 .. code-block:: javascript
 
-    {
-    "ndvi:1": {
-    "output_original_raster": false
-    },
-    "up42-ndvithreshold:1": {
-    "n_sieve_pixels": 5,
-    "threshold_values": [
-      {
-        "no_vegetation": 0.2,
-        "dense_vegetation": 0.9,
-        "sparse_vegetation": 0.4,
-        "moderate_vegetation": 0.6
-      }
-    ]
-    },
-    "data-conversion-dimap:1": {
-    "ms": true,
-    "pan": false,
-    "clip_to_aoi": false
-    },
-    "oneatlas-pleiades-fullscene:1": {
-    "time": "2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
-    "limit": 1,
-    "order_ids": null
-    "max_cloud_cover": 100
-    }
+   {
+    	"ndvi:1": {
+    		"output_original_raster": false
+    	},
+    	"up42-ndvithreshold:1": {
+    		"n_sieve_pixels": 5,
+    		"threshold_values": [{
+    			"no_vegetation": 0.2,
+    			"dense_vegetation": 0.9,
+    			"sparse_vegetation": 0.4,
+    			"moderate_vegetation": 0.6
+    		}]
+    	},
+    	"data-conversion-dimap:1": {
+    		"ms": true,
+    		"pan": false,
+    		"clip_to_aoi": false
+    	},
+    	"oneatlas-pleiades-fullscene:1": {
+    		"time": "2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
+    		"limit": 1,
+    		"order_ids": null,
+    		"max_cloud_cover": 100
+    	}
     }
