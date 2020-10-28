@@ -4,8 +4,8 @@
 
 .. _ndvi-block:
 
-NDVI SPOT/Pléiades/Hexagon
-==========================
+NDVI
+====
 For more information, please read the `block description <https://marketplace.up42.com/block/d0da4ac9-94c6-4905-80f5-c95e702ca878>`_.
 
 Block type: ``PROCESSING``
