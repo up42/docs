@@ -1,5 +1,5 @@
 .. meta::
-   :description: UP42 data blocks: AIS Historical Vehicle Tracks
+   :description: UP42 data blocks: AIS Historical Vessel Tracks
    :keywords: UP42, data, AIS, Ship, Exact Earth, Tracks, Maritime
 
 .. _ais-hvt-block:
