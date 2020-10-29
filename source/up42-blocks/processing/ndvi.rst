@@ -1,16 +1,16 @@
 .. meta::
    :description: UP42 processing blocks: NDVI block description
-   :keywords: UP42, processing, NDVI, vegetation, SPOT 6/7, Pléiades, block description
+   :keywords: UP42, processing, NDVI, vegetation, SPOT 6/7, Pléiades, Hexagon, block description
 
 .. _ndvi-block:
 
-NDVI SPOT/Pléiades
-==================
+NDVI
+====
 For more information, please read the `block description <https://marketplace.up42.com/block/d0da4ac9-94c6-4905-80f5-c95e702ca878>`_.
 
 Block type: ``PROCESSING``
 
-This block computes the Normalized Difference Vegetation Index (NDVI) from Pléiades or SPOT images that include a NIR band.
+This block computes the Normalized Difference Vegetation Index (NDVI) from Pléiades, SPOT or Hexagon images that include a NIR band.
 This block can only process outputs from the blocks :ref:`Pléiades Download <pleiades-download-block>` or
 :ref:`SPOT 6/7 Download <spot-download-block>`, which have been converted to GeoTIFF with the
 blocks :ref:`DIMAP -> GeoTIFF Conversion <dimap-conversion-block>` or :ref:`Pan-sharpening SPOT/Pléiades <pansharpen-block>` .
