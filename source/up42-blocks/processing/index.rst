@@ -35,3 +35,5 @@ blocks built by UP42.
    export-data-vector
    up42-countobjects
    oneatlas-cloudmask
+   up42-ndvithreshold
+

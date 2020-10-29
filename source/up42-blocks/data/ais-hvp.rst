@@ -1,5 +1,5 @@
 .. meta::
-   :description: UP42 data blocks: AIS Historical Vehicle Points
+   :description: UP42 data blocks: AIS Historical Vessel Points
    :keywords: UP42, data, AIS, Ship, Exact Earth, Points, Maritime
 
 .. _ais-hvp-block:

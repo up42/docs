@@ -11,7 +11,7 @@ For more information, please read the `block description <https://marketplace.up
 
 Block type: ``PROCESSING``
 
-This block takes an Sentinel-2 L1C MSI Full Scenes image and runs
+This block takes an Sentinel-2 L1C/L2A MSI Full Scenes image and runs
 superresolution algorithm on it. This algorithm creates a 10m
 resolution for all the existing spectral bands within 20m and 60m
 resolutions by using a trained convolutional neural network.
@@ -19,7 +19,7 @@ resolutions by using a trained convolutional neural network.
 .. note::
 
    This block works on a minimum image size of 192x192 pixels. This is
-   equivalent to a **minimum area of 4km**:superscript:`2`.
+   equivalent to a **minimum area of 4 km**:superscript:`2`.
 
 Supported parameters
 --------------------
@@ -101,11 +101,10 @@ data source and then applying s2-superresolution clipped to the specific AOI:
       }
     }
 
-
 Output format
 :::::::::::::
 
-AOI.clipped GeoTIFF format. Also in the output file all the spectral
+GeoTIFF format. Also in the output file all the spectral
 bands for 20m and 60m will be in 10m spatial resolution.
 
 Download example output
