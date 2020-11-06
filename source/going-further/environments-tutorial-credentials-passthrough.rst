@@ -128,12 +128,13 @@ Step 1: Create an environment
 
  1. Login into the `UP42 console <https://console.up42.com>`_.
  2. Go to the account settings at: `<https://console.up42.com/settings/account>`_.
- 3. Select **Environments** in the immediately to the left of the
-    main window area: `<https://console.up42.com/settings/environments>`_.
- 4. Click on the button towards the upper right corner of the window:
+ 3  Click on the `Workspace <https://console.up42.com/settings/workspace>`_ button.
+ 4. Select the **Environments** tab that will take you to:
+    `<https://console.up42.com/settings/workspace#environments>`_.
+ 5. Click on the button towards the lower left corner of the window:
     **Create Environment**. Name your environment meaningfully.
- 5. You now should have an empty environment.
- 6. Done.
+ 6. You now should have an empty environment.
+ 7. Done.
 
 Here is a screenshot illustrating environment creation.
 
