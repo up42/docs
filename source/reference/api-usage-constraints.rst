@@ -35,7 +35,7 @@ If you ever experience such an error code please do one of the
 following:
 
  1. Adjust the request rate from your UP42 API client application such
-    that the request rate follows an `exponetial backoff
+    that the request rate follows an `exponential backoff
     <https://en.wikipedia.org/wiki/Exponential_backoff>`_ growth rate.
  2. Contact `support <mailto:support@up42.com>`_ to get that
     restriction removed in case you have a very good reason for
