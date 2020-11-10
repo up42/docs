@@ -1,4 +1,4 @@
-.. meta:: 
+.. meta::
    :description: UP42 reference documentation: index page
    :keywords: reference, API, custom blocks, development, UP42
 
@@ -20,12 +20,12 @@ self-explanatory.
 .. toctree::
    :maxdepth: 1
    :caption: Contents
-   :includehidden:             
+   :includehidden:
 
    block-manifest
    block-envvars
    capabilities
    parameters
    data-transfer
+   api-usage-constraints
    glossary
-   
