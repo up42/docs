@@ -39,5 +39,5 @@ following:
     <https://en.wikipedia.org/wiki/Exponential_backoff>`_ growth rate.
  2. Contact `support <mailto:support@up42.com>`_ to get that
     restriction removed in case you have a very good reason for
-    that. If possible, this is only applicable to paying customers,
-    and **always**, in very special cases, and with a proper justification.
+    that. If possible, this is only applicable to paying customers
+    in very **special** cases and with a proper justification.
