@@ -26,6 +26,15 @@ Unprojected Pleiades Primary image Can be easily orthorectified using the gdalwa
 
 Please consult the ``gdalwarp`` `documentation <https://gdal.org/programs/gdalwarp.html>`_ for better understanding on how to use it.
 
+.. warning::
+
+  The ``up42.data_path`` of the result ``data.json`` of this block points to a ``GTiff`` file
+  that includes the multispectral (MS) bands (red, green, blue and near infrared).
+  The panchromatic (PAN) band is also included in the output in a separate file.
+  To get the path to the panchromatic file you need to replace ``ms`` in the filename
+  provided in ``up42.data_path`` with ``pan``. For example, filename ``5e6ce6fd-b906-4542-b0c7-cef536b59026_ms.tif``
+  would be ``5e6ce6fd-b906-4542-b0c7-cef536b59026_pan.tif``.
+
 
 Supported parameters
 --------------------
