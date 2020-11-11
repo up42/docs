@@ -51,10 +51,10 @@ Example query using the ``time_series`` in combination with ``bbox`` and  ``limi
     {
       "oneatlas-spot-display:1": {
         "bbox": [
-          13.321567,
-          38.203003,
-          13.323345,
-          38.205106
+          13.320761,
+          38.202474,
+          13.324638,
+          38.205127
         ],
         "time": null,
         "limit": 1,
@@ -70,88 +70,252 @@ Example query using identifiers:
 .. code-block:: javascript
 
     {
-      "type": "FeatureCollection",
-      "features": [
-        {
-          "type": "Feature",
-          "bbox": [
-            13.377227783203127,
-            52.50201169900509,
-            13.38237762451172,
-            52.50535544522145
-          ],
-          "id": "1bb7f9a2-5657-4f40-812b-df2373949ff1",
-          "geometry": {
-            "type": "Polygon",
-            "coordinates": [
-              [
-                [
-                  13.38237762451172,
-                  52.50201169900509
-                ],
-                [
-                  13.377227783203127,
-                  52.50201169900509
-                ],
-                [
-                  13.377227783203127,
-                  52.50535544522145
-                ],
-                [
-                  13.38237762451172,
-                  52.50535544522145
-                ],
-                [
-                  13.38237762451172,
-                  52.50201169900509
+       "type":"FeatureCollection",
+       "features":[
+          {
+             "type":"Feature",
+             "bbox":[
+                13.320761,
+                38.202474,
+                13.324638,
+                38.205127
+             ],
+             "id":"8502b50b-cadf-46a6-b80d-0319eacf8f24",
+             "geometry":{
+                "type":"Polygon",
+                "coordinates":[
+                   [
+                      [
+                         13.324638,
+                         38.202474
+                      ],
+                      [
+                         13.320761,
+                         38.202474
+                      ],
+                      [
+                         13.320761,
+                         38.205127
+                      ],
+                      [
+                         13.324638,
+                         38.205127
+                      ],
+                      [
+                         13.324638,
+                         38.202474
+                      ]
+                   ]
                 ]
-              ]
-            ]
+             },
+             "properties":{
+                "acquisitionDate":"2018-04-23T09:32:28.249Z",
+                "acquisitionIdentifier":"DS_SPOT6_201804230932282_FR1_FR1_SV1_SV1_E013N38_04550",
+                "acquisitionStation":"SV1",
+                "activityId":"0a2118ac-e6ff-4f3f-b6cd-2f0f3a247dfa",
+                "archivingCenter":"FR1",
+                "azimuthAngle":185.928808557,
+                "cloudCover":0.17,
+                "commercialReference":"SO18010358",
+                "constellation":"SPOT",
+                "correlationId":"86629dc1-38d1-455c-889b-09c4e3e0bef8",
+                "expirationDate":"2019-05-18T04:31:54.040448215Z",
+                "format":"image/jp2",
+                "id":"8502b50b-cadf-46a6-b80d-0319eacf8f24",
+                "illuminationAzimuthAngle":135.130947335,
+                "illuminationElevationAngle":56.9462210503,
+                "incidenceAngle":17.0390631761,
+                "incidenceAngleAcrossTrack":-1.84570712401,
+                "incidenceAngleAlongTrack":16.671981129,
+                "lastUpdateDate":"2018-05-18T04:31:54.040448215Z",
+                "organisationName":"AIRBUS DS",
+                "parentIdentifier":"DS_SPOT6_201804230932282_FR1_FR1_SV1_SV1_E013N38_04550",
+                "platform":"SPOT6",
+                "processingCenter":"AOC",
+                "processingDate":"2018-04-26T12:28:32Z",
+                "processingLevel":"SENSOR",
+                "processorName":"IMFv6",
+                "productCategory":"image",
+                "productType":"bundle",
+                "productionStatus":"IN_CLOUD",
+                "publicationDate":"2018-05-18T04:31:54.040448215Z",
+                "qualified":false,
+                "resolution":1.6133,
+                "sensorType":"OPTICAL",
+                "snowCover":0,
+                "sourceIdentifier":"SEN_SPOT6_20180423_093228400_000",
+                "spectralRange":"VISIBLE",
+                "title":"SEN_SPOT6_20180423_093228400_000",
+                "workspaceId":"0e33eb50-3404-48ad-b835-b0b4b72a5625",
+                "workspaceName":"public",
+                "workspaceTitle":"Public"
+             },
+             "fileSize":512,
+             "estimatedCredits":0
           },
-          "properties": {
-            "acquisitionDate": "2018-05-04T09:43:39.749Z",
-            "acquisitionIdentifier": "DS_SPOT7_201805040943397_FR1_FR1_FR1_FR1_E013N53_01790",
-            "acquisitionStation": "FR1",
-            "archivingCenter": "FR1",
-            "azimuthAngle": 151.198474726,
-            "cloudCover": 0,
-            "commercialReference": "SO19020617",
-            "constellation": "SPOT",
-            "correlationId": "803a36dc-fe91-45b4-a25a-c5009d610137",
-            "dataUri": "gs://tcifg-idp-prod-datastore-data-pilot-nearline/SPOT_BM4LL_117_43_SO19020617-43-01_DS_SPOT7_201805040943397_FR1_FR1_FR1_FR1_E013N53_01790.zip",
-            "expirationDate": "2020-06-20T18:20:20.210426498Z",
-            "format": "image/jp2",
-            "id": "1bb7f9a2-5657-4f40-812b-df2373949ff1",
-            "illuminationAzimuthAngle": 149.477876711,
-            "illuminationElevationAngle": 49.5433811055,
-            "incidenceAngle": 17.5849668472,
-            "incidenceAngleAcrossTrack": 9.30346333188,
-            "incidenceAngleAlongTrack": 15.3579474138,
-            "organisationName": "AIRBUS DS",
-            "parentIdentifier": "DS_SPOT7_201805040943397_FR1_FR1_FR1_FR1_E013N53_01790",
-            "platform": "SPOT7",
-            "processingCenter": "AOC",
-            "processingDate": "2019-06-19T06:12:13Z",
-            "processingLevel": "SENSOR",
-            "processorName": "IMFv6",
-            "productCategory": "image",
-            "productType": "bundle",
-            "productionStatus": "IN_CLOUD",
-            "publicationDate": "2019-06-21T18:20:20.210426498Z",
-            "qualified": false,
-            "resolution": 1.63121,
-            "sensorType": "OPTICAL",
-            "snowCover": 0,
-            "sourceIdentifier": "SEN_SPOT7_20180504_094339900_000",
-            "spectralRange": "VISIBLE",
-            "title": "SEN_SPOT7_20180504_094339900_000",
-            "workspaceId": "0e33eb50-3404-48ad-b835-b0b4b72a5625",
-            "workspaceName": "public",
-            "workspaceTitle": "Public",
-            "up42.data_path": "1bb7f9a2-5657-4f40-812b-df2373949ff1/0a20a6f3-c589-4adf-b978-8159dd82172e"
+          {
+             "type":"Feature",
+             "bbox":[
+                13.320761,
+                38.202474,
+                13.324638,
+                38.205127
+             ],
+             "id":"728769dc-3da3-4190-8583-bc0f8bd9b80d",
+             "geometry":{
+                "type":"Polygon",
+                "coordinates":[
+                   [
+                      [
+                         13.324638,
+                         38.202474
+                      ],
+                      [
+                         13.320761,
+                         38.202474
+                      ],
+                      [
+                         13.320761,
+                         38.205127
+                      ],
+                      [
+                         13.324638,
+                         38.205127
+                      ],
+                      [
+                         13.324638,
+                         38.202474
+                      ]
+                   ]
+                ]
+             },
+             "properties":{
+                "acquisitionDate":"2018-07-16T09:36:06.624Z",
+                "acquisitionIdentifier":"DS_SPOT7_201807160936066_FR1_FR1_SV1_SV1_E013N38_01790",
+                "acquisitionStation":"SV1",
+                "activityId":"7e81802a-e5e4-486d-b6de-da589997dd49",
+                "archivingCenter":"FR1",
+                "azimuthAngle":208.323208325,
+                "cloudCover":4.03,
+                "commercialReference":"SO18018976",
+                "constellation":"SPOT",
+                "correlationId":"7e81802a-e5e4-486d-b6de-da589997dd49",
+                "expirationDate":"2019-07-29T04:49:20.061037678Z",
+                "format":"image/jp2",
+                "id":"728769dc-3da3-4190-8583-bc0f8bd9b80d",
+                "illuminationAzimuthAngle":121.543492339,
+                "illuminationElevationAngle":63.6956046581,
+                "incidenceAngle":13.910878049,
+                "incidenceAngleAcrossTrack":-7.00769286844,
+                "incidenceAngleAlongTrack":12.0359958444,
+                "lastUpdateDate":"2018-07-29T04:49:20.061037678Z",
+                "organisationName":"AIRBUS DS",
+                "parentIdentifier":"DS_SPOT7_201807160936066_FR1_FR1_SV1_SV1_E013N38_01790",
+                "platform":"SPOT7",
+                "processingCenter":"AOC",
+                "processingDate":"2018-07-19T18:11:16Z",
+                "processingLevel":"SENSOR",
+                "processorName":"IMFv6",
+                "productCategory":"image",
+                "productType":"bundle",
+                "productionStatus":"IN_CLOUD",
+                "publicationDate":"2018-07-29T04:49:20.061037678Z",
+                "qualified":false,
+                "resolution":1.5805,
+                "sensorType":"OPTICAL",
+                "snowCover":0,
+                "sourceIdentifier":"SEN_SPOT7_20180716_093606800_000",
+                "spectralRange":"VISIBLE",
+                "title":"SEN_SPOT7_20180716_093606800_000",
+                "workspaceId":"0e33eb50-3404-48ad-b835-b0b4b72a5625",
+                "workspaceName":"public",
+                "workspaceTitle":"Public"
+             },
+             "fileSize":512,
+             "estimatedCredits":0
           },
-          "orderID": "0a20a6f3-c589-4adf-b978-8159dd82172e",
-          "fileSize": 1070,
-        }
-      ]
+          {
+             "type":"Feature",
+             "bbox":[
+                13.320761,
+                38.202474,
+                13.324638,
+                38.205127
+             ],
+             "id":"4e8f026b-7794-49ba-b328-3d8bda37328e",
+             "geometry":{
+                "type":"Polygon",
+                "coordinates":[
+                   [
+                      [
+                         13.324638,
+                         38.202474
+                      ],
+                      [
+                         13.320761,
+                         38.202474
+                      ],
+                      [
+                         13.320761,
+                         38.205127
+                      ],
+                      [
+                         13.324638,
+                         38.205127
+                      ],
+                      [
+                         13.324638,
+                         38.202474
+                      ]
+                   ]
+                ]
+             },
+             "properties":{
+                "acquisitionDate":"2019-03-13T09:37:13.124Z",
+                "acquisitionIdentifier":"DS_SPOT6_201903130937131_FR1_FR1_FR1_FR1_E013N38_04713",
+                "acquisitionStation":"FR1",
+                "activityId":"89c40cb4-6d4e-41bc-ad97-6c4519484aea",
+                "archiveCorrelationId":"mmcat_eecbc787-04d6-4341-b642-24402483132e",
+                "archivingCenter":"FR1",
+                "azimuthAngle":327.66011942,
+                "cloudCover":0,
+                "commercialReference":"SO19007944",
+                "constellation":"SPOT",
+                "correlationId":"89c40cb4-6d4e-41bc-ad97-6c4519484aea",
+                "dataUri":"gs://tcifg-idp-prod-datastore-data-pilot-nearline/PSASPO_20190314130447_34_SO19007944-34-01_DS_SPOT6_201903130937131_FR1_FR1_FR1_FR1_E013N38_04713.zip",
+                "expirationDate":"2020-03-14T00:53:40.43336801Z",
+                "format":"image/jp2",
+                "id":"4e8f026b-7794-49ba-b328-3d8bda37328e",
+                "illuminationAzimuthAngle":145.261268975,
+                "illuminationElevationAngle":42.5465198427,
+                "incidenceAngle":15.9205244293,
+                "incidenceAngleAcrossTrack":-9.39775682327,
+                "incidenceAngleAlongTrack":-13.1954821034,
+                "lastUpdateDate":"2019-03-15T00:53:40.43336801Z",
+                "organisationName":"AIRBUS DS",
+                "parentIdentifier":"DS_SPOT6_201903130937131_FR1_FR1_FR1_FR1_E013N38_04713",
+                "platform":"SPOT6",
+                "processingCenter":"AOC",
+                "processingDate":"2019-03-14T23:16:25Z",
+                "processingLevel":"SENSOR",
+                "processorName":"IMFv6",
+                "productCategory":"image",
+                "productType":"bundle",
+                "productionStatus":"IN_CLOUD",
+                "publicationDate":"2019-03-15T00:53:40.43336801Z",
+                "qualified":false,
+                "resolution":1.60068,
+                "sensorType":"OPTICAL",
+                "snowCover":0,
+                "sourceIdentifier":"SEN_SPOT6_20190313_093713300_000",
+                "spectralRange":"VISIBLE",
+                "title":"SEN_SPOT6_20190313_093713300_000",
+                "workspaceId":"0e33eb50-3404-48ad-b835-b0b4b72a5625",
+                "workspaceName":"public",
+                "workspaceTitle":"Public"
+             },
+             "fileSize":512,
+             "estimatedCredits":0
+          }
+       ]
     }
