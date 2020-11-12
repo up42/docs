@@ -164,11 +164,11 @@ Implemented filters
  :widths: auto
 
  ":ref:`Pleiades (AOI-Clipped) <pleiades-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
- ":ref:`Pleiades Download <pleiades-download-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`Pleiades Display (Download) <pleiades-download-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Pleiades Download <pleiades-download-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`SPOT (AOI-Clipped) <pleiades-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
- ":ref:`SPOT Download <pleiades-download-block>`", **✓**, **✓**,**✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`SPOT Display (Download) <pleiades-download-block>`", **✓**, **✓**,**✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`SPOT Download <pleiades-download-block>`", **✓**, **✓**,**✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`Pléiades primary <pleiades-primary-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`Hexagon 15cm Aerial <hexagon-aerial-15cm-block>`", , **✓**, **✓**, , , , ,
  ":ref:`Hexagon 30cm Aerial <hexagon-aerial-30cm-block>`", , **✓**, **✓**, , , , ,
