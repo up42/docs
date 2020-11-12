@@ -1,12 +1,12 @@
 .. meta::
-   :description: UP42 data blocks: SPOT 6/7 block description
-   :keywords: SPOT 6/7, Airbus Defense & Space, download block, block description
+   :description: UP42 data blocks: SPOT 6/7 display (download) block description
+   :keywords: SPOT 6/7, Airbus Defense & Space, display block, download, block description
 
-.. _spot-download-block:
+.. _spot-display-block:
 
 SPOT 6/7 Display (Download)
 ===========================
-For more information, please read the `block description <https://marketplace.up42.com/block/63a69b97-1765-474e-b465-0b319b8d3b2d>`_.
+For more information, please read the `block description <https://marketplace.up42.com/block/3e24ed57-b07f-4d44-9957-5d5c0a457239>`_.
 
 Block type: ``DATA``
 

@@ -1,12 +1,12 @@
 .. meta::
-  :description: UP42 data blocks: Pléaides download block description
-  :keywords: Pléiades 1A/1B, Airbus Defense & Space, download block, block description
+  :description: UP42 data blocks: Pléaides display (download) block description
+  :keywords: Pléiades 1A/1B, Airbus Defense & Space, display block, download, block description
 
-.. _pleiades-download-block:
+.. _pleiades-display-block:
 
 Pléiades Display (Download)
 ===========================
-For more information, please read the `block description <https://marketplace.up42.com/block/defb134b-ca00-4e16-afa0-639c6dc0c5fe>`_.
+For more information, please read the `block description <https://marketplace.up42.com/block/6ac78530-6200-42c1-b6a9-381a9f69d8ef>`_.
 
 Block type: ``DATA``
 
