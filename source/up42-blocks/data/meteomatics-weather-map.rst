@@ -37,7 +37,6 @@ section <filters>`.
 * ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``time_interval``: A desired spacing in hours between the start and end point in time. By default, ``time_interval`` is set to 3 hours.
-* ``number_pixels``: A number in *pixels per degree* unit which define the width and height (in pixel) of the final output. By default, ``number_pixels`` is set to 100.
 * ``colormap_style``: A single color scheme which should be used to represent the data. By default, ``colormap_style`` is set to JET.
 
 .. note::
@@ -51,9 +50,9 @@ section <filters>`.
 
 .. warning::
 
-  In this block you can choose ``number_pixels`` to be a number from 8
-  to 3000. Based on this number and the selected AOI, **width** and **height** of the
-  final output image (in pixel) will be calculated.
+  The width and height of the final image for a variable will be set based on
+  the size of selected AOI. In this way, hitting the limit of width and height values
+  provided by meteomatics API will be avoided.
 
 .. tip::
 
@@ -119,8 +118,7 @@ Example query using ``bbox``:
         "wind_speed_100m:ms"
       ],
       "time_interval": 6,
-      "colormap_style": 2,
-      "pixel_resolution": 3
+      "colormap_style": "JET",
       }
     }
 
@@ -182,7 +180,8 @@ Example query using ``time_series`` and adding one more ``variable`` to the vari
 		  "2019-10-01T00:00:00+00:00/2019-10-03T23:59:59+00:00",
 		  "2018-10-01T00:00:00+00:00/2018-10-03T23:59:59+00:00"
 		],
-		"time_interval": 3
+		"time_interval": 3,
+        "colormap_style": "JET",
 	  }
 	}
 
