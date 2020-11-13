@@ -34,8 +34,7 @@ To learn more about our API and the concepts underlying it go to our
 Are there any limitations to using the UP42 API?
 ------------------------------------------------
 
-Yes. Please consult our `API usage constraints <api-usage-constraints>`_ reference.
-
+Yes. Please consult our :ref:`API usage constraints <api-usage-constraints>` reference.
 
 .. raw:: html
 

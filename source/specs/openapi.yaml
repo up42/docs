@@ -57,8 +57,8 @@ info:
     ## Authenticating and getting the token
 
     The authentication uses the project key and the project ID. Both
-    can be found at
-    `https://console.up42.com/projects/<projectID>/settings`, where
+    can be found in the **Developers section** of your project
+    `https://console.up42.com/projects/<projectID>/developers`, where
     `<projectID>` is the project ID of a specific project.
 
     The project API key will be displayed there, e.g.,
@@ -123,7 +123,7 @@ info:
   contact:
     name: API support
     email: support@up42.com
-  version: '0.9'
+  version: '0.9.1'
   license:
     name: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
     url: http://creativecommons.org/licenses/by-nc-nd/4.0/
@@ -184,6 +184,56 @@ paths:
             application/json:
               example:
                 null
+      deprecated: false
+  /catalog/stac/search:
+    post:
+      tags:
+      - catalog
+      summary: Execute a catalog search
+      description: Execute a search in the UP42 data catalog given input parameters.
+      operationId: CatalogSearch
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: Catalog search body input parameters.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CatalogSearchBody'
+        required: true
+      responses:
+        200:
+          $ref: '#/components/responses/CatalogSearchResult'
+        400:
+          description: Validation Failed for Argument
+          content:
+            application/json:
+              example:
+                error:
+                  code: INVALID_ARGUMENT
+                  message: >
+                    Validation failed for argument [0] in public com.up42.catalog.controller.StacSearchController$StacResponse com.up42.catalog.controller.StacSearchController.search(com.up42.catalog.controller.dto.SearchRequestDto,java.lang.String): [Field error in object 'searchRequestDto' on field 'limit': rejected value [600]; codes [Max.searchRequestDto.limit,Max.limit,Max.java.lang.Integer,Max]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [searchRequestDto.limit,limit]; arguments []; default message [limit],500]; default message [must be less than or equal to 500]]
+                  details: null
+                data: null
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        422:
+          description: Invalid
+          content:
+            application/json:
+              example:
+                error:
+                  code: INVALID_QUERY_DATABLOCK_VALUE
+                  message: >
+                    Invalid query.dataBlock value. Valid data blocks are \"oneatlas-pleiades-fullscene\", \"oneatlas-pleiades-aoiclipped\", \"oneatlas-spot-fullscene\", \"oneatlas-spot-aoiclipped\", \"sobloo-sentinel1-l1c-grd-full\", \"sobloo-sentinel1-l1c-grd-aoiclipped\", \"sobloo-sentinel1-l1c-slc-full\", \"sobloo-sentinel2-lic-msi-full\", \"sobloo-sentinel2-lic-msi-aoiclipped\", \"sobloo-sentinel3-full\", \"sobloo-sentinel5-preview-full\", \"eusi\
+                data: null
       deprecated: false
   /projects/{project_id}/settings:
     get:
@@ -1482,6 +1532,8 @@ paths:
           headers: {}
           content:
             application/json:
+              schema:
+                  $ref: '#/components/schemas/ResponseListSimpleBlockDto'
               example:
                 error: null
                 data:
@@ -1906,6 +1958,32 @@ components:
       example:
         ids:
           - S1B_IW_GRDH_1SDV_20191117T084136_20191117T084201_018965_023C6E_2A28
+    CatalogSearchBody:
+      title: CatalogSearchBody
+      type: object
+      example:
+        datetime: '2019-01-01T00:00:00Z/2019-01-15T23:59:59Z'
+        intersects:
+          type: Polygon
+          coordinates:
+            - - - 13.32113746
+                - 52.73971768
+              - - 13.15981158
+                - 52.2092959
+              - - 13.62204483
+                - 52.15632025
+              - - 13.78859517
+                - 52.68655119
+              - - 13.32113746
+                - 52.73971768
+        sortby:
+          - field: properties.cloudCoverage
+            direction: asc
+        limit: 500
+        query:
+          dataBlock:
+            in:
+              - oneatlas-pleiades-aoiclipped
     ValidateBlocksManifestRequest:
       title: ValidateBlocksManifestRequest
       required:
@@ -2212,11 +2290,280 @@ components:
           description: The new name for the job.
       example:
         name: My newly renamed job
+    ResponseListSimpleBlockDto:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorResponse'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SimpleBlockDto'
+    SimpleBlockDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        displayId:
+          type: string
+        createdAt:
+          type: integer
+          format: int64
+        updatedAt:
+          type: integer
+          format: int64
+        name:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        provider:
+          type: string
+        type:
+          type: string
+          enum:
+          - PROCESSING
+          - DATA
+        metadata:
+          $ref: '#/components/schemas/SimpleBlockMarketplaceMetadataDto'
+        version:
+          type: string
+        isPublic:
+          type: boolean
+        isValid:
+          type: boolean
+        isRestricted:
+          type: boolean
+        isAccessGranted:
+          type: boolean
+        inputCapabilities:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/Capability'
+        outputCapabilities:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/Capability'
+        tags:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        isPublicVersion:
+          type: boolean
+        manifestVersion:
+          type: integer
+          format: int32
+    SimpleBlockMarketplaceMetadataDto:
+      type: object
+      properties:
+        blockThumbnailUrl:
+          type: string
+        pricingStrategy:
+          $ref: '#/components/schemas/SimplePricingStrategyDto'
+    SimplePricingStrategyDto:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - SQUARE_KM_INPUT
+          - SQUARE_KM_OUTPUT
+          - MEGABYTE_INPUT
+          - MEGABYTE_OUTPUT
+          - SCENE_INPUT
+          - SCENE_OUTPUT
+          - MEGAPIXEL_INPUT
+          - MEGAPIXEL_OUTPUT
+          - TILE_INPUT
+          - TILE_OUTPUT
+          - DATA_POINT_INPUT
+          - DATA_POINT_OUTPUT
+        credits:
+          type: number
+    BlockDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: integer
+          format: int64
+        updatedAt:
+          type: integer
+          format: int64
+        name:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        containerUrl:
+          type: string
+        inputCapabilities:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/Capability'
+        outputCapabilities:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/Capability'
+        provider:
+          type: string
+        providerWebsite:
+          type: string
+        providerLogoUrl:
+          type: string
+        tags:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        isPublic:
+          type: boolean
+        isPublicVersion:
+          type: boolean
+        isValid:
+          type: boolean
+        isRestricted:
+          type: boolean
+        isAccessGranted:
+          type: boolean
+        parameters:
+          $ref: string
+        type:
+          type: string
+          enum:
+          - PROCESSING
+          - DATA
+        isDryRunSupported:
+          type: boolean
+        version:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/BlockMarketplaceMetadataDto'
+        machineName:
+          type: string
+          enum:
+          - SMALL
+          - MEDIUM
+          - LARGE
+          - XLARGE
+          - GPU_NVIDIA_TESLA_K80
+        manifestVersion:
+          type: integer
+          format: int32
+        capabilities:
+          $ref: '#/components/schemas/CapabilitiesDto'
+    BlockMarketplaceMetadataDto:
+      type: object
+      properties:
+        overview:
+          type: string
+        termsAndConditionsUrl:
+          type: string
+        blockThumbnailUrl:
+          type: string
+        pricingStrategy:
+          $ref: '#/components/schemas/PricingStrategyDto'
+        blockMarketplaceSampleData:
+          type: array
+          items:
+            $ref: '#/components/schemas/BlockMarketplaceSampleDataDto'
+    BlockMarketplaceSampleDataDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        displayId:
+          type: string
+        createdAt:
+          type: integer
+          format: int64
+        updatedAt:
+          type: integer
+          format: int64
+        value:
+          type: string
+        type:
+          type: string
+          enum:
+          - IMAGE
+          - JSON
+          - TEXT
+    CapabilitiesDto:
+      type: object
+      properties:
+        input:
+          type: object
+          additionalProperties:
+            type: object
+        output:
+          type: object
+          additionalProperties:
+            type: object
+    PricingStrategyDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        displayId:
+          type: string
+        createdAt:
+          type: integer
+          format: int64
+        updatedAt:
+          type: integer
+          format: int64
+        type:
+          type: string
+          enum:
+          - SQUARE_KM_INPUT
+          - SQUARE_KM_OUTPUT
+          - MEGABYTE_INPUT
+          - MEGABYTE_OUTPUT
+          - SCENE_INPUT
+          - SCENE_OUTPUT
+          - MEGAPIXEL_INPUT
+          - MEGAPIXEL_OUTPUT
+          - TILE_INPUT
+          - TILE_OUTPUT
+          - DATA_POINT_INPUT
+          - DATA_POINT_OUTPUT
+        credits:
+          type: number
+    Capability:
+      type: object
+      properties:
+        name:
+          type: string
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: object
+
   responses:
     PublicBlocks:
       description: OK
       content:
         application/json:
+            schema:
+                $ref: '#/components/schemas/ResponseListSimpleBlockDto'
             example:
               error: null
               data:
@@ -4848,6 +5195,87 @@ components:
               workflowId: fc88746e-98b0-4fa7-b750-2f96cde0f385
               workflowName: My brand new workflow with Pléaides and
                     Pansharpening.
+    CatalogSearchResult:
+      description: OK
+      headers: {}
+      content:
+        application/json:
+          example:
+            type: FeatureCollection
+            features:
+              - type: Feature
+                bbox:
+                  - 172.61705
+                  - -43.836509
+                  - 172.728202
+                  - -43.798937
+                geometry:
+                  type: Polygon
+                  coordinates:
+                    - - - 172.728202
+                        - -43.836509
+                      - - 172.61705
+                        - -43.836509
+                      - - 172.61705
+                        - -43.798937
+                      - - 172.728202
+                        - -43.798937
+                      - - 172.728202
+                        - -43.836509
+                properties:
+                  id: "20782479-ba92-49cc-a256-028a4b304060"
+                  acquisitionDate: "2019-01-15T22:35:17Z"
+                  constellation: "PHR"
+                  providerName: "oneatlas"
+                  blockNames:
+                    - "oneatlas-pleiades-fullscene"
+                    - "oneatlas-pleiades-aoiclipped"
+                  cloudCoverage: 7.89
+                  providerProperties:
+                    - commercialReference: "SO19001525"
+                    - acquisitionDate: "2019-01-15T22:35:17.68Z"
+                    - qualified: false
+                    - acquisitionStation: "SV1"
+                    - sourceIdentifier: "DS_PHR1A_201901152234406_FR1_PX_E174S38_0821_01783"
+                    - archivingCenter: "FR1"
+                    - lastUpdateDate: "2019-01-29T18:07:27.120095377Z"
+                    - archiveCorrelationId: "mmcat_2e0b18f9-58d6-4e66-b9eb-91c71189b25f"
+                    - processingDate: "2019-01-17T10:12:12.365"
+                    - parentIdentifier: "DS_PHR1A_201901152235176_FR1_PX_E174S38_0821_01787"
+                    - azimuthAngle: 179.9705061137936
+                    - title: "DS_PHR1A_201901152234406_FR1_PX_E174S38_0821_01783"
+                    - resolution: 0.5
+                    - workspaceTitle: "Public"
+                    - blockNames:
+                      - "oneatlas-pleiades-fullscene"
+                      - "oneatlas-pleiades-aoiclipped"
+                    - platform: "PHR1A"
+                    - productCategory: "image"
+                    - spectralRange: "VISIBLE"
+                    - activityId: "802710ad-89d7-4f66-977c-386d593fcfce"
+                    - processingLevel: "SENSOR"
+                    - acquisitionIdentifier: "DS_PHR1A_201901152235176_FR1_PX_E174S38_0821_01787"
+                    - productionStatus: "IN_CLOUD"
+                    - sensorType: "OPTICAL"
+                    - correlationId: "802710ad-89d7-4f66-977c-386d593fcfce"
+                    - processorName: "DRS-MM V2.6vV2.6"
+                    - workspaceName: "public"
+                    - id: "20782479-ba92-49cc-a256-028a4b304060"
+                    - publicationDate: "2019-01-29T18:07:27.120095377Z"
+                    - illuminationElevationAngle: 60.25082389183731
+                    - productType: "bundle"
+                    - expirationDate: "2020-01-29T18:07:27.120095377Z"
+                    - workspaceId: "0e33eb50-3404-48ad-b835-b0b4b72a5625"
+                    - incidenceAngleAcrossTrack: -13.64008456741779
+                    - dataUri: "gs://tcifg-idp-prod-datastore-data-pilot-nearline/PDWPHR_20190116080000_22_SO19001525-22-01_DS_PHR1A_201901152235176_FR1_PX_E174S38_0821_01787.zip"
+                    - cloudCover: 7.89
+                    - format: "image/jp2"
+                    - illuminationAzimuthAngle: 65.73507622476698
+                    - incidenceAngleAlongTrack: -9.741554499182111
+                    - incidenceAngle: 16.55486525986212
+                    - processingCenter: "FCMUGC"
+                    - organisationName: "AIRBUS DS GEO"
+                    - snowCover: 0
     DataJsonOutput:
       description: OK
       headers: {}
