@@ -10,7 +10,7 @@ For more information, please read the `block description <https://marketplace.up
 
 Block type: ``DATA``
 
-This block provides pansharpened SPOT imagery intersecting a given bounding box or AOI. The block outputs a DIMAP file and will store the AOI within the output feature geometry.
+This block delivers pansharpened SPOT imagery intersecting a given bounding box or AOI. The block outputs a DIMAP file and will store the AOI within the output feature geometry.
 
 The available output bands of the SPOT block are: red, green, blue and near infrared. SPOT Pansharpened imagery has a spatial resolution of 2x2m. The multispectral bands have a resolution of 8x8m.
 
@@ -20,7 +20,8 @@ The available output bands of the SPOT block are: red, green, blue and near infr
 
 .. tip::
 
-	 Find out more about the DIMAP image format `here <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`_. DIMAP is a GDAL supported `raster format <https://gdal.org/drivers/raster/dimap.html>`_.
+    The DIMAP format may be converted into GeoTiff format using the `DIMAP -> GeoTIFF conversion block <https://marketplace.up42.com/block/c94bb4cd-8ee2-40df-ba76-d332b8f48c6a>`_.
+    Find out more about the DIMAP image format `here <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`_. DIMAP is a GDAL supported `raster format <https://gdal.org/drivers/raster/dimap.html>`_.
 
 Supported parameters
 --------------------
