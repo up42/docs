@@ -1,4 +1,5 @@
 alabaster==0.7.12
+attrs==20.3.0
 Babel==2.6.0
 certifi==2018.11.29
 chardet==3.0.4
@@ -14,6 +15,7 @@ MarkupSafe==1.1.0
 packaging==19.0
 Pygments==2.3.1
 pyparsing==2.3.1
+pyrsistent==0.17.3
 pytoml==0.1.21
 pytz==2018.9
 PyYAML==5.1
@@ -25,12 +27,18 @@ robotframework-seleniumlibrary==4.3.0
 selenium==3.141.0
 six==1.12.0
 snowballstemmer==1.2.1
-Sphinx==1.8.3
+Sphinx==3.3.1
 sphinx-copybutton==0.2.6
 sphinx-reload==0.2.0
 sphinx-rtd-theme==0.4.2
 sphinx-sitemap==1.0.2
-sphinxcontrib-redoc==1.5.1
+sphinxcontrib-applehelp==1.0.2
+sphinxcontrib-devhelp==1.0.2
+sphinxcontrib-htmlhelp==1.0.3
+sphinxcontrib-jsmath==1.0.1
+sphinxcontrib-qthelp==1.0.3
+sphinxcontrib-redoc==1.6.0
+sphinxcontrib-serializinghtml==1.1.4
 sphinxcontrib-websupport==1.1.0
 sphinxcontrib-youtube @ git+https://github.com/sphinx-contrib/youtube.git@635c8a908e3cac552ce43293c1516e7270cc4ce8
 sphinxcontrib.gist==0.1.0
