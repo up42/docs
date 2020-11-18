@@ -16,9 +16,11 @@ built by UP42.
    :includehidden:
 
    pleiades
+   pleiades-display
    pleiades-download
    pleiades-primary
    spot
+   spot-display
    spot-download
    weather-ocean-data-forecasts-meteomatics
    hexagon-aerial-15cm
