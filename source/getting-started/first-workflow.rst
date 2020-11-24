@@ -66,8 +66,8 @@ In order to take advantage of the UP42 geospatial data and algorithms, you need 
 .. tip::
    For more information about projects, workflows and jobs, please check the page :ref:`Core concepts <core-concepts>` .
 
-Adding blocks
--------------
+Add blocks
+-------------------
 
 In the UP42 platform, a workflow consists of *data blocks* and *processing blocks*. The first block is always a data block. This data block can be followed by one or more processing blocks.
 
@@ -132,7 +132,7 @@ Click this block and read its description, where additional details are provided
 Congratulations, you successfully created an UP42 workflow!
 
 Configure and run a job
------------------------
+-------------------------------
 
 Now that the workflow is created, it needs to be run as a :term:`job`. To continue, click on *Save & Configure Job*.
 
@@ -140,11 +140,18 @@ Now that the workflow is created, it needs to be run as a :term:`job`. To contin
    :align: center
    :alt: SaveConfigureJob
 
-You will be redirected to the job configuration window. In this window, you can draw the *Area of Interest* (AOI), select the *Geometric Filter* (:ref:`bounding box <bbox-filter>`, :ref:`intersects <intersects-filter>` or :ref:`contains <contains-filter>`) and adjust the parameters in JavaScript Object Notation (JSON) format. On the left side, you can adjust various parameters, such as the :ref:`date or date range <time-filter>` or the :ref:`limit <limit-filter>` (i.e. the maximum number of images to be returned). The coordinates of the AOI can also be pasted from other sources as a GeoJSON ``FeatureCollection`` (e.g. generated from online GIS tools such as `GeoJSON <http://geojson.io/>`__).
+You will be redirected to the job configuration window. In this window, you can draw the *Area of Interest* (AOI), select the *Geometric Filter* (:ref:`bounding box <bbox-filter>`, :ref:`intersects <intersects-filter>` or :ref:`contains <contains-filter>`) and adjust the parameters in JavaScript Object Notation (JSON) format. On the left side, you can adjust various parameters, such as the :ref:`date/date range <time-filter>` or the :ref:`limit <limit-filter>` (i.e. the maximum number of images to be returned). 
 
 .. figure:: _assets/step16_configureJobParameters_Overview.png
    :align: center
    :alt: ConfigureParams
+
+.. note:: The coordinates of the AOI can also be copied and pasted from other sources as a GeoJSON *geometry*. We recommend using the online GIS tool `GeoJSON.io <http://geojson.io/>`__.
+
+
+ .. figure:: _assets/GeoJSON_geometry.png
+    :align: center
+    :alt: GeoJSONGeom
 
 In this example, the following :term:`job parameters` were used:
 
@@ -154,22 +161,24 @@ In this example, the following :term:`job parameters` were used:
   If the *limit* is set to 1, the most recent image is returned by default. For a limit value greater than 1, the images are returned by descending chronological order (i.e. from most recent to least recent).
 
 After drawing the AOI and configuring the parameters, you can run the job in two ways:
-+ run a *Live Job*
-+ check image availability by first running a *Test Query* and then running a Live Job
 
-Live Job
-^^^^^^^^
+*  run a *Live Job*
+*  check image availability by first running a *Test Query* and then running a Live Job
+
+**1.  Live Job**
+
 If you run a *Live Job* directly, it will consume credits and provide the desired outputs:
-* the SPOT satellite image(s) from the data block *SPOT 6/7 Download*
-* the SPOT image tiles from the processing block *Raster Tiling*
-* the ships from the processing block *Ship Detection*
+
+*  the SPOT satellite image(s) from the data block *SPOT 6/7 Download*
+*  the SPOT image tiles from the processing block *Raster Tiling*
+*  the ships from the processing block *Ship Detection*
 
 .. figure:: _assets/step17_runLiveJob.png
    :align: center
    :alt: RunLive
 
-Test Query
-^^^^^^^^^^
+**2.  Test Query**
+
 If you first run a *Test Query*, this will check for available images for your selected area and parameters, which will not consume credits. The Test Query provides only the quicklooks and metadata of available images.
 
 .. figure:: _assets/step18_runTestQuery.png
@@ -197,9 +206,10 @@ In order to view the metadata and have a general idea of the acquisition date, s
    :alt: ViewPreview
 
 If you are satisfied with the quicklooks and metadata, you can run a Live Job, which will consume credits and provide the desired outputs:
-* the SPOT satellite image(s) from the data block *SPOT 6/7 Download*
-* the SPOT image tiles from the processing block *Raster Tiling*
-* the ships from the processing block *Ship Detection*
+
+*  the SPOT satellite image(s) from the data block *SPOT 6/7 Download*
+*  the SPOT image tiles from the processing block *Raster Tiling*
+*  the ships from the processing block *Ship Detection*
 
 Click on *Run as real job*.
 
@@ -207,40 +217,78 @@ Click on *Run as real job*.
    :align: center
    :alt: RunRealJob
 
-.. _job-overview:
+The job status will be displayed in grey as *Running*.
 
-Job overview
-------------
+.. figure:: _assets/step24_jobPending.png
+   :align: center
+   :alt: PendingJob
 
-Here you can see the job status and metadata about the job,
-as well perform multiple actions on the job.
+.. note:: The *Jobs* window displays the job status and metadata, as well as multiple actions to perform:
 
- + **Rerun Job**: Repeats a job that is running or has finished.
- + **Cancel Job**: Cancels a job that is running.
- + **Job Progress**: Displays a log of the running job.
- + **Parameters**: Displays the job parameters: AOI, time period and block specific parameters.
+             *  **Rerun Job**: Repeats a job that is running or has finished.
+             *  **Cancel Job**: Cancels a job that is running.
+             *  **Job progress**: Displays a log of the running job and the status for each steps.
+             *  **Parameters**: Displays the job parameters in JSON format.
+             
+             In the *Job progress*, each step name corresponds to a block in the workflow and it is defined as a :term:`task`.
+             Clicking on each of these names will display the task overview page and the logs for that task.
 
-Each row in the table on the bottom corresponds to a block in the workflow - this is a :term:`task`.
-Clicking on the **name** of a block takes you to a specific task overview page, showing the logs for that task.
+When the job run is finalized, the status will be displayed in green as *Successful*:
 
-Once a job has finished, a new column (**Actions**) becomes visible and
-by hovering the **...** the **Run again** button appears. Clicking on
-it relaunches that step of your job, that is, it reruns that particular
-block.
+.. figure:: _assets/step25_jobFinished.png
+   :align: center
+   :alt: FinishedJob
 
 .. _job-results:
 
-Job results
------------
+Display job results
+------------------------
 
-Once the job has completed, you can download the result data by
-clicking on the **Download** button at the top of the page. **Preview** gives
-shows the resulting GeoJSON file (also included in the results download), while the
-**Quick Looks** button shows a low resolution image preview.
+Once the job has completed, you can download the outputs in more ways:
 
-.. tip::
-   You can add the resulting GeoJSON into `QGIS <https://qgis.org/en/site/>`_
-   for further inspection.
+**1.  Last Output**
+
+If you want to access the output from the last block, click on *Download*.
+
+.. figure:: _assets/step26_downloadLastResult.png
+   :align: center
+   :alt: LastResult
+
+**2.  Intermediate Outputs**
+
+If you want to access each individual output from each block, click on *Results*.
+
+.. figure:: _assets/step27_downloadIntermediateResult.png
+   :align: center
+   :alt: IntermediateResult
+
+The outputs will be downloaded by default in the folder *Downloads* as TAR archives:
+
+.. figure:: _assets/step28_getTarball.png
+   :align: center
+   :alt: TarArchive
+   
+The TAR archives need to be unzipped. For Windows OS, it is recommended to unpack them with third-party tools. For more information, please read this article: `How to unpack a tar file in Windows <https://wiki.haskell.org/How_to_unpack_a_tar_file_in_Windows>`_.
+
+.. figure:: _assets/step29_unzipTarball.png
+   :align: center
+   :alt: UnzipArchive
+   
+Once you unpacked the TAR archives, you will have a collection of results stored in folders named output. Once you open the contents of these folders, various files will be displayed. Please note that the outputs are available in either raster or vector file formats.
+
+.. figure:: _assets/step30_checkOutput.png
+   :align: center
+   :alt: CheckOutput1
+
+.. figure:: _assets/step30_checkOutput2.png
+   :align: center
+   :alt: CheckOutput2
+   
+.. figure:: _assets/step30_checkOutput3.png
+   :align: center
+   :alt: CheckOutput3
+   
+UP42 does not support the visualization of these geospatial results. It is recommended to download the free GIS software `QGIS <https://qgis.org/en/site/forusers/download.html>`_, where you can display and further analyze the results. For this example, the results are displayed in the sections below.
 
 Tiled SPOT satellite image
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
