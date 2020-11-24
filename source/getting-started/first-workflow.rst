@@ -250,23 +250,15 @@ Once the job has completed, you can download the outputs in more ways:
 
 If you want to access the output from the last block, click on *Download*.
 
-.. figure:: _assets/step26_downloadLastResult.png
-   :align: center
-   :alt: LastResult
-
 **2.  Intermediate Outputs**
 
 If you want to access each individual output from each block, click on *Results*.
 
-.. figure:: _assets/step27_downloadIntermediateResult.png
+.. figure:: _assets/step26_downloadLastResult.png
    :align: center
-   :alt: IntermediateResult
+   :alt: LastIntermediateResult
 
-The outputs will be downloaded by default in the folder *Downloads* as TAR archives:
-
-.. figure:: _assets/step28_getTarball.png
-   :align: center
-   :alt: TarArchive
+The outputs will be downloaded by default in the folder *Downloads* as TAR archives.
    
 The TAR archives need to be unzipped. For Windows OS, it is recommended to unpack them with third-party tools. For more information, please read this article: `How to unpack a tar file in Windows <https://wiki.haskell.org/How_to_unpack_a_tar_file_in_Windows>`_.
 
