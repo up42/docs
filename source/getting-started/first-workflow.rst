@@ -4,141 +4,291 @@
 
 .. _build-first-workflow:
 
-Building your first workflow
-============================
+Build the first UP42 workflow
+=============================
 
 .. tip::
 
    If you prefer video tutorials then please see our
    :ref:`tutorial video section <video-tutorials>`.
 
-This guide will walk you through creating a workflow on the
-platform, using blocks that already exist. The goal is to generate **ship detections**
-in the harbour of Leixões, Portugal using SPOT satellite data.
+This guide will walk you through creating a project and running a workflow from scratch. The goal is to automatically detect ships in the harbour of Leixões (Portugal) using SPOT satellite images.
 
 .. figure:: _assets/spot_image_overlayed_ships.png
    :align: center
    :alt: Overlayed ships and original SPOT image
 
-   Ship detection in Matosinhos harbour, Portugal.
-
-Creating a :term:`project` and :term:`workflow`
------------------------------------------------
-
-After logging in successfully, click on the **Start a Project** button to create your first :term:`project`
--- besides the demo project.
-
-You will be asked to provide a project name and an optional
-description. Once you saved the project, you will be taken to the
-workflows overview for that project.
-
-Use the **Create Workflow** button to get started. Once again you will
-be asked to provide a name and an optional description, this time for
-the :term:`workflow` that you are about to create. Enter a name and
-click **Next**.
-
-.. tip::
-   Have a look at our :ref:`Core concepts <core-concepts>` page to find out more about Projects, Workflows and Jobs.
-
-Adding blocks
--------------
-
-A workflow consists of *Data blocks* and *Processing blocks*. A workflow always start with a data
-block. Its output can then be used by a processing block, or a chain of processing blocks.
-
-You should now see the workflow editor. Under the "Data" section,
-click on **Add Block** and select the "SPOT 6/7 Streaming" block
-to view its details. Then click **Add Block** at the bottom of the block
-description. Your workflow will automatically be saved whenever you add or
-remove a block.
-
-.. tip::
-   Click on top of the each *Data block* to find out more information about the
-   data source like the provider name and the data format. All *Data block* are listed
-   in our `Marketplace <https://up42.com/marketplace/>`_.
-
-Next, under the "Processing" section, follow the same procedure, this
-time selecting "Raster Tiling".
-
-Add another processing block by clicking on the **+** sign under the
-previously added Raster Tiling block. This time select the "Ship Detection" block.
-
-.. figure:: _assets/screenshot-first-workflow.png
-   :align: center
-   :alt: Screenshot of your first workflow. Link: https://console.up42.com/projects/b45630bf-c6e1-4713-8f33-eeadaa536c44/workflows/a8f353a1-1bf4-43a3-a533-682355c3a3c2
-
-   This is the workflow you have just created.
-
-When you are done, scroll to the bottom of the workflow editor and
-click **Next**. You should now see a button labeled **Configure
-Job** a the bottom of the workflow editor. Click on it and you will be taken to the :term:`AOI` selector.
-
-Configuring and running your :term:`job`
-----------------------------------------
-
-Select an AOI using the map widget. Either choose to use a :ref:`Bounding box
-<bbox-filter>`, :ref:`Intersects <intersects-filter>`
-or :ref:`Contains <contains-filter>` filter. Click on the map and draw your AOI.
-
-.. figure:: _assets/screenshot-aoi-selector.png
-   :align: center
-   :alt: Screenshot of your first workflow. Link: https://console.up42.com/projects/b45630bf-c6e1-4713-8f33-eeadaa536c44/workflows/a8f353a1-1bf4-43a3-a533-682355c3a3c2/configure-job
-
-In the text box to the left of the map, you can set additional **parameters**, e.g.
-the :ref:`date or date range <time-filter>` and :ref:`limit <limit-filter>` (the maximum
-number of images to return). Here, you can also directly paste a GeoJSON
-``FeatureCollection`` (for example generated via `geojson.io <http://geojson.io/>`__).
-
-Here is the original AOI.
+   Ship detection in Leixões, Portugal.
 
 .. gist:: https://gist.github.com/up42-epicycles/f6b72e3b98b2ca890e3e79e246e8e731
 
-.. attention::
-  By default the most recent image is returned. For a value of limit
-  greater than 1, the images are returned by descending chronological order, that is,
-  from most recent to least recent.
+Create an UP42 account
+-----------------------------------------------
 
-Here are the :term:`job parameters` used in this example:
+In order to access the UP42 console, you first need to sign up. A confirmation code will be sent to your email address. If this code does not appear in the Inbox or Spam email folder, then click on *Resend code*.
+
+.. figure:: _assets/step00_signUp_1of3.png
+   :align: center
+   :alt: SignUp1
+
+.. figure:: _assets/step01_signUp_2of3.png
+   :align: center
+   :alt: SignUp2
+
+.. figure:: _assets/step02_signUp_3of3.png
+   :align: center
+   :alt: SignUp3
+
+Congratulations, you successfully created an UP42 account! In order to get access to the free 10 000 UP42 credits or the equivalent of 100 Euro/Dollars, you need to provide your credit card details. You will not be charged from this credit card.
+
+Create a project and a workflow
+-----------------------------------------------
+
+After signing up, create your first :term:`project` by clicking on *Start a Project*.
+
+.. figure:: _assets/step03_welcome.png
+   :align: center
+   :alt: StartProject
+
+Provide a name to your project and add a description (if applicable). Click on *Save*.
+
+.. figure:: _assets/step04_startProject.png
+   :align: center
+   :alt: NameProject
+
+In order to take advantage of the UP42 geospatial data and algorithms, you need to build a :term:`workflow` by clicking *Create Workflow*.
+
+.. figure:: _assets/step05_createWorkflow.png
+   :align: center
+   :alt: CreateWorkflow
+
+
+.. tip::
+   For more information about projects, workflows and jobs, please check the page :ref:`Core concepts <core-concepts>` .
+
+Add blocks
+-------------------
+
+In the UP42 platform, a workflow consists of *data blocks* and *processing blocks*. The first block is always a data block. This data block can be followed by one or more processing blocks.
+
+In this example, a workflow based on the detection of ships from high-resolution SPOT images (1.5 m spatial resolution) will be shown. The first step is to select the data block from which ships will be extracted. Click on *Add data*.
+
+.. figure:: _assets/step06_addDataBlock.png
+   :align: center
+   :alt: AddData
+
+Browse for the data block *SPOT 6/7 Streaming*. This data block consumes 3 UP42 credits per tile, which is the equivalent of 0.03 Euro/Dollars.
+
+.. figure:: _assets/step07_selectSPOTDataBlock.png
+   :align: center
+   :alt: BrowseSPOT
+
+
+Click on this block and read its description, where additional details are provided. Click on *Add Block*.
+
+.. figure:: _assets/step08_clickAddBlock_SPOT.png
+   :align: center
+   :alt: AddSPOT
+
+The next block that follows the data block is a processing block. Click on *Add processing*.
+
+.. figure:: _assets/step09_addProcessingBlock.png
+   :align: center
+   :alt: AddProcessing
+
+Browse for the processing block *Raster Tiling*. This block consumes 0 UP42 credits per megabyte (MB).
+
+.. figure:: _assets/step10_selectRasterTiling.png
+   :align: center
+   :alt: SelectRasterTiling
+
+Click this block and read its description, where additional details are provided. Click on *Add Block*.
+
+.. figure:: _assets/step11_clickAddBlock_RasterTiling.png
+   :align: center
+   :alt: AddRasterTiling
+
+The final block that follows this processing block is another processing block. Click the plus sign after the previously added processing block.
+
+.. figure:: _assets/step12_addProcessingBlockFinal.png
+   :align: center
+   :alt: AddProcessingFinal
+
+Browse for the processing block *Ship Detection*. This block consumes 300 UP42 credits per square kilometers, which is the equivalent of 3 Euro/Dollars.
+
+.. figure:: _assets/step13_selectShipDetection.png
+   :align: center
+   :alt: SelectShipDetect
+
+Click this block and read its description, where additional details are provided. Click on *Add Block*.
+
+ .. figure:: _assets/step14_clickAddBlock_ShipDetection.png
+    :align: center
+    :alt: AddShipDetect
+
+.. tip::
+   All the data and processing blocks are listed in our `UP42 Marketplace <https://up42.com/marketplace/>`_.
+
+Congratulations, you successfully created an UP42 workflow!
+
+Configure and run a job
+-------------------------------
+
+Now that the workflow is created, it needs to be run as a :term:`job`. To continue, click on *Save & Configure Job*.
+
+.. figure:: _assets/step15_saveAndConfigureJob.png
+   :align: center
+   :alt: SaveConfigureJob
+
+You will be redirected to the job configuration window. In this window, you can draw the *Area of Interest* (AOI), select the *Geometric Filter* (:ref:`bounding box <bbox-filter>`, :ref:`intersects <intersects-filter>` or :ref:`contains <contains-filter>`) and adjust the parameters in JavaScript Object Notation (JSON) format. On the left side, you can adjust various parameters, such as the :ref:`date/date range <time-filter>` or the :ref:`limit <limit-filter>` (i.e. the maximum number of images to be returned). 
+
+.. figure:: _assets/step16_configureJobParameters_Overview.png
+   :align: center
+   :alt: ConfigureParams
+
+.. note:: The coordinates of the AOI can also be copied and pasted from other sources as a GeoJSON *geometry*. We recommend using the online GIS tool `GeoJSON.io <http://geojson.io/>`__.
+
+
+ .. figure:: _assets/GeoJSON_geometry.png
+    :align: center
+    :alt: GeoJSONGeom
+
+In this example, the following :term:`job parameters` were used:
 
 .. gist:: https://gist.github.com/up42-epicycles/6dd5969c67ae16e5e5153e475f63c1ae
 
-Once you selected the AOI click on **Run Job** to launch the ship detection workflow.
-You will then be taken to the jobs overview for the current project.
+.. attention::
+  If the *limit* is set to 1, the most recent image is returned by default. For a limit value greater than 1, the images are returned by descending chronological order (i.e. from most recent to least recent).
 
-.. _job-overview:
+After drawing the AOI and configuring the parameters, you can run the job in two ways:
 
-Job overview
-------------
+*  run a *Live Job*
+*  check image availability by first running a *Test Query* and then running a Live Job
 
-Here you can see the job status and metadata about the job,
-as well perform multiple actions on the job.
+**1.  Live Job**
 
- + **Rerun Job**: Repeats a job that is running or has finished.
- + **Cancel Job**: Cancels a job that is running.
- + **Job Progress**: Displays a log of the running job.
- + **Parameters**: Displays the job parameters: AOI, time period and block specific parameters.
+If you run a *Live Job* directly, it will consume credits and provide the desired outputs:
 
-Each row in the table on the bottom corresponds to a block in the workflow - this is a :term:`task`.
-Clicking on the **name** of a block takes you to a specific task overview page, showing the logs for that task.
+*  the SPOT satellite image(s) from the data block *SPOT 6/7 Download*
+*  the SPOT image tiles from the processing block *Raster Tiling*
+*  the ships from the processing block *Ship Detection*
 
-Once a job has finished, a new column (**Actions**) becomes visible and
-by hovering the **...** the **Run again** button appears. Clicking on
-it relaunches that step of your job, that is, it reruns that particular
-block.
+.. figure:: _assets/step17_runLiveJob.png
+   :align: center
+   :alt: RunLive
+
+**2.  Test Query**
+
+If you first run a *Test Query*, this will check for available images for your selected area and parameters, which will not consume credits. The Test Query provides only the quicklooks and metadata of available images.
+
+.. figure:: _assets/step18_runTestQuery.png
+   :align: center
+   :alt: RunTest
+
+In order to view the quicklooks and have a general idea of the cloud cover and image availability, click on *Quick Looks*. Please note that quicklooks are a low-resolution version of the original images. If you have more quicklooks, you can scroll from left to right and view each quicklook individually.
+
+.. figure:: _assets/step19_quicklooks.png
+   :align: center
+   :alt: SelectQuicklooks
+
+.. figure:: _assets/step20_viewQuicklooks.png
+   :align: center
+   :alt: ViewQuicklooks
+
+In order to view the metadata and have a general idea of the acquisition date, snow cover, sensor type etc., click on *Preview*.
+
+.. figure:: _assets/step21_preview.png
+   :align: center
+   :alt: SelectPreview
+
+.. figure:: _assets/step22_viewPreview.png
+   :align: center
+   :alt: ViewPreview
+
+If you are satisfied with the quicklooks and metadata, you can run a Live Job, which will consume credits and provide the desired outputs:
+
+*  the SPOT satellite image(s) from the data block *SPOT 6/7 Download*
+*  the SPOT image tiles from the processing block *Raster Tiling*
+*  the ships from the processing block *Ship Detection*
+
+Click on *Run as real job*.
+
+.. figure:: _assets/step23_runRealJob.png
+   :align: center
+   :alt: RunRealJob
+
+The job status will be displayed in grey as *Running*.
+
+.. figure:: _assets/step24_jobPending.png
+   :align: center
+   :alt: PendingJob
+
+.. note:: The *Jobs* window displays the job status and metadata, as well as multiple actions to perform:
+
+             *  **Rerun Job**: Repeats a job that is running or has finished.
+             *  **Cancel Job**: Cancels a job that is running.
+             *  **Job progress**: Displays a log of the running job and the status for each steps.
+             *  **Parameters**: Displays the job parameters in JSON format.
+             
+             In the *Job progress*, each step name corresponds to a block in the workflow and it is defined as a :term:`task`.
+             Clicking on each of these names will display the task overview page and the logs for that task.
+
+When the job run is finalized, the status will be displayed in green as *Successful*:
+
+.. figure:: _assets/step25_jobFinished.png
+   :align: center
+   :alt: FinishedJob
 
 .. _job-results:
 
-Job results
------------
+Display job results
+------------------------
 
-Once the job has completed, you can download the result data by
-clicking on the **Download** button at the top of the page. **Preview** gives
-shows the resulting GeoJSON file (also included in the results download), while the
-**Quick Looks** button shows a low resolution image preview.
+Once the job has completed, you can download the outputs in more ways:
 
-.. tip::
-   You can add the resulting GeoJSON into `QGIS <https://qgis.org/en/site/>`_
-   for further inspection.
+**1.  Last Output**
+
+If you want to access the output from the last block, click on *Download*.
+
+.. figure:: _assets/step26_downloadLastResult.png
+   :align: center
+   :alt: LastResult
+
+**2.  Intermediate Outputs**
+
+If you want to access each individual output from each block, click on *Results*.
+
+.. figure:: _assets/step27_downloadIntermediateResult.png
+   :align: center
+   :alt: IntermediateResult
+
+The outputs will be downloaded by default in the folder *Downloads* as TAR archives:
+
+.. figure:: _assets/step28_getTarball.png
+   :align: center
+   :alt: TarArchive
+   
+The TAR archives need to be unzipped. For Windows OS, it is recommended to unpack them with third-party tools. For more information, please read this article: `How to unpack a tar file in Windows <https://wiki.haskell.org/How_to_unpack_a_tar_file_in_Windows>`_.
+
+.. figure:: _assets/step29_unzipTarball.png
+   :align: center
+   :alt: UnzipArchive
+   
+Once you unpacked the TAR archives, you will have a collection of results stored in folders named output. Once you open the contents of these folders, various files will be displayed. Please note that the outputs are available in either raster or vector file formats.
+
+.. figure:: _assets/step30_checkOutput.png
+   :align: center
+   :alt: CheckOutput1
+
+.. figure:: _assets/step30_checkOutput2.png
+   :align: center
+   :alt: CheckOutput2
+   
+.. figure:: _assets/step30_checkOutput3.png
+   :align: center
+   :alt: CheckOutput3
+   
+UP42 does not support the visualization of these geospatial results. It is recommended to download the free GIS software `QGIS <https://qgis.org/en/site/forusers/download.html>`_, where you can display and further analyze the results. For this example, the results are displayed in the sections below.
 
 Tiled SPOT satellite image
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
