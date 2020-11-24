@@ -39,7 +39,7 @@ In order to access the UP42 console, you first need to sign up. A confirmation c
    :align: center
    :alt: SignUp3
 
-Congratulations, you successfully created an UP42 account! In order to get access to the free 10 000 UP42 credits or the equivalent of 100 Euro/Dollars, you need to provide the credit card details. You will not be charged from this credit card.
+Congratulations, you successfully created an UP42 account! In order to get access to the free 10 000 UP42 credits or the equivalent of 100 Euro/Dollars, you need to provide your credit card details. You will not be charged from this credit card.
 
 Create a project and a workflow
 -----------------------------------------------
@@ -71,7 +71,7 @@ Adding blocks
 
 In the UP42 platform, a workflow consists of *data blocks* and *processing blocks*. The first block is always a data block. This data block can be followed by one or more processing blocks.
 
-In this example, a workflow based on the detection of ships from high-resolution SPOT images (1.5 m spatial resolution) will be shown. The first step is to select the data block from which these ships will be extracted. Click on *Add data*.
+In this example, a workflow based on the detection of ships from high-resolution SPOT images (1.5 m spatial resolution) will be shown. The first step is to select the data block from which ships will be extracted. Click on *Add data*.
 
 .. figure:: _assets/step06_addDataBlock.png
    :align: center
