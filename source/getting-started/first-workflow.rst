@@ -176,7 +176,7 @@ If you are satisfied with the quicklooks and metadata, you can run a *Live Job* 
 
 13. If you wish to skip the *Test Query* and proceed with directly generating the geospatial outputs, launch a *Live Job* (also defined as *Real Job*). This will consume credits and generate the following outputs: 
 
-*  the SPOT satellite image(s) from the `SPOT 6/7 Display (Streaming) <https://docs.up42.com/up42-blocks/data/spot.html>`_ data block. Streamed images are only used as a basis for applying algorithms and cannot be downloaded. For downloading SPOT images, please use the data blocks `SPOT 6/7 Display (Download) <https://docs.up42.com/up42-blocks/data/spot-display.html>`_ or `SPOT 6/7 Reflectance (Download) <https://docs.up42.com/up42-blocks/data/spot-download.html>`_
+*  the SPOT satellite image(s) from the `SPOT 6/7 Display (Streaming) <https://docs.up42.com/up42-blocks/data/spot-display-streaming.html>`_ data block. Streamed images are only used as a basis for applying algorithms and cannot be downloaded. For downloading SPOT images, please use the data blocks `SPOT 6/7 Display (Download) <https://docs.up42.com/up42-blocks/data/spot-display-download.html>`_ or `SPOT 6/7 Reflectance (Download) <https://docs.up42.com/up42-blocks/data/spot-reflectance-download.html>`_
 *  the SPOT image tiles from the `Raster Tiling <https://docs.up42.com/up42-blocks/processing/tiling.html>`_ processing block
 *  the ships from the `Ship Detection <https://marketplace.up42.com/block/79e3e48c-d65f-4528-a6d4-e8d20fecc93c>`_ processing block
 
