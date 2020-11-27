@@ -22,7 +22,7 @@ Workflow Page
     Set Window Size    1280    1700
     Bootstrap jQuery
     Highlight
-    ...  css=#app > section > main > div > div.vueStepper_2rtvS0sR
+    ...  css=#app > div > main > div > div > div:nth-child(2) > div > div > div.workflowPipeline_1QhN8
     Capture Page Screenshot    ./source/getting-started/screenshot-first-workflow.png
     [Teardown]    Close Browser
 
