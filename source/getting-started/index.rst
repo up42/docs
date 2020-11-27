@@ -24,7 +24,7 @@ You start by signing up and creating an UP42 account. This step will allow you t
    :includehidden:
 
    sign-up
-   first-job-output
+   demo-workflow
    first-workflow
    first-api-request
    first-custom-block

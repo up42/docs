@@ -4,8 +4,8 @@
 
 .. _pleiades-aoiclipped-block:
 
-Pléiades Streaming
-==================
+Pléiades Display (Streaming)
+============================
 For more information, please read the `block description <https://marketplace.up42.com/block/18d09f1a-3197-4c27-a15a-54d099c31435>`_.
 
 Block type: ``DATA``

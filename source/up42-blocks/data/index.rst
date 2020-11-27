@@ -15,13 +15,13 @@ built by UP42.
    :caption: Contents
    :includehidden:
 
-   pleiades
-   pleiades-display
-   pleiades-download
+   pleiades-display-streaming
+   pleiades-display-download
+   pleiades-reflectance-download
    pleiades-primary
-   spot
-   spot-display
-   spot-download
+   spot-display-streaming
+   spot-display-download
+   spot-reflectance-download
    weather-ocean-data-forecasts-meteomatics
    hexagon-aerial-15cm
    hexagon-aerial-30cm
