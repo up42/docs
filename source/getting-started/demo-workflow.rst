@@ -27,7 +27,7 @@ Explore the Demo Workflow
 
 Click on the *Demo Project* and you will be redirected to the *Demo Workflow*. This workflow consists of the following blocks:
 
-*   `Pléiades Reflectance (Download) <https://docs.up42.com/up42-blocks/data/pleiades-download.html>`_ data block
+*   `Pléiades Reflectance (Download) <https://docs.up42.com/up42-blocks/data/pleiades-reflectance-download.html>`_ data block
 *   :ref:`Pan-sharpening SPOT/Pléiades <pansharpen-block>` processing block
 *   `NDVI <https://docs.up42.com/up42-blocks/processing/ndvi.html>`_ processing block
 
