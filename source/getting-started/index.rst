@@ -26,6 +26,7 @@ You start by signing up and creating an UP42 account. This step will allow you t
    sign-up
    demo-workflow
    first-workflow
+   catalog-search
    first-api-request
    first-custom-block
    video-tutorials
