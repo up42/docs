@@ -4,8 +4,8 @@
 
 .. _pleiades-download-block:
 
-Pléiades Download
-=================
+Pléiades Reflectance (Download)
+===============================
 For more information, please read the `block description <https://marketplace.up42.com/block/defb134b-ca00-4e16-afa0-639c6dc0c5fe>`_.
 
 Block type: ``DATA``
