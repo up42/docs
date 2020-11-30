@@ -61,7 +61,7 @@ For more information, please read the section :ref:`Data source query filters  <
 
 .. tip::
 
-  When trying to obtain stereo/tri-stereo images you should **always** perform a :term:`TestQuery` to make sure that there are available stereo and/or tri-stereo images, thus avoiding to incur costs when retrieving the imagery.
+  When trying to obtain stereo/tri-stereo images you should **always** perform a :term:`testquery` to make sure that there are available stereo and/or tri-stereo images, thus avoiding to incur costs when retrieving the imagery.
 
 .. warning::
 
@@ -95,7 +95,7 @@ Example using ``bbox`` and ``clip_to_aoi``:
 	}
   }
 
-Searching for query stereo and tri-stereo images using ``stereo_images_only`` with a :term:`TestQuery` ( ``DRY_RUN`` mode). Pay particular attention that the value of ``limit`` is set to its maximum (500).
+Searching for query stereo and tri-stereo images using ``stereo_images_only`` with a :term:`testquery` ( ``DRY_RUN`` mode). Pay particular attention that the value of ``limit`` is set to its maximum (500).
 
 .. code-block:: javascript
 
