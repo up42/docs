@@ -4,27 +4,43 @@
 
 Welcome to the UP42 documentation
 =================================
-UP42 aims to democratize the access to free and commercial geospatial data, as well as provide geospatial algorithms that extract meaningful information for numerous use cases: flood mapping, vegetation health monitoring, object detection, land cover change, cloud masking and many more.
 
-The UP42 documentation explains how to get access to data and use the available algorithms. This documentation also describes the tools that facilitate integrating Earth observation data into your workflows.
+UP42 aims to democratize the access to free and commercial geospatial
+data, as well as provide geospatial algorithms that extract meaningful
+information for numerous use cases: flood mapping, vegetation health
+monitoring, object detection, land cover change, cloud masking and
+many more.
+
+The UP42 documentation explains how to get access to data and use the
+available algorithms. This documentation also describes the tools that
+facilitate integrating Earth observation data into your workflows.
 
 
-UP42 options
-------------
+Available options to explore UP42
+---------------------------------
 
 To access geospatial data and algorithms, UP42 offers three major options:
 
-**1. REST API** - If you are a developer who wants to build custom applications, we provide the pure API that you can easily integrate into your product.
+#. **REST API**: If you are a developer who wants to build custom
+   applications, we provide the pure API that you can easily integrate
+   into your product.
 
-**2. Python SDK** - If you are a developer who wants to build custom applications, we provide the Python SDK which contains the API and many other functionalities.
+#. **Python SDK**: If you are a developer who wants to build custom
+   applications, we provide the Python SDK which contains the API and
+   many other functionalities.
 
-**3. Console** - If you prefer the interactive graphical user interface, using the console is the right way to quickly build your workflows and get the data or algorithms you need.
+#. **Console**: If you prefer the interactive graphical user
+   interface, using the console is the right way to quickly build your
+   workflows and get the data or algorithms you need.
 
+.. tip::
+
+   Don't know where to start? Then please follow our :ref:`suggestions
+   <paths-up42>` for your journey in exploring UP42.
 
 + |first-api| :ref:`REST API <first-api-request>` |br|
 + `Python SDK <https://up42.github.io/up42-py>`_ |br|
 + |first-job| :ref:`Console <first-job-run>` |br|
-
 
 |hr|
 

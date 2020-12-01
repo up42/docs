@@ -90,6 +90,10 @@ and/or :ref:`SPOT streaming <spot-aoiclipped-block>` blocks.
    `gdal_translate <https://gdal.org/programs/gdal_translate.html>`_
    with the ``-scale`` option.
 
+   Alternatively you can just use the :ref:`Pléiades display
+   <pleiades-display-block>` and/or the :ref:`SPOT display
+   <spot-display-block:>` block.
+
 .. figure:: _assets/ndvi-spot-example.png
    :align: center
    :alt: NDVI map generated from SPOT imagery in Berlin

@@ -2,7 +2,7 @@
    :description: UP42 getting started: catalog search
    :keywords: rerun job howto, console, tutorial, catalog
 
-.. _catalog_search:
+.. _catalog-search:
 
 ====================
 Catalog Search
