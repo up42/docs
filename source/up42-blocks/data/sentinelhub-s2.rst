@@ -23,6 +23,7 @@ For more information, please read the section :ref:`Data source query filters  <
   the acquisition date/time of the scenes.
 * ``time_series`` – An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``limit`` – An integer number of maximum results to return. Omit this to set no limit.
+* ``max_cloud_cover``: A percentage (0 to 100) defining the maximum :term:`cloud cover` of any returned imagery. Default is **100**.
 * ``zoom_level``: An integer defining the webmercator zoom level of this request, defaults to 17.
 
 Output format
