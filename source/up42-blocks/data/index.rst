@@ -39,6 +39,7 @@ built by UP42.
    modis
    ais-hvp
    ais-hvt
+   exactearth-ais-query-vessel
    nextmap-1m
    nextmap-5m
    nextmap-10m
