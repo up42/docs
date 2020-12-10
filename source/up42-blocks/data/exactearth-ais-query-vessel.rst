@@ -26,7 +26,7 @@ Supported parameters
 For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``mmsi``: Ids of Maritime Mobile Service Identity (MMSI), e.g. ``["83273282", "94821299"]``.
-* ``eeid``: Ids of exactEarth Identifier (EEID), e.g. ``["0945377234823382332", "82137382388238372"]``.
+* ``eeid``: Ids of exactEarth Identifier (eEID), proprietary id of the exactEarth services (given to vessels based on their underlying characteristics), e.g. ``["0945377234823382332", "82137382388238372"]``.
 * ``time``: A date range to filter the data points on. This range applies to the acquisition date/time of the AIS signals. Maximum of 7 days.
 
 
