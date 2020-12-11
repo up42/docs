@@ -90,7 +90,7 @@ and/or :ref:`SPOT streaming <spot-aoiclipped-block>` blocks.
    `gdal_translate <https://gdal.org/programs/gdal_translate.html>`_
    with the ``-scale`` option.
 
-   Alternatively you can just use the :ref:`Pléiades display <pleiades-display-block>` 
+   Alternatively you can just use the :ref:`Pléiades display <pleiades-display-block>`
    and/or the :ref:`SPOT display <spot-display-block>` block.
 
 .. figure:: _assets/ndvi-spot-example.png
@@ -195,7 +195,7 @@ Download the image
 Now that you have the price estimate we can proceed and acquire the
 image. To do this we rerun the job as a real job by clicking on the
 **Run as real job** button on the console job details page. When the
-job is launched, an asset ID is created that uniquely identifies 
+job is launched, an asset ID is created that uniquely identifies
 this asset in the collection of assets available in your UP42 Storage.
 
 .. gist:: https://gist.github.com/perusio/5aab70f4ab7e32a8cd649ed2b0f3cb2c
@@ -236,9 +236,9 @@ Ship or car detection block, for example.
    <pansharpen-block>` block. In a nutshell: those algorithms were
    developed and work for a :term:`visual product`, not an
    :term:`analytical product` like the ones returned by the Pléaides
-   and SPOT download blocks. You can still use the 
-   :ref:`Pléiades Display Download`<pleiades-display-block> and 
-   :ref:`SPOT Display Download`<spot-display-block> to run jobs with 
+   and SPOT download blocks. You can still use the
+   :ref:`Pléiades Display Download <pleiades-display-block>` and
+   :ref:`SPOT Display Download <spot-display-block>` to run jobs with
    these blocks.
 
 Now you have the ``asset ID`` generated when the image was downloaded
