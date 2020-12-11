@@ -39,7 +39,7 @@ For more information, please read the section :ref:`Data source query filters  <
 * ``limit``: An integer number of maximum results to return. The maximum value for ``limit`` is 500.
 * ``ids``: An array of image identifiers as defined by the ``parentIdentifier`` property. If defined, either ``bbox`` **or** ``intersects`` **or** ``contains`` should be selected as well.  By defining the ``ids`` filter you specify unambiguously which images to retrieve based solely on your AOI and given ID(s). The ``ids`` filter overrides all other filters, e.g., ``limit`` and/or ``time``.
 * ``max_cloud_cover``: A percentage (0 to 100) defining the maximum :term:`cloud cover` of any returned imagery. Note that the cloud cover percentage is computed with the full scene, not the requested geographical area. Default is **100**.
-* ``asset_id``: An asset identifiers from your Storage, see the :ref:`Download blocks tutorial  <download-blocks-tutorial-spot-pleiades>` for an explanation.
+* ``asset_id``: An asset identifier for a particular item in your UP42 User Storage, see the :ref:`Download blocks tutorial  <download-blocks-tutorial-spot-pleiades>` for an explanation.
 
 
 Example queries

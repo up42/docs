@@ -196,8 +196,8 @@ Download the image
 Now that you have the price estimate we can proceed and acquire the
 image. To do this we rerun the job as a real job by clicking on the
 **Run as real job** button on the console job details page. When the
-job is launched, the upstream creates an asset ID in your storage. 
-This is the unique identifier for the downloaded image.
+job is launched, an asset ID is created that uniquely identifies 
+this asset in the collection of assets available in your User Storage..
 
 .. gist:: https://gist.github.com/perusio/5aab70f4ab7e32a8cd649ed2b0f3cb2c
 
