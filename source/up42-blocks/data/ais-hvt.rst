@@ -62,29 +62,53 @@ Output format is a ``GeoJSON`` file, see `GeoJSON <https://en.wikipedia.org/wiki
 .. code-block:: javascript
 
     {
-        "type": "FeatureCollection",
-        "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}},
-        "features": [
-            {"type": "Feature",
-             "properties": {"mmsi": 371783000, "imo": null, "vessel_name": "XAREO",
-                            "callsign": "LAU)XAR", "vessel_type": "Pilot",
-                            "vessel_type_code": 50, "vessel_type_cargo": "",
-                            "vessel_class": "A", "length": 16, "width": 5,
-                            "flag_country": "Panama", "flag_code": 371,
-                            "destination": "B 2 A", "eta": "00002460", "draught": 0.0,
-                            "from_longitude": -79.529185,
-                            "from_latitude": 8.8442383333333332, "longitude": -79.518965,
-                            "latitude": 8.862755, "sog": 16.4, "cog": 108.2, "rot": 0,
-                            "heading": 0, "nav_status": "Not Defined",
-                            "nav_status_code": 15, "source": "T-AIS",
-                            "ts_pos_utc": "20190817153550",
-                            "ts_static_utc": "20190817151318",
-                            "dt_pos_utc": "2019-08-17 15:35:50",
-                            "dt_static_utc": "2019-08-17 15:13:18",
-                            "vessel_type_main": null, "vessel_type_sub": null,
-                            "message_type": 3, "eeid": 5092380519504082264,
-                            "dtg": "2019-08-17T15:35:50Z"},
-             "geometry": {"type": "MultiLineString", "coordinates": [
-                 [[-79.529185, 8.84423833], [-79.518965, 8.862755]]]}}
-        ]
+    	"type": "FeatureCollection",
+    	"crs": {
+    		"type": "name",
+    		"properties": {
+    			"name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    		}
+    	},
+    	"features": [{
+    		"type": "Feature",
+    		"properties": {
+    			"mmsi": 2738129,
+    			"imo": 8959245,
+    			"vessel_name": "SAN MARCO",
+    			"callsign": "UWHW",
+    			"vessel_type": "Unknown",
+    			"vessel_type_code": 100,
+    			"vessel_type_cargo": "",
+    			"vessel_class": "A",
+    			"length": 56,
+    			"width": 11,
+    			"flag_country": "Italy",
+    			"flag_code": 247,
+    			"destination": "PELLESTRINA",
+    			"eta": "06141100",
+    			"draught": 6,
+    			"longitude": 12.35449,
+    			"latitude": 45.428425,
+    			"sog": 8.5,
+    			"cog": 310.7,
+    			"rot": 0,
+    			"heading": 0,
+    			"nav_status": "Under Way Using Engine",
+    			"nav_status_code": 0,
+    			"source": "T-AIS",
+    			"ts_pos_utc": "20190101100147",
+    			"ts_static_utc": "20181228232109",
+    			"dt_pos_utc": "2019-01-01 10:01:47",
+    			"dt_static_utc": "2018-12-28 23:21:09",
+    			"vessel_type_main": "Passenger Ship",
+    			"vessel_type_sub": "Passenger Ro Ro Cargo Ship",
+    			"message_type": 1,
+    			"eeid": 5678668990079917276,
+    			"dtg": "2019-01-01T10:01:47Z"
+    		},
+    		"geometry": {
+    			"type": "Point",
+    			"coordinates": [15.32323, 23.42132]
+    		}
+    	}]
     }

@@ -1,11 +1,11 @@
 .. meta::
-   :description: UP42 data blocks: AIS Historical Vessel Points
-   :keywords: UP42, data, AIS, Ship, Exact Earth, Points, Maritime
+   :description: UP42 data blocks: AIS - Query Vessel by ID
+   :keywords: UP42, data, AIS, Ship, Exact Earth, Points, Maritime, Vessel, Fleet
 
-.. _ais-hvp-block:
+.. _exactearth-ais-query-vessel-block:
 
-AIS Historical Vessel Positions
-===============================
+AIS - Query Vessel by ID
+========================
 
 For more information, please read the `block description <https://marketplace.up42.com/block/00cc275a-fa04-44a5-9100-bffd6521b52e>`_.
 
@@ -14,8 +14,9 @@ Block type: ``DATA``
 This block provides access to historical data points of the
 `Automatic Identification System (AIS) <https://up42.com/blog/tech/a-complete-guide-to-marine-traffic-tracking-tech-and-ais-data>`_.
 The block queries the
-`Exact Earth historical vessel points API <https://www.exactearth.com/product-exactais>`_ and provides
-ship position point geometries and associated metadata e.g. ship name, cargo, destination port, etc.
+`Exact Earth historical vessel points API <https://www.exactearth.com/product-exactais>`_ by one ore multiple ships by
+`Maritime Mobile Service Identity (MMSI) <https://en.wikipedia.org/wiki/Maritime_Mobile_Service_Identity>`_
+or exactEarth Identifier (EEID) ids. It provides ship position point geometries and associated metadata e.g. ship name, cargo, destination port, etc.
 The output is a `ais-points` GeoJSON file containing the AIS point geometries and properties, and a `data.json` with the UP42 query parameters.
 
 
@@ -24,30 +25,24 @@ Supported parameters
 
 For more information, please read the section :ref:`Data source query filters  <filters>`.
 
-* ``bbox``: The bounding box to use as an AOI. Will return all data points within this box. Use only ``bbox``
-  **or** ``intersects``.
-* ``intersects``: A GeoJSON geometry to use as an AOI. Will return all data points that are within this geometry. Use only ``bbox``
-  **or** ``intersects``.
-* ``time``: A date range to filter the data points on. This range applies to the acquisition date/time of the AIS signals. Maximum of 24 hours.
+* ``mmsi``: Ids of Maritime Mobile Service Identity (MMSI), e.g. ``["83273282", "94821299"]``.
+* ``eeid``: Ids of exactEarth Identifier (eEID), proprietary id of the exactEarth services (given to vessels based on their underlying characteristics), e.g. ``["0945377234823382332", "82137382388238372"]``.
+* ``time``: A date range to filter the data points on. This range applies to the acquisition date/time of the AIS signals. Maximum of 7 days.
 
 
 Example queries
 ---------------
 
-Example query using ``time`` in combination with ``bbox``:
+Example query using ``time`` in combination with ``mmsi``:
 
 .. code-block:: javascript
 
     {
-      "ais-hvp:1": {
-        "bbox": [
-          12.309982116937201,
-          45.42579607219059,
-          12.35764338545784,
-          45.43085110248531
+      "exactearth-ais-query-vessel:1": {
+        "mmsi": [
+            83273282, 94821299
         ],
         "time": "2019-01-01T10:00:00+00:00/2019-01-01T13:59:59+00:00",
-        "intersects": null
       }
     }
 
