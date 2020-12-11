@@ -90,9 +90,8 @@ and/or :ref:`SPOT streaming <spot-aoiclipped-block>` blocks.
    `gdal_translate <https://gdal.org/programs/gdal_translate.html>`_
    with the ``-scale`` option.
 
-   Alternatively you can just use the :ref:`Pléiades display
-   <pleiades-display-block>` and/or the :ref:`SPOT display
-   <spot-display-block:>` block.
+   Alternatively you can just use the :ref:`Pléiades display <pleiades-display-block>` 
+   and/or the :ref:`SPOT display <spot-display-block>` block.
 
 .. figure:: _assets/ndvi-spot-example.png
    :align: center
@@ -196,39 +195,17 @@ Download the image
 Now that you have the price estimate we can proceed and acquire the
 image. To do this we rerun the job as a real job by clicking on the
 **Run as real job** button on the console job details page. When the
-job is launched, the upstream creates an order ID. This is the unique
-identifier for the downloaded image.
+job is launched, an asset ID is created that uniquely identifies 
+this asset in the collection of assets available in your UP42 Storage.
 
 .. gist:: https://gist.github.com/perusio/5aab70f4ab7e32a8cd649ed2b0f3cb2c
 
-Looking at the raw output there is the field ``orderID``:
-
-.. code:: javascript
-
-   {
-      ...
-         "orderID": "002e11d3-3b46-43a5-a07d-855a94c72817",
-         "fileSize": 1449
-      ...
-   }
+Looking in the console in Storage you can get the generated asset id.
 
 This ID is **required** whenever you want to re-use the image. This
 way you won have to pay for it again.
 
-Alternatively you can look in the task log for the :term:`job` to get
-the order ID. At the end of the log:
-
-.. code:: bash
-
-   2019-09-19 05:02:51,685 - pleiades - INFO - ==================================================================
-   2019-09-19 05:02:51,685 - pleiades - INFO - ==================================================================
-   2019-09-19 05:02:51,686 - pleiades - INFO - The following orders were created and processed and can be re-used
-   2019-09-19 05:02:51,686 - pleiades - INFO - 002e11d3-3b46-43a5-a07d-855a94c72817
-   2019-09-19 05:02:51,686 - pleiades - INFO - ==================================================================
-
-   2019-09-19 05:02:51,686 - pleiades - DEBUG - Saving 1 result features to data.json
-
-the order ID is ``002e11d3-3b46-43a5-a07d-855a94c72817``.
+the asset ID is ``002e11d3-3b46-43a5-a07d-855a94c72817``.
 
 Re-use it in a workflow
 -----------------------
@@ -259,30 +236,29 @@ Ship or car detection block, for example.
    <pansharpen-block>` block. In a nutshell: those algorithms were
    developed and work for a :term:`visual product`, not an
    :term:`analytical product` like the ones returned by the Pléaides
-   and SPOT download blocks.
+   and SPOT download blocks. You can still use the 
+   :ref:`Pléiades Display Download`<pleiades-display-block> and 
+   :ref:`SPOT Display Download`<spot-display-block> to run jobs with 
+   these blocks.
 
-Now you have the ``order ID`` generated when the image was downloaded
+Now you have the ``asset ID`` generated when the image was downloaded
 from the upstream data provider. Since you already payed for this
 image you can re-use it indefinitely. To do this you **must** enter
-the order ID as a parameter for your job. For this particular
+the asset ID as a parameter for your job. For this particular
 workflow:
 
 .. gist:: https://gist.github.com/up42-epicycles/be903d94b904d2011b044ce472065b17
 
-You can see the field ``order_ids``:
+You can see the field ``asset_id``:
 
 .. code:: javascript
 
    ...
-   "order_ids": [
-      "002e11d3-3b46-43a5-a07d-855a94c72817"
-     ],
+   "asset_id":
+      "002e11d3-3b46-43a5-a07d-855a94c72817",
    ...
 
-which is an array of order IDs. In this case it has only one entry,
-because we are using only one image we downloaded previously, but if
-you want to use multiple previously downloaded images just add
-all the order IDs in this array.
+which is a single asset ID.
 
 And the output shown here as a GeoTIFF.
 
@@ -290,7 +266,7 @@ And the output shown here as a GeoTIFF.
    :align: center
    :alt: Example download block image
 
-The downloaded image show heer as a a PNG with a black background.
+The downloaded image shown here as a a PNG with a black background.
 
 .. warning::
 
