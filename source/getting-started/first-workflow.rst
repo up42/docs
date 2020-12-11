@@ -264,19 +264,19 @@ Visualize job results
 20. UP42 does not support the visualization of these geospatial results. It is recommended to download the free GIS software `QGIS <https://qgis.org/en/site/forusers/download.html>`_, where you can display and further analyze the results. For this example, the results are displayed in the sections below.
 
 Tiled SPOT image
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 .. figure:: _assets/spot_tiling.png
    :align: center
    :alt: Tiled SPOT satellite image
 
 
 Detected ships
-~~~~~~~~~~~~
+~~~~~~~~~~~~~~
 .. gist:: https://gist.github.com/up42-epicycles/b4e7d05ed53748c77b557f23f2c12702
 
 
 Detected ships overlayed on the SPOT image
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: _assets/spot_image_overlayed_ships.png
    :align: center

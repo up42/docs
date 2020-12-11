@@ -5,7 +5,7 @@
 .. _spot-download-block:
 
 SPOT 6/7 Reflectance (Download)
-==========================
+===============================
 For more information, please read the `block description <https://marketplace.up42.com/block/63a69b97-1765-474e-b465-0b319b8d3b2d>`_.
 
 Block type: ``DATA``

@@ -48,7 +48,7 @@ As the first block in the workflow, the data block has only an output capability
 .. _workflows-definition:
 
 Workflow
-=======
+========
 
 A workflow is a Directed Acyclic Graph (DAG ) of data and processing blocks [#]_. A workflow encompasses the data sources to be used, the algorithms to process the data and the order of the blocks. A workflow always starts with a data block and continues with one or more processing blocks. One block can be used in multiple workflows.
 
