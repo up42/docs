@@ -43,7 +43,7 @@ Create a project and a workflow
    :alt: CreateWorkflow
 
 .. tip::
-   For more information about projects, workflows and jobs, please check the page :ref:`Core concepts <core-concepts>` .
+   For more information about projects, workflows and jobs, please check the page :ref:`Core concepts <core-concepts>`.
 
 Add blocks
 -------------------
@@ -101,8 +101,8 @@ Add blocks
 
 Congratulations, you successfully created an UP42 workflow!
 
-Configure and run a job
--------------------------------
+Configure job
+-------------------
 
 10. Now that the workflow is created, it needs to be run as a :term:`job`. To continue, click on *Save & Configure Job*.
 
@@ -110,18 +110,17 @@ Configure and run a job
    :align: center
    :alt: SaveConfigureJob
 
-11. You will be redirected to the job configuration window. In this window, you can draw the *Area of Interest* (AOI), select the *Geometric Filter* (:ref:`bounding box <bbox-filter>`, :ref:`intersects <intersects-filter>` or :ref:`contains <contains-filter>`) and adjust the parameters in JavaScript Object Notation (JSON) format. On the left side, you can adjust various parameters, such as the :ref:`time <time-filter>` or the :ref:`limit <limit-filter>`. 
+11. You will be redirected to the job configuration window. In this window, you can draw the *Area of Interest* (AOI), select the *Geometric Filter* (:ref:`bounding box <bbox-filter>`, :ref:`intersects <intersects-filter>` or :ref:`contains <contains-filter>`) and adjust the parameters in JavaScript Object Notation (JSON) format. On the left side, you can adjust various parameters, such as the :ref:`time <time-filter>` or the :ref:`limit <limit-filter>`. On the lower left side, the price estimation is displayed (for more information, proceed to step 12).
 
-.. figure:: _assets/step16_configureJobParameters_Overview.png
+.. figure:: _assets/step16_jobConfig_price_overview.png
    :align: center
    :alt: ConfigureParams
 
-.. note:: The coordinates of the AOI can also be copied and pasted from other sources as a GeoJSON *geometry*. We recommend using the online GIS tool `GeoJSON.io <http://geojson.io/>`__.
+.. note:: The coordinates of the AOI can also be copied and pasted from other sources as a GeoJSON *geometry*. We recommend using the online GIS tool `GeoJSON.io <http://geojson.io/>`__ (see screenshot below).
 
-
- .. figure:: _assets/GeoJSON_geometry.png
-    :align: center
-    :alt: GeoJSONGeom
+.. figure:: _assets/GeoJSON_geometry.png
+   :align: center
+   :alt: GeoJSONGeom
 
 In this example, the following :term:`job parameters` were used:
 
@@ -129,13 +128,27 @@ In this example, the following :term:`job parameters` were used:
 
 .. attention::
   If the *limit* is set to 1, the most recent image is returned by default. For a limit value greater than 1, the images are returned by descending chronological order (i.e. from most recent to least recent).
+  
+Price estimation
+----------------------
 
-12. After drawing the AOI and configuring the parameters, you can run the job in two ways:
+12. Depending on the size of the AOI and the parameters you previously adjusted, the total price is estimated in the lower left side of the job configuration window. It is recommended to scroll down, in order to view the total estimated price.
+
+.. figure:: _assets/step16_jobConfig_price_zoom.png
+   :align: center
+   :alt: PriceZoom
+
+.. note:: In this example, the UP42 credits which will be consumed range between 4103 and 5359 (the equivalent of approximately 50 euro). If your UP42 credit balance is not sufficient, you can reduce the size of the AOI or tweak the job parameters. The price estimation will change in real time.
+
+Run job
+-----------
+
+13. After drawing the AOI and configuring the parameters, you can run the job in two ways:
 
 *  check image availability by first running a *Test Query* and then running a *Live Job* (also defined as *Real Job*)
 *  run a *Live Job*
 
-**12.1  Test Query**
+**13.1  Test Query**
 
 If you first run a *Test Query*, this will query for available images for your selected area and parameters, which will not consume credits. Only the quicklooks and metadata of the available images are generated. To access this information, follow the steps below:
 
@@ -163,7 +176,7 @@ If you first run a *Test Query*, this will query for available images for your s
    :align: center
    :alt: ViewPreview
 
-**12.2  Live Job**
+**13.2  Live Job**
 
 If you are satisfied with the quicklooks and metadata, you can run a *Live Job* by clicking on *Run as real job*. For more information, proceed to step 13.
 
@@ -174,7 +187,7 @@ If you are satisfied with the quicklooks and metadata, you can run a *Live Job* 
    :align: center
    :alt: RunRealJob
 
-13. If you wish to skip the *Test Query* and proceed with directly generating the geospatial outputs, launch a *Live Job* (also defined as *Real Job*). This will consume credits and generate the following outputs: 
+14. If you wish to skip the *Test Query* and proceed with directly generating the geospatial outputs, launch a *Live Job* (also defined as *Real Job*). This will consume credits and generate the following outputs: 
 
 *  the SPOT satellite image(s) from the `SPOT 6/7 Display (Streaming) <https://docs.up42.com/up42-blocks/data/spot-display-streaming.html>`_ data block. Streamed images are only used as a basis for applying algorithms and cannot be downloaded. For downloading SPOT images, please use the data blocks `SPOT 6/7 Display (Download) <https://docs.up42.com/up42-blocks/data/spot-display-download.html>`_ or `SPOT 6/7 Reflectance (Download) <https://docs.up42.com/up42-blocks/data/spot-reflectance-download.html>`_
 *  the SPOT image tiles from the `Raster Tiling <https://docs.up42.com/up42-blocks/processing/tiling.html>`_ processing block
@@ -184,7 +197,7 @@ If you are satisfied with the quicklooks and metadata, you can run a *Live Job* 
    :align: center
    :alt: RunLive
 
-14. The job status is displayed in grey as *Running*.
+15. The job status is displayed in grey as *Running*.
 
 .. figure:: _assets/step24_jobPending.png
    :align: center
@@ -200,7 +213,7 @@ If you are satisfied with the quicklooks and metadata, you can run a *Live Job* 
              In the *Job progress*, each step name corresponds to a block in the workflow and it is defined as a :term:`task`.
              Clicking on each of these names will display the task overview page and the logs for that task.
 
-15. When the job run is finalized, the status is displayed in green as *Successful*:
+16. When the job run is finalized, the status is displayed in green as *Successful*:
 
 .. figure:: _assets/step25_jobFinished.png
    :align: center
@@ -211,13 +224,13 @@ If you are satisfied with the quicklooks and metadata, you can run a *Live Job* 
 Download job results
 ----------------------------
 
-16. Once the job run is finished, you can download the outputs in more ways:
+17. Once the job run is finished, you can download the outputs in more ways:
 
-**16.1.  Last Output**
+**17.1.  Last Output**
 
 If you want to access the output from the last block, click on *Download*.
 
-**16.2.  Intermediate Outputs**
+**17.2.  Intermediate Outputs**
 
 If you want to access each individual output from each block, click on *Results*.
 
@@ -225,13 +238,13 @@ If you want to access each individual output from each block, click on *Results*
    :align: center
    :alt: LastIntermediateResult
 
-17. The outputs will be downloaded by default in the folder *Downloads* as TAR archives. The TAR archives need to be unzipped. For Windows OS, it is recommended to unpack them with third-party tools. For more information, please read this article: `How to unpack a tar file in Windows <https://wiki.haskell.org/How_to_unpack_a_tar_file_in_Windows>`_.
+18. The outputs will be downloaded by default in the folder *Downloads* as TAR archives. The TAR archives need to be unzipped. For Windows OS, it is recommended to unpack them with third-party tools. For more information, please read this article: `How to unpack a tar file in Windows <https://wiki.haskell.org/How_to_unpack_a_tar_file_in_Windows>`_.
 
 .. figure:: _assets/step29_unzipTarball.png
    :align: center
    :alt: UnzipArchive
    
-18. Once the TAR archives are unpacked, you will have a collection of results stored in folders named *output*. After opening the contents of these folders, various files will be displayed. Please note that the outputs are available in either raster or vector file formats.
+19. Once the TAR archives are unpacked, you will have a collection of results stored in folders named *output*. After opening the contents of these folders, various files will be displayed. Please note that the outputs are available in either raster or vector file formats.
 
 .. figure:: _assets/step30_checkOutput.png
    :align: center
@@ -248,7 +261,7 @@ If you want to access each individual output from each block, click on *Results*
 Visualize job results
 ----------------------------
    
-19. UP42 does not support the visualization of these geospatial results. It is recommended to download the free GIS software `QGIS <https://qgis.org/en/site/forusers/download.html>`_, where you can display and further analyze the results. For this example, the results are displayed in the sections below.
+20. UP42 does not support the visualization of these geospatial results. It is recommended to download the free GIS software `QGIS <https://qgis.org/en/site/forusers/download.html>`_, where you can display and further analyze the results. For this example, the results are displayed in the sections below.
 
 Tiled SPOT image
 ~~~~~~~~~~~~~~

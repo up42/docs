@@ -16,17 +16,29 @@ This introductory section provides an overview of how the UP42 platform works an
 
    The UP42 Platform
 
-You start by signing up and creating an UP42 account. This step will allow you to open the demo project, which contains the demo workflow. The demo workflow is a combination of data and processing blocks. These blocks are UP42 units that point to a specific geospatial data acquisition and processing algorithm. Finally, the workflow is being run as a job to generate results.
+You start by signing up and creating an UP42 account. This step will
+allow you to open the demo project, which contains the demo
+workflow. The demo workflow is a combination of data and processing
+blocks. These blocks are UP42 units that point to a specific
+geospatial data acquisition and processing algorithm. Finally, the
+workflow is being run as a job to generate results.
+
+.. tip::
+
+   If you are **unsure** what path to follow in exploring UP42 then just follow
+   our  :ref:`suggestions <paths-up42>` based on your intent and background.
 
 .. toctree::
    :maxdepth: 1
    :caption: Contents
    :includehidden:
 
+   paths-up42
    sign-up
    demo-workflow
    first-workflow
    catalog-search
+   storage
    first-api-request
    first-custom-block
    video-tutorials
