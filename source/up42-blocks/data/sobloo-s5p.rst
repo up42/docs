@@ -4,8 +4,8 @@
 
 .. _sentinel-5p-block:
 
-Sentinel-5P Full Scenes
-=======================
+Sentinel-5P (NetCDF)
+====================
 For more information, please read the `block description <https://marketplace.up42.com/block/0c0c217f-d926-4534-9072-2e4ead2d3e6c>`_.
 
 Block type: ``DATA``

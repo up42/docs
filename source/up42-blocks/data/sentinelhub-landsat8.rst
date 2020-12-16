@@ -4,8 +4,8 @@
 
 .. _sentinelhub-landsat8-aoiclipped-block:
 
-Landsat-8 Level 1 (TOA) AOI clipped
-===================================
+Landsat-8 Level 1 (GeoTIFF)
+===========================
 For more information, please read the `block description <https://marketplace.up42.com/block/95519b2d-09d7-4cd0-a321-4d6a46bef6c1>`_.
 
 Block type: ``DATA``
