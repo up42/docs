@@ -5,8 +5,8 @@
 .. _up42-import-geojson-block:
 
 Import Data (GeoJSON)
-===================
-For more information, please read the `block description <>`_.
+=====================
+For more information, please read the `block description <https://marketplace.up42.dev/block/1540a0f2-a6d5-4262-944f-21117ad658be>`_.
 
 Block type: ``DATA``
 
@@ -37,7 +37,6 @@ For more information, please read the section :ref:`Data source query filters  <
 * ``prefix``: A file structure prefix to limit the dataset search to a specific subdirectory. Conforms to the gcs & aws prefix structure,
   which excludes the bucket name. E.g. `folder1/folder2/`.
 * ``filenames``: An array of GeoJSON filenames, including suffix. The ``filenames`` filter overrides all other filters, e.g., ``intersects``, ``limit`` and/or ``time``.
-* ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.
 * ``intersects``: A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use
@@ -55,29 +54,27 @@ Example query with Google Cloud Storage, using ``filenames`` and ``prefix``:
 .. code-block:: javascript
 
     {
-        "geotiff-custom:1": {
+        "up42-import-geojson:1": {
             "cloud_provider": "gcs",
-            "bucket_name": "geotiff-scenes-data",
-            "prefix": "europe/france/",
-            "filenames": ["33c03020-2797-4bd4-b3b7-763d4de12754_ms.tif"],
+            "bucket_name": "blocks-e2e-testing",
+            "prefix": "e2e_import_geojson",
+            "filenames": [""highway_2020-12-03T14_20_03Z.geojson""],
             "intersects": null,
-            "time": "2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
             "limit": 1
         }
     }
 
-Example query with Amazon Web services, searching via ``time`` & ``aoi``.
+Example query with Amazon Web services, searching via ``aoi``.
 
 .. code-block:: javascript
 
     {
-        "geotiff-custom:1": {
+        "up42-import-geojson:1": {
             "cloud_provider": "aws",
-            "bucket_name": "geotiff-scenes-data",
+            "bucket_name": "blocks-e2e-testing",
             "prefix": null,
             "filenames": null,
             "bbox": [13.351818, 52.501907, 13.379109, 52.510788],
-            "time": "2019-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
             "limit": 4
         }
     }
@@ -90,65 +87,43 @@ The output GeoJSON contains the GeoJSON file metadata, with the ``up42.data_path
 .. code-block:: javascript
 
     {
-      "type": "FeatureCollection",
-      "features": [
-        {
-          "type": "Feature",
-          "filename": "33c03020-2797-4bd4-b3b7-763d4de12754_ms.tif",
-          "bbox": [
-            -8.826857337352216,
-            37.95072101226636,
-            -8.804132335571202,
-            37.968715633929804
-          ],
-          "geometry": {
-            "type": "Polygon",
-            "coordinates": [
-              [
-                [
-                  -8.804132,
-                  37.950721
-                ],
-                [
-                  -8.804132,
-                  37.968716
-                ],
-                [
-                  -8.826857,
-                  37.968716
-                ],
-                [
-                  -8.826857,
-                  37.950721
-                ],
-                [
-                  -8.804132,
-                  37.950721
-                ]
-              ]
-            ]
-          },
-          "properties": {
-            "driver": "GTiff",
-            "dtype": "uint16",
-            "nodata": null,
-            "width": 711,
-            "height": 563,
-            "count": 4,
-            "crs": "EPSG:4326",
-            "transform": [
-              3.196202782139787e-05,
-              0.0,
-              -8.826857337352216,
-              0.0,
-              -3.1962027821399064e-05,
-              37.968715633929804,
-              0.0,
-              0.0,
-              1.0
+    "type": "FeatureCollection",
+    "features": [
+    {
+      "type": "Feature",
+      "id": "0",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.428595,
+              52.486969
             ],
-            "up42.data_path": "33c03020-2797-4bd4-b3b7-763d4de12754_ms.tif"
-          }
-        }
-      ]
+            [
+              13.428595,
+              52.527166
+            ],
+            [
+              13.386982,
+              52.527166
+            ],
+            [
+              13.386982,
+              52.486969
+            ],
+            [
+              13.428595,
+              52.486969
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "out_file": "/tmp/output/highway_2020-12-03T14_20_03Z.geojson",
+        "up42.data_path": "highway_2020-12-03T14_20_03Z.geojson",
+        "url": "gs://blocks-e2e-testing/e2e_import_geojson/highway_2020-12-03T14_20_03Z.geojson"
+      }
+    }
+    ]
     }

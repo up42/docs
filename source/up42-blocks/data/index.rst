@@ -49,3 +49,4 @@ built by UP42.
    geotiff-custom
    dimap-custom
    meteomatics-weather-map
+   up42-import-geojson
