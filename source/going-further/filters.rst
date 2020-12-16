@@ -181,6 +181,7 @@ Implemented filters
  ":ref:`Landsat-8 (AOI-Clipped) <sentinelhub-landsat8-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**,
  ":ref:`MODIS <modis-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, ,
  ":ref:`Meteomatics <meteomatics-block>`", , **✓**, **✓**, , **✓**, **✓**, , ,
+ ":ref:`Meteomatics Weather Map <meteomatics-weather-map-block>`", , **✓**, **✓**, , **✓**, **✓**, , ,
  ":ref:`NEXTMap 1m Elevation Data <nextmap-1m-block>`", , **✓**, **✓**, , , , , ,
  ":ref:`NEXTMap 5m Elevation Data <nextmap-5m-block>`", , **✓**, **✓**, , , , , ,
  ":ref:`NEXTMap 10m Elevation Data <nextmap-10m-block>`", , **✓**, **✓**, , , , , ,

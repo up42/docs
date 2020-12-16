@@ -48,3 +48,4 @@ built by UP42.
    airbus-globalseeps-sample
    geotiff-custom
    dimap-custom
+   meteomatics-weather-map
