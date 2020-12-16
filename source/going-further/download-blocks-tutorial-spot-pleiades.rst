@@ -249,16 +249,16 @@ workflow:
 
 .. gist:: https://gist.github.com/up42-epicycles/be903d94b904d2011b044ce472065b17
 
-You can see the field ``asset_id``:
+You can see the field ``asset_ids``:
 
 .. code:: javascript
 
    ...
-   "asset_id":
-      "002e11d3-3b46-43a5-a07d-855a94c72817",
+   "asset_ids":
+      ["002e11d3-3b46-43a5-a07d-855a94c72817"],
    ...
 
-which is a single asset ID.
+which is an array with a single asset ID.
 
 And the output shown here as a GeoTIFF.
 
