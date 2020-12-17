@@ -17,7 +17,7 @@ block can be used with the `TerraSAR-X EEC Full Scenes (Sample Data) block <http
 .. warning::
 
   This block only works with the `TerraSAR-X EEC Full Scenes (Sample Data) block <https://marketplace.up42.com/block/c766f8cc-e6d3-459b-b46c-ffeeca969edf>`_,
-  not with the TerraSAR-X SSC Full Scenes block.
+  not with the SSC Full Scenes block.
 
 Supported parameters
 --------------------
@@ -66,4 +66,59 @@ Example query using ``bbox`` and ``clip_to_aoi``:
 Output format
 -------------
 
+.. code-block:: javascript
 
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "bbox": [
+            -122.05833364772081,
+            37.345431145684856,
+            -121.99159068021468,
+            37.40492846417565
+          ],
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -121.99159068021468,
+                  37.345431145684856
+                ],
+                [
+                  -121.99159068021468,
+                  37.40492846417565
+                ],
+                [
+                  -122.05833364772081,
+                  37.40492846417565
+                ],
+                [
+                  -122.05833364772081,
+                  37.345431145684856
+                ],
+                [
+                  -121.99159068021468,
+                  37.345431145684856
+                ]
+              ]
+            ]
+          },
+          "properties": {
+            "format": "image/tiff",
+            "organisationName": "Airbus Defence and Space GmbH",
+            "productCategory": "sar",
+            "id": "tsxx-coord_2020-09-18-10:07:26,013",
+            "acquisition_time": "2020-08-17T02:01:26.787Z",
+            "acquisition_mode": "SM",
+            "orbit_direction": "ASCENDING",
+            "processing_mode": "EEC",
+            "custom.airbus.data.sar.eec": "a4248ce2-f8c0-467c-a3fb-7bd565594e2d",
+            "up42.data_path": "TDX1_SAR__EEC_SE___SM_S_SRA_20200817T020126_20200817T020135/IMAGE_HH_SRA_strip_009.tif",
+            "scene_id": "TDX1_SAR__EEC_SE___SM_S_SRA_20200817T020126_20200817T020135"
+          }
+        }
+      ]
+    }
