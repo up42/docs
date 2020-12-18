@@ -36,4 +36,5 @@ blocks built by UP42.
    up42-countobjects
    oneatlas-cloudmask
    up42-ndvithreshold
+   up42-terrasar-geotiff-conversion
 
