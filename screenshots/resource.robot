@@ -36,10 +36,10 @@ Input Password
     Input Text    password    ${password}
 
 Submit Credentials
-    Click button    class:upButton_1ISuKq9p
+    Click element    xpath://*[@id="content"]/div/div[3]/div/div/div/div/div/section/div/form/div[4]/button
 
 Dismiss Cookies
-    Click element    xpath=/html/body/div[1]/div
+    Click element    xpath://*[@id="onetrust-accept-btn-handler"]
 
 Projects Page Should Be Open
     Location Should Be    ${PROJECTS URL}
@@ -51,4 +51,5 @@ Go To Workflow Page
     Go To    ${PROJECTS URL}/b45630bf-c6e1-4713-8f33-eeadaa536c44/workflows/a8f353a1-1bf4-43a3-a533-682355c3a3c2
 
 Go To Job Page
-    Go To    ${PROJECTS URL}/b45630bf-c6e1-4713-8f33-eeadaa536c44/workflows/a8f353a1-1bf4-43a3-a533-682355c3a3c2/configure-job
+    Go To    ${PROJECTS URL}/b45630bf-c6e1-4713-8f33-eeadaa536c44/workflows/a8f353a1-1bf4-43a3-a533-682355c3a3c2/configure-job?workspace=f82f589f-337c-482e-aff9-a8915d7393fa
+    Sleep   5s

@@ -53,10 +53,11 @@ $ sphinx-reload docs
 ## Screenshots
 
 To generate the auto screenshots you need to add the path of the Chrome driver to
-your environment. Note that you need to have Chrome installed (at least version 76).
+your environment - you can use the `webdrivermanager` command to achieve this.
+Note that you need to have Chrome installed (at least version 76).
 Additionally, also add a valid User and Password for the platform. Run this:
 ```bash
-$ export PATH=$PATH:`chromedriver-path`
+$ webdrivermanager chrome --linkpath /usr/local/bin
 $ export UP42_USER=!!YOUR USER NAME!!
 $ export UP42_PASSWORD=!!YOUR USER PASSWORD!!
 ```
