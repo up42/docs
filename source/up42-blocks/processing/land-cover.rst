@@ -19,7 +19,7 @@ Land cover classification or segmentation is the process of assigning each of
 the input imagery pixels a discrete land cover class (e.g. water, forest, urban, desert etc.).
 
 This block is beta version of a land cover classifier trained with Pléiades/SPOT imagery
-over **mulitple locations**. The block accepts 4 or 5 as number of classes to be inferred. 
+over **multiple locations**. The block accepts 4 or 5 as number of classes to be inferred. 
 In case of 4 classes the model treats Barren Land and Urban as a single class.
 Currently, classification output consists of following classes:
 
