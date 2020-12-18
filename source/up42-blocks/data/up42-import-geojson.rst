@@ -14,15 +14,15 @@ This block enables using GeoJSON vector data, stored in a bucket on *Google Clou
 or *Amazon Web Services (AWS)*, in a workflow on UP42.
 
 Within the bucket, the user can select specific images (via the filenames) or search by
-location and time. The search can also be limited to a subfolder in the bucket via the
-`prefix` parameter.
-The block outputs the scene data and an automatically created `data.json` file with the scene metadata.
+location and date. The search can also be limited to a subfolder in the bucket via the
+``prefix`` parameter.
+The block outputs the vector data and an automatically created ``data.json`` file with the vector metadata.
 
 .. tip::
 
     In order to access the bucket, the access credentials need to be provided via :ref:`UP42 environment variables <environments-credentials-pass-through-tutorial>`.
-    For AWS, provide the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` as environment variables.
-    For GCS, provide the full json string of the Google Application Credentials json as the `GOOGLE_KEY_STRING` environment variable.
+    For AWS, provide the ``AWS_ACCESS_KEY_ID`` and ``AWS_SECRET_ACCESS_KEY`` as environment variables.
+    For GCS, provide the full json string of the Google Application Credentials json as the ``GOOGLE_KEY_STRING`` environment variable.
 
 
 .. contents::
@@ -35,7 +35,7 @@ For more information, please read the section :ref:`Data source query filters  <
 * ``cloud_provider``: The cloud storage provider of the bucket, either ``gcs`` or ``aws``.
 * ``bucket_name``: The bucket name.
 * ``prefix``: A file structure prefix to limit the dataset search to a specific subdirectory. Conforms to the gcs & aws prefix structure,
-  which excludes the bucket name. E.g. `folder1/folder2/`.
+  which excludes the bucket name. E.g. ``folder1/folder2/``.
 * ``filenames``: An array of GeoJSON filenames, including suffix. The ``filenames`` filter overrides all other filters, e.g., ``intersects``, ``limit`` and/or ``time``.
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
   **or** ``intersects``.
