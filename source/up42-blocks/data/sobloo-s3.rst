@@ -4,8 +4,8 @@
 
 .. _sentinel-3-block:
 
-Sentinel-3 Full Scenes
-======================
+Sentinel-3 (NetCDF)
+===================
 For more information, please read the `block description <https://marketplace.up42.com/block/ee08281c-d950-4258-81d5-e37187a9580e>`_.
 
 Block type: ``DATA``

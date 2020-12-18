@@ -4,8 +4,8 @@
 
 .. _sentinel2-l2a-fullscene-block:
 
-Sentinel-2 L2A MSI Full Scenes
-==============================
+Sentinel-2 L2A (SAFE)
+=====================
 For more information, please read the `block description <https://marketplace.up42.com/block/e6d0cb52-b649-4fca-9f2f-e215b7c02a37>`_.
 
 Block type: ``DATA``

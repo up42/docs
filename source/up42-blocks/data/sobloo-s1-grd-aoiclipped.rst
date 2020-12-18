@@ -4,13 +4,13 @@
 
 .. _sentinel1-grd-aoiclipped-block:
 
-Sentinel-1 L1C GRD AOI clipped
-==============================
+Sentinel-1 L1 GRD (GeoTIFF)
+===========================
 For more information, please read the `block description <https://marketplace.up42.com/block/b1c88381-6df0-4919-a194-5d5b3b1ee2f7>`_.
 
 Block type: ``DATA``
 
-This block provides AOI clipped scenes of Sentinel-1 (A/B)’s C-band synthetic aperture radar sensor in processing level L-1C
+This block provides clipped scenes of Sentinel-1 (A/B)’s C-band synthetic aperture radar sensor in processing level L-1C
 Ground Range Detected (GRD) in ``GeoTIFF`` format. The image contains 3 bands with polarizations VV, VH and an alpha
 band acting as a :term:`nodata mask<nodata mask>`. There is no maximum size limit regarding the image that will be
 returned, but it will never be larger than the original scene.

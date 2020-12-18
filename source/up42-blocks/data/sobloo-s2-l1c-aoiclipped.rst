@@ -4,13 +4,13 @@
 
 .. _sentinel2-l1c-aoiclipped-block:
 
-Sentinel-2 L1C MSI AOI clipped
-==============================
+Sentinel-2 L1C (GeoTIFF)
+========================
 For more information, please read the `block description <https://marketplace.up42.com/block/3a381e6b-acb7-4cec-ae65-50798ce80e64>`_.
 
 Block type: ``DATA``
 
-This block provides AOI Clipped scenes of Sentinel-2 (A/B)’s multispectral imaging sensor in processing level L-1C in
+This block provides clipped scenes of Sentinel-2 (A/B)’s multispectral imaging sensor in processing level L-1C in
 ``GeoTIFF`` format. The products are radiometrically and geometrically corrected (including orthorectification).
 There is no maximum size limit regarding the image that will be returned, but it will never be larger than the original scene.
 

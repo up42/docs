@@ -4,7 +4,7 @@
 
 .. _pansharpen-block:
 
-Pan-sharpening SPOT/Pléiades
+Pan-sharpening Pléiades/SPOT
 ============================
 For more information, please read the `block description <https://marketplace.up42.com/block/903f0435-d638-475e-bbe9-53b5664a22a8>`_.
 

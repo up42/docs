@@ -4,8 +4,8 @@
 
 .. _modis-aoiclipped-block:
 
-MODIS AOI clipped
-=================
+MODIS (GeoTIFF)
+===============
 For more information, please read the `block description <https://marketplace.up42.com/block/ef6faaf5-8182-4986-bce4-4f811d2745e5>`_.
 
 Block type: ``DATA``
@@ -21,7 +21,7 @@ corresponding date for the supplied AOI will be provided.
 
 .. tip::
 
-  The MODIS AOI-Clipped block is one of the UP42 open source blocks. This block is intended to help you build your own custom data block from scratch. Checkout the source code in the `public repository <https://github.com/up42/modis>`_.
+  The MODIS (GeoTIFF) block is one of the UP42 open source blocks. This block is intended to help you build your own custom data block from scratch. Checkout the source code in the `public repository <https://github.com/up42/modis>`_.
 
 
 Supported parameters
