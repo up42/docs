@@ -6,7 +6,7 @@
 
 Import Data (GeoJSON)
 =====================
-For more information, please read the `block description <https://marketplace.up42.dev/block/1540a0f2-a6d5-4262-944f-21117ad658be>`_.
+For more information, please read the `block description <https://marketplace.up42.com/block/d2903c7b-b200-4afa-8676-11eec792ee15>`_.
 
 Block type: ``DATA``
 
