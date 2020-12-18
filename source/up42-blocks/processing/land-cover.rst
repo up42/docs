@@ -30,8 +30,8 @@ Currently, classification output consists of following classes:
   5. Urban (including roads and buildings)
 
 Based on an independent test dataset we reached an Accuracy of 0.75 and a Jaccard of 0.22 when trained with 4 classes.
-When trained with 5 classes using the same test dataset, we achieved an Accuracy of 0.64 and a Jaccard of 0.51.
-This block allows now for running inference globally!
+When trained with 5 classes using the same test dataset, we achieved an `Accuracy <https://en.wikipedia.org/wiki/Accuracy_and_precision>`_ of 0.64 and a `Jaccard <https://en.wikipedia.org/wiki/Jaccard_index>`_ of 0.51.
+The block now supports running inference globally.
 
 If you would like to know more about the development of this land cover segmentation classifier we have published a
 `blog post <https://up42.com/blog/tech/using-tensorboard-while-training-land-cover-models-with-satellite-imagery>`_ describing our approach. In addition the
