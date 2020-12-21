@@ -18,6 +18,9 @@ location and time. The search can also be limited to a subfolder in the bucket v
 `prefix` parameter.
 The block outputs the scene data and an automatically created `data.json` file with the scene metadata.
 
+The block can connect to any processing block which expects output from the SPOT or Pléiades sensor or is
+sensor-agnostic (i.e. does not expect any specific sensor).
+
 .. tip::
 
     In order to access the bucket, the access credentials need to be provided via UP42 environment variables.
