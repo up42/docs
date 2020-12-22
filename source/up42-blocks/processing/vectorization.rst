@@ -22,7 +22,7 @@ This block vectorizes raster files into ``GeoJSON`` format.
 
   Very large images (bigger than **40 MP**, or for example a 10 km :superscript:`2` image from Pléiades) are
   not processable by this block. Please add the :ref:`Tiling block <tiling-block>` before the Vectorization
-  block to process large images.
+  block to process very large images.
 
 
 Supported parameters
