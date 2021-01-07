@@ -11,10 +11,10 @@ For more information, please read the `block description <https://marketplace.up
 
 Block type: ``PROCESSING``
 
-This block generates a binary flood masks for SPOT and Pléiades imagery. The block is compatible with SPOT and Pléiades
-Reflectance (Download) data. For processing Pléiades Download or SPOT 6/7 Download blocks, the data
-must first be converted to GeoTIFF with the blocks DIMAP -> GeoTIFF Conversion or Pan-sharpening SPOT/Pléiades
-(See :ref:`Example usage <example-usage-floodfinder>`.).
+This block generates a binary flood masks for SPOT and Pléiades imagery. The block requires at least two input images
+and is compatible with SPOT and Pléiades Reflectance (Download) data. For processing Pléiades Download or SPOT 6/7
+Download blocks, the data must first be converted to GeoTIFF with the blocks DIMAP -> GeoTIFF Conversion or
+Pan-sharpening SPOT/Pléiades (See :ref:`Example usage <example-usage-floodfinder>`.).
 
 Supported parameters
 --------------------
@@ -26,10 +26,10 @@ This block takes no input parameters.
 Example usage
 -------------
 
-For the Floodfinder block we recommend using the contains geometric filter when searching for imagery. Furthemore to
+For the Floodfinder block we recommend using the contains geometric filter when searching for imagery. Furthemore, to
 have better control over the images output by the preceding Data Blocks we recommend working with
-`ids <https://marketplace.up42.dev/block/b35bdc38-b700-4ada-b429-55e67971adac>`_. When using more then 2 input images,
-the flooded scene should be first in the ids list.
+`ids <https://marketplace.up42.dev/block/b35bdc38-b700-4ada-b429-55e67971adac>`_ to select at least one flooded image.
+When using more then 2 input images, the flooded scene should be first element in the ids list.
 
 Example running the full waterfinder workflow:
 `Pleiades Download block <https://docs.up42.com/up42-blocks/data/pleiades-reflectance-download.html>`_,
