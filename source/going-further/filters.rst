@@ -43,7 +43,7 @@ a certain filter or not [1]_.
    maximum is 5 by default, if you have a payment method associated
    with your account you will be able to set it up to 10 in the
    project settings page. For higher values please get in touch with
-   `support@up42.com <mailto:support%20@up42.com>`__.
+   `customer support <mailto:support%20@up42.com>`_.
 
 .. _bbox-filter:
 
