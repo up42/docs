@@ -7,7 +7,7 @@
 Waterfinder
 ===========
 
-For more information, please read the `block description <https://marketplace.up42.dev/block/b35bdc38-b700-4ada-b429-55e67971adac>`_.
+For more information, please read the `block description <https://marketplace.up42.com/block/b35bdc38-b700-4ada-b429-55e67971adac>`_.
 
 Block type: ``PROCESSING``
 
@@ -26,37 +26,58 @@ This block takes no input parameters.
 Example usage
 -------------
 
-Example running the full waterfinder workflow:
+Example running the full Waterfinder workflow:
 `Pleiades Download block <https://docs.up42.com/up42-blocks/data/pleiades-reflectance-download.html>`_,
 `DIMAP -> GeoTIFF Conversion <https://docs.up42.com/up42-blocks/processing/dimap-conversion.html>`_, and
 `UP42 Waterfinder <https://docs.up42.com/up42-blocks/processing/up42-waterfinder.html>`_:
 
 .. code-block:: javascript
 
-   {
-    	"ndvi:1": {
-    		"output_original_raster": false
-    	},
-    	"up42-ndvithreshold:1": {
-    		"n_sieve_pixels": 5,
-    		"threshold_values": [{
-    			"no_vegetation": 0.2,
-    			"dense_vegetation": 0.9,
-    			"sparse_vegetation": 0.4,
-    			"moderate_vegetation": 0.6
-    		}]
-    	},
-    	"data-conversion-dimap:1": {
-    		"ms": true,
-    		"pan": false,
-    		"clip_to_aoi": false
-    	},
-    	"oneatlas-pleiades-fullscene:1": {
-    		"time": "2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
-    		"limit": 1,
-    		"order_ids": null,
-    		"max_cloud_cover": 100
-    	}
+    {
+      "oneatlas-pleiades-fullscene:1": {
+        "ids": null,
+        "time": "2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
+        "limit": 1,
+        "asset_ids": null,
+        "time_series": null,
+        "max_cloud_cover": 100,
+        "intersects": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -6.083251,
+                4.958044
+              ],
+              [
+                -6.078073,
+                4.960747
+              ],
+              [
+                -6.076336,
+                4.957493
+              ],
+              [
+                -6.081294,
+                4.954924
+              ],
+              [
+                -6.083251,
+                4.958044
+              ]
+            ]
+          ]
+        }
+      },
+      "data-conversion-dimap:1": {
+        "ms": true,
+        "pan": false,
+        "bbox": null,
+        "contains": null,
+        "intersects": null,
+        "clip_to_aoi": false
+      },
+      "up42-waterfinder-water:1": {}
     }
 
 Output format

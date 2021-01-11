@@ -7,7 +7,7 @@
 Floodfinder
 ===========
 
-For more information, please read the `block description <https://marketplace.up42.dev/block/b35bdc38-b700-4ada-b429-55e67971adac>`_.
+For more information, please read the `block description <https://marketplace.up42.com/block/b35bdc38-b700-4ada-b429-55e67971adac>`_.
 
 Block type: ``PROCESSING``
 
@@ -26,43 +26,47 @@ This block takes no input parameters.
 Example usage
 -------------
 
-For the Floodfinder block we recommend using the contains geometric filter when searching for imagery. Furthemore, to
-have better control over the images output by the preceding Data Blocks we recommend working with
-`ids <https://marketplace.up42.dev/block/b35bdc38-b700-4ada-b429-55e67971adac>`_ to select at least one flooded image.
-When using more then 2 input images, the flooded scene should be first element in the ids list.
+For the Floodfinder block we strongly recommend working with `ids <https://marketplace.up42.dev/block/b35bdc38-b700-4ada-b429-55e67971adac>`_
+to have better control over the images output by the preceding Data Block and select at least one flooded image.
+When using more than 2 input images, the flooded image should be the first element in the ids list.
+If refraining from using ids, we suggest using the `contains geometric filter <https://docs.up42.com/going-further/filters.html?highlight=contains>`_.
 
-Example running the full waterfinder workflow:
+Example running the full Floodfinder workflow with ids:
 `Pleiades Download block <https://docs.up42.com/up42-blocks/data/pleiades-reflectance-download.html>`_,
 `DIMAP -> GeoTIFF Conversion <https://docs.up42.com/up42-blocks/processing/dimap-conversion.html>`_, and
 `UP42 Waterfinder <https://docs.up42.com/up42-blocks/processing/up42-waterfinder.html>`_:
 
 .. code-block:: javascript
 
-   {
-    	"ndvi:1": {
-    		"output_original_raster": false
-    	},
-    	"up42-ndvithreshold:1": {
-    		"n_sieve_pixels": 5,
-    		"threshold_values": [{
-    			"no_vegetation": 0.2,
-    			"dense_vegetation": 0.9,
-    			"sparse_vegetation": 0.4,
-    			"moderate_vegetation": 0.6
-    		}]
-    	},
-    	"data-conversion-dimap:1": {
-    		"ms": true,
-    		"pan": false,
-    		"clip_to_aoi": false
-    	},
-    	"oneatlas-pleiades-fullscene:1": {
-    		"time": "2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
-    		"limit": 1,
-    		"order_ids": null,
-    		"max_cloud_cover": 100
-    	}
+    {
+      "oneatlas-pleiades-fullscene:1": {
+        "ids": [
+              "DS_PHR1A_201405231003520_FR1_PX_E018N45_0601_01578",
+              "DS_PHR1A_201904020959384_FR1_PX_E018N45_0703_01728"
+            ],
+        "time": "2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
+        "limit": 1,
+        "asset_ids": null,
+        "time_series": null,
+        "max_cloud_cover": 100,
+        "bbox": [
+          18.472361,
+          45.057627,
+          18.478455,
+          45.06272
+        ]
+      },
+      "data-conversion-dimap:1": {
+        "ms": true,
+        "pan": false,
+        "bbox": null,
+        "contains": null,
+        "intersects": null,
+        "clip_to_aoi": false
+      },
+      "up42-waterfinder-flood:1": {}
     }
+
 
 Output format
 -------------
