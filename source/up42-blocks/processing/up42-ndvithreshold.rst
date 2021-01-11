@@ -7,7 +7,7 @@
 NDVI Threshold
 ==============
 
-For more information, please read the `block description <https://marketplace.up42.dev/block/b35bdc38-b700-4ada-b429-55e67971adac>`_.
+For more information, please read the `block description <https://marketplace.up42.com/block/2b0181ef-4dba-45a2-974b-475175a6a712>`_.
 
 Block type: ``PROCESSING``
 
