@@ -10,7 +10,7 @@ Airbus Global Seeps
 For more information, please read the `block description
 <https://marketplace.up42.com/block/dfc5d74f-d1e3-4e35-8c67-b36fd8cfe14e>`_.
 
-The data available in this sample covers the coast of the United Kingdom and Ireland and is available from 1991 to 2016.
+The data available covers the world's coastal regions (and some inland seas) and is available from 1984 to today.
 
 Block type: ``DATA``
 
