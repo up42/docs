@@ -11,7 +11,7 @@ For more information, please read the `block description <https://marketplace.up
 
 Block type: ``PROCESSING``
 
-This block generates a binary flood masks for SPOT and Pléiades imagery. The block requires at least two input images
+This block generates a binary flood mask for SPOT and Pléiades imagery. The block requires at least two input images
 and is compatible with SPOT and Pléiades Reflectance (Download) data. For processing Pléiades Download or SPOT 6/7
 Download blocks, the data must first be converted to GeoTIFF with the blocks DIMAP -> GeoTIFF Conversion or
 Pan-sharpening SPOT/Pléiades (See :ref:`Example usage <example-usage-floodfinder>`.).
