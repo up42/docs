@@ -41,8 +41,8 @@ Example running the full Floodfinder workflow with ids:
     {
       "oneatlas-pleiades-fullscene:1": {
         "ids": [
-              "DS_PHR1A_201405231003520_FR1_PX_E018N45_0601_01578",
-              "DS_PHR1A_201904020959384_FR1_PX_E018N45_0703_01728"
+              "DS_PHR1A_201903201724529_FR1_PX_W096N41_0204_01561",
+              "DS_PHR1B_202010111732519_FR1_PX_W096N41_0306_04750"
             ],
         "time": "2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
         "limit": 1,
@@ -50,19 +50,19 @@ Example running the full Floodfinder workflow with ids:
         "time_series": null,
         "max_cloud_cover": 100,
         "bbox": [
-          18.472361,
-          45.057627,
-          18.478455,
-          45.06272
+          -95.892875,
+          41.108445,
+          -95.886612,
+          41.112732
         ]
       },
-      "data-conversion-dimap:1": {
-        "ms": true,
-        "pan": false,
+      "pansharpen:1": {
         "bbox": null,
+        "method": "SFIM",
         "contains": null,
         "intersects": null,
-        "clip_to_aoi": false
+        "clip_to_aoi": false,
+        "include_pan": false
       },
       "up42-waterfinder-flood:1": {}
     }
