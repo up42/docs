@@ -15,29 +15,41 @@ This article presents the various types of Pléiades and SPOT images available o
 
  \1. Streaming
    **A streaming block** provides data that contains all web Mercator tiles intersecting or covering the specified AOI in a spatial resolution defined by the used zoom level. For more information, please refer to `Zoom levels <https://wiki.openstreetmap.org/wiki/Zoom_levels>`_.
-   
+
    The available output bands for streamed images are: **red**, **green**, **blue**, and **panchromatic** (optional). NIR is not available.
-   
+
    A streamed image can only be used once (i.e. each job of a given workflow over the same AOI will always re-acquire the streamed image). This means that users are paying for the streamed image each time they rerun a job.
 
-   **Streaming data blocks:**
-   
-   * `Pléiades Display (Streaming) <https://docs.up42.com/up42-blocks/data/pleiades-display-streaming.html>`_
-   * `SPOT 6/7 Display (Streaming) <https://docs.up42.com/up42-blocks/data/spot-display-streaming.html>`_
+   According to the End User License Agreement, the following policies apply for streamed images:
+
+   * **Users are not allowed to download the streamed images or the outputs of processing blocks that provide the pixel values of the original streamed images.** Example of non-eligible processing blocks: `Raster Tiling <https://docs.up42.com/up42-blocks/processing/tiling.html>`_, `Raster CRS Conversion <https://docs.up42.com/up42-blocks/processing/crs-conversion.html>`_.
+
+   * **Users are allowed to download only outputs that do not provide the pixel values of the original streamed images.** Example of eligible processing blocks: `Car Detection <https://marketplace.up42.com/block/7d8dda9f-db1e-4645-9c1b-e056e0bdc698>`_, `Ship Detection <https://marketplace.up42.com/block/79e3e48c-d65f-4528-a6d4-e8d20fecc93c>`_.
+
+   .. list-table::
+      :widths: 100
+      :header-rows: 1
+
+      * - Streaming data blocks
+      * - `Pléiades Display (Streaming) <https://docs.up42.com/up42-blocks/data/pleiades-display-streaming.html>`_
+      * - `SPOT 6/7 Display (Streaming) <https://docs.up42.com/up42-blocks/data/spot-display-streaming.html>`_
 
  \2. Download
    **A download block** provides data in its original DIMAP V2 format clipped to the provided AOI. Separate directories are included for multispectral and panchromatic data. You can open each by selecting the DIM*.xml file.
-   
+
    The available output bands for downloaded images are: **red**, **green**, **blue**, **NIR** and **panchromatic**.
-   
+
    A downloaded image can be used indefinitely and it is owned by the user who purchased the image. A downloaded image can be used multiple times. This means that users are not paying for the downloaded image each time they rerun a job with this image.
-   
-   **Download data blocks:**
-   
-   * `Pléiades Reflectance (Download) <https://docs.up42.com/up42-blocks/data/pleiades-reflectance-download.html>`_
-   * `Pléiades Display (Download) <https://docs.up42.com/up42-blocks/data/pleiades-display-download.html>`_
-   * `SPOT 6/7 Reflectance (Download) <https://docs.up42.com/up42-blocks/data/spot-reflectance-download.html>`_
-   * `SPOT 6/7 Display (Download) <https://docs.up42.com/up42-blocks/data/spot-display-download.html>`_
+
+   .. list-table::
+      :widths: 100
+      :header-rows: 1
+
+      * - Download data blocks
+      * - `Pléiades Reflectance (Download) <https://docs.up42.com/up42-blocks/data/pleiades-reflectance-download.html>`_
+      * - `Pléiades Display (Download) <https://docs.up42.com/up42-blocks/data/pleiades-display-download.html>`_
+      * - `SPOT 6/7 Reflectance (Download) <https://docs.up42.com/up42-blocks/data/spot-reflectance-download.html>`_
+      * - `SPOT 6/7 Display (Download) <https://docs.up42.com/up42-blocks/data/spot-display-download.html>`_
 
 .. _download-block-pros:
 
@@ -51,9 +63,9 @@ The Pléiades and SPOT download blocks have the following advantages:
 3. Users can re-use the images when running jobs for other workflows.
 4. Users have access to all the available bands of the images.
 5. Users can apply advanced algorithms such as vegetation analysis (e.g. NDVI).
-6. Pléiades Reflectance (Download) and SPOT Reflectance (Download) are analytical products which have been radiometrically and geometrically corrected. The processing level is called *ortho* and it ensures that images are used for quantitative studies and time series analyses. 
+6. Pléiades Reflectance (Download) and SPOT Reflectance (Download) are analytical products which have been radiometrically and geometrically corrected. The processing level is called *ortho* and it ensures that images are used for quantitative studies and time series analyses.
 
-.. note:: For more information, please read the User Guides for `Pléiades <https://www.intelligence-airbusds.com/en/4555-pleiades-user-   
+.. note:: For more information, please read the User Guides for `Pléiades <https://www.intelligence-airbusds.com/en/4555-pleiades-user-
              guide>`_ and `SPOT <https://www.intelligence-airbusds.com/automne/api/docs/v1.0/document/download/ZG9jdXRoZXF1ZS1kb2N1bWVudC01NTY0NQ==/ZG9jdXRoZXF1ZS1maWxlLTU1NjQ0/SPOT6-7_UserGuide_201906.pdf>`_.
 
 .. tip:: In order to download images which are visually pleasing, we recommend using the data blocks **Pléiades
