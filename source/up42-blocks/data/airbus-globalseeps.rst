@@ -29,7 +29,7 @@ For more information, please read the section :ref:`Data source query filters  <
 
 Output format
 -------------
-The output data is a GeoJSON file(s) based on number of ``object_types`` supplied. These files are named with following convention ``<object_type>.geojson``. All resulting files are place in a directory with a unique identifier as referenced by the `data.json`.
+The output data is a GeoJSON file(s) based on number of ``object_types`` supplied. These files are named with following convention ``<object_type>.geojson``. All resulting files are placed in a directory with a unique identifier as referenced by the `data.json`.
 
 .. note::
   The block does not support ``dry_run`` or quicklooks.
