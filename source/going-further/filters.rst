@@ -188,6 +188,7 @@ Implemented filters
  ":ref:`Landsat-8 Level-1 Full Scene <aws-landsat8-full-scene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`OpenStreetMap Extraction <openstreetmap-block>`", , **✓**, , , **✓**, **✓**, ,
  ":ref:`AWS MODIS Full Scenes <aws-modis-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, , **✓**,
+ ":ref:`Airbus Basemap (Tile) <oneatlas-basemap-block>`", , **✓**, **✓**, , , , ,
 
 .. Examples
 .. --------

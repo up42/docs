@@ -50,3 +50,4 @@ built by UP42.
    dimap-custom
    meteomatics-weather-map
    up42-import-geojson
+   oneatlas-basemap
