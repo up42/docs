@@ -7,7 +7,8 @@
 Airbus Basemap (Tile)
 ===================================
 
-For more information, please read the ...
+For more information, please read the `block description (download) <https://marketplace.up42.com/block/c45058c0-286e-44eb-ae1c-f33a03cac410>`_
+or `block description (streaming) <https://marketplace.up42.com/block/ca5be7bf-aad9-457d-a885-d029e9327e77>`_
 
 Block type: ``DATA``
 
