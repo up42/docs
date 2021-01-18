@@ -390,7 +390,7 @@ There are 3 types of results:
  2. The output directory delivered as a
     `gzipped <https://en.wikipedia.org/wiki/Gzip>`__
     `tarball <https://en.wikipedia.org/wiki/Tar_(computing)>`__.
- 3. A set of low resolution RGB images, :term:`quicklooks`. These are
+ 3. A set of low resolution RGB images, :term:`quicklook`. These are
     only available as task specific results and not available as job results.
 
 

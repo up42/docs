@@ -26,6 +26,7 @@ The output is a NetCDF file. The block uses an area weighted-average-algorithm t
 Supported parameters
 --------------------
 
+* ``resolution``: The pixel resolution of the re-gridded Level-3 product in arcseconds (default: 0.1). Warning: Currently the minimum supported value is 0.07.
 * ``include_ancillary_bands``: Include ancillary bands, ``true`` or ``false`` (default: false).
 * ``min_quality_threshold``: Minimum quality band threshold, between ``0`` and ``100`` (default: 50).
 

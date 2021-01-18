@@ -4,8 +4,8 @@
 
 .. _sentinelhub-landsat8-aoiclipped-block:
 
-Landsat-8 Level 1 (TOA) AOI clipped
-===================================
+Landsat-8 Level 1 (GeoTIFF)
+===========================
 For more information, please read the `block description <https://marketplace.up42.com/block/95519b2d-09d7-4cd0-a321-4d6a46bef6c1>`_.
 
 Block type: ``DATA``
@@ -24,6 +24,7 @@ For more information, please read the section :ref:`Data source query filters  <
 * ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``limit``: An integer number of maximum results to return. Omit this to set no limit.
+* ``max_cloud_cover``: A percentage (0 to 100) defining the maximum :term:`cloud cover` of any returned imagery. Default is **100**.
 * ``zoom_level`` : An integer defining the webmercator zoom level of this request, defaults to 17.
 
 Output format

@@ -24,9 +24,10 @@ the case then please go to `docker documentation
 
 .. note::
 
-   See the UP42 :ref:`list <floss-blocks>` of `FLOSS
-   <https://www.gnu.org/philosophy/floss-and-foss.en.html>`_ blocks
-   for examples of processing and data block implementations.
+   If you do not want to start from scratch developing your own block, take a look into `data block template <https://github.com/up42/processing-block-template>`_
+   and `processing block template <https://github.com/up42/data-block-template>`_  as a starting point.
+   For getting more inspiration, see the UP42 :ref:`list <floss-blocks>` of `FLOSS
+   <https://www.gnu.org/philosophy/floss-and-foss.en.html>`_ blocks which presents examples of processing and data block implementations.
 
 .. _sharpening_demo_block:
 

@@ -4,8 +4,8 @@
 
 .. _sentinel-5p-block:
 
-Sentinel-5P Full Scenes
-=======================
+Sentinel-5P (NetCDF)
+====================
 For more information, please read the `block description <https://marketplace.up42.com/block/0c0c217f-d926-4534-9072-2e4ead2d3e6c>`_.
 
 Block type: ``DATA``
@@ -37,7 +37,7 @@ For more information, please read the section :ref:`Data source query filters  <
 * ``limit``: An integer number of maximum results to return. Omit this to set no limit.
 * ``ids``: An array of image identifiers. The S5P identifiers are described `here <https://earth.esa.int/web/sentinel/technical-guides/sentinel-5p/products-algorithms>`_. The file extension is omitted.
   By defining the ``ids`` filter you specify unambiguously which images to retrieve based solely on the given ID(s). The ``ids`` filter overrides all other filters, e.g., ``intersects``, ``limit`` and/or ``time``.
-  This parameter cannot be used in combination with the :term:`TestQuery`.
+  This parameter cannot be used in combination with the :term:`testquery`.
 
 .. _sentinel-5p-imagery-layers:
 

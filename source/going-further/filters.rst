@@ -43,7 +43,7 @@ a certain filter or not [1]_.
    maximum is 5 by default, if you have a payment method associated
    with your account you will be able to set it up to 10 in the
    project settings page. For higher values please get in touch with
-   `support@up42.com <mailto:support%20@up42.com>`__.
+   `customer support <mailto:support%20@up42.com>`_.
 
 .. _bbox-filter:
 
@@ -164,10 +164,14 @@ Implemented filters
  :widths: auto
 
  ":ref:`Pleiades (AOI-Clipped) <pleiades-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Pleiades Display (Download) <pleiades-download-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`Pleiades Download <pleiades-download-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`SPOT (AOI-Clipped) <pleiades-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`SPOT Display (Download) <pleiades-download-block>`", **✓**, **✓**,**✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`SPOT Download <pleiades-download-block>`", **✓**, **✓**,**✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`Pléiades primary <pleiades-primary-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Hexagon 15cm Aerial <hexagon-aerial-15cm-block>`", , **✓**, **✓**, , , , ,
+ ":ref:`Hexagon 30cm Aerial <hexagon-aerial-30cm-block>`", , **✓**, **✓**, , , , ,
  ":ref:`Sentinel-1 GRD (full-scene) <sentinel1-grd-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**,
  ":ref:`Sentinel-1 SLC (full-scene) <sentinel1-slc-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**,
  ":ref:`Sentinel-2 L1C (full-scene) <sentinel2-l1c-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
@@ -177,6 +181,7 @@ Implemented filters
  ":ref:`Landsat-8 (AOI-Clipped) <sentinelhub-landsat8-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**,
  ":ref:`MODIS <modis-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, ,
  ":ref:`Meteomatics <meteomatics-block>`", , **✓**, **✓**, , **✓**, **✓**, , ,
+ ":ref:`Meteomatics Weather Map <meteomatics-weather-map-block>`", , **✓**, **✓**, , **✓**, **✓**, , ,
  ":ref:`NEXTMap 1m Elevation Data <nextmap-1m-block>`", , **✓**, **✓**, , , , , ,
  ":ref:`NEXTMap 5m Elevation Data <nextmap-5m-block>`", , **✓**, **✓**, , , , , ,
  ":ref:`NEXTMap 10m Elevation Data <nextmap-10m-block>`", , **✓**, **✓**, , , , , ,

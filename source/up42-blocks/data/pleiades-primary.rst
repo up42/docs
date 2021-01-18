@@ -26,6 +26,15 @@ Unprojected Pleiades Primary image Can be easily orthorectified using the gdalwa
 
 Please consult the ``gdalwarp`` `documentation <https://gdal.org/programs/gdalwarp.html>`_ for better understanding on how to use it.
 
+.. warning::
+
+  The ``up42.data_path`` of the result ``data.json`` of this block points to a ``GTiff`` file
+  that includes the panchromatic (PAN) band.
+  The multispectral (MS) bands (red, green, blue and near infrared) are also included in the output in a separate file.
+  To get the path to the multispectral file you need to replace ``pan`` in the filename
+  provided in ``up42.data_path`` with ``ms``. For example, filename ``5e6ce6fd-b906-4542-b0c7-cef536b59026_pan.tif``
+  would be ``5e6ce6fd-b906-4542-b0c7-cef536b59026_ms.tif``.
+
 
 Supported parameters
 --------------------
@@ -52,7 +61,7 @@ For more information, please read the section :ref:`Data source query filters  <
 
 .. tip::
 
-  When trying to obtain stereo/tri-stereo images you should **always** perform a :term:`TestQuery` to make sure that there are available stereo and/or tri-stereo images, thus avoiding to incur costs when retrieving the imagery.
+  When trying to obtain stereo/tri-stereo images you should **always** perform a :term:`testquery` to make sure that there are available stereo and/or tri-stereo images, thus avoiding to incur costs when retrieving the imagery.
 
 .. warning::
 
@@ -86,7 +95,7 @@ Example using ``bbox`` and ``clip_to_aoi``:
 	}
   }
 
-Searching for query stereo and tri-stereo images using ``stereo_images_only`` with a :term:`TestQuery` ( ``DRY_RUN`` mode). Pay particular attention that the value of ``limit`` is set to its maximum (500).
+Searching for query stereo and tri-stereo images using ``stereo_images_only`` with a :term:`testquery` ( ``DRY_RUN`` mode). Pay particular attention that the value of ``limit`` is set to its maximum (500).
 
 .. code-block:: javascript
 

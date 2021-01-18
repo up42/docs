@@ -309,6 +309,10 @@ up42_standard raster capabilities
         - Sentinel2
         - Sentinel3
         - Sentinel 5P
+        - Landsat8
+        - MODIS
+        - Meteomatics
+        - Hexagon
 
     resolution
         The resolution of the raster image im meters, for blocks providing

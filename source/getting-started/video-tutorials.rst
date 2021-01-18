@@ -1,6 +1,6 @@
 .. meta::
    :description: UP42 getting started: Video tutorials
-   :keywords: YouTube, tutorials, first workflorw, first job run
+   :keywords: YouTube, tutorials, first workflow, first job run
 
 .. _video-tutorials:
 
@@ -8,7 +8,7 @@
  Video tutorials
 =================
 
-If you prefer video tutotials to written documentatation then we have
+If you prefer video tutorials to written documentatation then we have
 the following tutorial videos to offer you.
 
 

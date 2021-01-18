@@ -41,4 +41,4 @@ requires :ref:`custom storage <custom-storage>`?
    credentials
    custom-storage
 ..
-  environments-tutorial-credentials-passthrough
+   environments-tutorial-credentials-passthrough

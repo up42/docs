@@ -4,8 +4,8 @@
 
 .. _sentinel1-grd-fullscene-block:
 
-Sentinel-1 L1C GRD Full Scenes
-==============================
+Sentinel-1 L1 GRD (SAFE)
+========================
 For more information, please read the `block description <https://marketplace.up42.com/block/b623400c-c5ac-40af-bda2-0d2734aa9dd1>`_.
 
 Block type: ``DATA``
@@ -21,7 +21,6 @@ landslides and volcanic activity).
 Depending on the operational mode, the spatial resolution of Sentinel-1 products is 20x22m (IW interferometric wide
 swath mode, 250km swath), 50x50m (EW extra wide swath mode, 400km swath).
 
-.. contents::
 
 Supported parameters
 --------------------

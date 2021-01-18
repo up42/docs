@@ -4,8 +4,8 @@
 
 .. _sentinel-3-block:
 
-Sentinel-3 Full Scenes
-======================
+Sentinel-3 (NetCDF)
+===================
 For more information, please read the `block description <https://marketplace.up42.com/block/ee08281c-d950-4258-81d5-e37187a9580e>`_.
 
 Block type: ``DATA``
@@ -40,7 +40,7 @@ For more information, please read the section :ref:`Data source query filters  <
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``limit``: An integer number specifying the maximum numbetr of results to return. Omit it to set no limit.
 * ``ids``: An array of image identifiers. The S3 identifiers naming scheme is described `here <https://sentinel.esa.int/web/sentinel/user-guides/sentinel-3-olci/naming-convention>`_.
-  The file extension is omitted. By defining the ``ids`` filter you specify unambiguously which images to retrieve based solely on the given ID(s). The ``ids`` filter overrides all other filters, e.g., ``intersects``, ``limit`` and/or ``time``. This parameter cannot be used in combination with a :term:`TestQuery`.
+  The file extension is omitted. By defining the ``ids`` filter you specify unambiguously which images to retrieve based solely on the given ID(s). The ``ids`` filter overrides all other filters, e.g., ``intersects``, ``limit`` and/or ``time``. This parameter cannot be used in combination with a :term:`testquery`.
 
 .. _sentinel-3-imagery-layers:
 

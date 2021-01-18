@@ -4,8 +4,8 @@
 
 .. _aws-landsat8-full-scene-block:
 
-Landsat-8 Level 1 Full Scene
-===================================
+Landsat-8 Level 1 (GeoTIFF-Bundle)
+==================================
 For more information, please read the `block description <https://marketplace.up42.com/block/3c89d53e-6aec-43bb-b8b8-3e7f0132e28e>`_.
 
 Block type: ``DATA``

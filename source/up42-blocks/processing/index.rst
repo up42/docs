@@ -34,3 +34,9 @@ blocks built by UP42.
    export-data-raster
    export-data-vector
    up42-countobjects
+   oneatlas-cloudmask
+   up42-floodfinder
+   up42-ndvithreshold
+   up42-terrasar-geotiff-conversion
+   up42-waterfinder
+

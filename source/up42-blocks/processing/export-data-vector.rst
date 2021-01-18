@@ -2,7 +2,7 @@
    :description: UP42 processing blocks: Export data (vector) to GCS & AWS
    :keywords: Export, Data, Vector, GCS, AWS
 
-.. _export-data-block:
+.. _export-data-vector:
 
 Export data (Vector)
 ====================
@@ -17,12 +17,15 @@ The user can optionally provide a `prefix` for an output directory within the bu
 
 .. tip::
 
-    In order to access the bucket, the access credentials need to be provided via :ref:`UP42 environment variables <environments-credentials-pass-through-tutorial>`.
+    In order to access the bucket, the access credentials need to be provided via UP42 environment variables.
     For AWS, provide the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` as environment variables.
-    For GCS, provide the full json string of the Google Application Credentials json as the `GOOGLE_KEY_STRING` environment variable.
+    For GCS, provide the full json string of the Google Application Credentials json as the `GOOGLE_KEY_STRING` environment variable. Example:
 
+    .. figure:: ../../_assets/env_variables.png
+       :align: center
+       :scale: 50 %
+       :alt: Environment variables
 
-.. contents::
 
 Supported parameters
 --------------------
@@ -35,28 +38,28 @@ For more information, please read the section :ref:`Data source query filters  <
   which excludes the bucket name. E.g. `folder1/folder2/`.
 
 Example parameters
----------------
+------------------
 
 Example for exporting Sentinel-2 vector data to GCS bucket, using a ``prefix``:
 
 .. code-block:: javascript
 
-{
-  "ais-hvp:1": {
-    "time": "2019-01-01T10:00:00+00:00/2019-01-01T13:59:59+00:00",
-    "bbox": [
-      13.33961,
-      52.49931,
-      13.352133,
-      52.506204
-    ]
-  },
-  "up42-exportdata-vector:1": {
-    "prefix": "europe/france/",
-    "bucket_name": "ais-data",
-    "cloud_provider": "gcs"
-  }
-}
+    {
+      "ais-hvp:1": {
+        "time": "2019-01-01T10:00:00+00:00/2019-01-01T13:59:59+00:00",
+        "bbox": [
+          13.33961,
+          52.49931,
+          13.352133,
+          52.506204
+        ]
+      },
+      "up42-exportdata-vector:1": {
+        "prefix": "europe/france/",
+        "bucket_name": "ais-data",
+        "cloud_provider": "gcs"
+      }
+    }
 
 
 Output format

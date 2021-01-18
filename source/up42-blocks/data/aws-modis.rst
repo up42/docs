@@ -4,8 +4,8 @@
 
 .. _aws-modis-fullscene-block:
 
-AWS MODIS Full Scenes
-=====================
+MODIS (GeoTIFF-Bundle)
+======================
 For more information, please read the `block description <https://marketplace.up42.com/block/15edaaa5-7d82-4ca7-b0ea-17f7f2006590>`_.
 
 Block type: ``DATA``

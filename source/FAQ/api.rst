@@ -1,6 +1,6 @@
 .. meta::
    :description: UP42 Frequently asked questions about the API
-   :keywords: faq, api, support 
+   :keywords: faq, api, support
 
 API FAQ
 =======
@@ -30,11 +30,17 @@ Where can I learn more about the UP42 API?
 To learn more about our API and the concepts underlying it go to our
 :ref:`documentation <api-walkthrough>` or maybe you prefer to dive into the :ref:`API reference <api-specification>`.
 
+
+Are there any limitations to using the UP42 API?
+------------------------------------------------
+
+Yes. Please consult our :ref:`API usage constraints <api-usage-constraints>` reference.
+
 .. raw:: html
 
-   <!-- 
+   <!--
    Local Variables:
-   eval: (auto-fill-mode 0) 
+   eval: (auto-fill-mode 0)
    eval: (visual-line-mode 1)
    End:
    -->

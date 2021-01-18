@@ -15,12 +15,16 @@ built by UP42.
    :caption: Contents
    :includehidden:
 
-   pleiades
-   pleiades-download
+   pleiades-display-streaming
+   pleiades-display-download
+   pleiades-reflectance-download
    pleiades-primary
-   spot
-   spot-download
+   spot-display-streaming
+   spot-display-download
+   spot-reflectance-download
    weather-ocean-data-forecasts-meteomatics
+   hexagon-aerial-15cm
+   hexagon-aerial-30cm
    sobloo-s1-grd
    sobloo-s1-grd-aoiclipped
    sobloo-s1-slc
@@ -35,11 +39,15 @@ built by UP42.
    modis
    ais-hvp
    ais-hvt
+   exactearth-ais-query-vessel
    nextmap-1m
    nextmap-5m
    nextmap-10m
    aws-landsat8
    openstreetmap
+   airbus-globalseeps-sample
    geotiff-custom
    dimap-custom
+   meteomatics-weather-map
+   up42-import-geojson
    oneatlas-basemap
