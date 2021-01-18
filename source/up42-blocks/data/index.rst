@@ -46,6 +46,7 @@ built by UP42.
    aws-landsat8
    openstreetmap
    airbus-globalseeps-sample
+   airbus-globalseeps
    geotiff-custom
    dimap-custom
    meteomatics-weather-map
