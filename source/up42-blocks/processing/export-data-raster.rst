@@ -18,7 +18,7 @@ The user can optionally provide a `prefix` for an output directory within the bu
 .. tip::
 
     In order to access the bucket, the access credentials need to be provided via UP42 environment variables.
-    For AWS, provide the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` as environment variables.
+    For AWS, provide the `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_REGION` (e.g. eu-west-1) as environment variables.
     For GCS, provide the full json string of the Google Application Credentials json as the `GOOGLE_KEY_STRING` environment variable. Example:
 
     .. figure:: ../../_assets/env_variables.png
