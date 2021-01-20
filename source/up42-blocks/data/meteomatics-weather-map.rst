@@ -8,27 +8,19 @@
 Meteomatics - Weather/Ocean Data and Forecasts Map
 ==================================================
 
-For more information, please read the ...
-
 Block type: ``DATA``
 
 Supported parameters
 --------------------
 
-This blocks provides access to the Meteomatics `WMS (Web Map Service) <https://en.wikipedia.org/wiki/Web_Map_Service>`_
-REST-style API to retrieve historic, current, and forecast data globally. In this block,
-model data and observational data maps are available for separate time in
-Geotiff format. Meteomatics provides a huge variety of climate
-variables and options, by default we provide temperatures (in Celsius
-[°C] unit, at 2 meters above the ground), accumulated precipitation
-(millimeters, every 5 minutes) and instantaneous wind speed (100 meter
+This block provides access to the Meteomatics `Web Map Service (WMS) <https://en.wikipedia.org/wiki/Web_Map_Service>`_
+REST-style API to retrieve global weather datasets (historical model data, climate projections, radar and satellite data and forecasts). The weather datasets are available in GeoTIFF format. Meteomatics provides a huge variety of climate
+variables and options. By default, Meteomatics provides temperature (in degrees Celsius at 2 meters above the ground), accumulated precipitation (millimeters every 5 minutes) and instantaneous wind speed (100 meters
 per second). For a specific variable, you can just add the name of it
 to the default variables list according to description provided by
-Meteomatics. For more information about other variables please refer
-to `Meteomatics website
-<https://www.meteomatics.com/en/api/available-parameters/basic-weather-parameter/>`_
-For more information on supported filters, see :ref:`query filter
-section <filters>`.
+Meteomatics. For more information about other variables, please refer
+to the `Meteomatics <https://www.meteomatics.com/en/api/available-parameters/standard-weather-parameter/>`_ official website.
+For more information on supported filters, see :ref:`query filter section <filters>`.
 
 * ``bbox``: The bounding box to use as an area of interest (AOI). Will return all scenes that intersect with this box. Use only ``bbox``
   **or** ``intersects``.
@@ -42,7 +34,7 @@ section <filters>`.
 .. note::
 
   In this block we select the ``mix`` option provided by Meteomatics
-  which combines different models and sources into an *intelligent*
+  which combines different models and sources into an intelligent
   blend, such that the best data source is chosen for each time and
   location. The length of the forecasting period as well as the
   spatial resolution depends on the model from which the requested
@@ -51,14 +43,13 @@ section <filters>`.
 .. warning::
 
   The width and height of the final image for a variable will be set based on
-  the size of selected AOI. In this way, hitting the limit of width and height values
-  provided by meteomatics API will be avoided.
+  the size of the selected AOI. In this way, hitting the limit of width and height values
+  provided by Meteomatics API will be avoided.
 
 .. tip::
 
-  The possible ``colormap_style`` options can be found in the `Meteomatics website
-  <https://www.meteomatics.com/en/api/wms/#getcapabilitiesrequest>`_ where *STYLE* parameter
-  is described.
+  The variable ``colormap_style`` can be selected from the parameter ``STYLES`` in the `Meteomatics WMS Interface
+  <https://www.meteomatics.com/en/api/wms/#getcapabilitiesrequest>`_.
 
 .. warning::
   Here is the list of variables that are **not** available via meteomatics WMS service:
@@ -187,4 +178,3 @@ Example query using ``time_series`` and adding one more ``variable`` to the vari
 
 
 In this example, we used the ``time_series`` parameter and selected two specific time ranges. The variable  ``prob_precip_1h:p`` was also added. In this example we query for each date range in 3 hour intervals for the 4 variables specified above. As described previously the output format is GeoTIFF.
-
