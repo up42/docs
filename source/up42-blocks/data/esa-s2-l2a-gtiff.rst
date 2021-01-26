@@ -4,15 +4,17 @@
 
 .. _esa-sentinel2-l2a-gtiff-block:
 
-Sentinel-2 Level 2 (GeoTIFF)
-============================
+Sentinel-2 L2A (GeoTIFF)
+========================
 For more information, please read the `block description <https://marketplace.up42.com/block/018dfb34-fc19-4334-8125-14fd7535f979>`_.
 
 Block type: ``DATA``
 
 
-This block provides clipped True Colour Images (TCI) from Sentinel-2’s multispectral imaging sensor processing level L-2A as RGB (red, green, blue) composite images.
-The data is collected from `AWS Sentinel 2 bucket <https://registry.opendata.aws/sentinel-2-l2a-cogs/>`_  in GeoTIFF (COGs) format.
+This block provides clipped True Colour Images (TCI) from Sentinel-2’s multispectral imaging sensor processing level L-2A as RGB (red, green, blue)
+composite images. The data is collected from `AWS Sentinel 2 bucket <https://registry.opendata.aws/sentinel-2-l2a-cogs/>`_
+in GeoTIFF (COGs) format. L2A data are available from April 2017 over wider Europe region and globally since December 2018.
+Please find additional information on the Sentinel-2 mission `here <https://sentinel.esa.int/web/sentinel/missions/sentinel-2>`_.
 
 Supported parameters
 --------------------
@@ -20,69 +22,69 @@ Supported parameters
 For more information, please read the section :ref:`Data source query filters  <filters>`.
 
 * ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
-  **or** ``intersects`` **or** ``contains``.
+  **or** ``intersects``.
 * ``intersects``: A GeoJSON geometry to use as an AOI. Will return
   all scenes that intersect with this geometry. Use only
-  ``intersects`` **or** ``bbox`` **or** ``contains``.
+  ``intersects`` **or** ``bbox``.
 * ``time``: A date range to filter scenes on. This range applies to
   the acquisition date/time of the scenes.
 * ``limit`` – An integer number of maximum results to return. Omit this to set no limit.
 * ``max_cloud_cover``: A percentage (0 to 100) defining the maximum :term:`cloud cover` of any returned imagery. Default is **100**.
 
-Output format
--------------
+Example queries
+---------------
+
+Example query searching for images using a data range via ``time``, ``limit`` and ``intersects`` with geometry:
 
 .. code-block:: javascript
 
     {
-      "type": "FeatureCollection",
-      "features": [
-        {
-          "type": "Feature",
-          "bbox": [
-            4.81475830078125,
-            52.3688917060255,
-            4.82574462890625,
-            52.3755991766591
-          ],
-          "geometry": {
-            "type": "Polygon",
-            "coordinates": [
-              [
+       "esa-s2-l2a-gtiff:1":{
+          "ids":null,
+          "time":"2018-12-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
+          "limit":2,
+          "intersects":{
+             "type":"Polygon",
+             "coordinates":[
                 [
-                  4.8175048828125,
-                  52.3688917060255
-                ],
-                [
-                  4.81475830078125,
-                  52.3688917060255
-                ],
-                [
-                  4.822998046875,
-                  52.3688917060255
-                ],
-                [
-                  4.82025146484375,
-                  52.3688917060255
-                ],
-                [
-                  4.8175048828125,
-                  52.3688917060255
+                   [
+                      2.305662,
+                      48.806857
+                   ],
+                   [
+                      2.448677,
+                      48.819478
+                   ],
+                   [
+                      2.479241,
+                      48.739649
+                   ],
+                   [
+                      2.329721,
+                      48.737594
+                   ],
+                   [
+                      2.305662,
+                      48.806857
+                   ]
                 ]
-              ]
-            ]
+             ]
           },
-          "properties": {
-            "up42.data_path": "666ee747-3564-494c-ba71-208e7cceb2b1.tif",
-            "acquisitionDate": "2018-03-16T04:32:39Z",
-            "cloudCoverPercentage": 5.4
-        }
-      ]
+          "max_cloud_cover":100
+       }
     }
+
+
 Output format
 -------------
 
+The output GeoJSON contains the metadata as returned by the Earth Search API, with the ``up42.data_path``
+capability mapping to the corresponding ``GeoTIFF`` file for the scene.
+
+Example output GeoJSON:
+
 .. code-block:: javascript
+
     {
        "type":"FeatureCollection",
        "features":[
@@ -211,3 +213,4 @@ Output format
           }
        ]
     }
+

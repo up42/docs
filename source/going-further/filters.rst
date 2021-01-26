@@ -177,6 +177,7 @@ Implemented filters
  ":ref:`Sentinel-2 L1C (full-scene) <sentinel2-l1c-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`Sentinel-2 L2A (full-scene) <sentinel2-l2a-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`Sentinel-2 L1C (AOI-Clipped) <sentinel2-l1c-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Sentinel-2 L2A (AOI-Clipped) <esa-sentinel2-l2a-gtiff-block>`", **✓**, **✓**, **✓**, , **✓**, , **✓**, **✓**
  ":ref:`Sentinel-2 (AOI-Clipped) <sentinelhub-sentinel2-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**,
  ":ref:`Landsat-8 (AOI-Clipped) <sentinelhub-landsat8-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**,
  ":ref:`MODIS <modis-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, ,
