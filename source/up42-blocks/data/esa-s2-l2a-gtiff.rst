@@ -4,8 +4,8 @@
 
 .. _esa-sentinel2-l2a-gtiff-block:
 
-Sentinel-2 L2A (GeoTIFF)
-========================
+ESA Sentinel-2 L2A (GeoTIFF)
+============================
 For more information, please read the `block description <https://marketplace.up42.com/block/018dfb34-fc19-4334-8125-14fd7535f979>`_.
 
 Block type: ``DATA``
