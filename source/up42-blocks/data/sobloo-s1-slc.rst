@@ -40,6 +40,9 @@ For more information, please read the section :ref:`Data source query filters  <
 * ``ids``: An array of image identifiers. The S1 identifiers are described here: https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/naming-conventions; the file extension is omitted. By defining the ``ids`` filter you specify unambiguously which images to retrieve based solely on the given ID(s). The ``ids`` filter overrides all other filters, e.g., ``intersects``, ``limit`` and/or ``time``.
 * ``acquisition_mode``: A string allowing querying for specific acquisition modes, see https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes. for details.
 * ``orbit_direction``: The satellite orbit direction. One of ``null``, ``ASCENDING`` or ``DESCENDING``. Default is ``null``, which queries both ascending and descending.
+* ``mission_code``: The satellite mission code(id). One of ``S1A``, or ``S1B``. Default is ``null``, which queries both mission codes.
+* ``orbit-relative-number``: The satellite orbit relative number.
+
   For details see `eoportal <https://directory.eoportal.org/web/eoportal/satellite-missions/c-missions/copernicus-sentinel-1>`_.
 
 
