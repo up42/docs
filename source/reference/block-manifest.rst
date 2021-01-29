@@ -84,8 +84,11 @@ The most important keys to note here are the following:
     * ``small`` (0.5 CPU + 2GB RAM),
     * ``medium`` (1 CPU + 5GB RAM),
     * ``large`` (2 CPU + 10GB RAM),
-    * ``xlarge`` (4 CPU + 20GB RAM).
-    * ``gpu_nvidia_tesla_k80`` (4 CPU + 1 GPU + 20GB RAM).
+    * ``xlarge`` (4 CPU + 20GB RAM),
+    * ``xxlarge`` (8 CPU + 40GB RAM),
+    * ``xxxlarge`` (16 CPU + 80GB RAM).
+    * ``gpu_nvidia_tesla_k80`` (4 CPU + 1 GPU + 20GB RAM),
+    * ``gpu_p100_xxl`` (8 CPU + 1 GPU + 40GB RAM).
 
 See :ref:`a table <machine-typical-loads>` of typical loads for each machine type.
 
