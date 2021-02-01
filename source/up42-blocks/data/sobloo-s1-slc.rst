@@ -41,7 +41,7 @@ For more information, please read the section :ref:`Data source query filters  <
 * ``acquisition_mode``: A string allowing querying for specific acquisition modes, see https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes. for details.
 * ``orbit_direction``: The satellite orbit direction. One of ``null``, ``ASCENDING`` or ``DESCENDING``. Default is ``null``, which queries both ascending and descending.
 * ``mission_code``: The satellite mission code(id). One of ``S1A``, or ``S1B``. Default is ``null``, which queries both mission codes.
-* ``orbit-relative-number``: The satellite orbit relative number.
+* ``orbit_relative_number``: The satellite orbit relative number.
 
   For details see `eoportal <https://directory.eoportal.org/web/eoportal/satellite-missions/c-missions/copernicus-sentinel-1>`_.
 
@@ -101,6 +101,25 @@ Example query using identifiers:
             }
     }
 
+Example query using ``mission_code`` and ``orbit_relative_number``:
+
+.. code-block:: javascript
+
+    {
+      "sobloo-s1-slc-fullscene:1": {
+        "ids": null,
+        "time": "2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00",
+        "limit": 2,
+        "bbox": [
+                -61.158844,
+                -13.649999668753633,
+                -60.137085,
+                -12.648734764584171,
+            ],
+        "mission_code": "S1B"
+        "orbit_relative_number": 134,
+      }
+    }
 
 Output format
 -------------
