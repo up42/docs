@@ -18,7 +18,7 @@ Create a workflow
 
 .. figure:: _assets/catalog/step00_open_catalog_zoom.png
    :align: center
-   :alt: JobConfigWindowStart
+   :alt: Job configuration window start
 
 Open the UP42 catalog
 ---------------------
@@ -27,17 +27,17 @@ Open the UP42 catalog
 
 .. figure:: _assets/catalog/step01_upload_AOI.png
    :align: center
-   :alt: UploadAOI
+   :alt: Upload the AOI
 
 .. figure:: _assets/catalog/step01_draw_AOI.png
    :align: center
-   :alt: DrawAOI
+   :alt: Draw the AOI
 
 4. After uploading/drawing the AOI, you can adjust the following filters: *Date*, *Cloud Coverage* and *Data Source*.
 
 .. figure:: _assets/catalog/step02_adjust_filters.png
    :align: center
-   :alt: AdjustFilters
+   :alt: Adjust the filters
 
 Select data
 -----------
@@ -46,33 +46,33 @@ Select data
 
 .. figure:: _assets/catalog/step03_select_image.png
    :align: center
-   :alt: SelectImage
+   :alt: Select the image
 
 6. To double-check the visual quality of the selected image(s), click *Preview* and view the quicklooks (i.e. the low-resolution versions of the original images).
 
 .. figure:: _assets/catalog/step04_select_preview.png
    :align: center
-   :alt: SelectPreview
+   :alt: Select the preview
 
 .. figure:: _assets/catalog/step05_view_preview.png
    :align: center
-   :alt: ViewPreview
+   :alt: View thre preview
 
 7. To proceed and use the selected image(s) in the workflow, click on *View selection*.
 
 .. figure:: _assets/catalog/step06_view_selection.png
    :align: center
-   :alt: ViewSelection
+   :alt: View the selection
 
 8. Before including the image(s) to the workflow, you can view the geometry and the image filenames in JSON format by clicking on *View Parameters*.
 
 .. figure:: _assets/catalog/step07_view_parameters.png
    :align: center
-   :alt: ViewParameters
+   :alt: View the parameters
 
 .. figure:: _assets/catalog/step08_view_parameters_details.png
    :align: center
-   :alt: ViewParamDetails
+   :alt: View the parameters details
 
 Run a job with the selected data
 ---------------------------------
@@ -81,7 +81,7 @@ Run a job with the selected data
 
 .. figure:: _assets/catalog/step09_config_job.png
    :align: center
-   :alt: ConfigJobFromCatalog
+   :alt: Configure the job from the catalog
 
 10. Your existing projects will be listed. Click on the desired project and a list of workflows will appear. Choose the workflow where you would like to include the image(s).
 
@@ -90,20 +90,20 @@ Run a job with the selected data
 
 .. figure:: _assets/catalog/step10_select_project.png
    :align: center
-   :alt: SelectProjectFromCatalog
+   :alt: select project from  catalog
 
 .. figure:: _assets/catalog/step11_select_workflow.png
    :align: center
-   :alt: SelectWorkflowFromCatalog
+   :alt: Select workflow from catalog
 
 11. Click on the workflow and you will be redirected to the job configuration window. The image filename is now integrated in the job parameters. Run the job and download the outputs according to steps 12-19 from the article `Build the first UP42 Workflow <https://docs.up42.com/getting-started/first-workflow.html>`_.
 
 .. figure:: _assets/catalog/step12_job_config_window.png
    :align: center
-   :alt: JobConfigFromCatalog
+   :alt: Job configurazion from catalog
 
 .. figure:: _assets/catalog/step13_job_config_params.png
    :align: center
-   :alt: JobConfigFromCatalogDetails
+   :alt: Job configuration from catalog details
 
 Congratulations! You successfully ran a job using the data selected from the UP42 catalog.
