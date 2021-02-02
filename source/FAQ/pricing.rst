@@ -11,118 +11,68 @@
 What is an UP42 credit?
 =======================
 
-An UP42 credit is a token of value that abstracts pricing complexity
-across all data and processing blocks. It allows a simple way to pay for
-usage of data and processing blocks as well as infrastructure while each
-having different pricing mechanisms. A **credit** equals **0,01 EUR** (1 cent).
+An UP42 credit is the unit used to set the price for data and processing blocks, as well as infrastructure services. **One UP42 credit** equals to **0,01 Euro/Dollar** (1 cent) and **100 UP42 credits** equal to **1 Euro/Dollar**.
 
 How do I buy UP42 credits?
 ==========================
 
-Credits come in prepaid bundles. Just go
-to `settings/credits/purchase <https://console.up42.com/settings/credit/purchase>`__,
-select the plan with the number of credits you want and enter your
-credit card information. If you want to buy credits in larger bundles,
-please contact our `sales team <mailto:sales@up42.com>`__. To browse the
-currently available credit packages go to our `pricing
-page <https://up42.com/pricing>`__.
+To purchase credits, go to `Credit Management <https://console.up42.com/settings/credit>`_, add a credit card and select the preferred credit package. If you want to buy credits in larger packages, please contact our `sales team <sales@up42.com>`_. For more information about the credit packages, please visit the page `Pricing <https://up42.com/pricing>`_.
 
 How are credits used on UP42?
 =============================
 
-Every time you run a job for a workflow credits are consumed in:
+Every time you run a job, the following costs are considered:
 
-1. **Data** how much data you consumed from the chosen data block.
-2. **Processing** how much work was done by the processing blocks in
-   your workflow.
-3. **Infrastructure** costs: how much machine time you used on UP42’s
-   infrastructure.
+1. **Data costs**: how much data was consumed through a data block.
+2. **Processing costs**: how much data was processed through a processing block.
+3. **Infrastructure costs**: costs: how much machine time was used while running a job.
 
-In the job page you can see the breakdown of the credit usage in a
-table where each row is a step on the workflow. Above the table
-shows the applicable credit usage per type of task: **Data**,
-**Processing**, and **Infrastructure**.
+These costs are also displayed in the job dashboard. For more information, please refer to the article `Core concepts <https://docs.up42.com/going-further/core-concepts.html#job-dashboard>`_.
 
 Do UP42 credits have an expiration date?
 ========================================
 
-Yes. Credits expire **12 months** after they have been allocated. As
-an example, let us consider the case where you created an account and
-added a payment method today, and you received your free 100 EUR
-equivalent in UP42 credits (10000). If your account was created today,
-this means that you have 12 months, starting from today, to use those
-credits. Otherwise, they will expire after these 12 months.
+Yes. Credits expire **24 months** after they have been allocated. For example, a user created an account on the 1st of January 2020 and received the 10 000 sign-up credits. Starting with the 1st of January 2020, the user has 24 months to use those credits.
 
-Why are there different prices/credit values for blocks?
-========================================================
+Why do blocks have different prices?
+====================================
 
-Blocks are priced differently because they deliver different value. Some
-blocks deliver high-resolution commercial data or specially trained
-machine learning algorithms. Other blocks provide access to open data or
-open source image processing algorithms. UP42 allows variation on
-pricing on a block level so that we can support both commercial and open
-data and algorithms. The price is always set by our block providers, not
-by UP42. In addition to setting the price, the block providers also
-specify how the usage of their block should be counted (e.g., in MB,
-square kilometers, scenes, megapixels processed, etc).
+Data and processing blocks are priced differently because they serve different purposes, such as: providing access to high-resolution commercial data, providing access to open data, delivering machine learning algorithms for ship detection, car detection, land cover classification etc. The price is usually set by the upstream data/algorithm providers who distribute their service via UP42 data or processing blocks. These providers also specify the units for block usage (e.g., MB, square kilometers, scenes, megapixels processed, etc).
 
-Where can I find information on individual block pricing and license terms?
-===========================================================================
+Where can I find information on block pricing and license terms?
+================================================================
 
-In the details page of each block you can find details on the definition
-of the counting unit for that block and the number of credits per unit,
-as well as a link to the **E**\ nd **U**\ ser **L**\ icense **A**\ greement
-(EULA) you need to accept before using the data or processing block.
+The following information can be found in the block descriptions on the `Marketplace <https://marketplace.up42.com/>`_: ``Provider``, ``Provider website``, ``Version``, ``Price`` and a link to the End User License Agreement (EULA) that needs to be accepted before using block.
 
 Can I estimate upfront how many credits my job will consume?
 ============================================================
 
-We are still working on a job estimation engine. In the meantime, you
-can get an idea of the overall credit usage for a particular job by:
+Yes. For more information, please refer to `Build the first UP42 workflow <https://docs.up42.com/getting-started/first-workflow.html#price-estimation>`_.
 
-1. Looking at the details of each block in your workflow.
-2. Run test jobs with small **A**\ reas **O**\ f **I**\ nterest (AOIs)
-   to get an idea on credit usage before running a job with a larger
-   AOI.
+Is the access to the various data sources depending on the credit package I acquired?
+=====================================================================================
 
-Is the data sources I can access dependent on the credit package I acquire?
-===========================================================================
-
-No. The different credit packages are based purely on volume of credits.
-Note that certain data blocks, due to the sensitivity of the provided
-data, require you to go through a compliance check before you are
-allowed to use them. This is independent of the credit package you
-acquire.
+No. The different credit packages are solely based on the volume of credits. However, please note that certain blocks, due to the sensitivity of their provided information, are restricted and require an additional compliance check of the users.
 
 Can I get a refund for credits I no longer need?
 ================================================
 
-No, credits are not refundable. If you don’t know how many you need,
-it’s better to start with smaller packages of credits and only upgrade
-to larger credit packages once you have an idea of how many credits you
-need for your use case.
+No, credits are not refundable. If you are not sure about the quantity of credits you need, we recommend first purchasing smaller credit packages and subsequently upgrading to larger credit packages, depending on how many credits are needed for your use case.
 
-My job stopped in the middle of the process. Will I still be charged for credits on it?
-=======================================================================================
+My job stopped in the middle of the process. Will I still be charged?
+=====================================================================
 
-You will be charged for any tasks that have successfully completed. You
-will not get charged for any dry run jobs. To be clear, this means
-specifically running a job using the **Test Data Query** functionality
-of UP42.
+You will be solely charged for tasks that have successfully completed. You will not be charged for running test queries. For more information about test queries, please refer to `Build the first UP42 workflow <https://docs.up42.com/getting-started/first-workflow.html#configure-job>`_.
 
 How do I choose the right package?
 ==================================
 
-We recommend starting with a package that will last you approximately 1
-month. Start with smaller credit packs and upgrade once you get more
-insights into how many credits your workflows and jobs consume on UP42.
+We recommend starting with a smaller credit package and then upgrading to a larger credit package, after you get more insights into how many credits are needed to run the jobs.
 
 What happens if I run out of credits?
 =====================================
 
-You will not be able to start any new jobs if you have less than
-**1000** credits.
-
+If you have a balance of less than **1000 credits**, you will not be able to run any new jobs.
 
 What type of machine instances are available and what are the costs?
 ====================================================================
@@ -196,15 +146,14 @@ What are examples of typical loads for each machine type?
    +----------------------+-------------------------------------------------------------------------------------------------------------------+
    | Machine type         | Example load                                                                            nnn                       |
    +======================+===================================================================================================================+
-   | small                | Data block that simply downloads some images, or a very basic processing block.                                   |
+   | small                | Data block that downloads images or a processing block with a very basic algorithm. block.                        |
    +----------------------+-------------------------------------------------------------------------------------------------------------------+
-   | medium               |  Some basic processing tasks, e.g.,  :ref:`K-means clustering <kmeans-clustering-block>`                          |
+   | medium               |  Processing block with a basic algorithm, e.g.  :ref:`K-means clustering <kmeans-clustering-block>`               |
    |                      |  UP42 demo block.                                                                                                 |
    +----------------------+-------------------------------------------------------------------------------------------------------------------+
-   | large                |  Multi-band imagery analysis not parallelizable by raster tiling.                                                 |
+   | large                |  Multi-band imagery analysis not parallelizable with raster tiling.                                               |
    +----------------------+-------------------------------------------------------------------------------------------------------------------+
-   | xlarge               | `SNAP toolbox <http://step.esa.int/main/toolboxes/snap/>`__ with more advanced tasks, e.g., using Range           |
-   |                      | Doppler Terrain Correction |br| based on the `Aster GDEM <https://asterweb.jpl.nasa.gov/gdem.asp>`__.             |
+   | xlarge               |  More advanced algorithms, e.g. Range Doppler Terrain Correction.                                                 |
    +----------------------+-------------------------------------------------------------------------------------------------------------------+
    | gpu_nvidia_tesla_k80 |  GPU intensive ML algorithm, e.g., `Sentinel 2 Super-resolution <https://github.com/up42/s2-superresolution>`__   |
    |                      |  by UP42. |br|                                                                                                    |
@@ -213,40 +162,28 @@ What are examples of typical loads for each machine type?
    +----------------------+-------------------------------------------------------------------------------------------------------------------+
 
 What is VAT?
-------------
+============
 
-VAT is the `Value Added Tax <https://en.wikipedia.org/wiki/Value-added_tax>`__.
-UP42 GmbH is a company operating in the `European Union <https://en.wikipedia.org/wiki/European_Union>`__
-(EU) therefore is obliged to charge VAT for every monetary transaction taking place in
-our platform: selling credits to customers. The application of VAT is dependent on the
-legal status of a customer: **company** or **private** person.
-
+VAT is the Value Added Tax. UP42 GmbH is a company operating in the European Union (EU), therefore we are obliged to charge VAT for every monetary transaction taking place in our platform, including selling credits to customers. The application of VAT is dependent on the legal status of a customer: **company** or **private person**.
 
 My company operates inside the EU: do I have to pay VAT?
 ========================================================
 
-If your company operates inside the EU just provide your
-`VAT identification number <https://en.wikipedia.org/wiki/VAT_identification_number#European_Union_VAT_identification_numbers>`__, while
-filling up the billing address in the console and adding a credit/debit card to your account, and you won't be charged any VAT.
+Yes. If your company operates inside the EU, a VAT identification number is necessary. Other information required: billing address and a credit/debit card.
 
-
-I am located outside the EU: do I still have to pay VAT?
-========================================================
+My company operates outside the EU: do I have to pay VAT?
+=========================================================
 
 No. Customers located outside the EU do not pay VAT.
-
 
 I am a private customer located in Germany: do I pay VAT?
 =========================================================
 
-Yes. You will pay the `current <https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/taxation/vat/how_vat_works/rates/vat_rates_en.pdf>`__ tax rate of 19%.
-
+Yes. You will pay the current tax rate of 19%.
 
 .. note::
 
-   Due to the extraordinary situation created by `CoVID 19 <https://en.wikipedia.org/wiki/Coronavirus_disease_2019>`_ the
-   German government has decided to temporarily lower the maximum VAT
-   rate to `16% <https://www.bundesfinanzministerium.de/Content/EN/Standardartikel/Topics/Public-Finances/Articles/2020-06-04-fiscal-package.html>`_ from **July 1st** until the **end of 2020**.
+   Due to the Due to the COVID-19 situation, the German government decided to temporarily lower the maximum VAT rate to 16% from **1st of July 2020 until the 31st of December 2020**.
 
 .. raw:: html
 
