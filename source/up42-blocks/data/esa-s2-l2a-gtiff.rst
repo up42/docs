@@ -6,7 +6,7 @@
 
 ESA Sentinel-2 L2A (GeoTIFF)
 ============================
-For more information, please read the `block description <https://marketplace.up42.com/block/018dfb34-fc19-4334-8125-14fd7535f979>`_.
+For more information, please read the `block description <https://marketplace.up42.com/block/4471e5ef-90f1-4bf0-9243-66bc9d8b4c99>`_.
 
 Block type: ``DATA``
 

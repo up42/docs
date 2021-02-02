@@ -7,7 +7,7 @@
 Waterfinder
 ===========
 
-For more information, please read the `block description <https://marketplace.up42.com/block/b35bdc38-b700-4ada-b429-55e67971adac>`_.
+For more information, please read the `block description <https://marketplace.up42.com/block/705823cd-d295-4784-8131-06aa4afd0fcb>`_.
 
 Block type: ``PROCESSING``
 
