@@ -39,12 +39,12 @@ For more information, please read the section :ref:`Data source query filters  <
 * ``fail_on_missing``: A boolean flag to determine whether to fail or continue in case of images are not present for some dates. Defaults to ``False``.
 * ``layer``: A string describing layer type that is offered by Sentinel-5P. It **must** be one of the abbreviations listed above.
 * ``geojson_url``: A URL to geojson file with geometries. Must be accessible via simple HTTP call.
-* ``qa_mask``: A string describing which mask to use. This enable to filter pixel values based on quantile. Available masks are ``['nomask', 'mask50', 'mask75']``.
+* ``qa_mask``: A string describing which mask to use. This enables to filter pixel values based on quantile. Available masks are ``['nomask', 'mask50', 'mask75']``.
 
 Output format
 -------------
 The block outputs clipped Cloud Optimized GeoTIFFs for a given geometry, one image per day for a given date range. 
-When a url to geojson containing multiple geometries is provided, the output then is organized in sub-folders per geometry.
+When a url to geojson containing multiple geometries is provided, the output is then organized in sub-folders per geometry.
 
 .. note::
   The block does not support ``dry_run`` or quicklooks.

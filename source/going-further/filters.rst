@@ -179,6 +179,7 @@ Implemented filters
  ":ref:`Sentinel-2 L1C (AOI-Clipped) <sentinel2-l1c-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`Sentinel-2 L2A (AOI-Clipped) <esa-sentinel2-l2a-gtiff-block>`", **✓**, **✓**, **✓**, , **✓**, , **✓**, **✓**
  ":ref:`Sentinel-2 (AOI-Clipped) <sentinelhub-sentinel2-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**,
+ ":ref:`Sentinel-5P L3 (AOI-Clipped) <esa-sentinel-5p-l3-gtiff-block>`", , **✓**, **✓**, **✓**, **✓**, , , 
  ":ref:`Landsat-8 (AOI-Clipped) <sentinelhub-landsat8-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**,
  ":ref:`MODIS <modis-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, ,
  ":ref:`Meteomatics <meteomatics-block>`", , **✓**, **✓**, , **✓**, **✓**, , ,
