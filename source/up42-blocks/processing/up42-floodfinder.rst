@@ -7,7 +7,7 @@
 Floodfinder
 ===========
 
-For more information, please read the `block description <https://marketplace.up42.com/block/b35bdc38-b700-4ada-b429-55e67971adac>`_.
+For more information, please read the `block description <https://marketplace.up42.com/block/f23ccfe4-16b0-46a2-8fe2-4203daa1f267>`_.
 
 Block type: ``PROCESSING``
 
