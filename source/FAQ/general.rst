@@ -6,171 +6,174 @@
  General FAQ
 =============
 
+How do I sign up?
+=================
+
+To create an UP42 account, please go to the `UP42 Console <https://console.up42.com/>`_ and follow the steps from the article `Create an UP42 Account <https://docs.up42.com/getting-started/sign-up.html>`_.
+
+How do sign-up credits work?
+============================
+
+New users get 10 000 UP42 credits (the equivalent of 100 Euro/Dollars) that can only be used with:
+
+* free data
+* free and commercial algorithms
+
+Can I access commercial data with sign-up credits?
+==================================================
+
+Your 10 000 sign-up credits cannot be used for accessing commercial data. If you have a specific use case that you want to test using commercial data, please contact the `sales team <sales@up42.com>`_.
+
+.. _delete-account:
+
+How can I delete my UP42 account?
+=================================
+You can submit a request for us to permanently close your UP42 account and delete your personal information by sending an email to **privacy@up42.com**. The customer support will notify you once all the information has been deleted.
+
 .. _support-request:
 
-How can I get support from UP42 for my projects?
-================================================
+How can I report problems and errors?
+=====================================
 
-Mail to `support@up42.com <mailto:support@up42.com>`__.
+To report problems and errors, please contact `customer support <support@up42.com>`_.
 
-How do I signup for an account?
-===============================
+My job failed or it generated unexpected results. How can I get help?
+=====================================================================
 
-1. Go to the `Sign up page <https://console.up42.com/sign-up>`__.
-2. Fill in your personal details and choose a password.
-3. Fill in your company details.
-4. Check your inbox for the confirmation code.
-5. Enter the confirmation code.
-6. Done.
-7. If you want to take advantage of 100 EUR of free credits that you can use immediately, then please add a payment method (credit/debit card) to your account.
+Please contact `customer support <support@up42.com>`_ and provide one of the following details displayed in the table below, which can be found in the job dashboard.
 
-My job gives strange results or it keeps failing. Can you help me debug it?
-===========================================================================
+.. list-table::
+   :widths: 18 82
+   :header-rows: 1
 
-Create a :ref:`support request <support-request>` and please provide the job **parameters**, available on the UI on the PARAMETERS tab in the job page.
-Alternatively you can provide the **job ID**, available on the as the last component of the URL in the console, e.g., ``https://console.up42.com/projects/7876b6f8-feee-4cf2-821d-5f71963950b8/jobs/cf1f2186-da41-4cfb-8793-9dd6135511a0``.
-Additionaly you can provide the job **log output** available in the JOB PROGRESS tab in the job page.
+   * - Information
+     - Description
+   * - **Job parameters**
+     - Available in the *Parameters* tab.
+   * - **Job ID**
+     - A unique sequence of alphanumeric characters is displayed at the end of the URL in the UP42 Console. Example: ``https://console.up42.com/projects/{project_id}/jobs/cf1f2186-da41-4cfb-8793-9dd6135511a0``
+   * - **Log message**
+     - Available in the *Job Progress* tab.
 
-Where can I learn more about Docker?
-====================================
+.. tip:: For more information about the job dashboard, please refer to `Core concepts <https://docs.up42.com/going-further/core-concepts.html>`_.
 
-`Docker documentation <https://docs.docker.com>`__ is a good place to
-start.
+What is the difference between streaming and download data blocks?
+==================================================================
 
-Does UP42 provides public images in its docker registry?
-========================================================
+A streaming data block provides data that contains all web Mercator tiles intersecting or covering the specified AOI in a spatial resolution defined by the used zoom level.
 
-No **all** the images in the UP42 registry are **private**.
+A download data block provides data in its original DIMAP V2 format clipped to the provided AOI.
 
-However, if you are looking for UP42 public docker images you find them all in our
-`Docker hub page <https://hub.docker.com/u/up42>`_.
-You can find out more about each image by following the links in Docker Hub for each image.
-
-Can I write my custom block in programming language X?
-======================================================
-
-Yes. Containers are programming language agnostic. You can write in
-whatever programming language suits your needs and preferences.
-
-My block needs auxiliary files. Where should I store them and how should I fetch them?
-======================================================================================
-So far we don't have a defined mechanism for storing and accessing
-auxiliary files which are e.g. needed for calibration of an
-algorithm. As the processing cluster is not firewalled off so far it
-is possible to store such files on a storage space in the internet
-e.g. by using AWS, Google Cloud or Azure. In the future we might need
-to implement tighter security measures, so please inform us if your
-block uses such a mechanism.
-
-I tried to obtain some imagery for Pléiades and/or SPOT and when using the Airbus GeoStore I get more images. Why is that?
-==========================================================================================================================
-
-GeoStore enables a full access to the 30-year archive of Airbus data
-in FTP (download only), covering both optical and radar imagery.
-
-OneAtlas provides a cloud access to a selection of premium Airbus
-imagery over the last 3 years (SPOT 6/7 & Pléiades, with 20% cloud
-cover maximum and 30° incidence angle maximum for Pléiades). These
-images are optimized for streaming (using `WMS <https://en.wikipedia.org/wiki/Web_Map_Service>`__,
-`WMTS <https://en.wikipedia.org/wiki/Web_Map_Tile_Service>`__ protocols) and on
-the fly processing for downloads. So it is possible for data to exist
-in Geostore but not in OneAtlas. Airbus aims for data parity between
-Geostore and OneAtlas over time.
+To read more about these blocks, please refer to `Pléiades and SPOT 6/7 streaming and download blocks <https://docs.up42.com/going-further/download-blocks-tutorial-spot-pleiades.html>`_.
 
 .. _acquire-hi-res-data:
 
-How can I acquire very-high resolution images with indefinite rights of usage?
-==============================================================================
+How can I acquire high-resolution images with indefinite rights of usage?
+=========================================================================
 
-Use one of the available download blocks:
-
- + :ref:`Pléiades <pleiades-download-block>`.
- + :ref:`SPOT 6/7 <spot-download-block>`.
-
-Read the :ref:`tutorial <download-blocks-tutorial-spot-pleiades>` on
-how to do it.
-
-How can I get very-high resolution images in the Near Infra-Red (NIR) band?
-===========================================================================
-
-See :ref:`above <acquire-hi-res-data>`.
+In order to have indefinite rights of usage, you need to use images provided through download data blocks. For more information, please refer to `Pléiades and SPOT 6/7 streaming and download blocks <https://docs.up42.com/going-further/download-blocks-tutorial-spot-pleiades.html>`_.
 
 .. _handle-download-block-output:
 
-I used the Pléaides and/or SPOT download block and loaded the image in my GIS software and it has the wrong orientation and/or is on the wrong location. What is happening?
-===========================================================================================================================================================================
+How can I open the Pléiades and SPOT 6/7 images?
+================================================
 
-.. |br| raw:: html
+To open a Pléiades or SPOT 6/7 product and access the image coordinates and metadata, you need to use a GIS software. A popular and free GIS software that we recommend is `QGIS <https://qgis.org/en/site/forusers/download.html>`_.
 
-   <br/>
+Pléiades and SPOT 6/7 are distributed using DIMAP V2. Separate directories are included for multispectral and panchromatic data. You can open each by selecting the DIM*.xml file.
 
-There are multiple points to answer in this question:
+What files can be found in the Pléiades and SPOT 6/7 product folders?
+=====================================================================
 
- 1. The :ref:`Pléiades <pleiades-download-block>` and :ref:`SPOT 6/7 <spot-download-block>` download blocks output format is `DIMAP <https://www.intelligence-airbusds.com/en/8722-the-dimap-format>`_.
- 2. To make use of it you have three options:
+The files that are mainly used for data visualization and processing are described in the table below.
 
-    + Use the DIMAP file and, **never, ever**, use the JPEG2000 files (``JP2`` extension) that are delivered. These files are not correctly geo-referenced. If you want
-      to use the output of these download blocks you need to open the **DIMAP** file, is a file with a name starting with ``DIM_``, e.g.,
-      ``DIM_PHR1A_P_201908291643176_ORT_6bf6aab9-d28f-401e-c0cf-a132ca1b7ec6-002.XML``. |br|
-      If you open this file as a **raster** in `QGIS <https://qgis.org>`_, for example, you will get a properly geo-referenced image.
+.. list-table::
+   :widths: 25 50 50
+   :header-rows: 1
 
-    + Use the :ref:`DIMAP conversion <dimap-conversion-block>` block:  it will give you all the imagery (panchromatic and multispectral) in GeoTIFF format.
+   * - File name
+     - File format
+     - Information
+   * - ``DIM*.xml``
+     - Extensible Markup Language
+     - Contains image metadata
+   * - ``*.tif``, ``*.jp2``
+     - Tagged Image File Format, Joint Photographic Experts Group 2000
+     - Image data
+   * - ``RPC*.xml``
+     - Extensible Markup Language
+     - Rational function model for easier orthorectification and geometric processing.
 
-    + Use :ref:`Pansharpening for Pléiades/SPOT <pansharpen-block>` block: it will give you a pansharpened RGB image in GeoTIFF format.
+How can I convert the Pléiades/SPOT images into GeoTIFF format?
+===============================================================
 
- 3. Now you can further process the image(s) obtained before and derive some analytics on it, if that is your wish.
+The following blocks convert the images to GeoTIFF:
+
+1. The processing block `DIMAP->GeoTIFF Conversion <https://docs.up42.com/up42-blocks/processing/dimap-conversion.html>`_ converts the panchromatic and multispectral bands into GeoTIFF format.
+2. The processing block `Pan-sharpening Pléiades/SPOT <https://docs.up42.com/up42-blocks/processing/pansharpen.html>`_ provides a single high-resolution color image from the high-resolution panchromatic and lower resolution multispectral image bands in GeoTIFF format.
 
 .. _download-blocks-visualization:
 
-I used the Pléiades and/or SPOT download block and I loaded the image in my GIS software and it looks visually strange. Why?
-============================================================================================================================
+I opened the Pléiades and SPOT 6/7 images and they have a low visual quality. Why?
+==================================================================================
 
-This is because those images provide an :term:`analytical product` and
-not a :term:`visual product`. Please see the
-:ref:`documentation <download-block-pros>` for more information on that.
+This is because the reflectance products are used for analytical purposes. To download images that are visually pleasing, we recommend using the data blocks `Pléiades Display (Download) <https://docs.up42.com/up42-blocks/data/pleiades-display-download.html>`_ and `SPOT 6/7 Display (Download) <https://docs.up42.com/up42-blocks/data/spot-display-download.html>`_.
 
 .. _restricted-blocks-definition:
 
 What are restricted blocks?
 ===========================
-Restricted blocks are blocks that due to their licensing terms,
-require a compliance check from UP42 in order to be granted
-access. An example of a restricted block is the `AIS historical vessel positions <https://marketplace.up42.com/block/00cc275a-fa04-44a5-9100-bffd6521b52e>`_ block that relies on
-`AIS <https://en.wikipedia.org/wiki/Automatic_identification_system>`_ to give a time series of
-a position of a vessel as reported via AIS.
 
+Restricted blocks are blocks that have special licensing terms. If you plan to access data or algorithms provided by restricted blocks, you need to fill in a short questionnaire that our UP42 team will review as part of the compliance check and then grant access. An example is the `AIS Historical Vessel Positions <https://marketplace.up42.com/block/00cc275a-fa04-44a5-9100-bffd6521b52e>`_ block that provides global information about vessel movements.
 
 .. _why-restricted-blocks:
 
-If UP42 positions itself as an open geospatial platform, why are there restricted blocks?
-=========================================================================================
-We are commited to openess. Is part of our founding values. We aim to democratize the access to geospatial data. But please bear in mind that:
+If UP42 is an open geospatial platform, why are there restricted blocks?
+========================================================================
 
- + Some of the data has strict licensing requirements imposed on us by the data provider. We have to abide by those restrictions in order to able to enable access to that data.
- + The same applies to algorithms.
+UP42 aims to democratize access to geospatial data and analytics. However, some data sources or algorithms contain sensitive information and thus have strict licensing requirements set by the data provider. UP42 is obliged to maintain the agreed restrictions in order to distribute the data or algorithms.
 
-Even if there are *restrictions* we are still making it available for,
-potentially, anyone to access that data and algorithms. This is a step
-in the direction of democratizing access to them: that so far has been
-quite hard to get for most companies and individuals.
+Users are able to request and subsequently get access to these restricted blocks by filling in a short questionnaire that aims to screen the users and ensure a suitable compliance check, upon agreement with the upstream data providers.
 
 .. _restricted-blocks-howto:
 
 How can I access restricted blocks?
 ===================================
 
-Please consult the :ref:`tutorial <restricted-blocks-tutorial>` on how to easily get access to restricted blocks.
+In order to get access to restricted blocks, please follow the steps below:
 
-.. _delete-account:
+1. Create a workflow and add the restricted block to the workflow.
+2. Request access by sending an email to **support.block-access@up42.com** and fill in the questionnaire.
+3. The customer support will notify you regarding the approval status.
+4. After the access request has been approved, you can start using the restricted block and run jobs.
 
-How can I delete my UP42 account?
-=================================
-It makes us sad that you made such a decision, but is your choice.
-Send an email to: `privacy@up42.com <privacy@up42.com>`__.
-We will pick it up from there and notify once your account is about to be deleted.
+How can I build a custom block?
+===============================
 
-In the future we will make it possible for you delete your account
-directly from the console.
+In order to build your own custom block, you need to have basic programming skills and a good understanding of Docker containers. The steps for developing a custom block are described in the article `Developing a custom processing block <https://docs.up42.com/going-further/custom-processing-block-dev.html?>`_.
+
+What is Docker?
+===============
+
+Docker is an open source platform that facilitates developing and running codes into containers. The advantage of Docker is that applications are separated from the local infrastructure and run in an isolated environment.
+
+For more information, please refer to the `Docker documentation <https://docs.docker.com/>`_.
+
+Does UP42 provide public images in its Docker registry?
+=======================================================
+
+No, all the Docker images in the UP42 registry are private.
+However, if you are looking for UP42 public Docker images, they can be found in our `Docker Hub page <https://hub.docker.com/u/up42>`_.
+
+Can I develop my custom block in any programming language?
+==========================================================
+
+Yes, Docker containers are programming language agnostic.
+
+My block needs auxiliary files. Where can I store them and how can I access them?
+=================================================================================
+
+UP42 does not have a defined process for storing and accessing auxiliary files (e.g. files needed for calibrating an algorithm). At the moment, it is possible to store auxiliary files on cloud storage providers such as AWS, Google Cloud or Azure. In the future, UP42 is planning to increase the firewall protection, so please inform us if your block depends on auxiliary files stored in the cloud.
 
 .. raw:: html
 
