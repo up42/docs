@@ -57,6 +57,13 @@ Please contact `customer support <support@up42.com>`_ and provide one of the fol
 
 .. tip:: For more information about the job dashboard, please refer to `Core concepts <https://docs.up42.com/going-further/core-concepts.html>`_.
 
+The results generated after running a job are provided as a TGZ file. How can I extract the results from this file?
+===================================================================================================================
+
+UP42 delivers the results in an archive ``output.tgz``. A TGZ file is a Unix .TAR archive compressed with Gnu Zip (.GZIP) compression to reduce the file size.
+
+For Windows OS, extracting the files from this TGZ archive is not enabled by default. To extract the results from this archive, please install `MinGW/MSYS <https://sourceforge.net/projects/mingw/files/Installer/>`_ or `Cygwin <https://cygwin.com/install.html>`_ and use the command in the terminal: ``tar xzvf output.tgz``
+
 What is the difference between streaming and download data blocks?
 ==================================================================
 
