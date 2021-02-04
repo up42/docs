@@ -31,5 +31,3 @@ In order to access the `UP42 console <https://console.up42.com/>`_, you first ne
 .. figure:: _assets/step02_signUp_3of3.png
    :align: center
    :alt: SignUp3
-
-Congratulations, you successfully created an UP42 account! In order to get access to the 10 000 sign-up credits, you need to provide the credit card details. You will not be charged from this credit card.
