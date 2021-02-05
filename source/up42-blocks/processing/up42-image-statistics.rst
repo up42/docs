@@ -14,7 +14,7 @@ Block type: ``PROCESSING``
 Supported parameters
 --------------------
 
-This block applies statistics on a stack of raster inputs. The statistics can be one of the following: ``mean``, ``min``, ``max``, ``std``, ``median``, or ``sum``.
+This block applies statistics on a stack of raster inputs and creates a raster file containing the result. The statistics can be one of the following: ``mean``, ``min``, ``max``, ``std``, ``median``, or ``sum``.
 For instances, by using ``mean``, for each pixel, the mean of its values in the stack will be calculated.
 This stack of raster inputs is essentially a time series of images for a specific area of interest.
 
