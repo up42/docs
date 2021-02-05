@@ -6,8 +6,8 @@
 
 UP42 Time Series Image Statistics
 =================================
-This blocks mainly works with timeseries of images with one band, for instance images related to weather or climate analysis. Specifically it works with `Sentinel-5P Level-3 (GeoTIFF) <https://marketplace.up42.dev/block/039bc7a0-c666-4d41-80c4-1e0baa94f62f>`_.
-For more information, please read the `block description <https://marketplace.up42.dev/block/93d73b17-6d9b-46aa-9745-15dd5d8c4be0>`_.
+This blocks mainly works with timeseries of images with one band, for instance images related to weather or climate analysis. Specifically it works with `Sentinel-5P Level-3 (GeoTIFF) <https://marketplace.up42.com/block/70919851-c563-4e5e-9393-029cf10377c7>`_.
+For more information, please read the `block description <https://marketplace.up42.com/block/1cbfab83-8c73-451b-9176-72b42d2cb716>`_.
 
 Block type: ``PROCESSING``
 
@@ -25,7 +25,7 @@ This stack of raster inputs is essentially a time series of images for a specifi
 Example queries
 ---------------
 
-Example of the block in a complete workflow consisting of `Sentinel-5P L3 (GeoTIFF) block <to be added>`_:
+Example of the block in a complete workflow consisting of `Sentinel-5P L3 (GeoTIFF) block <https://marketplace.up42.com/block/70919851-c563-4e5e-9393-029cf10377c7>`_:
 
 .. code-block:: javascript
 
