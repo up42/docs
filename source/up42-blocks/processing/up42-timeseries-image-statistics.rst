@@ -42,7 +42,7 @@ Example of the block in a complete workflow consisting of `Sentinel-5P L3 (GeoTI
         "qa_mask": "nomask",
         "fail_on_missing": false
       },
-      "up42-image-statistics:1": {
+      "up42-timeseries-image-statistics:1": {
         "method": "mean"
       }
     }
