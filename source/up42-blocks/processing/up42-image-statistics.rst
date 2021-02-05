@@ -2,11 +2,11 @@
    :description: UP42 processing blocks: Apply statistics on stack of raster inputs
    :keywords: UP42, processing, Statistics, Time series, Analytics, Raster
 
-.. _up42-image-statistics-block:
+.. _up42-timeseries-image-statistics-block:
 
 UP42 Image Statistics
 ================
-
+This blocks mainly works with timeseries of images with one band, for instance images related to weather or climate analysis. Specifically This will work with `Sentinel-5P Level-3 (GeoTIFF) <https://marketplace.up42.dev/block/039bc7a0-c666-4d41-80c4-1e0baa94f62f>`_.
 For more information, please read the `block description <https://marketplace.up42.dev/block/93d73b17-6d9b-46aa-9745-15dd5d8c4be0>`_.
 
 Block type: ``PROCESSING``
