@@ -1,15 +1,12 @@
 .. meta::
-   :description: UP42 processing blocks: Beta Land Cover Segmentation Pléiades/SPOT
+   :description: UP42 processing blocks: Land Cover Segmentation Pléiades/SPOT
    :keywords: Pleiades, land cover, multispectral, deep
               learning
 
 .. _land-cover-block:
 
-Land Cover Classifier for Pléiades/SPOT (Beta version)
-======================================================
-
-.. warning::
-   This block is currently in a *beta* release stage.
+Land Cover Classifier for Pléiades/SPOT
+=======================================
 
 For more information, please read the `block description <https://marketplace.up42.com/block/dd0ffe31-6d70-45a0-90d2-ddebe73ce807>`_.
 
