@@ -4,7 +4,7 @@
 
 .. _up42-image-statistics-block:
 
-Image Statistics
+UP42 Image Statistics
 ================
 
 For more information, please read the `block description <https://marketplace.up42.dev/block/93d73b17-6d9b-46aa-9745-15dd5d8c4be0>`_.
