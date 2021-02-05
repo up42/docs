@@ -8,7 +8,7 @@ ESA Sentinel-5P L3 (GeoTIFF)
 ============================
 .. TODO: update marketplace link once the block is on production
 
-For more information, please read the `block description <https://marketplace.up42.com/block/3c89d53e-6aec-43bb-b8b8-3e7f0132e28e>`_.
+For more information, please read the `block description <https://marketplace.up42.com/block/70919851-c563-4e5e-9393-029cf10377c7>`_.
 
 Block type: ``DATA``
 
