@@ -39,4 +39,4 @@ blocks built by UP42.
    up42-ndvithreshold
    up42-terrasar-geotiff-conversion
    up42-waterfinder
-   up42-image-statistics
+   up42-timeseries-image-statistics
