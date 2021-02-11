@@ -89,6 +89,10 @@ exclude_patterns = [
     '*.zip',
 ]
 
+html_add_permalinks = None
+
+html_baseurl = 'https://docs.up42.com/'
+
 # Extra paths to consider.
 html_extra_path = [
     'robots.txt',
@@ -104,7 +108,7 @@ pygments_style = 'friendly'
 # a list of builtin themes.
 #
 # html_theme = 'sphinx_rtd_theme'
-html_theme = "up42"
+html_theme = "migration"
 html_theme_path = ["_themes", ]
 
 # Theme options are theme-specific and customize the look and feel of a theme

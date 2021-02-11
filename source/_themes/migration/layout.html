@@ -1,0 +1,37 @@
+{# TEMPLATE VAR SETTINGS #}
+{%- set url_root = pathto('', 1) %}
+{%- if url_root == '#' %}{% set url_root = '' %}{% endif %}
+{%- set lang_attr = 'en' if language == None else (language | replace('_', '-')) %}
+
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    {# CANONICAL URL #}
+    {% if theme_canonical_url %}
+      <base href="{{ theme_canonical_url }}{{ pagename }}">
+
+      <link rel="canonical" href="{{ theme_canonical_url }}{{ pagename }}.html"/>
+    {% endif %}
+
+    <meta charset="utf-8">
+    {{ metatags }}
+
+    {% block htmltitle %}
+      <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
+    {% endblock %}
+  </head>
+
+  <body>
+    {%- block content %}
+      {%- block document %}
+        {% block body %}{% endblock %}
+
+        {% if self.comments()|trim %}
+          {% block comments %}{% endblock %}
+        {% endif%}
+      {%- endblock %}
+    {%- endblock %}
+  </body>
+</html>
