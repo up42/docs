@@ -64,6 +64,11 @@ section <filters>`.
    you can use the :ref:`NetCDF conversion <netcdf-conversion-block>`
    block to obtain a GeoTIFF.
 
+.. note::
+
+   It is recommended to select an AOI with the minimum size of 0.00001 square kilometers
+   to avoid any job failures due to constraints from meteomatics API side.
+
 Spatial resolution
 ------------------
 
