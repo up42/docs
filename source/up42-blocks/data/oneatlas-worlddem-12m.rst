@@ -76,7 +76,6 @@ Example query using ``intersects``:
             ]
           ]
         },
-        "zoom_level": 18
         }
     }
 
