@@ -75,8 +75,8 @@ Example query using ``intersects``:
               ]
             ]
           ]
-        },
         }
+      }
     }
 
 Output format
