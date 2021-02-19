@@ -191,6 +191,7 @@ Implemented filters
  ":ref:`OpenStreetMap Extraction <openstreetmap-block>`", , **✓**, , , **✓**, **✓**, ,
  ":ref:`AWS MODIS Full Scenes <aws-modis-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, , **✓**,
  ":ref:`Airbus Basemap (Tile) <oneatlas-basemap-block>`", , **✓**, **✓**, , , , ,
+ ":ref:`WorldDEM Full Resolution <oneatlas-worlddem-12m-block>`", , **✓**, **✓**, , , , ,
 
 .. Examples
 .. --------

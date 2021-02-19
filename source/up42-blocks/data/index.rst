@@ -54,3 +54,4 @@ built by UP42.
    meteomatics-weather-map
    up42-import-geojson
    oneatlas-basemap
+   oneatlas-worlddem-12m
