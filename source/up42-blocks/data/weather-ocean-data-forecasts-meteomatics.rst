@@ -27,7 +27,7 @@ per second). For a specific variable, you can just add the name of it
 to the default variables list according to description provided by
 Meteomatics. For more information about other variables please refer
 to `Meteomatics website
-<https://www.meteomatics.com/en/api/available-parameters/basic-weather-parameter/>`_
+<https://www.meteomatics.com/en/api/available-parameters/standard-weather-parameter/>`_
 For more information on supported filters, see :ref:`query filter
 section <filters>`.
 
@@ -63,6 +63,11 @@ section <filters>`.
    <http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html>`_. Alternatively
    you can use the :ref:`NetCDF conversion <netcdf-conversion-block>`
    block to obtain a GeoTIFF.
+
+.. note::
+
+   It is recommended to select an AOI with the minimum size of 0.00001 square kilometers
+   to avoid any job failures due to constraints from meteomatics API side.
 
 Spatial resolution
 ------------------
