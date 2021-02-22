@@ -7,7 +7,7 @@
 Create an UP42 account
 ======================
 
-To get started with using the UP42 platform, new users get 10 000 UP42 credits (the equivalent of 100 Euro/Dollars) that can be used with:
+To get started with using the UP42 Console, new users get 10 000 UP42 credits (the equivalent of 100 Euro/Dollars) that can be used with:
 
 * **free data**
 * **free and commercial algorithms**
