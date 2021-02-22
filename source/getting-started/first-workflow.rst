@@ -22,7 +22,7 @@ This guide will walk you through creating a project and running a workflow from 
 .. gist:: https://gist.github.com/up42-epicycles/f6b72e3b98b2ca890e3e79e246e8e731
 
 Create a project and a workflow
------------------------------------------------
+-------------------------------
 
 1. In order to access the UP42 console, you first need to sign up by following the steps from the article `Create an UP42 account <https://docs.up42.com/getting-started/sign-up.html>`_. After signing up, create your first :term:`project` by clicking on *Start a Project*.
 
