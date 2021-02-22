@@ -13,7 +13,7 @@ Block type: ``DATA``
 
 WorldDEM™ Streaming Service is a Digital Surface Model (DSM) with unprecedented
 quality, accuracy and coverage. The resolution of the data is 12 meters and it is in
-GeoTIFF format to represents the surface of the Earth including buildings, infrastructure
+GeoTIFF format to represent the surface of the Earth including buildings, infrastructure
 and vegetation. The WorldDEM™ products are based on the radar satellite data acquired during the
 TanDEM-X Mission which was a joint partnership between the German State, represented
 by the German Aerospace Centre (DLR) and Airbus Defence and Space. The primary goal
