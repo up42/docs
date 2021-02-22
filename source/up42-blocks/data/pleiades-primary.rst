@@ -10,21 +10,17 @@ For more information, please read the `block description <https://marketplace.up
 
 Block type: ``DATA``
 
-This block provides **un-rectified** Pléiades HR imagery with `Rational Polynomial Coefficients (RPCs) <https://en.wikipedia.org/wiki/Rational_polynomial_coefficient>`_. The block outputs a GeoTIFF file and can be the entire Pleiades scene or clipped to the AOI. This block is to be used mainly by experts who either want to apply their own `orthorectification <https://trac.osgeo.org/ossim/wiki/orthorectification>`_ procedure or create a tridimensional model based on stereo/tri-stereo images. Further information on `Stereophotogrammetry <https://en.wikipedia.org/wiki/Photogrammetry>`_.
+This block provides non-rectified Pléiades HR imagery and the Rational Polynomial Coefficients (RPCs). The block outputs a GeoTIFF file and can be the entire Pléiades scene or clipped to the AOI. This block is to be used mainly by experts who either want to apply their own orthorectification or create a tridimensional model based on stereo/tri-stereo images.
 
-The available output bands of the Pleiades block are: Panchromatic, Red, Green, Blue (RGB) and Near InfraRed (NIR). Pansharpened Pleiades HR imagery has a spatial resolution of 0.5x0.5m. The multispectral bands have a resolution of 2x2m.
+The available output bands of the Pléiades block are: Panchromatic, Red, Green, Blue (RGB) and Near Infrared (NIR). Pansharpened Pléiades HR imagery has a spatial resolution of 0.5x0.5m. The multispectral bands have a resolution of 2x2m.
 
 .. tip::
 
-   Further information on `RPCs  <https://gis.stackexchange.com/questions/180414/how-rational-polynomial-coefficientsrpcs-are-calculated-need-references>`_.
+   Further information about RPCs can be found in the `Pléiades User Guide <https://www.intelligence-airbusds.com/automne/api/docs/v1.0/document/download/ZG9jdXRoZXF1ZS1kb2N1bWVudC01NTY0Mw==/ZG9jdXRoZXF1ZS1maWxlLTU1NjQy/Pleiades_UserGuide_18072019.pdf>`_ and `GIS StackExchange <https://gis.stackexchange.com/questions/180414/how-rational-polynomial-coefficientsrpcs-are-calculated-need-references>`_.
 
-Unprojected Pleiades Primary image Can be easily orthorectified using the gdalwarp command line tool from GDAL. Example:
+.. tip::
 
-.. code-block:: bash
-
-   gdal_warp -rpc <input image> <output image>
-
-Please consult the ``gdalwarp`` `documentation <https://gdal.org/programs/gdalwarp.html>`_ for better understanding on how to use it.
+   A Pléiades Primary image can be easily orthorectified using the ``gdalwarp`` command from `GDAL <https://gdal.org/programs/gdalwarp.html>`_. Example: ``gdalwarp -rpc <input_image> <output_image>``
 
 .. warning::
 
