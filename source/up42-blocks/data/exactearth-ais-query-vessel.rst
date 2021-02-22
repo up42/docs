@@ -14,10 +14,8 @@ Block type: ``DATA``
 This block provides access to historical data points of the
 `Automatic Identification System (AIS) <https://up42.com/blog/tech/a-complete-guide-to-marine-traffic-tracking-tech-and-ais-data>`_.
 The block queries the
-`Exact Earth historical vessel points API <https://www.exactearth.com/product-exactais>`_ by one ore multiple ships by
-`Maritime Mobile Service Identity (MMSI) <https://en.wikipedia.org/wiki/Maritime_Mobile_Service_Identity>`_
-or exactEarth Identifier (EEID) ids. It provides ship position point geometries and associated metadata e.g. ship name, cargo, destination port, etc.
-The output is a `ais-points` GeoJSON file containing the AIS point geometries and properties, and a `data.json` with the UP42 query parameters.
+`Exact Earth historical vessel points <https://www.exactearth.com/product-exactais>`_ API for one ore multiple ships by **Maritime Mobile Service Identity (MMSI)** or **exactEarth Identifier (EEID)** ids. It provides ship position point geometries and associated metadata e.g. ship name, cargo, destination port, etc.
+The output is a GeoJSON file ``ais-points.geojson`` that contains the AIS point geometries and properties, and a JSON file ``data.json`` that contains the UP42 query parameters.
 
 
 Supported parameters
@@ -25,7 +23,7 @@ Supported parameters
 
 For more information, please read the section :ref:`Data source query filters  <filters>`.
 
-* ``mmsi``: Ids of Maritime Mobile Service Identity (MMSI), e.g. ``["83273282", "94821299"]``.
+* ``mmsi``: Ids of Maritime Mobile Service Identity (MMSI), e.g. ``["832732821", "948212991"]``.
 * ``eeid``: Ids of exactEarth Identifier (eEID), proprietary id of the exactEarth services (given to vessels based on their underlying characteristics), e.g. ``["0945377234823382332", "82137382388238372"]``.
 * ``time``: A date range to filter the data points on. This range applies to the acquisition date/time of the AIS signals. Maximum of 7 days.
 
@@ -40,7 +38,7 @@ Example query using ``time`` in combination with ``mmsi``:
     {
       "exactearth-ais-query-vessel:1": {
         "mmsi": [
-            83273282, 94821299
+            "832732821", "948212991"
         ],
         "time": "2019-01-01T10:00:00+00:00/2019-01-01T13:59:59+00:00",
       }
@@ -66,7 +64,7 @@ Output format is a ``GeoJSON`` file, see `GeoJSON <https://en.wikipedia.org/wiki
     	"features": [{
     		"type": "Feature",
     		"properties": {
-    			"mmsi": 2738129,
+    			"mmsi": 832732821,
     			"imo": 8959245,
     			"vessel_name": "SAN MARCO",
     			"callsign": "UWHW",

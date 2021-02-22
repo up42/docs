@@ -8,40 +8,34 @@
  Compliance FAQ
 ================
 
-When and why would I as a customer need to undergo a compliance verification process?
-=====================================================================================
+Why do I need to undergo a KYC check?
+=====================================
 
-All the UP42 users &mdash; individuals and businesses --- are
-required to follow a standard `KYC
-<https://en.wikipedia.org/wiki/Know_your_customer>`_ procedure to
-ensure that we have the correct customer information  so that they can
-use UP42 uninterrupted.
+In order to comply with the UP42 regulations (in particular regarding Anti-Money Laundering laws), but also due to the nature of the data/algorithms accessible on the platform, UP42 is authorized to perform a Know Your Customer (KYC) check of users (individuals and/or businesses).
 
-Do I need to provide any documentation in support of the compliance process?
-============================================================================
+Depending on the data, the financial amount invested on the platform but also the tasks requested, the level of control can be different.
 
-Additional relevant documentation complementing the one provided in
-the account settings may be required. The compliance officer of UP42
-will reach out to you in case of such a requirement.
+Do I need to provide any additional data for the KYC check?
+===========================================================
 
-Who will access my additionally required data during the compliance process?
-============================================================================
+According to your use of the platform, the degree of KYC is likely to be different and therefore requires the examination of specific documentation.
 
-Only the relevant data on a **Need to know** basis is used in our
-Compliance Tool: to validate the information you have provided.
-Use of this data outside of this context this is strictly **forbidden**.
+If additional documentation or information is needed, our compliance officer will contact you.
 
-How much time would it take to get an approval from the compliance process?
-===========================================================================
+Who will access my additional data during the KYC check?
+========================================================
 
-It varies. Usually can be done in a matter of hours. However, in some
-cases, additional information from you might be required.
+Your additional data will be processed through our internal compliance tools, in order to validate the information provided. The usage of this data outside of this purpose is strictly prohibited.
 
-How can I know more about the compliance process?
-=================================================
+What is the duration of a KYC check?
+====================================
 
-Send an email to: `support@up42.com <support@up42.com>`__ to find out
-more about it.
+The duration of a KYC check varies on a case-by-case basis from a few hours to a few weeks. In some cases, additional data from the users is required.
+
+How can I know more about KYC checks?
+=====================================
+
+For more information, please contact the `compliance team <support.compliance@up42.com>`_.
 
 .. raw:: html
 
