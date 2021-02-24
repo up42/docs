@@ -48,7 +48,7 @@ the script directory and make it executable:
 Run your first job via the API
 ------------------------------
 
-In order to run a job via the API, you need to provide the the
+In order to run a job via the API, you need to provide the
 ``project API key`` and ``project ID``. You can find both in the UP42
 :term:`console`, in the **Developers** menu of the :term:`demo
 project`.
