@@ -39,7 +39,7 @@ a certain filter or not [1]_.
 
 ``limit``
 ~~~~~~~~~
-   The maximum number of results to be returned. Default is 1. The
+   The maximum number of images to be returned. Default is 1. The
    maximum is 5 by default, if you have a payment method associated
    with your account you will be able to set it up to 10 in the
    project settings page. For higher values please get in touch with
