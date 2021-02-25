@@ -11,10 +11,10 @@ Introduction
 ------------
 
 The API is the UP42 pivotal point: everything runs on top of
-it. Therefore if you want to automate/scale your usage of UP42 the API
+it. Therefore if you want to automate or scale your usage of UP42, the API
 is the way to go.
 
-The current publicly available API functions in the context of a
+The current publicly available API functions are provided in the context of a
 project. Here are the actions that you can perform using the API:
 
 Familiarity with the :ref:`core concepts <core-concepts>` is assumed,
@@ -42,8 +42,8 @@ as well as minimal proficiency with using a UNIX like shell.
 
 3. :ref:`Work with workflows <working-workflows>`:
 
-   - :ref:`get workflows <get-workflows>`
-   - :ref:`get workflow <get-workflow>`
+   - :ref:`get all workflows <get-workflows>`
+   - :ref:`get a specific workflow <get-workflow>`
    - :ref:`create workflow <create-workflow>`
    - :ref:`update workflow <update-workflow>`
    - :ref:`delete workflow <delete-workflow>`
@@ -54,25 +54,27 @@ as well as minimal proficiency with using a UNIX like shell.
    - :ref:`get test query output <download-test-query-results>`
    - :ref:`get test query quicklooks <test-query-results-quicklooks>`
 
-It means that a **project key** is **always** needed. Therefore you
-always need to create a project **through the UI**.
+In order to perform any of the above actions through the API, you will
+need to have the **project ID** and **project key**. Therefore you will
+always need to create a project through the user interface (UI) first.
 
-The example below uses an example project. So the specific values of
-things like project key and project ID are given for illustration
-purposes only. In your case the values will be different.
+The following example uses an example project with its own unique project
+ID and project key. Because every project has its own unique identifiers, 
+your project key and ID will be different.  
+
 
 .. note::
 
    Please be aware that the project ID and the project key
-   allows anyone to manipulate your project (account) so be careful and
-   do not share it around. Someone might find it, and besides messing with
+   allows anyone to manipulate your project (account), so be careful and
+   do not share it around. Someone might find it and besides messing with
    your project, will also make you incur costs and thus reduce the
    currently available credits in our platform.
 
 .. tip::
 
-   Optionally and/or as an adition to following this walkthrough you
-   might consult the :ref:`API reference <api-specification>`.
+   As an addition to following this walkthrough, consider consulting the
+   :ref:`API reference <api-specification>`.
 
 Requirements
 ------------
@@ -113,7 +115,7 @@ following through this walktrough.
 Authentication: getting the token
 ---------------------------------
 
-Before attempting to do anything with the API you need to get a token in
+Before attempting to do anything with the API, you need to get a token in
 order to perform any type of operation on your project.
 
 .. tip::
@@ -142,14 +144,14 @@ cURL request above.
 
 .. tip::
 
-   Since Bash does not record in the shell history all commands
-   started with a space we recommend you set the ``PKEY`` variable above
-   such that the line start with a space like done here.
+   Since Bash does not record all commands that start with spaces in the
+   shell history, we recommend that you set the ``PKEY`` variable above
+   so that the line starts with a space as shown here.
 
 .. tip::
 
-   Since the tokens is valid for 5 minutes you will need to keep
-   re-issuing the above command regularly to execute any of the
+   Since the tokens are only valid for 5 minutes, you will need to keep
+   re-issuing the above command periodically in order to execute any of the
    requests below if more than 5 minutes have elapsed. You can recall
    the command with just ``!PTOKEN``.
 
@@ -178,8 +180,8 @@ file.
 List a specific job
 ~~~~~~~~~~~~~~~~~~~
 
-Iterating through the previously obtained list of jobs you can select
-one in particular to get all the information about it. First list all
+When iterating through the previously obtained list of jobs, you can select
+one in particular to view the information pertaining to that job. First, list all
 the job IDs.
 
 .. code:: bash
@@ -190,8 +192,8 @@ the job IDs.
    "08576b73-355a-407b-823d-604608791664"
    "d62c27c0-24e9-433d-b509-ae080504d5c6"
 
-Picking any of the above job IDs, for example, the third, i.e., index
-``2``.
+For this example, we will look at the third job listed above. This job has the index
+``2`` because indices start with 0 and not 1.
 
 .. code:: bash
 
@@ -203,7 +205,7 @@ Picking any of the above job IDs, for example, the third, i.e., index
 
    d62c27c0-24e9-433d-b509-ae080504d5c6
 
-Querying the API for this job information.
+Query the API for this job information.
 
 .. code:: bash
 
@@ -216,20 +218,20 @@ Thus generating the file `<https://gist.github.com/up42-epicycles/790c798b1ff2c0
 Create and run a job
 ~~~~~~~~~~~~~~~~~~~~
 
-To create and run a job you need to get first the workflow IDs.
+To create and run a job, you need to first get the workflow IDs.
 
 .. code:: bash
 
    # Get all different workflows.
    cat jobs_$PROJ.json | jq -r '.data[] | .workflowId' | uniq
 
-we get a single element, since there is a single workflow in this project.
+We get a single element in return because there is only one workflow in this project.
 
 .. code:: bash
 
    5ffc4cb4-5b44-4227-8089-f7861efebdcc
 
-We assign this value to a variable.
+We assign this value to a variable called WORKFLOW.
 
 .. code:: bash
 
@@ -246,8 +248,8 @@ We assign this value to a variable.
    We rely here on a previously built workflow. If you want also to build
    the workflow via the API then proceed to :ref:`Create a workflow <create-workflow>`.
 
-You also need to get the job parameters. In this case you are just
-copying from a previous job. Using the previously saved job list.
+You also need to get the job parameters. In this case, you are just
+copying from a previous job using the previously saved job list.
 
 .. code:: bash
 
@@ -332,7 +334,7 @@ Now filter the previous request to get the job status.
 
    curl -s -L -H "Authorization: Bearer $PTOKEN" "$URL_JOB_INFO" | jq -r '.data.status'
 
-In this case it returns:
+In this case, it returns:
 
 .. code:: bash
 
@@ -380,7 +382,7 @@ This command returns the log file available at
 Get the job results
 ~~~~~~~~~~~~~~~~~~~
 
-Once the job completes you can query the API to get the results.
+Once the job is completed, you can query the API to get the results.
 There are 3 types of results:
 
  1. A `GeoJSON <https://en.wikipedia.org/wiki/GeoJSON>`__ file
@@ -395,7 +397,7 @@ There are 3 types of results:
 
 
 .. note:: The support for quicklooks is a block specific feature, and
-          it will vary from block to blocks. In most cases it will
+          it will vary from block to block. In most cases it will
           depend on upstream APIs supporting it.
 
 .. _results-geojson:
@@ -416,7 +418,7 @@ Produces this
 Get the results: tarball
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-To get the resulting tarball you need first to get the signed URL to
+To get the resulting tarball, you need to first get the signed URL to
 be able to download it.
 
 .. code:: bash
