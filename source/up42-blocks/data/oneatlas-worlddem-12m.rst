@@ -7,7 +7,7 @@
 OneAtlas WorldDEM Full Resolution
 =================================
 
-For more information, please read the `block description <empty>`_.
+For more information, please read the `block description <https://marketplace.up42.com/block/1cdf4786-f524-41d5-9d88-b877c2a2bb4f>`_.
 
 Block type: ``DATA``
 
