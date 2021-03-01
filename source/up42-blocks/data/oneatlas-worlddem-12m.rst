@@ -4,8 +4,8 @@
 
 .. _oneatlas-worlddem-12m-block:
 
-WorldDEM Full Resolution
-========================
+OneAtlas WorldDEM Full Resolution
+=================================
 
 For more information, please read the `block description <empty>`_.
 
