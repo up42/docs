@@ -5,7 +5,7 @@
 .. _spot-aoiclipped-block:
 
 SPOT 6/7 Display (Streaming)
-=======================
+============================
 For more information, please read the `block description <https://marketplace.up42.com/block/045019bb-06fc-4fa1-b703-318725b4d8af>`_.
 
 Block type: ``DATA``
