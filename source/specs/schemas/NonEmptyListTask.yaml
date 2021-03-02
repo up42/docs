@@ -1,0 +1,23 @@
+type: array
+items:
+  required:
+  - name
+  - parentName
+  - blockId
+  - blockVersionTag
+  type: object
+  properties:
+    name:
+      type: string
+      maxLength: 100
+      example: oneatlas-pleiades-fullscene:1
+    parentName:
+      type: string
+      nullable: true
+      example: null
+    blockId:
+      type: string
+      example: defb134b-ca00-4e16-afa0-639c6dc0c5fe
+    blockVersionTag:
+      type: string
+      example: 2.1.12

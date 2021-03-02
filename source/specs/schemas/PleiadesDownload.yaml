@@ -1,0 +1,49 @@
+title: PleiadesDownload
+required:
+- bbox
+- intersects
+- contains
+- time
+- limit
+- zoom_level
+type: object
+properties:
+  bbox:
+    type: string
+    nullable: true
+  time:
+    type: string
+    nullable: true
+  limit:
+    type: integer
+    format: int32
+  intersects:
+    $ref: 'IntersectsOrContains.yaml'
+  contains:
+    $ref: 'IntersectsOrContains.yaml'
+  zoom_level:
+    type: integer
+    format: int32
+  ids:
+    $ref: 'FullsceneIDorAssetID.yaml'
+  asset_ids:
+    $ref: 'FullsceneIDorAssetID.yaml'
+  time_series:
+    type: array
+    items:
+      type: string
+    nullable: true
+  max_cloud_cover:
+    type: integer
+    format: int32
+example:
+  ids: null
+  asset_ids: null
+  time:
+    2018-01-01T00:00:00+00:00/2021-12-31T23:59:59+00:00
+  bbox: [ 
+    -2.040374,
+    48.651271,
+    -2.035546,
+    48.653652]
+  max_cloud_cover: 20

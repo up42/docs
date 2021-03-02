@@ -1,0 +1,8 @@
+type: object
+properties:
+  min:
+    type: integer
+    format: int32
+  max:
+    type: integer
+    format: int32

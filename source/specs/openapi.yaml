@@ -185,6 +185,10 @@ paths:
               example:
                 null
       deprecated: false
+  /projects/{project_id}/estimate/job:
+    $ref: "./resources/estimateJob.yaml"
+  /projects/{project_id}/jobs/{job_id}/estimate:
+    $ref: "./resources/estimateJobId.yaml"
   /projects/{project_id}/settings:
     get:
       tags:

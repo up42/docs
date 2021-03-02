@@ -1,0 +1,14 @@
+title: Intersects
+required:
+- method
+- coordinates
+type: object
+properties:
+  type:
+    type: string
+  coordinates:
+    type: array
+    items:
+      type: array
+      items:
+        type: number

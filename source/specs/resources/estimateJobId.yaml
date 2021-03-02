@@ -1,0 +1,29 @@
+get:
+  tags:
+    - estimation
+  operationId: getEstimation
+  parameters:
+    - name: job_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - name: project_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: >-
+                  ../schemas/ResponseMapStringTaskEstimationResultDtoObject.yaml
+
+
+
+

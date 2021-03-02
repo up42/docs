@@ -1,0 +1,6 @@
+type: object
+properties:
+  resources:
+    $ref: 'ResourcesDto.yaml'
+  credit:
+    $ref: 'RangeInteger.yaml'

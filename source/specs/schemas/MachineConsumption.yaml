@@ -1,0 +1,6 @@
+type: object
+properties:
+  duration:
+    $ref: 'RangeBigInteger.yaml'
+  credit:
+    $ref: 'RangeInteger.yaml'

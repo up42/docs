@@ -1,0 +1,12 @@
+title: FullsceneIDorAssetID
+description: >-
+  Image ID (fullscene ID) or asset IDs if you previously purchased the
+  image.
+type: array
+items:
+  type: string
+  nullable: true
+  default: null
+example:
+  ids:
+    - S1B_IW_GRDH_1SDV_20191117T084136_20191117T084201_018965_023C6E_2A28

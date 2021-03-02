@@ -1,0 +1,9 @@
+type: object
+properties:
+  tasks:
+    $ref: 'NonEmptyListTask.yaml'
+  inputs:
+    type: object
+    properties:
+      pleiades-download:
+        $ref: 'PleiadesDownload.yaml'

@@ -1,0 +1,35 @@
+post:
+  tags:
+    - estimation
+  summary: Estimate the costs in advance
+  description: Estimate the costs before running a job
+  operationId: estimate
+  parameters:
+    - name: project_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - name: Authorization
+      in: header
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            input:
+              $ref: '../schemas/EstimationRequest.yaml'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ResponseObjectObject.yaml'
+      

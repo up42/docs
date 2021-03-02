@@ -1,0 +1,6 @@
+type: object
+properties:
+  min:
+    type: integer
+  max:
+    type: integer

@@ -1,0 +1,17 @@
+type: object
+properties:
+  unit:
+    type: string
+    enum:
+      - SQUARE_KM
+      - MEGABYTE
+      - SCENE
+      - MEGAPIXEL
+      - TILE
+      - DATA_POINT
+      - PIXEL
+      - QUANTITY
+  min:
+    type: number
+  max:
+    type: number

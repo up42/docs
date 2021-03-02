@@ -1,0 +1,6 @@
+type: object
+properties:
+  blockConsumption:
+    $ref: 'BlockConsumptionDto.yaml'
+  machineConsumption:
+    $ref: 'MachineConsumption.yaml'
