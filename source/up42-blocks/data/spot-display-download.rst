@@ -37,10 +37,14 @@ For more information, please read the section :ref:`Data source query filters  <
 * ``time``: A date range to filter scenes on. This range applies to the acquisition date/time of the scenes.
 * ``time_series``: An array of date range filters as defined by ``time``. If defined, the ``limit`` parameter applies to each date range individually and the ``time`` filter is ignored.
 * ``limit``: An integer number of maximum results to return. The maximum value for ``limit`` is 500.
-* ``ids``: An array of image identifiers as defined by the ``parentIdentifier`` property. If defined, either ``bbox`` **or** ``intersects`` **or** ``contains`` should be selected as well.  By defining the ``ids`` filter you specify unambiguously which images to retrieve based solely on your AOI and given ID(s). The ``ids`` filter overrides all other filters, e.g., ``limit`` and/or ``time``.
+* ``ids``: An array of image identifiers as defined by the ``parentIdentifier`` property. If defined, without ``bbox`` **or** ``intersects`` **or** ``contains``, the full scene will be ordered. Use ``bbox``, ``intersects`` **or** ``contains`` if you'd like to clip the scene to that AOI. By defining the ``ids`` filter you specify unambiguously which images to retrieve based solely on your AOI and given ID(s). The ``ids`` filter overrides all other filters, e.g., ``limit`` and/or ``time``.
 * ``max_cloud_cover``: A percentage (0 to 100) defining the maximum :term:`cloud cover` of any returned imagery. Note that the cloud cover percentage is computed with the full scene, not the requested geographical area. Default is **100**.
 * ``asset_ids``: An array of asset identifiers for a particular item in your UP42 Storage, see the :ref:`Download blocks tutorial  <download-blocks-tutorial-spot-pleiades>` for an explanation.
 
+.. warning::
+  Using ``ids`` as parameter, without ``bbox`` **or** ``intersects`` **or** ``contains`` enables you to order the full scene. Ordering of a full scene is costly! Make sure this is intended and make use of the
+  ``bbox`` **or** ``intersects`` **or** ``contains`` if you want to order a subset of the scene.
+  
 
 Example queries
 ---------------
