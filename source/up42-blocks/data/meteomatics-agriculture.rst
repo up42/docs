@@ -20,14 +20,13 @@ This blocks provides access to the Meteomatics REST-style API to
 retrieve historic, current, and forecast data globally. In this block,
 model data and observational data is available as time series in
 NetCDF format. Meteomatics provides a huge variety of climate
-variables and options, by default we provide temperatures (in Celsius
-[°C] unit, at 2 meters above the ground), accumulated precipitation
-(millimeters, every 5 minutes) and instantaneous wind speed (100 meter
-per second). For a specific variable, you can just add the name of it
+variables and options, by default we provide accumulated precipitation
+(millimeters, every 3 hours), soil moisture index (in a -15 cm depth level) and
+Grass Land Temperature Sum (in Celsius [°C] unit). For a specific variable, you can just add the name of it
 to the default variables list according to description provided by
 Meteomatics. For more information about other agriculture variables please refer
 to `Meteomatics website
-<https://www.meteomatics.com/en/api/available-parameters/standard-weather-parameter/>`_
+<https://www.meteomatics.com/en/api/available-parameters/agricultural-parameters/>`_
 For more information on supported filters, see :ref:`query filter
 section <filters>`.
 
@@ -97,159 +96,157 @@ Example query using ``bbox``:
 
 .. code-block:: javascript
 
-	{
-	  "meteomatics:1": {
-		"bbox": [
+    {
+      "meteomatics-agriculture:1": {
+        "time": "2019-12-01T00:00:00+00:00/2019-12-05T23:59:59+00:00",
+        "variables": [
+          "precip_3h:mm",
+          "soil_moisture_index_-15cm:idx",
+          "grass_land_temperature_sum:C"
+        ],
+        "time_interval": 12,
+        "bbox": [
           13.384861,
           52.475312,
           13.388967,
           52.476656
-        ],
-		"time": "2019-12-01T00:00:00+00:00/2019-12-05T23:59:59+00:00",
-		"variables": [
-		  "t_2m:C",
-		  "precip_5min:mm",
-		  "wind_speed_100m:ms"
-		],
-		"time_interval": 12
-	  }
-	}
+        ]
+      }
+    }
 
 Output format
 -------------
 
 .. code-block:: javascript
 
-	{
-	"type": "FeatureCollection",
-	"features": [
-	[
-	  {
-		"type": "Feature",
-		"bbox": [
-		  13.342896,
-		  52.466887,
-		  13.478851,
-		  52.547131
-		],
-		"geometry": {
-		  "type": "Polygon",
-		  "coordinates": [
-			[
-			  [
-				13.478851,
-				52.466887
-			  ],
-			  [
-				13.478851,
-				52.547131
-			  ],
-			  [
-				13.342896,
-				52.547131
-			  ],
-			  [
-				13.342896,
-				52.466887
-			  ],
-			  [
-				13.478851,
-				52.466887
-			  ]
-			]
-		  ]
-		},
-		"properties": {
-		  "model_type": "mix",
-		  "parameter_name": "t_2m_C",
-		  "up42.data_path": "87022219-95fc-47f1-b210-e3ca8a629ee8/t_2m_C.nc"
-		}
-	  },
-	  {
-		"type": "Feature",
-		"bbox": [
-		  13.342896,
-		  52.466887,
-		  13.478851,
-		  52.547131
-		],
-		"geometry": {
-		  "type": "Polygon",
-		  "coordinates": [
-			[
-			  [
-				13.478851,
-				52.466887
-			  ],
-			  [
-				13.478851,
-				52.547131
-			  ],
-			  [
-				13.342896,
-				52.547131
-			  ],
-			  [
-				13.342896,
-				52.466887
-			  ],
-			  [
-				13.478851,
-				52.466887
-			  ]
-			]
-		  ]
-		},
-		"properties": {
-		  "model_type": "mix",
-		  "parameter_name": "precip_5min_mm",
-		  "up42.data.scene.netcdf": "87022219-95fc-47f1-b210-e3ca8a629ee8/precip_5min_mm.nc"
-		}
-	  },
-	  {
-		"type": "Feature",
-		"bbox": [
-		  13.342896,
-		  52.466887,
-		  13.478851,
-		  52.547131
-		],
-		"geometry": {
-		  "type": "Polygon",
-		  "coordinates": [
-			[
-			  [
-				13.478851,
-				52.466887
-			  ],
-			  [
-				13.478851,
-				52.547131
-			  ],
-			  [
-				13.342896,
-				52.547131
-			  ],
-			  [
-				13.342896,
-				52.466887
-			  ],
-			  [
-				13.478851,
-				52.466887
-			  ]
-			]
-		  ]
-		},
-		"properties": {
-		  "model_type": "mix",
-		  "parameter_name": "wind_speed_100m_ms",
-		  "up42.data.scene.netcdf": "87022219-95fc-47f1-b210-e3ca8a629ee8/wind_speed_100m_ms.nc"
-		}
-	  }
-	]
-	]
-	}
+    {
+       "type":"FeatureCollection",
+       "features":[
+          {
+             "type":"Feature",
+             "bbox":[
+                13.384861,
+                52.475312,
+                13.388967,
+                52.476656
+             ],
+             "geometry":{
+                "type":"Polygon",
+                "coordinates":[
+                   [
+                      [
+                         13.388967,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.475312
+                      ]
+                   ]
+                ]
+             },
+             "properties":{
+                "model_type":"mix",
+                "parameter_name":"precip_3h_mm.nc",
+                "up42.data_path":"37d881d8-8813-4cb8-a601-a679b301c7b3/precip_3h_mm.nc"
+             }
+          },
+          {
+             "type":"Feature",
+             "bbox":[
+                13.384861,
+                52.475312,
+                13.388967,
+                52.476656
+             ],
+             "geometry":{
+                "type":"Polygon",
+                "coordinates":[
+                   [
+                      [
+                         13.388967,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.475312
+                      ]
+                   ]
+                ]
+             },
+             "properties":{
+                "model_type":"mix",
+                "parameter_name":"soil_moisture_index_-15cm_idx.nc",
+                "up42.data_path":"37d881d8-8813-4cb8-a601-a679b301c7b3/soil_moisture_index_-15cm_idx.nc"
+             }
+          },
+          {
+             "type":"Feature",
+             "bbox":[
+                13.384861,
+                52.475312,
+                13.388967,
+                52.476656
+             ],
+             "geometry":{
+                "type":"Polygon",
+                "coordinates":[
+                   [
+                      [
+                         13.388967,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.475312
+                      ]
+                   ]
+                ]
+             },
+             "properties":{
+                "model_type":"mix",
+                "parameter_name":"grass_land_temperature_sum_C.nc",
+                "up42.data_path":"37d881d8-8813-4cb8-a601-a679b301c7b3/grass_land_temperature_sum_C.nc"
+             }
+          }
+       ]
+    }
 
 
 Advanced
@@ -268,21 +265,39 @@ Example of other possible variables
    * - Variable
      - Meteomatics name
      - Example
-   * - Relative Humidity
-     - relative_humidity_<level>:<unit>
-     - relative_humidity_1000hPa:p
-   * - Instantaneous Dew Point
-     - dew_point_<level>:<unit>
-     - dew_point_2m:C
-   * - Geopotential Height
-     - geopotential_height_<level>:m
-     - gh_500hPa:m
-   * - Accumulated Evaporation
-     - evaporation_<interval>:<unit>
-     - evaporation_1h:mm
-   * - Amount of Cloud Cover
-     - <level>_cloud_cover:<unit>
-     - effective_cloud_cover:octas
+   * - Precipitation in millimeters
+     - precip_<interval>:mm
+     - precip_5min:mm
+   * - Maximum size of hailstone
+     - hail_<interval>:cm
+     - hail_6h:cm
+   * - Instantaneous temperature AGL
+     - t_<level>:<unit>
+     - t_1000hPa:K
+   * - Frost depth
+     - frost_depth:cm
+     - frost_depth:cm
+   * - Soil frost
+     - soil_frost:p
+     - soil_frost:p
+   * - The soil moisture index
+     - soil_moisture_index_<depth>:idx
+     - soil_moisture_index_-50:idx
+   * - Soil moisture deficit
+     - soil_moisture_deficit:mm
+     - soil_moisture_deficit:mm
+   * - Evapotranspiration
+     - evapotranspiration_<interval>:mm
+     - evapotranspiration_3h:mm
+   * - Growing degree days
+     - growing_degree_days_accumulated:gdd
+     - growing_degree_days_accumulated:gdd
+   * - Phytophthora negative prognosis index
+     - phytophthora_negative:idx
+     - phytophthora_negative:idx
+   * - Most similar year
+     - most_similar_year:y
+     - most_similar_year:y
 
 Example queries
 ---------------
@@ -291,366 +306,366 @@ Example query using ``time_series`` and adding one more ``variable`` to the vari
 
 .. code-block:: javascript
 
-	{
-	  "meteomatics:1": {
-		"bbox": [
+    {
+      "meteomatics-agriculture:1": {
+        "variables": [
+          "precip_3h:mm",
+          "soil_moisture_index_-15cm:idx",
+          "grass_land_temperature_sum:C",
+          "leaf_wetness:idx"
+        ],
+        "time_series": [
+          "2019-10-01T00:00:00+00:00/2019-10-03T23:59:59+00:00",
+          "2018-10-01T00:00:00+00:00/2018-10-03T23:59:59+00:00"
+        ],
+        "time_interval": 12,
+        "bbox": [
           13.384861,
           52.475312,
           13.388967,
           52.476656
-        ],
-		"variables": [
-		  "t_2m:C",
-		  "precip_5min:mm",
-		  "wind_speed_100m:ms",
-		  "prob_precip_1h:p"
-		],
-		"time_series": [
-		  "2019-10-01T00:00:00+00:00/2019-10-03T23:59:59+00:00",
-		  "2018-10-01T00:00:00+00:00/2018-10-03T23:59:59+00:00"
-		],
-		"time_interval": 12
-	  }
-	}
+        ]
+      }
+    }
 
 
-In this example, we used the ``time_series`` parameter and selected two specific time. The variable  ``prob_precip_1h:p`` was also added. In this example we query for each date range in 3 hour intervals for the 4 variables specified above. As described previously the output format is NetCDF.
+In this example, we used the ``time_series`` parameter and selected two specific time. The variable  ``leaf_wetness:idx`` was also added. In this example we query for each date range in 3 hour intervals for the 4 variables specified above. As described previously the output format is NetCDF.
 
 Output format
 -------------
 
 .. code-block:: javascript
 
-	{
-	  "type": "FeatureCollection",
-	  "features": [
-		{
-		  "type": "Feature",
-		  "bbox": [
-			13.233032,
-			52.395715,
-			13.533783,
-			52.577184
-		  ],
-		  "geometry": {
-			"type": "Polygon",
-			"coordinates": [
-			  [
-				[
-				  13.533783,
-				  52.395715
-				],
-				[
-				  13.533783,
-				  52.577184
-				],
-				[
-				  13.233032,
-				  52.577184
-				],
-				[
-				  13.233032,
-				  52.395715
-				],
-				[
-				  13.533783,
-				  52.395715
-				]
-			  ]
-			]
-		  },
-		  "properties": {
-			"model_type": "mix",
-			"parameter_name": "t_2m_C",
-			"up42.data.scene.netcdf": "3ad49b69-6229-40be-a7e6-f936d7a9fdd5/t_2m_C.nc"
-		  }
-		},
-		{
-		  "type": "Feature",
-		  "bbox": [
-			13.233032,
-			52.395715,
-			13.533783,
-			52.577184
-		  ],
-		  "geometry": {
-			"type": "Polygon",
-			"coordinates": [
-			  [
-				[
-				  13.533783,
-				  52.395715
-				],
-				[
-				  13.533783,
-				  52.577184
-				],
-				[
-				  13.233032,
-				  52.577184
-				],
-				[
-				  13.233032,
-				  52.395715
-				],
-				[
-				  13.533783,
-				  52.395715
-				]
-			  ]
-			]
-		  },
-		  "properties": {
-			"model_type": "mix",
-			"parameter_name": "precip_5min_mm",
-			"up42.data.scene.netcdf": "3ad49b69-6229-40be-a7e6-f936d7a9fdd5/precip_5min_mm.nc"
-		  }
-		},
-		{
-		  "type": "Feature",
-		  "bbox": [
-			13.233032,
-			52.395715,
-			13.533783,
-			52.577184
-		  ],
-		  "geometry": {
-			"type": "Polygon",
-			"coordinates": [
-			  [
-				[
-				  13.533783,
-				  52.395715
-				],
-				[
-				  13.533783,
-				  52.577184
-				],
-				[
-				  13.233032,
-				  52.577184
-				],
-				[
-				  13.233032,
-				  52.395715
-				],
-				[
-				  13.533783,
-				  52.395715
-				]
-			  ]
-			]
-		  },
-		  "properties": {
-			"model_type": "mix",
-			"parameter_name": "wind_speed_100m_ms",
-			"up42.data.scene.netcdf": "3ad49b69-6229-40be-a7e6-f936d7a9fdd5/wind_speed_100m_ms.nc"
-		  }
-		},
-		{
-		  "type": "Feature",
-		  "bbox": [
-			13.233032,
-			52.395715,
-			13.533783,
-			52.577184
-		  ],
-		  "geometry": {
-			"type": "Polygon",
-			"coordinates": [
-			  [
-				[
-				  13.533783,
-				  52.395715
-				],
-				[
-				  13.533783,
-				  52.577184
-				],
-				[
-				  13.233032,
-				  52.577184
-				],
-				[
-				  13.233032,
-				  52.395715
-				],
-				[
-				  13.533783,
-				  52.395715
-				]
-			  ]
-			]
-		  },
-		  "properties": {
-			"model_type": "mix",
-			"parameter_name": "prob_precip_1h_p",
-			"up42.data.scene.netcdf": "3ad49b69-6229-40be-a7e6-f936d7a9fdd5/prob_precip_1h_p.nc"
-		  }
-		},
-		{
-		  "type": "Feature",
-		  "bbox": [
-			13.233032,
-			52.395715,
-			13.533783,
-			52.577184
-		  ],
-		  "geometry": {
-			"type": "Polygon",
-			"coordinates": [
-			  [
-				[
-				  13.533783,
-				  52.395715
-				],
-				[
-				  13.533783,
-				  52.577184
-				],
-				[
-				  13.233032,
-				  52.577184
-				],
-				[
-				  13.233032,
-				  52.395715
-				],
-				[
-				  13.533783,
-				  52.395715
-				]
-			  ]
-			]
-		  },
-		  "properties": {
-			"model_type": "mix",
-			"parameter_name": "t_2m_C",
-			"up42.data.scene.netcdf": "7a77f25f-0939-4dae-b66b-0d5434b3d1fd/t_2m_C.nc"
-		  }
-		},
-		{
-		  "type": "Feature",
-		  "bbox": [
-			13.233032,
-			52.395715,
-			13.533783,
-			52.577184
-		  ],
-		  "geometry": {
-			"type": "Polygon",
-			"coordinates": [
-			  [
-				[
-				  13.533783,
-				  52.395715
-				],
-				[
-				  13.533783,
-				  52.577184
-				],
-				[
-				  13.233032,
-				  52.577184
-				],
-				[
-				  13.233032,
-				  52.395715
-				],
-				[
-				  13.533783,
-				  52.395715
-				]
-			  ]
-			]
-		  },
-		  "properties": {
-			"model_type": "mix",
-			"parameter_name": "precip_5min_mm",
-			"up42.data.scene.netcdf": "7a77f25f-0939-4dae-b66b-0d5434b3d1fd/precip_5min_mm.nc"
-		  }
-		},
-		{
-		  "type": "Feature",
-		  "bbox": [
-			13.233032,
-			52.395715,
-			13.533783,
-			52.577184
-		  ],
-		  "geometry": {
-			"type": "Polygon",
-			"coordinates": [
-			  [
-				[
-				  13.533783,
-				  52.395715
-				],
-				[
-				  13.533783,
-				  52.577184
-				],
-				[
-				  13.233032,
-				  52.577184
-				],
-				[
-				  13.233032,
-				  52.395715
-				],
-				[
-				  13.533783,
-				  52.395715
-				]
-			  ]
-			]
-		  },
-		  "properties": {
-			"model_type": "mix",
-			"parameter_name": "wind_speed_100m_ms",
-			"up42.data.scene.netcdf": "7a77f25f-0939-4dae-b66b-0d5434b3d1fd/wind_speed_100m_ms.nc"
-		  }
-		},
-		{
-		  "type": "Feature",
-		  "bbox": [
-			13.233032,
-			52.395715,
-			13.533783,
-			52.577184
-		  ],
-		  "geometry": {
-			"type": "Polygon",
-			"coordinates": [
-			  [
-				[
-				  13.533783,
-				  52.395715
-				],
-				[
-				  13.533783,
-				  52.577184
-				],
-				[
-				  13.233032,
-				  52.577184
-				],
-				[
-				  13.233032,
-				  52.395715
-				],
-				[
-				  13.533783,
-				  52.395715
-				]
-			  ]
-			]
-		  },
-		  "properties": {
-			"model_type": "mix",
-			"parameter_name": "prob_precip_1h_p",
-			"up42.data.scene.netcdf": "7a77f25f-0939-4dae-b66b-0d5434b3d1fd/prob_precip_1h_p.nc"
-		  }
-		}
-	  ]
-	}
+    {
+       "type":"FeatureCollection",
+       "features":[
+          {
+             "type":"Feature",
+             "bbox":[
+                13.384861,
+                52.475312,
+                13.388967,
+                52.476656
+             ],
+             "geometry":{
+                "type":"Polygon",
+                "coordinates":[
+                   [
+                      [
+                         13.388967,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.475312
+                      ]
+                   ]
+                ]
+             },
+             "properties":{
+                "model_type":"mix",
+                "parameter_name":"precip_3h_mm.nc",
+                "up42.data_path":"26d8c981-d135-42b6-83a1-113015884add/precip_3h_mm.nc"
+             }
+          },
+          {
+             "type":"Feature",
+             "bbox":[
+                13.384861,
+                52.475312,
+                13.388967,
+                52.476656
+             ],
+             "geometry":{
+                "type":"Polygon",
+                "coordinates":[
+                   [
+                      [
+                         13.388967,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.475312
+                      ]
+                   ]
+                ]
+             },
+             "properties":{
+                "model_type":"mix",
+                "parameter_name":"soil_moisture_index_-15cm_idx.nc",
+                "up42.data_path":"26d8c981-d135-42b6-83a1-113015884add/soil_moisture_index_-15cm_idx.nc"
+             }
+          },
+          {
+             "type":"Feature",
+             "bbox":[
+                13.384861,
+                52.475312,
+                13.388967,
+                52.476656
+             ],
+             "geometry":{
+                "type":"Polygon",
+                "coordinates":[
+                   [
+                      [
+                         13.388967,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.475312
+                      ]
+                   ]
+                ]
+             },
+             "properties":{
+                "model_type":"mix",
+                "parameter_name":"grass_land_temperature_sum_C.nc",
+                "up42.data_path":"26d8c981-d135-42b6-83a1-113015884add/grass_land_temperature_sum_C.nc"
+             }
+          },
+          {
+             "type":"Feature",
+             "bbox":[
+                13.384861,
+                52.475312,
+                13.388967,
+                52.476656
+             ],
+             "geometry":{
+                "type":"Polygon",
+                "coordinates":[
+                   [
+                      [
+                         13.388967,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.475312
+                      ]
+                   ]
+                ]
+             },
+             "properties":{
+                "model_type":"mix",
+                "parameter_name":"leaf_wetness_idx.nc",
+                "up42.data_path":"26d8c981-d135-42b6-83a1-113015884add/leaf_wetness_idx.nc"
+             }
+          },
+          {
+             "type":"Feature",
+             "bbox":[
+                13.384861,
+                52.475312,
+                13.388967,
+                52.476656
+             ],
+             "geometry":{
+                "type":"Polygon",
+                "coordinates":[
+                   [
+                      [
+                         13.388967,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.475312
+                      ]
+                   ]
+                ]
+             },
+             "properties":{
+                "model_type":"mix",
+                "parameter_name":"precip_3h_mm.nc",
+                "up42.data_path":"0a9381c3-0a9a-42fa-862e-04be03587fa8/precip_3h_mm.nc"
+             }
+          },
+          {
+             "type":"Feature",
+             "bbox":[
+                13.384861,
+                52.475312,
+                13.388967,
+                52.476656
+             ],
+             "geometry":{
+                "type":"Polygon",
+                "coordinates":[
+                   [
+                      [
+                         13.388967,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.475312
+                      ]
+                   ]
+                ]
+             },
+             "properties":{
+                "model_type":"mix",
+                "parameter_name":"soil_moisture_index_-15cm_idx.nc",
+                "up42.data_path":"0a9381c3-0a9a-42fa-862e-04be03587fa8/soil_moisture_index_-15cm_idx.nc"
+             }
+          },
+          {
+             "type":"Feature",
+             "bbox":[
+                13.384861,
+                52.475312,
+                13.388967,
+                52.476656
+             ],
+             "geometry":{
+                "type":"Polygon",
+                "coordinates":[
+                   [
+                      [
+                         13.388967,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.475312
+                      ]
+                   ]
+                ]
+             },
+             "properties":{
+                "model_type":"mix",
+                "parameter_name":"grass_land_temperature_sum_C.nc",
+                "up42.data_path":"0a9381c3-0a9a-42fa-862e-04be03587fa8/grass_land_temperature_sum_C.nc"
+             }
+          },
+          {
+             "type":"Feature",
+             "bbox":[
+                13.384861,
+                52.475312,
+                13.388967,
+                52.476656
+             ],
+             "geometry":{
+                "type":"Polygon",
+                "coordinates":[
+                   [
+                      [
+                         13.388967,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.476656
+                      ],
+                      [
+                         13.384861,
+                         52.475312
+                      ],
+                      [
+                         13.388967,
+                         52.475312
+                      ]
+                   ]
+                ]
+             },
+             "properties":{
+                "model_type":"mix",
+                "parameter_name":"leaf_wetness_idx.nc",
+                "up42.data_path":"0a9381c3-0a9a-42fa-862e-04be03587fa8/leaf_wetness_idx.nc"
+             }
+          }
+       ]
+    }
