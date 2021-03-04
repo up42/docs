@@ -3,10 +3,10 @@
    :keywords: weather, ocean, forecast, meteomatics, model data,
               observational data, time series
 
-.. _meteomatics-block:
+.. _meteomatics-ocean-block:
 
-Weather/Ocean data and forecasts
-================================
+Meteomatics Ocean
+=================
 
 For more information, please read the `block description
 <https://marketplace.up42.com/block/235addd2-3efe-424b-8c35-d9b41dfe0eb5>`_.
@@ -25,7 +25,7 @@ variables and options, by default we provide temperatures (in Celsius
 (millimeters, every 5 minutes) and instantaneous wind speed (100 meter
 per second). For a specific variable, you can just add the name of it
 to the default variables list according to description provided by
-Meteomatics. For more information about other variables please refer
+Meteomatics. For more information about other agriculture variables please refer
 to `Meteomatics website
 <https://www.meteomatics.com/en/api/available-parameters/standard-weather-parameter/>`_
 For more information on supported filters, see :ref:`query filter
@@ -79,7 +79,7 @@ The spatial data resolution provided by this block is dependant on the
    :align: center
 
    +-----------------------------+---------------------------------+
-   | AOI [**km**:superscript:`2`]| spatial resolution [decimal °] |
+   | AOI [**km**:superscript:`2`]| spatial resoliution [decimal °] |
    +=============================+=================================+
    |     up to 100               | 0.001                           |
    +-----------------------------+---------------------------------+
@@ -100,18 +100,18 @@ Example query using ``bbox``:
 	{
 	  "meteomatics:1": {
 		"bbox": [
-		  13.342896,
-		  52.466887,
-		  13.478851,
-		  52.547131
-		],
+          13.384861,
+          52.475312,
+          13.388967,
+          52.476656
+        ],
 		"time": "2019-12-01T00:00:00+00:00/2019-12-05T23:59:59+00:00",
 		"variables": [
 		  "t_2m:C",
 		  "precip_5min:mm",
 		  "wind_speed_100m:ms"
 		],
-		"time_interval": 3
+		"time_interval": 12
 	  }
 	}
 
@@ -294,11 +294,11 @@ Example query using ``time_series`` and adding one more ``variable`` to the vari
 	{
 	  "meteomatics:1": {
 		"bbox": [
-		  13.233032,
-		  52.395715,
-		  13.533783,
-		  52.577184
-		],
+          13.384861,
+          52.475312,
+          13.388967,
+          52.476656
+        ],
 		"variables": [
 		  "t_2m:C",
 		  "precip_5min:mm",
@@ -309,7 +309,7 @@ Example query using ``time_series`` and adding one more ``variable`` to the vari
 		  "2019-10-01T00:00:00+00:00/2019-10-03T23:59:59+00:00",
 		  "2018-10-01T00:00:00+00:00/2018-10-03T23:59:59+00:00"
 		],
-		"time_interval": 3
+		"time_interval": 12
 	  }
 	}
 
