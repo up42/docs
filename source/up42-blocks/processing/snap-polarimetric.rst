@@ -5,8 +5,8 @@
 
 .. _snap-polarimetric-block:
 
-SNAP Sentinel-1 Polarimetric Processing
-=======================================
+UP42 SNAP Sentinel-1 Polarimetric Processing
+============================================
 
 For more information, please read the `block description
 <https://marketplace.up42.com/block/8c6baae9-d50e-406c-b4ac-e211caa6229d>`_.
@@ -26,8 +26,8 @@ Supported parameters
 * ``intersects``: A GeoJSON geometry to use as an AOI. Will clip to scenes that intersect with this geometry. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
 * ``contains``: A GeoJSON geometry to use as an AOI. Will clip to scenes that intersect with this geometry. Use only ``bbox`` **or** ``intersects`` **or** ``contains``.
 * ``polarisations``: Requested polarisations, either **one and only
-  one** of: ``[VV,VH]``, ``[HH, HV]``, ``[VV]``,  ``[VH]``, ``[HV]``
-  or ``[HH]``. The operation will fail and give a corresponding error message if the requested polarization is not
+  one** of: ``["VV","VH"]``, ``["HH", "HV"]``, ``["VV"]``,  ``["VH"]``, ``["HV"]``
+  or ``["HH"]``. The operation will fail and give a corresponding error message if the requested polarization is not
   avialble in the input image to SNAP.
 * ``mask``: It applies a masks for either ``land`` or ``sea``. Use one
   and only one, you cannot chose both.
