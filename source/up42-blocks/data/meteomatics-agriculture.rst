@@ -1,12 +1,12 @@
 .. meta::
    :description: UP42 data blocks: Weathet/Ocean data forecasts block
-   :keywords: weather, ocean, forecast, meteomatics, model data,
+   :keywords: weather, agriculture, forecast, meteomatics, model data,
               observational data, time series
 
-.. _meteomatics-ocean-block:
+.. _meteomatics-agriculture-block:
 
-Meteomatics Ocean
-=================
+Meteomatics Agriculture
+=======================
 
 For more information, please read the `block description
 <https://marketplace.up42.com/block/235addd2-3efe-424b-8c35-d9b41dfe0eb5>`_.
@@ -17,7 +17,7 @@ Supported parameters
 --------------------
 
 This blocks provides access to the Meteomatics REST-style API to
-retrieve historic, current, and forecast data globally. In this block,
+retrieve historic, current, and forecast data globally related to agricultural sector. In this block,
 model data and observational data is available as time series in
 NetCDF format. Meteomatics provides a huge variety of climate
 variables and options, by default we provide accumulated precipitation

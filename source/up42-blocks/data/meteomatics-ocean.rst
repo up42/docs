@@ -1,6 +1,6 @@
 .. meta::
-   :description: UP42 data blocks: Weathet/Ocean data forecasts block
-   :keywords: weather, ocean, forecast, meteomatics, model data,
+   :description: UP42 data blocks: Weather/Ocean data forecasts block
+   :keywords: weather, ocean, marine, forecast, meteomatics, model data,
               observational data, time series
 
 .. _meteomatics-ocean-block:
@@ -17,7 +17,7 @@ Supported parameters
 --------------------
 
 This blocks provides access to the Meteomatics REST-style API to
-retrieve historic, current, and forecast data globally. In this block,
+retrieve historic, current, and forecast data globally related to ocean and marine sectors. In this block,
 model data and observational data is available as time series in
 NetCDF format. Meteomatics provides a huge variety of climate
 variables and options, by default we provide significant wave height (in meters), peak wave period
