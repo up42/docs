@@ -266,21 +266,46 @@ Example of other possible variables
    * - Variable
      - Meteomatics name
      - Example
-   * - Solar power - Capacity
-     - solar_power_installed_capacity_<capacity>:<unit>
-     - solar_power_installed_capacity_10:kW
-   * - Solar power - Solar panel tilt in degrees
-     - solar_power_tilt_<tilt>:<unit>
-     - solar_power_tilt_60:MW
-   * - Solar power - Solar panel critical snow depth
-     - solar_power_critical_snowdepth_<value>
-     - solar_power_critical_snowdepth_2:kW
    * - Wind speed U
      - wind_speed_u_<level>:<unit>
      - wind_speed_u_400m:ms
    * - Wind speed V
      - wind_speed_v_<level>:<unit>
      - wind_speed_v_850hPa:mph
+   * - Mean, maximum or minimum wind speed
+     - wind_speed_<measure>_<level>_<interval>:<unit>
+     - wind_speed_min_100m_3h:ms
+   * - Wind power kW and MW
+     - wind_power_turbine_<turbine_id>_hub_height_<height>:<unit>
+     - wind_power_turbine_an_bonus_500_41_hub_height_100m:MW
+   * - Power line oscillation for the past 24 hours
+     - power_line_oscillation_24h:idx
+     - power_line_oscillation_24h:idx
+   * - Solar power - Capacity
+     - solar_power_installed_capacity_<capacity>:<unit>
+     - solar_power_installed_capacity_10:kW
+   * - Solar power -  Tracking type fixed
+     - solar_power_tracking_type_fixed:<unit>
+     - solar_power_tracking_type_fixed:MW
+   * - Solar power - Tracking type azimuth-tracking
+     - solar_power_tracking_type_azimuth-tracking:<unit>
+     - solar_power_tracking_type_azimuth-tracking:MW
+   * - Solar power - Tracking type tilted-north-south-tracking
+     - solar_power_tracking_type_tilted-north-south-tracking:<unit>
+     - solar_power_tracking_type_tilted-north-south-tracking:MW
+   * - Solar power - Tracking type full tracking
+     - solar_power_tracking_type_full-tracking:<unit>
+     - solar_power_tracking_type_full-tracking:MW
+   * - Solar power - Solar panel tilt in degrees
+     - solar_power_tilt_<tilt>:<unit>
+     - solar_power_tilt_60:MW
+   * - Solar power - Solar panel tilt orientation
+     - solar_power_orientation_<orientation>:<unit>
+     - solar_power_orientation_130:MW
+   * - Solar power - Solar panel critical snow depth
+     - solar_power_critical_snowdepth_<value>
+     - solar_power_critical_snowdepth_2:kW
+
 
 Example queries
 ---------------

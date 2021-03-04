@@ -264,18 +264,96 @@ Example of other possible variables
    * - Variable
      - Meteomatics name
      - Example
-   * - Ocean current speed
-     - ocean_current_speed:<speed_unit>
-     - ocean_current_speed:kmh
-   * - Ocean current speed – submarine level
-     - ocean_current_speed_<level>:<speed_unit>
-     - ocean_current_speed_20m:kmh
-   * - Water salinity
-     - salinity:psu
-     - salinity:psu
+   * - Mean direction total swell
+     - mean_direction_total_swell:d
+     - mean_direction_total_swell:d
+   * - Wave height
+     - max_individual_wave_height:m
+     - max_individual_wave_height:m
+   * - Mean wind waves direction
+     - mean_direction_wind_waves:d
+     - mean_direction_wind_waves:d
+   * - Mean period total swell
+     - mean_period_total_swell:s
+     - mean_period_total_swell:s
+   * - Mean wave period
+     - mean_period_wind_waves:s
+     - mean_period_wind_waves:s
+   * - Mean wave direction – 1st
+     - mean_wave_direction_first_swell:d
+     - mean_wave_direction_first_swell:d
+   * - Mean wave direction – 2nd
+     - mean_wave_direction_second_swell:d
+     - mean_wave_direction_second_swell:d
+   * - Mean wave direction – 3rd
+     - mean_wave_direction_third_swell:d
+     - mean_wave_direction_third_swell:d
+   * - Mean wave period
+     - mean_wave_period:s
+     - mean_wave_period:s
+   * - Frequency moment of the total swell (first)
+     - mean_wave_period_first_moment:s
+     - mean_wave_period_first_moment:s
+   * - Frequency moment of the total swell (second)
+     - mean_wave_period_second_moment:s
+     - mean_wave_period_second_moment:s
+   * - Significant height of total swell not influenced by local wind
+     - significant_height_total_swell:m
+     - significant_height_total_swell:m
+   * - Significant height of waves under influence of the local wind
+     - significant_height_wind_waves:m
+     - significant_height_wind_waves:m
+   * - Significant wave height for the first most energetic partition of the swell
+     - significant_wave_height_first_swell:m
+     - significant_wave_height_first_swell:m
+   * - Significant wave height for the second most energetic partition of the swell
+     - significant_wave_height_second_swell:m
+     - significant_wave_height_second_swell:m
+   * - Significant wave height for the third most energetic partition of the swell
+     - significant_wave_height_third_swell:m
+     - significant_wave_height_third_swell:m
+   * - Stokes Speed
+     - stokes_drift_speed:<speed_unit>
+     - stokes_drift_speed:ms
+   * - Stokes Direction
+     - stokes_drift_dir:d
+     - stokes_drift_dir:d
    * - Stokes drift and speed U
      - stokes_drift_speed_u:<speed_unit>
      - stokes_drift_speed_u:ms
+   * - Stokes drift and speed V
+     - stokes_drift_speed_u:<speed_unit>
+     - stokes_drift_speed_u:kmh
+   * - Ocean current speed
+     - ocean_current_speed:<speed_unit>
+     - ocean_current_speed:kmh
+   * - Ocean current direction
+     - ocean_current_direction:d
+     - ocean_current_direction:d
+   * - Ocean current U
+     - ocean_current_u:<speed_unit>
+     - ocean_current_u_2m:kmh
+   * - Ocean current V
+     - ocean_current_v:<speed_unit>
+     - ocean_current_v_2m:kn
+   * - Ocean current speed – submarine level
+     - ocean_current_speed_<level>:<speed_unit>
+     - ocean_current_speed_20m:km
+   * - Ocean current direction – submarine level
+     - ocean_current_direction_<level>:d
+     - ocean_current_direction_50m:d
+   * - Ocean current speed and direction U – at various levels
+     - ocean_current_u_<level>:<speed_unit>
+     - ocean_current_u_15m:kn
+   * - Ocean current speed and direction V – at various levels
+     - ocean_current_v_<level>:<speed_unit>
+     - ocean_current_v_15m:kmh
+   * - Water temperature
+     - water_temperature:C
+     - water_temperature:C
+   * - Water salinity
+     - salinity:psu
+     - salinity:psu
    * - Ocean depth
      - ocean_depth:<unit>
      - ocean_depth:m

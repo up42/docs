@@ -280,9 +280,6 @@ Example of other possible variables
    * - Soil frost
      - soil_frost:p
      - soil_frost:p
-   * - The soil moisture index
-     - soil_moisture_index_<depth>:idx
-     - soil_moisture_index_-50:idx
    * - Soil moisture deficit
      - soil_moisture_deficit:mm
      - soil_moisture_deficit:mm
