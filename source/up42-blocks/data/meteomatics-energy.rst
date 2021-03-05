@@ -17,17 +17,17 @@ Supported parameters
 --------------------
 
 This blocks provides access to the Meteomatics REST-style API to
-retrieve historic, current, and forecast data globally releated to energy and power sectors. In this block,
+retrieve historic, current, and forecast data globally related to energy and power sectors. In this block,
 model data and observational data is available as time series in
 NetCDF format. Meteomatics provides a huge variety of climate
-variables and options, by default we provide wind speed (in kilometers per hour
+variables and options. By default we provide wind speed (in kilometers per hour
 [kmh] unit, at 200 meters above the ground), wind direction
 (at 200 meters above the ground) and wind gusts over an interval of 6 hours (at 200 meters above the ground). For a
 specific variable, you can just add the name of it
 to the default variables list according to description provided by
 Meteomatics. For more information about other energy and power variables please refer
 to `Meteomatics website
-<https://www.meteomatics.com/en/api/available-parameters/power-and-energy/>`_
+<https://www.meteomatics.com/en/api/available-parameters/power-and-energy/>`_.
 For more information on supported filters, see :ref:`query filter
 section <filters>`.
 
@@ -252,7 +252,7 @@ Output format
 
 Advanced
 --------
-Example of other possible variables
+Examples of other possible variables
 ------------------------------------
 
 .. |br| raw:: html
@@ -337,7 +337,7 @@ Example query using ``time_series`` and adding one more ``variable`` to the vari
     }
 
 
-In this example, we used the ``time_series`` parameter and selected two specific time. The variable  ``power_line_oscillation_24h:idx`` was also added. In this example we query for each date range in 3 hour intervals for the 4 variables specified above. As described previously the output format is NetCDF.
+In this example, we used the ``time_series`` parameter and selected two specific time periods. The variable  ``power_line_oscillation_24h:idx`` was also added. In this example we query for each date range in 3 hour intervals for the 4 variables specified above. As described previously the output format is NetCDF.
 
 Output format
 -------------

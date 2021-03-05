@@ -17,16 +17,16 @@ Supported parameters
 --------------------
 
 This blocks provides access to the Meteomatics REST-style API to
-retrieve historic, current, and forecast data globally related to agricultural sector. In this block,
+retrieve historic, current, and forecast data globally related to the agricultural sector. In this block,
 model data and observational data is available as time series in
 NetCDF format. Meteomatics provides a huge variety of climate
-variables and options, by default we provide accumulated precipitation
+variables and options. By default we provide accumulated precipitation
 (millimeters, every 3 hours), soil moisture index (in a -15 cm depth level) and
 Grass Land Temperature Sum (in Celsius [°C] unit). For a specific variable, you can just add the name of it
 to the default variables list according to description provided by
 Meteomatics. For more information about other agriculture variables please refer
 to `Meteomatics website
-<https://www.meteomatics.com/en/api/available-parameters/agricultural-parameters/>`_
+<https://www.meteomatics.com/en/api/available-parameters/agricultural-parameters/>`_.
 For more information on supported filters, see :ref:`query filter
 section <filters>`.
 
@@ -251,7 +251,7 @@ Output format
 
 Advanced
 --------
-Example of other possible variables
+Examples of other possible variables
 ------------------------------------
 
 .. |br| raw:: html
@@ -326,7 +326,7 @@ Example query using ``time_series`` and adding one more ``variable`` to the vari
     }
 
 
-In this example, we used the ``time_series`` parameter and selected two specific time. The variable  ``leaf_wetness:idx`` was also added. In this example we query for each date range in 3 hour intervals for the 4 variables specified above. As described previously the output format is NetCDF.
+In this example, we used the ``time_series`` parameter and selected two specific time periods. The variable  ``leaf_wetness:idx`` was also added. In this example we query for each date range in 3 hour intervals for the 4 variables specified above. As described previously the output format is NetCDF.
 
 Output format
 -------------

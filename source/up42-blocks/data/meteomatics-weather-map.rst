@@ -116,7 +116,7 @@ Example query using ``bbox``:
 
 Advanced
 --------
-Example of other possible variables
+Examples of other possible variables
 ------------------------------------
 
 .. |br| raw:: html

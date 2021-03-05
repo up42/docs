@@ -250,7 +250,7 @@ Output format
 
 Advanced
 --------
-Example of other possible variables
+Examples of other possible variables
 ------------------------------------
 
 .. |br| raw:: html
@@ -387,7 +387,7 @@ Example query using ``time_series`` and adding one more ``variable`` to the vari
       }
     }
 
-In this example, we used the ``time_series`` parameter and selected two specific time. The variable  ``water_temperature:C`` was also added. In this example we query for each date range in 3 hour intervals for the 4 variables specified above. As described previously the output format is NetCDF.
+In this example, we used the ``time_series`` parameter and selected two specific time periods. The variable  ``water_temperature:C`` was also added. In this example we query for each date range in 3 hour intervals for the 4 variables specified above. As described previously the output format is NetCDF.
 
 Output format
 -------------
