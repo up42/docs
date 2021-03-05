@@ -57,6 +57,11 @@ Please contact `customer support <support@up42.com>`_ and provide one of the fol
 
 .. tip:: For more information about the job dashboard, please refer to `Core concepts <https://docs.up42.com/going-further/core-concepts.html>`_.
 
+My job has finished but when I'm trying to download the results, I'm only seeing code. Where is my satellite image?
+===================================================================================================================
+
+This may be because you are previewing JSON Results instead of selecting Download under Results. For more information on downloading results, please refer to this article `Download job results <https://docs.up42.com/getting-started/first-workflow.html#download-job-results>`_
+
 The results generated after running a job are provided as a TGZ file. How can I extract the results from this file?
 ===================================================================================================================
 
@@ -67,18 +72,11 @@ For Windows OS, extracting the files from this TGZ archive is not enabled by def
 What is the difference between streaming and download data blocks?
 ==================================================================
 
-A streaming data block provides data that contains all web Mercator tiles intersecting or covering the specified AOI in a spatial resolution defined by the used zoom level.
+A streaming data block provides data that contains all web Mercator tiles that intersect or cover the specified AOI in a spatial resolution defined by the used zoom level, whereas a download data block provides data in its original DIMAP V2 format clipped to the provided AOI. 
 
-A download data block provides data in its original DIMAP V2 format clipped to the provided AOI.
+Another major distinction is the **user ownership of the images**. With streaming blocks, users are not allowed to keep the streamed image or results of workflows that provide the original pixel values of the streamed image. Users will need to continually purchase the streamed image for each new job run. Download blocks on the other hand give the user ownership of the image and therefore **indefinite rights of usage**. These images are bought once and can be used multiple times.
 
 To read more about these blocks, please refer to `Pléiades and SPOT 6/7 streaming and download blocks <https://docs.up42.com/going-further/download-blocks-tutorial-spot-pleiades.html>`_.
-
-.. _acquire-hi-res-data:
-
-How can I acquire high-resolution images with indefinite rights of usage?
-=========================================================================
-
-In order to have indefinite rights of usage, you need to use images provided through download data blocks. For more information, please refer to `Pléiades and SPOT 6/7 streaming and download blocks <https://docs.up42.com/going-further/download-blocks-tutorial-spot-pleiades.html>`_.
 
 .. _handle-download-block-output:
 
@@ -151,8 +149,15 @@ In order to get access to restricted blocks, please follow the steps below:
 
 1. Create a workflow and add the restricted block to the workflow.
 2. Request access by sending an email to **support.block-access@up42.com** and fill in the questionnaire.
-3. The customer support will notify you regarding the approval status.
+3. The customer support agent will notify you regarding the approval status.
 4. After the access request has been approved, you can start using the restricted block and run jobs.
+
+
+But wait, I’ve just received access for a restricted block and yet I still can’t use the data... what’s the big deal?
+=====================================================================================================================
+
+This may be because you only have the free signup credits. Restricted data is still **commercial** data. The free signup credits can only be used to test out free data and to process that data with both free and commercial processing algorithms. Even after acquiring access, you will need to purchase credits with us to use the restricted data. We suggest arranging a call or sending an email to `sales <sales@up42.com>`_ to discuss more in detail about pricing and our credit packages. 
+
 
 How can I build a custom block?
 ===============================
