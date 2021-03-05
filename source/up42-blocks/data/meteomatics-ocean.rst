@@ -5,8 +5,8 @@
 
 .. _meteomatics-ocean-block:
 
-Meteomatics Ocean and Marine
-============================
+Weather Data for Marine and Ocean
+=================================
 
 For more information, please read the `block description
 <https://marketplace.up42.com/block/235addd2-3efe-424b-8c35-d9b41dfe0eb5>`_.

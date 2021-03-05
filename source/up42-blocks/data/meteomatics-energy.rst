@@ -5,8 +5,8 @@
 
 .. _meteomatics-energy-block:
 
-Meteomatics Energy and Power
-============================
+Weather Data for Energy and Power
+=================================
 
 For more information, please read the `block description
 <https://marketplace.up42.com/block/235addd2-3efe-424b-8c35-d9b41dfe0eb5>`_.
