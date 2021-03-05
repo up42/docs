@@ -42,6 +42,10 @@ built by UP42.
    ais-hvp
    ais-hvt
    exactearth-ais-query-vessel
+   meteomatics-agriculture
+   meteomatics-energy
+   meteomatics-ocean
+   meteomatics-weather-map
    nextmap-1m
    nextmap-5m
    nextmap-10m
@@ -51,7 +55,6 @@ built by UP42.
    airbus-globalseeps
    geotiff-custom
    dimap-custom
-   meteomatics-weather-map
    up42-import-geojson
    oneatlas-basemap
    oneatlas-worlddem-12m
