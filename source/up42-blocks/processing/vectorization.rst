@@ -16,14 +16,8 @@ This block vectorizes raster files into ``GeoJSON`` format.
 
   The input for this block should be a **thematic raster dataset** with relatively few
   possible values so that the output geometry is meaningful. A suitable input
-  is the result of a **K-Means Clustering** or a **Land Cover Classification**.
-
-.. warning::
-
-  Very large images (bigger than **40 MP**, or for example a 10 km :superscript:`2` image from Pléiades) are
-  not processable by this block. Please add the :ref:`Tiling block <tiling-block>` before the Vectorization
-  block to process very large images.
-
+  is the result of :ref:`K-Means Clustering <kmeans-clustering-block>`,
+  :ref:`Land Cover <land-cover-block>` or :ref:`NDVI Threshold <up42-ndvithreshold-block>`.
 
 Supported parameters
 --------------------
