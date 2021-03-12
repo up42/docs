@@ -16,7 +16,8 @@ This block vectorizes raster files into ``GeoJSON`` format.
 
   The input for this block should be a **thematic raster dataset** with relatively few
   possible values so that the output geometry is meaningful. A suitable input
-  is the result of a **K-Means Clustering** or a **Land Cover Classification**.
+  is the result of :ref:`K-Means Clustering <kmeans-clustering-block>`,
+  :ref:`Land Cover <land-cover-block>` or :ref:`NDVI Threshold <up42-ndvithreshold-block>`.
 
 Supported parameters
 --------------------
