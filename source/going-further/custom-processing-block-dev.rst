@@ -207,7 +207,7 @@ Those commands are the following:
 
        $ docker build . \
             -t registry.up42.com/<user_id>/my-block:latest \
-            --build-arg manifest="$(UP42Manifest.json)"
+            --build-arg manifest="$(cat UP42Manifest.json)"
 
    You will need to replace ``<user_id>``, ``<image_name>``, and ``<tag>`` with your own values. Your **user id** can be
    found in the example ``docker`` commands shown on the "Custom Blocks" screen. The **image name** is simply what you want
