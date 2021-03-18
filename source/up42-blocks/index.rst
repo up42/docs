@@ -11,7 +11,7 @@ This section provides a comprehensive description of the blocks built
 by UP42. If you are looking into understanding what a particular
 :term:`block` does then is here you find it.
 
-The section is organized by :ref:`data <up42-data-blocks-documetation>`
+The section is organized by :ref:`data <up42-data-blocks-documentation>`
 and :ref:`processing <up42-processing-blocks-documentation>` blocks.
 
 There also is a short section describing our :ref:`FLOSS blocks <floss-blocks>`.
