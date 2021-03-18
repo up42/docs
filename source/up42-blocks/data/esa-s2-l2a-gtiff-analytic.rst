@@ -11,9 +11,9 @@ For more information, please read the `block description <https://marketplace.up
 Block type: ``DATA``
 
 
-This block provides clipped Sentinel-2 multispectral imaging sensor processing level L-2A images, consisting of 13
-spectral bands. The 13 bands include 4 visible bands (10 m resolution), 6 Near-Infrared bands (20 m resolution)
-, and 3 Short-Wave Infrared bands (60 m resolution). The data is collected from `AWS Sentinel 2 bucket <https://registry.opendata.aws/sentinel-2-l2a-cogs/>`_
+This block provides clipped Sentinel-2 multispectral imaging sensor processing level L-2A image bands. The 13 bands
+include 4 visible bands (10 m resolution), 6 Near-Infrared bands (20 m resolution), and 3 Short-Wave Infrared bands
+(60 m resolution). The data is collected from `AWS Sentinel 2 bucket <https://registry.opendata.aws/sentinel-2-l2a-cogs/>`_
 in GeoTIFF (COGs) format. L2A data are available from April 2017 over wider Europe region and globally since December 2018.
 Please find additional information on the Sentinel-2 mission `here <https://sentinel.esa.int/web/sentinel/missions/sentinel-2>`_.
 
