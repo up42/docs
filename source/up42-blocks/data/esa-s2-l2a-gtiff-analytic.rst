@@ -2,7 +2,7 @@
    :description: UP42 data blocks: Sentinel 2 L2A Analytic GeoTIFF block description
    :keywords: Sentinel 2, ESA, analytic, multispectral, clipped, GeoTIFF, block description
 
-.. _esa-sentinel2-l2a-gtiff-block-analytic:
+.. _esa-sentinel2-l2a-gtiff-analytic-block:
 
 ESA Sentinel-2 L2A Analytic (GeoTIFF)
 =====================================
