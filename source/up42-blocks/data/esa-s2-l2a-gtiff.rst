@@ -21,11 +21,12 @@ Supported parameters
 
 For more information, please read the section :ref:`Data source query filters  <filters>`.
 
-* ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``box``
-  **or** ``intersects``.
-* ``intersects``: A GeoJSON geometry to use as an AOI. Will return
-  all scenes that intersect with this geometry. Use only
-  ``intersects`` **or** ``bbox``.
+* ``bbox``: The bounding box to use as an AOI. Will return all scenes that intersect with this box. Use only ``bbox``
+  **or** ``intersects`` **or** ``contains``.
+* ``intersects``: A GeoJSON geometry to use as an AOI. Will return all scenes that intersect with this geometry. Use only ``bbox``
+  **or** ``intersects`` **or** ``contains``.
+* ``contains``: A GeoJSON geometry to use as an AOI. Will return all scenes that completely cover this geometry. Use only ``bbox``
+  **or** ``intersects`` **or** ``contains``.
 * ``time``: A date range to filter scenes on. This range applies to
   the acquisition date/time of the scenes.
 * ``limit`` – An integer number of maximum results to return. Omit this to set no limit.

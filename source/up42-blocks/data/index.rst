@@ -32,6 +32,7 @@ built by UP42.
    sobloo-s2-l1c-aoiclipped
    aws-s2-l2a
    esa-s2-l2a-gtiff
+   esa-s2-l2a-gtiff-analytic
    esa-s5p-l3-gtiff
    sentinelhub-s2
    sobloo-s3
