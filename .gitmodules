@@ -1,0 +1,4 @@
+[submodule "source/specs/openapi-specification"]
+	path = source/specs/openapi-specification
+	url = https://github.com/up42/openapi-specification
+	branch = master
