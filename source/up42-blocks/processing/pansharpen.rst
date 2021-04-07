@@ -1,16 +1,16 @@
 .. meta::
    :description: UP42 processing blocks: Pansharpen block description
-   :keywords: preprocessing, pansharpen, SPOT 6/7, Pléiades, very-high resolution
+   :keywords: preprocessing, pansharpen, SPOT 6/7, Pléiades, Sentinel-2, very-high resolution
 
 .. _pansharpen-block:
 
-Pan-sharpening Pléiades/SPOT
-============================
+Pan-sharpening
+==============
 For more information, please read the `block description <https://marketplace.up42.com/block/903f0435-d638-475e-bbe9-53b5664a22a8>`_.
 
 Block type: ``PROCESSING``
 
-This block pansharpens images of the Pleiades or SPOT sensor. It creates a single high-resolution color image from the high-resolution panchromatic and lower resolution multispectral image bands.
+This block pansharpens images of the Pleiades, SPOT or Sentinel-2 sensor. It creates a single high-resolution color image from a high-resolution panchromatic and lower resolution multispectral image bands.
 
 Supported parameters
 --------------------
@@ -86,9 +86,47 @@ product appended with the panchromatic band which is clipped to the specific AOI
       }
     }
 
+Another Example parameters using the :ref:`ESA Sentinel-2 L2A Analytic (GeoTIFF)
+<esa-sentinel2-l2a-gtiff-analytic-block>` as data source, returning the pansharpened multispectral
+product with 13 bands (including the panchromatic band) which is clipped to the specific AOI:
+
+.. code-block:: javascript
+
+    {
+      "esa-s2-l2a-gtiff-analytic:1": {
+        "ids": null,
+        "bbox": [
+          13.415594100952148,
+          52.491560852691116,
+          13.430356979370117,
+          52.49992172845934
+        ],
+        "time": null,
+        "limit": 1,
+        "order_ids": null,
+        "time_series": null
+      },
+      "pansharpen:1": {
+        "include_pan":true
+        "bbox": [
+          13.415594100952148,
+          52.491560852691116,
+          13.430356979370117,
+          52.49992172845934
+        ],
+        "contains": null,
+        "intersects": null,
+        "clip_to_aoi": true,
+      }
+    }
 
 Advanced
 --------
+
+Synthetic panchromatic band Sentinel-2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sentinel-2 provides a high range of multispectral bands with different spatial resolutions (10, 20 and 60 m). Since there is no panchromatic (PAN) band in Sentinel-2 images, we use a synthetic panchromatic band to increase the spatial
+resolution of the 20 m and 60 m bands to 10 m. The synthetic panchromatic band is generated using the average value of the visual and the near infrared bands. Read more about this process in the paper by [Kaplan2018]_.
 
 Methods
 ~~~~~~~
@@ -169,6 +207,9 @@ Example of parameters to use in the pansharpening block with the ``Esri`` method
     }
 
 
+.. note::
+  It's not recommended to use the Esri pan-sharpening method with **Sentinel-2** data.
+
 Processing
 ~~~~~~~~~~
 
@@ -190,3 +231,6 @@ Optional parameters
 .. [Vivone2014] Vivone, G., Alparone, L., Chanussot, J., Dalla Mura, M., Garzelli, A., Licciardi, G. A. & Wald, L. (2014). A critical comparison among pansharpening algorithms. IEEE Transactions on Geoscience and Remote Sensing, 53(5), 2565-2586.
 
 .. [Liu2000] Liu, J. G. (2000). Smoothing filter-based intensity modulation: A spectral preserve image fusion technique for improving spatial details. International Journal of Remote Sensing, 21(18), 3461-3472.
+
+.. [Kaplan2018] Kaplan, G., Avdan, U. (2018). Sentinel-2 Pan Sharpening—Comparative Analysis. Proceedings 2(345).
+
