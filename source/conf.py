@@ -241,7 +241,7 @@ redoc = [
     {
         'name': 'UP42 API Reference',
         'page': 'api/index',
-        'spec': 'specs/openapi-specification/build/openapi.yaml',
+        'spec': 'specs/openapi-specification/openapi.yaml',
         'embed': True,
     },
 ]
