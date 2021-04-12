@@ -103,7 +103,7 @@ ID,URL,Title,Function,Home,Owner,Migration ID,Migration Old ID,Migration Title,M
 5.2.23,/up42-blocks/processing/vectorization.html,Vectorization,Reference,Github,Data Science,3.2.23,4.2.23,Vectorization,content/blocks/processing/vectorization.mdx,/blocks/processing/vectorization,/blocks/processing/vectorization
 5.2.24,/up42-blocks/processing/zonal-statistics.html,Raster Zonal Statistics,Reference,Github,Data Science,3.2.24,4.2.24,Raster Zonal Statistics,content/blocks/processing/zonal-statistics.mdx,/blocks/processing/zonal-statistics,/blocks/processing/zonal-statistics
 5.2.25,/up42-blocks/processing/up42-timeseries-image-statistics.html,UP42 Time Series Image Statistics,Reference,Github,Data Science,3.2.25,4.2.25,UP42 Time Series Image Statistics,content/blocks/processing/up42-timeseries-image-statistics.mdx,/blocks/processing/up42-timeseries-image-statistics,/blocks/processing/up42-timeseries-image-statistics
-5.3,/up42-blocks/floss.html,FLOSS blocks,Gallery,Github,Customer Support,4.5,5.3,Open Source Blocks,content/developers/blocks/open-source.mdx,/developers/blocks/open-source,/developers/blocks/open-source
+5.3,/up42-blocks/floss.html,FLOSS blocks,Gallery,Github,Customer Support,4.5,5.3,Templates & Example Blocks,content/developers/blocks/templates.mdx,/developers/blocks/templates,/developers/blocks/templates
 6,/FAQ/index.html,Frequently Asked Questions,Gallery,Github,Customer Support,✗,✗,,,,/
 6.x,/FAQ/api.html,API FAQ,Reference,Github,Customer Support,4,3,Developers,content/developers/index.mdx,/developers,/developers
 6.x,/FAQ/marketplace.html,Marketplace FAQ,Reference,Github,Customer Support,4.4.8,4.4,Publishing Blocks,content/developers/blocks/publish.mdx,/developers/blocks/publish,/developers/blocks/publish
