@@ -163,13 +163,13 @@ Implemented filters
  :header: "Data block", "``limit``", "``bbox``", "``intersects``", "``contains``", "``time``", "``time_series``", "``ids``", "``max_cloud_cover``"
  :widths: auto
 
- ":ref:`Pleiades (AOI-Clipped) <pleiades-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
- ":ref:`Pleiades Display (Download) <pleiades-download-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
- ":ref:`Pleiades Download <pleiades-download-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
- ":ref:`SPOT (AOI-Clipped) <pleiades-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
- ":ref:`SPOT Display (Download) <pleiades-download-block>`", **✓**, **✓**,**✓**, **✓**, **✓**, **✓**, **✓**, **✓**
- ":ref:`SPOT Download <pleiades-download-block>`", **✓**, **✓**,**✓**, **✓**, **✓**, **✓**, **✓**, **✓**
- ":ref:`Pléiades primary <pleiades-primary-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Pléiades Display (Streaming) <pleiades-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Pléiades Display (Download) <pleiades-display-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Pléiades Reflectance (Download) <pleiades-download-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`SPOT Display (Streaming) <spot-aoiclipped-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`SPOT Display (Download) <spot-display-block>`", **✓**, **✓**,**✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`SPOT Reflectance (Download) <spot-download-block>`", **✓**, **✓**,**✓**, **✓**, **✓**, **✓**, **✓**, **✓**
+ ":ref:`Pléiades Primary <pleiades-primary-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**
  ":ref:`Hexagon 15cm Aerial <hexagon-aerial-15cm-block>`", , **✓**, **✓**, , , , ,
  ":ref:`Hexagon 30cm Aerial <hexagon-aerial-30cm-block>`", , **✓**, **✓**, , , , ,
  ":ref:`Sentinel-1 GRD (full-scene) <sentinel1-grd-fullscene-block>`", **✓**, **✓**, **✓**, **✓**, **✓**, **✓**, **✓**,
