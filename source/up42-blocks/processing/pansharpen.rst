@@ -93,31 +93,31 @@ product with 13 bands (including the panchromatic band) which is clipped to the 
 .. code-block:: javascript
 
     {
-      "esa-s2-l2a-gtiff-analytic:1": {
-        "ids": null,
-        "bbox": [
-          13.415594100952148,
-          52.491560852691116,
-          13.430356979370117,
-          52.49992172845934
-        ],
-        "time": null,
-        "limit": 1,
-        "order_ids": null,
-        "time_series": null
-      },
-      "pansharpen:1": {
-        "include_pan":true
-        "bbox": [
-          13.415594100952148,
-          52.491560852691116,
-          13.430356979370117,
-          52.49992172845934
-        ],
-        "contains": null,
-        "intersects": null,
-        "clip_to_aoi": true,
-      }
+       "esa-s2-l2a-gtiff-analytic:1":{
+          "ids":null,
+          "bbox":[
+             13.415594100952148,
+             52.491560852691116,
+             13.430356979370117,
+             52.49992172845934
+          ],
+          "time":null,
+          "limit":1,
+          "order_ids":null,
+          "time_series":null
+       },
+       "pansharpen:1":{
+          "include_pan":true,
+          "bbox":[
+             13.415594100952148,
+             52.491560852691116,
+             13.430356979370117,
+             52.49992172845934
+          ],
+          "contains":null,
+          "intersects":null,
+          "clip_to_aoi":true
+       }
     }
 
 Advanced
