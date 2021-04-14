@@ -10,7 +10,7 @@ For more information, please read the `block description <https://marketplace.up
 
 Block type: ``PROCESSING``
 
-This block pansharpens images of the Pleiades, SPOT or Sentinel-2 sensor. It creates a single high-resolution color image from a high-resolution panchromatic and lower resolution multispectral image bands.
+This block pansharpens images of the Pleiades, SPOT or Sentinel-2 sensors. It creates a single high-resolution color image from high-resolution panchromatic and lower resolution multispectral image bands.
 
 Supported parameters
 --------------------
